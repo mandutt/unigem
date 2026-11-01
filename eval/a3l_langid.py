@@ -89,6 +89,10 @@ def build_old(clips, out_path):
 
 
 def build_new(clips, out_path, audio_onnx, text_onnx, threads=4):
+    """기존 운영 오디오 인코더(q8-al4)로 soft token을 만들고, 신규 텍스트 그래프로 임베딩한다.
+
+    이렇게 하면 두 파이프라인의 차이가 '텍스트 그래프 교체' 하나로 통제된다(G-A3L).
+    """
     import onnxruntime as ort
     from eg2_langid.adapters.gemma2_np import log_mel, frame_mask
 
@@ -154,7 +158,8 @@ def main():
     ap.add_argument("--old", default=os.path.join(ROOT, "logs", "A3L_old.npz"))
     ap.add_argument("--new", default=os.path.join(ROOT, "logs", "A3L_new.npz"))
     ap.add_argument("--out", default=os.path.join(ROOT, "logs", "A3L_langid.json"))
-    ap.add_argument("--audio-onnx", default=os.path.join(ROOT, "onnx", "eg2_audio_research_fp32.onnx"))
+    ap.add_argument("--audio-onnx", default=r"C:\code\eg2-langidentifier\scripts\mmal4\audio_encoder_quantized_al4.onnx",
+                    help="G-A3L은 텍스트 그래프 교체만 검증하므로 기존 운영 오디오 인코더를 그대로 쓴다")
     ap.add_argument("--text-onnx", default=os.path.join(ROOT, "onnx", "eg2_text_research_fp32.onnx"))
     ap.add_argument("--per-lang", type=int, default=PER_LANG)
     args = ap.parse_args()
