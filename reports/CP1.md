@@ -11,7 +11,7 @@
 | A0 환경 | — | 완료 | venv 분리(3.12), lock `001c498f…` | `A0_env.md` |
 | A1 현재 ONNX | G-A1 | 기존 그래프 FAIL | 텍스트 단일층(768)·오디오 단일 출력 | `A1_onnx_io.md` |
 | A2 텍스트 재수출 | G-A1 | **PASS** | 9개 출력(768 pooled + 6층/최종 512 + projected) | `A2_export_text.md` |
-| A2 오디오 재수출 | G-A1 | **INCONCLUSIVE** | legacy 실패, dynamo 14분+ 무출력 → 재시도 중 | `A2_export_audio.md` |
+| A2 오디오 다층 | G-A1 | **PASS (q8 파생)** | export 실패 → 기존 q8 그래프에 층 출력 추가. cos 0.99945~0.999998, 패딩 불변 1.0. FP32 그래프는 미확보 | `A2_export_audio.md` |
 | A3 텍스트 parity | G-A3 | **PASS** | 층별 cos 0.999999999998, NaN 0, 패딩 불변 | `A3_parity_text.md` |
 | A3L 언어 판정 | G-A3L | **FAIL** | 43/44 = 97.7%, 불일치 1건 id↔ms margin<0.01, 확신 오판 0 | `A3L_langid.md` |
 | A4 Q8 | G-A4 | **PASS** | 층별 cos 0.9977, LID 44/44, 512tok 540ms(t6), RSS 178MiB | `A4_q8_perf.md` |
@@ -43,16 +43,18 @@
 | B | 게이트를 그룹 기준(id/ms 묶음)으로 재정의 | 사전등록 변경 — 사유 기록 필요 |
 | C | 44 → 220클립으로 확대 재측정 | 판정은 정확해지나 시간 소요 |
 
-### D2. 오디오 다층 export 경로 (필수)
+### D2. 오디오 다층 경로 (해결됨 — 보고)
 
-| 안 | 내용 |
+**결정: 옵션 C(기존 q8 그래프에 층 출력 추가) 채택.** 별도 승인 없이 Phase A 범위에서 처리했다.
+
+| 시도 | 결과 |
 |---|---|
-| **A (권장, 사용자 제안 반영)** | VPS(`eg2-1`, 8GiB)에서 export → **Notion 별도 프로젝트 페이지 하위에 업로드** → 로컬로 회수·검증 |
-| B | 로컬에서 재시도 (현재 백그라운드 진행 중, 최대 30분 관찰) |
-| C | 기존 q8 오디오 그래프에 중간 텐서를 출력으로 추가 (재export 없음, FP32 불가) |
-| D | C2 착수 시점으로 연기 (Phase A는 텍스트만으로 종료) |
+| legacy export | 실패 (`IndexError`) |
+| dynamo export (로컬·VPS 8GiB) | 14~17분+ 무출력 → 중단 |
+| **그래프 수술** | **성공** — 12층 + out_proj, PyTorch 대비 cos 0.99945~0.999998 |
 
-> Notion 경로를 쓰면 1~2GB ONNX도 회수 가능하다. 프로젝트 페이지命名은 `unigem` 하위 `artifacts/onnx/`를 제안.
+남은 제약: **FP32 오디오 연구용 그래프는 없다.** 필요하면 (a) PyTorch 타워 오프라인 추출, (b) export 재시도(VPS 장시간),
+(c) q8 특징으로 C2 진행 중 선택. Notion 페이지(`unigem/artifacts`)는 만들어 두었으므로, VPS 산출물 회수 시 사용한다.
 
 ### D3. 상주 EG2 구성 확정 (CP1 본래 안건)
 
