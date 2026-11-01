@@ -1,0 +1,25 @@
+{
+  "account": "B",
+  "api": "https://api.instabox.sh",
+  "key_file": "~/.instabox-b.env (값은 기록하지 않음)",
+  "workspace": {
+    "id": "org_e03e3b00ebf44561ab6ad1346d9356c4",
+    "tier": "free",
+    "allowed_specs": [{"vcpus": 4, "memMiB": 8192, "persistentDiskGiB": 20}]
+  },
+  "created_at": "2026-11-02",
+  "machines": [
+    {"name": "eg2-1", "id": "m_agqvineqfebuv74ez7zv6v6n2y", "state": "suspended", "template": "agent-browser@2026-10-15.4", "note": "기존 머신"},
+    {"name": "eg2-2", "id": "m_agqzpndd2jpljlr5pf2ofdhxyy", "state": "stopped", "template": "agent-browser@2026-10-29.18"},
+    {"name": "eg2-3", "id": "m_agqzpnfti4esxlyq5zdhyctpkm", "state": "stopped", "template": "agent-browser@2026-10-29.18"},
+    {"name": "eg2-4", "id": "m_agqzpngbsjctcaitgohs3smm64", "state": "stopped", "template": "agent-browser@2026-10-29.18"},
+    {"name": "eg2-5", "id": "m_agqzpnpzuh3dzxotnrqkr3xoay", "state": "stopped", "template": "agent-browser@2026-10-29.18"}
+  ],
+  "spec": {"vcpus": 4, "memMiB": 8192, "rootDiskGiB": 16, "persistentDiskGiB": 20},
+  "limits_measured": {
+    "maxRunMinutes": 480,
+    "start_rate_per_minute": 3,
+    "auto_suspend_default_seconds": 1800,
+    "note": "maxRunMinutes를 명시하면 403 (free machine fixed value). 문서상 Free=1대이나 5대 생성 성공."
+  }
+}

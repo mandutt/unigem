@@ -99,8 +99,9 @@ def main() -> None:
                                                    "embeddinggemma-2-f9972ac2"))
     ap.add_argument("--out", default=os.path.join(PROJECT_ROOT, "onnx", "eg2_audio_research_fp32.onnx"))
     ap.add_argument("--layers", default="0,4,8,11")
-    ap.add_argument("--mel", type=int, default=3000)
+    ap.add_argument("--mel", type=int, default=500)
     ap.add_argument("--opset", type=int, default=21)
+    ap.add_argument("--exporter", choices=["legacy", "dynamo"], default="legacy")
     args = ap.parse_args()
 
     layers = [int(x) for x in args.layers.split(",") if x != ""]
@@ -126,7 +127,7 @@ def main() -> None:
         input_names=["input_features", "input_features_mask"],
         output_names=graph.output_names(),
         opset_version=args.opset,
-        dynamo=True,
+        dynamo=(args.exporter == "dynamo"),
         dynamic_axes={
             "input_features": {0: "batch", 1: "mel_frames"},
             "input_features_mask": {0: "batch", 1: "mel_frames"},

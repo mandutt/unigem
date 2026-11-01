@@ -5,9 +5,9 @@ EmbeddingGemma 2(EG2)를 메모리 시스템 상주 인코더로 재사용하고
 
 - **기준 문서:** [`docs/plan_v0_5.md`](docs/plan_v0_5.md) — `EG2_ResidentEncoder_MeasurementPlan_v0_5.md` (SHA256 `746c3c01…8d4d430`, 640줄)
 - **문서상 작업 디렉터리 `eg2-lab/` = 이 저장소 루트(`C:\code\unigem`)**
-- **상태:** Phase A0·A1 완료 (read-only 측정) → **CP1 이전, A2 export 승인 대기**
+- **상태:** Phase A0·A1 완료, A2 텍스트 export + A3 parity PASS → **A2 오디오 export 진행 중**
 - **목표 하드웨어:** 로컬 PC (Windows 11, Ryzen 5 7600 6C/12T, 15.6 GiB, GPU 없음, ONNX Runtime CPU EP, Q8)
-- **VPS:** P0 데이터 전용, 성능 판정 불가. 계정 B(`eg2-1` 1대)만 확인됨 → CP0 안건
+- **VPS:** P0 데이터 전용, 성능 판정 불가. **계정 B 5대 구성 완료** (`eg2-1`~`eg2-5`, 4 vCPU/8 GiB/20 GiB) — `env/snapshots/instabox_account_b_2026-11-02.json`
 
 ## 지금까지의 실측 (요약)
 

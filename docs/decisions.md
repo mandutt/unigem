@@ -10,6 +10,8 @@
 | D-004 | 2026-11-02 | VPS는 **계정 B**를 사용하며, **4대를 추가 생성해 5대 구성** (eq-2 ~ eq-5) | 사용자 승인(2026-11-02). 계정 B 기존 `eg2-1` + 신규 4대 = 5대, 전부 4 vCPU / 8 GiB / 20 GiB 목표 |
 | D-005 | 2026-11-02 | A2 export의 1차 실행 호스트는 **로컬 PC** (VPS 전송 비용 회피, RAM 부족/OOM 시에만 vps-1로 이관) | 문서 §9 A2는 vps-1 우선이나 "RAM 부족 시 로컬" 허용. 로컬에 체크포인트 사본이 있어 역방향이 더 저렴 |
 | D-006 | 2026-11-02 | A2의 원본 체크포인트는 **HF `google/embeddinggemma-2` revision `f9972ac2…5a1e`를 새로 다운로드**해 쓴다. 로컬 사본은 파생본(바이트 불일치)이므로 export 원본으로 쓰지 않는다 | provenance 실측: tokenizer 해시 일치, config는 `transformers_version`만 다름, `model.safetensors`는 같은 크기·다른 SHA256(재저장본 추정) |
+| D-007 | 2026-11-02 | 다운로드한 체크포인트의 `model.safetensors` SHA256이 HF blob `197a3296…53d79`와 **일치**함을 확인. 이후 이 사본을 export 원본으로 고정 | `data/models/embeddinggemma-2-f9972ac2/` (git 미추적) |
+| D-008 | 2026-11-02 | 오디오 타워 export는 **dynamo exporter만 동작**한다. legacy(`dynamo=False`)는 `IndexError: invalid unordered_map<K,T> key`로 실패 | 오디오 forward가 커스텀 autograd 연산을 사용. 텍스트는 dynamo로 성공 |
 
 ## 미결 안건 (사용자 승인 필요)
 
