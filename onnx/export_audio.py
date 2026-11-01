@@ -25,6 +25,7 @@ from typing import Iterable
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from safetensors.torch import load_file
 from transformers import AutoConfig
 from transformers.models.embedding_gemma2.modeling_embedding_gemma2 import (
@@ -33,6 +34,20 @@ from transformers.models.embedding_gemma2.modeling_embedding_gemma2 import (
 from transformers.models.gemma4.modeling_gemma4 import Gemma4AudioModel
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Gemma4AudioAttention._convert_to_block / _extract_block_context 는 F.pad(..., value 생략)을 쓴다.
+# PyTorch tracer는 value=None을 NoneType 상수로 굳혀 ONNX Pad 노드를 무효화한다
+# (legacy export 실패 원인). export 동안만 기본값 0.0을 명시한다.
+_ORIG_PAD = F.pad
+
+
+def _pad_with_default(input, pad, mode="constant", value=None):
+    if value is None:
+        value = 0.0
+    return _ORIG_PAD(input, pad, mode, value)
+
+
+F.pad = _pad_with_default
 
 
 class AudioGraph(nn.Module):
@@ -62,14 +77,11 @@ class AudioGraph(nn.Module):
         mask = out.attention_mask                 # [B, T] bool
         soft = self.embed(inputs_embeds=last)     # [B, T, 512]
 
-        mask3 = mask.unsqueeze(-1).expand_as(soft)
-        flat = soft.masked_select(mask3).view(-1, soft.shape[-1])
-
         selected = [captured[i] for i in self.layers]
-        return tuple([flat, mask] + selected + [last])
+        return tuple([soft, mask] + selected + [last])
 
     def output_names(self) -> list[str]:
-        names = ["audio_features", "audio_mask"]
+        names = ["audio_soft_tokens", "audio_mask"]
         names += [f"aud_h_l{i:02d}" for i in self.layers]
         names += ["aud_out_proj"]
         return names
@@ -102,6 +114,8 @@ def main() -> None:
     ap.add_argument("--mel", type=int, default=500)
     ap.add_argument("--opset", type=int, default=21)
     ap.add_argument("--exporter", choices=["legacy", "dynamo"], default="legacy")
+    ap.add_argument("--static", action="store_true",
+                    help="정적 shape으로 export (Unfold가 dynamic size를 지원하지 않는 legacy 경로용)")
     args = ap.parse_args()
 
     layers = [int(x) for x in args.layers.split(",") if x != ""]
@@ -120,23 +134,28 @@ def main() -> None:
         print(f"  {n}: {tuple(tensor.shape)} {tensor.dtype}")
 
     print("exporting", flush=True)
-    torch.onnx.export(
-        graph,
-        (feats, mask),
-        args.out,
+    export_kwargs = dict(
         input_names=["input_features", "input_features_mask"],
         output_names=graph.output_names(),
         opset_version=args.opset,
         dynamo=(args.exporter == "dynamo"),
-        dynamic_axes={
+    )
+    if args.exporter == "dynamo":
+        # 정적 그래프에서 ONNX optimize 단계가 Clip min 상수를 지워 invalid 모델을 만든다(실측).
+        export_kwargs["optimize"] = False
+    if not args.static:
+        export_kwargs["dynamic_axes"] = {
             "input_features": {0: "batch", 1: "mel_frames"},
             "input_features_mask": {0: "batch", 1: "mel_frames"},
-            "audio_features": {0: "num_audio_tokens"},
+            "audio_soft_tokens": {0: "batch", 1: "audio_tokens"},
             "audio_mask": {0: "batch", 1: "audio_tokens"},
             **{f"aud_h_l{i:02d}": {0: "batch", 1: "audio_tokens"} for i in layers},
             "aud_out_proj": {0: "batch", 1: "audio_tokens"},
-        },
-    )
+        }
+    if args.exporter == "legacy":
+        # PyTorch #104067: autograd.Function inlining이 IndexError(invalid unordered_map)를 유발한다.
+        export_kwargs["autograd_inlining"] = False
+    torch.onnx.export(graph, (feats, mask), args.out, **export_kwargs)
     print("saved", args.out, os.path.getsize(args.out))
 
     meta = {"ckpt": args.ckpt, "layers": layers, "opset": args.opset,

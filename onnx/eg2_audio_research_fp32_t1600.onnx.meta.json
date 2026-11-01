@@ -1,0 +1,20 @@
+{
+  "ckpt": "C:\\code\\unigem\\data\\models\\embeddinggemma-2-f9972ac2",
+  "layers": [
+    0,
+    4,
+    8,
+    11
+  ],
+  "opset": 21,
+  "outputs": [
+    "audio_soft_tokens",
+    "audio_mask",
+    "aud_h_l00",
+    "aud_h_l04",
+    "aud_h_l08",
+    "aud_h_l11",
+    "aud_out_proj"
+  ],
+  "dtype": "float32"
+}

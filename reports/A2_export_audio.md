@@ -57,8 +57,9 @@ optimum-onnx의 gemma4 미지원.)
 ## 6. 게이트 판정
 
 **G-A1(오디오): PASS (q8 파생)** — 다층 hidden 12개 + soft token을 한 세션에서 확보.
-단, **FP32 연구용 오디오 그래프는 확보하지 못했다.** Q8 파생 그래프만 존재하며,
-G-A3S의 FP32 조건은 별도 판정이 필요하다.
+이후 **FP32 연구용 그래프도 export에 성공**했다 → `reports/A2_export_audio_research.md` 참조.
+원인은 4중(autograd inlining, `F.pad` None 상수, legacy `unfold` 미지원, dynamo의 symbolic shape 정체)이었고,
+`dynamo + 정적 shape + optimize=False` 조합으로 해결했다.
 
 ## 7. 한계·주의
 
