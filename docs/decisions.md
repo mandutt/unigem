@@ -12,6 +12,7 @@
 | D-006 | 2026-11-02 | A2의 원본 체크포인트는 **HF `google/embeddinggemma-2` revision `f9972ac2…5a1e`를 새로 다운로드**해 쓴다. 로컬 사본은 파생본(바이트 불일치)이므로 export 원본으로 쓰지 않는다 | provenance 실측: tokenizer 해시 일치, config는 `transformers_version`만 다름, `model.safetensors`는 같은 크기·다른 SHA256(재저장본 추정) |
 | D-007 | 2026-11-02 | 다운로드한 체크포인트의 `model.safetensors` SHA256이 HF blob `197a3296…53d79`와 **일치**함을 확인. 이후 이 사본을 export 원본으로 고정 | `data/models/embeddinggemma-2-f9972ac2/` (git 미추적) |
 | D-008 | 2026-11-02 | 오디오 타워 export는 **dynamo exporter만 동작**한다. legacy(`dynamo=False`)는 `IndexError: invalid unordered_map<K,T> key`로 실패 | 오디오 forward가 커스텀 autograd 연산을 사용. 텍스트는 dynamo로 성공 |
+| D-009 | 2026-11-02 | 오디오 다층 hidden은 **재수출 대신 기존 q8 그래프에 중간 텐서를 출력으로 추가**해 확보한다 (`eg2_audio_q8_layers.onnx`). 원본 불변, 파생 사본만 수정 | dynamo export가 로컬·VPS(8GiB) 모두 14~17분+ 무출력. 그래프 수술 결과 PyTorch 대비 cos 0.99945~0.999998, 패딩 불변 1.0. FP32 오디오 그래프는 미확보 |
 
 ## 미결 안건 (사용자 승인 필요)
 
@@ -20,7 +21,7 @@
 | OA-1 | VPS 규모·계정 | **확정: 계정 B에 머신 4대 추가 생성 (5대 구성)** | 2026-11-02 승인 완료 |
 | OA-2 | git 원격 | **확정: GitHub 비공개 `mandutt/unigem`** (2026-11-02) | 사용자 지시 |
 | OA-3 | G-A3S(Notesoop 특징 재현), G-C2a(호환성) 게이트 승인 | 승인 / 측정·보고만 | C2-A 착수 전 |
-| OA-4 | A2 export 실행 승인 | 승인 / 보류 | 즉시 |
+| OA-4 | A2 export 실행 승인 | **확정: 승인 (2026-11-02)** — 로컬 텍스트 export + 오디오 그래프 수술 | 완료 |
 
 ## 참고: 로컬 자산 실측 메모
 

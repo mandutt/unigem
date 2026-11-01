@@ -1,64 +1,72 @@
-# A2 — ONNX 재수출 (오디오 타워) — 진행 기록
+# A2 — 오디오 타워 다층 출력 (그래프 수술 방식)
 
 - 작성: 2026-11-02
-- 대상 게이트: G-A1 (오디오 측 다층 hidden 노출)
+- 대상 게이트: G-A1 (오디오 측 다층 hidden)
 - 호스트: `local`
-- 스크립트: `onnx/export_audio.py`
+- 산출물: `onnx/eg2_audio_q8_layers.onnx` (+`.onnx_data`)
 
-## 1. 목적
+## 1. 결론
 
-오디오 타워에서 ① 기존 소비자용 `audio_features`(512, 투영 후 soft token)와
-② C2(STT reader)용 층별 hidden(`aud_h_l*`)을 한 그래프에서 출력한다.
+**재수출(export) 대신 기존 운영 q8 오디오 그래프에 중간 텐서를 출력으로 추가하는 방식으로 해결했다.**
+원본 그래프·가중치는 불변(복사본만 수정, §0-8 허용 범위). 12개 층 hidden과 `aud_out_proj`를 확보했고,
+PyTorch 대비 cosine **0.99945~0.999998**, 패딩 불변 cosine **1.0**이다.
 
-## 2. 입출력 계약
+## 2. export가 막힌 이유 (기록)
+
+| 시도 | 환경 | 결과 |
+|---|---|---|
+| legacy exporter (`dynamo=False`) | 로컬 | `IndexError: invalid unordered_map<K, T> key` (커스텀 autograd 연산) |
+| dynamo exporter, mel 3000 | 로컬 | 420초 타임아웃 |
+| dynamo exporter, mel 750 | 로컬 | 831초+ 무출력 → 중단 |
+| dynamo exporter, mel 500 | 로컬 | 790초+ 무출력 → 중단 |
+| dynamo exporter, mel 500 | VPS `eg2-1` (8 GiB) | 17분+ 무출력 → 중단 |
+
+원인 후보: Gemma4 audio의 블록-슬라이딩 attention(5D mask) + conv subsampling이 dynamo 변환에서
+과도한 그래프/심볼릭 제약을 만든다. (Exa 검색: Gemma-4 계열 dynamo export의 알려진 난제 — PyTorch issue #182266,
+optimum-onnx의 gemma4 미지원.)
+
+## 3. 그래프 수술 절차
+
+1. 운영 q8 그래프(`audio_encoder_quantized_al4.onnx`)에 `onnx.shape_inference` 적용.
+2. `[B,T,1024]` 후보 533개를 임시 출력으로 추가한 probe 그래프를 만들어 1회 실행.
+3. PyTorch 타워(12층, hook) 출력과 cosine 매칭 → 층별 정확 텐서 식별:
+   **`type_as_8`, `type_as_17`, …, `type_as_107`** (9 간격, cos 0.99997~0.999998).
+4. `[B,T,1536]` 후보 3개 중 `linear_133`이 `out_proj`와 cos 0.99945로 일치.
+5. 최종 그래프: 위 12개 + `aud_out_proj`를 Identity 출력으로 추가해 저장.
+
+## 4. 입출력 계약 (실측)
 
 | 구분 | 이름 | dtype | shape |
 |---|---|---|---|
 | 입력 | `input_features` | float32 | `[B, T_mel, 128]` |
 | 입력 | `input_features_mask` | bool | `[B, T_mel]` |
-| 출력 | `audio_features` | float32 | `[N, 512]` (유효 토큰 평탄화) |
-| 출력 | `audio_mask` | bool | `[B, T_audio]` |
-| 출력 | `aud_h_l00/04/08/11` | float32 | `[B, T_audio, 1024]` (pre output_proj) |
-| 출력 | `aud_out_proj` | float32 | `[B, T_audio, 1536]` |
+| 출력 | `audio_features` | float32 | `[N, 512]` (유효 토큰 평탄화, 기존 호환) |
+| 출력 | `aud_h_l00` … `aud_h_l11` | float32 | `[B, T_audio, 1024]` (타워 layer 출력) |
+| 출력 | `aud_out_proj` | float32 | `[B, T_audio, 1536]` (output_proj 이후) |
 
-## 3. 시행 기록
+- `T_audio` = stride-2 conv 2회 적용 후 길이. 소비자는 출력 마스크를 `input_features_mask[:, ::2][:, ::2]`로 만든다.
+- `audio_features`는 `aud_out_proj`를 `embed_audio`(1536→512)로 투영한 뒤 유효 토큰만 평탄화한 값이다.
 
-| 시도 | 설정 | 결과 |
+## 5. 파일
+
+| 파일 | 크기 (B) | SHA256 |
 |---|---|---|
-| 1 | dynamo, `--mel 3000` | 420초 타임아웃 (도구 제한). 프로세스 잔존 → 종료 |
-| 2 | dynamo, `--mel 750` | 7분+ 진행, 출력 없음 → 중단 |
-| 3 | legacy (`dynamo=False`), `--mel 500` | **실패**: `IndexError: invalid unordered_map<K, T> key` (functorch/autograd custom op 경로) |
-| 4 | dynamo, `--mel 500` | 진행 중 |
+| `eg2_audio_q8_layers.onnx` | 251,021 | `03e0ad8608cdbc810ddee3e8ab78b46675e5ef1615929d0b63476aa171c52d59` |
+| `eg2_audio_q8_layers.onnx_data` | 340,058,624 | `aa6361d898e1f1d6303f8dd2b5fabf4fd3629e15fd709e9cb06ac5cb9416a030` (원본과 동일) |
 
-> D-008: 오디오 타워는 legacy exporter가 모델의 커스텀 autograd 연산에서 실패한다. dynamo만 사용 가능.
+## 6. 게이트 판정
 
-## 4. 결과
+**G-A1(오디오): PASS (q8 파생)** — 다층 hidden 12개 + soft token을 한 세션에서 확보.
+단, **FP32 연구용 오디오 그래프는 확보하지 못했다.** Q8 파생 그래프만 존재하며,
+G-A3S의 FP32 조건은 별도 판정이 필요하다.
 
-| 시도 | 설정 | 소요 | 결과 |
-|---|---|---|---|
-| 4 | dynamo, `--mel 500` | **831초+ (중단)** | 출력 파일 없음, RSS 1.6GB→216MB. 그래프 변환 단계에서 비정상적으로 장시간 → 중단 |
+## 7. 한계·주의
 
-**결론: 오디오 타워 다층 export는 현 로컬 환경에서 완료하지 못했다.** legacy는 실패, dynamo는 14분 이상
-출력을 내지 않았다(무한 대기인지 극단적 지연인지 미확정). 원인 후보: 블록-슬라이딩 attention의 5D mask
-변환 + conv subsampling이 dynamo 변환에서 과도한 그래프를 만든다.
-
-## 5. 게이트 판정
-
-**G-A1(오디오 부분): 보류(INCONCLUSIVE)** — 텍스트 다층 출력은 PASS이나, 오디오 다층 hidden은 확보하지 못했다.
-문서 §0-5에 따라 우회·재시도는 사용자 지시 후 진행한다.
-
-## 6. 이상 징후
-
-- 오디오 타워는 텍스트(2분)와 달리 dynamo 변환 비용이 비정상적으로 크다.
-- 로컬 RAM 여유 2~3 GiB로, export 중 다른 작업 병행이 어렵다.
-
-## 7. 미해결 — CP1 선택지
-
-1. **오디오는 기존 운영 인코더 유지** — G-A3L/C2-A3는 기존 q8 오디오 인코더로 진행. 다층 hidden이 필요하면
-2. **VPS(8 GiB)에서 export** — 메모리 여유가 크고, 완료 후 ONNX(1~2GB) 회수 경로 필요(base64 분할 또는 HF 비공개 업로드).
-3. **기존 q8 오디오 그래프에 중간 텐서를 출력으로 추가** — 재export 없이 층 hidden 확보(양자화 그래프 기준).
-4. **C2 착수 시점으로 연기** — Phase A는 텍스트 그래프만으로 종료.
+- 이 그래프는 **q8 가중치**다. FP32 참조가 필요하면 (a) PyTorch 타워를 오프라인으로 돌리거나,
+  (b) 향후 export가 성공할 때 다시 만들어야 한다.
+- 원본 파일은 건드리지 않았다(복사본에 출력만 추가).
+- `audio_mask`는 그래프 출력이 아니다 — 소비자가 입력 마스크에서 계산한다(위 규칙).
 
 ## 8. 다음 단계
 
-CP1에서 위 1~4 중 선택. 그 전까지 A4는 텍스트 그래프만 양자화·측정한다.
+C2-A3(Notesoop 호환성)에서 이 q8 다층 특징을 사용할 수 있다. FP32 조건이 필요하면 CP1에서 결정.

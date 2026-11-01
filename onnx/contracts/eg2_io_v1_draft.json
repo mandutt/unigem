@@ -23,9 +23,11 @@
     },
     "audio": {
       "inputs": ["input_features:float32[B,T_mel,128]", "input_features_mask:bool[B,T_mel]"],
-      "outputs": ["audio_features:float32[T,512]",
-                  "aud_h_l00:float32[T,512]", "aud_h_l04:float32[T,512]",
-                  "aud_h_l08:float32[T,512]", "aud_h_last:float32[T,512]"]
+      "outputs": ["audio_features:float32[N,512]",
+                  "aud_h_l00..aud_h_l11:float32[B,T_audio,1024]",
+                  "aud_out_proj:float32[B,T_audio,1536]"],
+      "note": "q8 운영 그래프에 층 출력을 추가한 파생본(eg2_audio_q8_layers.onnx). FP32 연구용 그래프는 미확보",
+      "output_mask": "input_features_mask[:, ::2][:, ::2]"
     }
   },
   "prod_graph": {
