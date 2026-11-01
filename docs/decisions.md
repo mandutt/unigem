@@ -8,7 +8,8 @@
 | D-002 | 2026-11-02 | 기존 운영 자산(`C:\code\eg2-langidentifier`, `%LOCALAPPDATA%\jev-mem`)은 **읽기 전용 참조**만. 프로젝트 venv는 `.venv`(Python 3.12)로 분리 | 문서 §0-3, §9 A0 |
 | D-003 | 2026-11-02 | Phase A0·A1을 read-only로 선행 수행 (코드 산출 없음, 측정·기록만) | 문서 §9 A0·A1. A1 결과 G-A1 FAIL 확인 → A2 필요 |
 | D-004 | 2026-11-02 | VPS는 **계정 B**를 사용한다 (`~/.instabox-b.env`, API `api.instabox.sh`) | 사용자 지시. 계정 B 현재 머신은 `eg2-1` 1대뿐 — 확장 방식은 CP0 안건 |
-| D-005 | 2026-11-02 | A2 export의 1차 실행 호스트는 **로컬 PC** (bf16 체크포인트 사본이 이미 로컬에 존재, VPS 전송 비용 회피). RAM 부족/OOM 시에만 vps-1로 이관 | 문서 §9 A2는 vps-1 우선이나 "RAM 부족 시 로컬" 허용. 로컬에 원본 사본이 있어 역방향이 더 저렴 |
+| D-005 | 2026-11-02 | A2 export의 1차 실행 호스트는 **로컬 PC** (VPS 전송 비용 회피, RAM 부족/OOM 시에만 vps-1로 이관) | 문서 §9 A2는 vps-1 우선이나 "RAM 부족 시 로컬" 허용. 로컬에 체크포인트 사본이 있어 역방향이 더 저렴 |
+| D-006 | 2026-11-02 | A2의 원본 체크포인트는 **HF `google/embeddinggemma-2` revision `f9972ac2…5a1e`를 새로 다운로드**해 쓴다. 로컬 사본은 파생본(바이트 불일치)이므로 export 원본으로 쓰지 않는다 | provenance 실측: tokenizer 해시 일치, config는 `transformers_version`만 다름, `model.safetensors`는 같은 크기·다른 SHA256(재저장본 추정) |
 
 ## 미결 안건 (사용자 승인 필요)
 

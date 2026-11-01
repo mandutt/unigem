@@ -79,6 +79,20 @@ HF 체크포인트 사본 — `%LOCALAPPDATA%\jev-mem\bench\run-20261024-embedge
 > 이 사본의 HF revision은 **미확인**이다. A2.1에서 `google/embeddinggemma-2`의 config·tokenizer 해시와
 > 대조해 revision을 고정한다.
 
+### 4.1 provenance 대조 (2026-11-02, read-only)
+
+HF `google/embeddinggemma-2`의 최신 revision은 `f9972ac22e696a105c482202646979e33e4b5a1e` (lastModified 2026-10-28).
+
+| 파일 | 로컬 SHA256 | HF blob | 판정 |
+|---|---|---|---|
+| `tokenizer.json` | `4d777ef5…828be4` | `4d777ef5…828be4` (sha256 동일) | **일치** |
+| `config.json` | `9157cde1…a75ef` | 내용 diff 1건: `transformers_version` 5.18.0.dev0 → 5.19.0 | 동일 모델, 재저장 |
+| `model.safetensors` | `ceeaad46…543a8` (1,488,915,288 B) | `197a3296…53d79` (같은 크기) | **바이트 불일치** — transformers 5.19.0 재저장본으로 추정 |
+
+결론: 로컬 사본은 HF revision `f9972ac2…`를 transformers 5.19.0으로 재저장한 **파생 사본**이다.
+바이트 동일성이 확인되지 않았으므로 A2는 **HF 공식 체크포인트를 revision 고정으로 다시 받아** export한다
+(1.49GB, 로컬 다운로드). 로컬 사본은 대조·폴백용으로만 쓴다.
+
 ## 5. 게이트 판정
 
 해당 없음 (A0는 판정 게이트 없음). 환경 분리 확인: 프로젝트 venv와 운영 venv가 서로 다른 Python(3.12 vs 3.14)이며
