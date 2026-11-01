@@ -10,7 +10,7 @@
 | G-A3 | A3 | 원본 대비 층별 cosine ≥ 0.99, NaN 0, 패딩 불변 | 수치 불일치 원인 불명 | 로컬 + vps-1 | **텍스트 PASS** (cos ≈ 1.0) |
 | G-A3L | 언어 판정 회귀 | 기존 대비 argmax 일치율 ≥ 99%, 확신 오판 증가 0 | 회귀 시 교체 보류 | 로컬 | **FAIL** — 43/44 (97.7%), 불일치 1건은 id↔ms margin<0.01, 확신 오판 0 (`reports/A3L_langid.md`) |
 | G-A3S *(제안)* | Notesoop 특징 재현 | ONNX FP32 프레임별 cosine ≥ 0.99, Q8 ≥ 0.98 | 재현 불가 시 PyTorch 유지/폐기 | 로컬 + vps-1 | **승인 대기 (OA-3)** |
-| G-A4 | A4 | Q8 vs FP32 층별 cosine ≥ 0.98, 언어 판정 일치율 ≥ 99% | 심각한 품질 저하/속도 악화 | 로컬 | 미측정 |
+| G-A4 | A4 | Q8 vs FP32 층별 cosine ≥ 0.98, 언어 판정 일치율 ≥ 99% | 심각한 품질 저하/속도 악화 | 로컬 | **PASS** — 층별 cos 0.9977, LID 44/44 (`reports/A4_q8_perf.md`) |
 | G-B1 | B1 | 숫자·식별자 토큰 복원 ≥ 95%, 전체 ≥ 98% | 전 층 미달 시 F4/F5의 EG2 hidden 사용 폐기 | VPS 가능 | 미측정 |
 | G-C1 | C1 | top-1 ≥ 70%, top-3 ≥ 85%, margin 통과 후 부적절 태그 ≤ 5% | 도메인 갭 크면 라벨 체계 재설계 | 이미지 지연은 로컬 | 미측정 |
 | G-C2 | C2 | smoke loss 수렴 + FLEURS ko test greedy CER ≤ 15% | 불수렴/CER 크게 초과 | CER 어디서나, RTF·RAM 로컬 | 미측정 |

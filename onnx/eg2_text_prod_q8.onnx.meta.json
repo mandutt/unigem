@@ -1,0 +1,10 @@
+{
+  "input": "onnx/eg2_text_research_fp32.onnx",
+  "output": "C:\\code\\unigem\\onnx\\eg2_text_prod_q8.onnx",
+  "bits": 8,
+  "block_size": 128,
+  "symmetric": false,
+  "accuracy_level": 4,
+  "size_bytes": 684135443,
+  "elapsed_s": 7.3
+}
