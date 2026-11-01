@@ -58,6 +58,11 @@ def start(mid: str, idem: str | None = None):
                 idem=idem or f"start-{mid}-{int(time.time())}")
 
 
+def stop(mid: str, idem: str | None = None):
+    return _req("POST", f"/v1/machines/{mid}/stop", body=None,
+                idem=idem or f"stop-{mid}-{int(time.time())}")
+
+
 def exec_cmd(mid: str, cmd: str, timeout_s: int = 120, stdin: str | None = None):
     body = {"cmd": cmd, "timeoutSeconds": timeout_s}
     if stdin is not None:
