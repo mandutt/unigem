@@ -1,7 +1,7 @@
 # CP1 — Phase A 종료 체크포인트
 
 - 작성: 2026-11-02
-- 상태: **사용자 결정 대기** (다음 Phase 자동 진행 금지, 문서 §0-10)
+- 상태: **승인 완료 (2026-11-02)** — D1=A, D3 확정, D5=A, D6=A, D7 승인 (D-011~D-015)
 - 대상: Phase A (EG2 ONNX 다중 출력화)
 
 ## 1. Phase A 결과 요약
@@ -22,6 +22,8 @@
 |---|---|---|
 | `onnx/eg2_text_research_fp32.onnx(+.data)` | 5.3MB + 1.084GB | `onnx/*.meta.json` |
 | `onnx/eg2_text_prod_q8.onnx(+_data)` | 4.9MB + 679MB | `onnx/*.meta.json` |
+| `onnx/eg2_audio_q8_layers.onnx(+_data)` | 251KB + 340MB | `onnx/*.meta.json` |
+| `onnx/eg2_audio_research_fp32_t500/t1600/t1600_l12/t3000.onnx` | 각 9.5MB + 1.22GB | `onnx/*.meta.json` |
 | `data/models/embeddinggemma-2-f9972ac2/` | 1.49GB | HF blob과 일치 |
 | `logs/A3_*`, `logs/A4_*` | 수 MB | 원시 측정 |
 
@@ -100,3 +102,16 @@
 
 - VPS 계정 B: `eg2-1`~`eg2-5`, 4 vCPU/8GiB/20GiB, free tier(실측 5대 생성 가능), `maxRunMinutes` 480 고정.
 - 로컬 RAM 압박: 상시 여유 2~3GiB. 장시간·대용량 작업은 VPS 우선이 맞다.
+
+## 7. 승인 결과 (2026-11-02)
+
+| 안건 | 결정 | 기록 | 실행 |
+|---|---|---|---|
+| D1. G-A3L | **A** — FAIL 유지 + 1건 예외 승인, 임계값 불변 | D-011 | 완료 |
+| D2. 오디오 다층 | 보고 (q8 + FP32 확보) | D-009·D-010 | 완료 |
+| D3. 상주 구성 | 텍스트+오디오 **한 세션**, Q8, threads 6, 연구용 전체 층 | D-012 | B2 이후 운영 층 축소 |
+| D5. 길이 세트 | **A** — 500/1600/3000 + zero-pad/mask | D-013 | t3000 export 완료 |
+| D6. 12층 export | **A** — t1600_l12 | D-014 | export 완료 (15출력) |
+| D7. G-A3S/G-C2a | **게이트 승인** | D-015 | C2-A에서 측정 |
+
+추가 산출물: `eg2_audio_research_fp32_t1600_l12.onnx`, `eg2_audio_research_fp32_t3000.onnx` (둘 다 스모크 통과).

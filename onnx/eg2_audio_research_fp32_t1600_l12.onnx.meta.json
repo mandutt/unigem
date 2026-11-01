@@ -1,0 +1,36 @@
+{
+  "ckpt": "C:\\code\\unigem\\data\\models\\embeddinggemma-2-f9972ac2",
+  "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "opset": 21,
+  "outputs": [
+    "audio_soft_tokens",
+    "audio_mask",
+    "aud_h_l00",
+    "aud_h_l01",
+    "aud_h_l02",
+    "aud_h_l03",
+    "aud_h_l04",
+    "aud_h_l05",
+    "aud_h_l06",
+    "aud_h_l07",
+    "aud_h_l08",
+    "aud_h_l09",
+    "aud_h_l10",
+    "aud_h_l11",
+    "aud_out_proj"
+  ],
+  "dtype": "float32"
+}
