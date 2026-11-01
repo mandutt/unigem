@@ -1,0 +1,71 @@
+{
+  "schema": "eg2-onnx-io/1",
+  "kind": "measured",
+  "measured_at": "2026-11-02",
+  "host": "local",
+  "source": "C:/code/eg2-langidentifier/scripts/mmal4",
+  "note": "운영 중 q8-al4 그래프의 실제 입출력. G-A1 FAIL 근거 자료.",
+  "graphs": {
+    "text_backbone": {
+      "file": "model_quantized_al4.onnx",
+      "size_bytes": 500889,
+      "sha256": "39c1ce1fcd7b0c31b10dd9be698f2296c206a8321b49cefeda5e0c212427ef73",
+      "external_data": {
+        "file": "model_quantized_al4.onnx_data",
+        "size_bytes": 313724928,
+        "sha256": "278a7ff1248c3618e4bd11a607fc54f7bdc7778854230f3956d3f86bd9db4f3b"
+      },
+      "opset": {"": 21, "com.microsoft": 1},
+      "producer": "huggingface",
+      "quantization": {"op": "MatMulNBits", "count": 146, "bits": 8, "accuracy_level": 4},
+      "inputs": [
+        {"name": "input_ids", "dtype": "int64", "shape": ["batch_size", "sequence_length"]},
+        {"name": "attention_mask", "dtype": "int64", "shape": ["batch_size", "sequence_length"]},
+        {"name": "image_features", "dtype": "float32", "shape": ["num_image_tokens", 512]},
+        {"name": "video_features", "dtype": "float32", "shape": ["num_video_tokens", 512]},
+        {"name": "audio_features", "dtype": "float32", "shape": ["num_audio_tokens", 512]}
+      ],
+      "outputs": [
+        {"name": "last_hidden_state", "dtype": "float32", "shape": ["batch_size", "sequence_length", 768],
+         "meaning": "projection 이후 768차원, 비정규화"},
+        {"name": "sentence_embedding", "dtype": "float32", "shape": ["batch_size", 768],
+         "meaning": "mean pooling + L2 정규화"}
+      ]
+    },
+    "audio_tower": {
+      "file": "audio_encoder_quantized_al4.onnx",
+      "size_bytes": 254189,
+      "sha256": "837a2eff88dccbb7f221686bf0cd3070701927483fd3d4c1fa7c579388ae5823",
+      "external_data": {
+        "file": "audio_encoder_quantized_al4.onnx_data",
+        "size_bytes": 340058624,
+        "sha256": "aa6361d898e1f1d6303f8dd2b5fabf4fd3629e15fd709e9cb06ac5cb9416a030"
+      },
+      "opset": {"": 20, "com.microsoft": 1},
+      "producer": "pytorch 2.10.0",
+      "quantization": {"op": "MatMulNBits", "count": 123, "bits": 8},
+      "inputs": [
+        {"name": "input_features", "dtype": "float32", "shape": ["B", 128, "mel_frames"]},
+        {"name": "input_features_mask", "dtype": "bool", "shape": ["B", "mel_frames"]}
+      ],
+      "outputs": [
+        {"name": "audio_features", "dtype": "float32", "shape": ["num_audio_tokens", 512],
+         "meaning": "오디오 soft token (25 Hz)"}
+      ]
+    }
+  },
+  "runtime_probe": {
+    "session": {"intra_op_num_threads": 6, "graph_optimization_level": "ORT_ENABLE_ALL", "provider": "CPUExecutionProvider"},
+    "tokenizer": {"path": "run-20261024-embedgemma2ko/model-src/tokenizer.json",
+                  "sha256": "4d777ef5bdc1aa36227abdfb77c3e49e7b9c892d16e1b6bda41c393504828be4"},
+    "cases": [
+      {"input": "task: search result | query: hello world", "tokens": 11,
+       "last_hidden_state": [1, 11, 768], "last_hidden_row_norm_range": [335.44842529296875, 4734.0146484375],
+       "sentence_embedding_norm": 1.0000001192092896, "cos_se_meanpool": 1.0000001192092896},
+      {"input": "repeat of same", "tokens": 11, "cos_vs_first": 1.0000003576278687},
+      {"input": "task: search result | query: word x200", "tokens": 210,
+       "last_hidden_state": [1, 210, 768], "last_hidden_row_norm_range": [76.4363784790039, 7358.6435546875],
+       "sentence_embedding_norm": 1.0000003576278687, "cos_se_meanpool": 0.9999999403953552}
+    ]
+  }
+}

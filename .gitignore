@@ -1,0 +1,33 @@
+# 가중치·데이터·캐시·로그는 git에 넣지 않는다 (계약·스크립트·보고서만 추적)
+.venv/
+__pycache__/
+*.pyc
+
+# 모델 가중치 / ONNX 그래프
+*.onnx
+*.onnx_data
+*.safetensors
+*.bin
+*.gguf
+*.npz
+*.npy
+
+# 데이터·캐시 (P0/P1 모두)
+data/*
+!data/README.md
+cache/*
+!cache/.gitkeep
+
+# 원시 로그는 로컬 보관, 보고서에 경로·해시만 기록
+logs/*
+!logs/.gitkeep
+
+# 산출물 런
+runs/
+out/
+runs-*/
+*.log
+
+# OS
+Thumbs.db
+desktop.ini

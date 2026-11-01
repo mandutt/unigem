@@ -1,0 +1,42 @@
+{
+  "schema": "eg2-onnx-io/1",
+  "kind": "draft-target",
+  "version": "v1-draft",
+  "created_at": "2026-11-02",
+  "status": "A2 승인 전 초안. export 후 실측값으로 확정한다.",
+  "naming_rules": {
+    "text_layers": "tok_h_l{layer:02d} / tok_h_last — projection 이전 512차원 백본 hidden",
+    "text_projected": "tok_emb_768 — projection 이후 768차원 (현행 last_hidden_state 지점)",
+    "audio_layers": "aud_h_l{layer:02d} / aud_h_last — 오디오 타워 층별 hidden",
+    "audio_soft_tokens": "audio_features — 25 Hz soft token [T,512] (기존 이름 유지)"
+  },
+  "research_graph": {
+    "text": {
+      "inputs": ["input_ids:int64[B,S]", "attention_mask:int64[B,S]",
+                 "image_features:float32[N_i,512]", "video_features:float32[N_v,512]",
+                 "audio_features:float32[N_a,512]"],
+      "outputs": ["sentence_embedding:float32[B,768]",
+                  "tok_h_l00:float32[B,S,512]", "tok_h_l04:float32[B,S,512]",
+                  "tok_h_l08:float32[B,S,512]", "tok_h_l12:float32[B,S,512]",
+                  "tok_h_l16:float32[B,S,512]", "tok_h_l20:float32[B,S,512]",
+                  "tok_h_last:float32[B,S,512]", "tok_emb_768:float32[B,S,768]"]
+    },
+    "audio": {
+      "inputs": ["input_features:float32[B,128,T_mel]", "input_features_mask:bool[B,T_mel]"],
+      "outputs": ["audio_features:float32[T,512]",
+                  "aud_h_l00:float32[T,512]", "aud_h_l04:float32[T,512]",
+                  "aud_h_l08:float32[T,512]", "aud_h_last:float32[T,512]"]
+    }
+  },
+  "prod_graph": {
+    "dtype": "FP32 export -> dynamic INT8 (MatMulNBits bits=8, accuracy_level=4)",
+    "layers": "export 시 설정. B2/CP1 전까지 연구용과 동일한 전체 층을 노출",
+    "outputs": ["sentence_embedding", "tok_h_* (선택 층)", "audio_features", "aud_h_* (선택 층)"]
+  },
+  "invariants": [
+    "동적 축: batch / sequence / mel_frames / token count",
+    "attention_mask / input_features_mask는 입력으로 받아 통과 (출력하지 않음)",
+    "FP16 사용 금지 (모델 카드 NaN 경고). 참조 실행은 FP32 또는 BF16",
+    "기존 소비자 호환: sentence_embedding [B,768], audio_features [T,512] 이름·의미 유지"
+  ]
+}
