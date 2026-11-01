@@ -5,7 +5,7 @@ EmbeddingGemma 2(EG2)를 메모리 시스템 상주 인코더로 재사용하고
 
 - **기준 문서:** [`docs/plan_v0_5.md`](docs/plan_v0_5.md) — `EG2_ResidentEncoder_MeasurementPlan_v0_5.md` (SHA256 `746c3c01…8d4d430`, 640줄)
 - **문서상 작업 디렉터리 `eg2-lab/` = 이 저장소 루트(`C:\code\unigem`)**
-- **상태:** Phase A 완료 (텍스트·오디오 다층 확보, 오디오 FP32 연구용 그래프 export 성공) → **CP1 결정 대기** (`reports/CP1.md`)
+- **상태:** Phase A 완료 → **CP1 승인 완료(2026-11-02)** → Phase V(G-V0)·B1 착수 가능
 - **목표 하드웨어:** 로컬 PC (Windows 11, Ryzen 5 7600 6C/12T, 15.6 GiB, GPU 없음, ONNX Runtime CPU EP, Q8)
 - **VPS:** P0 데이터 전용, 성능 판정 불가. **계정 B 5대 구성 완료** (`eg2-1`~`eg2-5`, 4 vCPU/8 GiB/20 GiB) — `env/snapshots/instabox_account_b_2026-11-02.json`
 
@@ -19,7 +19,7 @@ EmbeddingGemma 2(EG2)를 메모리 시스템 상주 인코더로 재사용하고
 | A3 parity | **PASS** — 층별 cos `0.999999999998`, NaN 0, 패딩 불변 | [`reports/A3_parity_text.md`](reports/A3_parity_text.md) |
 | G-A3L | **FAIL** — 43/44 (97.7%), 불일치 1건은 id↔ms margin<0.01, 확신 오판 0 | [`reports/A3L_langid.md`](reports/A3L_langid.md) |
 | A4 Q8 | **PASS** — 층별 cos 0.9977, LID 44/44, 512tok 540ms(t6), RSS 178MiB | [`reports/A4_q8_perf.md`](reports/A4_q8_perf.md) |
-| **CP1** | **결정 대기** — G-A3L 예외·오디오 export 경로·상주 구성 | [`reports/CP1.md`](reports/CP1.md) |
+| **CP1** | **승인 완료** — D1=A(G-A3L 예외), D5=A(길이 3종), D6=A(12층), D7=게이트 승인 | [`reports/CP1.md`](reports/CP1.md) |
 
 ## 저장소 구조
 
