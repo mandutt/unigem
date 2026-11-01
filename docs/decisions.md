@@ -11,8 +11,9 @@
 | D-005 | 2026-11-02 | A2 export의 1차 실행 호스트는 **로컬 PC** (VPS 전송 비용 회피, RAM 부족/OOM 시에만 vps-1로 이관) | 문서 §9 A2는 vps-1 우선이나 "RAM 부족 시 로컬" 허용. 로컬에 체크포인트 사본이 있어 역방향이 더 저렴 |
 | D-006 | 2026-11-02 | A2의 원본 체크포인트는 **HF `google/embeddinggemma-2` revision `f9972ac2…5a1e`를 새로 다운로드**해 쓴다. 로컬 사본은 파생본(바이트 불일치)이므로 export 원본으로 쓰지 않는다 | provenance 실측: tokenizer 해시 일치, config는 `transformers_version`만 다름, `model.safetensors`는 같은 크기·다른 SHA256(재저장본 추정) |
 | D-007 | 2026-11-02 | 다운로드한 체크포인트의 `model.safetensors` SHA256이 HF blob `197a3296…53d79`와 **일치**함을 확인. 이후 이 사본을 export 원본으로 고정 | `data/models/embeddinggemma-2-f9972ac2/` (git 미추적) |
-| D-008 | 2026-11-02 | 오디오 타워 export는 **dynamo exporter만 동작**한다. legacy(`dynamo=False`)는 `IndexError: invalid unordered_map<K,T> key`로 실패 | 오디오 forward가 커스텀 autograd 연산을 사용. 텍스트는 dynamo로 성공 |
+| D-008 | 2026-11-02 | ~~오디오 타워 export는 dynamo exporter만 동작한다~~ → **D-010에서 정정**: dynamo도 dynamic_axes로는 실패하며, 정적 shape에서만 동작 | 오디오 forward가 커스텀 autograd 연산을 사용. 텍스트는 dynamo로 성공 |
 | D-009 | 2026-11-02 | 오디오 다층 hidden은 **재수출 대신 기존 q8 그래프에 중간 텐서를 출력으로 추가**해 확보한다 (`eg2_audio_q8_layers.onnx`). 원본 불변, 파생 사본만 수정 | dynamo export가 로컬·VPS(8GiB) 모두 14~17분+ 무출력. 그래프 수술 결과 PyTorch 대비 cos 0.99945~0.999998, 패딩 불변 1.0. FP32 오디오 그래프는 미확보 |
+| D-010 | 2026-11-02 | 오디오 **FP32 연구용 그래프**는 `dynamo + 정적 shape(--static) + optimize=False`로 export한다. legacy는 `unfold` 미지원으로 사용하지 않는다 | 원인 4중 규명: ① legacy `autograd_inlining=False` 필요 ② `F.pad(value=None)`이 None 상수로 굳음 ③ legacy `Tensor.unfold` input size 미추적 ④ dynamo+`dynamic_axes` symbolic 제약 정체. 해결 후 cos 1.0, NaN 0 (`reports/A2_export_audio_research.md`) |
 
 ## 미결 안건 (사용자 승인 필요)
 
