@@ -27,8 +27,13 @@ BATCH = 8
 
 
 def main():
-    os.makedirs(OUT, exist_ok=True)
-    rows = [json.loads(l) for l in open(CORPUS, encoding="utf-8")]
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--corpus", default=CORPUS)
+    ap.add_argument("--out", default=OUT)
+    a = ap.parse_args()
+    os.makedirs(a.out, exist_ok=True)
+    rows = [json.loads(l) for l in open(a.corpus, encoding="utf-8")]
     tok = Tokenizer.from_file(os.path.join(CKPT, "tokenizer.json"))
 
     so = ort.SessionOptions()
@@ -77,14 +82,14 @@ def main():
         if start % 160 == 0:
             print(f"{start}/{n} {time.time()-t0:.1f}s", flush=True)
 
-    np.save(os.path.join(OUT, "tokens.npy"), tokens)
-    np.save(os.path.join(OUT, "mask.npy"), mask)
-    np.save(os.path.join(OUT, "pooled.npy"), pooled)
+    np.save(os.path.join(a.out, "tokens.npy"), tokens)
+    np.save(os.path.join(a.out, "mask.npy"), mask)
+    np.save(os.path.join(a.out, "pooled.npy"), pooled)
     for name in layer_names:
-        np.save(os.path.join(OUT, f"h_{name}.npy"), hs[name])
+        np.save(os.path.join(a.out, f"h_{name}.npy"), hs[name])
     json.dump({"n": n, "maxlen": MAXLEN, "layers": layer_names, "dims": dims,
-               "onnx": ONNX, "ckpt": CKPT},
-              open(os.path.join(OUT, "meta.json"), "w", encoding="utf-8"), indent=2)
+               "onnx": ONNX, "ckpt": CKPT, "corpus": a.corpus},
+              open(os.path.join(a.out, "meta.json"), "w", encoding="utf-8"), indent=2)
     print("done", n, f"{time.time()-t0:.1f}s", flush=True)
 
 
