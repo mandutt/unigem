@@ -1,0 +1,8 @@
+{
+  "job_id": "V2-p1-reject",
+  "stage": "V2",
+  "host": "eg2-2",
+  "data_class": "P1",
+  "cmd": "echo should-not-run",
+  "resources": {"threads": 1, "mem_limit_gb": 1, "timeout_s": 30}
+}

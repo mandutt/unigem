@@ -1,0 +1,8 @@
+{
+  "job_id": "V2-disk-guard",
+  "stage": "V2",
+  "host": "eg2-4",
+  "data_class": "P0",
+  "cmd": "echo should-not-run",
+  "resources": {"threads": 1, "mem_limit_gb": 1, "timeout_s": 30, "disk_gb": 100}
+}

@@ -1,0 +1,8 @@
+{
+  "job_id": "V2-timeout",
+  "stage": "V2",
+  "host": "eg2-3",
+  "data_class": "P0",
+  "cmd": "sleep 20; echo done",
+  "resources": {"threads": 1, "mem_limit_gb": 1, "timeout_s": 3}
+}

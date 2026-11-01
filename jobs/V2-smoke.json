@@ -1,0 +1,13 @@
+{
+  "job_id": "V2-smoke-1",
+  "stage": "V2",
+  "host": "eg2-2",
+  "data_class": "P0",
+  "env_lock": "lock_linux.txt",
+  "inputs": [],
+  "cmd": "python -c \"import socket,os; os.makedirs('runs/V2-smoke-1',exist_ok=True); open('runs/V2-smoke-1/out.txt','w').write(socket.gethostname())\"",
+  "resources": {"threads": 2, "mem_limit_gb": 2, "timeout_s": 120, "disk_gb": 0.01},
+  "outputs": [{"path": "runs/V2-smoke-1/out.txt"}],
+  "resume": true,
+  "seed": 1
+}
