@@ -1,0 +1,8 @@
+{
+  "job_id": "V2-mem-guard",
+  "stage": "V2",
+  "host": "eg2-3",
+  "data_class": "P0",
+  "cmd": "python -c \"x=bytearray(800*1024*1024); print(len(x))\"",
+  "resources": {"threads": 1, "mem_limit_gb": 0.3, "timeout_s": 60}
+}

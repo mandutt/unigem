@@ -5,7 +5,7 @@ EmbeddingGemma 2(EG2)를 메모리 시스템 상주 인코더로 재사용하고
 
 - **기준 문서:** [`docs/plan_v0_5.md`](docs/plan_v0_5.md) — `EG2_ResidentEncoder_MeasurementPlan_v0_5.md` (SHA256 `746c3c01…8d4d430`, 640줄)
 - **문서상 작업 디렉터리 `eg2-lab/` = 이 저장소 루트(`C:\code\unigem`)**
-- **상태:** Phase A 완료 → **CP1 승인 완료(2026-11-02)** → Phase V(G-V0)·B1 착수 가능
+- **상태:** Phase A 완료 → CP1 승인 완료 → **Phase V 완료(G-V0 PASS)** → Phase B1 착수 가능
 - **목표 하드웨어:** 로컬 PC (Windows 11, Ryzen 5 7600 6C/12T, 15.6 GiB, GPU 없음, ONNX Runtime CPU EP, Q8)
 - **VPS:** P0 데이터 전용, 성능 판정 불가. **계정 B 5대 구성 완료** (`eg2-1`~`eg2-5`, 4 vCPU/8 GiB/20 GiB) — `env/snapshots/instabox_account_b_2026-11-02.json`
 
