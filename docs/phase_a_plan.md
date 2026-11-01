@@ -79,7 +79,7 @@
 | transformers 5.20.1이 EG2 export에 미검증 | export는 프로젝트 venv에 **버전 고정** 설치, 실패 시 5.19.x로 내림 (Notesoop 사례와 동일 계열) |
 | 마스크 처리 오류(참고 사례의 eager attention 오디오 마스크 반전) | A3에서 원본 대비 수치 일치 필수, 기본 attention 사용 |
 | `last_hidden_state` 768차원이 projection 이후임을 혼동 | 계약에 `tok_h_*`=512(projection 이전), `tok_emb_768`=768(이후)로 분리 |
-| 기존 ONNX 소비자(`C:\code\eg2-langidentifier`) 회귀 | 신규 파일은 `C:\code\unige\onnx\`에만 생성, 기존 경로 교체는 CP1 승인 후 |
+| 기존 ONNX 소비자(`C:\code\eg2-langidentifier`) 회귀 | 신규 파일은 `C:\code\unigem\onnx\`에만 생성, 기존 경로 교체는 CP1 승인 후 |
 
 ## 6. 승인 안건
 

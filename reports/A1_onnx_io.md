@@ -50,7 +50,7 @@
 | nodes / initializers | 1,148 / 859 |
 | 양자화 | `MatMulNBits` 123개, **bits=8** |
 
-입력: `input_features` float32 `[s4, s37, 128]` = `[B, 128 mel, T]`, `input_features_mask` **bool** `[s4, s37]`
+입력: `input_features` float32 `[s4, s37, 128]` = `[B, T_mel, 128]`, `input_features_mask` **bool** `[s4, s37]`
 출력: `audio_features` float32 `[u0, 512]` (= 오디오 soft token, 25 Hz)
 
 ## 4. 결과 — 실행 확인

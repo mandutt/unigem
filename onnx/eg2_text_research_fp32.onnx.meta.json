@@ -1,0 +1,24 @@
+{
+  "ckpt": "C:\\code\\unigem\\data\\models\\embeddinggemma-2-f9972ac2",
+  "layers": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    20
+  ],
+  "opset": 21,
+  "outputs": [
+    "sentence_embedding",
+    "tok_h_l00",
+    "tok_h_l04",
+    "tok_h_l08",
+    "tok_h_l12",
+    "tok_h_l16",
+    "tok_h_l20",
+    "tok_h_last",
+    "tok_emb_768"
+  ],
+  "dtype": "float32"
+}

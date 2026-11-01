@@ -1,10 +1,10 @@
-# unige — EG2 상주 인코더 다용도 활용 프로젝트
+# unigem — EG2 상주 인코더 다용도 활용 프로젝트
 
 EmbeddingGemma 2(EG2)를 메모리 시스템 상주 인코더로 재사용하고, 그 위에 작업별 경량 헤드를 얹어
 언어 판정·STT·비전 태깅·맞춤법 교정·메모리 요약을 **실측으로 검증**하는 프로젝트입니다.
 
 - **기준 문서:** [`docs/plan_v0_5.md`](docs/plan_v0_5.md) — `EG2_ResidentEncoder_MeasurementPlan_v0_5.md` (SHA256 `746c3c01…8d4d430`, 640줄)
-- **문서상 작업 디렉터리 `eg2-lab/` = 이 저장소 루트(`C:\code\unige`)**
+- **문서상 작업 디렉터리 `eg2-lab/` = 이 저장소 루트(`C:\code\unigem`)**
 - **상태:** Phase A0·A1 완료 (read-only 측정) → **CP1 이전, A2 export 승인 대기**
 - **목표 하드웨어:** 로컬 PC (Windows 11, Ryzen 5 7600 6C/12T, 15.6 GiB, GPU 없음, ONNX Runtime CPU EP, Q8)
 - **VPS:** P0 데이터 전용, 성능 판정 불가. 계정 B(`eg2-1` 1대)만 확인됨 → CP0 안건
@@ -20,7 +20,7 @@ EmbeddingGemma 2(EG2)를 메모리 시스템 상주 인코더로 재사용하고
 ## 저장소 구조
 
 ```
-unige/
+unigem/
   docs/        plan_v0_5.md(불변 기준 문서) · decisions.md(결정 로그) · gates.md(게이트 표) · phase_a_plan.md
   env/         환경 정의·lock·호스트 스냅샷
   jobs/        job manifest (data_class 필수, 시크릿 금지)
@@ -49,7 +49,7 @@ unige/
 
 ```bash
 # 프로젝트 venv (운영 venv와 분리)
-C:\code\unige\.venv\Scripts\python.exe
+C:\code\unigem\.venv\Scripts\python.exe
 
 # 기존 운영 자산 (읽기 전용 참조)
 %LOCALAPPDATA%\jev-mem\venv\Scripts\python.exe

@@ -22,7 +22,7 @@
                   "tok_h_last:float32[B,S,512]", "tok_emb_768:float32[B,S,768]"]
     },
     "audio": {
-      "inputs": ["input_features:float32[B,128,T_mel]", "input_features_mask:bool[B,T_mel]"],
+      "inputs": ["input_features:float32[B,T_mel,128]", "input_features_mask:bool[B,T_mel]"],
       "outputs": ["audio_features:float32[T,512]",
                   "aud_h_l00:float32[T,512]", "aud_h_l04:float32[T,512]",
                   "aud_h_l08:float32[T,512]", "aud_h_last:float32[T,512]"]

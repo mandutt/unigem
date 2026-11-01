@@ -22,7 +22,7 @@
 
 ## 3. 소프트웨어
 
-### 3.1 프로젝트 venv (신규, `C:\code\unige\.venv`)
+### 3.1 프로젝트 venv (신규, `C:\code\unigem\.venv`)
 
 | 패키지 | 버전 |
 |---|---|
@@ -37,7 +37,8 @@
 | huggingface-hub | 2.4.0 |
 | psutil | 7.2.2 |
 
-- lock: `env/lock_local_2026-11-02.txt` (41줄, SHA256 `c5321c4e0a1d709c995d476e23996a4dc34a09b7dfd3def8e0ef0d1f2a40f03f`)
+- lock: `env/lock_local_2026-11-02.txt` (43줄, SHA256 `001c498fa3d6db6665d6784e8ab2e03ad47a10b5cf75d8187c4ab45f2c8944d5`)
+  — dynamo export를 위해 `onnxscript 0.7.2` / `onnx-ir 1.1.0` 추가 후 재고정
 - ORT 세션 옵션(A2에서 확정): `intra_op_num_threads` 명시, `ORT_ENABLE_ALL`, `CPUExecutionProvider`.
 
 ### 3.2 기존 운영 환경 (읽기 전용, 수정 금지)

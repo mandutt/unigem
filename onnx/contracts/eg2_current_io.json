@@ -45,7 +45,7 @@
       "producer": "pytorch 2.10.0",
       "quantization": {"op": "MatMulNBits", "count": 123, "bits": 8},
       "inputs": [
-        {"name": "input_features", "dtype": "float32", "shape": ["B", 128, "mel_frames"]},
+        {"name": "input_features", "dtype": "float32", "shape": ["B", "mel_frames", 128]},
         {"name": "input_features_mask", "dtype": "bool", "shape": ["B", "mel_frames"]}
       ],
       "outputs": [
