@@ -31,6 +31,7 @@ def main():
     ap.add_argument("--corpus", default=CORPUS)
     ap.add_argument("--out", default=OUT)
     ap.add_argument("--shard", type=int, default=SHARD)
+    ap.add_argument("--onnx", default=ONNX)
     a = ap.parse_args()
     sdir = os.path.join(a.out, "shards")
     os.makedirs(sdir, exist_ok=True)
@@ -42,7 +43,7 @@ def main():
     so = ort.SessionOptions()
     so.intra_op_num_threads = 6
     so.log_severity_level = 3
-    sess = ort.InferenceSession(ONNX, so, providers=["CPUExecutionProvider"])
+    sess = ort.InferenceSession(a.onnx, so, providers=["CPUExecutionProvider"])
     names = [o.name for o in sess.get_outputs()]
     layers = [n for n in names if n.startswith("tok_h_") or n == "tok_emb_768"]
     dims = {o.name: o.shape[-1] for o in sess.get_outputs() if o.name in layers}
