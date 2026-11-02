@@ -30,6 +30,9 @@
 | D-024 | 2026-11-02 | **G-A3L-R 판정: FAIL** — 220클립, Q8 일치 216/220(98.18%, CP 95.41~99.50%), 확신 오판 21→23(+2), 신규만 오답 3. FP32도 98.18%(오판 21/21) | Addendum A §A-2.3에 따라 **Q8 운영 그래프 교체 보류**. CP2' 사용자 결정 대기 (`reports/G-A3L-R.md`) |
 | D-025 | 2026-11-02 | **B1.5-0 완료**: `tok_h_l00`은 임베딩이 아니라 **decoder layer 0 출력**(HF hidden_states[1], cos 0.99998; 임베딩과는 0.39). 모델은 24층/512dim/2048hidden | B1의 l00 결과는 실제 표면 보존 결과. 단 24층 중 1층(`reports/B1_5_0_layer_definition.md`) |
 | D-026 | 2026-11-02 | **A-7.2/A-7.3 측정**: 오디오 q8 RTF 0.030~0.032(5/16/30초, p50 149/513/962ms), 텍스트 Q8 679MB 중 임베딩 테이블 536.9MB(79%) | F-11·F-10 확인. 임베딩 양자화 실험은 후속(`reports/A7_audio_q8_latency.md`, `A7_embedding_table.md`) |
+| D-027 | 2026-11-02 | **C0 잠정 결론**: T5Gemma 2는 gated(수동 승인)로 접근 불가. 대리(Gemma 3 토크나이저) 비교 결과 vocab 262,125/262,144 교집합(99.99%)이나 **id가 다른 토큰 6,187개** → H4(id 1:1 정렬) **기각 잠정** | T5Gemma2 접근 승인 후 확정. `reports/C0_feasibility.md` |
+| D-028 | 2026-11-02 | **C2-A0 완료**: Notesoop 라이선스 Apache-2.0(데이터 약관 미확인), 특징은 `audio_tower→lm.norm→projection[:256]→L2`(256d bf16), reader Conformer 10층/384/25k CTC, 청크 16s+1s | 우리 ONNX `aud_out_proj` + projection 슬라이스로 **특징 재현 가능**(G-A3S). `reports/C2_A0_notesoop.md` |
+| D-029 | 2026-11-02 | **A-9.1 카나리(텍스트) 통과**: VPS에서 동일 체크포인트로 export → 20입력 cosine FP32 **1.0**, Q8 **최소 0.99917/평균 0.99979** | 오디오 q8은 원본 그래프 부재로 미검증. `reports/A9_canary_parity.md` |
 
 ## 미결 안건 (사용자 승인 필요)
 
