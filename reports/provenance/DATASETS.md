@@ -21,7 +21,8 @@ snapshot_download("Bingsu/zeroth-korean", repo_type="dataset",
                   allow_patterns=["data/*.parquet"], local_dir="data/raw/zeroth")
 ```
 
-- 참고: OpenSLR 원본 tar(9.6GB)는 전송 속도가 느려 중단하고 HF 미러로 대체했다. 오디오 내용은 동일 계열이나, 원본과의 바이트 일치는 별도 검증하지 않았다.
+- 검증: test 457 + train 22,263 = **22,720행**(공식 발화 수와 일치), test 1.191h(공식 1.2h), 전부 **16kHz mono**, 오디오는 **FLAC**(`fLaC` 매직) — OpenSLR tar의 무압축 WAV를 무손실 압축한 것이라 용량 차이(9.6GB→2.7GB)는 정상이다. 디코드 후 PCM 동일성이 보장되는 포맷이나, 원본 tar와 바이트 단위 대조는 수행하지 않았다.
+- 판정: **동일 코퍼스로 사용 가능**. 발화 수·길이·샘플레이트가 원본 사양과 일치한다.
 
 ## 2. FLEURS (자연 문장·다국어)
 
