@@ -1,0 +1,20 @@
+{
+  "done": {
+    "aihub_error_correction.zip:46561027": {
+      "sha256": "697079f38ea27117b5b178037dfd9ce781de93e201b662cfedd62fd783500c14",
+      "size": 46561027
+    },
+    "aihub_docsum_text.zip:420700463": {
+      "sha256": "3a128661b7a14b86420299ed7a73bbda3627229f843af27769e3ae934206cd79",
+      "size": 420700463
+    },
+    "aihub_022_summary_report.zip:495550639": {
+      "sha256": "d6d47b07fd0cae7d354899e999a24e69124f5ca1ce0b70c0a7d57d325f940a90",
+      "size": 495550639
+    },
+    "aihub_018_paper_summary.zip:1755664396": {
+      "sha256": "799761ed4c7265fa0665cdad4f00b54808b4691a7bcdc210a6a98c80e8ce456e",
+      "size": 1755664396
+    }
+  }
+}
