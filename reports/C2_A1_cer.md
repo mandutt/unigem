@@ -61,7 +61,7 @@
   - 선행 조건: ONNX 파이프라인이 Notesoop의 256d MRL 특징(`LM norm → embedding_projection[:256] → L2`)을 재현해야 함. 현재 `eg2_audio_q8_layers.onnx`는 512d soft token까지만 노출하므로 **추가 export 또는 어댑터**가 필요하다.
 - KenLM: Windows 빌드 가능 여부 확인(불가 시 beam search 대체 디코더 검토)
 
-## 6. AM-6 이행 표
+## 7. AM-6 이행 표
 
 | 요구 (B-11 C2-A1) | 이행 |
 |---|---|
