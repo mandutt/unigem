@@ -41,10 +41,24 @@
 3. Kspon 표본 100클립(0.08h)은 작다. 300클립 이상으로 확대하려면 추가 실행이 필요하다.
 4. C2-A1의 목적은 **절대 CER 최적화가 아니라 이후 비교의 기준선**이다. G-C2a(Q8 ONNX 특징으로 교체 시 상대 증가 ≤10%)의 분모가 된다.
 
-## 5. 다음
+## 5. G-C2 — FLEURS ko test
 
-- G-C2: FLEURS ko test(≥300발화) greedy CER 측정
-- G-C2a: 동일 평가셋에서 EG2 Q8 ONNX 특징으로 교체 후 CER 상대 증가 측정
+- 데이터: `fleurs_cache/ko_kr_test.tar.gz` 382클립(전사 382), 16kHz
+- 실행: 동일 Notesoop greedy(KenLM 없음), chunk 16s/overlap 1s
+- 결과:
+
+| n | **CER** | CER(공백 제거) | WER | RTF |
+|---|---|---|---|---|
+| 382 | **17.41%** | 19.10% | 38.37% | 0.084 |
+
+- **G-C2 판정: FAIL** (기준 greedy CER ≤15%, 실측 17.41%).
+- KenLM 비활성 상태이므로 빔서치 적용 시 개선 여지가 있으나, **게이트는 greedy 기준**이므로 현재 측정으로는 미달이다.
+- RTF 0.084(실시간 대비 약 12배).
+
+## 6. 다음
+
+- G-C2a: 동일 FLEURS 382클립에서 EG2 Q8 ONNX 특징으로 교체 후 CER 상대 증가 측정
+  - 선행 조건: ONNX 파이프라인이 Notesoop의 256d MRL 특징(`LM norm → embedding_projection[:256] → L2`)을 재현해야 함. 현재 `eg2_audio_q8_layers.onnx`는 512d soft token까지만 노출하므로 **추가 export 또는 어댑터**가 필요하다.
 - KenLM: Windows 빌드 가능 여부 확인(불가 시 beam search 대체 디코더 검토)
 
 ## 6. AM-6 이행 표
