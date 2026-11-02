@@ -46,6 +46,7 @@
 | D-040 | 2026-11-02 | **R1 완료: G-B1.5-a = PASS(l00) / FAIL(l04)**. 폐쇄형 릿지+전체어휘: l00 0.9992(CI 0.9989~0.9995), span 98.7~100%; l04 0.8504, span 44~88%. 이전 0.8856은 최적화 부족(≈95스텝) | 후보 층 l00 확정. `reports/R1_B1_5_1_rerun.md` |
 | D-041 | 2026-11-02 | **R2 완료: G-B1.5-b FAIL(1/3)**. T1-exp +5.60%p(CI +2.41~+8.97) PASS, T2 +1.87%p FAIL, T3′ +0.89%p(CI +0.07~+1.64) FAIL | B-12 유효 FAIL → 텍스트 hidden 폐기 권고 트리거. P1 결과는 CP2′에서 병행 보고 (`reports/R2_B1_5_3_rerun.md`) |
 | D-042 | 2026-11-02 | **P1 F4 파일럿 FAIL**: H1 AUPRC 0.8056 vs H3 0.7786 = +2.83%p(CI +2.13~+3.67, 기준 +3), 10% 데이터 +7.50%p(기준 +5 충족), 오탐률 0.368 vs 0.527(개선), 문장 P@R80 +8.9%p | B-12 1행 확정: **EG2 텍스트 hidden F4/F5 사용 폐기**. H4′는 PASS(100%) (`reports/P1_f4_pilot.md`) |
+| D-043 | 2026-11-02 | **C2-A1 기준선 완료**: Notesoop greedy(KenLM 없음) CER 18.15%(Zeroth 17.32%, Kspon eval_clean 27.81%), WER 47.15%, RTF 0.178, 557클립/1.27h | G-C2(FLEURS ≤15%)·G-C2a(Q8 상대 +10%)는 미측정. KenLM Windows 빌드 제약 (`reports/C2_A1_cer.md`) |
 
 ## 미결 안건 (사용자 승인 필요)
 

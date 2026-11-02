@@ -34,3 +34,4 @@ desktop.ini
 
 # ONNX external data (graph.onnx + graph.onnx.data)
 *.onnx.data
+vendor/
