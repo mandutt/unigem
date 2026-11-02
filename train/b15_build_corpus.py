@@ -26,6 +26,9 @@ from tokenizers import Tokenizer
 
 ROOT = r"C:\code\unigem"
 FLEURS = r"C:\code\eg2-langidentifier\data\raw\fleurs_cache"
+FLEURS_HF = os.path.expanduser(
+    r"~/.cache/huggingface/hub/datasets--google--fleurs/snapshots/"
+    r"70bb2e84b976b7e960aa89f1c648e09c59f894dd/data")
 CKPT = os.path.join(ROOT, "data", "models", "embeddinggemma-2-f9972ac2")
 OUT = os.path.join(ROOT, "data", "b1_5", "corpus_v2")
 SEED = 20261103
@@ -69,10 +72,15 @@ NUM_TEMPLATES = [
 ]
 
 
-def read_tsv(lang: str):
-    path = os.path.join(FLEURS, f"{lang}_test.tsv")
+def read_tsv(lang: str, split: str = "test"):
+    """로컬 캐시(test)와 HF 데이터셋(train/dev/test)을 모두 지원."""
+    candidates = [
+        os.path.join(FLEURS_HF, lang, f"{split}.tsv"),
+        os.path.join(FLEURS, f"{lang}_{split}.tsv"),
+    ]
+    path = next((p for p in candidates if os.path.exists(p)), None)
     rows = []
-    if not os.path.exists(path):
+    if not path:
         return rows
     with open(path, encoding="utf-8") as f:
         for line in f:
@@ -80,6 +88,20 @@ def read_tsv(lang: str):
             if len(parts) >= 4 and parts[3].strip():
                 rows.append(parts[3].strip())
     return rows
+
+
+def gather(lang: str, need: int):
+    """test → dev → train 순으로 모아 중복 없이 need개."""
+    out, seen = [], set()
+    for split in ("test", "dev", "train"):
+        for t in read_tsv(lang, split):
+            if t in seen:
+                continue
+            seen.add(t)
+            out.append(t)
+            if len(out) >= need:
+                return out
+    return out
 
 
 def h(s: str) -> str:
@@ -145,10 +167,37 @@ def git_sha_identifiers() -> list:
     return [hashlib.sha1(f"eg2-{i}".encode()).hexdigest() for i in range(40)]
 
 
+def github_identifiers():
+    """공개 저장소(Apache-2.0/MIT)에서 경로·커밋 SHA를 가져온다. 실패 시 빈 목록."""
+    import urllib.request
+
+    def get(url):
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "unigem-research", "Accept": "application/vnd.github+json"})
+        with urllib.request.urlopen(req, timeout=25) as r:
+            return json.load(r)
+
+    paths, shas = [], []
+    try:
+        tree = get("https://api.github.com/repos/huggingface/transformers/git/trees/main?recursive=1")
+        paths = [f["path"] for f in tree.get("tree", []) if f.get("type") == "blob"]
+    except Exception as e:
+        print("gh tree fail", type(e).__name__, file=sys.stderr)
+    for repo in ("huggingface/transformers", "ggml-org/llama.cpp", "vllm-project/vllm"):
+        try:
+            commits = get(f"https://api.github.com/repos/{repo}/commits?per_page=100")
+            shas += [c["sha"] for c in commits]
+        except Exception as e:
+            print("gh commits fail", repo, type(e).__name__, file=sys.stderr)
+    return paths, shas
+
+
 def collect_spans(rng: random.Random):
     pool = pkg_identifiers()
+    gh_paths, gh_shas = github_identifiers()
     spans = []
-    for p in rng.sample(pool["path"], min(250, len(pool["path"]))):
+    src_paths = gh_paths or pool["path"]
+    for p in rng.sample(src_paths, min(250, len(src_paths))):
         spans.append(("path", p))
     for v in rng.sample(pool["version"], min(150, len(pool["version"]))):
         spans.append(("version", v))
@@ -156,11 +205,25 @@ def collect_spans(rng: random.Random):
         spans.append(("key", k))
     for u in rng.sample(pool["url"], min(50, len(pool["url"]))):
         spans.append(("url", u))
-    shas = git_sha_identifiers()
+    shas = gh_shas[:150] or git_sha_identifiers()
     for s in shas[:150]:
         spans.append(("sha", s))
     for i in range(100):
         spans.append(("errcode", f"E{rng.randint(1000, 9999)}"))
+    # 실제 HF 모델 id (캐시 디렉터리)
+    hub = os.path.expanduser("~/.cache/huggingface/hub")
+    models = []
+    try:
+        for d in os.listdir(hub):
+            if d.startswith("models--"):
+                models.append(d[len("models--"):].replace("--", "/"))
+    except Exception:
+        pass
+    for m in models[:60]:
+        spans.append(("model", m))
+    # 공개 저장소 이름
+    for r in ("huggingface/transformers", "ggml-org/llama.cpp", "vllm-project/vllm"):
+        spans.append(("repo", r))
     return spans
 
 
@@ -221,10 +284,10 @@ def main():
 
     # 1) 자연 문장
     for lang in LANGS_MAIN:
-        for i, t in enumerate(read_tsv(lang)[:300]):
+        for i, t in enumerate(gather(lang, 300)):
             add("natural", lang, t, split_of(f"nat-{lang}-{i}"))
     for lang in LANGS_OTHER:
-        for i, t in enumerate(read_tsv(lang)[:60]):
+        for i, t in enumerate(gather(lang, 60)):
             add("natural", lang, t, split_of(f"nat-{lang}-{i}"))
 
     # 2) 한국어 구어체 (FLEURS 문장을 구어 틀에 재구성)
@@ -238,8 +301,10 @@ def main():
     spans = collect_spans(rng)
     tpl_ids = list(range(len(TEMPLATES)))
     train_tpls = set(rng.sample(tpl_ids, 14))
-    for i in range(800):
+    seen_txt, made_id, i = set(), 0, 0
+    while made_id < 800 and i < 6000:
         kind, value = spans[i % len(spans)]
+        i += 1
         tid = rng.choice(tpl_ids)
         tpl = TEMPLATES[tid]
         text = (tpl.replace("{value}", value)
@@ -250,6 +315,10 @@ def main():
         split = split_of(f"tpl-{tid}-{i}")
         if tid not in train_tpls and split == "train":
             split = "test"   # 틀 단위 분리: 테스트 틀은 학습에 쓰지 않는다
+        if text in seen_txt:
+            continue
+        seen_txt.add(text)
+        made_id += 1
         add("identifier", "ko_kr" if i % 2 == 0 else "en_us", text, split,
             tid=f"t{tid:02d}", group=f"tpl-{tid}", source="public-packages/git", license_="Apache-2.0/BSD")
 
@@ -278,7 +347,7 @@ def main():
     for lo, hi in buckets:
         made = 0
         guard = 0
-        while made < 100 and guard < 8000:
+        while made < 100 and guard < 20000:
             guard += 1
             text = rng.choice(nat)
             while len(tok.encode(text).ids) < lo and len(text) < 4000:
