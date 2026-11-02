@@ -34,6 +34,7 @@
 | D-028 | 2026-11-02 | **C2-A0 완료**: Notesoop 라이선스 Apache-2.0(데이터 약관 미확인), 특징은 `audio_tower→lm.norm→projection[:256]→L2`(256d bf16), reader Conformer 10층/384/25k CTC, 청크 16s+1s | 우리 ONNX `aud_out_proj` + projection 슬라이스로 **특징 재현 가능**(G-A3S). `reports/C2_A0_notesoop.md` |
 | D-029 | 2026-11-02 | **A-9.1 카나리(텍스트) 통과**: VPS에서 동일 체크포인트로 export → 20입력 cosine FP32 **1.0**, Q8 **최소 0.99917/평균 0.99979** | 오디오 q8은 원본 그래프 부재로 미검증. `reports/A9_canary_parity.md` |
 | D-030 | 2026-11-02 | **C-D0 1차 조사**: Zeroth CC BY 4.0(즉시), FLEURS/Common Voice 공개, AI Hub·NIKL은 신청·약관 확인 필요. C4는 규칙 합성 우선, C5는 합성 격차 | LLM API 합성 필수 항목 없음 → G-DATA 제안서 보류. `reports/C-D0_public_data_survey.md` |
+| D-031 | 2026-11-02 | **B1.5-2 코퍼스 v2 빌드(부분 충족)**: 3,936문장, 토큰 162,710, 8층 캐시 1.33GB. 식별자 고유 582/800, ja/zh 자연문장 부족 | 형식·분할·틀 분리는 충족, 수량 미달. 보강 후 B1.5-1 권장 (`reports/B1_5_2_corpus.md`) |
 
 ## 미결 안건 (사용자 승인 필요)
 
