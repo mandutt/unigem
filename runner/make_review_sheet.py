@@ -7,7 +7,7 @@ import random
 
 ROOT = r"C:\code\unigem"
 D = os.path.join(ROOT, "data", "external")
-OUT = os.path.join(ROOT, "assets", "gdata_review_sheet.html")
+OUT = os.path.join(ROOT, "assets", "gdata_review_sheet_v2.html")
 
 HTML = """<!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
@@ -118,8 +118,8 @@ render(); renderProgress();
 
 
 def main():
-    f6 = [json.loads(l) for l in open(os.path.join(D, "f6_pairs.jsonl"), encoding="utf-8")]
-    f5 = [json.loads(l) for l in open(os.path.join(D, "f5_pairs.jsonl"), encoding="utf-8")]
+    f6 = [json.loads(l) for l in open(os.path.join(D, "f6_pairs_v2.jsonl"), encoding="utf-8")]
+    f5 = [json.loads(l) for l in open(os.path.join(D, "f5_pairs_v2.jsonl"), encoding="utf-8")]
     rng = random.Random(0)
     items = []
     for r in rng.sample(f6, 50):
