@@ -1,0 +1,30 @@
+{
+  "test-00000-of-00001-a41b955a631e582e.parquet": {
+    "size": 59817445,
+    "sha256": "10c10f7f36d85c27c89b5fe2b7b560a04f5c1fd453f8005e95a397be86b4d97e"
+  },
+  "train-00000-of-00006-6f62b6637bde6a2a.parquet": {
+    "size": 452602458,
+    "sha256": "efda0af0c6e5db85604b2a7eb65b74c4c9c9a5cb30b72076e2fcf9470a0e82fc"
+  },
+  "train-00001-of-00006-a6254d939f218ad2.parquet": {
+    "size": 399428479,
+    "sha256": "8857758331632ecb7b0e134fef4e97c58ef713788c13828d69d2151df4699540"
+  },
+  "train-00002-of-00006-b7145cf53a2c538b.parquet": {
+    "size": 493828335,
+    "sha256": "764fcaf29bbb1e92d8e6afdbd29712fc7daeffbf454700ac1d57b257a0619506"
+  },
+  "train-00003-of-00006-eee3a0e1b02f4f15.parquet": {
+    "size": 470412901,
+    "sha256": "53578b15e1c486bb1af8d1078dbe272f0c074739806969eeeaf7c6890dc24c85"
+  },
+  "train-00004-of-00006-c19f5a576971a222.parquet": {
+    "size": 489844946,
+    "sha256": "a41168cc2c72f9a02a684e21a032acc41ff929a3d65f469c76696fb8a0a9a018"
+  },
+  "train-00005-of-00006-bed24b01dd0a0946.parquet": {
+    "size": 508860431,
+    "sha256": "589eff0753d495971db78e28307ed3b7136c0d30c05b7962b5feef5c3de96b97"
+  }
+}
