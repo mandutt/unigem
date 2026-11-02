@@ -7,12 +7,12 @@ import random
 
 ROOT = r"C:\code\unigem"
 D = os.path.join(ROOT, "data", "external")
-OUT = os.path.join(ROOT, "assets", "gdata_review_sheet_v2.html")
+OUT = os.path.join(ROOT, "assets", "gdata_review_sheet_v4.html")
 
 HTML = """<!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>G-DATA 1단계 검토</title>
+<title>G-DATA v4 검토</title>
 <style>
 :root{--bg:#0f1115;--card:#171a21;--fg:#e8eaf0;--mut:#9aa3b2;--acc:#4f8cff;--ok:#37c26a;--bad:#e05555;--line:#262b36}
 *{box-sizing:border-box}
@@ -43,9 +43,9 @@ footer button.ghost{background:#222838;color:var(--fg)}
 .hint{color:var(--mut);font-size:12px;text-align:center;margin:8px 0 0}
 </style></head><body>
 <header>
-  <h1>G-DATA 1단계 검토 <span style="color:var(--mut);font-weight:400;font-size:12px">— 출력이 입력에 비추어 적절한가?</span></h1>
+  <h1>G-DATA v4 검토 <span style="color:var(--mut);font-weight:400;font-size:12px">— 출력이 입력에 비추어 적절한가?</span></h1>
   <div class="bar"><i id="pb"></i></div>
-  <div class="meta"><span id="prog">0 / 0</span><span>1=부적합 · 2=보통 · 3=적합</span></div>
+  <div class="meta"><span id="prog">0 / 0</span><span>F6: 왼쪽=오류문, 오른쪽=교정문 · 1=부적합 · 2=보통 · 3=적합</span></div>
 </header>
 <div class="tabs">
   <button data-f="all" class="on">전체</button><button data-f="F6">F6 교정</button><button data-f="F5">F5 요약</button>
@@ -119,11 +119,11 @@ render(); renderProgress();
 
 def main():
     f6 = [json.loads(l) for l in open(os.path.join(D, "f6_pairs_v2.jsonl"), encoding="utf-8")]
-    f5 = [json.loads(l) for l in open(os.path.join(D, "f5_pairs_v2.jsonl"), encoding="utf-8")]
+    f5 = [json.loads(l) for l in open(os.path.join(D, "f5_pairs_v3.jsonl"), encoding="utf-8")]
     rng = random.Random(0)
     items = []
     for r in rng.sample(f6, 50):
-        items.append({"kind": "F6", "id": r["id"], "input": r["correct"], "output": r["error"]})
+        items.append({"kind": "F6", "id": r["id"], "input": r["error"], "output": r["correct"]})
     for r in rng.sample(f5, 50):
         items.append({"kind": "F5", "id": r["id"], "input": r["passage"][:1500], "output": r["summary"]})
     rng.shuffle(items)
