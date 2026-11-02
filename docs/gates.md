@@ -13,9 +13,9 @@
 | G-A3S *(제안)* | Notesoop 특징 재현 | ONNX FP32 프레임별 cosine ≥ 0.99, Q8 ≥ 0.98 | 재현 불가 시 PyTorch 유지/폐기 | 로컬 + vps-1 | **게이트 승인(D-015)** — 재현 경로 확인(`aud_out_proj`→projection[:256]→L2), 미측정 |
 | G-A4 | A4 | Q8 vs FP32 층별 cosine ≥ 0.98, 언어 판정 일치율 ≥ 99% | 심각한 품질 저하/속도 악화 | 로컬 | **PASS** — 층별 cos 0.9977, LID 44/44 (`reports/A4_q8_perf.md`) |
 | G-B1 (이력) | B1 | 숫자·식별자 토큰 복원 ≥ 95%, 전체 ≥ 98% | 전 층 미달 시 F4/F5의 EG2 hidden 사용 폐기 | VPS 가능 | **l00 = layer0 출력 확인(임베딩 아님, cos 0.99998), 의도는 B1.5에서 검증** (AM-2, D-021, `reports/B1_5_0_layer_definition.md`) |
-| G-B1.5-a | 표면 정보 보존 | 후보 층 전체 토큰 정확도 ≥98%, 실제 식별자·숫자 span exact ≥95% (틀 단위 분리 테스트, Wilson 하한 ≥ 기준−5%p) | 미달 시 해당 층 폐기 | VPS | 미측정 |
+| G-B1.5-a | 표면 정보 보존 | 후보 층 전체 토큰 정확도 ≥98%, 실제 식별자·숫자 span exact ≥95% (틀 단위 분리 테스트, Wilson 하한 ≥ 기준−5%p) | 미달 시 해당 층 폐기 | VPS | **FAIL** — l00 0.8856, l04 0.8175 (<0.98) (`reports/B1_5_4_copy_fidelity.md`) |
 | G-B1.5-b | 문맥 가치 | BL-1(l00 ±2창) 대비 +3%p 이상, T1~T3 중 2개 이상, 부트스트랩 하한 > 0 | 미달 시 EG2 텍스트 hidden 폐기 | VPS | **FAIL (1/3)** — T1 +10.6%p(CI +3.4~+17.3), T2 +1.87%p(미달), T3 −0.67%p(천장) (`reports/B1_5_3_context_value.md`) |
-| G-B1.5-c | Q8 견고성 | 후보 층 FP32→Q8 정확도 하락 ≤ 2%p | 초과 시 FP32 유지/재학습 | 로컬/VPS | 미측정 |
+| G-B1.5-c | Q8 견고성 | 후보 층 FP32→Q8 정확도 하락 ≤ 2%p | 초과 시 FP32 유지/재학습 | 로컬/VPS | **PASS** — l00 0.043%p, l04 −0.059%p (`reports/B1_5_5_q8.md`) |
 | G-B1.5-d (선택) | 복사 충실도 | 슬롯 exact ≥95%, l00 대비 −3%p 이내, 환각 ≤1% | 미달 시 F5 EG2 결합 보류 | VPS | 미측정 |
 | G-C1 | C1 | top-1 ≥ 70%, top-3 ≥ 85%, margin 통과 후 부적절 태그 ≤ 5% | 도메인 갭 크면 라벨 체계 재설계 | 이미지 지연은 로컬 | 미측정 |
 | G-C2 | C2 | smoke loss 수렴 + FLEURS ko test greedy CER ≤ 15% | 불수렴/CER 크게 초과 | CER 어디서나, RTF·RAM 로컬 | 미측정 |
