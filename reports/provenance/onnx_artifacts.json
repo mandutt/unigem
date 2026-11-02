@@ -1,0 +1,50 @@
+[
+  {
+    "name": "eg2_text_research_fp32.onnx",
+    "path": "onnx/eg2_text_research_fp32.onnx",
+    "size": 5285487,
+    "sha256": "d55432f9af8aadb271db61b730d2fe46a31ca858dd4af6eb82a95bb6f65edf8e",
+    "origin": "PyTorch dynamo export (opset 21), 9 outputs",
+    "regen": ".venv/Scripts/python.exe onnx/export_text.py --out onnx/eg2_text_research_fp32.onnx --seq 16"
+  },
+  {
+    "name": "eg2_text_research_fp32.onnx.data",
+    "path": "onnx/eg2_text_research_fp32.onnx.data",
+    "size": 1083993600,
+    "sha256": "62d80161d4115dd3046f3f11ef342720c797305f8005a35725fe9f01ac3105e5",
+    "origin": "external data of eg2_text_research_fp32.onnx",
+    "regen": "same as eg2_text_research_fp32.onnx"
+  },
+  {
+    "name": "eg2_text_research_q8.onnx",
+    "path": "onnx/eg2_text_research_q8.onnx",
+    "size": 4929716,
+    "sha256": "34e210a68ffae64252f7c910fee362adca29772c0be9c33cb399faa376579b65",
+    "origin": "MatMulNBits 8bit/block128/acc4 quantization of research FP32",
+    "regen": ".venv/Scripts/python.exe onnx/quantize_q8.py --input onnx/eg2_text_research_fp32.onnx --output onnx/eg2_text_research_q8.onnx"
+  },
+  {
+    "name": "eg2_text_research_q8.onnx.data",
+    "path": "onnx/eg2_text_research_q8.onnx_data",
+    "size": 679208960,
+    "sha256": "b5b0ca0821cb86d7838bc1d95a0cff5bcac3d47812c8b004e2dfd2495c85d717",
+    "origin": "external data of eg2_text_research_q8.onnx",
+    "regen": "same as eg2_text_research_q8.onnx"
+  },
+  {
+    "name": "eg2_audio_research_fp32_t500.onnx",
+    "path": "onnx/eg2_audio_research_fp32_t500.onnx",
+    "size": 9483265,
+    "sha256": "ccde2d3b62babda91bf767b6b930b8fd532f6d20a76ce0ba83c347a6bf0192bd",
+    "origin": "PyTorch dynamo export static/optimize=False, T=500",
+    "regen": ".venv/Scripts/python.exe onnx/export_audio.py --mel 500 --static --out onnx/eg2_audio_research_fp32_t500.onnx"
+  },
+  {
+    "name": "eg2_audio_research_fp32_t500.onnx.data",
+    "path": "onnx/eg2_audio_research_fp32_t500.onnx.data",
+    "size": 1222446080,
+    "sha256": "8ca5dfd5abcb501035928869c4dacd51cde67c79be8bfb91cabe80564eb4cf75",
+    "origin": "external data of audio t500",
+    "regen": "same as eg2_audio_research_fp32_t500.onnx"
+  }
+]
