@@ -138,3 +138,39 @@ snapshot_download("ZhuOnR/ShowUI_Web", repo_type="dataset",
 - 비상업 라이선스이므로 연구 평가에만 사용한다.
 - AI Hub 문서요약(원문 40만/요약 80만)은 사용자가 신청 예정.
 
+## 12. AI Hub 데이터 (2026-11-02 사용자 다운로드)
+
+경로: `C:\code\dataset\ai_hub\` (프로젝트 외부, 원본 zip 유지)
+
+### 12.1 문서요약 텍스트 (dataSetSn=97)
+
+| 항목 | 값 |
+|---|---|
+| 규모 | zip 6개, **402MB** |
+| 구성 | Training 3 + Validation 3 (법률/사설/신문기사) |
+| 문서 수 | **365,206** (train 325,072 / valid 40,134) |
+| 필드 | `title`, `text[]`(문장·highlight_indices), `extractive[]`(문장 인덱스), `abstractive[]`(요약문), `document_quality_scores` |
+| 비고 | 공식 40만 건 중 **잡지 카테고리 없음**(신문 30만/기고 6만/법률 3만 중 일부) |
+
+### 12.2 요약·기계독해 말뭉치 (dataPckageSn=3)
+
+| 항목 | 값 |
+|---|---|
+| 규모 | **36GB**, 하위 19개 데이터 |
+| 주요 | 022 요약문·레포트 **146,771 train + 18,300 valid** passage, `summary1~3` |
+| 기타 | 018 논문자료 요약 1.7GB, 029 구매도서 말뭉치 17GB, 전문분야 14GB, 153 기술과학 요약 307MB, 157 사실성 검증 314MB |
+| 비고 | 022는 **passage 단위 JSON 146,771개**(zip 내 개별 파일) |
+
+### 12.3 인터페이스(자판/음성)별 고빈도 오류 교정 (dataSetSn=71560)
+
+| 항목 | 값 |
+|---|---|
+| 규모 | zip 24개(원천 12 + 라벨 12), **45MB** |
+| 레코드 | **205,550** (train 180,700 / valid 24,850) |
+| 범주 | 오탈자 88,000 / 띄어쓰기·문장부호 36,000 / 음성인식 24,000 / 자동생성 18,000 / 맞춤법 14,400 / 자주 틀리는 맞춤법 300 (train 기준) |
+| 필드 | `annotation.err_sentence`, `cor_sentence`, `err_sentence_spell`, `errors[]`(`err_location`, `err_text`, `cor_text`, `err_details`) |
+| 비고 | 공식 290,500문장 중 일부(6범주). 원천·라벨 zip 분리 |
+
+- 라이선스: **AI Hub 이용약관**(내국인 신청·승인). 상업적 활용은 별도 조건 확인 필요.
+- 가공 없이 zip을 스트리밍으로 읽는다(`zipfile` + `ijson`).
+
