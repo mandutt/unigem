@@ -108,10 +108,18 @@ snapshot_download("google/t5gemma-2-270m-270m", local_dir="data/models/t5gemma-2
 
 | 자산 | 크기 | 라이선스 | 위치 |
 |---|---|---|---|
-| ShowUI_Web | **15.94GB**(22,000 스크린샷/576,000 요소) | **Apache-2.0** | `data/raw/showui_web/` (다운로드 중) |
+| ShowUI_Web 어노테이션 | `samples.json` 304MB (22,000 화면/576,000 요소 bbox) | **Apache-2.0** | `data/raw/showui_web/samples.json` |
+| ShowUI_Web 이미지 부분집합 | **540장**, 전체 711MB | Apache-2.0 | `data/raw/showui_web/data/` |
 
 - 출처: HF `ZhuOnR/ShowUI_Web` (Show Lab NUS + Microsoft)
-- 용도: C1 이모지 태깅 평가 이미지(웹 UI)
+- **전체 이미지 22,000장(약 16GB)은 받지 않았다.** 파일당 전송이 느려(≈1.5s/파일) 대표 540장 + 전체 어노테이션만 확보.
+- 전체가 필요할 때:
+```python
+from huggingface_hub import snapshot_download
+snapshot_download("ZhuOnR/ShowUI_Web", repo_type="dataset",
+                  allow_patterns=["data/**"], local_dir="data/raw/showui_web")
+```
+- 용도: C1 이모지 태깅 평가 이미지(웹 UI). 어노테이션의 bbox를 이모지 후보표와 매칭.
 
 ## 10. C3 디코더 학습 데이터 (2026-11-02 확보)
 
