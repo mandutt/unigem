@@ -10,8 +10,8 @@
 | 출처 | OpenSLR 40 — https://www.openslr.org/resources/40/zeroth_korean.tar.gz |
 | 라이선스 | **CC BY 4.0** |
 | 규모 | 51.6h train + 1.2h test(457발화), 약 9.6GB |
-| 로컬 경로 | `data/raw/zeroth/zeroth_korean.tar.gz` |
-| SHA256 | (다운로드 완료 후 기록) |
+| 로컬 경로 | `data/raw/zeroth/zeroth_korean.tar.gz`(다운로드 중), `data/raw/zeroth/zeroth_test.parquet` |
+| SHA256 | test parquet `10c10f7f36d85c27c89b5fe2b7b560a04f5c1fd453f8005e95a397be86b4d97e` (59,817,445 B) / tar은 완료 후 기록 |
 | 용도 | Notesoop/komixv2 CER 기준선(C2-A1) |
 
 재획득:
@@ -66,3 +66,22 @@ snapshot_download("google/t5gemma-2-270m-270m", local_dir="data/models/t5gemma-2
 | NIKL 맞춤법 교정 말뭉치 | 신청 필요, 비상업 제한 가능 |
 | Common Voice ko | CC0, 필요 시 즉시 다운로드 가능(미착수) |
 | RICO(UI 화면) | 연구용 라이선스 확인 필요 |
+
+## 6. COCO val2017 (C1 후보)
+
+| 항목 | 값 |
+|---|---|
+| 출처 | https://cocodataset.org — `val2017.zip`(778MB), `annotations_trainval2017.zip`(242MB) |
+| 라이선스 | 이미지별 Flickr 라이선스, 주석 CC BY 4.0 |
+| 로컬 | `data/raw/coco/` |
+| 용도 | 비전 태깅 후보 이미지(사진 30장 선별) |
+
+## 7. 이모지 데이터 (C1 후보표)
+
+| 항목 | 값 |
+|---|---|
+| 출처 | Unicode `emoji-test.txt`(656KB), CLDR `annotations_ko.xml`(350KB)/`en.xml`(290KB) |
+| 라이선스 | Unicode License |
+| 로컬 | `data/raw/emoji/` |
+| 용도 | 이모지 후보표·한국어 명칭 |
+
