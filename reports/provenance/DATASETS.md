@@ -7,17 +7,21 @@
 
 | 항목 | 값 |
 |---|---|
-| 출처 | OpenSLR 40 — https://www.openslr.org/resources/40/zeroth_korean.tar.gz |
+| 출처 | HF 미러 `Bingsu/zeroth-korean` (원본 OpenSLR 40의 재배포), rev `bd173fe2c8ed0ddc47acb4eda77542593651622` |
 | 라이선스 | **CC BY 4.0** |
-| 규모 | 51.6h train + 1.2h test(457발화), 약 9.6GB |
-| 로컬 경로 | `data/raw/zeroth/zeroth_korean.tar.gz`(다운로드 중), `data/raw/zeroth/zeroth_test.parquet` |
-| SHA256 | test parquet `10c10f7f36d85c27c89b5fe2b7b560a04f5c1fd453f8005e95a397be86b4d97e` (59,817,445 B) / tar은 완료 후 기록 |
+| 규모 | 51.6h train + 1.2h test(457발화), parquet 7개 **2,874,794,995 B (2.7GB)** |
+| 로컬 경로 | `data/raw/zeroth/data/*.parquet` |
+| SHA256 | 파일별 목록 `reports/provenance/zeroth_sha256.json` (test `10c10f7f…`) |
 | 용도 | Notesoop/komixv2 CER 기준선(C2-A1) |
 
 재획득:
-```bash
-curl -L -C - -o zeroth_korean.tar.gz https://www.openslr.org/resources/40/zeroth_korean.tar.gz
+```python
+from huggingface_hub import snapshot_download
+snapshot_download("Bingsu/zeroth-korean", repo_type="dataset",
+                  allow_patterns=["data/*.parquet"], local_dir="data/raw/zeroth")
 ```
+
+- 참고: OpenSLR 원본 tar(9.6GB)는 전송 속도가 느려 중단하고 HF 미러로 대체했다. 오디오 내용은 동일 계열이나, 원본과의 바이트 일치는 별도 검증하지 않았다.
 
 ## 2. FLEURS (자연 문장·다국어)
 
