@@ -5,6 +5,8 @@
 - 호스트: `local`
 - 산출물: `logs/C0_tokenizer.json`
 
+> **갱신(2026-11-02)**: T5Gemma 2 접근 승인 후 최종 결과를 §6에 추가했다. §1~§5는 승인 전 기록이다.
+
 ## 1. T5Gemma 2 접근 상태
 
 - 대상: `google/t5gemma-2-270m-270m`
@@ -43,3 +45,40 @@ T5Gemma 2는 Gemma 3 기반이므로, 공개 미러 `unsloth/gemma-3-270m`의 �
 
 1. 사용자: HF `google/t5gemma-2-270m-270m` access request.
 2. 승인 후: tokenizer/config 재확인 → H4 최종 판정, C0 보고서 갱신.
+
+## 6. 최종 결과 (승인 후, 2026-11-02)
+
+### 6.1 토크나이저 (실측)
+
+| 항목 | EG2 | T5Gemma 2 | 판정 |
+|---|---|---|---|
+| vocab | 262,144 | 262,144 | 동일 |
+| tokenizer SHA256 | `4d777ef5…` | `4c763186…` | 다름 |
+| 공유 문자열 | — | 262,124 | 99.992% |
+| **id까지 같은 토큰** | — | 255,938 | |
+| **id가 다른 공유 토큰** | — | **6,186** | |
+| 고유 토큰 | 20 (`<\|video\|>`, `<\|tool_call\|>` …) | 20 (`<image_soft_token>`, `<unused…>` …) | |
+| 분할 | 동일 | 동일 | |
+| 특수 토큰 | `<eos>` 자동 부착 | 없음 | |
+
+**H4 기각** — 문자열은 거의 같지만 id 1:1 정렬은 불가능하다. A4(id 정렬 전제)는 성립하지 않는다.
+
+### 6.2 디코더 (config 실측)
+
+| 항목 | 값 |
+|---|---|
+| hidden | 640 |
+| layers | 18 |
+| heads / head_dim | 4 / 256 |
+| FFN | 2,048 |
+| attention | sliding(6주기) + full |
+| vocab | 262,144 |
+| max position | 32,768 |
+| dtype | bfloat16 |
+
+- 파라미터 추정: 임베딩 167.8M + 층 ~90M ≈ **258M**
+- 크기: bf16 ≈ **0.52GB**, fp32 ≈ **1.03GB** → 온디맨드 디코더로 현실적
+
+### 6.3 산출물
+
+- `eval/c0_tokenizer.py`, `eval/c0_compare.py`, `logs/C0_tokenizer.json`
