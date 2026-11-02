@@ -18,7 +18,7 @@
 | G-B1.5-c | Q8 견고성 | 후보 층 FP32→Q8 정확도 하락 ≤ 2%p | 초과 시 FP32 유지/재학습 | 로컬/VPS | **PASS** — l00 0.043%p, l04 −0.059%p (`reports/B1_5_5_q8.md`) |
 | G-B1.5-d (선택) | 복사 충실도 | 슬롯 exact ≥95%, l00 대비 −3%p 이내, 환각 ≤1% | 미달 시 F5 EG2 결합 보류 | VPS | 미측정 |
 | G-C1 | C1 | top-1 ≥ 70%, top-3 ≥ 85%, margin 통과 후 부적절 태그 ≤ 5% | 도메인 갭 크면 라벨 체계 재설계 | 이미지 지연은 로컬 | 미측정 |
-| G-C2 | C2 | smoke loss 수렴 + FLEURS ko test greedy CER ≤ 15% | 불수렴/CER 크게 초과 | CER 어디서나, RTF·RAM 로컬 | 미측정 |
+| G-C2 | C2 | smoke loss 수렴 + FLEURS ko test greedy CER ≤ 15% | 불수렴/CER 크게 초과 | CER 어디서나, RTF·RAM 로컬 | **FAIL** — FLEURS ko 382클립 CER **17.41%**(공백 제거 19.10%), WER 38.37%, KenLM 미적용 (`reports/C2_A1_cer.md`) |
 | G-C2a *(제안)* | Notesoop 호환성 | Q8 ONNX 특징 사용 시 CER 상대 증가 ≤ 10% | 초과 시 C2-A3 (i)~(iii) 사용자 결정 | 로컬 | **게이트 승인(D-015)** — 미측정 |
 | G-C3 | C3 | §C3 채택 규칙 (A2가 A1 대비 −2%p 이내 + RAM/지연 이득) | 크게 열세면 EG2 연결 폐기 | 후보 재측정 로컬 | 미측정 |
 | G-C4 | C4 | 정상 문장 보존률 ≥ 99.5%, 과교정률 ≤ 0.5% | 정상 문장 빈번 변경 | VPS 가능 | 미측정 |
