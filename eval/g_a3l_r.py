@@ -154,7 +154,7 @@ def compare(old_path, new_path, out_path):
 
     rows = []
     agree = 0
-    for k, vo, vn in zip(o["keys"], n["vecs"]):
+    for k, vo, vn in zip(o["keys"], o["vecs"], n["vecs"]):
         truth = str(k).split(":")[0]
         ro, rn = det.detect(vo), det.detect(vn)
         lo = "unknown" if ro.unknown else ro.label
