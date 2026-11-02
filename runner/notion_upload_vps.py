@@ -27,7 +27,8 @@ def load_token(explicit=None):
     if os.environ.get("NOTION_TOKEN"):
         return os.environ["NOTION_TOKEN"]
     for p in ("/data/home/unigem/notiondrive.toml",
-              os.path.expanduser("~/.notiondrive.toml")):
+              os.path.expanduser("~/.notiondrive.toml"),
+              r"C:\code\pimade\notiondrive\notiondrive.toml"):
         if os.path.exists(p):
             m = re.search(r'token\s*=\s*"([^"]+)"', open(p, encoding="utf-8").read())
             if m:
