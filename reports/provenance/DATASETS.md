@@ -174,3 +174,19 @@ snapshot_download("ZhuOnR/ShowUI_Web", repo_type="dataset",
 - 라이선스: **AI Hub 이용약관**(내국인 신청·승인). 상업적 활용은 별도 조건 확인 필요.
 - 가공 없이 zip을 스트리밍으로 읽는다(`zipfile` + `ijson`).
 
+### 12.4 Notion 백업 (2026-11-02)
+
+- 페이지: `AI Hub Datasets` (`40c1f1de-06e4-818f-8921-f3e4e5a7d636`), 상위 `Datasets`
+- 감사: 기대 5 / 보유 5, 누락 0
+
+| 업로드 파일 | 원본 | 압축 크기 | SHA256 |
+|---|---|---|---|
+| `aihub_error_correction.zip` | 71560 오류 교정 | 46.6MB | `logs/aihub_backup.json` |
+| `aihub_docsum_text.zip` | 097 문서요약 | 420.7MB | 〃 |
+| `aihub_022_summary_report.zip` | 022 요약문·레포트 | 495.6MB | 〃 |
+| `aihub_018_paper_summary.zip` | 018 논문자료 요약 | 1,755.7MB | 〃 |
+| `AIHUB_BACKUP_MANIFEST.md` | 인벤토리·재획득 절차 | — | — |
+
+- **제외**: 029 구매도서(17GB), 전문분야(14GB), 기타 소형 — 매니페스트에 경로·파일 수·바이트 기록.
+- 재획득: AI Hub 로그인 후 동일 데이터셋 재다운로드(승인 유지). 매니페스트의 크기·구성과 대조.
+
