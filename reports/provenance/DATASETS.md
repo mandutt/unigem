@@ -90,3 +90,17 @@ snapshot_download("google/t5gemma-2-270m-270m", local_dir="data/models/t5gemma-2
 | 로컬 | `data/raw/emoji/` |
 | 용도 | 이모지 후보표·한국어 명칭 |
 
+## 8. C2 평가 자산 (Notesoop 비교)
+
+| 자산 | 크기 | 위치·출처 |
+|---|---|---|
+| Notesoop 리더 가중치 | 137,379,319 B | HF `Phsoft-ai/Notesoop-STT-Ko-v1` → `checkpoints/best_reader_inference.pt` |
+| KenLM 3-gram | 86,738,030 B | 동일 repo → `data/vocab/korean_lm.bin` |
+| vector bank | 12,801,093 B | 동일 repo → `data/vocab/vector_bank_25k.pt` |
+| vocab 25k | 1,152,753 B | 동일 repo → `data/vocab/vocab_25k.json` |
+| sample_audio | 96,044 B | 동일 repo → `sample_audio.wav` |
+| komixv2 (ct2) | 740MB | `%LOCALAPPDATA%/jev-mem/bench/run-20261024-embedgemma2ko/komixv2-ct2` |
+| faster-whisper large-v3-turbo | HF 캐시 | `deepdml/faster-whisper-large-v3-turbo-ct2` |
+| FLEURS ko test 오디오 | 205MB | `C:\code\eg2-langidentifier\data\raw\fleurs_cache\ko_kr_test.tar.gz` |
+| Zeroth test | 457발화/1.19h | `data/raw/zeroth/data/test-*.parquet` |
+
