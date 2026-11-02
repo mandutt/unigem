@@ -104,3 +104,29 @@ snapshot_download("google/t5gemma-2-270m-270m", local_dir="data/models/t5gemma-2
 | FLEURS ko test 오디오 | 205MB | `C:\code\eg2-langidentifier\data\raw\fleurs_cache\ko_kr_test.tar.gz` |
 | Zeroth test | 457발화/1.19h | `data/raw/zeroth/data/test-*.parquet` |
 
+## 9. C1 UI 데이터 (2026-11-02 확보)
+
+| 자산 | 크기 | 라이선스 | 위치 |
+|---|---|---|---|
+| ShowUI_Web | **15.94GB**(22,000 스크린샷/576,000 요소) | **Apache-2.0** | `data/raw/showui_web/` (다운로드 중) |
+
+- 출처: HF `ZhuOnR/ShowUI_Web` (Show Lab NUS + Microsoft)
+- 용도: C1 이모지 태깅 평가 이미지(웹 UI)
+
+## 10. C3 디코더 학습 데이터 (2026-11-02 확보)
+
+| 자산 | 크기 | 라이선스 | 위치 |
+|---|---|---|---|
+| open-korean-instructions | 745MB (375K행) | 소스별 혼재(NC 포함) | `data/raw/ko_instruct/` |
+| kullm-v2 | 252MB (152K) | Apache-2.0 | `data/raw/kullm_v2/` |
+| KITE | 270KB (527 지시) | Apache-2.0 | `data/raw/kite/` |
+
+## 11. C5 요약 데이터 (2026-11-02 확보)
+
+| 자산 | 크기 | 라이선스 | 위치 |
+|---|---|---|---|
+| XL-Sum Korean | tar 5.7MB → **5,507건**(train 4,407 / val 550 / test 550) | **CC BY-NC-SA 4.0** | `data/raw/xlsum/korean/*.jsonl` |
+
+- 비상업 라이선스이므로 연구 평가에만 사용한다.
+- AI Hub 문서요약(원문 40만/요약 80만)은 사용자가 신청 예정.
+
