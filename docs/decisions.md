@@ -62,6 +62,7 @@
 | D-049 | 2026-11-02 | **Addendum C 검토 후 사용자 결정 5건**: ① G-C2a는 **PASS(측정)**으로 병기, 게이트 승인은 CP-C1 ② **VPS 5대 기동(C-14 배분)** ③ komixv2·faster-whisper **읽기 전용 참조 승인** ④ F4-v2 정상문 **2,000문장 확대** ⑤ **G-DATA 1단계(3,000쌍, $25) 승인** — 개정안 작성 후 호출 | VPS 5대 running 확인. 제공자·모델(CP-C2) 확정 전 호출 금지 (`reports/Addendum_C_review.md`, `reports/G-DATA_proposal.md`) |
 | D-057 | 2026-11-03 | **Addendum D 수신·CP-C1 확정**: `docs/addendum_D.md` 316줄, SHA256 `c9d7ed025a80260f9d8450b209b5bc20230d56949deaf290afe1c7afb8e87be2`. **F2 제품 경로 = 기존 komixv2/whisper**(인제스트 라우팅 불변), **D = 연구 트랙**. **G-C2a 승인**(Q8 특징, 상대 −0.12%). **D-γ 불허, D-γ′·D-δ 보류**. AM-9/AM-10·R-D1/R-D2 사전등록, VPS 5대 분산 | G-C2 15%·G-A3L-R 99% 등 기존 임계값 불변. D-β 4-arm 파일럿 승인(단, errata E-2/E-3 적용) |
 | D-058 | 2026-11-03 | **Addendum D errata 채택**(`docs/addendum_D_errata.md`, SHA256 `f62a3615136da2eda2a0e3e5121f1e73e20cdde8aa212161d5c899801803fe23`): ① D0-a 정규화 라벨 정정(17.41=공백 포함, 19.10=공백 무시; 신 16.93/18.96) ② F-A는 `aud_out_proj` 1536 ③ F-B/F-C Q8 hidden parity 선행 ④ H=6h ⑤ R-D1 20%≠G-C2 ⑥ 라벨 시트 HTML ⑦ P1 clean 1,600/700 재사용 ⑧ G-A3S p1/p5 추가 | errata가 Addendum D 본문과 충돌하면 errata 우선. D-057과 동시 적용 |
+| D-059 | 2026-11-03 | **Wave 0 결과**: D0-a 정규화 라벨 정정(17.41=공백 포함/19.10=공백 무시; 신 16.93/18.96), D0-e Q8 hidden parity(6/8/10 p1 ≥0.9997, 11층 0.9973, 256d p1 0.9959), D0-b 탐색적 다운스트림, D0-c VPS 5대 기동·오디오 Q8 5대 배포(sha 일치)·eg2-1 카나리 cos 1.0, D0-d 추출 RTF 로컬 0.0292/VPS 0.0227 | D0-c/D0-e 완료. **D0-d reader epoch probe 미실시**, D-β Wave 1 전 필요. VPS 5대 stopped |
 
 ## 미결 안건 (사용자 승인 필요)
 
