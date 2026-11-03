@@ -1,0 +1,38 @@
+{
+  "audio_features": {
+    "n": 400,
+    "cos_mean": 1.0,
+    "cos_min": 0.9999999999999998,
+    "max_abs": 0.0
+  },
+  "aud_h_l06": {
+    "n": 400,
+    "cos_mean": 1.0,
+    "cos_min": 0.9999999999999999,
+    "max_abs": 0.0
+  },
+  "aud_h_l08": {
+    "n": 400,
+    "cos_mean": 1.0,
+    "cos_min": 0.9999999999999998,
+    "max_abs": 0.0
+  },
+  "aud_h_l10": {
+    "n": 400,
+    "cos_mean": 1.0,
+    "cos_min": 0.9999999999999998,
+    "max_abs": 0.0
+  },
+  "aud_h_l11": {
+    "n": 400,
+    "cos_mean": 1.0,
+    "cos_min": 0.9999999999999998,
+    "max_abs": 0.0
+  },
+  "aud_out_proj": {
+    "n": 400,
+    "cos_mean": 1.0,
+    "cos_min": 0.9999999999999999,
+    "max_abs": 0.0
+  }
+}

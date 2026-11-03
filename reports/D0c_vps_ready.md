@@ -2,7 +2,7 @@
 
 - 작성: 2026-11-03
 - 대상: Addendum D §D0-c
-- 상태: **부분 완료 — 5대 running/venv/디스크 확인. 오디오 Q8 그래프 배포 진행 중**
+- 상태: **완료(그래프 배포·카나리 포함)** — 5대 running/venv/디스크/그래프 확인
 - 호스트: eg2-1~eg2-5 (InstaBox 계정 B)
 
 ## 1. 기동
@@ -30,15 +30,17 @@
 - HF 접속 HTTP 200, 0.07~0.08s (latency only; throughput 미측정).
 - eg2-1에만 `models/embeddinggemma-2-f9972ac2/model.safetensors` (1,488,915,288B)가 있다. eg2-2~5에는 모델이 없다.
 
-## 3. 발견: 오디오 Q8 그래프가 없다
+## 3. 오디오 Q8 그래프 배포
 
 D-β는 `eg2_audio_q8_layers.onnx`(또는 동등한 다층 오디오 그래프)가 각 호스트에 필요하다. 현재 VPS에는 **text ONNX만** 있다.
 
-- eg2-1에 `export_audio_new.py`로 FP32 t1600_l12를 export했다(9.3MB + 1.2GB data, 11:57).
-- `quantize_q8_new.py`로 Q8을 만들었지만 **1.2GB**로 줄지 않았다(MatMul만 양자화; Conv/기타 가중치 FP32 잔존).
-- 따라서 연구용 Q8 1.2GB는 5대 배포에 부적합하다.
-- **로컬 운영 Q8 그래프**(`onnx/eg2_audio_q8_layers.onnx` 246KB + `_data` 325MB)를 eg2-1에 전송 중이다(SCP, `-C`).
-- 전송 후 eg2-1에서 ORT 로드·카나리를 확인하고, 나머지 4대는 eg2-1의 공개 HTTP(또는 허용된 전송 경로)로 325MB를 받는 방식이 필요하다.
+- eg2-1에 `export_audio_new.py`로 FP32 t1600_l12를 export했다(9.3MB + 1.2GB data). `quantize_q8_new.py`로 만든 Q8도 **1.2GB**로, MatMul 외 가중치가 FP32로 남아 5대 배포에 부적합했다.
+- 대신 **로컬 운영 Q8 그래프**(`eg2_audio_q8_layers.onnx` 246KB + `_data` 325MB)를 eg2-1에 SCP로 전송하고, eg2-1의 공개 HTTP(`https://8090-agqvineqfebuv74ez7zv6v6n2y.instabox.tech`)로 2~5에 배포했다.
+- 5대 모두 sha256이 로컬과 일치한다:
+  - graph `03e0ad8608cdbc810ddee3e8ab78b46675e5ef1615929d0b63476aa171c52d59`
+  - data `aa6361d898e1f1d6303f8dd2b5fabf4fd3629e15fd709e9cb06ac5cb9416a030`
+- 5대 모두 ORT로 14개 출력 로드에 성공했다.
+- eg2-1에서 로컬 기준 출력과 비교: `audio_features`/6·8·10·11층/`aud_out_proj` 모두 **cos 최소 1.0, 최대 절대 오차 0.0** (`reports/provenance/D0c_audio_canary.json`).
 
 ## 4. D0-c 잔여 항목
 
@@ -47,21 +49,20 @@ D-β는 `eg2_audio_q8_layers.onnx`(또는 동등한 다층 오디오 그래프)�
 | 5대 기동 | **완료** |
 | venv lock 일치 | **완료** |
 | 디스크/RAM/네트워크 | **완료(기본)** |
-| 오디오 Q8 그래프 배포 | **진행 중** (로컬→eg2-1 SCP) |
-| 오디오 Q8 카나리 parity | **대기** (그래프 도착 후) |
-| 나머지 4대 그래프 배포 | **대기** (전송 경로 확정 후) |
-| D0-d cost probe | **대기** (eg2-1 그래프 도착 후) |
+| 오디오 Q8 그래프 배포 | **완료** — 5대 sha 일치 |
+| 오디오 Q8 카나리 parity | **완료(eg2-1)** — cos 1.0, maxabs 0.0 |
+| 나머지 4대 그래프 배포 | **완료** — 5대 sha 일치, ORT 로드 성공 |
+| D0-d cost probe | **대기**(다음 단계) |
 
 ## 5. 판정
 
-**D0-c는 아직 완료가 아니다.** 5대는 정상 기동했고 venv/디스크/네트워크 기본 점검은 통과했지만, **D-β 학습에 필요한 오디오 Q8 그래프가 각 호스트에 없어** Wave 1을 시작할 수 없다.
+**D0-c 완료.** 5대 running, lock/디스크/네트워크 기본 점검, 오디오 Q8 그래프 5대 배포(sha 일치), eg2-1 카나리 cos 1.0/maxabs 0.0을 확인했다.
 
 다음 순서:
-1. 로컬→eg2-1 Q8 그래프 전송 완료 확인
-2. eg2-1에서 ORT 로드 + 로컬 대비 카나리 cosine
-3. eg2-1 → eg2-2~5 배포 경로 확정·실행
-4. D0-d 비용 probe (eg2-1 또는 각 호스트)
-5. 그래프가 준비된 뒤에만 D-β Wave 1
+1. D0-d 비용 probe (추출 RTF·reader 1 epoch)
+2. D-β Wave 1 (F-D/F-A′/F-B/F-C)
+3. D-β 데이터 목록·H=6h 확정
+4. A1 timing probe (vps-5)
 
 ## 6. AM-6 이행 표
 
@@ -70,9 +71,9 @@ D-β는 `eg2_audio_q8_layers.onnx`(또는 동등한 다층 오디오 그래프)�
 | 5대 기동 | 이행 |
 | 호스트별 df/RAM/시계/네트워크 | 부분 — df/RAM/HF latency; 대역폭 미측정 |
 | venv lock 일치 | 이행 |
-| 모델 SHA256 | **미이행** — checkpoint는 eg2-1만, 오디오 그래프는 배포 중 |
-| 오디오 Q8 카나리 | **대기** |
-| 데이터 예산 확정 | 부분 — free 13~15G 확인 |
+| 모델 SHA256 | **이행** — Q8 graph/data 5대 sha 일치; checkpoint는 eg2-1만 |
+| 오디오 Q8 카나리 | **이행(eg2-1)** — cos 1.0, maxabs 0.0 |
+| 데이터 예산 확정 | 부분 — free 13~15G 확인, F-C 6h 4.4GB 가능 |
 
 ## 7. 산출물
 
