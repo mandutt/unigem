@@ -64,6 +64,7 @@
 | D-058 | 2026-11-03 | **Addendum D errata 채택**(`docs/addendum_D_errata.md`, SHA256 `f62a3615136da2eda2a0e3e5121f1e73e20cdde8aa212161d5c899801803fe23`): ① D0-a 정규화 라벨 정정(17.41=공백 포함, 19.10=공백 무시; 신 16.93/18.96) ② F-A는 `aud_out_proj` 1536 ③ F-B/F-C Q8 hidden parity 선행 ④ H=6h ⑤ R-D1 20%≠G-C2 ⑥ 라벨 시트 HTML ⑦ P1 clean 1,600/700 재사용 ⑧ G-A3S p1/p5 추가 | errata가 Addendum D 본문과 충돌하면 errata 우선. D-057과 동시 적용 |
 | D-059 | 2026-11-03 | **Wave 0 결과**: D0-a 정규화 라벨 정정(17.41=공백 포함/19.10=공백 무시; 신 16.93/18.96), D0-e Q8 hidden parity(6/8/10 p1 ≥0.9997, 11층 0.9973, 256d p1 0.9959), D0-b 탐색적 다운스트림, D0-c VPS 5대 기동·오디오 Q8 5대 배포(sha 일치)·eg2-1 카나리 cos 1.0, D0-d 추출 RTF 로컬 0.0292/VPS 0.0227 | D0-c/D0-e 완료. **D0-d reader epoch probe 미실시**, D-β Wave 1 전 필요. VPS 5대 stopped |
 | D-060 | 2026-11-03 | **D0-d 완료·Wave 0 종료**: D-5.5 reader(4층 Transformer d384/6head/FF1536) 구현, **8.65M params**. 합성 비용 probe — 로컬 1.452s/step·6h epoch 4.09분·peak 1,452MB; eg2-1 1.180s/step·3.32분·peak 1,655MB. 20 epoch 66~82분으로 48h 한도 내 | 실제 데이터 수렴은 D-β Wave 1에서 측정. VPS 5대 stopped |
+| D-061 | 2026-11-03 | **D-β Wave 1 데이터 확정**: 6.0008h/2,384클립 — Zeroth 3.9001h(1,534, 화자 ID 없음) + Kconf 2.1007h(850, 3화자). 16초 이하만 사용. dev는 Kspon eval_clean 100(0.079h). FLEURS dev 미확보로 FLEURS test는 최종 1회까지 미사용. **한계: 낭독 구간 speaker-disjoint 불가** | F-C는 4층 concat(4096) 후 reader 선형 투영 — Addendum의 softmax 가중 합과 완전 동일하지 않음. F-A′는 `aud_out_proj` 1536 |
 
 ## 미결 안건 (사용자 승인 필요)
 
