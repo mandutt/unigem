@@ -142,6 +142,7 @@ def evaluate_cer(model, d, vocab, batch=8):
     off = d["offsets"].astype(np.int64) if flat else None
     texts = [str(x).replace(" ", "") for x in d["texts"]]
     chars = vocab["chars"]
+    was_training = model.training
     model.eval()
     preds = []
     with torch.no_grad():
@@ -166,6 +167,7 @@ def evaluate_cer(model, d, vocab, batch=8):
                     prev = v
                 preds.append("".join(out))
     from eval.normalize import _edit_distance
+    model.train(was_training)
     err = sum(_edit_distance(p, t) for p, t in zip(preds, texts))
     ref = sum(len(t) for t in texts)
     return err / max(1, ref), err, ref
@@ -279,6 +281,7 @@ def decode_npz(args):
     model = CTCReader(ck["in_dim"], ck["vocab"], d=ck["d_model"], layers=ck["layers"],
                       heads=ck["heads"], ff=ck["ff"], dropout=0.0)
     model.load_state_dict(ck["model"])
+    was_training = model.training
     model.eval()
     preds = []
     with torch.no_grad():
@@ -303,9 +306,17 @@ def decode_npz(args):
                         out.append(chars[v - 1])
                     prev = v
                 preds.append("".join(out))
+    ids = [str(x) for x in d["ids"]]
     err = sum(_edit_distance(p.replace(" ", ""), t.replace(" ", "")) for p, t in zip(preds, texts))
     ref = sum(len(t.replace(" ", "")) for t in texts)
-    out = {"n": len(texts), "cer": err / max(1, ref), "errors": err, "ref_chars": ref}
+    sents = []
+    for i, p, t in zip(ids, preds, texts):
+        pp, tt = p.replace(" ", ""), t.replace(" ", "")
+        e = _edit_distance(pp, tt)
+        sents.append({"id": i, "ref": t, "pred": p, "err": e, "ref_chars": len(tt),
+                      "cer": e / max(1, len(tt))})
+    out = {"n": len(texts), "cer": err / max(1, ref), "errors": err, "ref_chars": ref,
+           "sentences": sents}
     print(json.dumps(out, ensure_ascii=False, indent=2))
     if args.out:
         json.dump(out, open(args.out, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
