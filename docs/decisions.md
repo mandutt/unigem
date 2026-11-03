@@ -63,6 +63,7 @@
 | D-057 | 2026-11-03 | **Addendum D 수신·CP-C1 확정**: `docs/addendum_D.md` 316줄, SHA256 `c9d7ed025a80260f9d8450b209b5bc20230d56949deaf290afe1c7afb8e87be2`. **F2 제품 경로 = 기존 komixv2/whisper**(인제스트 라우팅 불변), **D = 연구 트랙**. **G-C2a 승인**(Q8 특징, 상대 −0.12%). **D-γ 불허, D-γ′·D-δ 보류**. AM-9/AM-10·R-D1/R-D2 사전등록, VPS 5대 분산 | G-C2 15%·G-A3L-R 99% 등 기존 임계값 불변. D-β 4-arm 파일럿 승인(단, errata E-2/E-3 적용) |
 | D-058 | 2026-11-03 | **Addendum D errata 채택**(`docs/addendum_D_errata.md`, SHA256 `f62a3615136da2eda2a0e3e5121f1e73e20cdde8aa212161d5c899801803fe23`): ① D0-a 정규화 라벨 정정(17.41=공백 포함, 19.10=공백 무시; 신 16.93/18.96) ② F-A는 `aud_out_proj` 1536 ③ F-B/F-C Q8 hidden parity 선행 ④ H=6h ⑤ R-D1 20%≠G-C2 ⑥ 라벨 시트 HTML ⑦ P1 clean 1,600/700 재사용 ⑧ G-A3S p1/p5 추가 | errata가 Addendum D 본문과 충돌하면 errata 우선. D-057과 동시 적용 |
 | D-059 | 2026-11-03 | **Wave 0 결과**: D0-a 정규화 라벨 정정(17.41=공백 포함/19.10=공백 무시; 신 16.93/18.96), D0-e Q8 hidden parity(6/8/10 p1 ≥0.9997, 11층 0.9973, 256d p1 0.9959), D0-b 탐색적 다운스트림, D0-c VPS 5대 기동·오디오 Q8 5대 배포(sha 일치)·eg2-1 카나리 cos 1.0, D0-d 추출 RTF 로컬 0.0292/VPS 0.0227 | D0-c/D0-e 완료. **D0-d reader epoch probe 미실시**, D-β Wave 1 전 필요. VPS 5대 stopped |
+| D-060 | 2026-11-03 | **D0-d 완료·Wave 0 종료**: D-5.5 reader(4층 Transformer d384/6head/FF1536) 구현, **8.65M params**. 합성 비용 probe — 로컬 1.452s/step·6h epoch 4.09분·peak 1,452MB; eg2-1 1.180s/step·3.32분·peak 1,655MB. 20 epoch 66~82분으로 48h 한도 내 | 실제 데이터 수렴은 D-β Wave 1에서 측정. VPS 5대 stopped |
 
 ## 미결 안건 (사용자 승인 필요)
 
