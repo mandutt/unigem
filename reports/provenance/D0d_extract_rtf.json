@@ -1,0 +1,6 @@
+{
+  "input": "random mel [1,1600,128], mask all true, 16s equivalent",
+  "local": {"threads": 6, "sec_per_16s": 0.4677115440368652, "rtf": 0.029231971502304076},
+  "eg2_1": {"threads": 4, "sec_per_16s": 0.36353776454925535, "rtf": 0.02272111028432846},
+  "note": "graph-only; preprocessing excluded"
+}
