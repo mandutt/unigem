@@ -1,0 +1,25 @@
+features=(2384, 400, 256) clips=2384 chars=1069 flat=False
+/data/home/unigem/train/d5_reader.py:50: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc, num_layers=layers)
+params=7609262
+epoch 1/20 loss=5.9332 steps=298 sec=259.1 dev_cer=1.0000 (1808/1808)
+epoch 2/20 loss=5.4186 steps=298 sec=1010.9 dev_cer=1.0000 (1808/1808)
+epoch 3/20 loss=4.8774 steps=298 sec=1061.7 dev_cer=0.9773 (1767/1808)
+epoch 4/20 loss=3.7120 steps=298 sec=1087.6 dev_cer=0.8844 (1599/1808)
+epoch 5/20 loss=2.6842 steps=298 sec=1079.9 dev_cer=0.8280 (1497/1808)
+epoch 6/20 loss=2.1388 steps=298 sec=1098.8 dev_cer=0.7489 (1354/1808)
+epoch 7/20 loss=1.8393 steps=298 sec=1093.6 dev_cer=0.7334 (1326/1808)
+epoch 8/20 loss=1.6422 steps=298 sec=1093.2 dev_cer=0.7135 (1290/1808)
+epoch 9/20 loss=1.5106 steps=298 sec=1076.7 dev_cer=0.7091 (1282/1808)
+epoch 10/20 loss=1.4085 steps=298 sec=1059.4 dev_cer=0.6919 (1251/1808)
+epoch 11/20 loss=1.3090 steps=298 sec=1053.5 dev_cer=0.6621 (1197/1808)
+epoch 12/20 loss=1.2287 steps=298 sec=1048.6 dev_cer=0.6576 (1189/1808)
+epoch 13/20 loss=1.1510 steps=298 sec=1054.3 dev_cer=0.6720 (1215/1808)
+epoch 14/20 loss=1.0844 steps=298 sec=1037.2 dev_cer=0.6549 (1184/1808)
+epoch 15/20 loss=1.0213 steps=298 sec=1054.7 dev_cer=0.6565 (1187/1808)
+epoch 16/20 loss=0.9714 steps=298 sec=1041.7 dev_cer=0.6444 (1165/1808)
+epoch 17/20 loss=0.9307 steps=298 sec=1031.0 dev_cer=0.6433 (1163/1808)
+epoch 18/20 loss=0.9031 steps=298 sec=1051.5 dev_cer=0.6477 (1171/1808)
+epoch 19/20 loss=0.8862 steps=298 sec=1087.5 dev_cer=0.6455 (1167/1808)
+epoch 20/20 loss=0.8767 steps=298 sec=1030.5 dev_cer=0.6444 (1165/1808)
+saved train/ckpt/fd.pt

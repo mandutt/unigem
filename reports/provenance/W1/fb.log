@@ -1,0 +1,18 @@
+features=(2384, 400, 1024) clips=2384 chars=1069 flat=False
+/data/home/unigem/train/d5_reader.py:50: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.encoder = nn.TransformerEncoder(enc, num_layers=layers)
+params=7904174
+epoch 1/20 loss=3.5432 steps=298 sec=253.1 dev_cer=0.5481 (991/1808)
+epoch 2/20 loss=1.0575 steps=298 sec=994.6 dev_cer=0.5166 (934/1808)
+epoch 3/20 loss=0.7849 steps=298 sec=1026.6 dev_cer=0.4856 (878/1808)
+epoch 4/20 loss=0.6109 steps=298 sec=1042.5 dev_cer=0.4939 (893/1808)
+epoch 5/20 loss=0.4539 steps=298 sec=1007.8 dev_cer=0.4840 (875/1808)
+epoch 6/20 loss=0.3216 steps=298 sec=1020.8 dev_cer=0.4873 (881/1808)
+epoch 7/20 loss=0.2142 steps=298 sec=1002.6 dev_cer=0.4679 (846/1808)
+epoch 8/20 loss=0.1373 steps=298 sec=1015.8 dev_cer=0.4735 (856/1808)
+epoch 9/20 loss=0.0861 steps=298 sec=985.8 dev_cer=0.4723 (854/1808)
+epoch 10/20 loss=0.0556 steps=298 sec=982.1 dev_cer=0.4685 (847/1808)
+epoch 11/20 loss=0.0315 steps=298 sec=977.0 dev_cer=0.4701 (850/1808)
+epoch 12/20 loss=0.0192 steps=298 sec=978.9 dev_cer=0.4768 (862/1808)
+early stop patience=5 best=0.4679
+saved train/ckpt/fb.pt
