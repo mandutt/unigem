@@ -224,7 +224,7 @@
 
 - 6시간 데이터·동결 타워·4층 reader 조건에서, 256d readout(F-D)은 1536/1024/4096 특징보다 **명확히 나쁘다**.
 - richer feature를 쓰면 dev CER이 0.59 → 0.39로 내려간다. 이는 “LM/projection 이전 특징을 쓰는 것이 낫다”는 방향과 일치한다.
-- 6시간 조건에서 문자 단위 CTC reader는 **학습은 된다**. F-D도 20 epoch에서 0.59까지 내려갔고, 초기 blank plateau는 정상이다.
+- 6시간 조건에서 문자 단위 CTC reader는 **학습은 된다**. F-D도 17 epoch에서 0.5909까지 내려갔고(20 epoch까지 학습), 초기 blank plateau는 정상이다.
 
 **의미하지 않는 것:**
 
