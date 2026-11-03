@@ -140,7 +140,8 @@ def evaluate_cer(model, d, vocab, batch=8):
     lens = d["lens"].astype(np.int64)
     flat = "offsets" in d.files
     off = d["offsets"].astype(np.int64) if flat else None
-    texts = [str(x).replace(" ", "") for x in d["texts"]]
+    from eval.normalize import _edit_distance, normalize_nospace
+    texts = [normalize_nospace(str(x)) for x in d["texts"]]
     chars = vocab["chars"]
     was_training = model.training
     model.eval()
@@ -166,9 +167,8 @@ def evaluate_cer(model, d, vocab, batch=8):
                         out.append(chars[v - 1])
                     prev = v
                 preds.append("".join(out))
-    from eval.normalize import _edit_distance
     model.train(was_training)
-    err = sum(_edit_distance(p, t) for p, t in zip(preds, texts))
+    err = sum(_edit_distance(normalize_nospace(p), t) for p, t in zip(preds, texts))
     ref = sum(len(t) for t in texts)
     return err / max(1, ref), err, ref
 
@@ -267,7 +267,7 @@ def train_from_npz(args):
 def decode_npz(args):
     import sys
     sys.path.insert(0, str(__import__("pathlib").Path(__file__).resolve().parent.parent))
-    from eval.normalize import _edit_distance
+    from eval.normalize import _edit_distance, normalize_nospace
     torch.set_num_threads(args.threads)
     d = np.load(args.features, allow_pickle=True)
     feats = d["feats"]
@@ -307,16 +307,21 @@ def decode_npz(args):
                     prev = v
                 preds.append("".join(out))
     ids = [str(x) for x in d["ids"]]
-    err = sum(_edit_distance(p.replace(" ", ""), t.replace(" ", "")) for p, t in zip(preds, texts))
-    ref = sum(len(t.replace(" ", "")) for t in texts)
+    refs_norm = [normalize_nospace(t) for t in texts]
+    preds_norm = [normalize_nospace(p) for p in preds]
+    err = sum(_edit_distance(p, t) for p, t in zip(preds_norm, refs_norm))
+    ref = sum(len(t) for t in refs_norm)
+    raw_err = sum(_edit_distance(p.replace(" ", ""), t.replace(" ", "")) for p, t in zip(preds, texts))
+    raw_ref = sum(len(t.replace(" ", "")) for t in texts)
     sents = []
     for i, p, t in zip(ids, preds, texts):
-        pp, tt = p.replace(" ", ""), t.replace(" ", "")
+        pp, tt = normalize_nospace(p), normalize_nospace(t)
         e = _edit_distance(pp, tt)
-        sents.append({"id": i, "ref": t, "pred": p, "err": e, "ref_chars": len(tt),
-                      "cer": e / max(1, len(tt))})
+        sents.append({"id": i, "ref": t, "pred": p, "ref_norm": tt, "pred_norm": pp,
+                      "err": e, "ref_chars": len(tt), "cer": e / max(1, len(tt))})
     out = {"n": len(texts), "cer": err / max(1, ref), "errors": err, "ref_chars": ref,
-           "sentences": sents}
+           "cer_raw": raw_err / max(1, raw_ref), "raw_errors": raw_err, "raw_ref_chars": raw_ref,
+           "normalization": "normalize_nospace", "sentences": sents}
     print(json.dumps(out, ensure_ascii=False, indent=2))
     if args.out:
         json.dump(out, open(args.out, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
