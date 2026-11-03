@@ -1,0 +1,17 @@
+{
+  "n": 382,
+  "systems": {
+    "old": {
+      "cer_space": 0.17410115519404665,
+      "cer_nospace": 0.19096810612475304
+    },
+    "new": {
+      "cer_space": 0.16933408922419432,
+      "cer_nospace": 0.18959276018099547
+    }
+  },
+  "delta_space_mean": -0.0032565660801016833,
+  "delta_nospace_mean": -0.0010037316672493893,
+  "improved_space": 67,
+  "improved_nospace": 17
+}
