@@ -1,0 +1,83 @@
+{
+  "started": [
+    {
+      "id": "m_agqvineqfebuv74ez7zv6v6n2y",
+      "status": 202,
+      "body": {
+        "id": "op_agq2cqrf6s3jx2ejzohnmqug7u",
+        "machineId": "m_agqvineqfebuv74ez7zv6v6n2y",
+        "type": "start",
+        "state": "queued",
+        "error": null,
+        "createdAt": "2026-11-03T11:53:49.297284Z",
+        "updatedAt": "2026-11-03T11:53:49.297284Z"
+      }
+    },
+    {
+      "id": "m_agqzpndd2jpljlr5pf2ofdhxyy",
+      "status": 202,
+      "body": {
+        "id": "op_agq2cqrh3l4znbvw4aajhlgb5q",
+        "machineId": "m_agqzpndd2jpljlr5pf2ofdhxyy",
+        "type": "start",
+        "state": "queued",
+        "error": null,
+        "createdAt": "2026-11-03T11:53:49.770481Z",
+        "updatedAt": "2026-11-03T11:53:49.770481Z"
+      }
+    },
+    {
+      "id": "m_agqzpnfti4esxlyq5zdhyctpkm",
+      "status": 202,
+      "body": {
+        "id": "op_agq2cqrjmjtv4ab7exrb47lbmm",
+        "machineId": "m_agqzpnfti4esxlyq5zdhyctpkm",
+        "type": "start",
+        "state": "queued",
+        "error": null,
+        "createdAt": "2026-11-03T11:53:50.174709Z",
+        "updatedAt": "2026-11-03T11:53:50.174709Z"
+      }
+    },
+    {
+      "id": "m_agqzpngbsjctcaitgohs3smm64",
+      "status": 202,
+      "body": {
+        "id": "op_agq2cqyvkpbobhjqmb3pds7wpa",
+        "machineId": "m_agqzpngbsjctcaitgohs3smm64",
+        "type": "start",
+        "state": "queued",
+        "error": null,
+        "createdAt": "2026-11-03T11:54:50.57703Z",
+        "updatedAt": "2026-11-03T11:54:50.57703Z"
+      }
+    },
+    {
+      "id": "m_agqzpnpzuh3dzxotnrqkr3xoay",
+      "status": 202,
+      "body": {
+        "id": "op_agq2cqyxe4xepst3btd2m2xrre",
+        "machineId": "m_agqzpnpzuh3dzxotnrqkr3xoay",
+        "type": "start",
+        "state": "queued",
+        "error": null,
+        "createdAt": "2026-11-03T11:54:51.042281Z",
+        "updatedAt": "2026-11-03T11:54:51.042281Z"
+      }
+    }
+  ],
+  "states": {
+    "m_agqvineqfebuv74ez7zv6v6n2y": "running",
+    "m_agqzpndd2jpljlr5pf2ofdhxyy": "running",
+    "m_agqzpnfti4esxlyq5zdhyctpkm": "running",
+    "m_agqzpngbsjctcaitgohs3smm64": "running",
+    "m_agqzpnpzuh3dzxotnrqkr3xoay": "running"
+  },
+  "ids": [
+    "m_agqvineqfebuv74ez7zv6v6n2y",
+    "m_agqzpndd2jpljlr5pf2ofdhxyy",
+    "m_agqzpnfti4esxlyq5zdhyctpkm",
+    "m_agqzpngbsjctcaitgohs3smm64",
+    "m_agqzpnpzuh3dzxotnrqkr3xoay"
+  ]
+}

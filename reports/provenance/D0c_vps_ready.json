@@ -1,0 +1,67 @@
+{
+  "eg2-1": {
+    "id": "m_agqvineqfebuv74ez7zv6v6n2y",
+    "state": "running",
+    "http": 200,
+    "resp": {
+      "stdout": "instabox-eg2-1\n4\n               total        used        free      shared  buff/cache   available\nMem:            7964         464        7422           3         303        7499\n/dev/vdb         20G  4.8G   15G  25% /data\nPython 3.13.5\n6cccf5e9dde43d06ddbd020f46a6696be5bb6e592dd7abb1ab130ebfcf310470  /data/home/unigem/lock_linux.txt\n4.4G\t/data/home/unigem\n5033303 /data/home/unigem/onnx/eg2_text_q8_vps.onnx\n5403172 /data/home/unigem/onnx/eg2_text_fp32_vps.onnx\nHF 200 0.078035s\n",
+      "stderr": "",
+      "exitCode": 0,
+      "timedOut": false,
+      "truncated": false,
+      "oomKilled": false
+    }
+  },
+  "eg2-2": {
+    "id": "m_agqzpndd2jpljlr5pf2ofdhxyy",
+    "state": "running",
+    "http": 200,
+    "resp": {
+      "stdout": "instabox-eg2-2\n4\n               total        used        free      shared  buff/cache   available\nMem:            7964         351        7627           0         205        7613\n/dev/vdb         20G  5.6G   14G  29% /data\nPython 3.13.5\n6cccf5e9dde43d06ddbd020f46a6696be5bb6e592dd7abb1ab130ebfcf310470  /data/home/unigem/lock_linux.txt\n1.3G\t/data/home/unigem\nHF 200 0.078980s\n",
+      "stderr": "",
+      "exitCode": 0,
+      "timedOut": false,
+      "truncated": false,
+      "oomKilled": false
+    }
+  },
+  "eg2-3": {
+    "id": "m_agqzpnfti4esxlyq5zdhyctpkm",
+    "state": "running",
+    "http": 200,
+    "resp": {
+      "stdout": "instabox-eg2-3\n4\n               total        used        free      shared  buff/cache   available\nMem:            7964         451        7457           3         280        7513\n/dev/vdb         20G  5.6G   14G  29% /data\nPython 3.13.5\n6cccf5e9dde43d06ddbd020f46a6696be5bb6e592dd7abb1ab130ebfcf310470  /data/home/unigem/lock_linux.txt\n1.3G\t/data/home/unigem\nHF 200 0.079491s\n",
+      "stderr": "",
+      "exitCode": 0,
+      "timedOut": false,
+      "truncated": false,
+      "oomKilled": false
+    }
+  },
+  "eg2-4": {
+    "id": "m_agqzpngbsjctcaitgohs3smm64",
+    "state": "running",
+    "http": 200,
+    "resp": {
+      "stdout": "instabox-eg2-4\n4\n               total        used        free      shared  buff/cache   available\nMem:            7964         355        7622           0         205        7608\n/dev/vdb         20G  5.6G   14G  29% /data\nPython 3.13.5\n6cccf5e9dde43d06ddbd020f46a6696be5bb6e592dd7abb1ab130ebfcf310470  /data/home/unigem/lock_linux.txt\n1.3G\t/data/home/unigem\nHF 200 0.070441s\n",
+      "stderr": "",
+      "exitCode": 0,
+      "timedOut": false,
+      "truncated": false,
+      "oomKilled": false
+    }
+  },
+  "eg2-5": {
+    "id": "m_agqzpnpzuh3dzxotnrqkr3xoay",
+    "state": "running",
+    "http": 200,
+    "resp": {
+      "stdout": "instabox-eg2-5\n4\n               total        used        free      shared  buff/cache   available\nMem:            7964         353        7625           0         205        7611\n/dev/vdb         20G  5.6G   14G  29% /data\nPython 3.13.5\n6cccf5e9dde43d06ddbd020f46a6696be5bb6e592dd7abb1ab130ebfcf310470  /data/home/unigem/lock_linux.txt\n1.3G\t/data/home/unigem\nHF 200 0.070487s\n",
+      "stderr": "",
+      "exitCode": 0,
+      "timedOut": false,
+      "truncated": false,
+      "oomKilled": false
+    }
+  }
+}
