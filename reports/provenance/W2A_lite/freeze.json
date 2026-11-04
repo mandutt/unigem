@@ -1,0 +1,18 @@
+{
+  "label": "W2A_lite_frozen_test_checkpoint",
+  "frozen_at_utc": "2026-11-04T06:45:00Z",
+  "arm": "F-C-concat",
+  "seed": 42,
+  "checkpoint": "data/wave2a_lite/frozen/w2a_fc_concat_s42.best.pt",
+  "checkpoint_sha256": "258f6ddf84b3f41afc0e88f832946229b3a1319d28cec11cd4a0da40951cb23d",
+  "dev_cer": 0.20913369800279863,
+  "dev_errors": 1644,
+  "dev_ref_chars": 7861,
+  "baseline": "F-A′ seed42 dev CER 0.22236356697621168",
+  "relative_improvement": 0.0595,
+  "selection_rule": "primary seed 42; seed43 is replication only; no seed shopping",
+  "test_manifests": {
+    "kspon_eval_other": "data/wave2a_lite/kspon_eval_other.jsonl",
+    "fleurs_test": "data/wave2a_lite/fleurs_test.jsonl"
+  }
+}

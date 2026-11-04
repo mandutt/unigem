@@ -1,0 +1,133 @@
+{
+  "label": "kspon_eval_other_frozen",
+  "reference_arm": "fc_concat",
+  "arms": {
+    "fc_concat": {
+      "n": 2962,
+      "cer": 0.35142690565530027,
+      "errors": 23508,
+      "ref_chars": 66893,
+      "decode_file_cer": 0.35142690565530027,
+      "pred_chars": 62067,
+      "pred_ref_ratio": 0.9278549325041484
+    }
+  },
+  "pairwise": {
+    "fc_concat": {
+      "improvement": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "n_boot": 1000,
+      "seed": 42
+    }
+  },
+  "taxonomy": {
+    "fc_concat": {
+      "deletion": 3309,
+      "substitution": 19816,
+      "insertion": 1157
+    }
+  },
+  "coverage": {
+    "fc_concat": {
+      "ref_chars": 66893,
+      "missing_types": 144,
+      "missing_tokens": 378,
+      "coverage": 0.9943491845185595,
+      "missing_top": [
+        [
+          "밌",
+          33
+        ],
+        [
+          "컬",
+          14
+        ],
+        [
+          "숟",
+          10
+        ],
+        [
+          "텀",
+          10
+        ],
+        [
+          "핸",
+          8
+        ],
+        [
+          "껄",
+          8
+        ],
+        [
+          "엉",
+          7
+        ],
+        [
+          "웬",
+          7
+        ],
+        [
+          "왼",
+          6
+        ],
+        [
+          "콕",
+          6
+        ],
+        [
+          "팬",
+          6
+        ],
+        [
+          "쟤",
+          6
+        ],
+        [
+          "샀",
+          5
+        ],
+        [
+          "걘",
+          5
+        ],
+        [
+          "빕",
+          5
+        ],
+        [
+          "꽉",
+          5
+        ],
+        [
+          "댓",
+          5
+        ],
+        [
+          "툰",
+          4
+        ],
+        [
+          "댔",
+          4
+        ],
+        [
+          "폈",
+          4
+        ]
+      ],
+      "sentences_all_known": 2659,
+      "sentences": 2962
+    }
+  },
+  "vocab_oracle": {
+    "fc_concat": {
+      "cer_known_only": 0.34895965396375567,
+      "errors": 23396,
+      "ref_chars": 67045,
+      "note": "diagnostic lower bound; not a model result"
+    }
+  }
+}
