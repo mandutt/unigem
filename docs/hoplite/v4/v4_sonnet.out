@@ -1,0 +1,32 @@
+I wrote the full Korean report to `docs/hoplite/v4/2026-11-04_hoplite-review_v4_SONNET.md`. It's the only file I changed.
+
+**Sync:** `git fetch origin` worked. `git pull --ff-only origin main` reported "Already up to date", so HEAD is `147d0d140b3a341d3b5fde5cd87c62fad6d470da`.
+
+**Reading the document:** The document tool returned condensed text for some chunks. I re-read all 586 lines in chunks of about 35 to 75 lines. I also spot-checked the numbers against `normalized_cer.json`, `docs/gates.md`, `docs/plan_wave2a.md`, `docs/decisions.md` and `reports/C2_A0_notesoop.md`.
+
+**What reproduced:** CER, R-D1 (34.30%), the pairwise CIs, coverage (98.35%), the 0.3742 target and the Wave 2A parameter counts all match.
+
+**What doesn't hold up:**
+- **Go/No-Go (§4.5):** both Go and No-Go lead to Wave 2B, so the rule decides nothing.
+- **Go threshold:** the 0.3742 target comes from the Kspon dev set, but Wave 2A moves to FLEURS dev, so the number no longer applies.
+- **Vocab:** the Wave 2A vocab has a space token while the training labels have no spaces.
+- **F-D control:** §3.7 says F-D's `[:256]` is not MRL, but D-028 and `C2_A0_notesoop.md` call Notesoop's 256d features MRL. Notesoop gets 18.96% on FLEURS from the same 256d input, which weakens the "256d bottleneck" reading. That last point is my inference.
+
+| Q | Verdict | One-line reason |
+|---|---|---|
+| Q1 | B — keep as exploratory | The gap holds up, but F-D differs in several ways at once and the Notesoop result cuts against the "bottleneck" reading. The normalization fix is a bug fix, not post-hoc. |
+| Q2 | Modify — a re-scoped "2A-lite" first | The current 2A can't separate three arms that are within 0.57 points; defer 2C (40h); don't stop yet. |
+| Q3 | Modify | The baseline must be re-trained on the new dev, 5% is about as wide as the CI, and a No-Go does not show "not a reader bottleneck". |
+| Q4 | Modify (close to option D) | The layer arms tie, so keep concat+linear as a comparator. |
+| Q5 | Keep character CTC | 6h can't train a 30k wordpiece head; leave spacing to F6; skip the vocab expansion. |
+| Q6 | Modify | Declare Kspon eval_other as the sealed test now; use FLEURS test once, for comparison only. |
+| Q7 | Modify | A three-point R-D2 extrapolation to 40h is weak; look at seeds and curve slope within 6h first. |
+| Q8 | Approve | Make these mandatory: overfit control, multiple seeds, per-domain CER, vocab oracle, fbank baseline. |
+| Q9 | Approve | Set a time and cost cap and stopping criteria now. |
+
+**Top three risks:**
+- The decision rule is non-discriminating and the dev set is inconsistent.
+- The conclusions drawn from the controls could be misread: F-D has no matched 512d or 256d+LayerNorm arm, and there's no fbank baseline.
+- Statistical power is low (one seed, 100 dev sentences), no clean final test has been declared, and the checkpoints exist only on the VPS.
+
+**Decide now:** the sealed test declaration, softer wording for Q1, a rewritten 2A, and the budget and stop rule. Defer 13-state mixing, wordpiece, 40h data, and 2B.
