@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
 import sys
 import time
 from pathlib import Path
@@ -57,6 +58,8 @@ def main():
     ap.add_argument("--arms", default="fd,fa,fb,fc")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--threads", type=int, default=6)
+    ap.add_argument("--fc-memmap", action="store_true",
+                    help="stream F-C frames to fc.feats.npy + metadata (avoids 8GB RAM)")
     a = ap.parse_args()
     out_dir = Path(a.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -100,6 +103,12 @@ def main():
                  "lens": np.zeros(len(rows), dtype=np.int32)}
              for k, (d, _) in arms.items() if k != "fc"}
     fc_parts = []
+    fc_lens = []
+    fc_bin = None
+    fc_bin_path = out_dir / "fc.frames.bin"
+    fc_frames = 0
+    if "fc" in arms and a.fc_memmap:
+        fc_bin = open(fc_bin_path, "wb")
     targets = []
     target_lens = []
     kept = []
@@ -143,7 +152,12 @@ def main():
         for k in arms:
             arr = arrs[k]
             if k == "fc":
-                fc_parts.append(arr.astype(np.float16))
+                fc_lens.append(n)
+                if a.fc_memmap:
+                    fc_bin.write(arr.astype(np.float16).tobytes())
+                    fc_frames += len(arr)
+                else:
+                    fc_parts.append(arr.astype(np.float16))
             else:
                 d = arms[k][0]
                 store[k]["feats"][j, :n, :d] = arr.astype(np.float16)
@@ -159,11 +173,23 @@ def main():
     target_lens = np.asarray(target_lens, dtype=np.int32)
     for k, (d, _) in arms.items():
         if k == "fc":
-            lens_np = np.asarray([len(p) for p in fc_parts], dtype=np.int32)
-            off = np.zeros(len(fc_parts) + 1, dtype=np.int64)
+            lens_np = np.asarray(fc_lens, dtype=np.int32)
+            off = np.zeros(len(fc_lens) + 1, dtype=np.int64)
             off[1:] = np.cumsum(lens_np)
-            payload = dict(feats=np.concatenate(fc_parts, axis=0) if fc_parts else np.zeros((0, d), np.float16),
-                           offsets=off, lens=lens_np)
+            if a.fc_memmap:
+                fc_bin.close()
+                npy = out_dir / "fc.feats.npy"
+                import numpy.lib.format as nf
+                with open(npy, "wb") as outf:
+                    nf.write_array_header_1_0(
+                        outf, {"descr": "<f2", "fortran_order": False, "shape": (fc_frames, d)})
+                    with open(fc_bin_path, "rb") as inf:
+                        shutil.copyfileobj(inf, outf)
+                fc_bin_path.unlink(missing_ok=True)
+                payload = dict(offsets=off, lens=lens_np)
+            else:
+                payload = dict(feats=np.concatenate(fc_parts, axis=0) if fc_parts else np.zeros((0, d), np.float16),
+                               offsets=off, lens=lens_np)
         else:
             payload = dict(feats=store[k]["feats"][:N], lens=store[k]["lens"][:N])
         np.savez_compressed(
