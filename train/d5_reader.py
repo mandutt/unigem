@@ -160,11 +160,12 @@ def probe(args):
     return out
 
 
-def evaluate_cer(model, d, vocab, batch=8, features_path=None):
+def evaluate_cer(model, d, vocab, batch=8, features_path=None, device="cpu"):
     """Greedy CTC CER on a feature npz; returns (cer, err, ref)."""
     import sys
     from pathlib import Path
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    device = torch.device(device)
     feats = _load_feats(d, features_path) if features_path else d["feats"]
     lens = d["lens"].astype(np.int64)
     flat = "offsets" in d.files
@@ -184,8 +185,8 @@ def evaluate_cer(model, d, vocab, batch=8, features_path=None):
                 rows = [np.pad(r, ((0, maxlen - len(r)), (0, 0))) if len(r) < maxlen else r for r in rows]
             else:
                 rows = [np.asarray(feats[i, :maxlen, :], dtype=np.float32) for i in ids]
-            x = torch.from_numpy(np.stack(rows, axis=0))
-            il = torch.from_numpy(lens[ids])
+            x = torch.from_numpy(np.stack(rows, axis=0)).to(device)
+            il = torch.from_numpy(lens[ids]).to(device)
             am = model(x, il).argmax(-1).cpu().numpy()
             for row, n in zip(am, lens[ids]):
                 out = []
@@ -220,6 +221,12 @@ def train_from_npz(args):
     from pathlib import Path
     torch.set_num_threads(args.threads)
     torch.manual_seed(args.seed)
+    device = torch.device(args.device if args.device == "cuda" and torch.cuda.is_available() else "cpu")
+    if args.device == "cuda" and device.type != "cuda":
+        print("WARNING: --device cuda requested but CUDA is unavailable; using CPU", flush=True)
+    if device.type == "cuda":
+        torch.cuda.manual_seed_all(args.seed)
+    print(f"device={device}", flush=True)
     d = np.load(args.features, allow_pickle=True)
     feats = _load_feats(d, args.features)
     lens = d["lens"].astype(np.int64)
@@ -248,6 +255,7 @@ def train_from_npz(args):
         model = CTCReader(in_dim, n_chars + 1, d=args.d_model, layers=args.layers,
                           heads=args.heads, ff=args.ff, dropout=args.dropout)
     print(f"arch={arch} params={count_params(model)}", flush=True)
+    model.to(device)
     if args.init_ckpt:
         ck = torch.load(args.init_ckpt, map_location="cpu", weights_only=False)
         state = ck["model"] if isinstance(ck, dict) and "model" in ck else ck
@@ -255,14 +263,39 @@ def train_from_npz(args):
         print(f"init_ckpt={args.init_ckpt} missing={len(missing)} unexpected={len(unexpected)}", flush=True)
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=max(1, args.epochs * max(1, len(lens) // (args.batch * args.grad_accum))))
+    start_epoch = 1
+    best = 1e9
+    patience = 0
+    if args.resume:
+        ck = torch.load(args.resume, map_location="cpu", weights_only=False)
+        model.load_state_dict(ck["model"])
+        if "optimizer" in ck:
+            opt.load_state_dict(ck["optimizer"])
+            for state in opt.state.values():
+                for k, v in state.items():
+                    if torch.is_tensor(v):
+                        state[k] = v.to(device)
+        if "scheduler" in ck:
+            sched.load_state_dict(ck["scheduler"])
+        start_epoch = int(ck.get("epoch", 0)) + 1
+        best = float(ck.get("best", best))
+        patience = int(ck.get("patience", patience))
+        if "torch_rng" in ck:
+            torch.set_rng_state(ck["torch_rng"])
+            if device.type == "cuda" and "cuda_rng" in ck:
+                torch.cuda.set_rng_state_all(ck["cuda_rng"])
+        if "numpy_rng" in ck:
+            np.random.set_state(ck["numpy_rng"])
+        print(f"resume={args.resume} start_epoch={start_epoch} best={best:.4f} patience={patience}", flush=True)
     # target offsets
     offsets = np.zeros(len(lens) + 1, dtype=np.int64)
     offsets[1:] = np.cumsum(target_lens)
-    np.random.seed(args.seed)
+    if not args.resume:
+        np.random.seed(args.seed)
     dev = np.load(args.dev_features, allow_pickle=True) if args.dev_features else None
-    best = 1e9
-    patience = 0
-    for ep in range(1, args.epochs + 1):
+    ckdir = Path(args.ckpt_dir)
+    ckdir.mkdir(parents=True, exist_ok=True)
+    for ep in range(start_epoch, args.epochs + 1):
         if args.sampler == "balanced":
             secs = lens.astype(np.float32) / 25.0
             b4 = secs <= 4.0
@@ -295,16 +328,16 @@ def train_from_npz(args):
                 rows = [np.pad(r, ((0, maxlen - len(r)), (0, 0))) if len(r) < maxlen else r for r in rows]
             else:
                 rows = [np.asarray(feats[i, :maxlen, :], dtype=np.float32) for i in ids]
-            x = torch.from_numpy(np.stack(rows, axis=0))
-            il = torch.from_numpy(lens[ids])
+            x = torch.from_numpy(np.stack(rows, axis=0)).to(device)
+            il = torch.from_numpy(lens[ids]).to(device)
             tgt = []
             tl = []
             for i in ids:
                 t = targets_all[offsets[i]:offsets[i + 1]]
                 tgt.append(t)
                 tl.append(len(t))
-            tgt = torch.from_numpy(np.concatenate(tgt).astype(np.int64))
-            tl = torch.from_numpy(np.asarray(tl, dtype=np.int64))
+            tgt = torch.from_numpy(np.concatenate(tgt).astype(np.int64)).to(device)
+            tl = torch.from_numpy(np.asarray(tl, dtype=np.int64)).to(device)
             logits = model(x, il)
             loss = F.ctc_loss(logits.log_softmax(-1).transpose(0, 1), tgt, il, tl,
                               blank=0, zero_infinity=True)
@@ -326,24 +359,28 @@ def train_from_npz(args):
         line = f"epoch {ep}/{args.epochs} loss={tot_loss/max(1,micro):.4f} steps={nb} micro={micro} sec={time.time()-t0:.1f}"
         if dev is not None:
             cer, err, ref = evaluate_cer(model, dev, vocab, batch=args.batch,
-                                         features_path=args.dev_features)
+                                         features_path=args.dev_features, device=device)
             line += f" dev_cer={cer:.4f} ({err}/{ref})"
             if cer < best - 1e-6:
                 best = cer
                 patience = 0
-                ckdir = Path(args.ckpt_dir); ckdir.mkdir(parents=True, exist_ok=True)
                 torch.save({"model": model.state_dict(), "in_dim": in_dim, "vocab": n_chars + 1,
                             "d_model": args.d_model, "layers": args.layers, "heads": args.heads,
                             "ff": args.ff, "arm": args.arm, "arch": arch, "dev_cer": cer}, ckdir / (args.arm + ".best.pt"))
             else:
                 patience += 1
-            if patience >= args.patience:
-                print(line, flush=True)
-                print(f"early stop patience={args.patience} best={best:.4f}", flush=True)
-                break
         print(line, flush=True)
-    ckdir = Path(args.ckpt_dir)
-    ckdir.mkdir(parents=True, exist_ok=True)
+        torch.save({"model": model.state_dict(), "optimizer": opt.state_dict(),
+                    "scheduler": sched.state_dict(), "epoch": ep, "best": best,
+                    "patience": patience, "torch_rng": torch.get_rng_state(),
+                    "cuda_rng": torch.cuda.get_rng_state_all() if device.type == "cuda" else None,
+                    "numpy_rng": np.random.get_state(),
+                    "in_dim": in_dim, "vocab": n_chars + 1, "d_model": args.d_model,
+                    "layers": args.layers, "heads": args.heads, "ff": args.ff,
+                    "arm": args.arm, "arch": arch}, ckdir / (args.arm + ".last.pt"))
+        if dev is not None and patience >= args.patience:
+            print(f"early stop patience={args.patience} best={best:.4f}", flush=True)
+            break
     out = ckdir / (args.arm + ".pt")
     torch.save({"model": model.state_dict(), "in_dim": in_dim, "vocab": n_chars + 1,
                 "d_model": args.d_model, "layers": args.layers, "heads": args.heads,
@@ -448,6 +485,8 @@ def main():
     ap.add_argument("--ckpt-dir", default="train/ckpt")
     ap.add_argument("--ckpt", default="")
     ap.add_argument("--init-ckpt", default="", help="initialize model weights from a 2A checkpoint (B0-prime warm start)")
+    ap.add_argument("--resume", default="", help="full checkpoint (model+optimizer+scheduler+epoch+RNG) to resume")
+    ap.add_argument("--device", default="cpu", choices=["cpu", "cuda"], help="training/eval device")
     ap.add_argument("--sampler", default="natural", choices=["natural", "balanced"],
                     help="B3 uses balanced; B0-prime/B3-nat use natural")
     ap.add_argument("--balanced-4", type=float, default=0.40)
