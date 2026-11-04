@@ -73,6 +73,10 @@
 | D-067 | 2026-11-04 | **Wave 2B+2C-short v3 — 3-AI v2 검토(3/3 B) 및 사용자 결정**: ① **vocab V1(2A 1,101 유지)** ② **B3-nat-A**(B3와 동일한 10h clip set, natural sampler; 별도 natural 4h 없음) ③ **full gate Δ≥1.0%p + paired utterance-bootstrap 95% CI 하한>0**, primary는 dev 500에서 선택·freeze ④ **test split은 ID 블록 감사 후 확정** ⑤ **test 0.5초 미만 28건은 평가 추출 하한 0.28초**로 처리하고 실제 CTC 실패는 오류 ⑥ **pilot은 reader-only B0′/B3/B3-nat 먼저**, LoRA B1/B2는 데이터 신호 후 조건부 | v3 정본 `docs/plan_wave2b_2c_short_v3.md`; v2는 이력. 3-AI v2 검토 원문 3건과 `reports/W2B_2C_SHORT_V2_3AI_SYNTHESIS.md` 기록. **short 4h 다운로드·선별·코드·학습·test는 아직 미착수**. V1의 short OOV 제외율이 5% 초과 시 V2 전환은 별도 승인. 일정은 LoRA sec/step 실측 전까지 7~10일+2일 버퍼의 잠정치 |
 | D-068 | 2026-11-04 | **eval_clean split 감사 완료 — 블록 split 미적용**: KsponSpeech 원논문은 eval_clean 3,000발화/60명 화자이며 **개인정보 보호를 위해 filename을 변경·shuffle**했다고 명시한다. 로컬 `eval_clean.trn`·zip에도 speaker ID가 없다. 따라서 연속 ID=화자/세션 블록이라는 가정이 성립하지 않으므로 **현재 duration 층화 split(dev 500/test 2,400/spare 90)을 유지**한다. test는 화자 독립이 아니며 utterance bootstrap만 사용한다 | 상세 `reports/W2B_split_audit.md`; v3 §1.5. 이후 test 2,400 audio 추출 전까지 split 변경 금지. short/B3-nat 선별 후 ID 중복만 재확인 |
 
+| D-069 | 2026-11-05 | **V2 vocabulary 전환·V2 데이터 확정**: V1 short 선별의 OOV 제외율이 **90.727%(88,575/97,628)**로 D-067의 5% 기준을 크게 초과 → V1으로 B3를 진행하지 않고 V2를 채택했다. V2는 **V1 1,101자 순서·ID를 보존하고 6h train manifest + V2 short 4h refs에서 신규 228자를 추가한 1,329자**(head 1,330행). V2 short는 **5,079클립/4.0016h**, 후보 OOV 제외율 **2.3753%**(<5%). dev OOV 1.0%(5/500), test OOV **1.875%(45/2,400), 문자 0.1299%(53/40,788)**, spare 1.11%. 2A head는 문자별 remap(shared 1,101)으로 V2 head에 복사하고 신규 행은 초기화했다. V1 B0′ 0.3663은 **V2 baseline이 아니다** | `runner/w2b_build_vocab_v2.py`, `runner/w2b_remap_ckpt.py`, `runner/w2b_select_short.py --vocab/--tag`, `reports/W2B_v2_data_ready.md`, `reports/provenance/W2B/v2_data_ready.json`. V2 10h cache: 7,463행/901,985 frames/10.0221h. B0′ V2 CPU 학습 시작; B3/B3-nat은 B0′ 완료 후 같은 remapped init으로 진행. |
+
+
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
