@@ -22,7 +22,7 @@ BASE = (r"C:\code\dataset\ai_hub\인터페이스(자판음성)별 고빈도 오�
         r"\143.인터페이스(자판-음성)별 고빈도 오류 교정 데이터\01-1.정식개방데이터\Training\02.라벨링데이터")
 MODEL = "rva/deepseek-ai/DeepSeek-V4.1-Flash-1017"
 URL = "http://127.0.0.1:20128/v1/chat/completions"
-N = 1000
+N = 1200
 BATCH = 5
 PII = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+|01\d{1}-\d{3,4}-\d{4}|\d{6}-\d{7}")
 
