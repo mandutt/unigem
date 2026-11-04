@@ -42,6 +42,7 @@
 
 - short/B3-nat 선별 후 ID 중복을 다시 검사한다.
 - eval_clean에 화자 ID가 없으므로 **화자 중복 0은 주장하지 않는다.**
+- **ID 블록 감사 결과: filename shuffle로 화자/세션 대응이 확인되지 않아 블록 split을 적용하지 않는다.** 현재 duration 층화 split을 유지한다. 상세 `reports/W2B_split_audit.md`.
 
 ## 4. 디스크·feature
 
