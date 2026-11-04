@@ -124,3 +124,22 @@ D-β 파일럿은 **연구 트랙**이며 제품 F2 경로를 바꾸지 않는�
 - 최종 256d 특징은 평균 0.999642, 최소 0.989480이다.
 - 프레임별 **최소·p1·p5**를 `reports/D0e_graph_taps.md`에 추가한다. p1/p5가 Q8 기준 0.98 미만이면 해당 arm은 FP32로 재측정한다.
 
+---
+
+## Wave 2A-lite 사전등록 (2026-11-04, D-064 승인)
+
+`docs/plan_wave2a_lite.md`가 실행 정본이다. 아래는 결과 확인 전에 고정한다.
+
+- **dev:** FLEURS ko dev. arm 선택·조기 종료에만 사용.
+- **주 gate:** Kspon eval_other(3.8h, 3,000발화), 체크포인트 동결 후 1회.
+- **비교용:** FLEURS ko test 382, 동결 후 1회. gate 판정에 쓰지 않음.
+- **은퇴:** Kspon eval_clean 100은 D 평가에서 영구 제외.
+- **arms:** F-A′, F-B, F-C-softmax(4-state), F-C-concat(comparator). 동일 6.0008h·vocab·reader·seed 42.
+- **기준선:** FLEURS dev에서 학습한 F-A′의 CER(`CER_FA_dev`). Kspon 0.3939를 쓰지 않는다.
+- **Go:** best arm이 `CER_FA_dev` 대비 상대 5% 이상 개선 & 문장 대응 부트스트랩 95% CI 하한 >0 & 1h subset overfit 통과 → Wave 2B.
+- **No-Go:** 위 미충족 → CP-D2. “reader/output unit 병목 아님”으로 단정하지 않고, 진단 후 2B/2C/중단을 결정. **자동 2B 금지.**
+- **필수 진단:** 1h overfit, seed 42 + best arm 43/44, per-domain CER, error taxonomy, blank/alignment, vocab oracle, fbank baseline, 가능한 경우 spacing/WER.
+- **제외:** 13-state mix, wordpiece, 40h/100h, D-γ′/LoRA, Q4/QAT, Jev, MaxSim. 별도 사전등록·승인 전 금지.
+- **예산:** 2A-lite 3~5일. 2B/2C 전체 예산은 CP-D2에서 별도 승인.
+- **미확보 시:** Kspon eval_other가 확보되지 않으면 gate 판정을 보류하고 2A-lite 결과를 탐색적으로만 보고한다.
+
