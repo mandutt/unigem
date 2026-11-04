@@ -225,10 +225,17 @@ def train_from_npz(args):
     lens = d["lens"].astype(np.int64)
     flat = "offsets" in d.files
     offsets_f = d["offsets"].astype(np.int64) if flat else None
-    targets_all = d["targets"].astype(np.int64)
-    target_lens = d["target_lens"].astype(np.int64)
     vocab = json.load(open(args.vocab_file, encoding="utf-8"))
     n_chars = len(vocab["chars"])
+    if args.retarget:
+        c2i = vocab["char2id"]
+        tlist = [[c2i[c] for c in str(t) if c in c2i] for t in d["texts"]]
+        target_lens = np.asarray([len(t) for t in tlist], dtype=np.int64)
+        targets_all = np.asarray([i for t in tlist for i in t], dtype=np.int64)
+        print(f"retargeted {len(tlist)} clips chars={len(targets_all)}", flush=True)
+    else:
+        targets_all = d["targets"].astype(np.int64)
+        target_lens = d["target_lens"].astype(np.int64)
     print(f"features={feats.shape} clips={len(lens)} chars={n_chars} flat={flat}", flush=True)
     in_dim = int(feats.shape[1] if flat else feats.shape[2])
     arch = getattr(args, "arch", "base")
@@ -389,6 +396,7 @@ def main():
     ap.add_argument("--vocab-file", default="")
     ap.add_argument("--arm", default="fd")
     ap.add_argument("--arch", default="base", choices=["base", "softmax"])
+    ap.add_argument("--retarget", action="store_true", help="re-encode d['texts'] with --vocab-file")
     ap.add_argument("--epochs", type=int, default=1)
     ap.add_argument("--patience", type=int, default=5)
     ap.add_argument("--max-batches", type=int, default=0)

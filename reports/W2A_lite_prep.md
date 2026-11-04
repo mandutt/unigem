@@ -67,7 +67,8 @@
 
 - `data/wave2a_lite/feats_1h/{fa,fb,fc}.npz`
 - 396클립 / **1.0007h**, Wave 1 manifest 순서.
-- F-A′ 20 epoch overfit을 실행 중. train=dev로 두어 train CER가 충분히 내려가는지 확인한다.
+- **★대상 라벨 재인코딩 필요:** Wave 1 `feats/*.npz`의 `targets`는 구 vocab(1,069자)로 만들어져 새 vocab(1,101자)와 ID가 다르다. `train/d5_reader.py --retarget`으로 `texts`를 새 vocab으로 다시 인코딩해야 한다. 이 플래그 없이 학습하면 라벨이 뒤섞여 CER가 1.0에 붙는다(실측).
+- F-A′ 80 epoch overfit을 `--retarget`으로 실행 중. train=dev로 두어 train CER가 충분히 내려가는지 확인한다.
 - F-C flat npz는 4.1GB라 `fc.feats.npy`를 한 번 추출해 memmap으로 subset을 만들었다.
 
 ## 6. Kspon eval_other (봉인 test)
