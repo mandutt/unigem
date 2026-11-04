@@ -68,8 +68,8 @@ def main() -> None:
     log("START B3 chain")
     deadline = time.time() + 3 * 3600
     while time.time() < deadline:
-        if B0_FINAL.exists() or B0_BEST.exists():
-            log(f"B0 checkpoint found: {B0_FINAL if B0_FINAL.exists() else B0_BEST}")
+        if B0_FINAL.exists():
+            log(f"B0 final checkpoint found: {B0_FINAL}")
             break
         time.sleep(30)
     else:
