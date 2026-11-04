@@ -158,7 +158,7 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 - **상대 10%는 보조**; 절대 pp와 CI를 주지표.
 - **FLEURS dev no-regression:** FLEURS dev CER가 B0′ 대비 **+1.0%p 이상 악화되지 않을 것**.
 - **seed:** full에서 seed 42 + 43 (가능한 경우); test는 primary seed42만.
-- **test:** Kspon eval_clean 2,900 1회, B0′와 동일 조건 paired 비교. 사후 threshold 변경 금지.
+- **test:** Kspon eval_clean **2,400** 1회, B0′와 동일 조건 paired 비교. 사후 threshold 변경 금지. OOV 정책은 §2.5/별도 승인에 따른다.
 - **No-Go:** CP-D2 원인 진단. B2>B1/B3를 Go의 단일 조건으로 쓰지 않는다.
 
 ---
