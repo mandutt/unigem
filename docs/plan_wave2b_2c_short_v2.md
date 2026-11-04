@@ -85,7 +85,7 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 
 - eval_clean PCM/TRN 교집합 **3,000**; 16초 초과 **10건 제외** → 적격 **2,990**.
 - dev **500** (기존 D-β 100 + 신규 400), test **2,400**, spare **90**; **dev∩test=0**, test∩기존100=0.
-- OOV: 전체 **226/2,990 (7.56%)**, dev **38/500 (7.60%)**, test **185/2,400 (7.71%)**, OOV types 106.
+- OOV: 전체 **226/2,990 (7.56%)**, dev **38/500 (7.60%)**, test **185/2,400 (7.71%)**, OOV types 106. **이는 2A FLEURS vocab(1,101자) 기준 상한이며, 2B vocab은 Kspon train 6h+short에서 새로 build한다. 최종 OOV는 short 선별 후 재측정한다.**
 - CTC frame 초과 **0**; OOV 정책은 별도 승인 대상.
 - eval_clean에 **화자 ID 없음** → duration 층화만 적용. speaker-cluster bootstrap 불가, utterance bootstrap으로 대체.
 - Kspon train shard는 로컬에 없음: filekey 50211~50215(각 14~15GB). C: 여유 약 18GB → **zip streaming + 선택 파일만 저장** 필요.
