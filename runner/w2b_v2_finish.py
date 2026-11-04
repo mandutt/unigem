@@ -83,7 +83,7 @@ def main() -> None:
         "ten_frames": int(ten_d["offsets"][-1]),
         "ten_feat_bytes": (W2B / "feats_10h_v2/fc.feats.npy").stat().st_size,
         "training": "not started",
-        "note": "V2 head is 2,343 rows; 2A head 1,102 rows must be remapped by character before warm start.",
+        "note": "V2 head is vocab_chars+1 rows; the 2A head must be remapped by character before warm start.",
     }
     (ROOT / "reports/provenance/W2B").mkdir(parents=True, exist_ok=True)
     (ROOT / "reports/provenance/W2B/v2_data_ready.json").write_text(

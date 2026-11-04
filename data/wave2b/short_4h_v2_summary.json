@@ -1,0 +1,66 @@
+{
+  "seed": 42,
+  "zip": "D:\\unigem\\kspon_train\\10.한국어음성\\KsponSpeech_05.zip",
+  "vocab": "data\\wave2b\\vocab_v2.json",
+  "tag": "_v2",
+  "rows": 5079,
+  "hours": 4.0016,
+  "target_hours": 4.0,
+  "bins": {
+    "0-2": {
+      "n": 2368,
+      "hours": 1.0002
+    },
+    "2-4": {
+      "n": 1713,
+      "hours": 1.4004
+    },
+    "4-6": {
+      "n": 585,
+      "hours": 0.8005
+    },
+    "6-8": {
+      "n": 413,
+      "hours": 0.8006
+    }
+  },
+  "eligible_rows": 94952,
+  "miss_ref": 2545,
+  "empty_ref": 357,
+  "dur_ok_rows": 97628,
+  "oov": {
+    "clips": 2319,
+    "rate_of_dur_ok": 0.023753,
+    "rate_of_dur_ok_pct": 2.3753,
+    "by_bin": {
+      "0-2": {
+        "oov": 203,
+        "dur_ok": 20436,
+        "rate_pct": 0.9933
+      },
+      "2-4": {
+        "oov": 780,
+        "dur_ok": 39561,
+        "rate_pct": 1.9716
+      },
+      "4-6": {
+        "oov": 721,
+        "dur_ok": 23565,
+        "rate_pct": 3.0596
+      },
+      "6-8": {
+        "oov": 615,
+        "dur_ok": 14054,
+        "rate_pct": 4.376
+      },
+      "out": {
+        "oov": 0,
+        "dur_ok": 12,
+        "rate_pct": 0.0
+      }
+    }
+  },
+  "folder_cap_sec": 1440.0,
+  "folder_count": 124,
+  "policy": "vocab=vocab_v2.json; OOV clip excluded; 0.5<=dur<=8; CTC len+repeats<=frames"
+}
