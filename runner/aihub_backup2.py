@@ -102,13 +102,37 @@ def bulk_volumes(root):
     vols, cur, cursz = [], [], 0
     for p, s in files:
         if s > VOL_MAX:
-            raise SystemExit(f"단일 파일이 4GiB 초과: {p} ({s})")
+            if cur:
+                vols.append(cur); cur, cursz = [], 0
+            vols.append([p])  # 단일 대용량 파일 → 별도 분할 처리
+            continue
         if cur and cursz + s > VOL_MAX:
             vols.append(cur); cur, cursz = [], 0
         cur.append(p); cursz += s
     if cur:
         vols.append(cur)
     return vols
+
+
+def split_file(path, out_dir, tag, chunk=VOL_MAX):
+    size = os.path.getsize(path)
+    base = os.path.splitext(os.path.basename(path))[0].replace(" ", "_")
+    parts = []
+    n = (size + chunk - 1) // chunk
+    for i in range(n):
+        out = os.path.join(out_dir, f"{tag}_{base}_part{i+1:02d}of{n:02d}.zip")
+        parts.append(out)
+        if os.path.exists(out) and os.path.getsize(out) == min(chunk, size - i * chunk):
+            continue
+        with open(path, "rb") as f, open(out, "wb") as g:
+            f.seek(i * chunk)
+            left = min(chunk, size - i * chunk)
+            while left > 0:
+                b = f.read(min(1 << 24, left))
+                if not b:
+                    break
+                g.write(b); left -= len(b)
+    return parts
 
 
 def main():
@@ -138,6 +162,7 @@ def main():
             time.sleep(0.4)
 
     # 3) 대용량 볼륨 업로드
+    done_names = {k.split(":")[0] for k in j["done"]}
     for title, rel, tag in BULK:
         root = os.path.join(BASE, rel)
         if not os.path.isdir(root):
@@ -145,7 +170,22 @@ def main():
         vols = bulk_volumes(root)
         print(title, "volumes", len(vols), flush=True)
         for i, vol in enumerate(vols, 1):
+            if len(vol) == 1 and os.path.getsize(vol[0]) > VOL_MAX:
+                parts = split_file(vol[0], STAGE, tag)
+                for p in parts:
+                    name = os.path.basename(p)
+                    if name in done_names:
+                        os.remove(p); continue
+                    ok = upload(tok, p, pages[title], name, j)
+                    print("split", name, "OK" if ok else "FAIL", os.path.getsize(p), flush=True)
+                    if ok:
+                        os.remove(p)
+                continue
             name = f"{tag}_vol{i:02d}.zip"
+            if name in done_names:
+                if os.path.exists(os.path.join(STAGE, name)):
+                    os.remove(os.path.join(STAGE, name))
+                continue
             out = os.path.join(STAGE, name)
             if not os.path.exists(out):
                 print("zip", name, len(vol), "files", flush=True)
