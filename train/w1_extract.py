@@ -58,6 +58,8 @@ def main():
     ap.add_argument("--arms", default="fd,fa,fb,fc")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--threads", type=int, default=6)
+    ap.add_argument("--min-dur", type=float, default=0.5,
+                    help="minimum duration included (use 0.28 for eval/test only)")
     ap.add_argument("--fc-memmap", action="store_true",
                     help="stream F-C frames to fc.feats.npy + metadata (avoids 8GB RAM)")
     a = ap.parse_args()
@@ -71,7 +73,7 @@ def main():
         if "text" not in r:
             r["text"] = r.get("ref", "")
     # skip >16s and empty; keep order
-    rows = [r for r in rows if 0.5 <= r["dur"] <= 16.0 and r.get("text")]
+    rows = [r for r in rows if a.min_dur <= r["dur"] <= 16.0 and r.get("text")]
     texts = [r["text"] for r in rows]
     if a.vocab_in:
         vocab = json.load(open(a.vocab_in, encoding="utf-8"))

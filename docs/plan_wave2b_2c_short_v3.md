@@ -82,20 +82,18 @@
 - dev∩test = 0, test∩기존 D-β 100 = 0
 - **test는 “Kspon in-domain sealed holdout”** — 절차적 holdout이며 화자 독립 test가 아니다.
 
-### 1.5 split 결정
+### 1.5 split 결정 — 완료
 
-현재 후보는 duration 층화다. v3는 다음 순서로 확정한다.
+**ID 블록 감사 결과: 블록 split을 적용하지 않는다.**
 
-1. eval_clean ID의 **연속 블록**이 화자/세션과 대응하는지 감사
-   - AI Hub 메타데이터, 원논문, ID 범위·파일명 패턴 확인
-2. 대응이 확인되면 **블록 단위 500/2,400/90** 재생성
-   - 블록 내 발화는 통째로 dev 또는 test에만 배정
-   - 길이 분포는 블록 층화로 맞춘다
-3. 대응이 확인되지 않으면 **현재 duration 층화 유지**
-   - “화자 독립” 주장 금지
-   - 한계를 보고서에 명시
-
-**audio 추출·test 평가 전에 결정한다.**
+- KsponSpeech 원논문: eval_clean 3,000발화/60명 화자; 개인정보 보호를 위해 **filename을 변경·shuffle**했다.
+- `eval_clean.trn`·zip 파일명에 speaker ID가 없다.
+- 따라서 연속 ID를 화자/세션 블록으로 해석할 근거가 없다.
+- **현재 duration 층화 split을 유지**한다:
+  - dev 500, test 2,400, spare 90
+  - dev∩test=0, test∩D-β 100=0
+- **화자 독립 test가 아니다.** utterance bootstrap만 사용하고, “Kspon in-domain sealed holdout(절차적)”으로 표기한다.
+- 상세: `reports/W2B_split_audit.md`
 
 ### 1.6 test 0.5초 미만 28건
 
