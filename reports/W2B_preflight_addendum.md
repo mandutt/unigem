@@ -17,6 +17,7 @@
 
 - 그대로 추출하면 test는 **2,372**가 된다.
 - v3 정책: **평가 추출만 최소 0.28초**로 낮추고, 실제 feature frame에서 CTC 적격성을 재검사한다. CTC 불가 건은 오류로 계산한다.
+- **실측(2026-11-04)**: `w1_extract.py --min-dur 0.0`로 28건을 별도 probe 추출 → **kept 28/28, elapsed 2.6s**, CTC skip 0. 따라서 2,400을 유지할 수 있다.
 - `preflight.json`의 CTC 0건은 **TRN/metadata 기반**이었으므로 실제 feature frame 검사로 대체한다.
 
 ## 2. test 길이 대표성

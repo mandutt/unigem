@@ -160,12 +160,12 @@ def probe(args):
     return out
 
 
-def evaluate_cer(model, d, vocab, batch=8):
-    """Greedy CTC CER on a feature npz; returns (cer, n)."""
+def evaluate_cer(model, d, vocab, batch=8, features_path=None):
+    """Greedy CTC CER on a feature npz; returns (cer, err, ref)."""
     import sys
     from pathlib import Path
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-    feats = d["feats"]
+    feats = _load_feats(d, features_path) if features_path else d["feats"]
     lens = d["lens"].astype(np.int64)
     flat = "offsets" in d.files
     off = d["offsets"].astype(np.int64) if flat else None
@@ -248,23 +248,45 @@ def train_from_npz(args):
         model = CTCReader(in_dim, n_chars + 1, d=args.d_model, layers=args.layers,
                           heads=args.heads, ff=args.ff, dropout=args.dropout)
     print(f"arch={arch} params={count_params(model)}", flush=True)
+    if args.init_ckpt:
+        ck = torch.load(args.init_ckpt, map_location="cpu", weights_only=False)
+        state = ck["model"] if isinstance(ck, dict) and "model" in ck else ck
+        missing, unexpected = model.load_state_dict(state, strict=False)
+        print(f"init_ckpt={args.init_ckpt} missing={len(missing)} unexpected={len(unexpected)}", flush=True)
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
-    sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=max(1, args.epochs * max(1, len(lens) // args.batch)))
+    sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=max(1, args.epochs * max(1, len(lens) // (args.batch * args.grad_accum))))
     # target offsets
     offsets = np.zeros(len(lens) + 1, dtype=np.int64)
     offsets[1:] = np.cumsum(target_lens)
-    idx = np.arange(len(lens))
+    np.random.seed(args.seed)
     dev = np.load(args.dev_features, allow_pickle=True) if args.dev_features else None
     best = 1e9
     patience = 0
     for ep in range(1, args.epochs + 1):
-        np.random.shuffle(idx)
+        if args.sampler == "balanced":
+            secs = lens.astype(np.float32) / 25.0
+            b4 = secs <= 4.0
+            b8 = (secs > 4.0) & (secs <= 8.0)
+            b16 = secs > 8.0
+            probs = np.zeros(len(lens), dtype=np.float64)
+            for mask, target in ((b4, args.balanced_4), (b8, args.balanced_8), (b16, args.balanced_16)):
+                n = int(mask.sum())
+                if n:
+                    probs[mask] = target / n
+            probs /= probs.sum()
+            idx = np.random.choice(len(lens), size=len(lens), replace=True, p=probs)
+            print(f"sampler=balanced idx_counts b4={int(b4[idx].sum())} b8={int(b8[idx].sum())} b16={int(b16[idx].sum())}", flush=True)
+        else:
+            idx = np.arange(len(lens))
+            np.random.shuffle(idx)
         model.train()
         tot_loss = 0.0
         nb = 0
+        micro = 0
         t0 = time.time()
+        opt.zero_grad(set_to_none=True)
         for b in range(0, len(idx), args.batch):
-            if args.max_batches and nb >= args.max_batches:
+            if args.max_batches and micro >= args.max_batches:
                 break
             ids = idx[b:b + args.batch]
             maxlen = int(lens[ids].max())
@@ -283,19 +305,28 @@ def train_from_npz(args):
                 tl.append(len(t))
             tgt = torch.from_numpy(np.concatenate(tgt).astype(np.int64))
             tl = torch.from_numpy(np.asarray(tl, dtype=np.int64))
-            opt.zero_grad(set_to_none=True)
             logits = model(x, il)
             loss = F.ctc_loss(logits.log_softmax(-1).transpose(0, 1), tgt, il, tl,
                               blank=0, zero_infinity=True)
-            loss.backward()
+            (loss / args.grad_accum).backward()
+            tot_loss += float(loss.detach())
+            micro += 1
+            if micro % args.grad_accum == 0:
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 5.0)
+                opt.step()
+                sched.step()
+                opt.zero_grad(set_to_none=True)
+                nb += 1
+        if micro % args.grad_accum != 0:
             torch.nn.utils.clip_grad_norm_(model.parameters(), 5.0)
             opt.step()
             sched.step()
-            tot_loss += float(loss.detach())
+            opt.zero_grad(set_to_none=True)
             nb += 1
-        line = f"epoch {ep}/{args.epochs} loss={tot_loss/max(1,nb):.4f} steps={nb} sec={time.time()-t0:.1f}"
+        line = f"epoch {ep}/{args.epochs} loss={tot_loss/max(1,micro):.4f} steps={nb} micro={micro} sec={time.time()-t0:.1f}"
         if dev is not None:
-            cer, err, ref = evaluate_cer(model, dev, vocab, batch=args.batch)
+            cer, err, ref = evaluate_cer(model, dev, vocab, batch=args.batch,
+                                         features_path=args.dev_features)
             line += f" dev_cer={cer:.4f} ({err}/{ref})"
             if cer < best - 1e-6:
                 best = cer
@@ -403,6 +434,7 @@ def main():
     ap.add_argument("--in-dim", type=int, default=1024)
     ap.add_argument("--vocab", type=int, default=3000)
     ap.add_argument("--batch", type=int, default=8)
+    ap.add_argument("--grad-accum", type=int, default=1)
     ap.add_argument("--steps", type=int, default=20)
     ap.add_argument("--warmup", type=int, default=5)
     ap.add_argument("--threads", type=int, default=6)
@@ -415,6 +447,12 @@ def main():
     ap.add_argument("--dropout", type=float, default=0.1)
     ap.add_argument("--ckpt-dir", default="train/ckpt")
     ap.add_argument("--ckpt", default="")
+    ap.add_argument("--init-ckpt", default="", help="initialize model weights from a 2A checkpoint (B0-prime warm start)")
+    ap.add_argument("--sampler", default="natural", choices=["natural", "balanced"],
+                    help="B3 uses balanced; B0-prime/B3-nat use natural")
+    ap.add_argument("--balanced-4", type=float, default=0.40)
+    ap.add_argument("--balanced-8", type=float, default=0.30)
+    ap.add_argument("--balanced-16", type=float, default=0.30)
     ap.add_argument("--decode", action="store_true")
     ap.add_argument("--out", default="")
     a = ap.parse_args()
