@@ -67,20 +67,25 @@ def bin_of(d: float) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--zip", default="D:/unigem/kspon_train/10.한국어음성/KsponSpeech_05.zip")
+    ap.add_argument("--vocab", default=str(VOCAB), help="char2id vocab JSON")
+    ap.add_argument("--tag", default="", help="suffix for output files, e.g. _v2")
     ap.add_argument("--seed", type=int, default=SEED)
     a = ap.parse_args()
     zp = Path(a.zip)
     if not zp.exists():
         raise SystemExit(f"missing zip: {zp}")
 
-    vocab = set(json.loads(VOCAB.read_text(encoding="utf-8"))["char2id"].keys())
+    vocab_path = Path(a.vocab)
+    vocab = set(json.loads(vocab_path.read_text(encoding="utf-8"))["char2id"].keys())
+    tag = a.tag
+    audio_dir = OUT / f"audio/short_4h{tag}"
     trn = {}
     for line in TRAIN_TRN.read_text(encoding="utf-8", errors="replace").splitlines():
         if " :: " not in line:
             continue
         p, t = line.split(" :: ", 1)
         trn[Path(p).stem] = t
-    print(f"trn={len(trn)} vocab={len(vocab)}", flush=True)
+    print(f"trn={len(trn)} vocab={len(vocab)} tag={tag}", flush=True)
 
     with zipfile.ZipFile(zp) as z:
         infos = {Path(i.filename).stem: i for i in z.infolist()
@@ -158,10 +163,10 @@ def main() -> None:
                     break
             print(f"bin {b}: target={target:.0f}s got={got:.1f}s n={sum(1 for x in selected if x['bin']==b)}", flush=True)
 
-        AUDIO.mkdir(parents=True, exist_ok=True)
+        audio_dir.mkdir(parents=True, exist_ok=True)
         out_rows = []
         for r in selected:
-            out = AUDIO / f"{r['id']}.wav"
+            out = audio_dir / f"{r['id']}.wav"
             if not out.exists():
                 raw = z.read(r["zip_name"])
                 if len(raw) % 2:
@@ -183,7 +188,7 @@ def main() -> None:
 
     out_rows.sort(key=lambda x: x["id"])
     OUT.mkdir(parents=True, exist_ok=True)
-    with open(OUT / "short_4h.jsonl", "w", encoding="utf-8") as f:
+    with open(OUT / f"short_4h{tag}.jsonl", "w", encoding="utf-8") as f:
         for r in out_rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     actual_h = sum(r["dur"] for r in out_rows) / 3600
@@ -194,6 +199,8 @@ def main() -> None:
     summary = {
         "seed": a.seed,
         "zip": str(zp),
+        "vocab": str(vocab_path),
+        "tag": tag,
         "rows": len(out_rows),
         "hours": round(actual_h, 4),
         "target_hours": 4.0,
@@ -217,9 +224,9 @@ def main() -> None:
         },
         "folder_cap_sec": FOLDER_CAP_SEC,
         "folder_count": len({r["folder"] for r in out_rows}),
-        "policy": "V1 2A vocab; OOV clip excluded; 0.5<=dur<=8; CTC len+repeats<=frames",
+        "policy": f"vocab={vocab_path.name}; OOV clip excluded; 0.5<=dur<=8; CTC len+repeats<=frames",
     }
-    (OUT / "short_4h_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (OUT / f"short_4h{tag}_summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 
