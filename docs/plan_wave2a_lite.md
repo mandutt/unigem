@@ -90,6 +90,7 @@ D-β Wave 1의 탐색적 결과를 **새 dev에서 재측정**하고, 3-AI 검�
 - F-C-concat은 D-β의 기존 방식을 같은 dev에서 재학습한 **comparator**다. softmax 효과와 dev 교체 효과를 분리한다.
 - F-C-softmax가 F-C-concat보다 표현력이 낮을 수 있음을 결과 해석에 명시한다.
 - 모든 arm은 동일 reader(4층 d384, 6 head, FF1536, pre-norm, CTC), 동일 vocab, 동일 seed 42, batch 8, threads 4, AdamW lr 1e-3, cosine, grad clip 5.0, 최대 20 epoch, patience 5.
+- **Wave 1 특징 npz의 `targets`는 구 vocab(1,069자) 기준이다.** 새 vocab(1,101자)로 학습할 때는 `train/d5_reader.py --retarget`으로 `texts`를 재인코딩한다. 이 플래그 없이 학습하면 라벨 ID가 뒤섞여 CER가 1.0에 붙는다.
 
 ## 6. Vocab
 
