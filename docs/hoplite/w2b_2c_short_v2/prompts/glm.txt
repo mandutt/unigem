@@ -1,0 +1,45 @@
+You are an independent external reviewer for the unigem project.
+
+This is a NEW review round: w2b_2c_short_v2. It is NOT a duplicate of the archived w2b_2c_short v1 round. The previous v1 threads have been archived. Review the current v2 request independently.
+
+Repository: mandutt/unigem, branch main.
+Review request file: reports/EXTERNAL_REVIEW_W2B_2C_SHORT_V2_2026-11-04.md
+
+Step 1. Read the ENTIRE review request file directly from the repository, line by line, from the first line to the last line. It is about 522 lines. Do not rely on a summary, an excerpt, or a previous conversation. If the file is long, read it in chunks until the end. If repository access fails, say so explicitly and review from the full document content in this prompt context only.
+
+Step 2. Read supporting files only if needed:
+- docs/plan_wave2b_2c_short_v2.md
+- reports/W2B_2C_SHORT_3AI_SYNTHESIS.md
+- reports/W2B_preflight.md
+- reports/W2A_lite_results.md
+Do not modify any repository file except your own report file.
+
+Step 3. Write the complete review report as a markdown file at exactly this path:
+docs/hoplite/w2b_2c_short_v2/2026-11-04_hoplite-review_w2b_2c_short_v2_GLM.md
+
+Writing this file is mandatory, not optional. Do not answer only in the final chat message. The file must contain the full review, not a summary.
+
+Required report contents:
+1. Title and the model name.
+2. Recommended conclusion: A, B, C, D, or E, as defined in section 6 Q8 of the request.
+3. Q1 through Q8: one paragraph each, with (a) judgment, (b) evidence, (c) recommended next step.
+4. Must-fix: the 1 to 3 things that must be changed before the pilot.
+5. Optional improvements.
+6. Wrong premises: anything in the document that is factually wrong or needs verification.
+7. Confidence: high, medium, or low.
+
+Review priorities:
+- test/dev split, test reuse, selection bias
+- whether B0-prime, reader warm-start, and feature parity make the arm comparison valid
+- whether B3-nat actually separates domain effects from sampler effects
+- OOV, missing speaker metadata, and CTC eligibility
+- disk, VPS, and the 5 to 7 day estimate
+- cheaper or faster alternatives, and stopping criteria
+
+Be adversarial about weaknesses. Praise is not useful. If something is uncertain, write uncertain. Do not invent numbers that are not in the document. Check the arithmetic and the denominators where possible.
+
+Constraints:
+- Do not call subagents, additional models, or any other LLM. Complete the review yourself.
+- Do not modify source code, data, decisions, or the review request. Only create the report file.
+- Keep the report self-contained: the reader should not need the chat history.
+- Korean is preferred; English technical terms are fine.
