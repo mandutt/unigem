@@ -110,6 +110,14 @@
 5. 체크포인트 동결 후 Kspon eval_other 1회, FLEURS test 1회.
 6. `reports/W2A_lite_results.md`.
 
+## 7.1 실행 현황 (2026-11-04)
+
+- 로컬: F-A′ `fa_s42` epoch 5 CER **0.2431**, F-B `fb_s42` epoch 5 CER **0.2427** — 학습 계속.
+- VPS eg2-1: F-C full feature를 **`--fc-memmap`**으로 재추출 성공(4.2GB `fc.feats.npy` + 329KB metadata). 8GB 호스트에서 기존 방식은 저장 단계 OOM이었음.
+- VPS eg2-1: F-C-softmax `fc_softmax_s42` 학습 시작. 완료 후 같은 머신에서 F-C-concat을 순차 실행.
+- eg2-2~eg2-5: 유휴. best arm seed 반복/fbank에 배정 예정.
+- Kspon eval_other와 FLEURS test는 아직 특징 추출·평가하지 않음(봉인 유지).
+
 ## 8. 무결성
 
 `reports/provenance/W2A_lite/prep.json`에 파일 크기·sha256을 기록했다.
