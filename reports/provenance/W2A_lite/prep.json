@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-04",
+  "phase": "wave2a_lite_prep",
+  "decision": "D-064",
+  "fleurs_dev": {
+    "source": "google/fleurs ko_kr validation",
+    "rows": 226,
+    "unique_ids": 226,
+    "unique_sentence_ids": 129,
+    "hours": 0.7722,
+    "used_le_16s": 192,
+    "excluded_gt_16s": 34,
+    "feature_frames": 52451,
+    "feature_ref_chars": 7812,
+    "id_policy": "utterance id = path basename; parquet id is sentence id"
+  },
+  "vocab": {
+    "train_hangul_types": 1064,
+    "vocab_chars": 1101,
+    "vocab_with_blank": 1102,
+    "dev_coverage": 0.994241289951051,
+    "dev_missing_tokens": 60,
+    "dev_missing_types": 27
+  },
+  "params": {
+    "fa": 8113102,
+    "fb": 7916494,
+    "fc_softmax": 7924690,
+    "fc_concat": 9096142
+  },
+  "kspon_eval_other": {
+    "rows": 3000,
+    "hours": 3.8027,
+    "le_16s": 2963,
+    "gt_16s": 32,
+    "lt_0_5s": 5,
+    "empty_ref": 0,
+    "sealed": true,
+    "test_role": "primary_gate",
+    "clean_policy": "remove [A-Za-z]{1,2}/ noise markers; first alternative of (A)/(B); remove + and remaining parentheses"
+  },
+  "positive_control_subset": {
+    "clips": 396,
+    "hours": 1.0007,
+    "seed": 42
+  },
+  "files": {
+    "data/wave2a_lite/fleurs_dev.jsonl": {
+      "bytes": 123160,
+      "sha256": "d5c780d499c357d5438a58c705c95255b258dfe605493950ccb0e835a1c0c073"
+    },
+    "data/wave2a_lite/fleurs_dev_summary.json": {
+      "bytes": 312,
+      "sha256": "ff24f20e6d31d05417274f9fede312b77d92b67ac72be1b7019214fc4f36f5ad"
+    },
+    "data/wave2a_lite/vocab.json": {
+      "bytes": 31833,
+      "sha256": "d804fa7ff6e7bb0ef6b3f880edf74f19a84c14c8fbfaa25d635d02baccba8f04"
+    },
+    "data/wave2a_lite/vocab_coverage.json": {
+      "bytes": 1306,
+      "sha256": "5297161b249ddef857fa51e41842b3b10114852763ee4c9423d2fd0d6e1bf392"
+    },
+    "data/wave2a_lite/kspon_eval_other.jsonl": {
+      "bytes": 1193772,
+      "sha256": "66369f7d878da64f059af9aecda6c0304bc6fcddec65a08e250e43e8fca32bde"
+    },
+    "data/wave2a_lite/kspon_eval_other_summary.json": {
+      "bytes": 396,
+      "sha256": "cf30c7b22c6a3b8433dac016c303fb2ad2af1caab3fd93cb9cc751f008295f67"
+    },
+    "data/wave2a_lite/feats_dev/fa.npz": {
+      "bytes": 151110700,
+      "sha256": "e94a72af65d0a3cec54423d54b2baab9c03a7dc2b263dcd48c201e085ebc6b24"
+    },
+    "data/wave2a_lite/feats_dev/fb.npz": {
+      "bytes": 102330672,
+      "sha256": "3ed0a8b6fffc2413a760e6d2f059f924866b9063a27286fed450578c4a94e267"
+    },
+    "data/wave2a_lite/feats_dev/fc.npz": {
+      "bytes": 406077927,
+      "sha256": "d323b007715a0c4062e2188254f7cd49fdaa7f3f38ac52b0ebe5af8cde9acb0d"
+    }
+  }
+}

@@ -132,6 +132,8 @@ D-β 파일럿은 **연구 트랙**이며 제품 F2 경로를 바꾸지 않는�
 
 - **dev:** FLEURS ko dev. arm 선택·조기 종료에만 사용.
 - **주 gate:** Kspon eval_other(3.8h, 3,000발화), 체크포인트 동결 후 1회.
+  - **전사 정리 사전등록:** `[A-Za-z]{1,2}/` 잡음 마커 제거, `(A)/(B)`는 **첫 번째 대안** 선택, `+` 및 잔여 괄호 제거. `normalize_nospace`는 평가 직전 적용. raw 전사는 `ref_raw`로 보존.
+  - 정리 규칙은 결과 확인 전에 이 문서에 고정한다. 결과를 본 뒤 규칙을 바꾸지 않는다.
 - **비교용:** FLEURS ko test 382, 동결 후 1회. gate 판정에 쓰지 않음.
 - **은퇴:** Kspon eval_clean 100은 D 평가에서 영구 제외.
 - **arms:** F-A′, F-B, F-C-softmax(4-state), F-C-concat(comparator). 동일 6.0008h·vocab·reader·seed 42.

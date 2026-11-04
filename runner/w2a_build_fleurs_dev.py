@@ -12,7 +12,8 @@ from __future__ import annotations
 
 import io
 import json
-from pathlib import Path
+import shutil
+from pathlib import Path, PurePosixPath
 
 import pyarrow.parquet as pq
 import soundfile as sf
@@ -24,8 +25,10 @@ AUDIO = OUT / "audio/fleurs_dev"
 
 
 def main() -> None:
+    if AUDIO.exists():
+        shutil.rmtree(AUDIO)
     AUDIO.mkdir(parents=True, exist_ok=True)
-    table = pq.read_table(SRC, columns=["id", "audio", "transcription", "raw_transcription", "num_samples"])
+    table = pq.read_table(SRC, columns=["id", "path", "audio", "transcription", "raw_transcription", "num_samples"])
     rows = []
     total_sec = 0.0
     sr_set = set()
@@ -38,17 +41,19 @@ def main() -> None:
             x = x.mean(axis=1)
         sr_set.add(int(sr))
         if int(sr) != 16000:
-            raise ValueError(f"unexpected sample rate {sr} for id={r['id']}")
+            raise ValueError(f"unexpected sample rate {sr} for path={r['path']}")
+        stem = PurePosixPath(r["path"]).stem
         dur = len(x) / float(sr)
-        name = f"fleurs_dev_{int(r['id']):08d}.wav"
+        name = f"fleurs_dev_{stem}.wav"
         sf.write(AUDIO / name, x, sr, subtype="PCM_16")
         rows.append({
-            "id": f"fleurs_dev_{int(r['id']):08d}",
+            "id": f"fleurs_dev_{stem}",
             "source": "fleurs_ko",
             "split": "dev",
             "audio": str((AUDIO / name).relative_to(ROOT)).replace("\\", "/"),
             "ref": r.get("transcription") or "",
             "ref_raw": r.get("raw_transcription") or "",
+            "sentence_id": int(r.get("id") or 0),
             "dur": round(dur, 6),
             "num_samples": int(r.get("num_samples") or len(x)),
         })
@@ -60,6 +65,8 @@ def main() -> None:
     summary = {
         "source": "google/fleurs ko_kr validation",
         "rows": len(rows),
+        "unique_ids": len({r["id"] for r in rows}),
+        "unique_sentence_ids": len({r["sentence_id"] for r in rows}),
         "total_hours": round(total_sec / 3600.0, 4),
         "sample_rates": sorted(sr_set),
         "min_dur": min((r["dur"] for r in rows), default=0),

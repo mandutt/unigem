@@ -16,6 +16,7 @@ import math
 import os
 import threading
 import time
+from pathlib import Path
 
 import numpy as np
 import torch
@@ -201,13 +202,26 @@ def evaluate_cer(model, d, vocab, batch=8):
     return err / max(1, ref), err, ref
 
 
+def _load_feats(d, features_path):
+    """Prefer a sibling .feats.npy memmap for large flat feature files.
+
+    The F-C npz stores ~4.1 GB of float16 rows. np.load(path)['feats'] copies the
+    whole array into RAM; a sibling fc.feats.npy lets training slice it lazily.
+    """
+    p = Path(features_path)
+    npy = p.with_suffix(".feats.npy")
+    if npy.exists():
+        return np.load(npy, mmap_mode="r")
+    return d["feats"]
+
+
 def train_from_npz(args):
     import sys
     from pathlib import Path
     torch.set_num_threads(args.threads)
     torch.manual_seed(args.seed)
     d = np.load(args.features, allow_pickle=True)
-    feats = d["feats"]
+    feats = _load_feats(d, args.features)
     lens = d["lens"].astype(np.int64)
     flat = "offsets" in d.files
     offsets_f = d["offsets"].astype(np.int64) if flat else None
@@ -285,9 +299,9 @@ def train_from_npz(args):
                             "ff": args.ff, "arm": args.arm, "arch": arch, "dev_cer": cer}, ckdir / (args.arm + ".best.pt"))
             else:
                 patience += 1
-            if patience >= 5:
+            if patience >= args.patience:
                 print(line, flush=True)
-                print(f"early stop patience=5 best={best:.4f}", flush=True)
+                print(f"early stop patience={args.patience} best={best:.4f}", flush=True)
                 break
         print(line, flush=True)
     ckdir = Path(args.ckpt_dir)
@@ -305,7 +319,7 @@ def decode_npz(args):
     from eval.normalize import _edit_distance, normalize_nospace
     torch.set_num_threads(args.threads)
     d = np.load(args.features, allow_pickle=True)
-    feats = d["feats"]
+    feats = _load_feats(d, args.features)
     lens = d["lens"].astype(np.int64)
     flat = "offsets" in d.files
     offsets_f = d["offsets"].astype(np.int64) if flat else None
@@ -376,6 +390,7 @@ def main():
     ap.add_argument("--arm", default="fd")
     ap.add_argument("--arch", default="base", choices=["base", "softmax"])
     ap.add_argument("--epochs", type=int, default=1)
+    ap.add_argument("--patience", type=int, default=5)
     ap.add_argument("--max-batches", type=int, default=0)
     ap.add_argument("--in-dim", type=int, default=1024)
     ap.add_argument("--vocab", type=int, default=3000)

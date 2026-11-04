@@ -72,6 +72,7 @@ D-β Wave 1의 탐색적 결과를 **새 dev에서 재측정**하고, 3-AI 검�
 | 새 P0 holdout | 선택 | 일반화 주장이 필요할 때 별도 확보·사전등록 |
 
 - 주 gate는 Kspon eval_other의 CER(공백 무시, `normalize_nospace`)이다.
+- Kspon eval_other 전사는 사전등록 규칙으로 정리한다: `[A-Za-z]{1,2}/` 잡음 마커 제거, `(A)/(B)`는 **첫 번째 대안**, `+`·잔여 괄호 제거. raw는 `ref_raw`로 보존한다.
 - FLEURS test 결과는 “benchmark comparison”으로 표기하고 gate 판정에 쓰지 않는다.
 - Kspon eval_other가 확보되지 않으면 2A-lite 결과는 **탐색적**으로만 보고하고 gate 판정을 보류한다.
 - FLEURS test를 2A-lite의 arm 선택·조기 종료에 사용하지 않는다.
