@@ -56,7 +56,12 @@ def main() -> None:
             with open(p, "rb") as src:
                 # skip the npy header of each source
                 version = np.lib.format.read_magic(src)
-                shape, fortran, dtype = np.lib.format._read_array_header(src, version)
+                if version == (1, 0):
+                    shape, fortran, dtype = np.lib.format.read_array_header_1_0(src)
+                elif version == (2, 0):
+                    shape, fortran, dtype = np.lib.format.read_array_header_2_0(src)
+                else:
+                    raise RuntimeError(f"unsupported npy version: {version}")
                 while True:
                     b = src.read(1 << 24)
                     if not b:

@@ -1,0 +1,73 @@
+{
+  "status": "READY",
+  "finished_at": "2026-11-05T01:09:35+09:00",
+  "zip": "D:\\unigem\\kspon_train\\10.한국어음성\\KsponSpeech_05.zip",
+  "zip_check": {
+    "zip_bytes": 15641266705,
+    "pcm_entries": 126545,
+    "sample_reads": [
+      4096,
+      4096
+    ]
+  },
+  "outputs": {
+    "short_rows": 5119,
+    "short_hours": 4.0023,
+    "short_oov": {
+      "clips": 88575,
+      "rate_of_dur_ok": 0.90727,
+      "rate_of_dur_ok_pct": 90.727,
+      "by_bin": {
+        "0-2": {
+          "oov": 17696,
+          "dur_ok": 20436,
+          "rate_pct": 86.5923
+        },
+        "2-4": {
+          "oov": 35635,
+          "dur_ok": 39561,
+          "rate_pct": 90.0761
+        },
+        "4-6": {
+          "oov": 21843,
+          "dur_ok": 23565,
+          "rate_pct": 92.6926
+        },
+        "6-8": {
+          "oov": 13390,
+          "dur_ok": 14054,
+          "rate_pct": 95.2754
+        },
+        "out": {
+          "oov": 11,
+          "dur_ok": 12,
+          "rate_pct": 91.6667
+        }
+      }
+    },
+    "short_bins": {
+      "0-2": {
+        "n": 2358,
+        "hours": 1.0001
+      },
+      "2-4": {
+        "n": 1748,
+        "hours": 1.4001
+      },
+      "4-6": {
+        "n": 592,
+        "hours": 0.8006
+      },
+      "6-8": {
+        "n": 421,
+        "hours": 0.8014
+      }
+    },
+    "short_frames": 361368,
+    "short_feat_bytes": 2960326784,
+    "ten_rows": 7503,
+    "ten_hours_est": 10.022488888888889,
+    "ten_frames": 902024,
+    "ten_feat_bytes": 7389380736
+  }
+}
