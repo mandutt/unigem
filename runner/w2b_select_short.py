@@ -89,6 +89,10 @@ def main() -> None:
         rows = []
         miss_ref = 0
         empty = 0
+        dur_ok = 0
+        oov = 0
+        oov_by_bin = defaultdict(int)
+        dur_ok_by_bin = defaultdict(int)
         for sid, info in infos.items():
             raw = trn.get(sid, "")
             if not raw:
@@ -97,12 +101,16 @@ def main() -> None:
             d = (info.file_size - (info.file_size % 2)) / 2 / 16000
             if not (0.5 <= d <= 8.0):
                 continue
+            dur_ok += 1
+            dur_ok_by_bin[bin_of(d)] += 1
             ref = clean_kspon(raw)
             if not ref or len(ref.replace(" ", "")) <= 1:
                 empty += 1
                 continue
             norm = ref.replace(" ", "")
             if any(c not in vocab for c in norm):
+                oov += 1
+                oov_by_bin[bin_of(d)] += 1
                 continue
             frames = int(d * 25)
             repeats = sum(1 for x, y in zip(norm, norm[1:]) if x == y)
@@ -120,7 +128,8 @@ def main() -> None:
                 "ref_raw": raw,
                 "bin": bin_of(d),
             })
-        print(f"eligible={len(rows)} miss_ref={miss_ref} empty={empty}", flush=True)
+        print(f"eligible={len(rows)} miss_ref={miss_ref} empty={empty} "
+              f"dur_ok={dur_ok} oov={oov} ({oov/max(1,dur_ok):.2%})", flush=True)
 
         rng = random.Random(a.seed)
         by_bin = defaultdict(list)
@@ -192,6 +201,20 @@ def main() -> None:
         "eligible_rows": len(rows),
         "miss_ref": miss_ref,
         "empty_ref": empty,
+        "dur_ok_rows": dur_ok,
+        "oov": {
+            "clips": oov,
+            "rate_of_dur_ok": round(oov / max(1, dur_ok), 6),
+            "rate_of_dur_ok_pct": round(100.0 * oov / max(1, dur_ok), 4),
+            "by_bin": {
+                k: {
+                    "oov": oov_by_bin.get(k, 0),
+                    "dur_ok": dur_ok_by_bin.get(k, 0),
+                    "rate_pct": round(100.0 * oov_by_bin.get(k, 0) / max(1, dur_ok_by_bin.get(k, 0)), 4),
+                }
+                for k in sorted(dur_ok_by_bin)
+            },
+        },
         "folder_cap_sec": FOLDER_CAP_SEC,
         "folder_count": len({r["folder"] for r in out_rows}),
         "policy": "V1 2A vocab; OOV clip excluded; 0.5<=dur<=8; CTC len+repeats<=frames",
