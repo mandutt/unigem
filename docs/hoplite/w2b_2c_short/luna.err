@@ -1,0 +1,3 @@
+[hoplite] reasoning=xhigh (model=gpt-6-luna)
+[hoplite] thread=thr_1d7ec585656d4845a86915936ec8a2d7 (new)
+TIMEOUT: no completion within 570s
