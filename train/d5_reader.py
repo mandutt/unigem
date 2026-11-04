@@ -61,6 +61,34 @@ class CTCReader(nn.Module):
         return self.head(self.norm(h))
 
 
+class FCSoftmaxReader(nn.Module):
+    """4-state softmax mix over 4 x 1024 layer features, then the CTC reader.
+
+    Input is the existing F-C concat tensor [B, T, 4096]. The four 1024-d
+    slices are LayerNorm'ed and mixed with a learned softmax weight. This is
+    the Addendum D-5.4 canonical mix; F-C-concat remains a separate comparator.
+    """
+
+    def __init__(self, vocab: int, d: int = 384, layers: int = 4,
+                 heads: int = 6, ff: int = 1536, dropout: float = 0.1,
+                 max_len: int = 4096):
+        super().__init__()
+        self.norms = nn.ModuleList([nn.LayerNorm(1024) for _ in range(4)])
+        self.w = nn.Parameter(torch.zeros(4))
+        self.reader = CTCReader(1024, vocab, d=d, layers=layers, heads=heads,
+                                ff=ff, dropout=dropout, max_len=max_len)
+
+    def forward(self, x, lengths):
+        # x: [B, T, 4*1024]
+        b, t, c = x.shape
+        if c != 4096:
+            raise ValueError(f"FCSoftmaxReader expects 4096 features, got {c}")
+        parts = x.view(b, t, 4, 1024)
+        w = torch.softmax(self.w, dim=0)
+        h = sum(w[i] * self.norms[i](parts[:, :, i, :]) for i in range(4))
+        return self.reader(h, lengths)
+
+
 def count_params(m):
     return sum(p.numel() for p in m.parameters() if p.requires_grad)
 
@@ -189,9 +217,16 @@ def train_from_npz(args):
     n_chars = len(vocab["chars"])
     print(f"features={feats.shape} clips={len(lens)} chars={n_chars} flat={flat}", flush=True)
     in_dim = int(feats.shape[1] if flat else feats.shape[2])
-    model = CTCReader(in_dim, n_chars + 1, d=args.d_model, layers=args.layers,
-                      heads=args.heads, ff=args.ff, dropout=args.dropout)
-    print(f"params={count_params(model)}", flush=True)
+    arch = getattr(args, "arch", "base")
+    if arch == "softmax":
+        if in_dim != 4096:
+            raise ValueError(f"softmax arch expects 4096 features, got {in_dim}")
+        model = FCSoftmaxReader(n_chars + 1, d=args.d_model, layers=args.layers,
+                                heads=args.heads, ff=args.ff, dropout=args.dropout)
+    else:
+        model = CTCReader(in_dim, n_chars + 1, d=args.d_model, layers=args.layers,
+                          heads=args.heads, ff=args.ff, dropout=args.dropout)
+    print(f"arch={arch} params={count_params(model)}", flush=True)
     opt = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=0.01)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=max(1, args.epochs * max(1, len(lens) // args.batch)))
     # target offsets
@@ -247,7 +282,7 @@ def train_from_npz(args):
                 ckdir = Path(args.ckpt_dir); ckdir.mkdir(parents=True, exist_ok=True)
                 torch.save({"model": model.state_dict(), "in_dim": in_dim, "vocab": n_chars + 1,
                             "d_model": args.d_model, "layers": args.layers, "heads": args.heads,
-                            "ff": args.ff, "arm": args.arm, "dev_cer": cer}, ckdir / (args.arm + ".best.pt"))
+                            "ff": args.ff, "arm": args.arm, "arch": arch, "dev_cer": cer}, ckdir / (args.arm + ".best.pt"))
             else:
                 patience += 1
             if patience >= 5:
@@ -260,7 +295,7 @@ def train_from_npz(args):
     out = ckdir / (args.arm + ".pt")
     torch.save({"model": model.state_dict(), "in_dim": in_dim, "vocab": n_chars + 1,
                 "d_model": args.d_model, "layers": args.layers, "heads": args.heads,
-                "ff": args.ff, "arm": args.arm}, out)
+                "ff": args.ff, "arm": args.arm, "arch": arch}, out)
     print("saved", out, flush=True)
 
 
@@ -278,8 +313,13 @@ def decode_npz(args):
     vocab = json.load(open(args.vocab_file, encoding="utf-8"))
     chars = vocab["chars"]
     ck = torch.load(args.ckpt, map_location="cpu", weights_only=False)
-    model = CTCReader(ck["in_dim"], ck["vocab"], d=ck["d_model"], layers=ck["layers"],
-                      heads=ck["heads"], ff=ck["ff"], dropout=0.0)
+    arch = ck.get("arch", "base")
+    if arch == "softmax":
+        model = FCSoftmaxReader(ck["vocab"], d=ck["d_model"], layers=ck["layers"],
+                                heads=ck["heads"], ff=ck["ff"], dropout=0.0)
+    else:
+        model = CTCReader(ck["in_dim"], ck["vocab"], d=ck["d_model"], layers=ck["layers"],
+                          heads=ck["heads"], ff=ck["ff"], dropout=0.0)
     model.load_state_dict(ck["model"])
     was_training = model.training
     model.eval()
@@ -334,6 +374,7 @@ def main():
     ap.add_argument("--dev-features", default="")
     ap.add_argument("--vocab-file", default="")
     ap.add_argument("--arm", default="fd")
+    ap.add_argument("--arch", default="base", choices=["base", "softmax"])
     ap.add_argument("--epochs", type=int, default=1)
     ap.add_argument("--max-batches", type=int, default=0)
     ap.add_argument("--in-dim", type=int, default=1024)
