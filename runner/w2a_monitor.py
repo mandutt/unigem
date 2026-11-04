@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "runner"))
 import instabox_api as api
 
-MID = "m_agqvineqfebuv74ez7zv6v6n2y"
+MID = "m_agqzpnpzuh3dzxotnrqkr3xoay"
 OUT = ROOT / "logs/W2A_lite/monitor.log"
 MAX_SEC = 4 * 3600
 INTERVAL = 300
