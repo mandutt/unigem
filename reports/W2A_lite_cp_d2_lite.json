@@ -1,0 +1,1392 @@
+{
+  "kspon": {
+    "label": "kspon_eval_other",
+    "manifest_rows": 3000,
+    "decoded_rows": 2962,
+    "decoded_n": 2962,
+    "missing_in_decode": [],
+    "manifest_not_decoded": [
+      {
+        "id": "KsponSpeech_E03040",
+        "dur": 16.219,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03268",
+        "dur": 18.251,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03329",
+        "dur": 0.479,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03376",
+        "dur": 0.446,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03608",
+        "dur": 17.227,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03661",
+        "dur": 18.662,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03706",
+        "dur": 17.966,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03723",
+        "dur": 16.549,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03843",
+        "dur": 16.409,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03915",
+        "dur": 16.567,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E03946",
+        "dur": 18.234,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E04007",
+        "dur": 0.448,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E04112",
+        "dur": 17.023,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E04252",
+        "dur": 17.894,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E04568",
+        "dur": 19.184,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E04745",
+        "dur": 20.093,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E04783",
+        "dur": 17.79,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E04807",
+        "dur": 19.589,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E04976",
+        "dur": 16.393,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05000",
+        "dur": 17.201,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05023",
+        "dur": 16.545,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05135",
+        "dur": 16.615,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05138",
+        "dur": 17.18,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05151",
+        "dur": 1.145,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05170",
+        "dur": 0.399,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05227",
+        "dur": 17.361,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05254",
+        "dur": 16.999,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05439",
+        "dur": 18.103,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05442",
+        "dur": 16.911,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05462",
+        "dur": 16.763,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05515",
+        "dur": 17.797,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05619",
+        "dur": 16.915,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05677",
+        "dur": 16.66,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05683",
+        "dur": 17.745,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05760",
+        "dur": 17.163,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05767",
+        "dur": 0.399,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05902",
+        "dur": 16.671,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "KsponSpeech_E05969",
+        "dur": 17.81,
+        "reason": "decode_missing_or_gt_16s"
+      }
+    ],
+    "skipped_gt_16s": 32,
+    "all": {
+      "label": "all",
+      "n": 2962,
+      "errors": 23508,
+      "ref_chars": 66893,
+      "cer": 0.351427,
+      "cer_ci95": [
+        0.345368,
+        0.357142
+      ],
+      "mean_utt_cer": 0.390463,
+      "blank": 0
+    },
+    "by_duration": [
+      {
+        "label": "0-2",
+        "n": 817,
+        "errors": 2919,
+        "ref_chars": 6285,
+        "cer": 0.464439,
+        "cer_ci95": [
+          0.447782,
+          0.481099
+        ],
+        "mean_utt_cer": 0.485283,
+        "blank": 0,
+        "lo": 0,
+        "hi": 2
+      },
+      {
+        "label": "2-4",
+        "n": 876,
+        "errors": 5281,
+        "ref_chars": 13978,
+        "cer": 0.377808,
+        "cer_ci95": [
+          0.365772,
+          0.389381
+        ],
+        "mean_utt_cer": 0.384656,
+        "blank": 0,
+        "lo": 2,
+        "hi": 4
+      },
+      {
+        "label": "4-6",
+        "n": 513,
+        "errors": 4736,
+        "ref_chars": 13473,
+        "cer": 0.351518,
+        "cer_ci95": [
+          0.339007,
+          0.364666
+        ],
+        "mean_utt_cer": 0.349082,
+        "blank": 0,
+        "lo": 4,
+        "hi": 6
+      },
+      {
+        "label": "6-8",
+        "n": 304,
+        "errors": 3569,
+        "ref_chars": 10745,
+        "cer": 0.332154,
+        "cer_ci95": [
+          0.3168,
+          0.346272
+        ],
+        "mean_utt_cer": 0.33481,
+        "blank": 0,
+        "lo": 6,
+        "hi": 8
+      },
+      {
+        "label": "8-10",
+        "n": 199,
+        "errors": 2888,
+        "ref_chars": 8751,
+        "cer": 0.330019,
+        "cer_ci95": [
+          0.312948,
+          0.346737
+        ],
+        "mean_utt_cer": 0.329802,
+        "blank": 0,
+        "lo": 8,
+        "hi": 10
+      },
+      {
+        "label": "10-12",
+        "n": 136,
+        "errors": 2206,
+        "ref_chars": 6990,
+        "cer": 0.315594,
+        "cer_ci95": [
+          0.296547,
+          0.335656
+        ],
+        "mean_utt_cer": 0.315527,
+        "blank": 0,
+        "lo": 10,
+        "hi": 12
+      },
+      {
+        "label": "12-16",
+        "n": 117,
+        "errors": 1909,
+        "ref_chars": 6671,
+        "cer": 0.286164,
+        "cer_ci95": [
+          0.264886,
+          0.307998
+        ],
+        "mean_utt_cer": 0.28814,
+        "blank": 0,
+        "lo": 12,
+        "hi": 16
+      }
+    ],
+    "cumulative_duration": [
+      {
+        "min_dur": 0,
+        "n": 2962,
+        "errors": 23508,
+        "ref_chars": 66893,
+        "cer": 0.351427
+      },
+      {
+        "min_dur": 2,
+        "n": 2145,
+        "errors": 20589,
+        "ref_chars": 60608,
+        "cer": 0.339708
+      },
+      {
+        "min_dur": 4,
+        "n": 1269,
+        "errors": 15308,
+        "ref_chars": 46630,
+        "cer": 0.328287
+      },
+      {
+        "min_dur": 6,
+        "n": 756,
+        "errors": 10572,
+        "ref_chars": 33157,
+        "cer": 0.318847
+      },
+      {
+        "min_dur": 8,
+        "n": 452,
+        "errors": 7003,
+        "ref_chars": 22412,
+        "cer": 0.312467
+      },
+      {
+        "min_dur": 10,
+        "n": 253,
+        "errors": 4115,
+        "ref_chars": 13661,
+        "cer": 0.301222
+      },
+      {
+        "min_dur": 12,
+        "n": 117,
+        "errors": 1909,
+        "ref_chars": 6671,
+        "cer": 0.286164
+      }
+    ],
+    "by_ref_len": [
+      {
+        "label": "0-10",
+        "n": 683,
+        "errors": 2086,
+        "ref_chars": 4337,
+        "cer": 0.480978,
+        "cer_ci95": [
+          0.461468,
+          0.501025
+        ],
+        "mean_utt_cer": 0.501099,
+        "blank": 0,
+        "lo": 0,
+        "hi": 10
+      },
+      {
+        "label": "10-20",
+        "n": 911,
+        "errors": 5011,
+        "ref_chars": 12856,
+        "cer": 0.389779,
+        "cer_ci95": [
+          0.377677,
+          0.401234
+        ],
+        "mean_utt_cer": 0.39231,
+        "blank": 0,
+        "lo": 10,
+        "hi": 20
+      },
+      {
+        "label": "20-30",
+        "n": 542,
+        "errors": 4466,
+        "ref_chars": 13093,
+        "cer": 0.341098,
+        "cer_ci95": [
+          0.328825,
+          0.354277
+        ],
+        "mean_utt_cer": 0.341036,
+        "blank": 0,
+        "lo": 20,
+        "hi": 30
+      },
+      {
+        "label": "30-40",
+        "n": 332,
+        "errors": 3851,
+        "ref_chars": 11277,
+        "cer": 0.341492,
+        "cer_ci95": [
+          0.326781,
+          0.357777
+        ],
+        "mean_utt_cer": 0.341754,
+        "blank": 0,
+        "lo": 30,
+        "hi": 40
+      },
+      {
+        "label": "40-60",
+        "n": 414,
+        "errors": 6532,
+        "ref_chars": 20097,
+        "cer": 0.325024,
+        "cer_ci95": [
+          0.313714,
+          0.336627
+        ],
+        "mean_utt_cer": 0.325397,
+        "blank": 0,
+        "lo": 40,
+        "hi": 60
+      },
+      {
+        "label": ">=60",
+        "n": 80,
+        "errors": 1562,
+        "ref_chars": 5233,
+        "cer": 0.29849,
+        "cer_ci95": [
+          0.274774,
+          0.324937
+        ],
+        "mean_utt_cer": 0.298597,
+        "blank": 0,
+        "lo": 60,
+        "hi": 999
+      }
+    ],
+    "noise": {
+      "clean": {
+        "label": "clean",
+        "n": 2113,
+        "errors": 15261,
+        "ref_chars": 43099,
+        "cer": 0.354092,
+        "cer_ci95": [
+          0.346578,
+          0.361967
+        ],
+        "mean_utt_cer": 0.390435,
+        "blank": 0
+      },
+      "noisy": {
+        "label": "noisy",
+        "n": 849,
+        "errors": 8247,
+        "ref_chars": 23794,
+        "cer": 0.3466,
+        "cer_ci95": [
+          0.336667,
+          0.356915
+        ],
+        "mean_utt_cer": 0.390532,
+        "blank": 0
+      },
+      "noise_rows": 849,
+      "noise_pct": 28.66,
+      "marker_counts": {
+        "b": 481,
+        "o": 211,
+        "l": 164,
+        "n": 67,
+        "u": 10
+      }
+    },
+    "concentration": {
+      "top_1pct": {
+        "k": 30,
+        "errors": 977,
+        "share_of_errors": 0.0416,
+        "ref_chars": 1796,
+        "cer": 0.543987
+      },
+      "top_5pct": {
+        "k": 148,
+        "errors": 3643,
+        "share_of_errors": 0.155,
+        "ref_chars": 7672,
+        "cer": 0.474844
+      },
+      "top_10pct": {
+        "k": 296,
+        "errors": 6259,
+        "share_of_errors": 0.2662,
+        "ref_chars": 14418,
+        "cer": 0.43411
+      },
+      "cer_ge_0.5": {
+        "n": 803,
+        "pct": 27.11,
+        "errors": 7041,
+        "share_of_errors": 0.2995
+      },
+      "cer_ge_0.8": {
+        "n": 133,
+        "pct": 4.49,
+        "errors": 925,
+        "share_of_errors": 0.0393
+      },
+      "cer_ge_1.0": {
+        "n": 57,
+        "pct": 1.92,
+        "errors": 321,
+        "share_of_errors": 0.0137
+      }
+    },
+    "worst": [
+      {
+        "id": "KsponSpeech_E04378",
+        "dur": 10.805,
+        "markers": [
+          "n"
+        ],
+        "cer": 0.8214,
+        "errors": 46,
+        "ref_chars": 56,
+        "ref": "그래서 되게 근데 얼마 전에 Good will hunting? 너 영화 봤어? good will Good will hunting? 봤어?",
+        "pred": "그래서게하인데얼마도네구일헌팅너용봤어구게구제한대어어"
+      },
+      {
+        "id": "KsponSpeech_E03248",
+        "dur": 5.391,
+        "markers": [],
+        "cer": 0.7963,
+        "errors": 43,
+        "ref_chars": 54,
+        "ref": "Good will hunting 내가 Good will hunting인가? 어/ 내가 옛날에 옛날에 봐가지고 한 3년 전에 봤나?",
+        "pred": "구대팅제구대흔팀인가내했날옛날해봐가지고삼을받나"
+      },
+      {
+        "id": "KsponSpeech_E03810",
+        "dur": 15.729,
+        "markers": [
+          "b"
+        ],
+        "cer": 0.4875,
+        "errors": 39,
+        "ref_chars": 80,
+        "ref": "뭐 그냥 친구끼리 그럴 수 있지만 그 아침에 10시 10 이때 핑크색 세트 잠옷을 입고 지나간다는 거는 근데 내 생각에는 그런 게 아닐까라는 생각을 했는데 내 친구들도 그렇게 생각하더라고 어떻게 어.",
+        "pred": "뭐현친국들이그렇수있지막그하침이열시이때인급에세트상어소로입고지난한다는거는네생각에는그런게아을닐까라생각을했는데네데지모들로게는가하고어떻게"
+      },
+      {
+        "id": "KsponSpeech_E05735",
+        "dur": 9.817,
+        "markers": [
+          "b"
+        ],
+        "cer": 0.6552,
+        "errors": 38,
+        "ref_chars": 58,
+        "ref": "그게 언니야한테 계속 옆에서 쟤는 왜저래? 쟤는 왜 안죽여? 쟤를 쟤가 죽이 죽이는 게 편하다며? 근데 왜 안 죽여? 이러면서 쟨 뭔데? 쟤를 알아? 이러면서.",
+        "pred": "그게언냐제계속격에서제후외에절에제도외안주격제를제획을라주기인주기는게펴한다며근데면안주여이러면서제먼데제알라이른"
+      },
+      {
+        "id": "KsponSpeech_E03345",
+        "dur": 9.069,
+        "markers": [
+          "b"
+        ],
+        "cer": 0.6102,
+        "errors": 36,
+        "ref_chars": 59,
+        "ref": "주변에 막 시계탑 성당 그니까 이런 거 있어가지고 그냥 구경하다가 8시 9시에 들어와서 이제 얘기 좀 하다가 옷 갈아입고 바로 잤단 말이야 첫날에",
+        "pred": "주그에만시게겠다성당한이런게것있어지고그냥격할다가여덟시없이들어해서이종하다가가를고바사담말찾"
+      },
+      {
+        "id": "KsponSpeech_E04315",
+        "dur": 4.218,
+        "markers": [],
+        "cer": 0.7955,
+        "errors": 35,
+        "ref_chars": 44,
+        "ref": "맨체스터 유나이티드는 괜찮지. 내가 맨체스터 유나이티드 팬은 아닌데 요즘 맨체스터 유나이티드는 괜찮아",
+        "pred": "몇는괜선지반육패는안인데요즘매명용는괜찮"
+      },
+      {
+        "id": "KsponSpeech_E05583",
+        "dur": 7.348,
+        "markers": [],
+        "cer": 0.6364,
+        "errors": 35,
+        "ref_chars": 55,
+        "ref": "근데 원래 한화 한화도 너무 기복이 너무 심한 팀이어서 근데 SKT랑 했었을 때는 진짜 거의 경기력이 너무 진에어했어. 너무 못했어 그 땐.",
+        "pred": "솔나하나던대눈무기보이너심한팀이라가고내스키트나에서서는도는신진짜작거경기적이너무진녀워어너무무했어"
+      },
+      {
+        "id": "KsponSpeech_E05099",
+        "dur": 11.481,
+        "markers": [
+          "b"
+        ],
+        "cer": 0.5397,
+        "errors": 34,
+        "ref_chars": 63,
+        "ref": "이렇게 먹다보니까 죽겠는 거야 나는 좋았다 근데 걔네는 그런 거 나는 되게 잘 맞아서 좋았는데 걔네가 우리가 보통 가면 1인 1스테이크 시켜서 먹었어 보통.",
+        "pred": "이렇게다버니까주게는과나는좋았다길내는몸먹고그런것나는게잘아하서조저한되괜가그리가봤통가면에일일세트이을지켜서먹갔수못통"
+      }
+    ],
+    "pearson_dur_cer": -0.2651,
+    "pearson_reflen_cer": -0.2651
+  },
+  "fleurs": {
+    "label": "fleurs_test",
+    "manifest_rows": 382,
+    "decoded_rows": 318,
+    "decoded_n": 318,
+    "missing_in_decode": [],
+    "manifest_not_decoded": [
+      {
+        "id": "10189445924074497860",
+        "dur": 18.9,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "10257637429860465993",
+        "dur": 17.7,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "10412999032423058326",
+        "dur": 22.38,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "10852246572628190537",
+        "dur": 24.06,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "10883663525312342842",
+        "dur": 17.52,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "10965303668946845275",
+        "dur": 20.64,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "119642977652102904",
+        "dur": 17.04,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "12050639697247972736",
+        "dur": 16.14,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "12130860140913353253",
+        "dur": 18.06,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "13022377517203793648",
+        "dur": 16.14,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "13052653707693087897",
+        "dur": 18.42,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "14031701654853178576",
+        "dur": 18.24,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "14068095964115928574",
+        "dur": 19.08,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "14222152452271692984",
+        "dur": 21.72,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "14266303603009589328",
+        "dur": 16.08,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "14395950005642463868",
+        "dur": 20.82,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "14941719265693149665",
+        "dur": 23.04,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "15152963524414515048",
+        "dur": 25.8,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "1524592754713199821",
+        "dur": 20.82,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "15482717372084017230",
+        "dur": 18.54,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "15958585165446908844",
+        "dur": 17.52,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "15968665593896276135",
+        "dur": 19.62,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "16026069547867630432",
+        "dur": 17.88,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "16269174541714659426",
+        "dur": 16.68,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "16415449963553630680",
+        "dur": 19.8,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "16445219989314495694",
+        "dur": 21.06,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "16534183271900012718",
+        "dur": 18.36,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "16632929586162593046",
+        "dur": 18.6,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "16847571592376678750",
+        "dur": 16.38,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "1807970046287819091",
+        "dur": 17.1,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "2055877687366211635",
+        "dur": 18.78,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "292637203991053640",
+        "dur": 18.36,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "3274155049838471930",
+        "dur": 16.74,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "3528093197588875958",
+        "dur": 21.0,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "3616107234590120949",
+        "dur": 16.32,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "3688804967671255137",
+        "dur": 17.34,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "3795843093444241119",
+        "dur": 18.84,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "3975158729433458798",
+        "dur": 18.0,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "455232175263406571",
+        "dur": 16.08,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "5225650844909568568",
+        "dur": 16.56,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "5577994910762676267",
+        "dur": 18.54,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "5681216825900757077",
+        "dur": 17.28,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "5725159623319486114",
+        "dur": 17.16,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "586909066302498736",
+        "dur": 17.58,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "5901015910036461944",
+        "dur": 17.46,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "6194270513002106576",
+        "dur": 16.14,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "6273282420526580254",
+        "dur": 17.88,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "6325832913024942422",
+        "dur": 19.2,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "6424946203058697879",
+        "dur": 18.36,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "6957575014674855128",
+        "dur": 23.64,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "7286609527128331201",
+        "dur": 18.0,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "7358406462466402688",
+        "dur": 16.08,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "738495460415554515",
+        "dur": 19.8,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "7415612066412710911",
+        "dur": 17.58,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "741720204858236511",
+        "dur": 19.5,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "7489342648215445027",
+        "dur": 16.08,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "7545506946444815397",
+        "dur": 17.88,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "8037641685243029060",
+        "dur": 16.32,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "8109782827062725828",
+        "dur": 17.1,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "8220041695631130344",
+        "dur": 18.42,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "8678599422643738151",
+        "dur": 17.46,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "9513115508818511685",
+        "dur": 16.8,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "9697454464532605316",
+        "dur": 22.8,
+        "reason": "decode_missing_or_gt_16s"
+      },
+      {
+        "id": "9958723628611552774",
+        "dur": 17.64,
+        "reason": "decode_missing_or_gt_16s"
+      }
+    ],
+    "skipped_gt_16s": 64,
+    "all": {
+      "label": "all",
+      "n": 318,
+      "errors": 3126,
+      "ref_chars": 13297,
+      "cer": 0.235091,
+      "cer_ci95": [
+        0.221791,
+        0.249668
+      ],
+      "mean_utt_cer": 0.230984,
+      "blank": 0
+    },
+    "by_duration": [
+      {
+        "label": "4-6",
+        "n": 9,
+        "errors": 93,
+        "ref_chars": 249,
+        "cer": 0.373494,
+        "cer_ci95": [
+          0.254386,
+          0.507353
+        ],
+        "mean_utt_cer": 0.349514,
+        "blank": 0,
+        "lo": 4,
+        "hi": 6
+      },
+      {
+        "label": "6-8",
+        "n": 33,
+        "errors": 292,
+        "ref_chars": 1056,
+        "cer": 0.276515,
+        "cer_ci95": [
+          0.238195,
+          0.314488
+        ],
+        "mean_utt_cer": 0.267378,
+        "blank": 0,
+        "lo": 6,
+        "hi": 8
+      },
+      {
+        "label": "8-10",
+        "n": 45,
+        "errors": 365,
+        "ref_chars": 1590,
+        "cer": 0.22956,
+        "cer_ci95": [
+          0.189917,
+          0.268862
+        ],
+        "mean_utt_cer": 0.215219,
+        "blank": 0,
+        "lo": 8,
+        "hi": 10
+      },
+      {
+        "label": "10-12",
+        "n": 82,
+        "errors": 698,
+        "ref_chars": 3146,
+        "cer": 0.221869,
+        "cer_ci95": [
+          0.201033,
+          0.245283
+        ],
+        "mean_utt_cer": 0.220812,
+        "blank": 0,
+        "lo": 10,
+        "hi": 12
+      },
+      {
+        "label": "12-16",
+        "n": 149,
+        "errors": 1678,
+        "ref_chars": 7256,
+        "cer": 0.231257,
+        "cer_ci95": [
+          0.211606,
+          0.252494
+        ],
+        "mean_utt_cer": 0.226122,
+        "blank": 0,
+        "lo": 12,
+        "hi": 16
+      }
+    ],
+    "cumulative_duration": [
+      {
+        "min_dur": 0,
+        "n": 318,
+        "errors": 3126,
+        "ref_chars": 13297,
+        "cer": 0.235091
+      },
+      {
+        "min_dur": 2,
+        "n": 318,
+        "errors": 3126,
+        "ref_chars": 13297,
+        "cer": 0.235091
+      },
+      {
+        "min_dur": 4,
+        "n": 318,
+        "errors": 3126,
+        "ref_chars": 13297,
+        "cer": 0.235091
+      },
+      {
+        "min_dur": 6,
+        "n": 309,
+        "errors": 3033,
+        "ref_chars": 13048,
+        "cer": 0.232449
+      },
+      {
+        "min_dur": 8,
+        "n": 276,
+        "errors": 2741,
+        "ref_chars": 11992,
+        "cer": 0.228569
+      },
+      {
+        "min_dur": 10,
+        "n": 231,
+        "errors": 2376,
+        "ref_chars": 10402,
+        "cer": 0.228418
+      },
+      {
+        "min_dur": 12,
+        "n": 149,
+        "errors": 1678,
+        "ref_chars": 7256,
+        "cer": 0.231257
+      }
+    ],
+    "by_ref_len": [
+      {
+        "label": "10-20",
+        "n": 5,
+        "errors": 19,
+        "ref_chars": 91,
+        "cer": 0.208791,
+        "cer_ci95": [
+          0.142857,
+          0.274725
+        ],
+        "mean_utt_cer": 0.208669,
+        "blank": 0,
+        "lo": 10,
+        "hi": 20
+      },
+      {
+        "label": "20-30",
+        "n": 33,
+        "errors": 180,
+        "ref_chars": 843,
+        "cer": 0.213523,
+        "cer_ci95": [
+          0.183475,
+          0.244444
+        ],
+        "mean_utt_cer": 0.212065,
+        "blank": 0,
+        "lo": 20,
+        "hi": 30
+      },
+      {
+        "label": "30-40",
+        "n": 109,
+        "errors": 935,
+        "ref_chars": 3860,
+        "cer": 0.242228,
+        "cer_ci95": [
+          0.21943,
+          0.266133
+        ],
+        "mean_utt_cer": 0.241441,
+        "blank": 0,
+        "lo": 30,
+        "hi": 40
+      },
+      {
+        "label": "40-60",
+        "n": 146,
+        "errors": 1514,
+        "ref_chars": 6832,
+        "cer": 0.221604,
+        "cer_ci95": [
+          0.205162,
+          0.238838
+        ],
+        "mean_utt_cer": 0.220235,
+        "blank": 0,
+        "lo": 40,
+        "hi": 60
+      },
+      {
+        "label": ">=60",
+        "n": 25,
+        "errors": 478,
+        "ref_chars": 1671,
+        "cer": 0.286056,
+        "cer_ci95": [
+          0.229295,
+          0.347649
+        ],
+        "mean_utt_cer": 0.277592,
+        "blank": 0,
+        "lo": 60,
+        "hi": 999
+      }
+    ],
+    "noise": {
+      "clean": {
+        "label": "clean",
+        "n": 318,
+        "errors": 3126,
+        "ref_chars": 13297,
+        "cer": 0.235091,
+        "cer_ci95": [
+          0.221791,
+          0.249668
+        ],
+        "mean_utt_cer": 0.230984,
+        "blank": 0
+      },
+      "noisy": {
+        "label": "noisy",
+        "n": 0,
+        "errors": 0,
+        "ref_chars": 0,
+        "cer": null,
+        "cer_ci95": null,
+        "mean_utt_cer": null,
+        "blank": 0
+      },
+      "noise_rows": 0,
+      "noise_pct": 0.0,
+      "marker_counts": {}
+    },
+    "concentration": {
+      "top_1pct": {
+        "k": 3,
+        "errors": 133,
+        "share_of_errors": 0.0425,
+        "ref_chars": 232,
+        "cer": 0.573276
+      },
+      "top_5pct": {
+        "k": 16,
+        "errors": 434,
+        "share_of_errors": 0.1388,
+        "ref_chars": 968,
+        "cer": 0.448347
+      },
+      "top_10pct": {
+        "k": 32,
+        "errors": 740,
+        "share_of_errors": 0.2367,
+        "ref_chars": 1815,
+        "cer": 0.407713
+      },
+      "cer_ge_0.5": {
+        "n": 6,
+        "pct": 1.89,
+        "errors": 191,
+        "share_of_errors": 0.0611
+      },
+      "cer_ge_0.8": {
+        "n": 0,
+        "pct": 0.0,
+        "errors": 0,
+        "share_of_errors": 0.0
+      },
+      "cer_ge_1.0": {
+        "n": 0,
+        "pct": 0.0,
+        "errors": 0,
+        "share_of_errors": 0.0
+      }
+    },
+    "worst": [
+      {
+        "id": "1737922164151034267",
+        "dur": 14.7,
+        "markers": [],
+        "cer": 0.6316,
+        "errors": 72,
+        "ref_chars": 114,
+        "ref": "현 상원 의원 겸 아르헨티나 대통령 부인 크리스티나 페르난데스 데 키르치네르(Cristina Fernandez de Kirchner)는 어제저녁 부에노스아이레스(Buenos Aires)에서 50km 떨어진 라 플라타(La Plata)에서 대선 출마를 ",
+        "pred": "현상원의의영겸험아에디나대통령부인인크리스티나폐르한데을대키르치내를는어제전역부회놓스아이라스에서오십킬로미터떨어진라플라타에서대선출마을선는있다"
+      },
+      {
+        "id": "18145026371680113136",
+        "dur": 13.68,
+        "markers": [],
+        "cer": 0.4923,
+        "errors": 32,
+        "ref_chars": 65,
+        "ref": "2002년, 고마(Goma)는 니라공고(Nyiragongo) 화산에서 분출된 용암에 의해 파괴되었는데, 특히 도심지를 비롯한 마을의 도로 대부분이 묻혔다.",
+        "pred": "이천년구만은리라공고하사에서분칠된용감의의에파기되었는데특히도심질를비롯한마을에도로대부분이묻쳤다"
+      },
+      {
+        "id": "16812273331556258203",
+        "dur": 9.6,
+        "markers": [],
+        "cer": 0.5472,
+        "errors": 29,
+        "ref_chars": 53,
+        "ref": "처음에 그는 그레이트 야머스(Great Yarmouth)에 있는 제임스 페이젯 병원(James Paget)에 입원했습니다.",
+        "pred": "처음에균는그래이트야머스에있는재임스페이제병원에이번했습니다"
+      },
+      {
+        "id": "14945311428794587488",
+        "dur": 4.2,
+        "markers": [],
+        "cer": 0.7179,
+        "errors": 28,
+        "ref_chars": 39,
+        "ref": "수소 이온은 전자가 벗겨져 나간 양성자이다. (수소 원자는 양성자 하나와 전자 하나로 구성되므로)",
+        "pred": "수소위원는전작가법껴져나가양성자이다"
+      },
+      {
+        "id": "12988724693829869998",
+        "dur": 12.12,
+        "markers": [],
+        "cer": 0.4194,
+        "errors": 26,
+        "ref_chars": 62,
+        "ref": "모로코 술탄은 다루 이 바드야(Daru l-Badya)라는 도시로 재건축하고, 여기에 무역 거점을 세운 스페인 상인들은 이곳을 카사블랑카라고 불렀다.",
+        "pred": "모르코술탄는다루의마대하라는도시로제축하고여기의무역거점을제운스페인상인들은이고을카사을불란가라고불었다"
+      },
+      {
+        "id": "3837964435432197347",
+        "dur": 12.54,
+        "markers": [],
+        "cer": 0.4194,
+        "errors": 26,
+        "ref_chars": 62,
+        "ref": "모로코 술탄은 다루 이 바드야(Daru l-Badya)라는 도시로 재건축하고, 여기에 무역 거점을 세운 스페인 상인들은 이곳을 카사블랑카라고 불렀다.",
+        "pred": "모르코술탄타는다로의받드하라는것시로건축하고여기무역거참을세운스페인상인들은이고을카사불란가라고불랐다"
+      },
+      {
+        "id": "16505192608175214967",
+        "dur": 12.12,
+        "markers": [],
+        "cer": 0.3906,
+        "errors": 25,
+        "ref_chars": 64,
+        "ref": "그곳은 안전한 수영이 가능한 거의 모든 모래 해변이며, 대부분의 해변은 푸후투카와 나무(pohutukawa trees)가 만드는 그늘진 장소들이 많다.",
+        "pred": "그곳은안전한수영이가능한거의모든모래해변이며대부분에해면는프특가와나무가만든는그을진장소들이반다"
+      },
+      {
+        "id": "17739078960574373462",
+        "dur": 11.1,
+        "markers": [],
+        "cer": 0.5682,
+        "errors": 25,
+        "ref_chars": 44,
+        "ref": "하지만, 솅겐 존(국경 자유 통행 지역: Schengen zone)은 이런 측면에서 다소 한 나라같이 작용한다.",
+        "pred": "하지만갠존는이런측면에서다수한나라가이작용한다"
+      }
+    ],
+    "pearson_dur_cer": -0.1257,
+    "pearson_reflen_cer": 0.1337
+  },
+  "train_duration": {
+    "n": 2384,
+    "mean_dur": 9.0616,
+    "bins": [
+      {
+        "lo": 0,
+        "hi": 2,
+        "n": 4,
+        "pct": 0.17
+      },
+      {
+        "lo": 2,
+        "hi": 4,
+        "n": 93,
+        "pct": 3.9
+      },
+      {
+        "lo": 4,
+        "hi": 6,
+        "n": 212,
+        "pct": 8.89
+      },
+      {
+        "lo": 6,
+        "hi": 8,
+        "n": 635,
+        "pct": 26.64
+      },
+      {
+        "lo": 8,
+        "hi": 10,
+        "n": 594,
+        "pct": 24.92
+      },
+      {
+        "lo": 10,
+        "hi": 12,
+        "n": 401,
+        "pct": 16.82
+      },
+      {
+        "lo": 12,
+        "hi": 16,
+        "n": 445,
+        "pct": 18.67
+      },
+      {
+        "lo": 16,
+        "hi": 99,
+        "n": 0,
+        "pct": 0.0
+      }
+    ]
+  }
+}

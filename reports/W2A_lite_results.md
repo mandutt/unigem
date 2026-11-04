@@ -130,3 +130,13 @@ SHA-256: `258f6ddf84b3f41afc0e88f832946229b3a1319d28cec11cd4a0da40951cb23d`
 | per-domain/error/blank/vocab/fbank | taxonomy·blank·vocab oracle·fbank 보고 |
 | WER/공백 포함 CER | **미산출** (예측 공백 없음) |
 | 13-state/wordpiece/40h/LoRA | 미이행(후속) |
+
+## 9. CP-D2-lite — Kspon 35.14% 분해
+
+- 추가 test 평가 없이 기존 decode/manifest만 분석: `reports/W2A_lite_cp_d2_lite.md`
+- **오류는 outlier가 아님**: 상위 1% 발화가 전체 오류의 4.2%, 상위 5%가 15.5%.
+- **길이 분포 불일치가 주축**: train ≤4초 **4.1%** vs Kspon eval_other ≤4초 **57.2%**.
+- Kspon CER: 0–2초 **46.4%** → 12–16초 **28.6%** (duration–CER Pearson −0.265).
+- **잡음 마커는 주원인 아님**: noisy 34.7% vs clean 35.4%.
+- Kspon ≥12초 28.6% vs FLEURS test ≥12초 23.1% → 잔여 도메인 갭 약 5.5%p.
+- 외부: Kspon 원 논문 960h Transformer eval-other CER 9.0%(우리 6h·동결 타워와 직접 비교 불가), 짧은 발화 오류 증가는 ASR 문헌과 일치.
