@@ -1,7 +1,7 @@
 # Wave 2B + 2C-short 설계 v2 — 3-AI 검토 반영
 
 - 작성: 2026-11-04
-- 상태: **v2 설계. v1(`docs/plan_wave2b_2c_short.md`)의 해당 절을 대체한다. Preflight 완료(2026-11-04), short 다운로드·학습·test는 미착수.**
+- 상태: **v3가 현행 정본이다(`docs/plan_wave2b_2c_short_v3.md`). 이 문서는 v2 검토·preflight 이력으로 보존한다. Preflight 완료(2026-11-04), short 다운로드·학습·test는 미착수.**
 - 근거: `reports/W2B_2C_SHORT_3AI_SYNTHESIS.md`
 - 사용자 승인(2026-11-04):
   1. **eval_clean에서 dev 500 + test 2,400** (2026-11-04 사용자 최종 결정)
