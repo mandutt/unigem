@@ -1,0 +1,161 @@
+{
+  "source": "C:\\code\\unigem\\data\\raw\\kspon_eval\\10.한국어음성\\KsponSpeech_eval.zip",
+  "eval_clean_pcm": 3000,
+  "eval_clean_trn": 3000,
+  "eval_clean_intersection": 3000,
+  "excluded_gt16": 10,
+  "eligible_le16": 2990,
+  "used_dev_100": 100,
+  "used_missing": [],
+  "duration": {
+    "min": 0.286,
+    "max": 15.738,
+    "mean": 3.126,
+    "bins_all": {
+      "0-2": 1440,
+      "8-12": 187,
+      "2-4": 783,
+      "4-8": 537,
+      "12-16": 43
+    }
+  },
+  "split": {
+    "dev": 500,
+    "test": 2400,
+    "spare": 90,
+    "dev_bins": {
+      "0-2": 246,
+      "8-12": 32,
+      "4-8": 90,
+      "2-4": 126,
+      "12-16": 6
+    },
+    "test_bins": {
+      "0-2": 1151,
+      "8-12": 149,
+      "2-4": 633,
+      "4-8": 431,
+      "12-16": 36
+    },
+    "spare_bins": {
+      "2-4": 24,
+      "0-2": 43,
+      "4-8": 16,
+      "8-12": 6,
+      "12-16": 1
+    },
+    "overlap_dev_test": 0,
+    "overlap_dev_used": 100,
+    "overlap_test_used": 0
+  },
+  "oov": {
+    "rows_with_oov": 226,
+    "oov_rows_pct": 7.56,
+    "oov_chars_total": 261,
+    "oov_types": 106,
+    "top": [
+      [
+        "밌",
+        26
+      ],
+      [
+        "낫",
+        14
+      ],
+      [
+        "컬",
+        8
+      ],
+      [
+        "껄",
+        7
+      ],
+      [
+        "쫌",
+        7
+      ],
+      [
+        "걍",
+        6
+      ],
+      [
+        "쎄",
+        6
+      ],
+      [
+        "탔",
+        6
+      ],
+      [
+        "쉴",
+        5
+      ],
+      [
+        "맘",
+        5
+      ],
+      [
+        "놈",
+        5
+      ],
+      [
+        "캡",
+        5
+      ],
+      [
+        "쉐",
+        4
+      ],
+      [
+        "썸",
+        4
+      ],
+      [
+        "숏",
+        4
+      ],
+      [
+        "뽀",
+        4
+      ],
+      [
+        "쟤",
+        4
+      ],
+      [
+        "튀",
+        3
+      ],
+      [
+        "댔",
+        3
+      ],
+      [
+        "쵸",
+        3
+      ]
+    ],
+    "dev": {
+      "rows": 38,
+      "pct": 7.6,
+      "chars": 43
+    },
+    "test": {
+      "rows": 185,
+      "pct": 7.71,
+      "chars": 214
+    },
+    "spare": {
+      "rows": 3,
+      "pct": 3.33,
+      "chars": 4
+    }
+  },
+  "ctc_frame": {
+    "chars_gt_frames": 0,
+    "chars_repeats_gt_frames": 0,
+    "note": "frames = floor(dur*25); conservative repeated-char blank check"
+  },
+  "speaker_metadata": "not present in eval_clean.trn or zip names; duration-stratified split only",
+  "disk_free_gb": null
+}

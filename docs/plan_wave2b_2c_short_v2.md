@@ -1,7 +1,7 @@
 # Wave 2B + 2C-short 설계 v2 — 3-AI 검토 반영
 
 - 작성: 2026-11-04
-- 상태: **v2 설계. v1(`docs/plan_wave2b_2c_short.md`)의 해당 절을 대체한다.**
+- 상태: **v2 설계. v1(`docs/plan_wave2b_2c_short.md`)의 해당 절을 대체한다. Preflight 완료(2026-11-04), short 다운로드·학습·test는 미착수.**
 - 근거: `reports/W2B_2C_SHORT_3AI_SYNTHESIS.md`
 - 사용자 승인(2026-11-04):
   1. **eval_clean에서 dev 500 + test 2,400** (2026-11-04 사용자 최종 결정)
@@ -68,7 +68,8 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 
 ### 2.4 test 2,400
 
-- eval_clean 3,000에서 **dev 500**(기존 D-β 100 포함)을 먼저 고정하고, 남은 2,500에서 **test 2,400**을 봉인한다. **100발화는 미사용(spare)**으로 남긴다.
+- eval_clean 3,000에서 **16초 초과 10건을 제외**해 평가 적격 **2,990**을 만든다.
+- **dev 500**(기존 D-β 100 포함)을 먼저 고정하고, 남은 2,490 중 **test 2,400**을 봉인한다. **나머지 90발화는 미사용(spare)**으로 남긴다.
 - `data/wave2b/test/kspon_eval_clean_2400.jsonl`로 봉인.
 - 검증:
   - dev 500과 ID 교집합 0
@@ -79,6 +80,16 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 - **표현:** “Kspon in-domain sealed holdout”. “독립 test” 또는 “새 화자 일반화”라고 부르지 않는다.
 - FLEURS test는 2A-lite에서 사용했으므로 **재사용 금지**.
 - test는 checkpoint freeze 후 1회만.
+
+### 2.5 Preflight 결과 (2026-11-04)
+
+- eval_clean PCM/TRN 교집합 **3,000**; 16초 초과 **10건 제외** → 적격 **2,990**.
+- dev **500** (기존 D-β 100 + 신규 400), test **2,400**, spare **90**; **dev∩test=0**, test∩기존100=0.
+- OOV: 전체 **226/2,990 (7.56%)**, dev **38/500 (7.60%)**, test **185/2,400 (7.71%)**, OOV types 106.
+- CTC frame 초과 **0**; OOV 정책은 별도 승인 대상.
+- eval_clean에 **화자 ID 없음** → duration 층화만 적용. speaker-cluster bootstrap 불가, utterance bootstrap으로 대체.
+- Kspon train shard는 로컬에 없음: filekey 50211~50215(각 14~15GB). C: 여유 약 18GB → **zip streaming + 선택 파일만 저장** 필요.
+- 상세: `reports/W2B_preflight.md`, `reports/provenance/W2B/preflight.json`
 
 ---
 
@@ -155,7 +166,8 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 ## 6. DoD v2
 
 - [ ] dev 500: eval_clean 3,000에서 기존 100 + 신규 400, test와 ID 교집합 0
-- [ ] test 2,400: eval_clean에서 dev 500·기존 100 제외, 나머지 2,400 봉인
+- [ ] test 2,400: 16초 초과 10건 제외 후 dev 500·spare 90과 분리해 봉인
+- [ ] OOV 사전등록: full 2,400 주평가 + in-vocab subset 2,215 보조, OOV 문자는 오류 처리
 - [ ] B0′ 재학습, reader warm-start, epoch-0 B1==B0′
 - [ ] B1/B2/B3/B3-nat 동일 vocab/reader init/seed/eval
 - [ ] B3/B3-nat cached feature vs B1/B2 on-the-fly parity
@@ -171,7 +183,7 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 
 | 단계 | 작업 | 예상 |
 |---:|---|---:|
-| 0 | Preflight: Kspon dev/shard, 화자 ID, OOV, disk, CTC frame | 0.5~1일 |
+| 0 | Preflight: eval_clean split, Kspon shard, OOV, disk, CTC frame | 0.5~1일 |
 | 1 | short 4h + B3-nat natural 4h 선별 | 1일 |
 | 2 | test 2,400 봉인, dev 500 구축 | 1일 |
 | 3 | B0′/reader warm-start/parity unit tests | 1일 |
@@ -187,7 +199,7 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 
 ## 8. 남은 승인
 
-- Gate v2(절대 pp 주지표, max(B2,B3), B2>B1/B3 귀속 분리) 승인
-- dev 500을 **eval_clean 3,000**(기존 100 + 신규 400)에서 추출하는 안 승인
-- Preflight 착수 승인
-- Preflight 후 short 4h 다운로드·선별 승인
+- Gate v2 승인 완료
+- dev 500/test 2,400/preflight 승인 완료
+- **OOV 정책 승인 대기**
+- **short 4h 다운로드·선별 승인 대기**
