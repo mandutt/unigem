@@ -212,7 +212,7 @@ def main():
         "",
         "## 3. OOV·CTC",
         "",
-        f"- OOV rows: **{oov_rows}/{len(rows)} ({out['oov']['oov_rows_pct']}%)**, OOV types {len(oov)}, chars {sum(oov.values())}",
+        f"- OOV rows: **{oov_rows}/{len(rows)} ({out['oov']['oov_rows_pct']}%)**, OOV types {len(oov)}, chars {sum(oov.values())} **(2A FLEURS vocab 1,101 기준 상한)**",
         f"- OOV by split: dev **{out['oov']['dev']['rows']}/{len(dev)} ({out['oov']['dev']['pct']}%)**, test **{out['oov']['test']['rows']}/{len(test)} ({out['oov']['test']['pct']}%)**, spare **{out['oov']['spare']['rows']}/{len(spare)} ({out['oov']['spare']['pct']}%)**",
         f"- top OOV: `{oov.most_common(15)}`",
         f"- chars > frames: **{ctc_bad}**",
