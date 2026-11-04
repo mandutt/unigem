@@ -1,0 +1,33 @@
+{
+  "label": "W2A_lite_final_test",
+  "executed_at_utc": "2026-11-04T07:30:00Z",
+  "checkpoint": "data/wave2a_lite/frozen/w2a_fc_concat_s42.best.pt",
+  "checkpoint_sha256": "258f6ddf84b3f41afc0e88f832946229b3a1319d28cec11cd4a0da40951cb23d",
+  "one_shot": true,
+  "kspon_eval_other": {
+    "manifest": "data/wave2a_lite/kspon_eval_other.jsonl",
+    "manifest_rows": 3000,
+    "features": "data/wave2a_lite/feats_kspon_eval_other/fc.npz",
+    "evaluated": 2962,
+    "skipped_gt_16s": 38,
+    "cer": 0.35142690565530027,
+    "errors": 23508,
+    "ref_chars": 66893,
+    "blank": 0,
+    "decode": "logs/W2A_lite/decode_kspon_eval_other.json",
+    "analysis": "reports/W2A_lite_kspon_eval_other.json"
+  },
+  "fleurs_test": {
+    "manifest": "data/wave2a_lite/fleurs_test.jsonl",
+    "manifest_rows": 382,
+    "features": "data/wave2a_lite/feats_fleurs_test/fc.npz",
+    "evaluated": 318,
+    "skipped_gt_16s": 64,
+    "cer": 0.23509062194479957,
+    "errors": 3126,
+    "ref_chars": 13297,
+    "blank": 0,
+    "decode": "logs/W2A_lite/decode_fleurs_test.json",
+    "analysis": "reports/W2A_lite_fleurs_test.json"
+  }
+}

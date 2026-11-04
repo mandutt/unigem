@@ -1,0 +1,133 @@
+{
+  "label": "fleurs_test_frozen",
+  "reference_arm": "fc_concat",
+  "arms": {
+    "fc_concat": {
+      "n": 318,
+      "cer": 0.23509062194479957,
+      "errors": 3126,
+      "ref_chars": 13297,
+      "decode_file_cer": 0.23509062194479957,
+      "pred_chars": 12857,
+      "pred_ref_ratio": 0.9669098292848011
+    }
+  },
+  "pairwise": {
+    "fc_concat": {
+      "improvement": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "n_boot": 1000,
+      "seed": 42
+    }
+  },
+  "taxonomy": {
+    "fc_concat": {
+      "substitution": 2697,
+      "deletion": 359,
+      "insertion": 114
+    }
+  },
+  "coverage": {
+    "fc_concat": {
+      "ref_chars": 13297,
+      "missing_types": 35,
+      "missing_tokens": 55,
+      "coverage": 0.9958637286606001,
+      "missing_top": [
+        [
+          "룡",
+          3
+        ],
+        [
+          "랩",
+          3
+        ],
+        [
+          "얇",
+          3
+        ],
+        [
+          "픽",
+          3
+        ],
+        [
+          "솅",
+          3
+        ],
+        [
+          "셰",
+          3
+        ],
+        [
+          "헨",
+          2
+        ],
+        [
+          "뀝",
+          2
+        ],
+        [
+          "슘",
+          2
+        ],
+        [
+          "껍",
+          2
+        ],
+        [
+          "듀",
+          2
+        ],
+        [
+          "뮬",
+          2
+        ],
+        [
+          "렁",
+          2
+        ],
+        [
+          "쿤",
+          2
+        ],
+        [
+          "ó",
+          1
+        ],
+        [
+          "엠",
+          1
+        ],
+        [
+          "벳",
+          1
+        ],
+        [
+          "웡",
+          1
+        ],
+        [
+          "셍",
+          1
+        ],
+        [
+          "셴",
+          1
+        ]
+      ],
+      "sentences_all_known": 273,
+      "sentences": 318
+    }
+  },
+  "vocab_oracle": {
+    "fc_concat": {
+      "cer_known_only": 0.23309901286269818,
+      "errors": 3117,
+      "ref_chars": 13372,
+      "note": "diagnostic lower bound; not a model result"
+    }
+  }
+}

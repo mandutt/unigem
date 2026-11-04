@@ -49,3 +49,46 @@ eg2-1의 **vCPU별 steal도 균일**했다.
 - **guest affinity는 host contention의 해결책이 아니다.**
 - **같은 계정의 VPS라도 host마다 상태가 다르다.** eg2-1만 steal 38%, eg2-2~5는 거의 0이었다.
 - **긴 학습은 host별 steal을 모니터링하고, 나쁜 host의 job은 clean host로 옮긴다.**
+
+## 5. 1시간 구간 steal probe (2026-11-04 03:53~04:57 UTC)
+
+누적값이 아니라 **1분 구간 delta**로 다시 측정했다. `runner/w2a_steal_probe.py`가 5대를 동시에 샘플링했다.
+
+| 머신 | 구간 steal 평균 | 최대 | 마지막 10분 | 부하 상태 |
+|---|---:|---:|---:|---|
+| eg2-1 | 0.007% | 0.040% | 0.003% | 유휴 |
+| eg2-2 | 0.025% | 0.116% | 0.002% | 학습 종료 후 유휴 |
+| eg2-3 | 0.021% | 0.052% | 0.002% | 학습 종료 후 유휴 |
+| eg2-4 | 0.015% | 0.048% | 0.002% | fbank 종료 후 유휴 |
+| eg2-5 | **0.097%** | **0.296%** | **0.153%** | F-C 학습 지속 |
+
+- eg2-5는 부하가 계속되면서 **0.055% → 0.153%**로 완만히 상승했다. 다만 절대값은 **0.15%**로, eg2-1의 38%와 비교하면 **약 250배 낮다**.
+- eg2-2/3/4는 학습이 끝난 뒤 유휴가 되면서 steal이 0에 가까워졌다.
+- **1시간 안에 provider-wide time-based throttle이 온다는 증거는 없었다.**
+- eg2-5의 완만한 상승은 host noisy neighbor 또는 지속 부하에 따른 미세한 경합으로 보이며, **현재 학습 속도(epoch 280초)에는 실질 영향이 없다.**
+- 결론: **steal이 보일 때마다 기계적으로 migration하지 않는다.** 구간 steal이 5% 이상으로 지속될 때만 이동하고, 그렇지 않으면 해당 host에서 계속한다. 긴 critical job은 로컬 폴백을 우선한다.
+
+## 6. 지연 발현 — 1시간 probe 이후 eg2-5 급증
+
+- 05:31경까지 eg2-5 F-C-softmax epoch는 **280초**였고, 06:12에는 **1,062~1,083초**로 4배 가까이 느려졌다.
+- 같은 시점 `/proc/stat` aggregate: **steal 1,033,321 / total 약 5.9M = 약 17.5%**.
+- 1시간 probe 마지막(04:57)의 0.153%에서 약 2시간 만에 **17.5%**로 상승했다. 즉 **clean host도 시간이 지나면 noisy neighbor가 될 수 있다.**
+- 따라서 **migration은 일시적 회피일 뿐**이며, 긴 critical 학습의 해법이 아니다.
+- 조치: eg2-5 F-C-softmax를 epoch 17에서 중단하고 **로컬로 이전**했다. `fc_softmax_s42.best.pt`(best 0.2210, epoch 15)는 참고용으로 보존한다.
+- 원칙 변경: **VPS는 1시간 이내의 짧은/병렬 작업에만 사용하고, 긴 critical job은 로컬에서 실행한다.** 단, steal이 커져도 **남은 시간이 재시작보다 짧으면 중단하지 않는다**(§7). VPS 결과를 쓰더라도 host가 checkpoint 저장조차 불가능할 정도로 불안정할 때만 로컬로 폴백한다.
+
+## 7. 중단 판단 — “steal = 즉시 로컬”은 틀렸다
+
+- eg2-5 F-C-softmax를 epoch 17/20에서 중단한 것은 **잘못된 판단**이었다. 남은 3 epoch는 당시 1,080초/epoch 기준 **약 54분**이면 끝났고, 로컬에서 20 epoch를 처음부터 다시 도는 데는 **약 1시간 50분**이 걸린다. 즉 **중단이 더 오래 걸렸다.**
+- 올바른 규칙은 “steal이 보이면 중단”이 아니라 **남은 시간과 재시작 비용을 비교**하는 것이다.
+
+```
+remaining_on_current = 남은 epoch × 현재 epoch 시간
+restart_local       = 전체 epoch × 로컬 epoch 시간 + 특징 전송·로드 시간
+if remaining_on_current < restart_local: 계속 실행
+else: 다음 checkpoint에서 중단·이전 (가능하면 --resume)
+```
+
+- steal이 5%를 넘어도 **아직 완주가 더 빠르면 그대로 둔다.** 중단은 (a) 남은 시간이 재시작보다 길거나, (b) host가 checkpoint 저장조차 못 할 정도로 불안정할 때만 한다.
+- 장기적으로는 `d5_reader.py --resume`(optimizer/scheduler/epoch/RNG 포함)을 구현해, 중단 시 손실을 “현재 epoch”로 제한한다.
+- 2026-11-04 현재 복구: eg2-5의 `fc_softmax_s42.best.pt`(0.2210)는 보존하고, 완전한 4-arm 비교를 위해 로컬에서 F-C-softmax를 다시 실행 중이다. 이 재실행은 **steal 회피가 아니라 중단 손실 복구**다.

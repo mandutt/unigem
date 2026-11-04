@@ -1,0 +1,490 @@
+{
+  "label": "fleurs_dev_seed42",
+  "reference_arm": "fa",
+  "arms": {
+    "fa": {
+      "n": 192,
+      "cer": 0.22236356697621168,
+      "errors": 1748,
+      "ref_chars": 7861,
+      "decode_file_cer": 0.22236356697621168,
+      "pred_chars": 7763,
+      "pred_ref_ratio": 0.98753339269813
+    },
+    "fb": {
+      "n": 192,
+      "cer": 0.21931052029003945,
+      "errors": 1724,
+      "ref_chars": 7861,
+      "decode_file_cer": 0.21931052029003945,
+      "pred_chars": 7763,
+      "pred_ref_ratio": 0.98753339269813
+    },
+    "fc_softmax": {
+      "n": 192,
+      "cer": 0.22210914641903065,
+      "errors": 1746,
+      "ref_chars": 7861,
+      "decode_file_cer": 0.22210914641903065,
+      "pred_chars": 7706,
+      "pred_ref_ratio": 0.9802824068184709
+    },
+    "fc_concat": {
+      "n": 192,
+      "cer": 0.20913369800279863,
+      "errors": 1644,
+      "ref_chars": 7861,
+      "decode_file_cer": 0.20913369800279863,
+      "pred_chars": 7696,
+      "pred_ref_ratio": 0.9790103040325658
+    }
+  },
+  "pairwise": {
+    "fa": {
+      "improvement": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "n_boot": 10000,
+      "seed": 42
+    },
+    "fb": {
+      "improvement": 0.0030530466861722425,
+      "ci95": [
+        -0.0035138737428813765,
+        0.009538540861046661
+      ],
+      "n_boot": 10000,
+      "seed": 42
+    },
+    "fc_softmax": {
+      "improvement": 0.00025442055718102023,
+      "ci95": [
+        -0.006859565976552756,
+        0.0074794315632011965
+      ],
+      "n_boot": 10000,
+      "seed": 42
+    },
+    "fc_concat": {
+      "improvement": 0.013229868973413052,
+      "ci95": [
+        0.006306306306306306,
+        0.020277078085642317
+      ],
+      "n_boot": 10000,
+      "seed": 42
+    }
+  },
+  "taxonomy": {
+    "fa": {
+      "substitution": 1485,
+      "deletion": 226,
+      "insertion": 139
+    },
+    "fb": {
+      "substitution": 1533,
+      "deletion": 192,
+      "insertion": 94
+    },
+    "fc_softmax": {
+      "substitution": 1564,
+      "deletion": 189,
+      "insertion": 57
+    },
+    "fc_concat": {
+      "substitution": 1480,
+      "deletion": 127,
+      "insertion": 53
+    }
+  },
+  "coverage": {
+    "fa": {
+      "ref_chars": 7861,
+      "missing_types": 25,
+      "missing_tokens": 49,
+      "coverage": 0.993766696349065,
+      "missing_top": [
+        [
+          "룡",
+          4
+        ],
+        [
+          "샘",
+          3
+        ],
+        [
+          "솜",
+          3
+        ],
+        [
+          "헨",
+          3
+        ],
+        [
+          "쿤",
+          3
+        ],
+        [
+          "묽",
+          3
+        ],
+        [
+          "춥",
+          2
+        ],
+        [
+          "갭",
+          2
+        ],
+        [
+          "벳",
+          2
+        ],
+        [
+          "깅",
+          2
+        ],
+        [
+          "셸",
+          2
+        ],
+        [
+          "벚",
+          2
+        ],
+        [
+          "州",
+          2
+        ],
+        [
+          "췄",
+          2
+        ],
+        [
+          "넬",
+          2
+        ],
+        [
+          "뜰",
+          2
+        ],
+        [
+          "덤",
+          2
+        ],
+        [
+          "쌌",
+          1
+        ],
+        [
+          "둠",
+          1
+        ],
+        [
+          "윗",
+          1
+        ]
+      ],
+      "sentences_all_known": 154,
+      "sentences": 192
+    },
+    "fb": {
+      "ref_chars": 7861,
+      "missing_types": 25,
+      "missing_tokens": 49,
+      "coverage": 0.993766696349065,
+      "missing_top": [
+        [
+          "룡",
+          4
+        ],
+        [
+          "샘",
+          3
+        ],
+        [
+          "솜",
+          3
+        ],
+        [
+          "헨",
+          3
+        ],
+        [
+          "쿤",
+          3
+        ],
+        [
+          "묽",
+          3
+        ],
+        [
+          "춥",
+          2
+        ],
+        [
+          "갭",
+          2
+        ],
+        [
+          "벳",
+          2
+        ],
+        [
+          "깅",
+          2
+        ],
+        [
+          "셸",
+          2
+        ],
+        [
+          "벚",
+          2
+        ],
+        [
+          "州",
+          2
+        ],
+        [
+          "췄",
+          2
+        ],
+        [
+          "넬",
+          2
+        ],
+        [
+          "뜰",
+          2
+        ],
+        [
+          "덤",
+          2
+        ],
+        [
+          "쌌",
+          1
+        ],
+        [
+          "둠",
+          1
+        ],
+        [
+          "윗",
+          1
+        ]
+      ],
+      "sentences_all_known": 154,
+      "sentences": 192
+    },
+    "fc_softmax": {
+      "ref_chars": 7861,
+      "missing_types": 25,
+      "missing_tokens": 49,
+      "coverage": 0.993766696349065,
+      "missing_top": [
+        [
+          "룡",
+          4
+        ],
+        [
+          "샘",
+          3
+        ],
+        [
+          "솜",
+          3
+        ],
+        [
+          "헨",
+          3
+        ],
+        [
+          "쿤",
+          3
+        ],
+        [
+          "묽",
+          3
+        ],
+        [
+          "춥",
+          2
+        ],
+        [
+          "갭",
+          2
+        ],
+        [
+          "벳",
+          2
+        ],
+        [
+          "깅",
+          2
+        ],
+        [
+          "셸",
+          2
+        ],
+        [
+          "벚",
+          2
+        ],
+        [
+          "州",
+          2
+        ],
+        [
+          "췄",
+          2
+        ],
+        [
+          "넬",
+          2
+        ],
+        [
+          "뜰",
+          2
+        ],
+        [
+          "덤",
+          2
+        ],
+        [
+          "쌌",
+          1
+        ],
+        [
+          "둠",
+          1
+        ],
+        [
+          "윗",
+          1
+        ]
+      ],
+      "sentences_all_known": 154,
+      "sentences": 192
+    },
+    "fc_concat": {
+      "ref_chars": 7861,
+      "missing_types": 25,
+      "missing_tokens": 49,
+      "coverage": 0.993766696349065,
+      "missing_top": [
+        [
+          "룡",
+          4
+        ],
+        [
+          "샘",
+          3
+        ],
+        [
+          "솜",
+          3
+        ],
+        [
+          "헨",
+          3
+        ],
+        [
+          "쿤",
+          3
+        ],
+        [
+          "묽",
+          3
+        ],
+        [
+          "춥",
+          2
+        ],
+        [
+          "갭",
+          2
+        ],
+        [
+          "벳",
+          2
+        ],
+        [
+          "깅",
+          2
+        ],
+        [
+          "셸",
+          2
+        ],
+        [
+          "벚",
+          2
+        ],
+        [
+          "州",
+          2
+        ],
+        [
+          "췄",
+          2
+        ],
+        [
+          "넬",
+          2
+        ],
+        [
+          "뜰",
+          2
+        ],
+        [
+          "덤",
+          2
+        ],
+        [
+          "쌌",
+          1
+        ],
+        [
+          "둠",
+          1
+        ],
+        [
+          "윗",
+          1
+        ]
+      ],
+      "sentences_all_known": 154,
+      "sentences": 192
+    }
+  },
+  "vocab_oracle": {
+    "fa": {
+      "cer_known_only": 0.2194661294384286,
+      "errors": 1743,
+      "ref_chars": 7942,
+      "note": "diagnostic lower bound; not a model result"
+    },
+    "fb": {
+      "cer_known_only": 0.21656372116475484,
+      "errors": 1718,
+      "ref_chars": 7933,
+      "note": "diagnostic lower bound; not a model result"
+    },
+    "fc_softmax": {
+      "cer_known_only": 0.22012896699962067,
+      "errors": 1741,
+      "ref_chars": 7909,
+      "note": "diagnostic lower bound; not a model result"
+    },
+    "fc_concat": {
+      "cer_known_only": 0.2072506021041957,
+      "errors": 1635,
+      "ref_chars": 7889,
+      "note": "diagnostic lower bound; not a model result"
+    }
+  }
+}
