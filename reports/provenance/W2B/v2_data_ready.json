@@ -1,0 +1,16 @@
+{
+  "status": "READY",
+  "finished_at": "2026-11-05T01:34:38+09:00",
+  "vocab": "data/wave2b/vocab_v2.json",
+  "vocab_chars": 2342,
+  "short_rows": 5066,
+  "short_hours": 4.0035,
+  "short_frames": 361486,
+  "short_feat_bytes": 2961293440,
+  "ten_rows": 7450,
+  "ten_hours_est": 10.0238,
+  "ten_frames": 902142,
+  "ten_feat_bytes": 7390347392,
+  "training": "not started",
+  "note": "V2 head is 2,343 rows; 2A head 1,102 rows must be remapped by character before warm start."
+}
