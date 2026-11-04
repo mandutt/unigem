@@ -172,3 +172,13 @@
 - GLM: `docs/hoplite/w2b_2c_short/2026-11-04_hoplite-review_w2b_2c_short_GLM.md`
 - Sonnet: `docs/hoplite/w2b_2c_short/2026-11-04_hoplite-review_w2b_2c_short_SONNET.md`
 - Luna: `docs/hoplite/w2b_2c_short/2026-11-04_hoplite-review_w2b_2c_short_LUNA.md`
+
+## 8. Hoplite 사용량
+
+| 모델 | 비용 | input tokens | output tokens | runtime |
+|---|---:|---:|---:|---:|
+| GLM max | $0.1378 | 1,072,368 | 85,002 | 14.6분 |
+| Sonnet medium | $0.4135 | 415,225 | 19,190 | 3.9분 |
+| Luna xhigh | $0.0734 | 1,038,976 | 45,097 | 10.1분 |
+| **합계** | **$0.6248** | — | — | — |
+
