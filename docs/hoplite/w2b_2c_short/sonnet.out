@@ -1,0 +1,31 @@
+**Verdict:** Recommend A (4h short data, 4 arms), modified and run in stages. Confidence is medium.
+
+- **Sync:** `git fetch origin` worked and `git pull --ff-only origin main` reported already up to date. HEAD is `81d58ed34f13b06d2f13edd49d89a37a80323d0f`. The request file cites base commit `6b1d720`. I did not check what changed in between.
+- **What I read:** I read the whole request file, lines 1–368. I only grepped `docs/plan_wave2b_2c_short.md` and `reports/W2A_lite_results.md`. I did not read `reports/W2A_lite_cp_d2_lite.md` and used only the numbers quoted in the request.
+- **Report:** Written to `docs/hoplite/w2b_2c_short/2026-11-04_hoplite-review_w2b_2c_short_SONNET.md`. It is the only file touched; git status shows it as the sole change. I did not run any code, open any checkpoint or touch any data.
+
+**Why A, not B:** B drops B3, which is the cheapest arm (reader-only on cached features). Without B3 you cannot attribute a gain to the data. Proposed order is B0′ (retrained), then B3, then B2, then B1 only if B2 beats B3.
+
+| Q | Judgment |
+|---|---|
+| Q1 | The 2×2 design is valid. Keep B3 and make B1 conditional. Requiring B2 > B1 AND B2 > B3 together would fail a "data is enough, LoRA isn't needed" result, so gate on B2 > B0 and report the split. Add a control with 4h of Kspon at natural lengths, because the short data changes both length and domain. |
+| Q2 | 4h is fine. By my own arithmetic the natural ≤4s share is about 26.5%, so a 40% sampler target is only about 1.5× weighting and overfitting risk is small. Test mismatch remains: 0–2s is about 15% effective versus 27.6% in test, and 8–16s is 30% versus about 15%. Report the clip-filter dropout rates. |
+| Q3 | eval_clean 2,900 is a valid held-out set but not an independent one. It shares the corpus and 60 speakers with eval_other, and the length targets came from eval_other analysis. The 100-clip dev is too small and is used for both early stopping and the gate. Move about 500 clips, stratified by speaker, into dev. A new holdout is not needed for the pilot, only before a final full-run claim. Keep FLEURS test off-limits. |
+| Q4 | LoRA on layers 10–11 at rank 8 is reasonable, but the only support is the plan's own assertion, so it is UNVERIFIED. Caching the layer 0–9 outputs would cut compute. Keep the F-C-concat input. Leaving out the wordpiece head is fine. |
+| Q5 | A CI on 100 clips is weak, and the ≤4s bin is smaller still. Use a speaker-clustered bootstrap, at least 2 seeds and absolute pp as the primary metric. Add a FLEURS no-regression gate. A 10% relative gain is realistic. The 3-epoch pilot is compared before convergence. |
+| Q6 | Missing confounders:<br>- B0 should be retrained with the same code, sampler and epochs. Using the 2A checkpoint is unfair.<br>- Cached features and on-the-fly LoRA features need a numerical parity test.<br>- Short data is also in-domain data.<br>- CTC frame limits on 0–2s clips.<br>- Test coverage: 2,962 of 3,000 were evaluated.<br>- CPU nondeterminism and seed handling. |
+| Q7 | The 3–5 day estimate has no measurement behind it; the plan itself calls it an assumption. Measure sec/step and RSS before approving the schedule. Stream-extract from the zips instead of unpacking them. |
+| Q8 | A, modified. B omits B3, C ignores the length-mismatch finding, D is covered by the staging, and E is too heavy for a pilot. |
+
+**Must-fix:**
+1. Redesign evaluation: dev of about 500, a frozen test manifest, pre-registered gates, speaker-clustered bootstrap, 2 or more seeds.
+2. Give every arm the same pipeline: retrained B0′, a stated sampler policy for the 6h-only arms, a parity test, and the natural-length Kspon control.
+3. Measure compute and settle the caching design before approving the schedule, then run in the staged order above.
+
+**UNVERIFIED:**
+- The source mix of the 6h training set.
+- Speaker overlap between eval_clean and eval_other.
+- Training throughput.
+- The share of ≤4s clips in the 100-clip dev.
+- LoRA seed variance.
+- Whether the plan caches layer 0–9 outputs.
