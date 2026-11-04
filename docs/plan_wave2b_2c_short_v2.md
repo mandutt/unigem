@@ -4,7 +4,7 @@
 - 상태: **v2 설계. v1(`docs/plan_wave2b_2c_short.md`)의 해당 절을 대체한다.**
 - 근거: `reports/W2B_2C_SHORT_3AI_SYNTHESIS.md`
 - 사용자 승인(2026-11-04):
-  1. **test 2,900 + dev 500** (test는 eval_clean 2,900 유지)
+  1. **eval_clean에서 dev 500 + test 2,400** (2026-11-04 사용자 최종 결정)
   2. **B0′ 재학습** 승인
   3. **B3-nat** 추가 승인
 - 아직 실행하지 않음: 데이터 다운로드·코드·학습·test 평가.
@@ -17,8 +17,8 @@
 |---|---|---|
 | B0 | 기존 2A checkpoint | **B0′를 동일 코드·sampler·epoch·seed로 재학습** |
 | reader 초기화 | 미정의 | **2A F-C-concat reader warm-start** (모든 학습 arm 동일) |
-| dev | Kspon eval_clean 100 | **Kspon dev 2,545에서 화자·길이 층화 500** |
-| test | eval_clean 2,900 | **동일: eval_clean 2,900** |
+| dev | Kspon eval_clean 100 | **Kspon eval_clean에서 500** (기존 100 dev + 400 신규) |
+| test | eval_clean 2,900 | **eval_clean에서 2,400** |
 | arms | B0/B1/B2/B3 | **B0′/B1/B2/B3/B3-nat** |
 | B3-nat | 없음 | **Kspon 4h natural 길이 분포, frozen tower, reader-only** |
 | 주지표 | 상대 개선 | **절대 CER pp + CI**, 상대는 보조 |
@@ -59,22 +59,22 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 
 ### 2.3 dev 500
 
-- 원천: **Kspon dev 2,545발화** (공식 dev; test 아님).
-- 500발화를 **길이 bin 층화**로 추출:
-  - 0–2, 2–4, 4–8, 8–12, 12–16초
-  - 가능한 경우 화자 층화. Kspon dev 화자 ID가 없으면 세션 프록시를 쓰고 한계를 기록.
-- 기존 eval_clean 100은 **dev로 사용하지 않는다**. v2 dev는 Kspon dev 500만 사용한다.
+- 원천: **Kspon eval_clean 3,000**.
+- **기존 D-β dev 100을 dev에 포함**하고, 나머지에서 **400발화**를 길이 bin 층화로 추가한다.
+- 총 **dev 500**.
+- 기존 eval_clean 100은 test에 넣지 않는다.
+- 가능한 경우 화자 층화. Kspon eval_clean 화자 ID가 없으면 세션/파일 프록시를 쓰고 한계를 기록.
 - FLEURS dev 192는 보조 일반화 세트로 병기.
 
-### 2.4 test 2,900
+### 2.4 test 2,400
 
-- v1과 동일: Kspon eval_clean 3,000 − 100 = **2,900**.
-- eval_clean 100은 **test에서 제외**하고, v2 dev로도 쓰지 않는다.
-- `data/wave2b/test/kspon_eval_clean_2900.jsonl`로 봉인.
+- eval_clean 3,000에서 **dev 500**(기존 D-β 100 포함)을 먼저 고정하고, 남은 2,500에서 **test 2,400**을 봉인한다. **100발화는 미사용(spare)**으로 남긴다.
+- `data/wave2b/test/kspon_eval_clean_2400.jsonl`로 봉인.
 - 검증:
-  - dev 500(Kspon dev)과 ID 교집합 0
+  - dev 500과 ID 교집합 0
   - eval_other와 ID 교집합 0
   - train·short·B3-nat와 ID 교집합 0
+  - 기존 D-β 100이 test에 없음
   - 가능하면 화자 교집합도 확인
 - **표현:** “Kspon in-domain sealed holdout”. “독립 test” 또는 “새 화자 일반화”라고 부르지 않는다.
 - FLEURS test는 2A-lite에서 사용했으므로 **재사용 금지**.
@@ -154,14 +154,15 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 
 ## 6. DoD v2
 
-- [ ] dev 500: Kspon dev 2,545에서 층화, test 2,900과 ID/화자 교집합 0
+- [ ] dev 500: eval_clean 3,000에서 기존 100 + 신규 400, test와 ID 교집합 0
+- [ ] test 2,400: eval_clean에서 dev 500·기존 100 제외, 나머지 2,400 봉인
 - [ ] B0′ 재학습, reader warm-start, epoch-0 B1==B0′
 - [ ] B1/B2/B3/B3-nat 동일 vocab/reader init/seed/eval
 - [ ] B3/B3-nat cached feature vs B1/B2 on-the-fly parity
 - [ ] 4h short: 시간·발화·문자·CTC 적격률·OOV율
 - [ ] B3-nat natural 4h: B3와 길이 분포만 다름
 - [ ] pilot sec/step/RSS/peak disk
-- [ ] test 2,900 1회, in-domain holdout 표기
+- [ ] test 2,400 1회, in-domain holdout 표기
 - [ ] FLEURS test 미사용
 
 ---
@@ -172,7 +173,7 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 |---:|---|---:|
 | 0 | Preflight: Kspon dev/shard, 화자 ID, OOV, disk, CTC frame | 0.5~1일 |
 | 1 | short 4h + B3-nat natural 4h 선별 | 1일 |
-| 2 | test 2,900 봉인, dev 500 구축 | 1일 |
+| 2 | test 2,400 봉인, dev 500 구축 | 1일 |
 | 3 | B0′/reader warm-start/parity unit tests | 1일 |
 | 4 | B3/B3-nat reader-only | 1일 |
 | 5 | pilot B0′→B3→B3-nat→B2→B1(조건부) | 1일 |
@@ -187,6 +188,6 @@ v1과 동일한 목표를 쓰되 **단위를 명시**한다.
 ## 8. 남은 승인
 
 - Gate v2(절대 pp 주지표, max(B2,B3), B2>B1/B3 귀속 분리) 승인
-- dev 500을 **Kspon dev 2,545**에서 추출하는 안 승인
-- Preflight(데이터 다운로드 없이 메타데이터/디스크/화자 확인) 착수 승인
+- dev 500을 **eval_clean 3,000**(기존 100 + 신규 400)에서 추출하는 안 승인
+- Preflight 착수 승인
 - Preflight 후 short 4h 다운로드·선별 승인
