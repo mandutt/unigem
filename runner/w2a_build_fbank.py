@@ -75,7 +75,7 @@ def build(manifest: str, vocab: dict, out: str) -> None:
         feats[i, :len(f)] = f
         lens[i] = len(f)
         text = r.get("text") or r.get("ref") or ""
-        ids_ = [c2i[c] for c in text if c in c2i]
+        ids_ = [c2i[c] for c in text if c in c2i and c != " "]
         targets.extend(ids_)
         target_lens[i] = len(ids_)
         ids.append(r["id"])

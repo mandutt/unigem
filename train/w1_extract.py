@@ -135,7 +135,7 @@ def main():
         if not txt or len(txt) > n:
             print("skip target", r["id"], len(txt), n, file=sys.stderr)
             continue
-        ids = [c2i[c] for c in txt if c in c2i]
+        ids = [c2i[c] for c in txt if c in c2i and c != " "]
         if not ids or len(ids) > n:
             continue
         j = len(kept)

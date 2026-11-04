@@ -68,7 +68,17 @@
 - `data/wave2a_lite/feats_1h/{fa,fb,fc}.npz`
 - 396클립 / **1.0007h**, Wave 1 manifest 순서.
 - **★대상 라벨 재인코딩 필요:** Wave 1 `feats/*.npz`의 `targets`는 구 vocab(1,069자)로 만들어져 새 vocab(1,101자)와 ID가 다르다. `train/d5_reader.py --retarget`으로 `texts`를 새 vocab으로 다시 인코딩해야 한다. 이 플래그 없이 학습하면 라벨이 뒤섞여 CER가 1.0에 붙는다(실측).
-- F-A′ 80 epoch overfit을 `--retarget`으로 실행 중. train=dev로 두어 train CER가 충분히 내려가는지 확인한다.
+- **Positive-control 이력(실패 보존):**
+
+| 실행 | 조건 | 결과 | 판정 |
+|---|---|---|---|
+| `pc_fa` | 20 epoch, retarget 없음 | epoch 8 CER 0.978, 조기 종료 | **무효(라벨 불일치)** |
+| `pc_fa80` | 80 epoch, retarget 없음 | epoch 3 CER 0.976에서 중단 | **무효(라벨 불일치)** |
+| `pc_fa80r` | 80 epoch, retarget, 공백 포함 | epoch 3 CER 0.741, 공백 제거 일관성 위해 중단 | **참고(중단)** |
+| `pc_fa80n` | 80 epoch, retarget, 공백 제외 | 실행 중 | **판정 대상** |
+
+- `--retarget`은 `texts`를 새 vocab으로 인코딩하며 **공백은 제외**한다(평가의 `normalize_nospace`와 일치, D-β와 동일).
+- F-A′ 80 epoch overfit을 실행 중. train=dev로 두어 train CER가 충분히 내려가는지 확인한다.
 - F-C flat npz는 4.1GB라 `fc.feats.npy`를 한 번 추출해 memmap으로 subset을 만들었다.
 
 ## 6. Kspon eval_other (봉인 test)

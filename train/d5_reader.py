@@ -229,7 +229,7 @@ def train_from_npz(args):
     n_chars = len(vocab["chars"])
     if args.retarget:
         c2i = vocab["char2id"]
-        tlist = [[c2i[c] for c in str(t) if c in c2i] for t in d["texts"]]
+        tlist = [[c2i[c] for c in str(t) if c in c2i and c != " "] for t in d["texts"]]
         target_lens = np.asarray([len(t) for t in tlist], dtype=np.int64)
         targets_all = np.asarray([i for t in tlist for i in t], dtype=np.int64)
         print(f"retargeted {len(tlist)} clips chars={len(targets_all)}", flush=True)
