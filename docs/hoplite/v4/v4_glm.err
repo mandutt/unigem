@@ -1,0 +1,3 @@
+[hoplite] reasoning=max (model=z-ai/glm-5.3-flash)
+[hoplite] thread=thr_790930f5f3b449baac37da7b0c113691 (new)
+TIMEOUT: no completion within 570s

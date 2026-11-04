@@ -164,13 +164,13 @@
 
 - **best arm = F-C (0.3882).**
 - F-A′/F-B/F-C는 **0.3882~0.3939**, 즉 **0.57%p 이내**다.
-- 정정 전 값은 `logs/W1_decode/*.json`의 raw `cer` 필드에 남아 있다. 판정·비교에는 정정 후 값을 쓴다.
+- 정정 전 값은 `reports/provenance/W1/*.json`의 raw `cer` 필드에 남아 있다. 판정·비교에는 정정 후 값을 쓴다.
 
 **정정의 원인과 정당성:**
 
 - `train/d5_reader.py:decode_npz`가 비교 직전에 `p.replace(" ", "")`와 `t.replace(" ", "")`만 적용하고, `eval/normalize.py:normalize_nospace`를 적용하지 않았다.
 - 학습 라벨(Kconf)은 문장부호·슬래시를 제거한 상태이고, 학습 vocab 1,069자에도 구두점이 없다. 따라서 모델은 구두점을 출력할 수 없는데, dev 참조에는 `/ . ( ) ? +` 등이 남아 있었다.
-- 정정 전 “어휘 포함율 85.6%(260/1,808)”의 260개 중 **226개가 구두점**이었다. 통일 정규화 후 dev 참조는 1,574자이고, vocab에 없는 문자는 **26개(1.65%)**다(숫자 16개 + 희귀 한글 10개).
+- 정정 전 “어휘 포함율 85.6%(260/1,808)”의 260개 중 **234개가 비영숫자 기호**였다(`/ . ( ) ?` 226개 + `+`·`,` 8개). 통일 정규화 후 dev 참조는 1,574자이고, vocab에 없는 문자는 **26개(1.65%)**다(숫자 16개 + 희귀 한글 10개).
 - 정규화는 Addendum D-5.6의 “CER(공백 무시)”와 D0-a에서 확정한 `normalize_nospace`를 적용한 것이다. **임계값을 바꾼 것이 아니라 평가 하네스 불일치를 수정한 것**이다.
 - 상세 재계산: `reports/provenance/W1/normalized_cer.json`. 이 파일에는 arm별 CER·오류/참조, R-D1, pairwise CI, coverage, missing top 20이 들어 있다.
 
@@ -263,7 +263,7 @@ Sténo는 같은 EG2 오디오 타워 위에 CTC reader를 얹어 프랑스어 S
 | 오디오 타워 | Gemma 4 E2B/E4B와 **bit-identical**, EG2 학습 중 **frozen** | D-β는 “동결 타워의 readout”만 비교한다. 타워 자체의 상한을 말하지 않는다 |
 | 비전 ablation | trainable 52.27 vs frozen 48.18 (MMEB-v2) | 오디오도 추가 학습 시 이득 가능성이 있다는 정황. D-γ′/Wave 2B의 근거 |
 | Native audio vs ASR text | MSEB 69.54 vs 57.59 | **검색·분류** 결과. STT CER의 근거가 아니다 |
-| MRL 768/512/256/128 | 최종 임베딩 기준. 256d 66.76 | 우리 F-D의 `audio_features[:256]`은 **임의 절단**이지 MRL이 아니다 |
+| MRL 768/512/256/128 | 최종 임베딩 기준. 256d 66.76 | 우리 F-D의 `audio_features[:256]`은 **임의 절단**이지 MRL이 아니다. Notesoop 256d projection도 논문 MRL과 동일하지 않다 |
 | 양자화 | activation 8-bit + weight 2/4/8-bit by layer cluster | Q8 hidden parity(D0-e)와 일치하는 민감도 신호 |
 | Future work | unpooled token representations를 STT/router/reranker에 적응 | 우리의 frozen tower + CTC reader 방향이 범위 안에 있다 |
 
@@ -397,11 +397,11 @@ D-β의 결론을 해석 가능하게 만드는 **측정 타당성 보강**과, 
 - 현재: 한글 음절 + 숫자 + 라틴 + 공백 + unk, 1,069자(확장 시 2,388자), 랜덤 head.
 - Sténo: Gemma wordpiece 30,002, Gemma 입력 임베딩으로 head 초기화.
 - 우리 예측은 공백을 출력하지 않아 WER·공백 포함 CER을 산출할 수 없다.
-- 30k wordpiece head는 30,000×384 ≈ 11.5M로, reader 전체 10M 상한을 넘는다. factorized head(384→128→30k) 같은 우회가 가능하다.
+- 30k wordpiece head는 30,000×384 ≈ 11.5M로, reader 전체 10M 상한을 넘는다. factorized head(384→128→30k)는 약 3.9M이지만 기존 reader 8.4M과 합치면 약 11.4M로 여전히 10M을 넘는다. 상한을 지키려면 reader 축소·저랭크 결합이 필요하고, 그렇지 않으면 상한 lift 승인이 필요하다.
 
 질문:
 - 문자 CTC를 유지해야 하는가, wordpiece head로 가야 하는가?
-- 간다면 10M 상한을 Lift할 것인가, factorized/low-rank head로 상한을 지킬 것인가?
+- 간다면 10M 상한을 Lift할 것인가, reader 축소·저랭크 head를 결합해 상한을 지킬 것인가?
 - 한국어 띄어쓰기는 별도 spacing 모듈로 분리하는 것이 맞는가, CTC가 공백을 직접 출력하도록 학습하는 것이 맞는가?
 - 제품 F2가 komix/whisper인 상황에서, D의 출력 단위를 제품 요구(WER·띄어쓰기)에 맞출 필요가 있는가?
 
@@ -497,7 +497,7 @@ Q2: ...
 | `reports/D5_beta_pilot.md` | D-β 결과·정정 이력·AM-6 표 |
 | `reports/provenance/W1/normalized_cer.json` | 정정 후 CER·coverage·R-D1·pairwise CI |
 | `reports/provenance/W1/{fd,fa,fb,fc}.log` | 학습 로그(epoch·loss·dev CER·early stop) |
-| `logs/W1_decode/{fd,fa,fb,fc}.json` | 문장별 예측·오류·참조 문자 |
+| `reports/provenance/W1/{fd,fa,fb,fc}.json` | 문장별 예측·오류·참조 문자 |
 | `train/d5_reader.py` | CTC reader·학습·decode·dev 평가 |
 | `train/w1_extract.py` | 4-arm 특징 추출(F-D/F-A′/F-B/F-C) |
 | `runner/w1_build_manifest.py` | 6시간 manifest 생성 |
