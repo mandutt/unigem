@@ -86,10 +86,16 @@ def main() -> int:
         FAIL.unlink()
     log("START domain/length controls")
     if not LONG_MAN.exists():
-        run("SELECT Kspon long 4h", [PY, "runner/w2b_select_kspon_long.py"])
+        run("SELECT Kspon long 4h", [
+            PY, "runner/w2b_select_kspon_long.py",
+            "--vocab", "data/wave2b/vocab_v2.json",
+        ])
     validate_manifest(LONG_MAN, 3.8)
     if not ZER_MAN.exists():
-        run("SELECT Zeroth short 4h", [PY, "runner/w2b_select_zeroth_short.py"])
+        run("SELECT Zeroth short 4h", [
+            PY, "runner/w2b_select_zeroth_short.py",
+            "--vocab", "data/wave2b/vocab_v2.json",
+        ])
     validate_manifest(ZER_MAN, 3.8)
 
     if not (LONG_FEAT / "fc.npz").exists():
