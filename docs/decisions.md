@@ -81,6 +81,8 @@
 
 | D-071 | 2026-11-05 | **V2 reader-only gate PASS**: V2 B0′ 0.3701 dev / 0.359643 test; V2 B3(balanced) 0.2682 dev / 0.262270 test; V2 B3-nat 0.2633 dev. Dev Δ(B0−B3) **+10.187%p**, paired 95% CI **[+9.107,+11.328]**; sealed test 2,400 Δ **+9.737%p**, CI **[+9.228,+10.258]**; FLEURS dev B3 0.207607 vs B0 0.209770 (no regression). B3−B3-nat dev **+0.490%p**, CI **[-0.229,+1.205]** (not significant). B3 frozen before test; no test-time max/threshold change. V1 B0′ 0.3663 is not a V2 baseline. B1/B2 LoRA remains conditional; 20-epoch extension deferred D-070 | `reports/W2B_v2_gate_results.md`, `reports/W2B_v2_dev_results.md`, `reports/provenance/W2B/{v2_dev_bootstrap,v2_test_bootstrap,test_freeze}.json` |
 
+| D-072 | 2026-11-05 | **matched-budget reader controls 사전등록(3-AI 검토 권고)**: B0′-20은 **exposure-matched**(5,960 steps, 120.0h; B3-12 120.3h), B0′-38은 **step-matched**(11,324 steps, 228.0h; B3-12 11,196 steps). 둘 다 Wave1 6h, V2 vocab, same remapped init, seed 42, natural sampler, patience 99(full budget). **dev 500 전용, sealed test 2,400 사용 금지**, gate 아님. Primary = final epoch dev CER; secondary = best/curve. 해석: B0′-38이 B3에 근접하면 step 설명, B0′-20이 근접하면 exposure 설명, 둘 다 못 미치면 domain/short-length/데이터 구성이 남음. Domain vs short-length 분리는 별도 Kspon long/non-Kspon short control 필요 | reports/W2B_b0_matched_controls_plan.md; 순차 CPU 약 4.5~5시간, GPU 미사용 |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
