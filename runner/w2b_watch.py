@@ -145,6 +145,11 @@ def main() -> None:
         b0_age = age(B0_LOG)
         b3_age = age(CHAIN_LOG)
         b3_last = (tail_lines(CHAIN_LOG, 1) or [""])[-1]
+        b3_ckpt_age = min(
+            [age(CKPT / "b3_v2_s42.last.pt"), age(CKPT / "b3_v2_s42.best.pt"),
+             age(CKPT / "b3nat_v2_s42.last.pt"), age(CKPT / "b3nat_v2_s42.best.pt")]
+        )
+        b3_progress_age = min(b3_age, b3_ckpt_age)
         free = disk_free_gb("C:/")
         alert = ""
         if not B0_FINAL.exists() and not b0_running and b0_age > 900 and time.time() - last_resume > 1200:
@@ -155,8 +160,8 @@ def main() -> None:
             alert = f"B0 running but log stale {b0_age:.0f}s"
         if B0_FINAL.exists() and not chain_running and not (b3_running or b3nat_running) and age(CHAIN_LOG) > 600:
             alert = "B0 final exists but B3 chain is not running"
-        if (b3_running or b3nat_running) and b3_age > 1800:
-            alert = f"B3 running but chain log stale {b3_age:.0f}s: {b3_last[-160:]}"
+        if (b3_running or b3nat_running) and b3_progress_age > 1800:
+            alert = f"B3 running but progress stale {b3_progress_age:.0f}s: {b3_last[-160:]}"
         if free >= 0 and free < 5:
             alert = f"LOW DISK C: {free:.1f}GB"
         state = {
@@ -167,6 +172,7 @@ def main() -> None:
             "b0_final": B0_FINAL.exists(), "b0_best": B0_BEST.exists(),
             "b0_log_age_s": round(b0_age, 1), "chain_done": CHAIN_DONE.exists(),
             "b3_log_age_s": round(b3_age, 1), "b3_last": b3_last[-200:],
+            "b3_ckpt_age_s": round(b3_ckpt_age, 1),
             "disk_free_gb": round(free, 2), "alert": alert,
             "procs": len(procs),
         }
