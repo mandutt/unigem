@@ -64,8 +64,8 @@
 
 이 실험은 **exploratory control**이며 gate가 아니다.
 
-1. **H-length**: `B3-nat`가 `B3-long`보다 유의하게 좋으면 short-length 분포가 기여.
-2. **H-domain**: `B3-nat`가 `B3-zeroth-short`보다 유의하게 좋으면 Kspon domain이 기여.
+1. **H-length**: `B3-nat`가 `B3-long`보다 유의하게 좋으면 short-length 분포가 기여. 단 long arm은 optimizer step이 적으므로 step-matched 후속 확인 없이는 인과 단정 금지.
+2. **H-domain**: `B3-long`가 `B3-zeroth-long`보다 유의하게 좋으면 Kspon domain이 기여 (같은 long 길이).
 3. 둘 다 유의하지 않으면 domain/length 분리 실패로 기록하고, 추가 control을 논의.
 4. `B0′` 대비 효과와 함께 보고한다.
 5. **dev 500 paired utterance bootstrap 95% CI**를 붙인다.
