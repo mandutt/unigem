@@ -1,0 +1,21 @@
+{
+  "candidate": {
+    "arm": "b3_v2_s42",
+    "path": "data/wave2b/ckpt_v2/b3_v2_s42.best.pt",
+    "bytes": 36755557,
+    "sha256": "8349159e9b449ed4cd2f60e27fac4f955513423593ff34854772e90356e84328"
+  },
+  "baseline": {
+    "arm": "b0p_v2_s42",
+    "path": "data/wave2b/ckpt_v2/b0p_v2_s42.best.pt",
+    "bytes": 36755617,
+    "sha256": "c869e66bf205bdf55596f2428aad3452ac813a68f9817bc4eeea77e6b4c27ddd"
+  },
+  "sampler_control": {
+    "arm": "b3nat_v2_s42",
+    "path": "data/wave2b/ckpt_v2/b3nat_v2_s42.best.pt",
+    "bytes": 36755737,
+    "sha256": "784c3889aa1c92da26080f4d5a00fcafc4e8d065e9075a569ddadd399c10d783"
+  },
+  "selection": "B3_v2_s42 selected on dev 500 before sealed test; B3-nat is sampler control, not a candidate."
+}
