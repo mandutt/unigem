@@ -11,13 +11,7 @@ import instabox_api as api  # noqa: E402
 
 ROOT = r"C:\code\unigem"
 OUT = os.path.join(ROOT, "reports", "provenance", "D0c_vps_start.json")
-IDS = [
-    "m_REDACTED",
-    "m_REDACTED",
-    "m_REDACTED",
-    "m_REDACTED",
-    "m_REDACTED",
-]
+IDS = list(api.machines().values())
 
 
 def state(mid):

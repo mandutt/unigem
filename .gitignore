@@ -40,8 +40,14 @@ credentials*.json
 id_rsa*
 id_ed25519*
 
+# AI Hub 파생 데이터 — 이용약관상 재배포 금지, 로컬 보관
+assets/gdata_review_sheet*.html
+reports/provenance/W2B/*pred*.json
+reports/provenance/D0c_vps_*.json
+
 # 호스트 로컬 전용 스냅샷 (머신 ID·워크스페이스 ID·호스트명)
 env/snapshots/local/
+env/snapshots/*.json
 
 # OS
 Thumbs.db

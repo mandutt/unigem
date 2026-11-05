@@ -12,6 +12,22 @@ import urllib.request
 
 API = "https://api.instabox.sh"
 KEY_FILE = os.path.expanduser("~/.instabox-b.env")
+MACHINES_FILE = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "env", "snapshots", "local", "machines.json",
+)
+
+
+def machines() -> dict[str, str]:
+    """머신 이름 → ID 매핑. 로컬 전용 파일(미추적)에서만 읽는다."""
+    try:
+        with open(MACHINES_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError as e:
+        raise SystemExit(
+            f"machine map not found: {MACHINES_FILE}\n"
+            'create it with {"eg2-1": "m_...", "eg2-2": "m_...", ...}',
+        ) from e
 
 
 def api_key() -> str:

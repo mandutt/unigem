@@ -3,7 +3,7 @@
 - 작성: 2026-11-02
 - 대상 게이트: G-V0 (§8.6 (a)~(d) 중 V0 부분)
 - 호스트: `eg2-1` ~ `eg2-5` (InstaBox 계정 B, free tier)
-- 원시 로그: `logs/V0_hosts.json`, 스냅샷 `env/snapshots/v0_hosts_2026-11-02.json`
+- 원시 로그: `logs/V0_hosts.json`, 스냅샷 `env/snapshots/local/v0_hosts_2026-11-02.json`(미추적)
 
 ## 1. 목적
 

@@ -10,13 +10,7 @@ import instabox_api as api  # noqa: E402
 
 ROOT = r"C:\code\unigem"
 OUT = os.path.join(ROOT, "reports", "provenance", "D0c_vps_ready.json")
-IDS = {
-    "eg2-1": "m_REDACTED",
-    "eg2-2": "m_REDACTED",
-    "eg2-3": "m_REDACTED",
-    "eg2-4": "m_REDACTED",
-    "eg2-5": "m_REDACTED",
-}
+IDS = api.machines()
 CMD = (
     "hostname; nproc; free -m | head -2; df -h /data | tail -1; "
     "/data/home/unigem/venv/bin/python -V 2>&1; "

@@ -16,13 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "runner"))
 import instabox_api as api
 
-HOSTS = {
-    "eg2-1": "m_REDACTED",
-    "eg2-2": "m_REDACTED",
-    "eg2-3": "m_REDACTED",
-    "eg2-4": "m_REDACTED",
-    "eg2-5": "m_REDACTED",
-}
+HOSTS = api.machines()
 OUT = ROOT / "logs/W2A_lite/steal_probe.jsonl"
 DURATION = 3600
 INTERVAL = 60
