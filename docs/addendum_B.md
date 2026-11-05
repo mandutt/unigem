@@ -229,7 +229,7 @@
 - **G-C2 적용:** FLEURS ko test에서 greedy CER ≤ 15% 기준을 후보 reader에 동일하게 적용한다.
 - **환경:** CER은 VPS 가능, RTF·RAM은 로컬 CPU에서 측정(판정용). Notesoop의 입력 특징 지점(오디오 타워 → lm.norm → projection[:256] → L2, 256d bf16)을 우리 ONNX로 재현할 수 있는지는 **G-A3S/G-C2a(승인 대기 제안 게이트)**로 별도 측정한다.
 - **미검증 항목 해소:** 오디오 Q8 카나리(VPS 원본 그래프 부재)를 해결한다. 로컬에서 만든 Q8 오디오 그래프를 SHA256 검증과 이어받기 가능한 방식으로 `eg2-1`에 배포해 고정 입력 20~50개로 비교한다.
-- **산출물:** `reports/C2_A1_cer.md`, `reports/A9_audio_canary.md`
+- **산출물:** `docs/STT/reports/C2_A1_cer.md`, `reports/A9_audio_canary.md`
 
 ### B-10.2 C1 파일럿 (PyTorch, `vps-5`)
 - **ONNX export 이전에 정확도부터 판정한다.** 텍스트+비전(440M) 구성을 **PyTorch FP32**로 실행해 이모지 검색 정확도(G-C1: top-1 ≥ 70%, top-3 ≥ 85%, margin 통과 후 부적절 태그 ≤ 5%, 이미지 ≥ 100장, Wilson 95%)를 측정한다. 정확도는 하드웨어와 무관하므로 PyTorch 결과로 G-C1 판정이 가능하다. 지연·RAM은 ONNX 이후 로컬에서 측정한다.
@@ -299,7 +299,7 @@ R1(G-B1.5-a)·R2(G-B1.5-b)·P1(F4 파일럿) 보고서가 모두 제출된 뒤 �
 | `gates.md`: G-B1.5-a INCONCLUSIVE, G-B1.5-b INCONCLUSIVE, T3 INVALID-MEASUREMENT, T3′·P1·H4′ 사전 선언 | 가장 먼저 |
 | `reports/R1_B1_5_1_rerun.md`, `R2_B1_5_3_rerun.md`, `R3_prefix.md`, `P1_f4_pilot.md` | 각 단계 후 |
 | `reports/L1_lid_followup.md`, `D1_h4prime.md`, `G-DATA_proposal.md` | 각 단계 후 |
-| `reports/C2_A1_cer.md`, `A9_audio_canary.md`, `C1_pilot.md` | 각 단계 후 |
+| `docs/STT/reports/C2_A1_cer.md`, `A9_audio_canary.md`, `C1_pilot.md` | 각 단계 후 |
 | `docs/prefix.md` | B-5 후 |
 
 - 모든 보고서는 plan §14 형식 + **사전 요구 대비 이행 표**(AM-6)를 포함하고 n, 신뢰구간 방법, 호스트 ID를 표기한다.

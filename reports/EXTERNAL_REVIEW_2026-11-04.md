@@ -95,9 +95,9 @@
 | D-058 | Addendum D errata 8건 채택: D0-a 정규화 라벨 정정, F-A′=`aud_out_proj` 1536, Q8 hidden parity 선행, H=6h, R-D1≠G-C2, 라벨시트 HTML, P1 clean 재사용, G-A3S p1/p5 | `docs/addendum_D_errata.md` |
 | D-059 | Wave 0: D0-a 16.933%/18.959%, D0-e Q8 hidden parity(6/8/10 p1≥0.9997, 11층 0.9973, 256d p1 0.9959), D0-c VPS 5대·카나리 cos 1.0, D0-d 추출 RTF | `reports/D0a_normalization.md`, `D0e_graph_taps.md`, `D0c_vps_ready.md`, `D0d_cost_probe.md` |
 | D-060 | D0-d 완료: reader 8.65M params, 로컬 1.452s/step·4.09분/epoch·1,452MB, eg2-1 1.180s/step·3.32분·1,655MB | `reports/D0d_cost_probe.md` |
-| D-061 | D-β 데이터 확정: 6.0008h/2,384클립(Zeroth 3.9001h/1,534 + Kconf 2.1007h/850), dev=Kspon eval_clean 100 | `reports/D5_beta_setup.md` |
-| D-062 | D-β Wave 1 완료(탐색적): 최초 보고 CER F-D 0.6433/F-A′ 0.4707/F-B 0.4679/F-C 0.4663 | `reports/D5_beta_pilot.md` |
-| D-063 | **D-β 평가 정규화 정정**: 정정 후 CER 0.5909/0.3939/0.3914/0.3882, coverage 98.35%, R-D1 +34.30% CI [+29.77,+39.26] | `reports/D5_beta_pilot.md` §9, `reports/provenance/W1/normalized_cer.json` |
+| D-061 | D-β 데이터 확정: 6.0008h/2,384클립(Zeroth 3.9001h/1,534 + Kconf 2.1007h/850), dev=Kspon eval_clean 100 | `docs/STT/reports/D5_beta_setup.md` |
+| D-062 | D-β Wave 1 완료(탐색적): 최초 보고 CER F-D 0.6433/F-A′ 0.4707/F-B 0.4679/F-C 0.4663 | `docs/STT/reports/D5_beta_pilot.md` |
+| D-063 | **D-β 평가 정규화 정정**: 정정 후 CER 0.5909/0.3939/0.3914/0.3882, coverage 98.35%, R-D1 +34.30% CI [+29.77,+39.26] | `docs/STT/reports/D5_beta_pilot.md` §9, `reports/provenance/W1/normalized_cer.json` |
 | 외부 자료 | EG2 논문(arXiv:2610.37364) 검토, Sténo(프랑스어 EG2 CTC) 공개 사례 검토 | `references` 요약은 §3.7 |
 
 ### 2.1 현재 게이트 스냅샷
@@ -494,14 +494,14 @@ Q2: ...
 
 | 경로 | 내용 |
 |---|---|
-| `reports/D5_beta_pilot.md` | D-β 결과·정정 이력·AM-6 표 |
+| `docs/STT/reports/D5_beta_pilot.md` | D-β 결과·정정 이력·AM-6 표 |
 | `reports/provenance/W1/normalized_cer.json` | 정정 후 CER·coverage·R-D1·pairwise CI |
 | `reports/provenance/W1/{fd,fa,fb,fc}.log` | 학습 로그(epoch·loss·dev CER·early stop) |
 | `reports/provenance/W1/{fd,fa,fb,fc}.json` | 문장별 예측·오류·참조 문자 |
 | `train/d5_reader.py` | CTC reader·학습·decode·dev 평가 |
 | `train/w1_extract.py` | 4-arm 특징 추출(F-D/F-A′/F-B/F-C) |
 | `runner/w1_build_manifest.py` | 6시간 manifest 생성 |
-| `docs/plan_wave2a.md` | Wave 2A 설계안(승인 대기) |
+| `docs/STT/plans/plan_wave2a.md` | Wave 2A 설계안(승인 대기) |
 | `docs/decisions.md` | D-057~D-063 |
 | `docs/gates.md` | 게이트·R-D1/R-D2/AM-9/AM-10 |
 | `reports/D0e_graph_taps.md` | Q8 다층 hidden parity |

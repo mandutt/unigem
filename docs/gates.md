@@ -18,8 +18,8 @@
 | G-B1.5-c | Q8 견고성 | 후보 층 FP32→Q8 정확도 하락 ≤ 2%p | 초과 시 FP32 유지/재학습 | 로컬/VPS | **PASS** — l00 0.043%p, l04 −0.059%p (`reports/B1_5_5_q8.md`) |
 | G-B1.5-d (선택) | 복사 충실도 | 슬롯 exact ≥95%, l00 대비 −3%p 이내, 환각 ≤1% | 미달 시 F5 EG2 결합 보류 | VPS | 미측정 |
 | G-C1 | C1 | top-1 ≥ 70%, top-3 ≥ 85%, margin 통과 후 부적절 태그 ≤ 5% | 도메인 갭 크면 라벨 체계 재설계 | 이미지 지연은 로컬 | 미측정 |
-| G-C2 | C2 | smoke loss 수렴 + FLEURS ko test greedy CER ≤ 15% | 불수렴/CER 크게 초과 | CER 어디서나, RTF·RAM 로컬 | **FAIL** — FLEURS ko 382클립 **18.96% (공백 무시; 구 19.10), 16.93% (공백 포함; 구 17.41)**, WER 37.28%, KenLM 미적용. **F2 제품 경로 = komixv2/whisper(D-057)**, D는 연구 트랙 (`reports/C8_c2a1_cer.md`) |
-| G-C2a *(제안)* | Notesoop 호환성 | Q8 ONNX 특징 사용 시 CER 상대 증가 ≤ 10% | 초과 시 C2-A3 (i)~(iii) 사용자 결정 | 로컬 | **PASS(승인, D-057)** — FLEURS 382클립 CER 17.388% vs 17.410%(−0.12%), 특징 cos 평균 0.999642·최소 0.98948, RTF +10.6% (`reports/G_C2a.md`) |
+| G-C2 | C2 | smoke loss 수렴 + FLEURS ko test greedy CER ≤ 15% | 불수렴/CER 크게 초과 | CER 어디서나, RTF·RAM 로컬 | **FAIL** — FLEURS ko 382클립 **18.96% (공백 무시; 구 19.10), 16.93% (공백 포함; 구 17.41)**, WER 37.28%, KenLM 미적용. **F2 제품 경로 = komixv2/whisper(D-057)**, D는 연구 트랙 (`docs/STT/reports/C8_c2a1_cer.md`) |
+| G-C2a *(제안)* | Notesoop 호환성 | Q8 ONNX 특징 사용 시 CER 상대 증가 ≤ 10% | 초과 시 C2-A3 (i)~(iii) 사용자 결정 | 로컬 | **PASS(승인, D-057)** — FLEURS 382클립 CER 17.388% vs 17.410%(−0.12%), 특징 cos 평균 0.999642·최소 0.98948, RTF +10.6% (`docs/STT/reports/G_C2a.md`) |
 | G-C3 | C3 | §C3 채택 규칙 (A2가 A1 대비 −2%p 이내 + RAM/지연 이득) | 크게 열세면 EG2 연결 폐기 | 후보 재측정 로컬 | 미측정 |
 | G-C4 | C4 | 정상 문장 보존률 ≥ 99.5%, 과교정률 ≤ 0.5% | 정상 문장 빈번 변경 | VPS 가능 | 미측정 |
 | G-C5 | C5 | 슬롯 보존율 ≥ 99%, 신규 슬롯 ≤ 1% (검증기 통과분 0) | 환각 통제 불가 | VPS 가능 | 미측정 |
@@ -128,7 +128,7 @@ D-β 파일럿은 **연구 트랙**이며 제품 F2 경로를 바꾸지 않는�
 
 ## Wave 2A-lite 사전등록 (2026-11-04, D-064 승인)
 
-`docs/plan_wave2a_lite.md`가 실행 정본이다. 아래는 결과 확인 전에 고정한다.
+`docs/STT/plans/plan_wave2a_lite.md`가 실행 정본이다. 아래는 결과 확인 전에 고정한다.
 
 - **dev:** FLEURS ko dev. arm 선택·조기 종료에만 사용.
 - **주 gate:** Kspon eval_other(3.8h, 3,000발화), 체크포인트 동결 후 1회.

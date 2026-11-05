@@ -6,6 +6,7 @@ EmbeddingGemma 2(EG2)를 메모리 시스템 상주 인코더로 재사용하고
 - **기준 문서:** [`docs/plan_v0_5.md`](docs/plan_v0_5.md) — `EG2_ResidentEncoder_MeasurementPlan_v0_5.md` (SHA256 `746c3c01…8d4d430`, 640줄)
 - **문서상 작업 디렉터리 `eg2-lab/` = 이 저장소 루트(`C:\code\unigem`)**
 - **상태:** Phase A 완료 → CP1 승인 완료 → **Phase V 완료(G-V0 PASS)** → Phase B1 착수 가능
+- **STT 상태:** **FROZEN / HOLD (D-079)** — EG2 기반 STT 연구는 동결·보류. 제품 경로는 komixv2/whisper 유지(D-057). 문서 허브: [`docs/STT/README.md`](docs/STT/README.md)
 - **목표 하드웨어:** 로컬 PC (Windows 11, Ryzen 5 7600 6C/12T, 15.6 GiB, GPU 없음, ONNX Runtime CPU EP, Q8)
 - **VPS:** P0 데이터 전용, 성능 판정 불가. **계정 B 5대 구성 완료** (`eg2-1`~`eg2-5`, 4 vCPU/8 GiB/20 GiB) — 상세 스냅샷은 `env/snapshots/local/`(미추적, 로컬 전용)
 
@@ -25,7 +26,7 @@ EmbeddingGemma 2(EG2)를 메모리 시스템 상주 인코더로 재사용하고
 
 ```
 unigem/
-  docs/        plan_v0_5.md(불변 기준 문서) · decisions.md(결정 로그) · gates.md(게이트 표) · phase_a_plan.md
+  docs/        plan_v0_5.md(불변 기준 문서) · decisions.md(결정 로그) · gates.md(게이트 표) · phase_a_plan.md · STT/(동결된 STT 문서 허브)
   env/         환경 정의·lock·호스트 스냅샷
   jobs/        job manifest (data_class 필수, 시크릿 금지)
   onnx/        export 스크립트·계약 JSON (가중치 파일은 git 미추적)

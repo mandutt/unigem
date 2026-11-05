@@ -89,7 +89,7 @@
 | C-5 | P1-ext 외부 타당성(재학습 금지) | **미착수** | AI Hub 71560 교정 쌍 사용 예정. VPS stopped |
 | C-6 | F4-v2 규칙 + LM + 보수적 수락 | **미착수** | 규칙·KenLM 구성은 로컬 가능. 디코더 점수는 C-11 환경 후 |
 | C-7 | L1 탭 추가형 개조 가능성 | **완료** | `reports/C7_l1_tap_feasibility.md`, D-054 |
-| C-8 | C2-A1 CER·RTF 기준선 | **완료** | `reports/C8_c2a1_cer.md`, D-056 |
+| C-8 | C2-A1 CER·RTF 기준선 | **완료** | `docs/STT/reports/C8_c2a1_cer.md`, D-056 |
 | C-9 | C1 파일럿(이모지, PyTorch) | **미착수** | 사용자 이미지 라벨링(≥100장) 대기. Qwen3-VL-2B 라이선스 확인 필요 |
 | C-10 | G-DATA 단계 승인 | **1단계 완료 / 2단계 미승인** | 3,320쌍, D-053. 2단계는 별도 승인 전 금지 |
 | C-11.1 | C3 arm A1(T5Gemma 2 LoRA) | **미착수** | G-DATA 1단계 PASS로 의존성 해소. 우선순위 미정 |
@@ -457,8 +457,8 @@ D를 실행하려면 결과를 보기 전에 다음을 고정해야 한다.
 | `docs/addendum_A.md`, `addendum_B.md`, `addendum_C.md` | 보충 지시 |
 | `docs/decisions.md` | D-001~D-056 |
 | `docs/gates.md` | 게이트 현황 |
-| `reports/C8_c2a1_cer.md` | F2 기준선·비교·경계 |
-| `reports/G_C2a.md` | Q8 특징 호환성 |
+| `docs/STT/reports/C8_c2a1_cer.md` | F2 기준선·비교·경계 |
+| `docs/STT/reports/G_C2a.md` | Q8 특징 호환성 |
 | `reports/C7_l1_tap_feasibility.md` | L1 탭 |
 | `reports/C11_decoder_cost.md` | 디코더 비용 |
 | `reports/C10_gdata_pilot.md` | G-DATA 1단계 |

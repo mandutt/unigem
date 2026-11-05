@@ -177,7 +177,7 @@
    - KenLM 설치 가능성(Linux 확인됨, Windows 로컬 확인 필요).
 8. **결정 지점(CP-C1):** 채택 / 채택 + 미세조정 / 자체 학습 / 폐기. 보고서는 선택지별 비용과 예상 이득을 비교표로 제시한다.
 
-**산출물:** `reports/C8_c2a1_cer.md` — 호스트: `vps-3`(CER), 로컬(RTF·RAM)
+**산출물:** `docs/STT/reports/C8_c2a1_cer.md` — 호스트: `vps-3`(CER), 로컬(RTF·RAM)
 
 ---
 

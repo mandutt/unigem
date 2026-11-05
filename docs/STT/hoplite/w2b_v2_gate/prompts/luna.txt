@@ -1,0 +1,20 @@
+This is a NEW independent review round (w2b_v2_gate), NOT a duplicate of the archived w2b_2c_short_v2 threads. You are a DIFFERENT model; we are collecting multi-model opinions on the same evidence.
+
+Read the ENTIRE review request at:
+reports/EXTERNAL_REVIEW_W2B_V2_GATE_2026-11-05.md
+
+Use git pull --ff-only origin main first, then read all 768 lines. Do not rely on a summary. You may inspect the referenced JSON, Markdown, and code files in the repository, but do not modify any file.
+
+The document is self-contained. The central question is whether the V2 reader-only gate should be accepted as a recipe-level PASS, downgraded to exploratory, or rejected, and what the next experiment should be. Focus on Q1-Q8. The highest-value issues are:
+- B0-prime 6h vs B3 10h: 3.13x optimizer steps, 1.67x audio exposure, Kspon domain, and short-length distribution are confounded;
+- V2 vocabulary was built in a two-pass loop (draft vocab -> short selection -> final vocab -> re-selection);
+- the sealed test 2,400 has already been used once;
+- B3-nat was evaluated on dev only;
+- D-070's 20-epoch plan does not equalize optimizer steps or audio exposure.
+
+Follow the answer format in section 11. Give a one-line verdict A/B/C, then Q1-Q8 with (1) judgment, (2) evidence, (3) required action, (4) whether it blocks LoRA/next step. Put the most important Must-fix items in a table with priority and blocking status.
+
+Write your full report to:
+docs/STT/hoplite/w2b_v2_gate/2026-11-05_hoplite-review_w2b_v2_gate_LUNA.md
+
+File writing is expected; if the sandbox forbids it, include the full report in the final message. Do not call subagents or additional models. Complete the review directly. Do not claim to have run experiments you did not run.

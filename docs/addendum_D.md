@@ -156,7 +156,7 @@
 | `vps-4` | F-D | 로컬에서 만든 특징 수신, 학습 |
 | `vps-5` | A1 timing probe → A1 파일럿(D-6) | D-β 비참여 |
 
-**산출물:** `reports/D5_beta_pilot.md`(arm별 보고서 `reports/D5_arm_<X>.md` 포함), 체크포인트, 학습곡선 데이터.
+**산출물:** `docs/STT/reports/D5_beta_pilot.md`(arm별 보고서 `reports/D5_arm_<X>.md` 포함), 체크포인트, 학습곡선 데이터.
 
 ---
 
@@ -302,7 +302,7 @@ D-7 시트 ─► (사용자 라벨) ─► G-C1 판정 / C2-A2 비교
 | `decisions.md`: D-057(Addendum D 수신, CP-C1 결정, G-C2a 승인, D-γ 불허·D-γ′·D-δ 보류), AM-9, AM-10, D-5.6 사전 선언 | 가장 먼저(측정 전) |
 | `gates.md`: R-D1/R-D2 사전 선언, G-C2 기록(F2 제품 경로 = komixv2/turbo), G-A3S 보완 요청 | 가장 먼저 |
 | `reports/D0a_normalization.md`, `D0b_downstream.md`, `D0c_vps_ready.md`, `D0d_cost_probe.md`, `D0e_graph_taps.md` | Wave 0 |
-| `reports/D5_beta_pilot.md` + arm별, 학습곡선 | Wave 1~2 |
+| `docs/STT/reports/D5_beta_pilot.md` + arm별, 학습곡선 | Wave 1~2 |
 | `reports/D6_a1_timing_probe.md`, `D6_a1_pilot.md` | Wave 1 |
 | `reports/D7_c9_prep.md`, `D7_c2a2_prep.md` | Wave 0~1 |
 

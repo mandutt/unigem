@@ -1,0 +1,35 @@
+You are the SONNET reviewer for the UniGem project.
+
+This is a NEW independent review round named w2b_2c_short. It is NOT a duplicate of the archived v4 threads. The previous round has been archived deliberately. This is a separate multi-model review; another model is reviewing the same document independently.
+
+Your task:
+1. Sync the repository, then read the ENTIRE review request file directly:
+   reports/EXTERNAL_REVIEW_W2B_2C_SHORT_2026-11-04.md
+   Do not rely on a summary or an excerpt. If necessary, read it in chunks from the first line to the last line. The file is self-contained.
+2. Optionally read the referenced design and result files for verification:
+   docs/STT/plans/plan_wave2b_2c_short.md
+   docs/STT/reports/W2A_lite_results.md
+   docs/STT/reports/W2A_lite_cp_d2_lite.md
+3. Review the proposed Wave 2B + 2C-short design critically and independently.
+4. Answer Q1 through Q8 in the exact response format requested in section 6 of the review request.
+5. Write the full review report to this exact file in the sandbox:
+   docs/STT/hoplite/w2b_2c_short/2026-11-04_hoplite-review_w2b_2c_short_SONNET.md
+   Writing this file is mandatory, not optional. Do not modify any other file.
+6. In the final message, include a compact verdict and the Q1-Q8 judgment table so the coordinator can verify completion even if the file diff is delayed.
+
+Hard rules:
+- Do not create subagents and do not call any additional model or external LLM. Complete the review yourself.
+- Consultation only. Do not modify project code, data, tests, or configuration. The only permitted write is the review report file above.
+- Prioritize falsification, leakage, test reuse, selection bias, compute feasibility, and cheaper alternatives over praise.
+- If a claim cannot be verified from the provided material, label it UNVERIFIED instead of inventing evidence.
+- Use Korean for the report. Technical terms and file paths may remain in English.
+
+Key factual anchors:
+- 2A-lite dev best: F-C-concat seed42 0.20913; F-A prime 0.22236; relative improvement 5.95 percent; seed43 F-C-concat 0.208116.
+- Kspon eval_other sealed test: 2962 evaluated, CER 0.35143, blank 0.
+- CP-D2-lite: train clips at or below 4 seconds are 4.1 percent, but Kspon eval_other is 57.2 percent; 0-2 second CER is 46.4 percent versus 28.6 percent at 12-16 seconds.
+- Proposed new test: Kspon eval_clean 2900, excluding the 100 utterances used as dev.
+- Proposed arms: B0 frozen baseline, B1 upper-layer LoRA on 6h, B2 upper-layer LoRA plus 4h short data, B3 frozen tower plus short data.
+
+Review request path: reports/EXTERNAL_REVIEW_W2B_2C_SHORT_2026-11-04.md
+Report path: docs/STT/hoplite/w2b_2c_short/2026-11-04_hoplite-review_w2b_2c_short_SONNET.md
