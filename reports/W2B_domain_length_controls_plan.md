@@ -73,16 +73,16 @@
 
 ## 6. DoD
 
-- [ ] Kspon long 4h 선택 (OOV audit 포함) — **완료 4.0025h / 1,327 rows / OOV 7.33%**
-- [ ] Zeroth short 4h 선택 (Wave1 1,534 제외, OOV audit 포함) — **불가: 잔여 1.66h**
-- [ ] Zeroth long 4h 선택 (D-074a, Wave1 1,534 제외, OOV audit 포함)
-- [ ] 각 feature 4h + 10h cache
-- [ ] `b3long_v2_s42` 12 epoch 완료
-- [ ] `b3zerothlong_v2_s42` 12 epoch 완료
-- [ ] dev 500 prediction·bootstrap
-- [ ] `reports/W2B_domain_length_controls.md`
-- [ ] D-075 결과 기록
-- [ ] test 2,400 미사용 확인
+- [x] Kspon long 4h 선택 (OOV audit 포함) — **완료 4.0025h / 1,327 rows / OOV 7.33%**
+- [x] Zeroth short 4h 선택 (Wave1 1,534 제외, OOV audit 포함) — **불가: 잔여 1.66h**
+- [x] Zeroth long 4h 선택 (D-074a, Wave1 1,534 제외, OOV audit 포함)
+- [x] 각 feature 4h + 10h cache
+- [x] `b3long_v2_s42` 12 epoch 완료
+- [x] `b3zerothlong_v2_s42` 12 epoch 완료
+- [x] dev 500 prediction·bootstrap
+- [x] `reports/W2B_domain_length_controls.md`
+- [x] D-075 결과 기록
+- [x] test 2,400 미사용 확인
 
 ## 7. 예상 소요
 
