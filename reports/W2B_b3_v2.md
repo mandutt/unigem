@@ -39,3 +39,13 @@ B3 V2 shows a large short-data effect on dev 500. This is not yet the full gate:
 B3-nat V2 (same 10h clip set, natural sampler) and paired utterance bootstrap
 are still running/pending. The final comparison must use the same V2 head and
 the pre-registered dev 500 primary rule; test remains sealed until selection.
+
+## B3-nat control (final)
+
+- Arm: `b3nat_v2_s42`, natural sampler, same 10h clip set
+- Best epoch 11: **0.2633** (2,042 / 7,755)
+- Final epoch 12: 0.2634
+- B3 − B3-nat: **+0.490%p**, paired 95% CI **[-0.229, +1.205]**
+- Sampler effect is not significant at 12 epochs.
+
+The frozen candidate remains **B3 v2 s42**; B3-nat is not a candidate.
