@@ -19,7 +19,7 @@ ALERTS = ROOT / "logs/W2B/domain_controls_watch_alerts.log"
 LOCK = ROOT / "logs/W2B/domain_controls_watch.lock"
 DONE = W2B / "DOMAIN_CONTROLS_DONE.json"
 FAIL = W2B / "DOMAIN_CONTROLS_FAILED.txt"
-ARMS = ["b3long_v2_s42", "b3zeroth_v2_s42"]
+ARMS = ["b3long_v2_s42", "b3zerothlong_v2_s42"]
 
 
 def now() -> str:

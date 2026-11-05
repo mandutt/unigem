@@ -16,11 +16,11 @@ SENT = W2B / "DOMAIN_CONTROLS_DONE.json"
 FAIL = W2B / "DOMAIN_CONTROLS_FAILED.txt"
 CKPT = W2B / "ckpt_controls"
 LONG_MAN = W2B / "long_4h.jsonl"
-ZER_MAN = W2B / "short_4h_zeroth.jsonl"
+ZER_MAN = W2B / "long_4h_zeroth.jsonl"
 LONG_FEAT = W2B / "feats_kspon_long"
-ZER_FEAT = W2B / "feats_zeroth_short"
+ZER_FEAT = W2B / "feats_zeroth_long"
 LONG_10H = W2B / "feats_10h_kspon_long"
-ZER_10H = W2B / "feats_10h_zeroth_short"
+ZER_10H = W2B / "feats_10h_zeroth_long"
 
 
 def log(msg: str) -> None:
@@ -92,8 +92,8 @@ def main() -> int:
         ])
     validate_manifest(LONG_MAN, 3.8)
     if not ZER_MAN.exists():
-        run("SELECT Zeroth short 4h", [
-            PY, "runner/w2b_select_zeroth_short.py",
+        run("SELECT Zeroth long 4h", [
+            PY, "runner/w2b_select_zeroth_long.py",
             "--vocab", "data/wave2b/vocab_v2.json",
         ])
     validate_manifest(ZER_MAN, 3.8)
@@ -105,7 +105,7 @@ def main() -> int:
             "--arms", "fc", "--fc-memmap", "--threads", "6", "--min-dur", "0.5",
         ], LONG_FEAT / "fc.npz")
     if not (ZER_FEAT / "fc.npz").exists():
-        run("FEATURE Zeroth short", [
+        run("FEATURE Zeroth long", [
             PY, "train/w1_extract.py", "--manifest", str(ZER_MAN),
             "--out-dir", str(ZER_FEAT), "--vocab-in", "data/wave2b/vocab_v2.json",
             "--arms", "fc", "--fc-memmap", "--threads", "6", "--min-dur", "0.5",
@@ -119,7 +119,7 @@ def main() -> int:
             "--out", str(LONG_10H),
         ], LONG_10H / "fc.npz")
     if not (ZER_10H / "fc.npz").exists():
-        run("COMBINE Zeroth short 10h", [
+        run("COMBINE Zeroth long 10h", [
             PY, "runner/w2b_combine_feats.py",
             "--base", "data/wave1/feats/fc.npz",
             "--extra", str(ZER_FEAT / "fc.npz"),
@@ -127,11 +127,11 @@ def main() -> int:
         ], ZER_10H / "fc.npz")
 
     run_arm("b3long_v2_s42", LONG_10H)
-    run_arm("b3zeroth_v2_s42", ZER_10H)
+    run_arm("b3zerothlong_v2_s42", ZER_10H)
     SENT.write_text(json.dumps({
         "status": "DONE",
         "finished_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
-        "arms": ["b3long_v2_s42", "b3zeroth_v2_s42"],
+        "arms": ["b3long_v2_s42", "b3zerothlong_v2_s42"],
         "scope": "dev 500 only; sealed test 2,400 not used",
     }, indent=2) + "\n", encoding="utf-8")
     log(f"DONE {SENT}")
