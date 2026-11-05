@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-11-05T13:25:19+09:00",
+  "sizes": {
+    "dev": 500,
+    "test": 2400,
+    "spare": 90,
+    "short_v2": 5079,
+    "short_v1": 5119,
+    "wave1": 2384
+  },
+  "intersections": {
+    "test_short_v2": 0,
+    "test_short_v1": 0,
+    "test_wave1": 0,
+    "dev_short_v2": 0,
+    "dev_short_v1": 0,
+    "dev_wave1": 0,
+    "spare_short_v2": 0,
+    "spare_short_v1": 0,
+    "spare_wave1": 0
+  }
+}

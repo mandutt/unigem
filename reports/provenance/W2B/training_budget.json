@@ -1,0 +1,74 @@
+{
+  "created_at": "2026-11-05T13:25:33+09:00",
+  "note": "Optimizer step and audio exposure accounting. Steps/epoch from training logs; total steps = steps/epoch * epochs. Audio exposure = unique hours * epochs. B3 epoch 4 is exploratory and uses the 12-epoch cosine schedule at epoch 4 (LR not equal to B0 epoch 12).",
+  "arms": [
+    {
+      "arm": "b0p_v2_s42",
+      "data": "Wave1 6h",
+      "unique_hours": 6.0008,
+      "epochs": 12,
+      "steps_per_epoch": 298,
+      "total_steps": 3576,
+      "audio_exposure_hours": 72.0096,
+      "dev_cer": 0.3701
+    },
+    {
+      "arm": "b3_v2_s42",
+      "data": "10h V2",
+      "unique_hours": 10.0221,
+      "epochs": 12,
+      "steps_per_epoch": 933,
+      "total_steps": 11196,
+      "audio_exposure_hours": 120.2652,
+      "dev_cer": 0.2682
+    },
+    {
+      "arm": "b3nat_v2_s42",
+      "data": "10h V2",
+      "unique_hours": 10.0221,
+      "epochs": 12,
+      "steps_per_epoch": 933,
+      "total_steps": 11196,
+      "audio_exposure_hours": 120.2652,
+      "dev_cer": 0.2633
+    },
+    {
+      "arm": "b3_v2_s42_epoch4_diagnostic",
+      "data": "10h V2",
+      "unique_hours": 10.0221,
+      "epochs": 4,
+      "steps_per_epoch": 933,
+      "total_steps": 3732,
+      "audio_exposure_hours": 40.0884,
+      "dev_cer": 0.2903,
+      "label": "exploratory only; no checkpoint retained"
+    },
+    {
+      "arm": "b0p_v2_20",
+      "data": "Wave1 6h",
+      "unique_hours": 6.0008,
+      "epochs": 20,
+      "steps_per_epoch": 298,
+      "total_steps": 5960,
+      "audio_exposure_hours": 120.016,
+      "dev_cer": null,
+      "label": "D-070 hypothetical"
+    },
+    {
+      "arm": "b3_v2_20",
+      "data": "10h V2",
+      "unique_hours": 10.0221,
+      "epochs": 20,
+      "steps_per_epoch": 933,
+      "total_steps": 18660,
+      "audio_exposure_hours": 200.442,
+      "dev_cer": null,
+      "label": "D-070 hypothetical"
+    }
+  ],
+  "ratios": {
+    "b3_vs_b0_steps_12ep": 3.1308724832214767,
+    "b3_vs_b0_audio_12ep": 1.6701273163578187,
+    "b3_20_vs_b0_20_steps": 3.1308724832214767
+  }
+}
