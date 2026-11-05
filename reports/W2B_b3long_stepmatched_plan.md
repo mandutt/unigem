@@ -51,13 +51,13 @@ B3-nat이 **2.0632%p** 좋지만 CI가 0을 제외해도, long arm은 optimizer 
 
 ## 5. DoD
 
-- [ ] D-077 사전등록
-- [ ] `b3long_sm_v2_s42` 12 epoch / 11,136 steps 완료
-- [ ] `devpred_b3long_sm_v2_s42.json` 생성
-- [ ] B3-nat vs b3long_sm paired bootstrap 20,000
-- [ ] `reports/W2B_b3long_stepmatched.md`
-- [ ] D-078 결과 기록
-- [ ] test 2,400 미사용 확인
+- [x] D-077 사전등록
+- [x] `b3long_sm_v2_s42` 12 epoch / 11,136 steps 완료
+- [x] `devpred_b3long_sm_v2_s42.json` 생성
+- [x] B3-nat vs b3long_sm paired bootstrap 20,000
+- [x] `reports/W2B_b3long_stepmatched.md`
+- [x] D-078 결과 기록
+- [x] test 2,400 미사용 확인
 
 ## 6. 예상 소요
 
