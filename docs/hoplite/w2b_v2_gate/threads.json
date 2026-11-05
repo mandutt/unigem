@@ -1,0 +1,32 @@
+{
+  "round": "w2b_v2_gate",
+  "request": "reports/EXTERNAL_REVIEW_W2B_V2_GATE_2026-11-05.md",
+  "basis_commit": "9d1aba6",
+  "project_id": "proj_2e8de5ed594f47c7b851f1d7c5b52c61",
+  "threads": {
+    "GLM": {
+      "thread_id": "thr_5315c679f9de4bab9d41dadd888baf3f",
+      "model": "z-ai/glm-5.3-flash",
+      "reasoning": "max",
+      "created_at": "2026-11-05T13:33:00+09:00",
+      "note": "first attempt failed on known changelog_check UnboundLocalError; retry created this thread"
+    },
+    "SONNET": {
+      "thread_id": "thr_5b0619f69a9e4a69ba2fb8ffd8f762ef",
+      "model": "claude-sonnet-5-5",
+      "reasoning": "medium",
+      "created_at": "2026-11-05T13:33:00+09:00"
+    },
+    "LUNA": {
+      "thread_id": "thr_2daac9c177ad46718940f5a6b545757a",
+      "model": "gpt-6-luna",
+      "reasoning": "xhigh",
+      "created_at": "2026-11-05T13:33:00+09:00"
+    }
+  },
+  "archived_before_round": [
+    "thr_d7e8be9f1e4f4ea8bd65820591d6972d",
+    "thr_515441583bcd4378987cf889a8cae0af",
+    "thr_cf30171fa859463d904c7324120cfee3"
+  ]
+}
