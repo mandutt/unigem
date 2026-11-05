@@ -1,0 +1,40 @@
+{
+  "b3long_v2_s42": {
+    "epochs": 12,
+    "steps_per_epoch": 464,
+    "total_steps": 5568,
+    "micro_per_epoch": 1856,
+    "clips": 3711,
+    "seconds": 5377.3,
+    "hours": 1.494,
+    "final_dev_cer": 0.2839458413926499
+  },
+  "b3zerothlong_v2_s42": {
+    "epochs": 12,
+    "steps_per_epoch": 473,
+    "total_steps": 5676,
+    "micro_per_epoch": 1890,
+    "clips": 3779,
+    "seconds": 5461.3,
+    "hours": 1.517,
+    "final_dev_cer": 0.3655705996131528
+  },
+  "references": {
+    "b3nat_v2_s42": {
+      "steps_per_epoch": 933,
+      "total_steps": 11196,
+      "final_dev_cer": 0.26331399097356545
+    },
+    "b3_v2_s42": {
+      "steps_per_epoch": 933,
+      "total_steps": 11196,
+      "final_dev_cer": 0.268214055448098
+    },
+    "b0p_v2_s42": {
+      "steps_per_epoch": 298,
+      "total_steps": 3576,
+      "final_dev_cer": 0.37008381689232756
+    }
+  },
+  "scope": "dev 500 only; sealed test 2,400 not used"
+}
