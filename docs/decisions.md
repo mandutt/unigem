@@ -77,6 +77,8 @@
 
 
 
+| D-070 | 2026-11-05 | **20 epoch 연장은 보류·향후 exploratory로 기록**: B3 12 epoch는 best가 마지막 epoch(0.2682)이고 early stop이 걸리지 않아 추가 학습 여지가 있다. 다만 **B3만 20 epoch로 늘리면 B3−B0′에 데이터 효과와 추가 학습 효과가 혼입**되고, B3−B3-nat 비교도 학습량 차이가 된다. 또 dev 500 결과를 본 뒤 연장·best 선택하면 선택 편향이 생긴다. 따라서 지금은 12 epoch primary를 유지하고, 향후 필요 시 **B0′-20/B3-20/B3-nat-20을 동일 20-epoch cosine schedule로 재학습**하거나 **seed 43 12-epoch 재현**을 먼저 수행한다. B3만 연장하지 않는다 | 현재 B3-nat 12 epoch는 계속 진행. 20 epoch는 GPU(L40S) 사용 후보. |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
