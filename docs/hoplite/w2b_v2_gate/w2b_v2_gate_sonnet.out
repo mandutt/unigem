@@ -1,0 +1,24 @@
+**Verdict: B, a recipe-level PASS with caveats.** I wrote the full report to `docs/hoplite/w2b_v2_gate/2026-11-05_hoplite-review_w2b_v2_gate_SONNET.md`. It is the only new file; I changed nothing else and ran no experiments.
+
+**Sync and reading**
+- `git fetch origin` worked and `git pull --ff-only origin main` said "Already up to date". HEAD is `ac1fd82ee32212ce99517e3986a5b43f69a0addc`.
+- The commit the request cites, `9d1aba6`, does not exist in this clone, so I could not check anything against it.
+- The request file has 769 lines, not 768. I read all of them, in small chunks, because large reads came back condensed.
+
+**Why B, not C**
+- The ~10 pp gain (test +9.74, CI [9.23, 10.26]) clears the 1.0 pp gate by a wide margin. The confounds change how the gain can be attributed, not whether it exists.
+- Only "recipe effect" is a supported label. "Data effect", "domain effect" and "short-length effect" are not.
+
+**Main points**
+- **Step and exposure controls differ.** B3's clips are short, so it gets 93 optimizer steps per audio-hour against 50 for B0′. B0′-38 epochs matches steps. B0′-20 epochs matches audio exposure (120.0 h vs 120.3 h). The document treats 20-epoch only as a convergence check, but B0′-20 is the exposure control.
+- **Next experiments, in order:** B0′-38 and B0′-20, then seed 43 on dev, then a Kspon natural-length 4h control, then LoRA. Drop B3-20 and B3-nat-20 unless the controls show B0′ closing the gap.
+- **Vocabulary:** keep V2 and freeze it with a hash. Label results as conditioned on V2.
+- **B3-nat:** "not detectable at dev-500, one seed" is supportable. "No sampler effect" is not, because the CI reaches +1.2 pp. Do not run it on the used test.
+- **LoRA:** implementation and GPU smoke tests can start now. The LoRA gate runs need the controls first, plus a fresh holdout, pre-registered stop/go criteria, a GPU/CPU parity check and a compute-matched B3 as comparator.
+
+**My own read-only checks on committed files** (indicative only; I used my own normalisation, not the project's `normalize_nospace`):
+- 136 of 2,400 test refs (5.7%) exactly match a short-train ref at the text level. Without them Δ is about 9.48 pp, so the effect is small, but the overlap was never audited. I only checked the short subset, not the full 620k Kspon train transcripts.
+- The new-vocab-character asymmetry against B0′ is small. About 114 test utterances (~0.3% of characters) contain a character at vocab index ≥1101. I assumed the 228 new characters are `chars[1101:]`, but punctuation sits at indices 1101–1104, so that boundary may be off by a few.
+- The out-of-vocabulary table's character denominators (e.g. test 40,788) differ from the CER denominators (38,224). The document does not explain this, and I flagged it for the owners to reconcile.
+
+The report also has the full Q1–Q8 answers, a Must-fix table (MF-A to MF-I), a revised external claim sentence and the list of uncertainties.
