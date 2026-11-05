@@ -79,6 +79,8 @@
 
 | D-070 | 2026-11-05 | **20 epoch 연장은 보류·향후 exploratory로 기록**: B3 12 epoch는 best가 마지막 epoch(0.2682)이고 early stop이 걸리지 않아 추가 학습 여지가 있다. 다만 **B3만 20 epoch로 늘리면 B3−B0′에 데이터 효과와 추가 학습 효과가 혼입**되고, B3−B3-nat 비교도 학습량 차이가 된다. 또 dev 500 결과를 본 뒤 연장·best 선택하면 선택 편향이 생긴다. 따라서 지금은 12 epoch primary를 유지하고, 향후 필요 시 **B0′-20/B3-20/B3-nat-20을 동일 20-epoch cosine schedule로 재학습**하거나 **seed 43 12-epoch 재현**을 먼저 수행한다. B3만 연장하지 않는다 | 현재 B3-nat 12 epoch는 계속 진행. 20 epoch는 GPU(L40S) 사용 후보. |
 
+| D-071 | 2026-11-05 | **V2 reader-only gate PASS**: V2 B0′ 0.3701 dev / 0.359643 test; V2 B3(balanced) 0.2682 dev / 0.262270 test; V2 B3-nat 0.2633 dev. Dev Δ(B0−B3) **+10.187%p**, paired 95% CI **[+9.107,+11.328]**; sealed test 2,400 Δ **+9.737%p**, CI **[+9.228,+10.258]**; FLEURS dev B3 0.207607 vs B0 0.209770 (no regression). B3−B3-nat dev **+0.490%p**, CI **[-0.229,+1.205]** (not significant). B3 frozen before test; no test-time max/threshold change. V1 B0′ 0.3663 is not a V2 baseline. B1/B2 LoRA remains conditional; 20-epoch extension deferred D-070 | `reports/W2B_v2_gate_results.md`, `reports/W2B_v2_dev_results.md`, `reports/provenance/W2B/{v2_dev_bootstrap,v2_test_bootstrap,test_freeze}.json` |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
