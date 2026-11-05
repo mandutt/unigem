@@ -1,0 +1,11 @@
+{
+  "status": "DONE",
+  "finished_at": "2026-11-05T13:02:34+09:00",
+  "arms": [
+    "b3_v2_s42",
+    "b3nat_v2_s42"
+  ],
+  "init": "C:\\code\\unigem\\data\\wave2b\\ckpt_v2\\w2a_fc_concat_s42_v2head.pt",
+  "features": "data/wave2b/feats_10h_v2/fc.npz",
+  "vocab": "data/wave2b/vocab_v2.json"
+}
