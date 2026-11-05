@@ -1,0 +1,34 @@
+{
+  "round": "w2b_domain_length",
+  "request": "reports/EXTERNAL_REVIEW_W2B_DOMAIN_LENGTH_2026-11-05.md",
+  "request_commit": "dd4b7be",
+  "dispatch_commit": "857eed0",
+  "basis_commit": "857eed0",
+  "project_id": "proj_2e8de5ed594f47c7b851f1d7c5b52c61",
+  "threads": {
+    "GLM": {
+      "thread_id": "thr_4fd25345721e4b35bc8587b3cf948878",
+      "model": "z-ai/glm-5.3-flash",
+      "reasoning": "max",
+      "created_at": "2026-11-05T22:31:00+09:00"
+    },
+    "OPUS": {
+      "thread_id": "thr_6b592fbd25ae4a67811dedc8c6dbdb82",
+      "model": "claude-opus-5-5",
+      "reasoning": "medium",
+      "created_at": "2026-11-05T22:31:00+09:00",
+      "note": "replaces Sonnet 5.5 from the previous round"
+    },
+    "LUNA": {
+      "thread_id": "thr_8262e178b3f94902bd86a23bd51b9e84",
+      "model": "gpt-6-luna",
+      "reasoning": "xhigh",
+      "created_at": "2026-11-05T22:31:00+09:00"
+    }
+  },
+  "archived_before_round": [
+    "thr_5315c679f9de4bab9d41dadd888baf3f",
+    "thr_2daac9c177ad46718940f5a6b545757a",
+    "thr_5b0619f69a9e4a69ba2fb8ffd8f762ef"
+  ]
+}
