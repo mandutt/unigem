@@ -1,0 +1,33 @@
+**Verdict: B — accept with caveats.** The full report is at `docs/hoplite/w2b_domain_length/2026-11-05_hoplite-review_w2b_domain_length_OPUS.md`. It follows the section 12 format. It is the only file I created, and it is not committed.
+
+**Sync:** `git fetch origin` worked. `git pull --ff-only origin main` said "Already up to date". HEAD is `857eed0` ("chore: prepare w2b_domain_length review dispatch"); the document itself cites `069879f`. I read all 740 lines.
+
+I ran no training or decoding. Every new number below comes from read-only analysis of files already in the repo (prediction and bootstrap JSONs, `short_4h_v2.jsonl`, `eval/normalize.py`, `reports/W2B_b3_v2.md`, the training and selection code).
+
+**Main findings:**
+- **Q1, domain (B):** The 8.16 %p Kspon-over-Zeroth gap is solid. It is about 8× the confidence interval half-width and holds in every dev length bin. But "domain" bundles several things:
+  - speaking style (conversational vs read);
+  - dev being Kspon itself;
+  - transcription conventions — Kspon labels write numbers as digits, Zeroth labels as Hangul (one dev example: the Zeroth-trained model outputs `이십육일` where the reference is `26일`);
+  - different speakers and recording;
+  - unequal data selection: a per-folder cap applied to Kspon only, and different out-of-vocabulary exclusion rates (7.33 % vs 4.47 %);
+  - Zeroth already being in the Wave 1 base data.
+
+  The claim should read "Kspon-source (in-distribution) advantage at matched 8–16 s".
+- **Q2, length (B):** "Not established" is correct, and the evidence points both ways:
+  - The B3-nat vs B3-long gap is almost entirely in short references: CER 0.325 vs 0.394 under 8 characters, and nearly equal at 16 or more.
+  - But B3 balanced at epoch 6 (~5,600 steps, before the learning rate has decayed) scores 0.2814, about the same as B3-long's final 0.2839 at 5,568 steps.
+- **Step-matched B3-long design:** same setup as B3-long but `--grad-accum 2`, 12 epochs, `--patience 99`, final-epoch CER fixed in advance. That gives 11,136 steps, the same 120 h exposure and about the same audio per step as B3-nat. A 24-epoch replay is only worth running as an optional second check.
+- **Q3, Zeroth-long substitute (B):** Acceptable, but only for the long-length claim. Domain at short length is untested. It can be tested without downloading anything: compare B0′ + the 1.66 h of remaining Zeroth short data against B0′ + 1.66 h of Kspon short with the same duration mix. I don't recommend FLEURS train, because FLEURS dev is the guardrail.
+- **Q8, text overlap (largely closed):** With the project normalizer I reproduced Sonnet's count exactly: 136/2,400. All of these are 3–6 character backchannels such as 그런가 and 그래서, about 1.16 % of test characters. Removing them gives Δ +9.476 %p, so the gate still passes. Still open: near-duplicate matching, the Kspon-long and Zeroth-long data lists (not in the repo, so I couldn't check them), and a confidence interval for the deduplicated Δ. I also found a character-count mismatch (40,788 in the document vs 38,224 normalized) that needs a definition.
+- **Q5, Q6, Q7, Q9:**
+  - Spare 90 is too small to serve as a holdout. New confirmatory claims need a fresh holdout from Kspon train folders never used in any selection.
+  - The B0′ controls hold up; B0′-rep10 isn't needed.
+  - Sampler choice doesn't affect the domain or length comparisons.
+  - B3-zeroth-long barely helping is best explained by its mismatch with Kspon dev plus overlap with the Zeroth data already in Wave 1, not by overfitting or step count.
+
+**Do next:** the step-matched B3-long run. LoRA implementation and GPU smoke tests can start in parallel. LoRA *claims* need a fresh holdout and a matched no-LoRA comparator first.
+
+**Don't claim:** a "short 4h data effect", or the 2.06 %p figure, as a length effect.
+
+The report also has the Must-fix table, a ranked list of the weakest points, and a rewritten public claim sentence (Q11).

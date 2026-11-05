@@ -1,0 +1,83 @@
+{
+  "normalizer": "eval.normalize.normalize_nospace",
+  "scope": "exact normalized transcript match; no training/decoding",
+  "source_sizes": {
+    "short_v2": 4767,
+    "short_v1": 0,
+    "wave1": 2083,
+    "kspon_long": 1327,
+    "zeroth_long": 952
+  },
+  "test": {
+    "n": 2400,
+    "ref_chars": 38224,
+    "sources": {
+      "short_v2": {
+        "rows": 136,
+        "chars": 445,
+        "rate_pct": 5.666666666666667
+      },
+      "short_v1": {
+        "rows": 0,
+        "chars": 0,
+        "rate_pct": 0.0
+      },
+      "wave1": {
+        "rows": 0,
+        "chars": 0,
+        "rate_pct": 0.0
+      },
+      "kspon_long": {
+        "rows": 0,
+        "chars": 0,
+        "rate_pct": 0.0
+      },
+      "zeroth_long": {
+        "rows": 0,
+        "chars": 0,
+        "rate_pct": 0.0
+      }
+    },
+    "all_sources": {
+      "rows": 136,
+      "chars": 445,
+      "rate_pct": 5.666666666666667
+    }
+  },
+  "dev": {
+    "n": 500,
+    "ref_chars": 7755,
+    "sources": {
+      "short_v2": {
+        "rows": 26,
+        "chars": 86,
+        "rate_pct": 5.2
+      },
+      "short_v1": {
+        "rows": 0,
+        "chars": 0,
+        "rate_pct": 0.0
+      },
+      "wave1": {
+        "rows": 0,
+        "chars": 0,
+        "rate_pct": 0.0
+      },
+      "kspon_long": {
+        "rows": 0,
+        "chars": 0,
+        "rate_pct": 0.0
+      },
+      "zeroth_long": {
+        "rows": 0,
+        "chars": 0,
+        "rate_pct": 0.0
+      }
+    },
+    "all_sources": {
+      "rows": 26,
+      "chars": 86,
+      "rate_pct": 5.2
+    }
+  }
+}
