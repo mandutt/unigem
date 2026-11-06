@@ -1,0 +1,219 @@
+{
+  "totals": {
+    "records": 2000,
+    "source_slots": 28252,
+    "summary_slots": 14454,
+    "preserved": 13474,
+    "missing": 14778,
+    "new": 980,
+    "records_with_missing": 1882,
+    "records_with_new": 383,
+    "slot_preservation": 0.47692198782387085,
+    "new_slot_rate": 0.067801300678013,
+    "grounding_rate": 0.932198699321987
+  },
+  "by_kind": {
+    "date": {
+      "source": 621,
+      "summary": 353,
+      "missing": 294,
+      "new": 26
+    },
+    "identifier": {
+      "source": 347,
+      "summary": 183,
+      "missing": 172,
+      "new": 8
+    },
+    "number": {
+      "source": 26504,
+      "summary": 13638,
+      "missing": 13807,
+      "new": 941
+    },
+    "time": {
+      "source": 776,
+      "summary": 279,
+      "missing": 501,
+      "new": 4
+    },
+    "url": {
+      "source": 4,
+      "summary": 0,
+      "missing": 4,
+      "new": 0
+    },
+    "version": {
+      "source": 0,
+      "summary": 1,
+      "missing": 0,
+      "new": 1
+    }
+  },
+  "examples": {
+    "missing": [
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "40억달러"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "44"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "87%"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "13%"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "3"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "4년"
+      },
+      {
+        "id": "REPORT-news_r-00005-00001",
+        "slot": "27년"
+      },
+      {
+        "id": "REPORT-news_r-00005-00001",
+        "slot": "2020년"
+      },
+      {
+        "id": "REPORT-news_r-00005-00003",
+        "slot": "1962년"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "95억원"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "3300만"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "1위"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "0"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "2%"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "1조원"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "3년"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "6"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "4년"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "7"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "2gb"
+      }
+    ],
+    "new": [
+      {
+        "id": "REPORT-news_r-00034-00001",
+        "slot": "25.9%"
+      },
+      {
+        "id": "REPORT-news_r-00034-00001",
+        "slot": "10.3%"
+      },
+      {
+        "id": "REPORT-news_r-00034-00001",
+        "slot": "2.81달러"
+      },
+      {
+        "id": "REPORT-news_r-00034-00001",
+        "slot": "4.42달러"
+      },
+      {
+        "id": "REPORT-news_r-00034-00001",
+        "slot": "2.55%"
+      },
+      {
+        "id": "REPORT-news_r-00045-00001",
+        "slot": "2017-09-03"
+      },
+      {
+        "id": "REPORT-news_r-00048-00002",
+        "slot": "26.3%"
+      },
+      {
+        "id": "REPORT-news_r-00048-00002",
+        "slot": "4.8%"
+      },
+      {
+        "id": "REPORT-news_r-00056-00001",
+        "slot": "2일"
+      },
+      {
+        "id": "REPORT-news_r-00069-00001",
+        "slot": "3.0%"
+      },
+      {
+        "id": "REPORT-news_r-00085-00002",
+        "slot": "m.net"
+      },
+      {
+        "id": "REPORT-news_r-00110-00001",
+        "slot": "20.2%"
+      },
+      {
+        "id": "REPORT-news_r-00110-00001",
+        "slot": "100.3%"
+      },
+      {
+        "id": "REPORT-news_r-00110-00001",
+        "slot": "30.4%"
+      },
+      {
+        "id": "REPORT-news_r-00133-00003",
+        "slot": "66.9%"
+      },
+      {
+        "id": "REPORT-news_r-00133-00003",
+        "slot": "2012-06-06"
+      },
+      {
+        "id": "REPORT-news_r-00133-00003",
+        "slot": "2018-05-00"
+      },
+      {
+        "id": "REPORT-news_r-00205-00005",
+        "slot": "18.0%"
+      },
+      {
+        "id": "REPORT-news_r-00205-00005",
+        "slot": "10.4%"
+      },
+      {
+        "id": "REPORT-news_r-00205-00005",
+        "slot": "46.9%"
+      }
+    ]
+  }
+}
