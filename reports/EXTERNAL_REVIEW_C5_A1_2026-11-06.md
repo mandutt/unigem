@@ -2,10 +2,11 @@
 
 - 날짜: 2026-11-06
 - 검토 기준: **본 문서가 포함된 `origin/main` HEAD** (`git rev-parse HEAD`로 확인; shallow clone이면 이 커밋만 존재)
+- 검토 스냅샷: **`834d598`** (3-AI가 실제로 읽은 HEAD; 이후 정정은 §0.1)
 - 실험 산출물 기준: **`1fa8bbb`** (참조용; 코드·산출물은 그 이후 변경 없음)
 - 저장소: `C:\code\unigem` (비공개 `mandutt/unigem`, main, origin과 0/0)
 - 검토 범위: **F5 메모리용 추상 요약**
-- test 163: **봉인, 이 요청서 작성 시점까지 미사용**
+- test 163: **A0가 이미 사용(D-080, 0.6072); A1에는 미사용·봉인**
 - 이 문서는 **자기완결형**입니다. 검토자는 이전 스레드나 대화를 읽지 않아도 됩니다.
 - 데이터 등급: F5 clean 데이터는 **P0(공개·합성 가공)**. P1 개인 데이터는 사용하지 않았습니다.
 
@@ -18,21 +19,36 @@
    - 그러나 memory-ablation ΔNLL은 양수(real vs shuffled **+0.058**)여서 “memory가 전혀 없다”는 아니다.
    - 원인은 **merged decoder q/k/v/o를 frozen으로 둔 adapter-only bridge**로 해석한다. T5Gemma2 논문의 merged attention 구조와 일치한다.
 2. **A1(native T5Gemma2 encoder + q/k/v/o LoRA)은 val 161에서 A0를 상회**했다.
-   - A1 pilot300: char F1 **0.6576**, grounded **161/161**, new slot **0**, EOS **161/161**, repeated4 **0.0554**.
+   - A1 pilot300: char F1 **0.6576**, grounded **161/161** (non-vacuous **155/155** + slot-free **6/161**), new slot **0**, EOS **161/161**, repeated4 **0.0554**. `slot_preservation` 평균은 **0.4558**로 별도 보고.
    - A0 extractive: **0.6111**.
    - paired 차이 **+0.0465**, 95% CI **[+0.0336, +0.0603]**, A1 우세 **112/161**.
    - 단, **pilot300은 full train이 아니고**, test·사람 검토 미실시다.
 3. **`summarize: ` prefix는 학습·평가에 넣은 조건과 추론에만 넣은 조건이 다르다.**
    - pilot100(bare 학습)에 inference prefix만: 0.4659 → **0.6118**.
    - pilot300(summarize prefix 학습): val 161 **0.6576**.
-   - prefix-trained pilot300은 bare 입력 val 5에서도 **0.6522**로 요약이 유지됐다.
+   - prefix-trained pilot300은 bare 입력 val 5에서도 **0.6522**로 요약이 유지됐다. 단, **val 161에서는 bare 0.6335 < prefix 0.6576** (paired +0.0241 CI [+0.0132,+0.0351])로 prefix가 load-bearing이었다.
 4. **EG2→T5의 “최소 adapter” 가능성**은 문헌상 존재하지만, A2처럼 external memory를 decoder에 직접 넣는 방식이 아니라 **soft token을 encoder input에 넣는 방식**이 유망하다. 특히 **T5Gemma2 native encoder hidden을 teacher로 쓰는 B1d distillation**은 summary label 없이 P0 text만으로 adapter를 정렬할 수 있어 범용 bridge의 최소 경로 후보이다. 아직 구현·검증하지 않았다.
 5. **결정이 필요한 것**:
-   - A1 full train(2~3 epoch) 승인 여부
+   - A1 full train(2 epoch) 승인 여부
    - prefix 고정 / bare / prefix dropout 중 full train 조건
-   - B3 pooled soft-prefix bridge를 A1 full train 전에 할지
+   - B1d teacher-hidden distillation bridge를 A1 full train 전에 할지
    - A2를 raw control 없이 종결해도 되는지
    - 최종 test 163과 사람 50건의 실행 조건
+
+---
+
+## 0.1 검토 후 정정 (2026-11-06)
+
+이 절은 3-AI 검토가 끝난 뒤 확인된 오류와 추가 실측을 반영한다. 원문 본문은 검토 스냅샷 `834d598`의 기록이며, 아래가 현재 정본이다.
+
+1. **B1d 인터페이스 정정**: B1d는 `inputs_embeds`가 아니라 **`encoder_outputs` replacement**다. `H_s`를 encoder의 `inputs_embeds`로 넣으면 encoder가 다시 실행되어 “런타임 encoder 미실행”이 성립하지 않는다. B1/B3만 encoder-input 경로(`inputs_embeds`)이고, B1d는 encoder-output 경로다.
+2. **A1 slot 보존 추가**: pilot300 val161 `slot_preservation` 평균 **0.455827** (A0 0.801190), **153/161** 문서가 원문 slot을 1개 이상 누락. `grounded 161/161`은 신규 slot 없음만 뜻하며, non-vacuous **155/155**와 slot-free **6/161**을 분리 보고해야 한다.
+3. **test 163 이력 정정**: test 163은 A0가 이미 사용했다(D-080, char F1 0.6072). “미사용”은 **A1에 미사용**으로 한정한다.
+4. **pilot300 governance**: D-082는 smoke 1 step + pilot 50~100 step만 승인했다. pilot300은 범위를 넘었으므로 승인 기록이 필요하다. D-042(EG2 text hidden의 F4/F5 제품 사용 폐기)도 B-family 제품 채택 전에 명시적으로 대체해야 한다.
+5. **H4′ 정정**: H4′는 코퍼스 v2 4,695문장의 token-string 분절 일치이며, D-027의 **id 불일치 6,186개 + `<eos>` 차이**를 없애지 않는다. F5 passage/prompt/special token에서 token id·offset·mask를 재감사해야 한다.
+6. **파라미터·비용 정정**: B3 K32 MLP는 **21.78M**(22.4M 아님), B3 trainable 범위는 **4~22M**, B1b 표준 2-layer는 **7~10M**(2~5M 아님), B2 decoder-only q/k/v/o r8은 **737,280**(A1의 1,474,560 아님). B3 시간 표기 3~4h와 2~4h는 하나로 통일해야 한다.
+7. **prefix/bare 추가 실측**: pilot300 prefix **0.657580**, bare **0.633491**, paired prefix−bare **+0.024089** CI **[+0.013186,+0.035089]**. Prefix가 load-bearing이므로 full train은 prefix 고정. zero-shot `summarize: `는 **0.226113**, EOS **0/161**로 base model의 낮은 천장을 확인했다.
+8. **Full train 코드 미구현**: `c5_a1_lora.py`는 종료 시 1회 저장, epoch 재셔플 없음, `--rank/--alpha/--dropout`가 LoRA 구성에 전달되지 않음, step-time stop 미구현. full train 전에 수정이 필요하다.
 
 ---
 
@@ -150,7 +166,7 @@ A2-null 3-arm 결과에 대해 GLM 5.3 Flash(max), Opus 5.5(medium), Terra 6.1(h
 ### 3.4 A1 pilot300 val 161
 
 - 평가: batch 8, greedy, `max_new_tokens=448`, `summarize: ` prefix
-- **test 163 미사용**
+- **test 163: A1에는 미사용** (A0는 D-080에서 사용)
 
 | metric | A0 | A1 pilot300 |
 |---|---:|---:|
@@ -244,7 +260,7 @@ EG2 feature
 | task cue | 없음 | 없음(soft token) 또는 선택적 prefix |
 | A2 실패 원인 | merged decoder 적응 부재 | encoder 분포 유지로 완화 기대 |
 
-T5Gemma2 `forward`는 `encoder_outputs`가 주어지면 encoder를 건너뛴다. B-family는 `inputs_embeds`를 encoder에 넣어 **native encoder 경로를 보존**한다.
+T5Gemma2 `forward`는 `encoder_outputs`가 주어지면 encoder를 건너뛴다. **B1/B3**는 `inputs_embeds`를 encoder에 넣어 native encoder 경로를 보존하지만, **B1d는 `encoder_outputs`를 직접 공급해 encoder를 건너뛴다.** B1d를 `inputs_embeds` 경로로 구현하면 encoder가 다시 실행되므로 B1d가 아니다.
 
 #### 3.7.3 B3 — pooled soft-prefix
 
@@ -272,7 +288,7 @@ logits = T5Gemma2(inputs_embeds=H_in, attention_mask=mask, labels=y)
 |---:|---:|---:|
 | 8 | 3.9M | 6.0M |
 | 16 | 7.9M | 11.3M |
-| 32 | 15.7M | 22.4M |
+| 32 | 15.7M | **21.78M** |
 
 **학습 비용(예상)**
 
@@ -301,10 +317,10 @@ H_in = [ H_s ; Embed_T5(prompt) ]  # 또는 prompt를 EG2에도 포함
 변형:
 
 - **B1a**: per-token `Linear(768→640)` (약 0.49M) — 가장 단순
-- **B1b**: 2-layer Transformer adapter (2~5M) — 문맥 보정
+- **B1b**: 2-layer Transformer adapter (표준 width 640에서 약 **7~10M**) — 문맥 보정
 - **B1c**: Perceiver/resampler, K queries → K×640 (2~10M)
 
-**중요**: H4′에서 T5Gemma2와 EG2의 분절이 코퍼스 4,695문장에서 **100% 일치**했다. 따라서 token-level 정렬을 전제로 할 수 있다. 단, prompt를 EG2에도 넣어 teacher와 student 입력을 맞춰야 한다.
+**중요**: H4′에서 T5Gemma2와 EG2의 분절이 코퍼스 v2 4,695문장에서 **token-string 100% 일치**했다. 그러나 D-027의 **id 불일치 6,186개 + `<eos>` 차이**가 남아 있고, F5 passage·prompt·special token·padding·truncation에서 재검증되지 않았다. 따라서 token-level 정렬은 **전제가 아니라 사전 감사 대상**이다. prompt를 EG2에도 넣어 teacher와 student 입력을 맞추는 것과 별개로, 실제 token id/offset/mask를 확인해야 한다.
 
 **Teacher-hidden distillation (B1d)**
 
@@ -318,11 +334,11 @@ L_align = 1 - cosine(H_s, H_T) + MSE(H_s, H_T)
 
 - **summary label이 필요 없다.** P0 text만 있으면 된다.
 - adapter만 학습; encoder/decoder frozen.
-- **런타임에는 T5 encoder를 쓰지 않는다.** EG2 → adapter → H_s를 encoder inputs_embeds로 넣고 decoder가 생성한다. teacher는 학습 시에만 사용한다.
+- **런타임에는 T5 encoder를 쓰지 않는다.** EG2 → adapter → H_s를 **`encoder_outputs=BaseModelOutput(last_hidden_state=H_s)`** 로 넣고 decoder가 생성한다. teacher는 학습 시에만 사용한다. `inputs_embeds`를 쓰는 B1/B3 경로와 혼동하지 말 것.
 - 이후 decoder는 native encoder hidden과 같은 분포의 H_s를 받는다.
 - **범용 bridge에 가장 가까운 최소 학습 경로**다.
 - 단, T5 encoder hidden은 token-level 문맥을 포함하므로 per-token linear만으로 부족할 수 있다(B1b).
-- teacher hidden cache: 1,617×~900×640 fp16 ≈ **1.9GB**; CPU에서 생성·보관 가능.
+- teacher hidden cache: 1,617×~900×640 fp16 ≈ **1.9GB** raw; **학습에는 train 1,293만 사용**하고 test passage를 cache/fitting에 넣지 않는다(train-only ≈ **1.49GB**). CPU에서 생성·보관 가능.
 - 대규모 P0 text로 확장하면 task-agnostic bridge 가능성이 있다. 현재 1,617건은 feasibility만.
 
 #### 3.7.5 B2 — B1 + small decoder LoRA
@@ -355,18 +371,18 @@ B1 adapter + q/k/v/o LoRA
 | 후보 | T5 encoder | decoder | trainable | task-agnostic | 예상 |
 |---|---|---|---|---|---:|
 | A2 | 우회 | frozen | 1.08M | 아니오 | 실패 |
-| **B3** | 사용 | frozen | 4~16M | F5-only | 3~4h |
+| **B3** | 사용 | frozen | 4~22M | F5-only | 3~4h |
 | **B1a** | 사용 | frozen | 0.49M | teacher distillation 시 가능 | 4~6h |
-| **B1b** | 사용 | frozen | 2~5M | teacher distillation 시 가능 | 4~6h |
-| **B2** | 사용 | small LoRA | 2~7M | F5/B1 | 5~8h |
-| **B1d** | teacher 사용 | frozen | 0.5~5M | **가장 유망** | 4~7h |
+| **B1b** | 사용 | frozen | 7~10M | teacher distillation 시 가능 | 4~6h |
+| **B2** | 사용 | small LoRA | 0.7M + adapter | F5/B1 | 5~8h |
+| **B1d** | teacher 사용 | frozen | student spec에 따라 0.5~5M | **가장 유망** | 4~7h |
 
 #### 3.7.8 권고 순서
 
-1. **B3** — 2~4시간, 가장 단순한 decoder-readability test
-2. **B1d teacher-hidden distillation** — 4~7시간, task-agnostic bridge의 핵심 후보
-3. **B1a/B1b** — B1d가 불안정할 때의 fallback; summary-label 기반 F5-only
-4. **B2** — B1이 decoder에서 무시될 때
+1. **B1d teacher-hidden distillation** — 4~7시간, task-agnostic bridge의 핵심 후보. 단, `encoder_outputs` 경로·oracle/NLL control 먼저.
+2. **B1a/B1b** — B1d가 불안정할 때의 fallback; summary-label 기반 F5-only
+3. **B2** — B1이 decoder에서 무시될 때
+4. **B3** — augmentation 목적일 때만; real/shuffled/constant control 필요
 5. **A1 full train** — 검증된 F5 경로; B3/B1과 동시에 CPU에서 돌리지 않음
 
 #### 3.7.9 평가 계약
@@ -420,9 +436,9 @@ B1 adapter + q/k/v/o LoRA
 |---|---|---|---|
 | **D1** | A1 full train 승인 | 2 epoch / 3 epoch / 보류 | **2 epoch 먼저**, val 161 best |
 | **D2** | full train prefix 조건 | `summarize: ` 고정 / bare / prefix dropout | **F5 전용이면 prefix 고정**; 범용성 우선이면 dropout arm |
-| **D3** | EG2→T5 bridge 우선순위 | B3 / B1a-b / B1d teacher distillation / B2 / A1 full train 먼저 | **B3 2~4h → B1d 4~7h**; A1 full train 별도 |
+| **D3** | EG2→T5 bridge 우선순위 | B1d / B1a-b / B2 / B3 / A1 full train 먼저 | **B1d 4~7h first, `encoder_outputs` 수정 후**; B3는 augmentation 목적일 때만 |
 | **D4** | A2 종결 | raw control 후 / full val 근거로 종결 | **현재 근거로 제품 후보 종결**, raw는 exploratory 기록 |
-| **D5** | test 163 | full train 후 1회 / B-family 후 / 보류 | **A1 full train best val 1개만 1회** |
+| **D5** | test 163 | full train 후 1회 / B-family 후 / 보류 | **A1 full train best val 1개만 1회**; test는 A0가 이미 사용 |
 | **D6** | 사람 50건 | full train 전 / 후 | **full train 후, test 전** |
 
 ---
