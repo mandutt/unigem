@@ -43,12 +43,23 @@
 ## 4. Pilot extraction
 
 - clean train 100 / val 100 / test 100 (debug limit)
-- layer12 PCA 256
+- layer12 PCA 256: **94.29%** explained variance (50 records, 38,468 tokens)
 - 파일: `data/wave2c/a2null_pilot/`
-- 진행 중: `proc_258e1577ed9a`
-- 전체 1,617 추출은 별도 실행.
+- 소요: **331.9초** (PCA 48초 포함)
+- 전체 1,617 추출은 `data/wave2c/a2null/`에서 진행 중
 
-## 5. 다음
+## 5. 20-step adapter pilot
+
+- train 100 features, max memory 1,024, target 512
+- loss: **15.754 → 3.741** (20 step)
+- step time: **1.87~2.24초** (평균 약 1.95초)
+- RSS peak: **3,083MB**
+- adapter: `data/models/f5_a2null_pilot/adapter_smoke.pt`
+
+**해석:** 20 step·20 샘플 loss 하락은 배치 암기 가능성이 높다. 요약 품질·일반화 판정이 아니다. 다만 **A2-null adapter + T5 decoder의 forward/backward가 CPU에서 동작**하고, full train이 시간상 가능하다는 것은 확인했다.
+
+
+## 6. 다음
 
 1. pilot feature로 20~50 step adapter 학습
 2. full extraction (1,293/161/163)

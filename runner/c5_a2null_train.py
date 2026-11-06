@@ -145,7 +145,7 @@ def main() -> int:
             raise SystemExit("non-finite loss")
     torch.save({"adapter": adapter.state_dict()}, args.out / "adapter_smoke.pt")
     result = {"steps": args.steps, "losses": losses, "step_times": step_times,
-              "rss_peak_mb": round(rss_mb(), 1), "adapter_saved": str((args.out / "adapter_smoke.pt").relative_to(ROOT).as_posix())}
+              "rss_peak_mb": round(rss_mb(), 1), "adapter_saved": (args.out / "adapter_smoke.pt").resolve().relative_to(ROOT).as_posix()}
     (args.out / "smoke.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0
