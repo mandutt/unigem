@@ -1,0 +1,23 @@
+[
+  {
+    "tag": "glm",
+    "model": "z-ai/glm-5.3-flash",
+    "name": "GLM 5.3 Flash",
+    "reasoning": "max",
+    "id": "thr_7ee6040e49024744b2aad2ac0b8ed6e0"
+  },
+  {
+    "tag": "opus",
+    "model": "claude-opus-5-5",
+    "name": "Opus 5.5",
+    "reasoning": "medium",
+    "id": "thr_3c27af4d1d0d4e21b5e53524c085b2a8"
+  },
+  {
+    "tag": "sol",
+    "model": "gpt-6.1-sol",
+    "name": "Sol 6.1",
+    "reasoning": "xhigh",
+    "id": "thr_4bc68ec25581424ba76a9b6d60eaaed8"
+  }
+]
