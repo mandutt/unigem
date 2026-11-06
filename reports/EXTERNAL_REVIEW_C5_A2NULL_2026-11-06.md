@@ -21,6 +21,7 @@
 3. 다음 투자 순서가 **full val 161 → decoder LoRA → A1** 중 무엇이 합리적인가.
 4. A2-null을 계속할 경우 **사전등록할 gate와 중단 규칙**은 무엇인가.
 5. A2-null을 중단하고 A1로 갈 경우, A2-null에서 얻은 교훈을 A1에 어떻게 반영해야 하는가.
+6. **F5에서 만드는 EG2→T5Gemma2 decoder bridge가 F4(맞춤법 교정)와 향후 F3(비전 태깅 확장)에 미치는 영향**을 지금 어디까지 설계·기록해야 하는가.
 
 제품 채택을 승인해 달라는 요청이 아니다. **탐색 실험의 계속/중단 판단**을 위한 검토다.
 
@@ -75,6 +76,27 @@ A0는 decoder 없이 원문 문장을 선택하는 추출형 baseline이다(`max
 A0는 추출형이라 신규 slot이 0이지만, 추상 요약기가 아니고 원문 장문을 그대로 복사한다. **A2-null과 A0의 char F1을 동일 조건의 품질 비교로 과대해석하면 안 된다.** 그래도 A2-null의 현재 결과(0.23)가 A0(0.61)보다 크게 낮다는 사실은 중요하다.
 
 > **split 주의:** A0 수치는 clean **test 163**, A2-null 수치는 **val 5**다. 같은 표본이 아니므로 두 char F1을 직접 비교하지 않는다. A2-null의 test 163은 아직 봉인되어 있다.
+
+### 2.6 F5 밖의 영향 — F4·F6·F3와의 접점
+
+이 실험은 F5 하나의 요약기만 만드는 작업이 아니다. **EG2 768d/512d 표현을 T5Gemma2 640d decoder에 연결하는 bridge**를 만드는 작업이며, 이 bridge는 향후 텍스트 생성형 기능과 공유될 수 있다.
+
+| 기능 | 현재 계획 | T5Gemma2 decoder 의존 | 이번 A2-null과의 관계 |
+|---|---|---|---|
+| **F5 메모리 요약** | 추상 요약, A1(T5Gemma2 LoRA) 목표 | **직접 사용** | 현재 실험의 본체 |
+| **F4 맞춤법 검사·교정** | 규칙 + 디코더 후보 재순위 또는 edit 태깅. F4-v2는 규칙+LM 점수 | **조건부** — 생성형/재순위 경로에서 decoder 사용 가능 | A2-null adapter/LoRA가 재사용될 수 있음. 단 D-042가 EG2 text hidden의 F4 제품 경로 사용을 금지 |
+| **F6 STT 후처리 교정** | CTC 출력 → decoder 교정·정규화 | **직접 사용 가능** | D-6 A1-all은 F5+F6+F4 identity를 한 LoRA로 학습하는 계획이었음. F2(STT)는 D-079로 동결 |
+| **F3 비전 태깅** | 현재는 **이미지 검색·이모지 태깅**이며 decoder를 쓰지 않음 | **현재 없음** | 현재 F3는 영향 없음. **향후 F3를 비전→텍스트 생성/태깅으로 확장할 때만** decoder bridge가 관련 |
+
+핵심 구분:
+
+- **F3 현재 구현은 decoder를 사용하지 않는다.** “F3 확장”은 vision tower → text decoder로 가는 새 요구가 생길 때의 이야기이며, 이번 F5 실험 결과로 F3가 직접 바뀌지는 않는다.
+- **F4는 이미 decoder 경로 후보가 있다.** F4-v2는 규칙+LM 점수 중심이지만, 생성형 교정/재순위 경로를 택하면 F5의 decoder bridge와 LoRA 자산이 재사용될 수 있다.
+- **F6는 F4와 같은 decoder 계열**이며, D-6 A1-all(F5+F6+F4 identity)은 공유 LoRA를 전제로 했다. F2는 동결이지만 F6 데이터·설계 자체는 남아 있다.
+- 따라서 F5에서 **decoder LoRA를 F5 전용으로 급히 확정하면**, 나중에 F4/F6 멀티태스크와 충돌할 수 있다. 반대로 지금 공유 인터페이스를 과도하게 설계하면 F5 탐색 속도가 떨어진다.
+- 이 검토요청서는 **F4/F6/F3 코드를 승인하거나 실행하지 않는다.** 영향 가능성과 인터페이스 경계를 기록하는 것이 목적이다.
+
+> **D-042 경계:** D-042는 EG2 text hidden을 F4/F5 **제품 경로**에서 쓰지 않는다는 결정이다. A2-null은 exploratory이며, F4/F6에 이 bridge를 제품으로 재사용하려면 **별도 결정**이 필요하다. 이 문서는 그 재사용을 승인하지 않는다.
 
 ---
 
@@ -420,6 +442,22 @@ A1(T5Gemma2 native encoder-decoder + LoRA)로 갈 경우, A2-null에서 얻은 �
 
 이 검토요청서에서 빠진 결정적 사실이나, 우리가 범하고 있는 **확증 편향**이 있는가? A2-null을 계속하는 것이 매몰비용 추구인가?
 
+### Q12. F4·F6 공유 decoder bridge
+
+F5의 EG2→T5Gemma2 adapter/decoder LoRA를 **F5 전용**으로 두는 것이 맞는가, 아니면 처음부터 F4/F6가 재사용할 수 있는 **공유 decoder bridge 인터페이스**로 설계해야 하는가? 지금 공유 인터페이스를 설계하지 않으면 나중에 어떤 재작업이 생기는가?
+
+### Q13. D-042와 재사용 경계
+
+D-042가 EG2 text hidden의 F4/F5 제품 경로 사용을 금지하는 상황에서, A2-null exploratory의 adapter/LoRA를 F4/F6에 재사용하는 것은 **새 결정 없이 가능한가?** 가능하다면 어떤 조건(탐색 전용, test 봉인, 별도 gate)이 필요한가?
+
+### Q14. F3 확장과의 관계
+
+현재 F3는 decoder를 쓰지 않는 retrieval/emoji tagging이다. 향후 F3를 **vision→text tagging**으로 확장할 때, F5의 decoder bridge를 재사용하는 것이 합리적인가? 아니면 F3는 별도 vision decoder 경로로 분리해야 하는가?
+
+### Q15. 멀티태스크 회귀
+
+F5 decoder LoRA가 F4/F6의 기존 능력을 손상시키지 않는지 **retention/regression**을 지금 gate에 넣어야 하는가? 넣는다면 어떤 표본(정상 문장 보존, F6 교정쌍)과 지표를 써야 하는가?
+
 ---
 
 ## 9. 답변 형식
@@ -428,7 +466,7 @@ A1(T5Gemma2 native encoder-decoder + LoRA)로 갈 경우, A2-null에서 얻은 �
 
 ```text
 1. 총평(한 줄): A2-null 계속 / full val 먼저 / A1 전환 / 중단
-2. Q1~Q11 답변 (각 2~5문장, 근거 포함)
+2. Q1~Q15 답변 (각 2~5문장, 근거 포함)
 3. Must-fix (최대 5개, 우선순위)
 4. 추가로 확인해야 할 실험 (최대 3개)
 5. 이 문서의 사실 오류·과장·누락
@@ -526,4 +564,5 @@ transformers 5.22.1
 - **A2-null의 수학·feature·T5 external memory는 검증됐다.**
 - **label 결함과 출력 스케일은 수정했지만, adapter-only 1 epoch는 반복 붕괴를 벗어나지 못했다.**
 - 현재 val 5건 결과는 **exploratory**이며, full val 161·ROUGE·사람 검토는 아직 없다.
+- **F5의 EG2→T5Gemma2 bridge는 F4/F6의 decoder 경로와 잠재적으로 공유된다.** F3는 현재 decoder를 쓰지 않지만, 향후 vision→text 확장 시 별도 판단이 필요하다. 이 검토요청서는 F4/F6/F3 코드를 승인하지 않는다.
 - 가장 큰 미해결 질문은 **“decoder를 적응시키는 한 번의 추가 투자가 A1 전환보다 가치 있는가”**다.

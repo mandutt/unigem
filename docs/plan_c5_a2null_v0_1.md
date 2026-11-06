@@ -151,3 +151,11 @@ class C5A2NullSummarizer:
 
 - 이 계획은 **탐색 실험**이다. 제품 채택·D-042 폐기·test 사용은 별도 승인이다.
 - full train 전에 smoke 결과(RSS, step time, loss)를 보고한다.
+
+## 9. Cross-feature 경계 (2026-11-06 추가)
+
+- 이 실험은 F5만의 요약기가 아니라 **EG2→T5Gemma2 decoder bridge**를 만든다. 이 bridge는 향후 F4(맞춤법 교정), F6(STT 후처리 교정)의 decoder 경로와 공유될 수 있다.
+- **현재 F3(비전 태깅)는 retrieval/emoji tagging이며 decoder를 쓰지 않는다.** 향후 vision→text tagging으로 확장할 때만 decoder bridge가 관련된다.
+- 따라서 decoder LoRA를 F5 전용으로 확정하기 전에 **F4/F6 멀티태스크 재사용·retention**을 검토해야 한다.
+- 이 계획은 F4/F6/F3 코드를 구현·승인하지 않는다. 재사용은 D-042 경계와 별도 gate/결정이 필요하다.
+- 외부 검토 질문 Q12~Q15가 이 경계를 다룬다: `reports/EXTERNAL_REVIEW_C5_A2NULL_2026-11-06.md`.
