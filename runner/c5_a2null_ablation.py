@@ -133,8 +133,8 @@ def main() -> int:
             "positive_shuffled": int(sum(x > 0 for x in ds)),
             "positive_zero": int(sum(x > 0 for x in dz)),
         }
-        results[Path(adapter_path).name] = {"summary": summary, "records": records}
-        print(json.dumps({"adapter": Path(adapter_path).name, **summary}, ensure_ascii=False), flush=True)
+        results[Path(adapter_path).parent.name] = {"summary": summary, "records": records}
+        print(json.dumps({"adapter": Path(adapter_path).parent.name, **summary}, ensure_ascii=False), flush=True)
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

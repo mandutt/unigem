@@ -1,0 +1,14 @@
+{
+  "n": 161,
+  "char_f1_mean": 0.12768242728663148,
+  "grounded_rate": 0.0,
+  "new_slot_rate_mean": 0.8925593184133556,
+  "new_slot_rate_micro": 0.9058823529411765,
+  "new_slot_count": 693,
+  "summary_slot_count": 765,
+  "eos_rate": 0.09937888198757763,
+  "nonempty_rate": 1.0,
+  "gen_len_mean": 449.0,
+  "repeated_4gram_rate_mean": 0.8694865589427527,
+  "distinct_2_mean": 0.10534903184700861
+}
