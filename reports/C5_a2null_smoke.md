@@ -1,0 +1,63 @@
+# C5 A2-null — smoke 기록
+
+- 작성: 2026-11-06
+- 상태: **feasibility + 2-step adapter smoke 완료, pilot extraction 진행 중**
+- 원본: `reports/provenance/C5_a2null/nullspace_probe.json`
+
+## 1. Null-space
+
+| 항목 | 값 |
+|---|---:|
+| W shape | 768×512 |
+| rank | 512 |
+| nullity | 256 |
+| `max|WᵀP|` | 4.29e-06 |
+| final projection error | **0.0** |
+| layer12 PCA256 | 95.1% (10건) |
+
+- `P`는 W의 left null basis.
+- `last_hidden_state = W @ norm(h_last)`를 forward hook으로 확인.
+- null injection과 final의 dot max 0.00475.
+
+## 2. T5 external memory
+
+- T5Gemma2 decoder hidden 640.
+- `BaseModelOutput(last_hidden_state=memory)` + `attention_mask`로 forward/backward 성공.
+- 512d/768d memory는 거부, 640d만 허용.
+
+## 3. Adapter 2-step smoke
+
+- feature: 3 train records, layer12 PCA, null injection
+- adapter: 768→768 GELU→640
+- T5Gemma2 frozen (bf16), external memory 512 tokens, target 256
+- 결과:
+
+| step | loss | sec | RSS |
+|---:|---:|---:|---:|
+| 1 | 13.7150 | 0.96 | 2,628MB |
+| 2 | 8.8715 | 0.95 | 2,585MB |
+
+- NaN 없음; backward가 adapter까지 전달됨.
+- **2 step은 품질 판정이 아니다.** loss 하락은 배치 암기 가능성만 보여준다.
+
+## 4. Pilot extraction
+
+- clean train 100 / val 100 / test 100 (debug limit)
+- layer12 PCA 256
+- 파일: `data/wave2c/a2null_pilot/`
+- 진행 중: `proc_258e1577ed9a`
+- 전체 1,617 추출은 별도 실행.
+
+## 5. 다음
+
+1. pilot feature로 20~50 step adapter 학습
+2. full extraction (1,293/161/163)
+3. A2-null-raw control (injection 없이 512→640)
+4. A1 standard LoRA와 val 비교
+5. test 163은 마지막 1회
+
+## 6. 해석 주의
+
+- 이 smoke는 **A2-null이 학습 가능**하다는 것만 확인했다.
+- A1보다 요약이 잘 된다는 증거가 아니다.
+- 원 Reddit 방법은 pooled audio embedding이고, A2-null-seq는 token-level text 확장이다.
