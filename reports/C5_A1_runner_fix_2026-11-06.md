@@ -95,6 +95,7 @@ exit 4
   --prefix "summarize: " \
   --rank 8 --alpha 16 --dropout 0.05 --weight-decay 0.01 \
   --checkpoint-steps 647,1293,1940,2586 \
+  --checkpoint-dir data/models/f5_t5gemma2_lora/full_2ep/checkpoints \
   --eval-checkpoints --eval-limit 0 \
   --adapter data/models/f5_t5gemma2_lora/full_2ep/adapter.pt \
   --out reports/provenance/C5_a1/full_2ep

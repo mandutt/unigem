@@ -379,6 +379,8 @@ def evaluate(model, names, args, recs) -> int:
     path.write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in rows) + "\n", encoding="utf-8")
     slot_values = [x["slot_preservation"] for x in rows]
     nonvacuous = [x for x in rows if x["summary_slot_count"] > 0]
+    sum_slots = sum(x["summary_slot_count"] for x in rows)
+    sum_new = sum(x["new_slot_count"] for x in rows)
     metrics = {
         "n": len(rows),
         "char_f1_mean": sum(x["char_f1"] for x in rows) / len(rows),
@@ -387,8 +389,10 @@ def evaluate(model, names, args, recs) -> int:
             sum(x["grounded"] for x in nonvacuous) / len(nonvacuous) if nonvacuous else 0.0
         ),
         "new_slot_rate_mean": sum(x["new_slot_rate"] for x in rows) / len(rows),
-        "summary_slot_count": sum(x["summary_slot_count"] for x in rows),
-        "slots_per_doc": sum(x["summary_slot_count"] for x in rows) / len(rows),
+        "new_slot_rate_micro": sum_new / sum_slots if sum_slots else 0.0,
+        "new_slot_count": sum_new,
+        "summary_slot_count": sum_slots,
+        "slots_per_doc": sum_slots / len(rows),
         "slotfree_docs": sum(x["summary_slot_count"] == 0 for x in rows),
         "slot_preservation_mean": sum(slot_values) / len(slot_values),
         "slot_preservation_min": min(slot_values),

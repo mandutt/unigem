@@ -1,0 +1,19 @@
+{
+  "n": 161,
+  "char_f1_mean": 0.6659464908564732,
+  "grounded_rate": 0.9875776397515528,
+  "grounded_rate_nonvacuous": 0.9869281045751634,
+  "new_slot_rate_mean": 0.0022774327122153212,
+  "summary_slot_count": 854,
+  "slots_per_doc": 5.304347826086956,
+  "slotfree_docs": 8,
+  "slot_preservation_mean": 0.45705452943722646,
+  "slot_preservation_min": 0.0,
+  "slot_preservation_missing_docs": 153,
+  "eos_rate": 1.0,
+  "gen_len_mean": 191.3664596273292,
+  "repeated_4gram_rate_mean": 0.05865729506391541,
+  "distinct_2_mean": 0.8293454151297788,
+  "new_slot_count": 2,
+  "new_slot_rate_micro": 0.00234192037470726
+}

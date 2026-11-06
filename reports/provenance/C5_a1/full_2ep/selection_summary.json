@@ -1,0 +1,61 @@
+{
+  "decision": "D-083",
+  "full_train_selected_step": null,
+  "full_train_reason": "no checkpoint met grounded >= 0.99",
+  "fallback": {
+    "name": "pilot300",
+    "adapter": "data/models/f5_t5gemma2_lora/pilot300_lr2e4_prefix.pt",
+    "char_f1": 0.6575798405292183,
+    "grounded_rate": 1.0,
+    "new_slot_count": 0,
+    "eos_rate": 1.0,
+    "repeated4": 0.0553504957356422
+  },
+  "candidates": [
+    {
+      "step": 647,
+      "eligible": false,
+      "char_f1": 0.6698531474586338,
+      "grounded": 0.9627329192546584,
+      "new_slot_micro": 0.0068415051311288486,
+      "eos": 0.9937888198757764,
+      "repeated4": 0.06840038632539303,
+      "slot_preservation": 0.48728790657520316,
+      "slots_per_doc": 5.447204968944099
+    },
+    {
+      "step": 1293,
+      "eligible": false,
+      "char_f1": 0.6659464908564732,
+      "grounded": 0.9875776397515528,
+      "new_slot_micro": 0.00234192037470726,
+      "eos": 1.0,
+      "repeated4": 0.05865729506391541,
+      "slot_preservation": 0.45705452943722646,
+      "slots_per_doc": 5.304347826086956
+    },
+    {
+      "step": 1940,
+      "eligible": false,
+      "char_f1": 0.6822781759843934,
+      "grounded": 0.9813664596273292,
+      "new_slot_micro": 0.004651162790697674,
+      "eos": 1.0,
+      "repeated4": 0.05137576238332928,
+      "slot_preservation": 0.47609641129758906,
+      "slots_per_doc": 5.341614906832298
+    },
+    {
+      "step": 2586,
+      "eligible": false,
+      "char_f1": 0.6689816431466696,
+      "grounded": 0.9875776397515528,
+      "new_slot_micro": 0.003937007874015748,
+      "eos": 1.0,
+      "repeated4": 0.044500569012353115,
+      "slot_preservation": 0.41882307143519076,
+      "slots_per_doc": 4.732919254658385
+    }
+  ],
+  "test_163": "sealed / unused for A1"
+}

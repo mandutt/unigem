@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import time
 from datetime import datetime
@@ -32,8 +33,13 @@ def find_training_pid(match: str) -> int:
     candidates = []
     for p in psutil.process_iter(["pid", "cmdline", "memory_info"]):
         try:
+            if p.info["pid"] in {os.getpid(), os.getppid()}:
+                continue
             cmd = " ".join(p.info.get("cmdline") or [])
-            if match in cmd and "c5_a1_lora.py" in cmd:
+            # Do not match this watcher's own --match argument.
+            if "c5_a1_full_watch.py" in cmd:
+                continue
+            if match in cmd and "c5_a1_lora.py" in cmd and "--mode full" in cmd:
                 rss = p.info.get("memory_info").rss if p.info.get("memory_info") else 0
                 candidates.append((rss, p.info["pid"]))
         except Exception:
