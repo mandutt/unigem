@@ -113,6 +113,7 @@ def last_progress() -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--interval", type=int, default=60)
+    ap.add_argument("--report-every", type=int, default=900)
     ap.add_argument("--once", action="store_true")
     ap.add_argument("--no-resume", action="store_true")
     ap.add_argument("--max-hours", type=float, default=3.0)
@@ -123,6 +124,7 @@ def main() -> None:
     LOCK.write_text(f"{os.getpid()} {now()}", encoding="utf-8")
     deadline = time.time() + a.max_hours * 3600
     last_resume = 0.0
+    last_report = 0.0
     resumes = 0
     while time.time() < deadline:
         ps = procs()
@@ -161,11 +163,20 @@ def main() -> None:
             "procs": len(ps),
         }
         STATE.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-        print(json.dumps(state, ensure_ascii=False), flush=True)
+        report_due = a.once or done or bool(alert) or (time.time() - last_report >= a.report_every)
+        if report_due:
+            line = json.dumps(state, ensure_ascii=False)
+            print(line, flush=True)
+            WATCH_LOG.parent.mkdir(parents=True, exist_ok=True)
+            with WATCH_LOG.open("a", encoding="utf-8") as f:
+                f.write(line + "\n")
+            last_report = time.time()
         if alert:
             append_alert(alert)
         if done:
             print("WATCH_DONE", flush=True)
+            with WATCH_LOG.open("a", encoding="utf-8") as f:
+                f.write(f"{now()} WATCH_DONE\n")
             break
         if a.once:
             break
