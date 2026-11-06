@@ -1,0 +1,24 @@
+{
+  "model": "data/models/embeddinggemma-2-f9972ac2",
+  "max_length": 1024,
+  "W": {
+    "shape": [
+      768,
+      512
+    ],
+    "rank": 512,
+    "nullity": 256,
+    "singular_min": 10.517705917358398,
+    "WTP_max_abs": 4.291534423828125e-06
+  },
+  "pca": {
+    "layer": 12,
+    "n_records": 200,
+    "tokens": 152846,
+    "k": 256,
+    "explained_variance": 0.9409789218498955,
+    "top1": 0.06890274035035475
+  },
+  "pca_sec": 205.4,
+  "elapsed_sec": 1792.4
+}

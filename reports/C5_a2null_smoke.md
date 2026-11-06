@@ -66,15 +66,23 @@
 - 원인: 20 step·20 샘플 adapter로는 생성 능력을 학습할 수 없다. **A2-null 자체의 실패로 해석하지 않는다.**
 - 이 결과는 평가 하네스가 실제로 생성·슬롯 검증까지 연결된다는 것만 확인한다.
 
-## 7. 다음
+## 7. Full extraction
 
-1. pilot feature로 20~50 step adapter 학습
-2. full extraction (1,293/161/163)
-3. A2-null-raw control (injection 없이 512→640)
-4. A1 standard LoRA와 val 비교
-5. test 163은 마지막 1회
+- 완료: **1,293 train / 161 val / 163 test**
+- layer12 PCA 200건, **94.10%** explained variance (152,846 tokens)
+- feature: final 768 + null-injected PCA 256, float16, 1024 pad
+- cache: `data/wave2c/a2null/` **2.4GB**
+- meta: `reports/provenance/C5_a2null/features_meta.json`
+- 검증: NaN 0, length train 629~910, val 622~865, test 665~875
 
-## 6. 해석 주의
+## 8. 다음
+
+1. full adapter train (1,293 train, val 161) — 별도 승인
+2. A2-null-raw control
+3. A1 standard LoRA와 val 비교
+4. test 163은 마지막 1회
+
+## 9. 해석 주의
 
 - 이 smoke는 **A2-null이 학습 가능**하다는 것만 확인했다.
 - A1보다 요약이 잘 된다는 증거가 아니다.
