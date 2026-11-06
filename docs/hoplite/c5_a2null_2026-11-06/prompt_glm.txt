@@ -1,0 +1,47 @@
+This is an intentionally separate, independent review thread using a DIFFERENT model: GLM 5.3 Flash, reasoning=max. Do NOT treat this as a duplicate of any other thread. We are collecting multi-model review opinions on the same request.
+
+Repository: mandutt/unigem (private), branch main, review HEAD c388699.
+
+TASK
+Review the self-contained request document:
+reports/EXTERNAL_REVIEW_C5_A2NULL_2026-11-06.md
+
+Read the entire document end-to-end, in chunks if necessary. Do not rely on a summary or excerpt. You may also inspect these files for verification:
+- reports/C5_a2null_eos_retrain.md
+- reports/C5_a2null_ln_retrain.md
+- reports/C5_a2null_search_2026-11-06.md
+- reports/C5_summary.md
+- eval/slot_verify.py
+- runner/c5_a2null_eval.py
+- runner/c5_a2null_full_train.py
+- docs/plan_c5_a2null_v0_1.md
+- docs/plan_c5_abstractive_v0_1.md
+
+Give an independent review, not a restatement.
+
+REQUIRED ANSWER FORMAT
+1. Verdict, one line: continue A2-null / full val 161 first / pivot to A1 / stop.
+2. Answers to Q1-Q15. Each answer 2-5 sentences, with evidence.
+3. Must-fix items, maximum 5, in priority order.
+4. Additional experiments worth doing, maximum 3.
+5. Factual errors, overclaims, or omissions in the request document.
+
+FOCUS POINTS
+- Is adapter-only A2-null genuinely insufficient, or is the val-5 evidence too weak to conclude that?
+- Is decoder q/k/v/o LoRA the right next step given T5Gemma2 merged self/cross attention, or should we pivot to A1?
+- Check the EOS label contract, attention mask, external memory path, and evaluation code for remaining bugs.
+- A0 is clean test 163; A2-null is val 5. Do not compare those char F1 values as if they were the same split. A2-null test 163 is sealed.
+- D-042 forbids EG2 text hidden in F4/F5 product paths. A2-null is exploratory under D-081. Do not treat this as product approval.
+- The F5 EG2-to-T5Gemma2 bridge may be reusable for F4/F6 decoder paths. F3 currently uses retrieval/emoji tagging and no decoder; future vision-to-text F3 is a separate question. Assess how much interface design or retention testing is warranted now.
+- The grounded metric is only "no new slots"; it does not detect all factual errors or repetition. Assess whether the evaluation is sufficient.
+- A2-null-raw control, pooled reference, full val 161, and A1 comparison have not been run. Distinguish exploratory evidence from confirmatory evidence.
+- Do not recommend using P1 data, external LLM APIs in the product path, or using the sealed test early.
+
+CONSTRAINTS
+- Consultation only. Do not modify repository code.
+- Write the full review report to this file (mandatory, exact path):
+  docs/hoplite/c5_a2null_2026-11-06/2026-11-06_hoplite-review_c5_a2null_GLM.md
+- Include the verdict, Q1-Q15 answers, Must-fix, and additional experiments in the file.
+- In your final message, state the file path and summarize the verdict and the 3 most important points.
+- Do not call subagents or additional models. Complete the review yourself.
+- No credentials, no P1 raw data, no secrets.
