@@ -1,11 +1,11 @@
 {
   "n": 163,
-  "records_rejected": 119,
-  "rejected_rate": 0.7300613496932515,
-  "records_rejected_grounding": 1,
-  "rejected_grounding_rate": 0.006134969325153374,
-  "slot_preservation_mean": 0.7740227371324326,
-  "new_slot_rate_mean": 0.0003834355828220859,
-  "compression_mean": 0.24956610625683848,
-  "char_f1_mean": 0.6073577554236739
+  "records_rejected": 118,
+  "rejected_rate": 0.7239263803680982,
+  "records_rejected_grounding": 0,
+  "rejected_grounding_rate": 0.0,
+  "slot_preservation_mean": 0.7820051521728459,
+  "new_slot_rate_mean": 0.0,
+  "compression_mean": 0.2523738616641975,
+  "char_f1_mean": 0.6072149618698155
 }

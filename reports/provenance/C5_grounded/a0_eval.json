@@ -4,8 +4,8 @@
   "rejected_rate": 0.8061224489795918,
   "records_rejected_grounding": 0,
   "rejected_grounding_rate": 0.0,
-  "slot_preservation_mean": 0.7432819284643006,
+  "slot_preservation_mean": 0.7596858005079312,
   "new_slot_rate_mean": 0.0,
-  "compression_mean": 0.26202488649636596,
-  "char_f1_mean": 0.6060164715897115
+  "compression_mean": 0.26531399520385024,
+  "char_f1_mean": 0.6027075737194282
 }

@@ -117,15 +117,16 @@ def split_sentences(text: str) -> list[str]:
     text = re.sub(r"\s+", " ", text).strip()
     if not text:
         return []
-    parts = re.split(r"(?<=[.!?。！？])\s+|\n+", text)
-    out = []
-    for part in parts:
-        part = part.strip()
-        if len(part) < 8:
-            continue
-        # A very long run-on sentence is still one sentence; keep it.
-        out.append(part)
-    return out or [text]
+    raw = [p.strip() for p in re.split(r"(?<=[.!?。！？])\s+|\n+", text) if p.strip()]
+    # Avoid splitting decimals written with a space: "50. 5%" should stay
+    # together rather than becoming two fragments.
+    parts: list[str] = []
+    for part in raw:
+        if parts and re.search(r"\d\.$", parts[-1]) and re.match(r"\d", part):
+            parts[-1] = parts[-1] + " " + part
+        else:
+            parts.append(part)
+    return parts or [text]
 
 
 def content_tokens(text: str) -> list[str]:

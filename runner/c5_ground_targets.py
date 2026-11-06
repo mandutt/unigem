@@ -42,7 +42,13 @@ def split_sentences(text: str) -> list[str]:
     text = re.sub(r"\s+", " ", text).strip()
     if not text:
         return []
-    parts = [p.strip() for p in re.split(r"(?<=[.!?。！？])\s+|\n+", text) if p.strip()]
+    raw = [p.strip() for p in re.split(r"(?<=[.!?。！？])\s+|\n+", text) if p.strip()]
+    parts: list[str] = []
+    for part in raw:
+        if parts and re.search(r"\d\.$", parts[-1]) and re.match(r"\d", part):
+            parts[-1] = parts[-1] + " " + part
+        else:
+            parts.append(part)
     return parts or [text]
 
 
