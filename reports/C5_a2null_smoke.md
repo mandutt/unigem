@@ -97,6 +97,7 @@
 - 출력이 `10대 여성의 10대 여성의 ...`, `2019년 12월 15일, 1999년 ...`처럼 반복 붕괴했다.
 - teacher-forced val loss 3.12는 생성 품질을 보장하지 않았다.
 - **adapter-only 1 epoch로는 A2-null이 usable하지 않다.**
+- EOS 수정 후 재학습 결과: char F1 **0.2297**, grounded **0/5**, new slot **0.96**, **5/5 eos 없음** → `reports/C5_a2null_eos_retrain.md`
 - test 163은 사용하지 않았다.
 
 ## 10. 다음

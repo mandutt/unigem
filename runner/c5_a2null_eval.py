@@ -104,6 +104,8 @@ def main() -> int:
             "id": rec["id"],
             "pred": pred,
             "target": target,
+            "gen_len": int(gen.shape[1]),
+            "ended_eos": bool((gen[0] == tok.eos_token_id).any()),
             "char_f1": char_f1(pred, target),
             "slot_preservation": rep.slot_preservation,
             "new_slot_rate": rep.new_slot_rate,
