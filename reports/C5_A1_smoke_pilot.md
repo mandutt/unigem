@@ -108,7 +108,22 @@
 4. full val 생성은 batch generation으로 처리한다. 현재 `c5_a1_lora.py --mode eval`은 1건씩이므로, full train 전에 batch evaluator를 추가해야 한다.
 5. **A2-null 제품 후보 중단**과 decoder LoRA 보류는 유지한다.
 
-## 8. Artifacts
+## 8. Prompt 진단 (2026-11-06)
+
+pilot100 adapter(inference only)로 같은 val 5건의 prefix를 비교했다.
+
+| prefix | char F1 | grounded | EOS | repeated4 |
+|---|---:|---:|---:|---:|
+| bare | 0.4659 | 5/5 | 3/5 | 0.4860 |
+| **`summarize: `** | **0.6118** | 5/5 | **5/5** | **0.2166** |
+| 한국어 instruction | 0.4027 | 3/5 | 5/5 | 0.3200 |
+| **`summarize: ` + 300 step lr2e-4** | **0.6272** | 5/5 | **5/5** | **0.1004** |
+
+`summarize: ` prefix만으로 **+0.1459 char F1**, EOS 5/5, repeated4 0.486→0.217. prefix를 학습 input에도 넣은 pilot300은 **0.6272**, EOS 5/5, repeated4 **0.1004**까지 개선됐다. 상세: `reports/C5_A1_prompt_diagnosis.md`.
+
+pilot300 학습: **1,258.7초(4.20초/step)**, RSS peak ~2.45GB, adapter **5.998MB**, train loss mean **0.6624** (first10 0.7193 → last10 0.6016).
+
+## 9. Artifacts
 
 - `runner/c5_a1_lora.py`
 - `reports/provenance/C5_a1/pilot100/eval.jsonl`

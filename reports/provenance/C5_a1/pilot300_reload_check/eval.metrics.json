@@ -1,0 +1,10 @@
+{
+  "n": 1,
+  "char_f1_mean": 0.7608200455580867,
+  "grounded_rate": 1.0,
+  "new_slot_rate_mean": 0.0,
+  "eos_rate": 1.0,
+  "gen_len_mean": 198.0,
+  "repeated_4gram_rate_mean": 0.038461538461538436,
+  "distinct_2_mean": 0.847457627118644
+}

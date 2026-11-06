@@ -132,6 +132,9 @@ def main() -> int:
     ap.add_argument("--eval-max-new", type=int, default=448)
     ap.add_argument("--max-input", type=int, default=1024)
     ap.add_argument("--max-target", type=int, default=512)
+    ap.add_argument("--prefix", default="")
+    ap.add_argument("--repetition-penalty", type=float, default=1.0)
+    ap.add_argument("--no-repeat-ngram", type=int, default=0)
     ap.add_argument("--lr", type=float, default=1e-3)
     ap.add_argument("--rank", type=int, default=8)
     ap.add_argument("--alpha", type=int, default=16)
@@ -182,7 +185,7 @@ def main() -> int:
     start = time.time()
     for step in range(1, args.steps + 1):
         rec = train[order[(step - 1) % len(order)]]
-        enc = encode(tok, str(rec["passage"]), args.max_input)
+        enc = encode(tok, args.prefix + str(rec["passage"]), args.max_input)
         labels = labels_for(tok, str(rec["summary"]), args.max_target)
         out = model(**enc, labels=labels)
         loss = out.loss
@@ -236,8 +239,17 @@ def evaluate(model, names, args, recs) -> int:
     tok = AutoTokenizer.from_pretrained(str(T5), local_files_only=True)
     rows = []
     for rec in recs:
-        enc = encode(tok, str(rec["passage"]), args.max_input)
-        gen = model.generate(**enc, max_new_tokens=args.eval_max_new, num_beams=1, do_sample=False)
+        enc = encode(tok, args.prefix + str(rec["passage"]), args.max_input)
+        gen_kwargs = {
+            "max_new_tokens": args.eval_max_new,
+            "num_beams": 1,
+            "do_sample": False,
+        }
+        if args.repetition_penalty != 1.0:
+            gen_kwargs["repetition_penalty"] = args.repetition_penalty
+        if args.no_repeat_ngram > 0:
+            gen_kwargs["no_repeat_ngram_size"] = args.no_repeat_ngram
+        gen = model.generate(**enc, **gen_kwargs)
         pred = tok.decode(gen[0], skip_special_tokens=True)
         target = str(rec["summary"])
         rep = verify_summary(str(rec["passage"]), pred)
