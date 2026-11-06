@@ -17,6 +17,17 @@
 - prefix 학습 300 step은 prompt-only 0.6118에서 **+0.0154**, repeated4 **0.2166→0.1004**, EOS 5/5 유지
 - 한국어 prefix는 bare보다 낮고 grounded 3/5 → 이 모델에는 `summarize: `가 맞다
 
+### prefix-trained pilot300의 bare 입력 확인
+
+pilot300 adapter(prefix 학습)를 **prefix 없이** 같은 val 5건에 적용:
+
+| 입력 | char F1 | grounded | EOS | repeated4 | len |
+|---|---:|---:|---:|---:|---:|
+| bare | **0.6522** | 5/5 | **5/5** | 0.0407 | 264.0 |
+| `summarize: ` | 0.6272 | 5/5 | 5/5 | 0.1004 | 167.4 |
+
+→ prefix를 학습에 넣어도 **bare 입력에서 요약이 유지**된다. prefix가 필수 조건은 아니며, target 분포 자체가 요약 task를 학습시킨다. 단, 다른 task에 이 F5 adapter를 재사용하면 요약 쪽으로 편향될 수 있으므로 **task별 adapter 분리**가 필요하다.
+
 ## 해석
 
 1. **prompt mismatch가 A1 pilot 반복의 큰 부분이다.** adapter는 bare passage로 학습됐지만, T5Gemma2의 공식 summarization prompt는 `summarize: `다. inference에서 prefix만 바꿔도 EOS와 반복이 크게 개선됐다.
