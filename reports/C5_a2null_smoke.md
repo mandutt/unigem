@@ -58,8 +58,15 @@
 
 **해석:** 20 step·20 샘플 loss 하락은 배치 암기 가능성이 높다. 요약 품질·일반화 판정이 아니다. 다만 **A2-null adapter + T5 decoder의 forward/backward가 CPU에서 동작**하고, full train이 시간상 가능하다는 것은 확인했다.
 
+## 6. Pilot generation
 
-## 6. 다음
+- pilot test 2건, `max_new_tokens=64`
+- 결과: char F1 **0.0125**, grounded **0/2**, new slot rate **1.0**
+- 출력이 `20일대양양양...`, `1 1 1...`처럼 붕괴했다.
+- 원인: 20 step·20 샘플 adapter로는 생성 능력을 학습할 수 없다. **A2-null 자체의 실패로 해석하지 않는다.**
+- 이 결과는 평가 하네스가 실제로 생성·슬롯 검증까지 연결된다는 것만 확인한다.
+
+## 7. 다음
 
 1. pilot feature로 20~50 step adapter 학습
 2. full extraction (1,293/161/163)
