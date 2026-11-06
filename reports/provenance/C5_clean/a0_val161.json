@@ -1,0 +1,14 @@
+{
+  "metrics": {
+    "n": 161,
+    "records_rejected": 113,
+    "rejected_rate": 0.7018633540372671,
+    "records_rejected_grounding": 0,
+    "rejected_grounding_rate": 0.0,
+    "slot_preservation_mean": 0.8011903095813074,
+    "new_slot_rate_mean": 0.0,
+    "compression_mean": 0.2615989051945548,
+    "char_f1_mean": 0.6111108364155755
+  },
+  "n": 161
+}
