@@ -1,0 +1,10 @@
+Written the full review to [docs/hoplite/c5_a1_2026-11-06/review_sol.md](docs/hoplite/c5_a1_2026-11-06/review_sol.md).
+
+**Verdict: start A1 full train now**, capped at two epochs—not product approval.
+
+Three key points:
+1. The validation gain justifies further training, but source-aware human factuality review remains necessary before promotion; keep test163 sealed until the final candidate is frozen.
+2. Keep `summarize: ` initially, but compare bare versus prefix inference on full val161 before finalizing that policy.
+3. Correct B1d to supply distilled states through `encoder_outputs`. Prefer that controlled encoder-replacement experiment over B3 as the first general-bridge study.
+
+Synchronization succeeded at HEAD `834d598e2fb6c003419713156de183d377c4c335`. Only the requested review file was changed.

@@ -1,0 +1,28 @@
+I've written the review to `docs/hoplite/c5_a1_2026-11-06/review_opus.md`. It is the only file I changed, and I haven't committed it. The fetch and pull worked ("Already up to date") and the review is against HEAD `834d598e2fb6c003419713156de183d377c4c335`. I ran no training or generation, and nothing on test 163. The numbers I added came from the predictions and audit files already in the repo.
+
+**Verdict: start A1 full train now.** Run 2 epochs (about 3 h CPU), check the model at 4 fixed points on val161 using a selection rule written down in advance, and use test 163 once. Before training, do two things:
+- **Bare-prefix run:** run the existing pilot300 adapter on val161 without `summarize: ` (about 9 minutes, no training). The val5 bare result (0.6522 vs 0.6272) is only 5 documents with very different output lengths, so it can't settle the prefix question.
+- **Training-loop fix:** reshuffle the data every epoch. The current loop repeats the same order in epoch 2.
+
+Human review of 50 examples should be done on val, before test.
+
+The three most important points:
+
+1. **B1d contradicts itself, and the token-alignment claim is overstated.**
+   - The teacher target is the T5 encoder's *output*, but the doc feeds the result into the encoder's *input* (`inputs_embeds`) and also says the T5 encoder isn't used at runtime. The only consistent reading is that B1d replaces `encoder_outputs`. That is A2's injection point, but with a better training objective.
+   - The "100% match" (H4′) was measured on 4,695 sentences from another corpus. D-027 records 6,186 token-id mismatches and a different `<eos>`. Alignment needs re-checking on F5 passages before any per-token loss.
+   - The teacher must be A1's encoder *with* its LoRA, because A1's LoRA also changes the encoder (144 modules = 72 encoder + 72 decoder). If the bridge is meant to be general, use the base model instead.
+
+2. **B3 is a detour as designed.** It adds soft tokens *on top of* the full passage text, so it tests prompt tuning of a frozen 270M model, not whether the decoder can read EG2. My bridge order:
+   - **F5 only:** B2 > B1d > B1b > B1a > B3.
+   - **General bridge:** B1d > B1b > B1a > B2 > B3.
+   - **First two-week experiment:** a B1d feasibility test, after A1 is finished.
+   - **What would rule B1d out:** the student features recover less than half of the gap in teacher-forced NLL between the teacher features and shuffled features, or the 20-document generation check fails.
+
+3. **The evaluation misses things that matter for the product decision.**
+   - A1 keeps far fewer numbers and dates than A0: about 0.46 of source slots vs 0.80, and 5.2 slots per document vs 8.75. Clean targets sit at 0.51, so A1 isn't abnormal, but its perfect grounding partly reflects stating fewer numbers.
+   - About 91% of checked slots are numbers, so wrong names, wrong attribution and negation errors pass undetected. Only human review catches those.
+   - The 6 documents with no slots need to be reported separately from the 155 where grounding actually tested something.
+   - Also missing: D-042 still rules out EG2 text features for F4/F5 in the product, pilot300 went beyond the 50–100 steps D-082 approved, and "test unused" should read "unused for A1" (A0 was scored on it).
+
+Smaller factual errors are in section 7. For example, the K=32 MLP is 21.8M parameters, not 22.4M, and the two B3 time estimates disagree (3–4 h vs 2–4 h). The count of 28/161 A1 outputs outside 3–5 sentences comes from a rough sentence splitter and should be checked.
