@@ -1,0 +1,25 @@
+Loading weights:   0%|          | 0/911 [00:00<?, ?it/s]Loading weights:   6%|▋         | 59/911 [00:00<00:05, 165.45it/s]Loading weights:   9%|▉         | 85/911 [00:00<00:04, 189.68it/s]Loading weights:  14%|█▍        | 131/911 [00:00<00:02, 263.12it/s]Loading weights:  18%|█▊        | 163/911 [00:00<00:03, 231.01it/s]Loading weights:  21%|██        | 190/911 [00:00<00:03, 228.75it/s]Loading weights:  24%|██▎       | 215/911 [00:01<00:03, 211.60it/s]Loading weights:  26%|██▌       | 238/911 [00:01<00:03, 215.71it/s]Loading weights: 100%|██████████| 911/911 [00:01<00:00, 784.45it/s]
+{"loaded_lora": "data\\models\\f5_t5gemma2_lora\\pilot300_lr2e4_prefix.pt", "missing_nonlora": 477, "unexpected": 0}
+{"event": "loaded", "lora_modules": 144, "n": 161}
+{"done": 8, "n": 161}
+{"done": 16, "n": 161}
+{"done": 24, "n": 161}
+{"done": 32, "n": 161}
+{"done": 40, "n": 161}
+{"done": 48, "n": 161}
+{"done": 56, "n": 161}
+{"done": 64, "n": 161}
+{"done": 72, "n": 161}
+{"done": 80, "n": 161}
+{"done": 88, "n": 161}
+{"done": 96, "n": 161}
+{"done": 104, "n": 161}
+{"done": 112, "n": 161}
+{"done": 120, "n": 161}
+{"done": 128, "n": 161}
+{"done": 136, "n": 161}
+{"done": 144, "n": 161}
+{"done": 152, "n": 161}
+{"done": 160, "n": 161}
+{"done": 161, "n": 161}
+{"event": "metrics", "n": 161, "char_f1_mean": 0.6334907030674711, "grounded_rate": 0.9875776397515528, "new_slot_rate_mean": 0.003105590062111801, "new_slot_rate_micro": 0.003787878787878788, "new_slot_count": 3, "summary_slot_count": 792, "eos_rate": 0.9937888198757764, "nonempty_rate": 1.0, "gen_len_mean": 250.7888198757764, "repeated_4gram_rate_mean": 0.062169159480350296, "distinct_2_mean": 0.8245546366733101, "out": "reports\\provenance\\C5_a1\\pilot300_bare_val161\\predictions.jsonl", "adapter": "data\\models\\f5_t5gemma2_lora\\pilot300_lr2e4_prefix.pt"}

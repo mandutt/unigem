@@ -1,0 +1,60 @@
+Loading weights:   0%|          | 0/911 [00:00<?, ?it/s]Loading weights:   4%|▍         | 40/911 [00:00<00:05, 161.28it/s]Loading weights:   9%|▉         | 82/911 [00:00<00:03, 255.62it/s]Loading weights:  13%|█▎        | 114/911 [00:00<00:03, 242.68it/s]Loading weights:  16%|█▌        | 142/911 [00:00<00:03, 215.71it/s]Loading weights:  18%|█▊        | 166/911 [00:00<00:03, 211.17it/s]Loading weights: 100%|██████████| 911/911 [00:00<00:00, 1105.62it/s]
+{"done": 4, "n": 161}
+{"done": 8, "n": 161}
+{"done": 12, "n": 161}
+{"done": 16, "n": 161}
+{"done": 20, "n": 161}
+{"done": 24, "n": 161}
+{"done": 28, "n": 161}
+{"done": 32, "n": 161}
+{"done": 36, "n": 161}
+{"done": 40, "n": 161}
+{"done": 44, "n": 161}
+{"done": 48, "n": 161}
+{"done": 52, "n": 161}
+{"done": 56, "n": 161}
+{"done": 60, "n": 161}
+{"done": 64, "n": 161}
+{"done": 68, "n": 161}
+{"done": 72, "n": 161}
+{"done": 76, "n": 161}
+{"done": 80, "n": 161}
+{"done": 84, "n": 161}
+{"done": 88, "n": 161}
+{"done": 92, "n": 161}
+{"done": 96, "n": 161}
+{"done": 100, "n": 161}
+{"done": 104, "n": 161}
+{"done": 108, "n": 161}
+{"done": 112, "n": 161}
+{"done": 116, "n": 161}
+{"done": 120, "n": 161}
+{"done": 124, "n": 161}
+{"done": 128, "n": 161}
+{"done": 132, "n": 161}
+{"done": 136, "n": 161}
+{"done": 140, "n": 161}
+{"done": 144, "n": 161}
+{"done": 148, "n": 161}
+{"done": 152, "n": 161}
+{"done": 156, "n": 161}
+{"done": 160, "n": 161}
+{"done": 161, "n": 161}
+{
+  "metrics": {
+    "n": 161,
+    "char_f1_mean": 0.2261129111229596,
+    "grounded_rate": 0.7142857142857143,
+    "new_slot_rate_mean": 0.20488068606542542,
+    "new_slot_rate_micro": 0.6291208791208791,
+    "new_slot_count": 229,
+    "summary_slot_count": 364,
+    "eos_rate": 0.0,
+    "nonempty_rate": 1.0,
+    "gen_len_mean": 449.0,
+    "repeated_4gram_rate_mean": 0.8718114583451149,
+    "distinct_2_mean": 0.10858956742139908
+  },
+  "prefix": "summarize: ",
+  "out": "reports\\provenance\\C5_a2null\\zero_shot_summarize_val161.jsonl"
+}
