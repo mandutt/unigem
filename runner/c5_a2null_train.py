@@ -40,10 +40,12 @@ class Adapter(nn.Module):
             nn.Linear(d_in, hidden),
             nn.GELU(),
             nn.Linear(hidden, d_out),
+            nn.LayerNorm(d_out),
         )
+        self.scale = nn.Parameter(torch.tensor(5.0))
 
     def forward(self, x):
-        return self.net(x)
+        return self.net(x) * self.scale
 
 
 def load_feature_records(features_dir: Path, split: str = "train", limit: int = 0) -> list[dict]:

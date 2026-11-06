@@ -27,10 +27,16 @@ OUT = ROOT / "reports/provenance/C5_a2null"
 class Adapter(nn.Module):
     def __init__(self, d_in: int = 768, d_out: int = 640, hidden: int = 768):
         super().__init__()
-        self.net = nn.Sequential(nn.Linear(d_in, hidden), nn.GELU(), nn.Linear(hidden, d_out))
+        self.net = nn.Sequential(
+            nn.Linear(d_in, hidden),
+            nn.GELU(),
+            nn.Linear(hidden, d_out),
+            nn.LayerNorm(d_out),
+        )
+        self.scale = nn.Parameter(torch.tensor(5.0))
 
     def forward(self, x):
-        return self.net(x)
+        return self.net(x) * self.scale
 
 
 def read_jsonl(path: Path) -> list[dict]:

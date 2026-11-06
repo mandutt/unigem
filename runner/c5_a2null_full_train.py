@@ -38,10 +38,18 @@ def rss_mb() -> float:
 class Adapter(nn.Module):
     def __init__(self, d_in: int = 768, d_out: int = 640, hidden: int = 768):
         super().__init__()
-        self.net = nn.Sequential(nn.Linear(d_in, hidden), nn.GELU(), nn.Linear(hidden, d_out))
+        self.net = nn.Sequential(
+            nn.Linear(d_in, hidden),
+            nn.GELU(),
+            nn.Linear(hidden, d_out),
+            nn.LayerNorm(d_out),
+        )
+        # Match the T5Gemma2 encoder hidden scale: LayerNorm gives unit
+        # variance, and the encoder hidden norm is ~5x that.
+        self.scale = nn.Parameter(torch.tensor(5.0))
 
     def forward(self, x):
-        return self.net(x)
+        return self.net(x) * self.scale
 
 
 def shard_paths(features_dir: Path, split: str) -> list[Path]:
