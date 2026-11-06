@@ -1,7 +1,8 @@
 # 외부 검토 요청 — F5 A1 T5Gemma2 LoRA와 EG2→T5 bridge
 
 - 날짜: 2026-11-06
-- 검토 기준 커밋: **`1fa8bbb`** (`1fa8bbb docs: survey minimal EG2-to-T5Gemma2 bridge methods`)
+- 검토 기준: **본 문서가 포함된 `origin/main` HEAD** (`git rev-parse HEAD`로 확인; shallow clone이면 이 커밋만 존재)
+- 실험 산출물 기준: **`1fa8bbb`** (참조용; 코드·산출물은 그 이후 변경 없음)
 - 저장소: `C:\code\unigem` (비공개 `mandutt/unigem`, main, origin과 0/0)
 - 검토 범위: **F5 메모리용 추상 요약**
 - test 163: **봉인, 이 요청서 작성 시점까지 미사용**
@@ -25,7 +26,7 @@
    - pilot100(bare 학습)에 inference prefix만: 0.4659 → **0.6118**.
    - pilot300(summarize prefix 학습): val 161 **0.6576**.
    - prefix-trained pilot300은 bare 입력 val 5에서도 **0.6522**로 요약이 유지됐다.
-4. **EG2→T5의 “최소 adapter” 가능성**은 문헌상 존재하지만, A2처럼 external memory를 decoder에 직접 넣는 방식이 아니라 **soft token을 encoder input에 넣는 방식**이 유망하다. 아직 구현·검증하지 않았다.
+4. **EG2→T5의 “최소 adapter” 가능성**은 문헌상 존재하지만, A2처럼 external memory를 decoder에 직접 넣는 방식이 아니라 **soft token을 encoder input에 넣는 방식**이 유망하다. 특히 **T5Gemma2 native encoder hidden을 teacher로 쓰는 B1d distillation**은 summary label 없이 P0 text만으로 adapter를 정렬할 수 있어 범용 bridge의 최소 경로 후보이다. 아직 구현·검증하지 않았다.
 5. **결정이 필요한 것**:
    - A1 full train(2~3 epoch) 승인 여부
    - prefix 고정 / bare / prefix dropout 중 full train 조건
@@ -263,6 +264,7 @@ logits = T5Gemma2(inputs_embeds=H_in, attention_mask=mask, labels=y)
 - soft token scale: T5 embedding과 같은 scale (`sqrt(640)` 또는 learned scalar)
 - base encoder/decoder frozen; adapter만 학습
 - CE loss는 target summary label
+- **로컬 probe(2026-11-06)**: `T5Gemma2ForConditionalGeneration.generate(inputs_embeds=...)`가 동작함을 확인했다. 단 모델 dtype이 **bf16**이므로 adapter 출력도 bf16으로 cast해야 한다(float32 입력은 dtype mismatch).
 
 **파라미터**
 
@@ -316,6 +318,7 @@ L_align = 1 - cosine(H_s, H_T) + MSE(H_s, H_T)
 
 - **summary label이 필요 없다.** P0 text만 있으면 된다.
 - adapter만 학습; encoder/decoder frozen.
+- **런타임에는 T5 encoder를 쓰지 않는다.** EG2 → adapter → H_s를 encoder inputs_embeds로 넣고 decoder가 생성한다. teacher는 학습 시에만 사용한다.
 - 이후 decoder는 native encoder hidden과 같은 분포의 H_s를 받는다.
 - **범용 bridge에 가장 가까운 최소 학습 경로**다.
 - 단, T5 encoder hidden은 token-level 문맥을 포함하므로 per-token linear만으로 부족할 수 있다(B1b).
@@ -361,8 +364,8 @@ B1 adapter + q/k/v/o LoRA
 #### 3.7.8 권고 순서
 
 1. **B3** — 2~4시간, 가장 단순한 decoder-readability test
-2. **B1a/B1b teacher distillation** — 4~6시간, 범용 bridge의 핵심 후보
-3. **B1d teacher-hidden distillation** — 4~7시간, task-agnostic bridge 후보
+2. **B1d teacher-hidden distillation** — 4~7시간, task-agnostic bridge의 핵심 후보
+3. **B1a/B1b** — B1d가 불안정할 때의 fallback; summary-label 기반 F5-only
 4. **B2** — B1이 decoder에서 무시될 때
 5. **A1 full train** — 검증된 F5 경로; B3/B1과 동시에 CPU에서 돌리지 않음
 

@@ -1,0 +1,62 @@
+This is an intentionally separate, independent review thread using a DIFFERENT model: GLM 5.3 Flash, reasoning=max. Do NOT treat this as a duplicate of any other thread. We are collecting multi-model review opinions on the same request.
+
+Repository: mandutt/unigem (private), branch main, review HEAD = the commit containing this request. Run git rev-parse HEAD to confirm. The repository is a shallow clone; do not rely on older SHAs.
+
+TASK
+Review the self-contained request document:
+reports/EXTERNAL_REVIEW_C5_A1_2026-11-06.md
+
+Read the entire document end-to-end, in chunks if necessary. Do not rely on a summary or excerpt. You may inspect these files for verification:
+- reports/C5_A1_smoke_pilot.md
+- reports/C5_A1_prompt_diagnosis.md
+- reports/C5_A1_exa_diagnosis_2026-11-06.md
+- reports/C5_T5Gemma2_paper_notes_2026-11-06.md
+- reports/C5_EG2_T5_bridge_literature_2026-11-06.md
+- reports/C5_A2NULL_VAL161_2026-11-06.md
+- docs/plan_c5_abstractive_v0_1.md
+- docs/plan_c5_a2null_v0_1.md
+- docs/decisions.md
+- runner/c5_a1_lora.py
+- runner/c5_a2null_full_train.py
+- reports/provenance/C5_a1/pilot300_val161/metrics.json
+
+Give an independent review, not a restatement.
+
+KEY NUMBERS (verified by local raw recalculation; do not re-litigate, but you may verify):
+- A1 pilot300 val161: char F1 0.6576; grounded 161/161; new slot 0; EOS 161/161; repeated4 0.0554. A0 extractive: 0.6111. Paired difference +0.0465, 95% CI [+0.0336, +0.0603], A1 better on 112/161.
+- A1 pilot300 is only 300 steps on 1,293 training pairs (about 23% of one epoch), lr 2e-4, prefix "summarize: ", 1,258.7 seconds, about 2.45 GB RSS, train loss 0.6624. Test 163 is sealed.
+- A1 uses the native T5Gemma2 encoder plus q/k/v/o LoRA. It is not an EG2-to-T5 bridge.
+- A2-null full val161: EOS-arm char F1 0.1277, LN-arm 0.1169; grounded 0/161 and 1/161; repeated4 0.85 to 0.87; memory-ablation real-vs-shuffled delta NLL +0.058.
+- Zero-shot T5Gemma2 val161: char F1 0.2333, EOS 1.86%, repeated4 0.8383.
+- B3, B1a, B1b, B1d, B2 bridge variants are design proposals only. None has been implemented or run.
+- A2 failed structurally because T5Gemma2 merged decoder q/k/v/o were frozen; A2 also bypassed the native encoder by passing encoder_outputs.
+
+REQUIRED ANSWER FORMAT
+1. Verdict, one line: start A1 full train now / extend A1 pilot / pivot to B-family bridge / hold.
+2. Decisions D1-D6. For each: recommendation, rationale, and what evidence would change it.
+3. Answers to Q1-Q12. Each 2-6 sentences, with concrete evidence.
+4. Bridge addendum. Rank B3, B1a, B1b, B1d, B2 separately for (a) F5-only and (b) general EG2-to-T5 bridge. State which should be the first two-week experiment, the minimum empirical test that would falsify B1d, and the most likely failure mode of each.
+5. Must-fix items, maximum 7, in priority order. Mark each as document fix or needs new experiment.
+6. Additional experiments worth doing, maximum 5, with rough CPU cost and decision value.
+7. Factual errors, overclaims, or omissions in the request document.
+8. Short final recommendation.
+
+FOCUS POINTS
+- Is A1 pilot300 val161 enough to start full train? Consider 23% of one epoch, same-split model selection, no test, and no human review.
+- Does training with the "summarize: " prefix bias F5? The prefix-trained adapter scored 0.6522 on bare val5 versus 0.6272 with the prefix; val161 was only run with the prefix.
+- Is B1d teacher-hidden distillation technically sound? It uses the frozen T5Gemma2 native encoder as a teacher, maps EG2 token features to 640d, trains the adapter without summary labels, and never runs the T5 encoder at inference. Check token alignment, hidden-state scale, objective, and whether the decoder can consume the distilled sequence.
+- Is B3 pooled soft-prefix a worthwhile decoder-readability test before B1d, or is it a detour?
+- Check the B3/B1/B1d parameter counts, memory estimates, and 3-8 hour cost estimates in the request.
+- T5Gemma2 merged attention means decoder q/k/v/o are shared by self and cross attention. Is the A1 LoRA target sufficient? Is B2 LoRA necessary if B1d is ignored?
+- The grounded metric only checks that no new slots appear. It does not detect all factual errors or repetition. Is the evaluation sufficient for a product decision?
+- The F5 EG2-to-T5 bridge may be reusable for F4/F6 decoder paths. F3 currently uses retrieval/emoji tagging, not a decoder. Assess how much interface design or retention testing is warranted now.
+- Do not recommend P1 data, external LLM APIs in the product path, using the sealed test early, or modifying the existing production assets.
+
+CONSTRAINTS
+- Consultation only, with one exception: write the full review report to this exact file (mandatory, not optional):
+  docs/hoplite/c5_a1_2026-11-06/review_glm.md
+- This file-writing instruction overrides any general "do not modify files" preface. Do not modify any other file.
+- Include the verdict, D1-D6, Q1-Q12, bridge ranking, Must-fix, additional experiments, and factual errors in the file.
+- In your final message, state the file path and summarize the verdict and the 3 most important points.
+- Do not call subagents or additional models. Complete the review yourself.
+- No credentials, no P1 raw data, no secrets.
