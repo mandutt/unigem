@@ -39,7 +39,7 @@ def main() -> int:
             except OSError:
                 pass
         lines = [x for x in text.splitlines() if x.startswith("{")]
-        done = "eval_metrics" in text
+        done = "eval_metrics" in text or '"event": "metrics"' in text
         failed = "Traceback" in text or "nonfinite" in text or "rss_stop" in text
         if args.report_every and (time.time() - last >= args.report_every or done or failed):
             payload = {
