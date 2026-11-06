@@ -1,0 +1,30 @@
+Loading weights:   0%|          | 0/911 [00:00<?, ?it/s]Loading weights:   4%|▎         | 33/911 [00:00<00:02, 296.89it/s]Loading weights:   7%|▋         | 63/911 [00:00<00:05, 158.35it/s]Loading weights:   9%|▉         | 86/911 [00:00<00:04, 179.48it/s]Loading weights:  12%|█▏        | 112/911 [00:00<00:04, 196.43it/s]Loading weights:  15%|█▍        | 134/911 [00:00<00:03, 203.05it/s]Loading weights:  17%|█▋        | 156/911 [00:00<00:03, 203.82it/s]Loading weights:  20%|█▉        | 178/911 [00:00<00:03, 192.82it/s]Loading weights:  23%|██▎       | 208/911 [00:01<00:03, 221.13it/s]Loading weights: 100%|██████████| 911/911 [00:01<00:00, 821.97it/s]
+{"event": "load", "seconds": 5.21, "rss_gb": 1.28, "lora_modules": 144, "trainable_params": 1474560, "total_params": 370637824, "text_only": true}
+{"event": "step", "step": 1, "loss": 0.7268, "elapsed_s": 4.4, "rss_gb": 1.84, "input_tokens": 776, "target_tokens": 293}
+{"event": "step", "step": 5, "loss": 0.9193, "elapsed_s": 20.9, "rss_gb": 1.96, "input_tokens": 786, "target_tokens": 171}
+{"event": "step", "step": 10, "loss": 0.9287, "elapsed_s": 41.7, "rss_gb": 2.01, "input_tokens": 778, "target_tokens": 238}
+{"event": "step", "step": 15, "loss": 0.4394, "elapsed_s": 62.4, "rss_gb": 2.02, "input_tokens": 780, "target_tokens": 297}
+{"event": "step", "step": 20, "loss": 0.9821, "elapsed_s": 82.6, "rss_gb": 2.13, "input_tokens": 714, "target_tokens": 199}
+{"event": "step", "step": 25, "loss": 0.9339, "elapsed_s": 103.0, "rss_gb": 2.05, "input_tokens": 762, "target_tokens": 192}
+{"event": "step", "step": 30, "loss": 0.6361, "elapsed_s": 123.7, "rss_gb": 2.03, "input_tokens": 765, "target_tokens": 231}
+{"event": "step", "step": 35, "loss": 0.9862, "elapsed_s": 144.8, "rss_gb": 1.75, "input_tokens": 768, "target_tokens": 235}
+{"event": "step", "step": 40, "loss": 0.9565, "elapsed_s": 165.2, "rss_gb": 1.85, "input_tokens": 740, "target_tokens": 135}
+{"event": "step", "step": 45, "loss": 0.7461, "elapsed_s": 186.0, "rss_gb": 1.86, "input_tokens": 734, "target_tokens": 243}
+{"event": "step", "step": 50, "loss": 0.5097, "elapsed_s": 207.0, "rss_gb": 1.92, "input_tokens": 762, "target_tokens": 237}
+{"event": "step", "step": 55, "loss": 0.6167, "elapsed_s": 227.5, "rss_gb": 2.0, "input_tokens": 755, "target_tokens": 252}
+{"event": "step", "step": 60, "loss": 0.5757, "elapsed_s": 248.5, "rss_gb": 1.94, "input_tokens": 741, "target_tokens": 267}
+{"event": "step", "step": 65, "loss": 0.5834, "elapsed_s": 269.8, "rss_gb": 2.07, "input_tokens": 815, "target_tokens": 156}
+{"event": "step", "step": 70, "loss": 0.5323, "elapsed_s": 291.2, "rss_gb": 2.1, "input_tokens": 776, "target_tokens": 266}
+{"event": "step", "step": 75, "loss": 0.6597, "elapsed_s": 312.2, "rss_gb": 2.15, "input_tokens": 728, "target_tokens": 202}
+{"event": "step", "step": 80, "loss": 1.153, "elapsed_s": 333.2, "rss_gb": 2.18, "input_tokens": 747, "target_tokens": 148}
+{"event": "step", "step": 85, "loss": 1.0938, "elapsed_s": 353.5, "rss_gb": 2.15, "input_tokens": 723, "target_tokens": 227}
+{"event": "step", "step": 90, "loss": 0.9794, "elapsed_s": 374.2, "rss_gb": 2.32, "input_tokens": 720, "target_tokens": 223}
+{"event": "step", "step": 95, "loss": 0.6716, "elapsed_s": 394.9, "rss_gb": 2.12, "input_tokens": 835, "target_tokens": 217}
+{"event": "step", "step": 100, "loss": 0.853, "elapsed_s": 416.0, "rss_gb": 2.18, "input_tokens": 809, "target_tokens": 191}
+{"event": "saved", "adapter": "data\\models\\f5_t5gemma2_lora\\pilot100.pt", "bytes": 5994341}
+{"event": "eval", "id": "REPORT-news_r-00005-00001", "char_f1": 0.3366, "eos": false}
+{"event": "eval", "id": "REPORT-news_r-00020-00001", "char_f1": 0.7747, "eos": true}
+{"event": "eval", "id": "REPORT-news_r-00023-00001", "char_f1": 0.5931, "eos": true}
+{"event": "eval", "id": "REPORT-news_r-00060-00001", "char_f1": 0.1366, "eos": false}
+{"event": "eval", "id": "REPORT-news_r-00114-00001", "char_f1": 0.4884, "eos": true}
+{"event": "eval_metrics", "n": 5, "char_f1_mean": 0.4658671437480789, "grounded_rate": 1.0, "new_slot_rate_mean": 0.0, "eos_rate": 0.6, "gen_len_mean": 315.2, "repeated_4gram_rate_mean": 0.4860327423004055, "distinct_2_mean": 0.44852612793961716, "out": "reports\\provenance\\C5_a1\\pilot100\\eval.jsonl"}

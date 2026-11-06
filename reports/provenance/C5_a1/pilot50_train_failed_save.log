@@ -1,0 +1,28 @@
+Loading weights:   0%|          | 0/911 [00:00<?, ?it/s]Loading weights:   5%|▌         | 50/911 [00:00<00:01, 496.23it/s]Loading weights:  11%|█         | 100/911 [00:00<00:03, 215.55it/s]Loading weights:  14%|█▍        | 132/911 [00:00<00:03, 237.70it/s]Loading weights:  18%|█▊        | 162/911 [00:00<00:03, 203.55it/s]Loading weights:  20%|██        | 186/911 [00:00<00:03, 182.13it/s]Loading weights:  23%|██▎       | 213/911 [00:01<00:03, 198.74it/s]Loading weights: 100%|██████████| 911/911 [00:01<00:00, 846.70it/s]
+{"event": "load", "seconds": 5.29, "rss_gb": 1.28, "lora_modules": 144, "trainable_params": 1474560, "total_params": 370637824, "text_only": true}
+{"event": "step", "step": 1, "loss": 0.7268, "elapsed_s": 4.7, "rss_gb": 1.74, "input_tokens": 776, "target_tokens": 293}
+{"event": "step", "step": 5, "loss": 0.9193, "elapsed_s": 22.0, "rss_gb": 1.82, "input_tokens": 786, "target_tokens": 171}
+{"event": "step", "step": 10, "loss": 0.9287, "elapsed_s": 43.3, "rss_gb": 1.8, "input_tokens": 778, "target_tokens": 238}
+{"event": "step", "step": 15, "loss": 0.4394, "elapsed_s": 64.1, "rss_gb": 1.82, "input_tokens": 780, "target_tokens": 297}
+{"event": "step", "step": 20, "loss": 0.9821, "elapsed_s": 84.6, "rss_gb": 2.01, "input_tokens": 714, "target_tokens": 199}
+{"event": "step", "step": 25, "loss": 0.9339, "elapsed_s": 105.2, "rss_gb": 2.08, "input_tokens": 762, "target_tokens": 192}
+{"event": "step", "step": 30, "loss": 0.6361, "elapsed_s": 126.4, "rss_gb": 1.68, "input_tokens": 765, "target_tokens": 231}
+{"event": "step", "step": 35, "loss": 0.9862, "elapsed_s": 147.8, "rss_gb": 1.73, "input_tokens": 768, "target_tokens": 235}
+{"event": "step", "step": 40, "loss": 0.9565, "elapsed_s": 168.3, "rss_gb": 1.84, "input_tokens": 740, "target_tokens": 135}
+{"event": "step", "step": 45, "loss": 0.7461, "elapsed_s": 189.1, "rss_gb": 1.89, "input_tokens": 734, "target_tokens": 243}
+{"event": "step", "step": 50, "loss": 0.5097, "elapsed_s": 210.2, "rss_gb": 1.89, "input_tokens": 762, "target_tokens": 237}
+Traceback (most recent call last):
+  File "C:\code\unigem\runner\c5_a1_lora.py", line 277, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\code\unigem\runner\c5_a1_lora.py", line 223, in main
+    torch.save(adapter, args.adapter)
+  File "C:\code\unigem\.venv\Lib\site-packages\torch\serialization.py", line 1003, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\unigem\.venv\Lib\site-packages\torch\serialization.py", line 865, in _open_zipfile_writer
+    return container(name_or_buffer)  # type: ignore[arg-type]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\unigem\.venv\Lib\site-packages\torch\serialization.py", line 829, in __init__
+    torch._C.PyTorchFileWriter(
+RuntimeError: Parent directory C:\code\unigem\data\models\f5_t5gemma2_lora does not exist.

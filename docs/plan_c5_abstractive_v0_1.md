@@ -1,7 +1,7 @@
 # F5 추상 요약 — C3 A1 T5Gemma 2 LoRA 계획 v0.1
 
 - 작성: 2026-11-06
-- 상태: **승인 대기 (코드·학습 미착수)**
+- 상태: **smoke/pilot 승인 (D-082)** — full train·test 163은 smoke/pilot 보고 후 별도 승인
 - 범위: F5 메모리용 추상 요약. A0 추출형은 기준선으로만 유지.
 - 데이터: `data/external/f5_pairs_v3_clean.jsonl` (1,617쌍, grounding 100%)
 - 관련: `docs/plan_v0_5.md` §C3·§C5, D-042(EG2 text hidden 폐기), D-055(C-11.3), D-080
