@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -68,7 +69,7 @@ def load_features(features_dir: Path, split: str, limit: int = 0) -> list[dict]:
 def char_f1(pred: str, ref: str) -> float:
     def bag(s):
         import collections
-        return collections.Counter(s.replace(" ", ""))
+        return collections.Counter(re.sub(r"\s+", "", s))
     a, b = bag(pred), bag(ref)
     common = sum((a & b).values())
     p = common / max(1, sum(a.values()))
@@ -76,16 +77,39 @@ def char_f1(pred: str, ref: str) -> float:
     return 2 * p * r / (p + r) if p + r else 0.0
 
 
+def repeated_4gram_rate(text: str) -> float:
+    s = re.sub(r"\s+", "", text)
+    if len(s) < 4:
+        return 0.0
+    grams = [s[i : i + 4] for i in range(len(s) - 3)]
+    return 1.0 - len(set(grams)) / len(grams)
+
+
+def distinct_2(text: str) -> float:
+    s = re.sub(r"\s+", "", text)
+    if len(s) < 2:
+        return 0.0
+    grams = [s[i : i + 2] for i in range(len(s) - 1)]
+    return len(set(grams)) / len(grams)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--features-dir", type=Path, default=FEATURES)
     ap.add_argument("--adapter", type=Path, required=True)
-    ap.add_argument("--split", default="test")
+    ap.add_argument("--split", default="val", choices=["train", "val", "test"])
+    ap.add_argument("--allow-test", action="store_true",
+                    help="Explicitly allow the sealed test split. Requires a recorded final-candidate decision.")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--max-memory", type=int, default=1024)
-    ap.add_argument("--max-new", type=int, default=256)
+    ap.add_argument("--max-new", type=int, default=512)
     ap.add_argument("--out", type=Path, default=OUT / "predictions.jsonl")
     args = ap.parse_args()
+    if args.split == "test" and not args.allow_test:
+        raise SystemExit(
+            "test 163 is sealed (D-081). Use --split val for development, "
+            "or pass --allow-test only for the single final-candidate evaluation."
+        )
     torch.set_num_threads(6)
     rows = read_jsonl(DATA)
     by_id = {str(r["id"]): r for r in rows}
@@ -101,6 +125,9 @@ def main() -> int:
     for rec in feats:
         t = min(rec["length"], args.max_memory)
         z = rec["z"][:t]
+        stored_mask = rec["mask"][:t]
+        if not bool(stored_mask.all()):
+            raise SystemExit(f"non-contiguous feature mask: {rec['id']}")
         mask = torch.ones(t, dtype=torch.bool)
         with torch.inference_mode():
             memory = adapter(z.unsqueeze(0)).to(torch.bfloat16)
@@ -121,6 +148,11 @@ def main() -> int:
             "gen_len": int(gen.shape[1]),
             "ended_eos": bool((gen[0] == tok.eos_token_id).any()),
             "char_f1": char_f1(pred, target),
+            "nonempty": bool(pred.strip()),
+            "repeated_4gram_rate": repeated_4gram_rate(pred),
+            "distinct_2": distinct_2(pred),
+            "new_slot_count": len(rep.new),
+            "summary_slot_count": rep.summary_count,
             "slot_preservation": rep.slot_preservation,
             "new_slot_rate": rep.new_slot_rate,
             "grounded": not rep.new,
@@ -128,11 +160,21 @@ def main() -> int:
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in outputs) + "\n", encoding="utf-8")
     n = len(outputs)
+    sum_slots = sum(x["summary_slot_count"] for x in outputs)
+    sum_new = sum(x["new_slot_count"] for x in outputs)
     metrics = {
         "n": n,
         "char_f1_mean": sum(x["char_f1"] for x in outputs) / n,
         "grounded_rate": sum(x["grounded"] for x in outputs) / n,
         "new_slot_rate_mean": sum(x["new_slot_rate"] for x in outputs) / n,
+        "new_slot_rate_micro": sum_new / sum_slots if sum_slots else 0.0,
+        "new_slot_count": sum_new,
+        "summary_slot_count": sum_slots,
+        "eos_rate": sum(bool(x["ended_eos"]) for x in outputs) / n,
+        "nonempty_rate": sum(bool(x["nonempty"]) for x in outputs) / n,
+        "gen_len_mean": sum(x["gen_len"] for x in outputs) / n,
+        "repeated_4gram_rate_mean": sum(x["repeated_4gram_rate"] for x in outputs) / n,
+        "distinct_2_mean": sum(x["distinct_2"] for x in outputs) / n,
     }
     print(json.dumps({"metrics": metrics, "out": str(args.out)}, ensure_ascii=False, indent=2))
     return 0

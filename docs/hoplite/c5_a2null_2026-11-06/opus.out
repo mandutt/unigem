@@ -1,0 +1,33 @@
+I've written the review to `docs/hoplite/c5_a2null_2026-11-06/2026-11-06_hoplite-review_c5_a2null_OPUS.md`. It's the only file I added, and I changed no code or other files.
+
+**Sync:** `git fetch` and `git pull --ff-only origin main` both succeeded; HEAD is now **`fb2908d`**. That commit sits directly on top of `c388699` and only adds the four prompt and dispatch files under `docs/hoplite/c5_a2null_2026-11-06/`, so every file under review is the same as at `c388699`. The model weights, feature cache, clean dataset and logs aren't in this workspace, so I ran nothing against the model. The numbers I computed myself come only from the committed val-5 prediction files.
+
+**Verdict: pivot to A1.** First spend about an hour closing out A2-null with the existing adapters and cache, no new training:
+- **Memory-ablation check:** teacher-forced loss on val 161 with the real memory versus another document's memory versus zeros, to see whether the adapter carries any source information.
+- **Raw control:** the same comparison with the null-space part removed.
+
+Run decoder LoRA for A2-null at most once, and only after A1's LoRA code exists, so the only difference from A1 is where the memory comes from.
+
+**The three most important points:**
+
+1. **The main failure is that output ignores the input, not repetition.**
+   - All five val outputs are about unrelated topics: a koala bushfire story became a candlelight rally in Italy, and a lawyers' association story became a university centenary.
+   - Almost none of the source's dates and numbers are carried over (0.00–0.09).
+   - Char F1 against the correct summary (0.23) is barely above char F1 against other documents' summaries (0.19–0.21).
+   - Even an unrelated document's gold summary scores about 0.40 against these targets (n=5, rough), so the model is below a wrong-document baseline and char F1 is a weak metric here.
+   - On the gate itself: 0/5 grounded already caps the grounded rate at about 52% (95% upper bound), so full val 161 can't change that verdict. Five samples don't show adapter-only is impossible in principle, though; under-training (1,293 pairs, 1 epoch) hasn't been ruled out.
+
+2. **Several evaluation and design gaps are hiding the real cause.**
+   - `max_new_tokens=128` is below the stated ~175-token average target, so "EOS 0/5" is partly caused by the cap.
+   - In the 5.22.1 source, T5Gemma2 normalises the cross-attention keys, so the "attention saturation" reason for the LayerNorm×5 arm was weak from the start.
+   - The decoder computes the memory's keys and values in a separate call, so a LoRA that adapts only those (true cross-attention-only adaptation) is easy to build. I'd build it in the A1 code so A2-null can reuse it.
+   - The raw control needs no re-extraction: it can be computed from the existing cache (`z − (zP)Pᵀ`), contrary to option F in the request.
+   - The request's formula `[W h ; P x]` reads as concatenation, but the code adds the two (`z = final + x @ P.T`).
+
+3. **Fix the evaluation contract and code hygiene before any more runs.**
+   - Grounded counts any output with no slots as passing, and the val outputs already make up names and places the verifier misses. Report new-slot as a pooled rate (not a per-sample mean) and add repetition, made-up-entity and truncation checks.
+   - The eval script defaults to `--split test`, which puts the sealed test set at risk; it needs a guard.
+   - The training script at HEAD has the LayerNorm arm hardcoded, so the EOS-only arm can't be reproduced.
+   - The trainer's default output folder is the abandoned run's folder, and it resumes from the checkpoint there.
+
+On the cross-feature questions: give each task its own LoRA on a frozen base and write down the interface as a one-page decision record rather than building a shared bridge. Putting this into F4 or F6 products would need a new decision under D-042. A future vision-to-text F3 should use T5Gemma2's own vision encoder rather than this bridge. A retention gate only becomes necessary if someone proposes a merged LoRA shared across tasks.

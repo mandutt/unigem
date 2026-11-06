@@ -1,0 +1,23 @@
+{
+  "round": "c5_a2null_2026-11-06",
+  "project_id": "proj_2e8de5ed594f47c7b851f1d7c5b52c61",
+  "review_head": "fb2908d",
+  "request": "reports/EXTERNAL_REVIEW_C5_A2NULL_2026-11-06.md",
+  "threads": {
+    "GLM": {
+      "thread_id": "thr_f7ac0e5904e9410e8c50eb23689efdc6",
+      "model": "z-ai/glm-5.3-flash",
+      "reasoning": "max"
+    },
+    "OPUS": {
+      "thread_id": "thr_59105b494cbf4298991a7e868c07e862",
+      "model": "claude-opus-5-5",
+      "reasoning": "medium"
+    },
+    "TERRA": {
+      "thread_id": "thr_4d6bd6e3a4974be89ca48eea86f15e1e",
+      "model": "gpt-6.1-terra",
+      "reasoning": "high"
+    }
+  }
+}

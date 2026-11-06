@@ -30,13 +30,13 @@ A2-null-seq의 수식:
 h_t       = EG2 text final hidden (512)
 x_t       = PCA_256(EG2 intermediate hidden at t)   # 512 → 256
 P         = left null basis of W (768×256), WᵀP = 0
-z_t       = [W h_t ; P x_t]                         # 768
+z_t       = W h_t + P x_t                         # 768
 memory_t  = Adapter(z_t)                            # 768 → 640
 ```
 
 - `W h_t`는 원래 EG2 final projection과 같은 768d 공간
 - `P x_t`는 W의 column space와 직교하는 256d
-- 어댑터와 decoder만 학습; EG2 원본 동결
+- adapter만 학습; T5Gemma2 decoder와 EG2 원본은 동결
 
 ## 2. D-042와의 관계
 

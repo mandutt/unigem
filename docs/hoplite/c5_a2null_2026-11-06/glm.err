@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\mandu\hermes-made\hoplite-advisor\hoplite_cli.py", line 478, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\mandu\hermes-made\hoplite-advisor\hoplite_cli.py", line 474, in main
+    args.func(args)
+    ~~~~~~~~~^^^^^^
+  File "C:\Users\mandu\hermes-made\hoplite-advisor\hoplite_cli.py", line 319, in cmd_ask
+    changed, summary = changelog_check()
+                       ~~~~~~~~~~~~~~~^^
+  File "C:\Users\mandu\hermes-made\hoplite-advisor\hoplite_cli.py", line 288, in changelog_check
+    lines = [f"[changelog] {d} ({len(ts)}건):"]
+                            ^
+UnboundLocalError: cannot access local variable 'd' where it is not associated with a value

@@ -6,7 +6,7 @@ PROJECT="proj_2e8de5ed594f47c7b851f1d7c5b52c61"
 OUTDIR="$ROOT/docs/hoplite/c5_a2null_2026-11-06"
 cd "$ROOT" || exit 1
 
-if [ "${#HOPLITE_SERVICE_KEY:-}" -lt 20 ]; then
+if [ -z "${HOPLITE_SERVICE_KEY:-}" ] || [ "${#HOPLITE_SERVICE_KEY}" -lt 20 ]; then
   echo "HOPLITE_SERVICE_KEY missing" >&2
   exit 3
 fi

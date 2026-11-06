@@ -1,0 +1,17 @@
+Review complete. The report is written and the working tree contains only the new report file (no code modified).
+
+**Report file:** `docs/hoplite/c5_a2null_2026-11-06/2026-11-06_hoplite-review_c5_a2null_GLM.md`
+
+**Workspace sync:** `git fetch origin` + `git pull --ff-only origin main` → already up to date; HEAD `fb2908d0f0cc1418f8207853814a5d135c3a1b23` (review HEAD `c388699` is its parent; the diff is review-prompt docs only, so the review target is unaffected).
+
+**Verdict: full val 161 first.**
+
+The 3 most important points:
+
+1. **The val-5 evidence is directionally consistent but not confirmatory.** All 15 generations across 3 arms show the same collapse signature (128-token cap, no EOS, grounded 0/5, new_slot ≈1.0), but the 5 records are the *first 5 of the deterministic val order* (verified against `splits.json`), n=5 has no CI, and all arms share the 1-epoch/adapter-only configuration (train 3.25 vs val 3.12 = underfitting, not overfitting). "This configuration failed on val 5" is supported; "adapter-only A2-null is insufficient" is an extrapolation — full val 161 must precede any continue/stop decision.
+
+2. **Decoder q/k/v/o LoRA is defensible but confounded, and it unlocks no product path under D-042.** T5Gemma2's merged self/cross attention means q/k/v/o LoRA adapts both paths at once, so results can't be attributed; the raw control required by the plan's own DoD #8 hasn't run. Since D-042 bars EG2 text hidden from F4/F5 product paths anyway, A1 (native T5Gemma2 LoRA) remains the actual product route — invest further in A2-null only if bridge-informativeness is explicitly the goal. Cheaper hypothesis tests (2–3 epoch adapter, k/v-only LoRA) come first.
+
+3. **The evaluation is insufficient for the failure mode at hand, and one footgun needs fixing.** `grounded = not new_slot` passes fluent false/repetitive text without slots, and char-bag F1 is order-blind; add EOS rate, distinct-2/3, ROUGE-L, and length stats. Also: `c5_a2null_eval.py` defaults to `--split test` — an accidental run would touch the sealed test 163, so guard it. Two missing controls would be highly diagnostic and cheap: A0-on-val-161 (same-split comparison) and frozen zero-shot T5Gemma2 (separates "bridge problem" from "decoder/task mismatch").
+
+All Q1–Q15 answers, must-fix items, additional experiments, and the factual-error list (including the EOS/LN char-F1 implementations differing slightly between eval scripts, and the plan's DoD #8 being unmet) are in the report.

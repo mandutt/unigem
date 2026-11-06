@@ -122,19 +122,20 @@ h_t       = EG2 text final hidden (512)
 x_t       = PCA_256(EG2 intermediate hidden at t)   # 512 → 256
 W         = EG2 final projection (768×512)
 P         = left null basis of W (768×256), WᵀP = 0
-z_t       = [W h_t ; P x_t]                         # 768
+z_t       = W h_t + P x_t                         # 768
 memory_t  = Adapter(z_t)                            # 768 → 640
 ```
 
 - `W h_t`는 원래 EG2 final projection과 같은 768d 공간.
 - `P x_t`는 W의 column space와 직교하는 256d.
-- adapter와 decoder만 학습; EG2 원본은 동결.
+- adapter만 학습; T5Gemma2 decoder와 EG2 원본은 동결.
 - **A2-null-seq**(token-level)가 primary, pooled 변형은 reference.
 
 ### 3.3 D-042와 D-081
 
 - **D-042**: EG2 text hidden을 F4/F5 **제품 경로**에 쓰지 않는다. P1 F4에서 EG2 hidden이 baseline 대비 +2.83%p로 기준 +3.0%p에 미달했기 때문이다.
 - **D-081**: A2-null은 raw hidden과 다른 **새 표현**이므로 **exploratory만** 허용한다. 제품 채택은 A1과의 val 비교 + 새 결정 전 금지. test 163은 봉인.
+- **A1은 별도 계획의 우선 후보**다(`docs/plan_c5_abstractive_v0_1.md`). A2-null은 A1을 대체하지 않으며, A1 결과 없이 제품 방향을 확정하지 않는다.
 
 즉, 이 실험은 “D-042를 폐기”하는 것이 아니라 **D-042를 유지한 채 별도 표현을 탐색**하는 것이다.
 
@@ -212,7 +213,9 @@ layer 12를 사용했다. top1 0.0689, tokens 152,846.
 | max_target | 512 |
 | T5 | frozen, bf16 |
 | threads | 6 |
-| eval | val 5건, greedy, max_new 128 |
+| eval | val 5건, greedy, **max_new 128 (평가 상한; target p95 289보다 작음)** |
+
+**★max_new=128의 한계:** clean target(content+EOS)의 token 길이는 mean **208.9**, p50 **204**, p90 **268**, p95 **289**, p99 **333**, max **439**다. 128 상한은 p50보다 작아 EOS 0/5와 char F1 recall이 **상한 절단(censoring)** 영향을 받는다. 이 결과를 “EOS를 전혀 배우지 못했다”로 단정하지 않는다. full val에서는 512 상한(또는 1.5×p95=434 이상)으로 재평가해야 한다.
 
 ### 5.2 학습 이력
 
@@ -319,6 +322,7 @@ EOS + LN arm:
 - full val 161 생성 평가 — **val 5건만**
 - ROUGE-L / BERTScore
 - 사람 50건 검토
+- **zero-shot T5Gemma2**(native encoder + frozen decoder) 통제
 - **A2-null-raw control**(null injection 없이 final 768→adapter→decoder)
 - **A2-null-pooled reference**
 - A1과의 직접 비교
@@ -345,7 +349,7 @@ EOS + LN arm:
 1. **decoder가 완전 frozen** — adapter가 memory를 바꿔도 decoder의 cross-attention/self-attention이 새 분포에 적응하지 못한다.
 2. **adapter 용량 부족** — 768→768→640 약 1.08M params만으로 1,293개 요약을 학습하기 어렵다.
 3. **teacher forcing과 free-running 불일치** — val loss 3.12가 생성 품질을 보장하지 않는다.
-4. **EOS class imbalance** — 175 token 중 1개라 1 epoch로는 EOS 확률이 충분히 올라가지 않는다.
+4. **EOS class imbalance** — 평균 약 209 token 중 1개라 1 epoch로는 EOS 확률이 충분히 올라가지 않는다. (128 상한 절단과 혼재)
 5. **A2-null-seq의 구조적 부적합** — 원 방법은 pooled retrieval embedding이고, token-level decoder memory는 검증된 적이 없다. T5 cross-attention에는 external memory의 명시적 위치 정보가 없다.
 6. **데이터/목표 불일치** — F5 target은 추상 요약인데, EG2 text hidden은 검색·임베딩 목적 표현이다.
 
@@ -376,7 +380,7 @@ EOS + LN arm:
 | **C. A1 T5Gemma2 LoRA** | native T5Gemma2 encoder+decoder LoRA, 2~3 epoch | 구현·smoke·학습 수시간 | T5Gemma2의 원래 encoder-decoder 정합성 | A2-null과 다른 경로, CPU 비용 큼 |
 | **D. adapter-only 2 epoch** | 현재 구조에서 epoch만 증가 | 45분 | 싼 확인 | decoder 병목이면 반복 지속 가능 |
 | **E. A2-null 중단** | 폐기, A1로 전환 | 0 | 시간 절약 | A2-null exploratory를 충분히 검증하지 못함 |
-| **F. A2-null-raw control** | null injection 없이 final 768→adapter→decoder | feature 재추출 + 45분 | injection 효과를 분리 | 별도 cache 필요 |
+| **F. A2-null-raw control** | null injection 없이 final 768→adapter→decoder. `z_raw = z − (zP)Pᵀ`로 기존 cache에서 유도 가능 | 학습 ~45분 (feature 재추출 불필요) | injection 효과를 분리 | fp16 반올림·별도 cache 선택 |
 | **G. A2-null-pooled reference** | pooled 768 1개 → adapter → decoder | 구현·학습 수십 분 | 원 Reddit 방법에 가장 가까운 축소 실험 | sequence 정보 손실 |
 
 ### 현재 권고(검토 전 잠정)

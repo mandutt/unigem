@@ -36,20 +36,23 @@ def rss_mb() -> float:
 
 
 class Adapter(nn.Module):
-    def __init__(self, d_in: int = 768, d_out: int = 640, hidden: int = 768):
+    def __init__(self, d_in: int = 768, d_out: int = 640, hidden: int = 768, use_norm: bool = True):
         super().__init__()
-        self.net = nn.Sequential(
+        layers = [
             nn.Linear(d_in, hidden),
             nn.GELU(),
             nn.Linear(hidden, d_out),
-            nn.LayerNorm(d_out),
-        )
+        ]
+        if use_norm:
+            layers.append(nn.LayerNorm(d_out))
+        self.net = nn.Sequential(*layers)
         # Match the T5Gemma2 encoder hidden scale: LayerNorm gives unit
         # variance, and the encoder hidden norm is ~5x that.
-        self.scale = nn.Parameter(torch.tensor(5.0))
+        self.scale = nn.Parameter(torch.tensor(5.0)) if use_norm else None
 
     def forward(self, x):
-        return self.net(x) * self.scale
+        y = self.net(x)
+        return y * self.scale if self.scale is not None else y
 
 
 def shard_paths(features_dir: Path, split: str) -> list[Path]:
@@ -109,6 +112,8 @@ def main() -> int:
     ap.add_argument("--t5", type=Path, default=T5)
     ap.add_argument("--out", type=Path, default=OUT)
     ap.add_argument("--epochs", type=int, default=1)
+    ap.add_argument("--adapter-norm", choices=["none", "ln"], default="ln",
+                    help="Adapter output normalization: none (EOS-only arm) or ln (LayerNorm x5 arm).")
     ap.add_argument("--max-memory", type=int, default=1024)
     ap.add_argument("--max-target", type=int, default=512)
     ap.add_argument("--lr", type=float, default=1e-4)
@@ -131,7 +136,7 @@ def main() -> int:
     ).eval()
     for p in model.parameters():
         p.requires_grad_(False)
-    adapter = Adapter().float()
+    adapter = Adapter(use_norm=args.adapter_norm == "ln").float()
     opt = torch.optim.AdamW(adapter.parameters(), lr=args.lr)
     start_epoch = 0
     global_step = 0
@@ -147,7 +152,7 @@ def main() -> int:
     print(json.dumps({"train": split_sizes["train"], "val": split_sizes["val"],
                       "rss_load_mb": round(rss_mb(), 1)}, ensure_ascii=False), flush=True)
     report = {"train_n": split_sizes["train"], "val_n": split_sizes["val"], "epochs": args.epochs,
-              "start_epoch": start_epoch, "steps": []}
+              "adapter_norm": args.adapter_norm, "start_epoch": start_epoch, "steps": []}
     rng = random.Random(42)
     for epoch in range(start_epoch, args.epochs):
         ep_start = time.time()

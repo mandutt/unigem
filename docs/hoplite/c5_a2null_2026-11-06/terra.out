@@ -1,0 +1,9 @@
+**Verdict: full val 161 first.**
+
+Full review: [2026-11-06_hoplite-review_c5_a2null_TERRA.md](docs/hoplite/c5_a2null_2026-11-06/2026-11-06_hoplite-review_c5_a2null_TERRA.md)
+
+1. The five validation examples are a serious warning for the tested configurations, but do not prove adapter-only A2-null is generally insufficient.
+2. Before full validation, protect the sealed test and address evaluation limitations: “no new slots” does not establish factual accuracy, and the mask and EOS contracts need runtime verification.
+3. After validation, prioritize an authorized A1 pilot over automatically attempting decoder LoRA. A matched raw control is needed to establish any benefit from null injection.
+
+Synchronization succeeded at `fb2908d`; the reviewed files are unchanged from requested commit `c388699`. Model-level checks could not be run because the model artifacts and ML dependencies were unavailable.
