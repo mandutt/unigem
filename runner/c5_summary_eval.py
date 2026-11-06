@@ -46,9 +46,12 @@ def split_records(records: list[dict], seed: int = 42) -> dict:
     ids = [str(r["id"]) for r in records]
     shuffled = ids[:]
     random.Random(seed).shuffle(shuffled)
-    train = shuffled[:1600]
-    val = shuffled[1600:1800]
-    test = shuffled[1800:2000]
+    n = len(shuffled)
+    n_train = int(n * 0.8)
+    n_val = int(n * 0.1)
+    train = shuffled[:n_train]
+    val = shuffled[n_train : n_train + n_val]
+    test = shuffled[n_train + n_val :]
     return {
         "seed": seed,
         "sizes": {"train": len(train), "val": len(val), "test": len(test)},
@@ -256,10 +259,10 @@ def write_report(path: Path, audit: dict, split: dict, a0: dict, input_path: Pat
         "",
         "- 작성: 2026-11-06",
         "- 상태: **A0·슬롯 검증기 1차 완료, 사람 검토 대기**",
-        "- 데이터: `" + input_path.relative_to(ROOT).as_posix() + "`",
+        "- 데이터: `" + input_path.resolve().relative_to(ROOT).as_posix() + "`",
         "- 범위: P0 F5 데이터만 사용. JEV/메모리 코어 미수정.",
         "",
-        "## 1. Target 슬롯 감사 (2,000쌍)",
+        f"## 1. Target 슬롯 감사 ({t['records']:,}쌍)",
         "",
         "| 항목 | 값 |",
         "|---|---:|",
@@ -341,11 +344,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", type=Path, default=DEFAULT_INPUT)
     ap.add_argument("--out-dir", type=Path, default=DEFAULT_OUT)
+    ap.add_argument("--report", type=Path, default=ROOT / "reports/C5_summary.md")
+    ap.add_argument("--review", type=Path, default=ROOT / "reports/C5_summary_review.html")
     ap.add_argument("--seed", type=int, default=42)
     args = ap.parse_args()
     records = read_jsonl(args.input)
-    if len(records) != 2000:
-        raise SystemExit(f"expected 2,000 F5 records, got {len(records)}")
+    if len(records) < 50:
+        raise SystemExit(f"too few F5 records: {len(records)}")
     ids = [str(r["id"]) for r in records]
     if len(set(ids)) != len(ids):
         raise SystemExit("duplicate ids")
@@ -357,8 +362,8 @@ def main() -> int:
     write_json(args.out_dir / "splits.json", split)
     write_json(args.out_dir / "a0_eval.json", a0)
     write_jsonl(args.out_dir / "a0_test_predictions.jsonl", pred_rows)
-    write_review_html(pred_rows, records, ROOT / "reports/C5_summary_review.html")
-    write_report(ROOT / "reports/C5_summary.md", audit, split, a0, args.input)
+    write_review_html(pred_rows, records, args.review)
+    write_report(args.report, audit, split, a0, args.input)
     print(json.dumps({"audit": audit["totals"], "a0": a0, "split": split["sizes"]}, ensure_ascii=False, indent=2))
     return 0
 

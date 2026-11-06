@@ -1,0 +1,132 @@
+{
+  "totals": {
+    "records": 1953,
+    "source_slots": 26831,
+    "summary_slots": 11864,
+    "preserved": 11864,
+    "missing": 14967,
+    "new": 0,
+    "records_with_missing": 1835,
+    "records_with_new": 0,
+    "slot_preservation": 0.44217509597107824,
+    "new_slot_rate": 0.0,
+    "grounding_rate": 1.0
+  },
+  "by_kind": {
+    "date": {
+      "source": 594,
+      "summary": 282,
+      "missing": 312,
+      "new": 0
+    },
+    "identifier": {
+      "source": 334,
+      "summary": 143,
+      "missing": 191,
+      "new": 0
+    },
+    "number": {
+      "source": 25134,
+      "summary": 11184,
+      "missing": 13950,
+      "new": 0
+    },
+    "time": {
+      "source": 765,
+      "summary": 255,
+      "missing": 510,
+      "new": 0
+    },
+    "url": {
+      "source": 4,
+      "summary": 0,
+      "missing": 4,
+      "new": 0
+    }
+  },
+  "examples": {
+    "missing": [
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "40억달러"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "44"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "87%"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "13%"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "3"
+      },
+      {
+        "id": "REPORT-news_r-00001-00001",
+        "slot": "4년"
+      },
+      {
+        "id": "REPORT-news_r-00005-00001",
+        "slot": "27년"
+      },
+      {
+        "id": "REPORT-news_r-00005-00001",
+        "slot": "2020년"
+      },
+      {
+        "id": "REPORT-news_r-00005-00003",
+        "slot": "1962년"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "95억원"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "3300만"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "1위"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "0"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "2%"
+      },
+      {
+        "id": "REPORT-news_r-00009-00001",
+        "slot": "1조원"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "3년"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "6"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "4년"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "7"
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "slot": "2gb"
+      }
+    ],
+    "new": []
+  }
+}

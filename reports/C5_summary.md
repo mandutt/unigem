@@ -1,76 +1,80 @@
-# C5 — F5 메모리 요약: target 감사 + A0 추출형 baseline
+# C5 — F5 메모리 요약: target 감사 · repair/filter · A0 baseline
 
 - 작성: 2026-11-06
-- 상태: **A0·슬롯 검증기 1차 완료, 사람 검토 대기**
-- 데이터: `data/external/f5_pairs_v3.jsonl`
+- 상태: **CP3-1 완료 (grounding 기준 채택, clean 1,617 primary), 사람 검토 대기**
 - 범위: P0 F5 데이터만 사용. JEV/메모리 코어 미수정.
+- 원본: `data/external/f5_pairs_v3.jsonl` (2,000쌍, 변경 없음)
 
-## 1. Target 슬롯 감사 (2,000쌍)
+## 1. CP3-1 결정
 
-| 항목 | 값 |
-|---|---:|
-| 레코드 | 2,000 |
-| 원문 슬롯 | 28,252 |
-| 요약 슬롯 | 14,454 |
-| 보존 | 13,474 |
-| 누락 | 14,778 |
-| 신규 | 980 |
-| 슬롯 보존율(원문 대비) | **47.6922%** |
-| 신규 슬롯률 | **6.7801%** |
-| grounding rate (요약 슬롯 중 원문 존재) | **93.2199%** |
-| 누락 레코드 | 1,882 |
-| 신규 레코드 | 383 |
+G-C5의 `슬롯 보존`은 **grounding rate**로 확정한다.
 
-**G-C5 기준:** 슬롯 보존율 ≥99%, 신규 슬롯률 ≤1%.
+- **grounding rate** = 요약에 등장한 슬롯이 원문에 존재하는 비율 (환각 통제)
+- **원문 대비 coverage** = 원문 슬롯이 요약에 남은 비율 (정보 손실 참고 지표)
+- 게이트: **grounding ≥99%, 신규 슬롯 ≤1%**, 검증기 통과분의 신규 슬롯 0
+- 원문 대비 coverage는 뉴스 요약의 숫자 생략 때문에 게이트로 쓰지 않는다.
 
-> **교정 발견:** 위 두 지표는 같은 분모가 아니다. `슬롯 보존율`은 원문 슬롯 대비 요약에 남은 비율(정보 손실), `grounding rate`는 요약에 등장한 슬롯이 원문에 있는 비율(환각)이다. F5 news target은 요약 과정에서 원문 숫자를 의도적으로 생략하므로 **원문 대비 99% 보존은 현실적으로 불가능**하다. G-C5의 '보존'을 grounding으로 해석할지, 중요 슬롯만 엄격히 요구할지 **사용자 결정이 필요**하다. 이 보고서는 두 값을 모두 제공하며, 게이트 임계값을 임의로 바꾸지 않는다.
+## 2. Target 감사
 
-### 유형별
+| 데이터 | n | 원문 슬롯 | 요약 슬롯 | 원문 대비 coverage | grounding | 신규 슬롯률 |
+|---|---:|---:|---:|---:|---:|---:|
+| 원본 v3 | 2,000 | 28,252 | 14,454 | 47.6922% | 93.2199% | **6.7801%** (980) |
+| **clean (filter)** | **1,617** | 19,934 | 10,174 | 51.0384% | **100%** | **0** |
+| repaired (secondary) | 1,953 | 26,831 | 11,864 | 44.2175% | **100%** | **0** |
 
-| kind | 원문 | 요약 | 누락 | 신규 |
-|---|---:|---:|---:|---:|
-| date | 621 | 353 | 294 | 26 |
-| identifier | 347 | 183 | 172 | 8 |
-| number | 26,504 | 13,638 | 13,807 | 941 |
-| time | 776 | 279 | 501 | 4 |
-| url | 4 | 0 | 4 | 0 |
-| version | 0 | 1 | 0 | 1 |
+- 원본 target은 신규 슬롯 6.78%로 G-C5 ≤1%를 위반했다.
+- **clean**: 신규 슬롯이 있는 383건을 제외한 1,617건. target 문장을 수정하지 않아 보존적이다.
+- **repaired**: 336건은 신규 슬롯이 포함된 문장만 제거(총 525문장), 47건은 2문장 미만이 되어 제외. 데이터는 늘지만 요약 품질·coverage 손실 위험이 있어 **secondary**로만 둔다.
+- repaired의 원문 대비 coverage가 clean보다 낮아진 이유는 신규 슬롯 문장을 지우면서 원문 슬롯도 함께 사라졌기 때문이다.
 
-## 2. Split
+## 3. A0 추출형 baseline
 
-| split | n |
-|---|---:|
-| train | 1,600 |
-| val | 200 |
-| test | 200 |
+A0는 디코더 없이 문장을 선택하는 추출형 baseline이다. `max_sentences=4`, `max_chars=500`.
 
-seed=42, id-sha256=`5677e31bc6a764af…`
+| 데이터 | test n | strict reject | grounding reject | 원문 대비 coverage 평균 | 신규 슬롯률 평균 | 압축률 | char F1(target 대비) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 원본 v3 | 200 | 152 (76.00%) | 1 (0.50%) | 0.7462 | 0.0004 | 0.2450 | 0.5962 |
+| **clean** | **163** | 119 (73.01%) | **1 (0.61%)** | 0.7740 | 0.00038 | 0.2496 | **0.6074** |
+| repaired | 196 | 158 (80.61%) | 0 (0.00%) | 0.7433 | 0.0000 | 0.2620 | 0.6060 |
 
-## 3. A0 추출형 baseline (test 200)
+**해석**
 
-| 항목 | 값 |
-|---|---:|
-| n | 200 |
-| strict reject (누락 또는 신규) | 152 (76.00%) |
-| grounding reject (신규만) | 1 (0.50%) |
-| 슬롯 보존율 평균(원문 대비) | 0.7462 |
-| 신규 슬롯률 평균 | 0.0004 |
-| 압축률 평균 | 0.2450 |
-| char F1 평균(target 대비) | 0.5962 |
+- A0는 추출형이라 **신규 슬롯(환각)이 거의 0**이다. clean test에서 163건 중 1건만 grounding reject.
+- clean test의 신규 슬롯률 평균은 0.0383%로 ≤1%를 만족하지만, **검증기 통과분 0** 조건은 1건 때문에 엄밀히는 미충족이다.
+- strict reject 73.01%는 원문의 모든 숫자를 보존하지 못해서다. grounding 기준에서는 게이트가 아니다.
+- char F1 0.6074는 target 대비 참고치이며, ROUGE 단독 판정이 아니다.
+- A0는 **추상 요약기가 아니며**, 최종 F5 후보가 아니라 기준선이다.
 
-**해석:** A0는 디코더 없는 추출형 baseline이다. 원문 대비 보존율이 낮아도 추출형 특성상 원문 문장을 그대로 쓰므로 **신규 슬롯(환각)은 거의 0**이다. strict reject는 모든 원문 숫자를 보존하라는 뜻이므로 요약 압축과 충돌한다. G-C5 판정은 별도 결정이 필요하다. char F1은 참고용이며 ROUGE 단독 판정이 아니다.
+## 4. 데이터 선택
 
-## 4. 산출물
+**primary = clean 1,617쌍.**
 
-- `reports/provenance/C5/target_slot_audit.json`
-- `reports/provenance/C5/splits.json`
-- `reports/provenance/C5/a0_eval.json`
-- `reports/provenance/C5/a0_test_predictions.jsonl`
-- `reports/C5_summary_review.html`
+- 이유: target 문장을 변형하지 않아 사람이 검토한 원문 요약 품질을 보존한다.
+- split: train 1,293 / val 161 / test 163, seed 42 deterministic.
+- repaired 1,953쌍은 **민감도 분석용**으로만 보존한다. 학습 primary로 쓰려면 별도 승인과 사람 검토가 필요하다.
 
-## 5. 다음
+## 5. 산출물
 
-1. 사람 표본 50건 검토(`C5_summary_review.html`).
-2. target 자체의 신규 슬롯률이 1%를 넘으면 **target repair/filter 정책**을 먼저 결정.
-3. A0 결과와 사람 검토를 보고 CP3-1에서 A0 채택/보류 결정.
-4. 디코더는 C3 A1(T5Gemma 2 LoRA)을 **별도 승인 후** 비교.
+- `data/external/f5_pairs_v3_clean.jsonl` — **primary 1,617**
+- `data/external/f5_pairs_v3_grounded.jsonl` — repaired 포함 1,953
+- `data/external/f5_pairs_v3_grounded_rejected.jsonl` — 47
+- `reports/provenance/C5/target_slot_audit.json` — 원본 감사
+- `reports/provenance/C5/repair_report.json` — repair/filter 원장
+- `reports/provenance/C5_clean/{splits,target_slot_audit,a0_eval}.json`
+- `reports/provenance/C5_grounded/{splits,target_slot_audit,a0_eval}.json`
+- `reports/C5_summary_clean.md`, `reports/C5_summary_grounded.md`
+- `reports/C5_summary_clean_review.html` — 사람 검토 50건
+
+## 6. 판정과 다음
+
+| 항목 | 상태 |
+|---|---|
+| G-C5 target grounding | **PASS** (clean: 100%, 신규 0) |
+| G-C5 A0 | **경계** — 신규 슬롯률 0.0383%이나 위반 1/163 |
+| 사람 표본 50 | **대기** (`reports/C5_summary_clean_review.html`) |
+| C3 A1 T5Gemma 2 LoRA | **미착수, 별도 승인 필요** |
+
+1. clean 50건을 사람이 검토해 핵심 사실·과압축·누락을 확인한다.
+2. A0를 기준선으로 채택할지 CP3-2에서 결정한다.
+3. 추상 요약이 필요하면 C3 A1을 별도 사전등록 후 진행한다.
+4. repaired 데이터는 primary로 쓰지 않는다.

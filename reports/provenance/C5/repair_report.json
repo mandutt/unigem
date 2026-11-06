@@ -1,0 +1,157 @@
+{
+  "input": "data/external/f5_pairs_v3.jsonl",
+  "input_n": 2000,
+  "kept_n": 1953,
+  "clean_n": 1617,
+  "rejected_n": 47,
+  "counts": {
+    "clean": 1617,
+    "repaired": 336,
+    "dropped": 47
+  },
+  "new_slots_before": 980,
+  "new_slots_after": 0,
+  "dropped_sentences": 525,
+  "examples": [
+    {
+      "id": "REPORT-news_r-00034-00001",
+      "status": "repaired",
+      "new_before": 5,
+      "new_after": 0,
+      "dropped_sentences": 2
+    },
+    {
+      "id": "REPORT-news_r-00045-00001",
+      "status": "repaired",
+      "new_before": 1,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00048-00002",
+      "status": "repaired",
+      "new_before": 2,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00056-00001",
+      "status": "repaired",
+      "new_before": 1,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00069-00001",
+      "status": "repaired",
+      "new_before": 1,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00085-00002",
+      "status": "repaired",
+      "new_before": 1,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00110-00001",
+      "status": "dropped",
+      "new_before": 3,
+      "new_after": 0,
+      "dropped_sentences": 3
+    },
+    {
+      "id": "REPORT-news_r-00133-00003",
+      "status": "repaired",
+      "new_before": 3,
+      "new_after": 0,
+      "dropped_sentences": 2
+    },
+    {
+      "id": "REPORT-news_r-00205-00005",
+      "status": "repaired",
+      "new_before": 5,
+      "new_after": 0,
+      "dropped_sentences": 2
+    },
+    {
+      "id": "REPORT-news_r-00237-00001",
+      "status": "dropped",
+      "new_before": 5,
+      "new_after": 0,
+      "dropped_sentences": 3
+    },
+    {
+      "id": "REPORT-news_r-00247-00001",
+      "status": "repaired",
+      "new_before": 2,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00265-00002",
+      "status": "repaired",
+      "new_before": 2,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00266-00002",
+      "status": "repaired",
+      "new_before": 5,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00285-00001",
+      "status": "dropped",
+      "new_before": 7,
+      "new_after": 0,
+      "dropped_sentences": 3
+    },
+    {
+      "id": "REPORT-news_r-00291-00001",
+      "status": "repaired",
+      "new_before": 2,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00291-00002",
+      "status": "repaired",
+      "new_before": 1,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00294-00001",
+      "status": "repaired",
+      "new_before": 1,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00369-00001",
+      "status": "repaired",
+      "new_before": 3,
+      "new_after": 0,
+      "dropped_sentences": 1
+    },
+    {
+      "id": "REPORT-news_r-00379-00001",
+      "status": "repaired",
+      "new_before": 2,
+      "new_after": 0,
+      "dropped_sentences": 2
+    },
+    {
+      "id": "REPORT-news_r-00398-00001",
+      "status": "repaired",
+      "new_before": 5,
+      "new_after": 0,
+      "dropped_sentences": 2
+    }
+  ]
+}
