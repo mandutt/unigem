@@ -1,10 +1,14 @@
 """A1: native T5Gemma2 encoder-decoder + attention LoRA for F5.
 
-Only smoke/pilot are approved (D-082). Full train is a separate decision.
+Smoke/pilot are approved under D-082; full train needs a separate decision.
+The runner can save exact checkpoint steps, evaluate val at each checkpoint,
+reshuffle every epoch, and enforce step-time/RSS stops.
 
 Examples:
   python runner/c5_a1_lora.py --mode smoke --steps 1
   python runner/c5_a1_lora.py --mode pilot --steps 50 --eval-limit 5
+  python runner/c5_a1_lora.py --mode full --steps 2586 \
+      --checkpoint-steps 647,1293,1940,2586 --eval-checkpoints
 """
 from __future__ import annotations
 
@@ -90,7 +94,61 @@ def load_lora_state(model, path: Path) -> None:
     print(json.dumps({"loaded_lora": str(path), "missing_nonlora": len(missing), "unexpected": len(unexpected)}))
 
 
-def build_model(drop_vision: bool = True, dtype=torch.bfloat16):
+def build_order(n: int, seed: int, epoch: int) -> list[int]:
+    """Fresh permutation per epoch; deterministic from seed+epoch."""
+    gen = torch.Generator().manual_seed(seed + epoch)
+    return torch.randperm(n, generator=gen).tolist()
+
+
+def adapter_record(model, args, tok, losses: list[float], step: int) -> dict:
+    decoder_start = getattr(model.generation_config, "decoder_start_token_id", None)
+    if decoder_start is None:
+        decoder_start = getattr(tok, "decoder_start_token_id", None)
+    if decoder_start is None:
+        # T5Gemma2 has no explicit decoder_start_token_id; generation starts from BOS.
+        decoder_start = getattr(tok, "bos_token_id", None)
+    return {
+        "lora": lora_state(model),
+        "format_version": 2,
+        "rank": args.rank,
+        "alpha": args.alpha,
+        "dropout": args.dropout,
+        "targets": list(TARGETS),
+        "text_only": not args.keep_vision,
+        "steps": args.steps,
+        "step": step,
+        "seed": args.seed,
+        "train_loss_last": losses[-1] if losses else None,
+        "train_loss_mean": sum(losses) / len(losses) if losses else None,
+        "input_contract": {
+            "prefix": args.prefix,
+            "max_input": args.max_input,
+            "max_target": args.max_target,
+            "tokenizer_dir": str(T5),
+            "tokenizer_eos_id": tok.eos_token_id,
+            "tokenizer_pad_id": tok.pad_token_id,
+            "decoder_start_token_id": decoder_start,
+            "label_format": "summary content + eos; padding=-100",
+        },
+        "optimizer": {"name": "AdamW", "lr": args.lr, "weight_decay": args.weight_decay},
+        "reshuffle": "epoch",
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+    }
+
+
+def write_adapter(path: Path, model, args, tok, losses: list[float], step: int) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    torch.save(adapter_record(model, args, tok, losses, step), path)
+    print(json.dumps({"event": "saved", "adapter": str(path), "step": step, "bytes": path.stat().st_size}), flush=True)
+
+
+def build_model(
+    drop_vision: bool = True,
+    dtype=torch.bfloat16,
+    rank: int = 8,
+    alpha: int = 16,
+    dropout: float = 0.05,
+):
     model = AutoModelForSeq2SeqLM.from_pretrained(
         str(T5), local_files_only=True, dtype=dtype, low_cpu_mem_usage=True
     )
@@ -98,7 +156,7 @@ def build_model(drop_vision: bool = True, dtype=torch.bfloat16):
         enc = model.model.encoder
         if hasattr(enc, "vision_tower"):
             del enc.vision_tower
-    names = attach_lora(model)
+    names = attach_lora(model, r=rank, alpha=alpha, dropout=dropout)
     for p in model.parameters():
         p.requires_grad_(False)
     for n, p in model.named_parameters():
@@ -126,7 +184,7 @@ def rss_gb() -> float:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["smoke", "pilot", "eval"], default="smoke")
+    ap.add_argument("--mode", choices=["smoke", "pilot", "full", "eval"], default="smoke")
     ap.add_argument("--steps", type=int, default=1)
     ap.add_argument("--eval-limit", type=int, default=0)
     ap.add_argument("--eval-max-new", type=int, default=448)
@@ -136,37 +194,62 @@ def main() -> int:
     ap.add_argument("--repetition-penalty", type=float, default=1.0)
     ap.add_argument("--no-repeat-ngram", type=int, default=0)
     ap.add_argument("--lr", type=float, default=1e-3)
+    ap.add_argument("--weight-decay", type=float, default=0.01)
     ap.add_argument("--rank", type=int, default=8)
     ap.add_argument("--alpha", type=int, default=16)
     ap.add_argument("--dropout", type=float, default=0.05)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--out", type=Path, default=OUT / "pilot")
     ap.add_argument("--adapter", type=Path, default=CKPT / "adapter.pt")
+    ap.add_argument("--checkpoint-dir", type=Path, default=None)
+    ap.add_argument("--checkpoint-steps", default="", help="comma-separated exact steps, e.g. 647,1293,1940,2586")
+    ap.add_argument("--save-every", type=int, default=0, help="also save at every N steps; 0 disables")
+    ap.add_argument("--eval-checkpoints", action="store_true", help="evaluate val at each saved checkpoint")
+    ap.add_argument("--step-time-limit", type=float, default=60.0, help="abort if one optimizer step exceeds this many seconds; 0 disables")
+    ap.add_argument("--rss-limit-gb", type=float, default=13.0)
     ap.add_argument("--keep-vision", action="store_true")
     ap.add_argument("--grad-checkpoint", action="store_true")
     ap.add_argument("--no-save", action="store_true")
     args = ap.parse_args()
+    if args.checkpoint_dir is None:
+        args.checkpoint_dir = args.out / "checkpoints"
+    checkpoint_steps = {
+        int(x.strip()) for x in args.checkpoint_steps.split(",") if x.strip()
+    }
+    if any(x < 1 or x > args.steps for x in checkpoint_steps):
+        raise SystemExit(f"checkpoint step outside 1..{args.steps}: {sorted(checkpoint_steps)}")
     torch.manual_seed(args.seed)
     torch.set_num_threads(6)
     args.out.mkdir(parents=True, exist_ok=True)
+    args.checkpoint_dir.mkdir(parents=True, exist_ok=True)
 
     records = read_jsonl(DATA)
     split = json.loads(SPLITS.read_text(encoding="utf-8"))
     train = [r for r in records if str(r["id"]) in set(split["train"])]
     val = {str(r["id"]): r for r in records if str(r["id"]) in set(split["val"])}
     if args.mode == "eval":
-        model, names = build_model(drop_vision=not args.keep_vision)
+        model, names = build_model(
+            drop_vision=not args.keep_vision,
+            rank=args.rank,
+            alpha=args.alpha,
+            dropout=args.dropout,
+        )
         load_lora_state(model, args.adapter)
         model.eval()
         return evaluate(model, names, args, list(val.values())[: args.eval_limit or None])
 
     t0 = time.time()
-    model, names = build_model(drop_vision=not args.keep_vision)
+    model, names = build_model(
+        drop_vision=not args.keep_vision,
+        rank=args.rank,
+        alpha=args.alpha,
+        dropout=args.dropout,
+    )
     if args.grad_checkpoint:
         model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     model.config.use_cache = False
     params = [p for p in model.parameters() if p.requires_grad]
-    opt = torch.optim.AdamW(params, lr=args.lr)
+    opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=args.weight_decay)
     tok = AutoTokenizer.from_pretrained(str(T5), local_files_only=True)
     print(json.dumps({
         "event": "load",
@@ -176,15 +259,32 @@ def main() -> int:
         "trainable_params": sum(p.numel() for p in params),
         "total_params": sum(p.numel() for p in model.parameters()),
         "text_only": not args.keep_vision,
+        "rank": args.rank,
+        "alpha": args.alpha,
+        "dropout": args.dropout,
+        "weight_decay": args.weight_decay,
+        "reshuffle": "epoch",
     }), flush=True)
 
-    order = list(range(len(train)))
-    torch.Generator().manual_seed(args.seed)
-    order = torch.randperm(len(train), generator=torch.Generator().manual_seed(args.seed)).tolist()
+    if not train:
+        raise SystemExit("empty train split")
+    order: list[int] = []
+    current_epoch = -1
     losses = []
     start = time.time()
     for step in range(1, args.steps + 1):
-        rec = train[order[(step - 1) % len(order)]]
+        epoch = (step - 1) // len(train)
+        if epoch != current_epoch:
+            order = build_order(len(train), args.seed, epoch)
+            current_epoch = epoch
+            print(json.dumps({
+                "event": "epoch_start",
+                "epoch": epoch,
+                "step": step,
+                "order_seed": args.seed + epoch,
+            }), flush=True)
+        rec = train[order[(step - 1) % len(train)]]
+        step_t0 = time.time()
         enc = encode(tok, args.prefix + str(rec["passage"]), args.max_input)
         labels = labels_for(tok, str(rec["summary"]), args.max_target)
         out = model(**enc, labels=labels)
@@ -196,37 +296,42 @@ def main() -> int:
         loss.backward()
         torch.nn.utils.clip_grad_norm_(params, 1.0)
         opt.step()
+        step_seconds = time.time() - step_t0
         losses.append(float(loss.detach()))
         if step == 1 or step % 5 == 0 or step == args.steps:
             print(json.dumps({
                 "event": "step",
                 "step": step,
+                "epoch": epoch,
                 "loss": round(float(loss.detach()), 4),
+                "step_seconds": round(step_seconds, 2),
                 "elapsed_s": round(time.time() - start, 1),
                 "rss_gb": round(rss_gb(), 2),
                 "input_tokens": int(enc["input_ids"].shape[1]),
                 "target_tokens": int((labels != -100).sum()),
             }), flush=True)
-        if rss_gb() > 13.0:
-            print(json.dumps({"event": "rss_stop", "rss_gb": round(rss_gb(), 2)}), flush=True)
+
+        should_save = step in checkpoint_steps or (args.save_every > 0 and step % args.save_every == 0)
+        if should_save and not args.no_save:
+            ckpt_path = args.checkpoint_dir / f"step_{step:04d}.pt"
+            write_adapter(ckpt_path, model, args, tok, losses, step)
+            if args.eval_checkpoints:
+                evaluate_checkpoint(model, val, args, step)
+
+        if args.step_time_limit > 0 and step_seconds > args.step_time_limit:
+            print(json.dumps({
+                "event": "step_time_stop",
+                "step": step,
+                "step_seconds": round(step_seconds, 2),
+                "limit": args.step_time_limit,
+            }), flush=True)
+            return 4
+        if rss_gb() > args.rss_limit_gb:
+            print(json.dumps({"event": "rss_stop", "rss_gb": round(rss_gb(), 2), "limit": args.rss_limit_gb}), flush=True)
             return 3
 
     if not args.no_save:
-        args.adapter.parent.mkdir(parents=True, exist_ok=True)
-        adapter = {
-            "lora": lora_state(model),
-            "rank": args.rank,
-            "alpha": args.alpha,
-            "dropout": args.dropout,
-            "targets": list(TARGETS),
-            "text_only": not args.keep_vision,
-            "steps": args.steps,
-            "seed": args.seed,
-            "train_loss_last": losses[-1] if losses else None,
-            "train_loss_mean": sum(losses) / len(losses) if losses else None,
-        }
-        torch.save(adapter, args.adapter)
-        print(json.dumps({"event": "saved", "adapter": str(args.adapter), "bytes": args.adapter.stat().st_size}), flush=True)
+        write_adapter(args.adapter, model, args, tok, losses, args.steps)
 
     if args.eval_limit:
         model.eval()
@@ -272,11 +377,22 @@ def evaluate(model, names, args, recs) -> int:
         print(json.dumps({"event": "eval", "id": rec["id"], "char_f1": round(rows[-1]["char_f1"], 4), "eos": rows[-1]["ended_eos"]}), flush=True)
     path = args.out / "eval.jsonl"
     path.write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in rows) + "\n", encoding="utf-8")
+    slot_values = [x["slot_preservation"] for x in rows]
+    nonvacuous = [x for x in rows if x["summary_slot_count"] > 0]
     metrics = {
         "n": len(rows),
         "char_f1_mean": sum(x["char_f1"] for x in rows) / len(rows),
         "grounded_rate": sum(x["grounded"] for x in rows) / len(rows),
+        "grounded_rate_nonvacuous": (
+            sum(x["grounded"] for x in nonvacuous) / len(nonvacuous) if nonvacuous else 0.0
+        ),
         "new_slot_rate_mean": sum(x["new_slot_rate"] for x in rows) / len(rows),
+        "summary_slot_count": sum(x["summary_slot_count"] for x in rows),
+        "slots_per_doc": sum(x["summary_slot_count"] for x in rows) / len(rows),
+        "slotfree_docs": sum(x["summary_slot_count"] == 0 for x in rows),
+        "slot_preservation_mean": sum(slot_values) / len(slot_values),
+        "slot_preservation_min": min(slot_values),
+        "slot_preservation_missing_docs": sum(x < 1.0 for x in slot_values),
         "eos_rate": sum(x["ended_eos"] for x in rows) / len(rows),
         "gen_len_mean": sum(x["gen_len"] for x in rows) / len(rows),
         "repeated_4gram_rate_mean": sum(x["repeated_4gram_rate"] for x in rows) / len(rows),
@@ -285,6 +401,20 @@ def evaluate(model, names, args, recs) -> int:
     (args.out / "eval.metrics.json").write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({"event": "eval_metrics", **metrics, "out": str(path)}, ensure_ascii=False), flush=True)
     return 0
+
+
+def evaluate_checkpoint(model, val, args, step: int) -> None:
+    was_training = model.training
+    model.eval()
+    old_out = args.out
+    args.out = old_out / f"eval_step_{step:04d}"
+    args.out.mkdir(parents=True, exist_ok=True)
+    try:
+        evaluate(model, [], args, list(val.values())[: args.eval_limit or None])
+    finally:
+        args.out = old_out
+        if was_training:
+            model.train()
 
 
 if __name__ == "__main__":

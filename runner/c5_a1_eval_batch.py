@@ -86,19 +86,34 @@ def main() -> int:
     n = len(outputs)
     sum_slots = sum(x["summary_slot_count"] for x in outputs)
     sum_new = sum(x["new_slot_count"] for x in outputs)
+    slot_values = [x["slot_preservation"] for x in outputs]
+    nonvacuous = [x for x in outputs if x["summary_slot_count"] > 0]
     metrics = {
         "n": n,
         "char_f1_mean": sum(x["char_f1"] for x in outputs) / n,
         "grounded_rate": sum(x["grounded"] for x in outputs) / n,
+        "grounded_rate_nonvacuous": (
+            sum(x["grounded"] for x in nonvacuous) / len(nonvacuous) if nonvacuous else 0.0
+        ),
         "new_slot_rate_mean": sum(x["new_slot_rate"] for x in outputs) / n,
         "new_slot_rate_micro": sum_new / sum_slots if sum_slots else 0.0,
         "new_slot_count": sum_new,
         "summary_slot_count": sum_slots,
+        "slots_per_doc": sum_slots / n,
+        "slotfree_docs": sum(x["summary_slot_count"] == 0 for x in outputs),
+        "slot_preservation_mean": sum(slot_values) / n,
+        "slot_preservation_min": min(slot_values),
+        "slot_preservation_missing_docs": sum(x < 1.0 for x in slot_values),
+        "slot_preservation_zero_docs": sum(x == 0.0 for x in slot_values),
         "eos_rate": sum(x["ended_eos"] for x in outputs) / n,
         "nonempty_rate": sum(x["nonempty"] for x in outputs) / n,
         "gen_len_mean": sum(x["gen_len"] for x in outputs) / n,
         "repeated_4gram_rate_mean": sum(x["repeated_4gram_rate"] for x in outputs) / n,
         "distinct_2_mean": sum(x["distinct_2"] for x in outputs) / n,
+        "prefix": args.prefix,
+        "max_input": args.max_input,
+        "max_new": args.max_new,
+        "adapter": str(args.adapter),
     }
     args.metrics.parent.mkdir(parents=True, exist_ok=True)
     args.metrics.write_text(json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
