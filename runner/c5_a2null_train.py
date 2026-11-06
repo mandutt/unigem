@@ -107,15 +107,24 @@ def main() -> int:
             m[:t] = True
             masks.append(m)
             target = by_id[rec["id"]]["summary"]
+            # Content + <eos>, no <bos>: the model prepends <bos> when
+            # shifting labels. The tokenizer adds <bos> but no <eos>.
             enc = tok(
                 str(target),
                 return_tensors="pt",
                 truncation=True,
-                max_length=args.max_target,
-                padding="max_length",
+                max_length=args.max_target - 1,
+                padding=False,
+                add_special_tokens=False,
             )
-            lab = enc["input_ids"].squeeze(0)
-            lab[enc["attention_mask"].squeeze(0) == 0] = -100
+            content = enc["input_ids"].squeeze(0)
+            n = int(content.numel())
+            lab = torch.full((args.max_target,), tok.pad_token_id, dtype=torch.long)
+            lab[:n] = content
+            lab[n] = tok.eos_token_id
+            valid = torch.zeros(args.max_target, dtype=torch.bool)
+            valid[: n + 1] = True
+            lab[~valid] = -100
             labels.append(lab)
         # pad z to max length in batch
         t_max = max(x.shape[0] for x in zs)

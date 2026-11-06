@@ -108,6 +108,10 @@
 
 ## 11. 해석 주의
 
+- 이 문서의 full train 수치는 **label 결함 상태**다. target tokenizer의 `<bos>`를 label에 포함하고 `<eos>`를 넣지 않아 decoder가 정지 토큰을 배우지 못했다.
+- 수정 label로 재학습하기 전까지 이 수치를 A2-null 성능 근거로 사용하지 않는다.
+- 원인 조사와 Exa 근거: `reports/C5_a2null_search_2026-11-06.md`
+
 - 이 smoke는 **A2-null이 학습 가능**하다는 것만 확인했다.
 - A1보다 요약이 잘 된다는 증거가 아니다.
 - 원 Reddit 방법은 pooled audio embedding이고, A2-null-seq는 token-level text 확장이다.

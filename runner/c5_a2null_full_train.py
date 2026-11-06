@@ -63,9 +63,26 @@ def make_batch(batch, by_id, tok, max_memory: int, max_target: int):
         m[:t] = True
         masks.append(m)
         target = str(by_id[rec["id"]]["summary"])
-        enc = tok(target, return_tensors="pt", truncation=True, max_length=max_target, padding="max_length")
-        lab = enc["input_ids"].squeeze(0)
-        lab[enc["attention_mask"].squeeze(0) == 0] = -100
+        # The tokenizer adds <bos> but not <eos>. Training labels must contain
+        # the content followed by <eos>; the model prepends <bos> itself when
+        # shifting labels. Including <bos> in labels would teach the decoder to
+        # emit <bos> first and would never teach it to stop.
+        enc = tok(
+            target,
+            return_tensors="pt",
+            truncation=True,
+            max_length=max_target - 1,
+            padding=False,
+            add_special_tokens=False,
+        )
+        content = enc["input_ids"].squeeze(0)
+        n = int(content.numel())
+        lab = torch.full((max_target,), tok.pad_token_id, dtype=torch.long)
+        lab[:n] = content
+        lab[n] = tok.eos_token_id
+        valid = torch.zeros(max_target, dtype=torch.bool)
+        valid[: n + 1] = True
+        lab[~valid] = -100
         labels.append(lab)
     t_max = max(x.shape[0] for x in zs)
     z_pad = torch.zeros(len(zs), t_max, 768, dtype=torch.float32)
