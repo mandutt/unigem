@@ -1,7 +1,7 @@
 # C5 A2-null — smoke 기록
 
 - 작성: 2026-11-06
-- 상태: **feasibility + 2-step adapter smoke 완료, pilot extraction 진행 중**
+- 상태: **1-epoch full adapter train 완료, val 생성 품질 미달**
 - 원본: `reports/provenance/C5_a2null/nullspace_probe.json`
 
 ## 1. Null-space
@@ -75,14 +75,38 @@
 - meta: `reports/provenance/C5_a2null/features_meta.json`
 - 검증: NaN 0, length train 629~910, val 622~865, test 665~875
 
-## 8. 다음
+## 8. 1-epoch full adapter train
 
-1. full adapter train (1,293 train, val 161) — 별도 승인
-2. A2-null-raw control
+- train **1,293**, val **161**
+- steps **1,293**
+- elapsed **2,646.1초 (44.1분)**
+- train loss **3.2487**
+- val loss **3.1196**
+- step time **1.75~1.98초**
+- final RSS **2,954.7MB**
+- 산출물: `data/models/f5_a2null_full/{adapter.pt,last.pt,train_report.json}`
+
+## 9. Val 생성 평가 (5건)
+
+| 항목 | 값 |
+|---|---:|
+| char F1 평균 | **0.1603** |
+| grounded rate | **0/5** |
+| new slot rate 평균 | **0.9000** |
+
+- 출력이 `10대 여성의 10대 여성의 ...`, `2019년 12월 15일, 1999년 ...`처럼 반복 붕괴했다.
+- teacher-forced val loss 3.12는 생성 품질을 보장하지 않았다.
+- **adapter-only 1 epoch로는 A2-null이 usable하지 않다.**
+- test 163은 사용하지 않았다.
+
+## 10. 다음
+
+1. A2-null-raw control (injection 없이 768→640)
+2. adapter+decoder LoRA 또는 2 epoch 재학습 여부 결정
 3. A1 standard LoRA와 val 비교
 4. test 163은 마지막 1회
 
-## 9. 해석 주의
+## 11. 해석 주의
 
 - 이 smoke는 **A2-null이 학습 가능**하다는 것만 확인했다.
 - A1보다 요약이 잘 된다는 증거가 아니다.

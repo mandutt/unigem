@@ -87,8 +87,7 @@ def main() -> int:
     for rec in feats:
         t = min(rec["length"], args.max_memory)
         z = rec["z"][:t]
-        mask = torch.zeros(args.max_memory, dtype=torch.bool)
-        mask[:t] = True
+        mask = torch.ones(t, dtype=torch.bool)
         with torch.inference_mode():
             memory = adapter(z.unsqueeze(0)).to(torch.bfloat16)
             gen = model.generate(
