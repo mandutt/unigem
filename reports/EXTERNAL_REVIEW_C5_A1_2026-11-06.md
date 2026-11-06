@@ -102,7 +102,7 @@ A2-null 3-arm 결과에 대해 GLM 5.3 Flash(max), Opus 5.5(medium), Terra 6.1(h
 4. A1 pilot300 val 5 → val 161 batch
 5. T5Gemma2 논문(arXiv 2512.14856) 구조 확인
 6. EG2→T5 최소 bridge 문헌 조사(Exa)
-7. B3 soft-prefix bridge는 **아직 미구현**
+7. B-family soft-prefix bridge(B3/B1/B1d/B2)는 **아직 미구현**
 
 ---
 
@@ -199,20 +199,183 @@ O = Softmax(QK^T/√d ⊙ M) V W_o
 - T5Gemma2는 UL2 pretraining(2T tokens, 16K), post-training은 distillation 중심의 가벼운 수준; 270M은 한국어 요약 IT 모델이 아님
 - 128K context; 우리 input max 908, target max 439 → truncation 배제
 
-### 3.7 EG2→T5 최소 bridge 문헌 조사
+### 3.7 EG2→T5 최소 bridge — 설계 공간과 후보
 
-Exa 결과:
+이 절은 이번 검토의 핵심이다. **F5 summary adapter**와 **범용 EG2→T5 bridge**를 분리해서 본다.
 
-- **Gemini Embedding as Universal Encoder**(blog): frozen embedding → 17M MLP → k virtual tokens → frozen LLM; task-specific supervision; GPU <1분/태스크
-- **LatentPress**(arXiv 2609.01507): frozen decoder가 continuous memory token을 input-embedding interface로 직접 읽음; writer 0.18~0.25%
-- **LLINK**(arXiv 2510.27254): projector → K soft slots + small LoRA; “decoder may disregard aligned representation without explicit training signals”
-- **eP-ALM**(arXiv 2303.11403): frozen encoder/LLM, linear projection only, multi-layer injection
-- **Mixing Encoders/Decoders**(Moomin 2024): dimension adapter + representation adapter layers; frozen encoder/decoder; optional 2-stage decoder unfreeze
-- **VLAP**(arXiv 2404.09632): single linear mapping to frozen LLM word-embedding space + captioning objective
-- **SLM**(arXiv 2310.00230): frozen speech encoder + frozen LLM + few transformer adapter layers; next-token loss
-- **Vec2Text**: embedding inversion; strong but separate iterative model, not minimal
+#### 3.7.1 목표 정의
 
-**제안 B3**: EG2 pooled 768 → MLP → K soft tokens 640 → T5Gemma2 encoder `inputs_embeds` 앞에 prepend; encoder/decoder frozen; adapter만 학습. 아직 미실행.
+두 목표는 다르다.
+
+| 목표 | 정의 | 학습 데이터 | 재사용 |
+|---|---|---|---|
+| **F5-only bridge** | EG2 표현으로 F5 요약을 잘 생성 | summary 1,293쌍 | F5만 |
+| **범용 bridge** | EG2 표현을 T5Gemma2 decoder가 여러 task에서 사용 | 대규모 P0 text + task prompts | F4/F6/F3 등 |
+
+A2-null은 F5-only bridge의 한 구현이었다. A1은 bridge가 아니라 **T5Gemma2 native encoder**를 쓰는 별도 경로다.
+
+#### 3.7.2 A2와 B-family의 차이
+
+A2:
+
+```text
+EG2 token feature
+→ adapter 640
+→ decoder의 encoder_outputs (external memory)
+→ decoder frozen
+```
+
+B-family:
+
+```text
+EG2 feature
+→ adapter
+→ soft tokens (640d)
+→ T5Gemma2 encoder의 inputs_embeds 앞에 prepend
+→ native encoder + decoder
+```
+
+| 항목 | A2 | B-family |
+|---|---|---|
+| T5 encoder | **우회** | **사용** |
+| 주입 위치 | decoder cross-attention memory | encoder input embedding |
+| decoder | frozen | frozen(B1/B3) 또는 small LoRA(B2) |
+| task cue | 없음 | 없음(soft token) 또는 선택적 prefix |
+| A2 실패 원인 | merged decoder 적응 부재 | encoder 분포 유지로 완화 기대 |
+
+T5Gemma2 `forward`는 `encoder_outputs`가 주어지면 encoder를 건너뛴다. B-family는 `inputs_embeds`를 encoder에 넣어 **native encoder 경로를 보존**한다.
+
+#### 3.7.3 B3 — pooled soft-prefix
+
+가장 단순한 후보.
+
+```text
+e = Pool(EG2_text_hidden) ∈ R^768
+s = Adapter(e) ∈ R^{K×640}
+H_in = [ s ; Embed_T5(passage) ]       # (K+T)×640
+mask = [1_K ; passage_mask]
+logits = T5Gemma2(inputs_embeds=H_in, attention_mask=mask, labels=y)
+```
+
+- Pool: mean 또는 attention pooling
+- Adapter: `Linear(768, K*640)` 또는 `MLP(768→1024→K*640)` + LayerNorm
+- K: 8 / 16 / 32
+- soft token scale: T5 embedding과 같은 scale (`sqrt(640)` 또는 learned scalar)
+- base encoder/decoder frozen; adapter만 학습
+- CE loss는 target summary label
+
+**파라미터**
+
+| K | Linear 768→K·640 | MLP 768→1024→K·640 |
+|---:|---:|---:|
+| 8 | 3.9M | 6.0M |
+| 16 | 7.9M | 11.3M |
+| 32 | 15.7M | 22.4M |
+
+**학습 비용(예상)**
+
+- 300 step: 20~30분
+- 1,000 step: 70~90분
+- val 5: 2~3분; val 161: 10~15분
+- 구현·smoke: 1.5~2.5시간
+
+**실패 모드**
+
+1. decoder가 soft token을 무시 (cross-attention이 text token에만 집중)
+2. soft token이 T5 embedding scale과 불일치
+3. pooled 1개 vector가 passage의 token-level 정보를 잃음
+4. summary 1,293쌍만으로는 task-agnostic bridge가 아님
+
+#### 3.7.4 B1 — token-level soft-prefix / teacher distillation
+
+EG2 token hidden을 T5 encoder 입력으로 매핑한다.
+
+```text
+H_e = EG2_token_hidden ∈ R^{T×768}
+H_s = Adapter(H_e) ∈ R^{T×640}
+H_in = [ H_s ; Embed_T5(prompt) ]  # 또는 prompt를 EG2에도 포함
+```
+
+변형:
+
+- **B1a**: per-token `Linear(768→640)` (약 0.49M) — 가장 단순
+- **B1b**: 2-layer Transformer adapter (2~5M) — 문맥 보정
+- **B1c**: Perceiver/resampler, K queries → K×640 (2~10M)
+
+**중요**: H4′에서 T5Gemma2와 EG2의 분절이 코퍼스 4,695문장에서 **100% 일치**했다. 따라서 token-level 정렬을 전제로 할 수 있다. 단, prompt를 EG2에도 넣어 teacher와 student 입력을 맞춰야 한다.
+
+**Teacher-hidden distillation (B1d)**
+
+T5Gemma2 native encoder를 teacher로 사용한다.
+
+```text
+H_T = T5Encoder(prompt + passage)       # frozen teacher, 640d
+H_s = Adapter(EG2(prompt + passage))    # student, 640d
+L_align = 1 - cosine(H_s, H_T) + MSE(H_s, H_T)
+```
+
+- **summary label이 필요 없다.** P0 text만 있으면 된다.
+- adapter만 학습; encoder/decoder frozen.
+- 이후 decoder는 native encoder hidden과 같은 분포의 H_s를 받는다.
+- **범용 bridge에 가장 가까운 최소 학습 경로**다.
+- 단, T5 encoder hidden은 token-level 문맥을 포함하므로 per-token linear만으로 부족할 수 있다(B1b).
+- teacher hidden cache: 1,617×~900×640 fp16 ≈ **1.9GB**; CPU에서 생성·보관 가능.
+- 대규모 P0 text로 확장하면 task-agnostic bridge 가능성이 있다. 현재 1,617건은 feasibility만.
+
+#### 3.7.5 B2 — B1 + small decoder LoRA
+
+LLINK 결과처럼 adapter alignment만으로 decoder가 신호를 무시할 수 있다.
+
+```text
+B1 adapter + q/k/v/o LoRA
+```
+
+- LoRA 1.47M (r8) 추가
+- adapter + LoRA 학습; encoder frozen
+- B3/B1이 decoder에서 무시될 때만
+- LLINK: “decoder may still disregard the aligned representation without explicit training signals”
+- 비용: B1 + 1~2시간
+
+#### 3.7.6 기타 후보
+
+| 후보 | 내용 | 판단 |
+|---|---|---|
+| **prefix tuning** | decoder-only prefix; PEFT는 encoder-decoder에서 encoder prefix를 지원하지 않음 | 부적합 |
+| **eP-ALM식 다층 주입** | encoder [CLS]를 decoder 여러 layer에 linear projection | B1b/B2보다 침습적, 후순위 |
+| **ACP representation adapter** | dimension adapter + 2~4 transformer layers | B1b와 유사; 파라미터 더 큼 |
+| **VLAP식 word-embedding mapping** | EG2 → T5 word embedding space + captioning loss | soft token과 결합 가능 |
+| **Vec2Text** | EG2 embedding → text inversion → T5 | 별도 inversion model·iterative; “최소” 아님 |
+| **A2 external memory** | decoder에 직접 주입 | full val에서 실패 |
+
+#### 3.7.7 후보 비교
+
+| 후보 | T5 encoder | decoder | trainable | task-agnostic | 예상 |
+|---|---|---|---|---|---:|
+| A2 | 우회 | frozen | 1.08M | 아니오 | 실패 |
+| **B3** | 사용 | frozen | 4~16M | F5-only | 3~4h |
+| **B1a** | 사용 | frozen | 0.49M | teacher distillation 시 가능 | 4~6h |
+| **B1b** | 사용 | frozen | 2~5M | teacher distillation 시 가능 | 4~6h |
+| **B2** | 사용 | small LoRA | 2~7M | F5/B1 | 5~8h |
+| **B1d** | teacher 사용 | frozen | 0.5~5M | **가장 유망** | 4~7h |
+
+#### 3.7.8 권고 순서
+
+1. **B3** — 2~4시간, 가장 단순한 decoder-readability test
+2. **B1a/B1b teacher distillation** — 4~6시간, 범용 bridge의 핵심 후보
+3. **B1d teacher-hidden distillation** — 4~7시간, task-agnostic bridge 후보
+4. **B2** — B1이 decoder에서 무시될 때
+5. **A1 full train** — 검증된 F5 경로; B3/B1과 동시에 CPU에서 돌리지 않음
+
+#### 3.7.9 평가 계약
+
+- 같은 clean val 5 → val 161
+- `summarize: ` 없이 bare passage; task prefix를 쓰는 경우 별도 표기
+- metrics: char F1, grounded, new-slot micro, EOS, repeated4, copy rate
+- A0 0.6111, A1 pilot300 0.6576와 비교
+- test 163은 최종 후보 1회만
+- **B3/B1a/B1b은 F5-only adapter**이므로, “범용” 주장은 multi-task/teacher distillation 확장 전에는 하지 않는다.
+- **B1d teacher-hidden distillation**은 teacher prompt를 다양화할 때만 task-agnostic 후보가 된다; 현재 1,293 summary만으로는 여전히 F5-specific이다.
+
 
 ---
 
@@ -254,9 +417,9 @@ Exa 결과:
 |---|---|---|---|
 | **D1** | A1 full train 승인 | 2 epoch / 3 epoch / 보류 | **2 epoch 먼저**, val 161 best |
 | **D2** | full train prefix 조건 | `summarize: ` 고정 / bare / prefix dropout | **F5 전용이면 prefix 고정**; 범용성 우선이면 dropout arm |
-| **D3** | B3 soft-prefix bridge | A1 full train 전 / 후 / 하지 않음 | **B3 smoke/pilot을 A1 full train 전에 2~3시간** |
+| **D3** | EG2→T5 bridge 우선순위 | B3 / B1a-b / B1d teacher distillation / B2 / A1 full train 먼저 | **B3 2~4h → B1d 4~7h**; A1 full train 별도 |
 | **D4** | A2 종결 | raw control 후 / full val 근거로 종결 | **현재 근거로 제품 후보 종결**, raw는 exploratory 기록 |
-| **D5** | test 163 | full train 후 1회 / B3 후 / 보류 | **A1 full train best val 1개만 1회** |
+| **D5** | test 163 | full train 후 1회 / B-family 후 / 보류 | **A1 full train best val 1개만 1회** |
 | **D6** | 사람 50건 | full train 전 / 후 | **full train 후, test 전** |
 
 ---
@@ -269,7 +432,7 @@ Exa 결과:
 
 **Q3.** `summarize: ` prefix를 학습에 넣는 것이 F5 전용으로는 타당한가? bare/prefix dropout과 비교할 가치가 있는가? 다른 task(F4/F6/F3) 재사용 가능성과 분리하는 설계가 충분한가?
 
-**Q4.** EG2→T5의 “최소 adapter” 목표를 위해 B3 pooled soft-prefix를 지금 구현할 가치가 있는가? 아니면 A1 full train을 먼저 완료하고 B3를 후속 exploratory로 두는가?
+**Q4.** EG2→T5의 “최소 adapter” 목표를 위해 **B3 pooled soft-prefix, B1a-b token soft-prefix, B1d teacher-hidden distillation, B2 LoRA** 중 어디부터 실험해야 하는가? B1d가 범용 bridge의 가장 유망한 최소 경로인가, 아니면 B3 decoder-readability test가 먼저인가?
 
 **Q5.** A2를 raw-vs-seq control 없이 제품 후보에서 종결하는 것이 정당한가? memory-ablation 양성 신호를 남기되, 추가 decoder LoRA를 하지 않는 판단이 맞는가?
 
@@ -279,7 +442,7 @@ Exa 결과:
 
 **Q8.** A1 full train에서 LoRA target을 q/k/v/o r8로 유지할 것인가, FFN 또는 rank 16을 추가할 것인가? T5Gemma2 merged attention 구조에서 우선순위는?
 
-**Q9.** test 163은 A1 full train best val 1개에만 1회 사용하는 현 계획이 맞는가? B3를 병행할 경우 test를 어떻게 배분해야 하는가?
+**Q9.** test 163은 A1 full train best val 1개에만 1회 사용하는 현 계획이 맞는가? B-family bridge를 병행할 경우 test를 어떻게 배분해야 하는가?
 
 **Q10.** A1이 EG2를 사용하지 않고 T5Gemma2 native encoder를 쓰는데, 이것이 “F5 메모리 요약” 목표에는 맞지만 “EG2 재사용” 목표에는 어긋난다. 프로젝트 목표를 어떻게 정의해야 하는가?
 
@@ -393,4 +556,4 @@ Exa 결과:
 
 ## 11. 한 줄 요청
 
-> A1 pilot300의 val 161 결과가 full train을 시작할 충분한 근거인지, `summarize: ` prefix를 F5 전용으로 고정해도 되는지, B3 soft-prefix bridge를 지금 실험할 가치가 있는지 판정해 주세요.
+> A1 pilot300의 val 161 결과가 full train을 시작할 충분한 근거인지, `summarize: ` prefix를 F5 전용으로 고정해도 되는지, B3/B1/B1d/B2 중 EG2→T5 bridge를 어디부터 실험해야 하는지 판정해 주세요.
