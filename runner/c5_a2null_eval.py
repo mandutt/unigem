@@ -25,18 +25,29 @@ OUT = ROOT / "reports/provenance/C5_a2null"
 
 
 class Adapter(nn.Module):
-    def __init__(self, d_in: int = 768, d_out: int = 640, hidden: int = 768):
+    def __init__(self, d_in: int = 768, d_out: int = 640, hidden: int = 768, use_norm: bool = True):
         super().__init__()
-        self.net = nn.Sequential(
+        layers = [
             nn.Linear(d_in, hidden),
             nn.GELU(),
             nn.Linear(hidden, d_out),
-            nn.LayerNorm(d_out),
-        )
-        self.scale = nn.Parameter(torch.tensor(5.0))
+        ]
+        if use_norm:
+            layers.append(nn.LayerNorm(d_out))
+        self.net = nn.Sequential(*layers)
+        self.scale = nn.Parameter(torch.tensor(5.0)) if use_norm else None
 
     def forward(self, x):
-        return self.net(x) * self.scale
+        y = self.net(x)
+        return y * self.scale if self.scale is not None else y
+
+
+def load_adapter(path: Path) -> Adapter:
+    state = torch.load(path, map_location="cpu")
+    sd = state["adapter"]
+    adapter = Adapter(use_norm="scale" in sd)
+    adapter.load_state_dict(sd)
+    return adapter.eval()
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -85,10 +96,7 @@ def main() -> int:
     model = AutoModelForSeq2SeqLM.from_pretrained(
         str(T5), local_files_only=True, dtype=torch.bfloat16, low_cpu_mem_usage=True
     ).eval()
-    adapter = Adapter().float()
-    state = torch.load(args.adapter, map_location="cpu")
-    adapter.load_state_dict(state["adapter"])
-    adapter.eval()
+    adapter = load_adapter(args.adapter)
     outputs = []
     for rec in feats:
         t = min(rec["length"], args.max_memory)
