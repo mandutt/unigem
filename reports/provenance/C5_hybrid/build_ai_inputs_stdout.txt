@@ -1,0 +1,21 @@
+{
+  "outdir": "C:\\code\\unigem\\reports\\provenance\\C5_hybrid\\ai_inputs",
+  "judges": {
+    "glm": {
+      "path": "C:\\code\\unigem\\reports\\provenance\\C5_hybrid\\ai_inputs\\judge_glm.jsonl",
+      "docs": 50,
+      "bytes": 436554
+    },
+    "sonnet": {
+      "path": "C:\\code\\unigem\\reports\\provenance\\C5_hybrid\\ai_inputs\\judge_sonnet.jsonl",
+      "docs": 50,
+      "bytes": 436704
+    },
+    "sol": {
+      "path": "C:\\code\\unigem\\reports\\provenance\\C5_hybrid\\ai_inputs\\judge_sol.jsonl",
+      "docs": 50,
+      "bytes": 436304
+    }
+  },
+  "total_prompts": 150
+}

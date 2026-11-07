@@ -1,0 +1,41 @@
+{
+  "out": "C:\\code\\unigem\\reports\\provenance\\C5_hybrid\\manifest.json",
+  "sample": 50,
+  "calibration": 20,
+  "repeat": 5,
+  "ai_ratings": 600,
+  "human_calibration_ratings": 80,
+  "human_repeat_ratings": 20,
+  "human_total": 100,
+  "calibration_targeted": [
+    "REPORT-news_r-02742-00001",
+    "REPORT-news_r-03978-00001",
+    "REPORT-news_r-04709-00001",
+    "REPORT-news_r-04951-00002",
+    "REPORT-news_r-01518-00001",
+    "REPORT-news_r-03801-00001",
+    "REPORT-news_r-00138-00003",
+    "REPORT-news_r-00159-00002",
+    "REPORT-news_r-00426-00001",
+    "REPORT-news_r-00450-00001"
+  ],
+  "calibration_random": [
+    "REPORT-news_r-03906-00001",
+    "REPORT-news_r-04679-00001",
+    "REPORT-news_r-00389-00001",
+    "REPORT-news_r-01555-00001",
+    "REPORT-news_r-03241-00001",
+    "REPORT-news_r-02426-00001",
+    "REPORT-news_r-02169-00001",
+    "REPORT-news_r-00649-00001",
+    "REPORT-news_r-05467-00001",
+    "REPORT-news_r-00622-00001"
+  ],
+  "repeat_ids": [
+    "REPORT-news_r-02742-00001",
+    "REPORT-news_r-03978-00001",
+    "REPORT-news_r-04709-00001",
+    "REPORT-news_r-03906-00001",
+    "REPORT-news_r-04679-00001"
+  ]
+}
