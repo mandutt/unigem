@@ -1,0 +1,34 @@
+Review complete. Workspace synced to `origin/main` HEAD `e8b6367c1bd16b010318145587aaaedc14a77027` (fetch OK, pull "Already up to date"). Full report written to `docs/hoplite/c5_d084_rev2_2026-11-07/review_GLM.md` (266 lines) — the only file added; nothing else touched. I read the request, rev2 draft, and prior synthesis in full, plus the audit code/JSON, v1 verifier, error analysis, eval metrics, both syntheses, and the original draft. The audit was not re-run (it writes into the repo, and `data/external/` is absent from this sandbox).
+
+**Verdict table**
+
+| ID | Verdict | One-line |
+|---|---|---|
+| R1 084a URL-only baseline | **agree*** | Right split; *conditional on measuring the strictness direction |
+| R2 084b unit report-only | **agree** | 902/1,617 collisions; clause is selection-inert |
+| R3 084b alias off | **agree** | Audit alias bypasses uniqueness guard (code line 132) |
+| R4 Candidate 2,586 provisional | **conditional** | Rule-based OK; must pre-register a "no candidate" branch |
+| R5 1,940 exploratory | **agree** | 158 confirmed [derived]: `03978` is a time-type new — only the qualifier clause could fix it |
+| R6 Human 50: 4 arms, 2,586 primary | **agree*** | *Conditional on protocol pre-registration |
+| R7 Spec audit DoD stronger | **conditional** | Needs 4 additions (regressions, kinds, attribution, INCONCLUSIVE rule) |
+| R8 Test 163 seal | **agree** | Chain sound; A0-use exposure recorded |
+| Q1 Separation achieved | **agree*** | *Only if the match-removing direction is measured |
+| Q2 Wrap-join conditions | **conditional** | "Source-attested" not operational; wrong-suffix negative test missing |
+| Q3 1,940 = 158; exploratory first | **agree** | Alias-first would fix exactly one doc — outcome-driven |
+| Q4 Qualifier out of 084a | **agree** | Changes no selection outcome; pure policy risk |
+| Q5 2,586 vs no candidate | **conditional** | Provisional label OK only with no-candidate fallback pre-registered |
+| Q6 1,293 sensitivity arm | **agree** | Swapping candidate now would be post-hoc |
+| Q7 Human 50 design | **agree*** | 1,940 quality view = prominent exploratory reporting, not eligibility |
+| Q8 G-C5 additions | **conditional** | INCONCLUSIVE trigger undefined; CP figures verified consistent (two-sided 95%) |
+| Q9 Audit DoD sufficient | **conditional** | Uniqueness semantics, alias contamination, regression check missing |
+| Q10 Flip adjudication realistic | **conditional** | Under 084a expect **0** excluded flips — all 5 known flips are unit-clause (084b evidence) |
+| Q11 Test-163 conditions | **agree** | No reorder justification |
+| Q12 Rev2 gaps | **conditional** | 7 Must-fix below |
+| Q13 Resolves 3-AI critiques | **conditional** | Mostly yes; corrects the conflated 1,940 "159" to 158 |
+| Q14 Request errors | **agree w/ notes** | No material errors; 3 omissions, 2 [unverified] claims |
+
+**Top Must-fix**: (1) operational "source-attested" definition + wrong-suffix negative test; (2) **measure strictness-induced regressions** (v1-pass→084a-fail) on val 161 + clean 1,617 and classify kinds of all residual failures — today nothing bounds the match-removing direction; (3) distinct typed-slot uniqueness semantics + tests (18일+18명 → no match); (4) freeze verifier/spec hash *before* re-scoring; (5) per-flip clause attribution + "0 expected excluded flips under URL-only"; (6) concrete INCONCLUSIVE rule; (7) human-50 pre-registration as blocking gate.
+
+**Top experiments**: spec-faithful 084a audit + clause ablation (~0.5–1 day impl, minutes compute); strictness exposure census (same run); residual-failure kind taxonomy (~1–2 h); human-50 dry run (~2–3 person-h); full human 50 (12–20 person-h, after pre-registration).
+
+**Key original finding**: 084a's stricter canonicalization can only *remove* matches (the wrap join is the only match-adding change), and the old audit structurally could not detect such regressions — "clean 1,617 diff = 0" is vacuous in the strict direction too. If any regression hits 1,293/2,586, the expected 160s break, and the honest outcome is no candidate with pilot300 fallback intact. D-083 (`selected_step: null`, pilot300 fallback) stands unchanged; nothing here is an approval.

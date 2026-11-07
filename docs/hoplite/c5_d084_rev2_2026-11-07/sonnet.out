@@ -1,0 +1,68 @@
+I wrote the review to `docs/hoplite/c5_d084_rev2_2026-11-07/review_SONNET.md`. That file is the only change in the working tree. I synced to origin/main HEAD `e8b6367c1bd16b010318145587aaaedc14a77027`, where `git pull --ff-only` reported "Already up to date".
+
+I read the full request, the rev2 draft and the prior synthesis, plus the audit code, the audit JSON, the v1 extractor and the per-checkpoint eval files. The source data (`data/external/*.jsonl`) is not in the repo. So I could not re-run the audit or read the source text of specific documents. I ran only in-memory checks on committed files:
+- v1 extractor probes on synthetic strings;
+- a paired bootstrap on per-document F1;
+- Clopper-Pearson (CP) arithmetic.
+
+I did not open test 163, use P1, run any model, or propose any gate change.
+
+## Verdict table
+
+| ID | Verdict | One-line answer |
+|---|---|---|
+| R1 | agree (conditional) | URL-only 084a is the right baseline. Add the URL boundary and source-side join rules first. |
+| R2 | agree | Keep unit report-only, and enforce in code that it cannot change `grounded`. |
+| R3 | agree | Keep the alias off. |
+| R4 | conditional | 2,586 is the formal candidate for human review only. Make "no A1 candidate" the explicit exit if human 50 fails. |
+| R5 | agree | 1,940 stays gate-ineligible and a human exploratory comparator. |
+| R6 | conditional | Four arms are fine. Name the decision contrast and the action rule. |
+| R7 | conditional | Split the DoD into 084a and 084b and add the missing items. |
+| R8 | agree | Keep test 163 sealed. |
+| Q1 | agree (conditional) | The split is right. Enforcement and DoD separation are still needed. |
+| Q2 | conditional | "Source-attested" is circular for the source side. The wrap regex's recall is unknown. |
+| Q3 | agree | Accept 158/161. Do not settle alias policy first. |
+| Q4 | agree | Keep 084b report-only. A qualifier clause would not change the eligible set or the winner. |
+| Q5 | conditional | Keep 2,586 with an honest label. Pre-commit the "no candidate" exit. |
+| Q6 | agree (conditional) | 1,293 as a sensitivity arm is enough. Its `03801` failure is still uncharacterized. |
+| Q7 | conditional | The design is sound. The decision rule is missing. |
+| Q8 | conditional | Define PASS/FAIL/INCONCLUSIVE before running. Doc-level CP cannot PASS at n=161. |
+| Q9 | conditional | Missing: URL boundary, flips in both directions, percent-escape and trailing-slash policy, non-vacuity checks. |
+| Q10 | conditional | Realistic for 084a. The 5 flips belong to 084b. |
+| Q11 | conditional | Add the human-50 action rule and a freeze manifest. The order is fine. |
+| Q12 | conditional | Seven Must-fix items (below). |
+| Q13 | conditional | Mostly resolved. Four findings remain. |
+| Q14 | — | Eleven errors, overstatements and omissions are listed in the report. |
+
+## Key findings
+- **Selection effect:** 084a's whole effect on selection is one validation document (`02742`). Fixing it moves 1,293 and 2,586 from 159/161 to 160/161. 2,586 therefore has zero spare margin, and its remaining failure (`04951`) is a real unsupported number.
+- **Qualifier:** it would not change the eligible set or the winner. 647 still fails repeated4, and 1,940 stays at 159/161 on `04709` and `04951`. Excluding it from 084a costs nothing.
+- **CP95 + INCONCLUSIVE:** at doc level the CP lower bound is 0.9773 even for pilot300 at 161/161. Every system would be INCONCLUSIVE.
+  - Slot-level two-sided CP upper bounds on new slots are 0.44% (pilot300), 0.65% (1,293, assumed 1 new slot), 0.94% (2,586, assumed 2 new slots) and 1.19% (1,940).
+  - The 1,293 and 2,586 figures use assumed 084a slot counts. One extra new slot would put 2,586 near 1.15%.
+- **URL boundary:** v1 absorbs trailing Hangul particles into URL slots. A probe gave `https://coronamap.site에서` as one slot. rev2 does not mention this.
+- **Flips:** the 5 excluded flips are plain numbers, so only the unit clause (084b) can explain them. Yet the DoD attaches them to 084a.
+- **Human 50:** "2,586 decision primary" names no comparator, metric, threshold or action.
+
+## Must-fix
+1. Specify the URL boundary and the source-side join rule. Cover Hangul particles, ASCII-only continuation, percent-escape case, trailing slash, and how `unresolved` is scored.
+2. Pin the expected table first, then re-score all five systems and the train/val clean targets in both directions (new failures as well as new passes). Record what happens if pilot300 changes.
+3. Define PASS/FAIL/INCONCLUSIVE. Keep eligibility on the D-083 point-estimate gate. CP and INCONCLUSIVE are labels only.
+4. Split the DoD into 084a and 084b. Add non-vacuity checks: the join must fire on `02742` and `04909`.
+5. Enforce the separation in code. `selection_v2` refuses to write unless the policy is exactly 084a-only, and the 084b report fields cannot change `grounded`.
+6. Pre-register the human-50 rule. The decision contrast is 2,586 vs pilot300. 2,586 vs 1,940 is a named exploratory contrast. An inconclusive result means no A1 candidate, pilot300 stays the fallback and test 163 stays sealed. Exclude or flag the 16 val documents that share a train article prefix.
+7. Characterize `03801`, `04951` and the true cause of the `04709` guard failure. Commit data manifests and per-document results so the audit can be reproduced.
+
+## Top additional experiments
+- **E1:** spec-faithful 084a re-score, both flip directions, no test ids (CPU, minutes).
+- **E2:** URL recall and Hangul-suffix scan on train/val/excluded sources (CPU, minutes).
+- **E3:** two-reader characterization of `03801`, `04709`, `04951`, `03978`, `02742` and the 647 residuals (about 1–2 rater-hours).
+- **E4:** human 50 under the pre-registered rule (about 6–10 rater-hours).
+- **E5:** executed clause ablation URL / +qualifier / +unit / +alias.
+
+I deferred seed 43 and any training.
+
+## Status of the numbers
+- **D-083 strict:** unchanged (`selected_step = null`, pilot300 fallback).
+- **084a table:** derived by hand from failure IDs, not produced by a run. Within it, the 647 value (156) is unverified.
+- **084b:** report-only throughout.

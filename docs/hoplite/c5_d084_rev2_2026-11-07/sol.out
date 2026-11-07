@@ -1,0 +1,53 @@
+Full report written to [docs/hoplite/c5_d084_rev2_2026-11-07/review_SOL.md](docs/hoplite/c5_d084_rev2_2026-11-07/review_SOL.md), covering every R1–R8 and Q1–Q14 with evidence and concrete next steps.
+
+Sync succeeded. Reviewed HEAD: `e8b6367c1bd16b010318145587aaaedc14a77027`.
+
+**Overall:** Support the URL-only direction conditionally, but rev2 is not yet an executable approval protocol. **2,586 is a conditional review nominee—not an approved candidate.** D-083 remains unchanged; 1,940 remains gate-ineligible and exploratory.
+
+### Compact verdict table
+
+| Item | Verdict | Main conclusion |
+|---|---|---|
+| R1 | Conditional | URL-only; tighten executable specification |
+| R2 | Agree | Unit diagnostics report-only |
+| R3 | Agree | Alias default off |
+| R4 | Conditional | 2,586 nomination requires corrected audit |
+| R5 | Agree | 1,940 exploratory, gate-ineligible |
+| R6 | Conditional | Four arms; complete human protocol |
+| R7 | Conditional | Stronger audit DoD still needs enforcement |
+| R8 | Agree | Keep test 163 sealed |
+| Q1 | Conditional | Conceptual separation good; API insufficient |
+| Q2 | Disagree | URL attestation/negative tests insufficiently specified |
+| Q3 | Agree | Accept provisional 158/161 and exploratory role |
+| Q4 | Agree | Keep qualifier outside 084a |
+| Q5 | Conditional | Review nominee possible; approved candidate none |
+| Q6 | Agree | Retain 1,293 sensitivity arm |
+| Q7 | Conditional | Primary contrast: 2,586 versus pilot300 |
+| Q8 | Disagree | CP/status/adequacy rules not sufficient yet |
+| Q9 | Conditional | Add isolation, invariance, complete-rescore requirements |
+| Q10 | Conditional | Adjudicate corrected flips, not only historical five |
+| Q11 | Conditional | Freeze rules earlier; completion alone cannot unlock test |
+| Q12 | Conditional | Resolve API, provenance, status and approval boundaries |
+| Q13 | Conditional | Design concerns addressed; implementation unverified |
+| Q14 | Conditional | Correct overstatements and omissions |
+
+### Top Must-fix items
+
+1. **Enforce 084a/084b isolation in code and artifacts.** Diagnostic toggles must not change baseline grounding, eligibility, or ranking.
+2. **Specify URL attestation and ambiguity precisely.** Include raw-span preservation, punctuation handling, symmetric repairs, and rescoring of old passes.
+3. **Separate point-screen eligibility, statistical evidence, and approval.** At n=161, even 161/161 cannot establish a CP95 lower bound of .99.
+4. **Audit all 383 and adjudicate every corrected decision change.** The five historical generic flips are neither established false accepts nor necessarily the corrected 084a flip set.
+5. **Freeze the human endpoint, sampling, margins, arbitration and hold rules.** Four arms × 50 documents × two raters means **400 ratings**, not 50 independent judgments.
+6. **Correct provenance and wording.** Existing v2 outputs are not proven “upper bounds”; superiority is *unestablished*, not disproven; request/draft R IDs differ.
+
+### Top additional experiments
+
+| Proposed experiment | Estimated effort |
+|---|---|
+| URL golden/negative and diagnostic-isolation tests | 2–4 engineer-hours |
+| Corrected rescore of 805 saved validation outputs plus excluded pool | 2–4 engineer-hours; no inference |
+| Blind adjudication of changed decisions | Approximately 2–4 rater-hours if ≤25 pairs |
+| Four-arm human-50 adequacy study | Approximately 10–20 rater-hours, plus arbitration/analysis |
+| Existing-output paired and article-overlap sensitivity analysis | 1–2 analyst-hours |
+
+Only the requested report was written. Tracked files and strict artifact hashes remain unchanged. No training, generation, or test-163 access occurred. **No gate change or promotion is approved.**
