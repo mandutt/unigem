@@ -1,0 +1,47 @@
+The review is complete — all work finished within scope, with the report delivered as the single permitted write (`docs/hoplite/c5_fulltrain_2026-11-07/review_GLM.md`, 460 lines, untracked; no other file touched). No further tool work is needed.
+
+**Workspace sync:** `git fetch origin` + `git pull --ff-only origin main` → already up to date. **HEAD = `5694cc7fbe0d371f0b4800830037fa36269e44c3`** (2026-11-07 09:36:58 +0900, "docs: add full-train 3-AI review prompts and dispatch").
+
+I read the full 350-line request, verified every headline number against committed artifacts (`selection.json`, `selection_summary.json`, per-step `eval.metrics.json`/`eval.jsonl`, `error_analysis_1940_vs_2586.json`/`stdout.txt`, pilot300 metrics, decisions/gates registries, verifier code, training log), and computed Clopper-Pearson intervals myself. test 163 was not opened; P1 data not used; no training, no subagents.
+
+## Verdict table
+
+| Item | Verdict | One-line rationale |
+|---|---|---|
+| **D1** verifier v2 | **Conditional** | Split the bundle: URL line-break join = measurement fix (adopt); 오전/PM + number/unit = equivalence policies, only with uniqueness guards + separate defect reporting |
+| **D2** candidate | **Agree (strict)** | `selected_step null`, pilot300 fallback stands; 1,940 may be a near-miss *human-review* candidate on val only |
+| **D3** human 50 | **Agree** | Before test, on val, blinded, stratified; doubles as adjudication of the v2 candidates |
+| **D4** test 163 | **Agree (keep sealed)** | Single-use precondition chain: D-084 → v2 re-adjudication → human 50 → freeze → one run |
+| **D5** next experiment | **Conditional** | A (verifier audit, 1–2 h) → B (human 50) → D-084 registration; over-compression arm later; seed 43 deferred |
+| **Q1** URL normalization | **Agree, narrowly** | Source-side truncation artifact (`http://coronamap.`), recurs at 647/1,293/2,586; trailing punct already handled in `_canonical` |
+| **Q2** 오전/오후 | **Conditional** | Omission ≠ invention; match hour/minute only when summary side has no qualifier; qualifier mismatch still fails |
+| **Q3** `18명`/`18 확진자` | **Conditional** | Pred *preserves* `18명` twice; bare `18` is an extractor unit-list coverage gap; uniqueness-guarded equivalence, not blanket unit-stripping |
+| **Q4** D-084 pre-registration | **Agree — mandatory** | gates.md header + AM-5(iii) + AM-8 forbid post-hoc; v2 also makes **1,293 eligible** → full re-selection required |
+| **Q5** grounded ≥0.99 at n=161 | **Conditional** | Deterministic screen, not certificate (161/161 CP95 lower = 0.977); slot-level n≈760–880 meets gates.md ≥600; add preservation as *relative* registered criterion (targets themselves ≈0.465) |
+| **Q6** primary candidate | **1,940** | Leads F1/slots/doc/preservation/slot-free; 2,586 leads only repeated4; both share 04951 |
+| **Q7** vacuous pass / G-C5 | **Conditional** | Keep `grounded` = no-new-slot; add separate relative preservation + non-vacuous reporting; "159/161 = 99% preserved" is wrong |
+| **Q8** 2 epochs | **Agree** | Pre-registered grid made the trade-off observable; 1 epoch (1,293) also fails gate; don't relitigate |
+| **Q9** human-50 sample | **Agree** | 5 failure probes + 11 slot-free + 8 top slot-loss + low-F1 decile + longest + 3 controls + random fill |
+| **Q10** open test 163 | **Disagree** | Seal until candidate freeze; A0's prior use (0.6072) stands, A1 single-shot preserved |
+| **Q11** priority | **A → B, then D-084** | Audit unblocks everything; C last; E is not an experiment, it is the D-084 registration |
+| **Q12** request accuracy | **Minor errors found** | 03978 missing = 7 not 8; 04709 missing = 15 not 18 and `18명` is *preserved*; "only 04951 real" holds only for 1,940/2,586 (647: 00114/00818/01767/03086; 1,293: 03801 unanalyzed) |
+
+## Top Must-fix
+
+1. No retroactive verifier normalization — strict D-083 record (`selected_step null`) stays until D-084 is approved; v2 results go to `selection_v2.json`.
+2. Split normalization into measurement-fix (URL) vs equivalence-policy (AM/PM, unit) clauses with guards.
+3. Re-adjudicate **all** checkpoints under v2 (1,293 becomes eligible; repeated4 margin 0.00134).
+4. Extend error analysis to 647/1,293 failures before any taxonomy claim.
+5. Publish CP CIs + non-vacuous grounded alongside every grounded table.
+6. Errata for the request's wrong counts (7→8, 15→18, `18명` preserved).
+7. Write the test-163 unsealing precondition chain into D-084 and keep the seal.
+
+## Top additional experiments
+
+1. Verifier v2 corpus audit (URLs/qualifier collisions/numeral collisions across all 1,617 passages + clean-filter re-check) — ~1–2 h CPU.
+2. Human 50 blinded rubric, 1,940 primary + pilot300 control — ~2–3 h human.
+3. Pre-registered over-compression arm (1.5-epoch stop or lr decay) — ~4.5 h CPU.
+4. Seed 43 replication — deferred until a checkpoint passes a registered gate — ~4.5 h CPU.
+5. Pilot-scale slot-preservation auxiliary probe — ~30–60 min CPU.
+
+**Headline finding:** the strict D-083 result is sound and stands; the five grounded failures decompose into one genuine measurement artifact, two defensible-but-risky equivalence questions, and one real hallucination (04951, `2.3%`→`2.2%`). The right next move is a measurement audit + pre-registered D-084 + human review of 1,940 — not a gate lowering and not another training run.

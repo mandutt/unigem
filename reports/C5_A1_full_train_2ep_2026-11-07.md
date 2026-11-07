@@ -37,7 +37,7 @@ repeated4 <= 0.06
 
 - 1,940이 char F1 **0.682278**로 full train 최고지만, grounded **0.9814**로 gate 미달.
 - 2,586은 grounded **0.9876**으로 가장 높은 full-train 수준이지만, 여전히 0.99 미달.
-- 647은 repeated4 **0.0684**, EOS 160/161도 gate 미달.
+- 647은 grounded **155/161**와 repeated4 **0.0684**로 gate 미달. EOS 160/161 = 0.9938은 기준 0.95를 통과하므로 EOS 실패가 아니다.
 - 따라서 D-083의 fallback 규칙에 따라 **pilot300을 fallback 후보로 유지**한다. 이는 제품 승격이 아니다.
 
 `selection.json` / `selection_summary.json`:

@@ -1,0 +1,44 @@
+Full report written to [review_SOL.md](docs/hoplite/c5_fulltrain_2026-11-07/review_SOL.md).
+
+Sync succeeded. Reviewed HEAD: `5694cc7fbe0d371f0b4800830037fa36269e44c3`. Only the permitted report file was written.
+
+**Bottom line:** D-083 remains **no eligible full-train checkpoint**. Retain pilot300 as strict fallback; nominate **1,940 for exploratory human review**. Hypothetical normalization to 160/161 is neither established nor an approved gate change.
+
+### Compact verdict table
+
+| Item | Verdict | Recommendation |
+|---|---|---|
+| D1 | conditional | Conservative v2 audit; no blanket qualifier/unit erasure |
+| D2 | conditional | Pilot300 strict fallback; 1,940 exploratory candidate |
+| D3 | agree | Human 50 before test |
+| D4 | defer | Keep test sealed; later one frozen A1 candidate once |
+| D5 | agree | Audit/protocol first, then humans and replication |
+| Q1 | conditional | Repair proven URL wrapping; preserve meaningful URL characters |
+| Q2 | conditional | AM/PM omission may be supported weakening, not lossless equality |
+| Q3 | conditional | Allow context-bound person-counter aliases, not unit removal |
+| Q4 | agree | Proposed D-084 required; existing reanalysis remains post hoc |
+| Q5 | agree | Preserve fallback while allowing near-miss human review |
+| Q6 | agree | 1,940 primary; 2,586 secondary |
+| Q7 | agree | Add separate adequacy criteria; 0.99 at n=161 is only a screen |
+| Q8 | conditional | Two-epoch budget reasonable; terminal adapter is not automatically best |
+| Q9 | conditional | Use 25 risk-selected + 25 random documents, paired and blinded |
+| Q10 | defer | No test opening before audit, humans, and freeze |
+| Q11 | agree | A + E design → B → C → D |
+| Q12 | conditional | Main accounting sound; secondary errors and overstatements identified |
+
+### Top Must-fix items
+
+1. Preserve strict D-083 results; obtain explicit approval for any future D-084 protocol.
+2. Adjudicate the three normalization candidates against complete validation sources, while retaining `04951` as a genuine hallucination.
+3. Complete blinded human review and separate material omissions from unsupported additions.
+4. Report document/slot denominators and uncertainty correctly: even **161/161 does not establish 99% population success**.
+5. Freeze candidate, scorer, decoding, and decision rules before considering test access.
+
+### Top additional experiments
+
+- **Verifier v2 audit:** approximately 0.5–1 engineering day plus source adjudication; no retraining.
+- **Paired human 50:** 1,940, pilot300, and 2,586; approximately 12–20 person-hours.
+- **Seed-43 replication:** approximately 4.5 CPU wall-hours on comparable hardware.
+- **One controlled compression intervention:** only after the audit and humans support that diagnosis.
+
+**Verification:** read all 350 request lines; validation artifacts match all 161 validation IDs; existing verifier tests passed **11/11**. No training, generation, or test evaluation ran. Complete source passages were unavailable in this checkout, so contextual normalization adjudications remain conditional.

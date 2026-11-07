@@ -1,0 +1,49 @@
+My recommendation: the strict D-083 result stays as it is — no full-train checkpoint qualifies and pilot300 remains the fallback. The proposed verifier fixes are justified, but only as a narrow, versioned v2 registered as D-084 before anything is re-scored, and that gate change is not approved. Used after the fact to turn the val results into a pass, they would be a post-hoc gate change.
+
+The full report is in `docs/hoplite/c5_fulltrain_2026-11-07/review_OPUS.md`. It was written against HEAD `5694cc7`; the sync and pull ran cleanly ("Already up to date"). That file is the only thing I wrote, and test 163 was not touched.
+
+| Item | Verdict | One-line basis |
+|---|---|---|
+| D1 verifier v2 | Conditional | Allow only three narrow, one-way rules: URL split by a line break, dropped `오전/오후`, and a number with no unit. All other loosening stays banned. |
+| D2 candidate | Conditional | pilot300 is the strict answer. 1,940 goes to human review as a near miss, not for promotion. |
+| D3 human 50 | Agree | Run it before the test, as D-083 already says. |
+| D4 test 163 | Defer | Keep it sealed until D-084, human 50 and a frozen adapter. |
+| D5 next | Conditional | Order: A → B → E → C → D. |
+| Q1 URL | Agree | The source split is a line-break artefact; join only across newlines. |
+| Q2 AM/PM | Conditional | Count it as "qualifier dropped", not a new slot. A qualifier the summary adds stays a new slot. |
+| Q3 unit | Conditional | Only bare numbers, exact value. `18%` must never match `18명`. |
+| Q4 D-084 | Conditional | Legitimate only if declared as informed by the results: frozen spec, independent audit, applied to all 5 models, labelled exploratory. D-083 is not rewritten. |
+| Q5 fallback | Conditional | Keep pilot300 strict and also send 1,940 to human review. |
+| Q6 primary | 1,940 | Better F1 (CI excludes zero), slot preservation, and slot-free count (4 vs 11). 2,586 is the contrast arm. |
+| Q7 slot preservation in G-C5 | Conditional | Keep grounded as a pure hallucination check. Add a separate coverage guard measured against pilot300, plus a grounded rate that excludes slot-free outputs. |
+| Q8 2 epochs | Conditional | Sound design, but LR is constant (no decay) and F1 moves about ±0.01 between checkpoints on one seed, so "1,940 is the peak" is weak evidence. |
+| Q9 sample | Specific design | 4 failures, 12 slot-free, 5 biggest slot losses, 6 lowest F1, 3 longest, 20 random. All three models rated blind on the same docs. |
+| Q10 open test | Disagree | Keep it sealed. |
+| Q11 priority | A > B > E > C > D | Costs are in the report. |
+| Q12 errors | Conditional | Mostly accurate; corrections below. |
+
+**Corrections and findings beyond the request:**
+- **Wrong counts:** `03978` has 7 missing slots, not 8. `04709` has 15, not 18.
+- **`04709` is weaker as a failure than described:** `18명` is preserved, not missing. The summary contains `18명` twice; only the bare "18 확진자" is flagged.
+- **Trailing punctuation:** the verifier already strips it for every slot type, so it isn't new v2 work.
+- **The 647 and 1,293 failures were not analysed.** The same URL and AM/PM patterns appear there.
+- **`04951`:** the summary says JP Morgan cut its growth forecast from 2.3% to 2.2%. That looks like a real-world fact from outside the passage rather than an invented number, but it still correctly fails grounding. The article has no other chunks in train, but the source passages aren't in git, so I couldn't check the source.
+- **The doc-level gate is underpowered:** at n=161, ≥0.99 means at most one failing doc. A model with a true 1% failure rate passes only about 52% of the time, and even pilot300's 0/161 only bounds the rate below 2.27%. Keep 0.99, but add confidence bounds and an "inconclusive" outcome.
+- **The gate definitions don't match:** G-C5 in `gates.md` is defined per slot with Clopper-Pearson bounds. By that measure, 1,940's new-slot rate (4/860) has an upper bound of 1.19%, so it isn't shown to be under 1% either.
+- **Smaller gaps:** 16 of 161 val docs share an article with train. Val has been reused for earlier tuning, including choosing pilot300. pilot300's outputs are much longer (248 vs about 195 tokens), which affects the character-F1 comparison.
+
+**Must-fix, in order:**
+1. Keep the D-083 record intact, and always show v1 and v2 results side by side.
+2. Implement v2 as a separate versioned function, with unit tests for each banned loosening.
+3. Check v2 on an independent set before re-scoring val. The 383 pairs excluded from the clean data are the natural pool; have a person check every verdict that flips.
+4. Register D-084 first: frozen v2 code, re-scoring of all five models, the coverage guard and the confidence bounds.
+5. Fix the factual errors above in the request and error-analysis reports.
+6. Run human 50 (pilot300, 1,940, 2,586 rated blind) with the rubric and decision rule fixed in advance.
+7. Keep test 163 sealed until then, and use it once.
+
+**Top additional experiments:**
+1. Verifier v2 audit: about 0.5–1 day, no GPU.
+2. Human 50: 150 ratings, about 4–6 hours per rater.
+3. A grounding-only eval on 600 or more extra P0 passages outside train, val and test. It needs no reference summaries and would tighten the bounds.
+4. Seed 43 full train: about 4 h 20 min plus evaluation.
+5. Constant vs decaying LR over the same 2 epochs, as the first fix for the late over-compression. This needs separate approval.
