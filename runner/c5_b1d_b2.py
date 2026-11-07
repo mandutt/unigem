@@ -86,10 +86,16 @@ def ce_plus_hidden(model, adapter, student, teacher, by_id, rid: str, tok, max_t
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--train-limit", type=int, default=20)
-    ap.add_argument("--val-limit", type=int, default=20)
+    ap.add_argument("--train-limit", type=int, default=0,
+                    help="0 = all train docs")
+    ap.add_argument("--val-limit", type=int, default=0,
+                    help="0 = all val docs")
     ap.add_argument("--epochs", type=int, default=2)
     ap.add_argument("--lr", type=float, default=3e-4)
+    ap.add_argument("--checkpoint-every", type=int, default=100)
+    ap.add_argument("--experiment", default="b2_decoder_lora")
+    ap.add_argument("--no-resume", action="store_true",
+                    help="ignore existing adapter_step_*.pt in out-dir")
     ap.add_argument("--rank", type=int, default=8)
     ap.add_argument("--alpha", type=int, default=16)
     ap.add_argument("--lora-dropout", type=float, default=0.05)
@@ -109,8 +115,12 @@ def main() -> int:
     recs = [json.loads(x) for x in DATA.read_text(encoding="utf-8").splitlines() if x.strip()]
     by_id = {str(r["id"]): r for r in recs}
     splits = json.loads((ROOT / "reports/provenance/C5_clean/splits.json").read_text(encoding="utf-8"))
-    train_ids = list(splits["train"])[: args.train_limit]
-    val_ids = list(splits["val"])[: args.val_limit]
+    train_ids = list(splits["train"])
+    val_ids = list(splits["val"])
+    if args.train_limit:
+        train_ids = train_ids[: args.train_limit]
+    if args.val_limit:
+        val_ids = val_ids[: args.val_limit]
 
     student_train = load_cache("student", "train")
     teacher_train = load_cache("teacher", "train")
@@ -128,9 +138,39 @@ def main() -> int:
         if ".lora_" in n:
             p.requires_grad_(True)
 
-    ckpt = torch.load(args.init, map_location="cpu")
     adapter = B1dFullAdapter()
-    adapter.load_state_dict(ckpt["adapter"])
+    resume = None
+    if not args.no_resume:
+        candidates = []
+        for p in args.out_dir.glob("adapter_step_*.pt"):
+            try:
+                gs = int(p.stem.rsplit("_", 1)[1])
+            except ValueError:
+                continue
+            candidates.append((gs, p))
+        if candidates:
+            candidates.sort()
+            resume = torch.load(candidates[-1][1], map_location="cpu")
+            print(json.dumps({"resumed_from": str(candidates[-1][1]),
+                              "global_step": candidates[-1][0]}), flush=True)
+    if resume is not None:
+        adapter.load_state_dict(resume["adapter"])
+        if "lora" in resume:
+            missing, unexpected = model.load_state_dict(resume["lora"], strict=False)
+            bad = [x for x in missing if ".lora_" in x]
+            if bad:
+                raise SystemExit(f"missing resumed LoRA keys: {bad[:5]}")
+        start_epoch = int(resume.get("epoch_index", max(0, int(resume.get("epoch", 1)) - 1)))
+        start_step = int(resume.get("step_in_epoch", 0))
+    else:
+        ckpt = torch.load(args.init, map_location="cpu")
+        adapter.load_state_dict(ckpt["adapter"])
+        if "lora" in ckpt:
+            missing, unexpected = model.load_state_dict(ckpt["lora"], strict=False)
+            bad = [x for x in missing if ".lora_" in x]
+            if bad:
+                raise SystemExit(f"missing init LoRA keys: {bad[:5]}")
+        start_epoch, start_step = 0, 0
     adapter.train()
     params = list(adapter.parameters()) + [p for p in model.parameters() if p.requires_grad]
     opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.01)
@@ -148,11 +188,12 @@ def main() -> int:
     before_train = eval_ce(train_ids, student_train, teacher_train)
     before_val = eval_ce(val_ids, student_val, teacher_val)
     losses = []
-    for epoch in range(args.epochs):
+    for epoch in range(start_epoch, args.epochs):
         order = list(train_ids)
         perm = torch.randperm(len(order), generator=torch.Generator().manual_seed(20261107 + epoch)).tolist()
         order = [order[i] for i in perm]
-        for step, rid in enumerate(order):
+        begin = start_step if epoch == start_epoch else 0
+        for step0, rid in enumerate(order[begin:], start=begin):
             loss, ce = ce_plus_hidden(model, adapter, student_train, teacher_train, by_id, rid, tok,
                                       args.max_target, args.hidden_weight)
             opt.zero_grad(set_to_none=True)
@@ -160,14 +201,34 @@ def main() -> int:
             torch.nn.utils.clip_grad_norm_(params, 1.0)
             opt.step()
             losses.append(float(ce.detach()))
-            print(json.dumps({"epoch": epoch + 1, "step": step, "n": len(order),
+            global_step = epoch * len(train_ids) + step0 + 1
+            print(json.dumps({"epoch": epoch + 1, "step": step0, "n": len(order),
+                              "global_step": global_step,
                               "ce": losses[-1], "loss": float(loss.detach()),
                               "elapsed": round(time.time() - t0, 1)}), flush=True)
+            if args.checkpoint_every and global_step % args.checkpoint_every == 0:
+                args.out_dir.mkdir(parents=True, exist_ok=True)
+                torch.save({"adapter": adapter.state_dict(), "lora": lora_state(model),
+                            "epoch": epoch + 1, "epoch_index": epoch,
+                            "step_in_epoch": step0 + 1,
+                            "global_step": global_step,
+                            "targets": list(TARGETS), "rank": args.rank, "alpha": args.alpha},
+                           args.out_dir / f"adapter_step_{global_step:06d}.pt")
         args.out_dir.mkdir(parents=True, exist_ok=True)
         torch.save({"adapter": adapter.state_dict(), "lora": lora_state(model),
-                    "epoch": epoch + 1, "targets": list(TARGETS),
+                    "epoch": epoch + 1, "epoch_index": epoch,
+                    "step_in_epoch": len(order),
+                    "global_step": (epoch + 1) * len(train_ids),
+                    "targets": list(TARGETS),
                     "rank": args.rank, "alpha": args.alpha},
                    args.out_dir / f"adapter_ep{epoch + 1}.pt")
+        torch.save({"adapter": adapter.state_dict(), "lora": lora_state(model),
+                    "epoch": epoch + 1, "epoch_index": epoch,
+                    "step_in_epoch": len(order),
+                    "global_step": (epoch + 1) * len(train_ids),
+                    "targets": list(TARGETS),
+                    "rank": args.rank, "alpha": args.alpha},
+                   args.out_dir / f"adapter_step_{(epoch + 1) * len(train_ids):06d}.pt")
 
     after_train = eval_ce(train_ids, student_train, teacher_train)
     after_val = eval_ce(val_ids, student_val, teacher_val)
@@ -177,7 +238,7 @@ def main() -> int:
                 "metrics": {"train": after_train, "val": after_val}},
                args.out_dir / "adapter_final.pt")
     report = {
-        "experiment": "b2_decoder_lora_pilot",
+        "experiment": args.experiment,
         "init": str(args.init.relative_to(ROOT).as_posix()),
         "train_n": len(train_ids), "val_n": len(val_ids),
         "epochs": args.epochs, "lr": args.lr,
