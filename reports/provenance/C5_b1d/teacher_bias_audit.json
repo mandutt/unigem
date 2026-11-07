@@ -1,0 +1,31 @@
+{
+  "audit": "teacher_vs_gold_bias",
+  "copy_ngram": 4,
+  "copy_unit": "character after whitespace removal",
+  "leading_definition": "summary sentence whose best-matching source sentence is in the first 40% of source sentences",
+  "train_teacher": {
+    "n": 100,
+    "copy4_char_mean": 0.8440291206670636,
+    "leading40_sentence_mean": 0.5693968253968253,
+    "char_len_mean": 230.26
+  },
+  "train_gold": {
+    "n": 100,
+    "copy4_char_mean": 0.6617188794843716,
+    "leading40_sentence_mean": 0.5235,
+    "char_len_mean": 267.68
+  },
+  "val_teacher": {
+    "n": 100,
+    "copy4_char_mean": 0.8465988769755479,
+    "leading40_sentence_mean": 0.5752380952380952,
+    "char_len_mean": 221.01
+  },
+  "val_gold": {
+    "n": 100,
+    "copy4_char_mean": 0.6359726097243685,
+    "leading40_sentence_mean": 0.5166666666666666,
+    "char_len_mean": 249.53
+  },
+  "test_split_used": false
+}
