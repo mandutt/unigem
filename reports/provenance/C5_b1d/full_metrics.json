@@ -1,0 +1,58 @@
+{
+  "experiment": "b1d_full_distillation",
+  "train_n": 1293,
+  "val_n": 161,
+  "epochs": 2,
+  "lr": 0.001,
+  "adapter_params": 1084033,
+  "teacher": "T5Gemma2 native encoder hidden [T,640]",
+  "student": "EG2 text final hidden [T,768], prompt included",
+  "prompt": "summarize: ",
+  "before": {
+    "train": {
+      "n_docs": 1293,
+      "n_tokens": 991647,
+      "cosine_mean": 0.01592290647179969,
+      "cosine_min": -0.17299984395503998,
+      "cosine_p05": -0.04415607675909996,
+      "norm_ratio_mean": 1.0526890208900022,
+      "normalized_mse_mean": 0.003075191474894936
+    },
+    "val": {
+      "n_docs": 161,
+      "n_tokens": 123007,
+      "cosine_mean": 0.017212877543730253,
+      "cosine_min": -0.14040951430797577,
+      "cosine_p05": -0.04310058802366257,
+      "norm_ratio_mean": 1.0542279178311367,
+      "normalized_mse_mean": 0.0030712050585342304
+    }
+  },
+  "after": {
+    "train": {
+      "n_docs": 1293,
+      "n_tokens": 991647,
+      "cosine_mean": 0.7286530597791034,
+      "cosine_min": -0.04884568601846695,
+      "cosine_p05": 0.559271228313446,
+      "norm_ratio_mean": 1.0217685194229398,
+      "normalized_mse_mean": 0.0008477567014326208
+    },
+    "val": {
+      "n_docs": 161,
+      "n_tokens": 123007,
+      "cosine_mean": 0.7271041966794541,
+      "cosine_min": -0.03063838556408882,
+      "cosine_p05": 0.5593681633472443,
+      "norm_ratio_mean": 1.0229427325799598,
+      "normalized_mse_mean": 0.0008528728116887929
+    }
+  },
+  "loss_first": 0.9903984069824219,
+  "loss_last": 0.3143540024757385,
+  "loss_min": 0.24167919158935547,
+  "elapsed_sec": 79.1,
+  "checkpoint": "data/models/f5_t5gemma2_lora/b1d_full/adapter_final.pt",
+  "test_split_used": false,
+  "note": "adapter only; decoder frozen; hidden cosine is not summary quality"
+}

@@ -1,0 +1,39 @@
+Loading weights:   0%|          | 0/911 [00:00<?, ?it/s]Loading weights:   3%|▎         | 24/911 [00:00<00:03, 230.58it/s]Loading weights:   5%|▌         | 48/911 [00:00<00:07, 112.49it/s]Loading weights:   9%|▉         | 85/911 [00:00<00:04, 182.71it/s]Loading weights:  13%|█▎        | 114/911 [00:00<00:03, 212.26it/s]Loading weights:  15%|█▌        | 140/911 [00:00<00:04, 189.94it/s]Loading weights:  18%|█▊        | 163/911 [00:00<00:04, 180.06it/s]Loading weights:  20%|██        | 184/911 [00:01<00:04, 178.97it/s]Loading weights:  22%|██▏       | 204/911 [00:01<00:03, 183.65it/s]Loading weights: 100%|██████████| 911/911 [00:01<00:00, 785.27it/s]
+{"done": 1, "n": 20, "id": "REPORT-news_r-00365-00001", "char_f1": 0.07757166947723439, "grounded": false, "gen_len": 449, "elapsed": 22.5}
+{"done": 2, "n": 20, "id": "REPORT-news_r-00420-00001", "char_f1": 0.015999999999999997, "grounded": false, "gen_len": 449, "elapsed": 39.6}
+{"done": 3, "n": 20, "id": "REPORT-news_r-02318-00002", "char_f1": 0.08077544426494346, "grounded": false, "gen_len": 449, "elapsed": 57.2}
+{"done": 4, "n": 20, "id": "REPORT-news_r-04679-00001", "char_f1": 0.07357859531772575, "grounded": false, "gen_len": 449, "elapsed": 74.6}
+{"done": 5, "n": 20, "id": "REPORT-news_r-03915-00001", "char_f1": 0.016359918200408996, "grounded": false, "gen_len": 449, "elapsed": 91.9}
+{"done": 6, "n": 20, "id": "REPORT-news_r-04161-00002", "char_f1": 0.028318584070796463, "grounded": false, "gen_len": 449, "elapsed": 109.3}
+{"done": 7, "n": 20, "id": "REPORT-news_r-00430-00001", "char_f1": 0.021739130434782608, "grounded": false, "gen_len": 449, "elapsed": 126.5}
+{"done": 8, "n": 20, "id": "REPORT-news_r-01555-00001", "char_f1": 0.047217537942664416, "grounded": false, "gen_len": 449, "elapsed": 143.9}
+{"done": 9, "n": 20, "id": "REPORT-news_r-02180-00001", "char_f1": 0.04552845528455284, "grounded": false, "gen_len": 449, "elapsed": 161.0}
+{"done": 10, "n": 20, "id": "REPORT-news_r-01331-00001", "char_f1": 0.0, "grounded": true, "gen_len": 449, "elapsed": 178.3}
+{"done": 11, "n": 20, "id": "REPORT-news_r-01058-00001", "char_f1": 0.056140350877192984, "grounded": false, "gen_len": 449, "elapsed": 195.6}
+{"done": 12, "n": 20, "id": "REPORT-news_r-03503-00001", "char_f1": 0.03949730700179533, "grounded": true, "gen_len": 449, "elapsed": 213.1}
+{"done": 13, "n": 20, "id": "REPORT-news_r-03991-00001", "char_f1": 0.0353460972017673, "grounded": false, "gen_len": 449, "elapsed": 230.4}
+{"done": 14, "n": 20, "id": "REPORT-news_r-05258-00002", "char_f1": 0.05019305019305019, "grounded": false, "gen_len": 449, "elapsed": 247.7}
+{"done": 15, "n": 20, "id": "REPORT-news_r-02086-00001", "char_f1": 0.03426791277258567, "grounded": false, "gen_len": 449, "elapsed": 265.2}
+{"done": 16, "n": 20, "id": "REPORT-news_r-03271-00001", "char_f1": 0.005706134094151212, "grounded": false, "gen_len": 449, "elapsed": 282.7}
+{"done": 17, "n": 20, "id": "REPORT-news_r-01951-00001", "char_f1": 0.04490500863557858, "grounded": false, "gen_len": 449, "elapsed": 300.3}
+{"done": 18, "n": 20, "id": "REPORT-news_r-02861-00001", "char_f1": 0.06440677966101695, "grounded": false, "gen_len": 449, "elapsed": 317.9}
+{"done": 19, "n": 20, "id": "REPORT-news_r-00020-00001", "char_f1": 0.09765624999999999, "grounded": false, "gen_len": 449, "elapsed": 335.5}
+{"done": 20, "n": 20, "id": "REPORT-news_r-02804-00001", "char_f1": 0.11970074812967581, "grounded": false, "gen_len": 449, "elapsed": 352.9}
+{
+  "n": 20,
+  "adapter": "data/models/f5_t5gemma2_lora/b1d_full/adapter_final.pt",
+  "max_new": 448,
+  "char_f1_mean": 0.04774544867799614,
+  "grounded_rate": 0.1,
+  "new_slot_rate_micro": 0.9144981412639405,
+  "new_slot_rate_mean": 0.8675200405885338,
+  "new_slot_count": 246,
+  "summary_slot_count": 269,
+  "eos_rate": 0.0,
+  "nonempty_rate": 0.95,
+  "gen_len_mean": 449.0,
+  "repeated_4gram_rate_mean": 0.7920802356076863,
+  "distinct_2_mean": 0.07396578067284174,
+  "elapsed_sec": 352.9,
+  "test_split_used": false
+}
