@@ -1,0 +1,38 @@
+Review complete. **Sync:** `git fetch origin` + `git pull --ff-only origin main` → already up to date; **HEAD `fc31b0719f3cd0ad1a9c18b326baf7426c12103e`** ("docs: add D-084 review prompts with Sonnet 5.5 high"), verified equal to `origin/main`. **Deliverable:** full 497-line report written to `docs/hoplite/c5_d084_2026-11-07/review_GLM.md` — the only file added; nothing else in the repository was touched. I read all 446 lines of the request, the full D-084 draft, the audit JSON + matcher code, and independently reproduced the strict metrics, paired bootstrap CIs, and Clopper–Pearson bounds from `eval.jsonl`; test 163 was not opened, no training/generation run, no subagents, P1 unused.
+
+**Key independent findings:** (1) the audit matcher does **not** implement draft §5.5 (URL case/comma) — all v2 numbers are optimistic upper bounds and must be re-derived; (2) the audit's alias variant skips the uniqueness guard entirely and is looser than drafted §5.4; (3) the both-side URL repair is load-bearing (1,940's prediction literally contains the wrapped `coronamap.\nsite)`); (4) G-C5 is point-pass/CI-fail (INCONCLUSIVE) for 1,940 and 2,586 — only pilot300 is CP95-consistent.
+
+### Verdict table
+
+| Item | Verdict (one line) |
+|---|---|
+| D4-1 unit policy | **Conditional** — generic uniqueness as default; alias only as separate human-adjudicated clause; unit rule is selection-neutral today |
+| D4-2 generic candidate | **Conditional** — 2,586 by pre-registered rule (pre-§5.5 numbers), over-compression flagged; no promotion; both arms to human 50 |
+| D4-3 alias candidate 1,940 | **Defer** — selectable only if alias independently ratified first; quality case is policy-independent |
+| D4-4 gate additions | **Agree** — nonvacuous, slot_free w/ target breakdown, preservation vs ≈0.465, CP95 + INCONCLUSIVE (thresholds given) |
+| D4-5 five excluded flips | **Defer** (no P0 passages here) + **conditional** criterion: human-confirmed false accept 0, ambiguous = false accept; corpus frozen |
+| D4-6 URL case/comma | **Conditional** — fix inside D-084's v2 with re-audit; not shipped without it; do not finalize selection_v2 pre-fix |
+| D5-1 human 50 | **Conditional** — same 50 docs, blind, 4 arms (pilot300/1,293/1,940/2,586), 2 raters ≥20 overlap, strata separated |
+| D5-2 test 163 | **Agree** — sealed until D-084 + audit + human 50 + single frozen candidate; one A1 use; A0 history labeled |
+| D5-3 next experiment | **Conditional** — D-084 finish → human 50 → fresh P0 confirmatory set; seed 43/compression arm deferred |
+| D5-4 D-084 status | **Conditional** — approve as outcome-informed exploratory with arms+hash frozen, §5.5 done, flips adjudicated; D-083 untouched |
+| Q1 generic v2 baseline | **Conditional** — acceptable exploratory baseline; URL-only kept as conservative floor arm; equivalence rules labeled policy |
+| Q2 counter alias clause | **Agree** — separate clause, human adjudication; audit's loose variant must never become the rule |
+| Q3 flips + acceptance | **Defer/Conditional** — rubric first, 0 false accepts across all 383 flips, evidence spans recorded |
+| Q4 exploratory approval | **Conditional** — approvable with D5-4 conditions; rejecting v2 unnecessary (defect is real) |
+| Q5 candidate conflict | **Conditional** — separate roles: 1,940 = human-review primary; 2,586 = mechanical selection candidate; never alias-in 1,940 |
+| Q6 alias grounds/collision | **Conditional** — semantic, outcome-blind ratification incl. non-04709 cases; scope evidence + provenance recorded |
+| Q7 human 50 composition | **Agree** — all four systems, same 50 docs, blind randomized |
+| Q8 G-C5 additions | **Agree** — exact thresholds/denominators given; pilot300 only consistent; 1,940/2,586 INCONCLUSIVE |
+| Q9 split vs enlarge | **Agree** — keep split + CP now; enlarge via fresh P0 set later (≥1,000–1,500 docs realistically) |
+| Q10 test 163 opening | **Agree (seal)** — full unseal checklist; A0 (D-080, 0.6072, 0/163) + A1 history labeling |
+| Q11 URL fix timing | **Conditional** — fix now inside D-084 with measured re-audit; postponement only if it blocks finalization |
+| Q12 draft gaps | **Conditional** — 7 Must-fix below; draft §10 missing D4-5/D4-6/D5-3/D5-4; "URL continuation" undefined |
+| Q13 review vs eligibility | **Agree** — separate tracks; 1,940 stays human primary; 2,586's eligibility ≠ quality primary |
+| Q14 request errors | **Agree** — no factual errors found (all numbers reproduced); two material omissions: §5.5 absent from audit; alias variant looser than drafted |
+
+**Top Must-fix:** (1) implement §5.5 + full re-audit before anything final — current 160/161 tables are pre-§5.5; (2) freeze policy arms + spec hash before final re-selection; (3) adjudicate all 383 flips, acceptance = 0 human-confirmed false accepts (ambiguous = false accept); (4) pin the alias production rule, retire the audit's uniqueness-skipping variant; (5) operationally define "URL continuation" + golden test for the verified 02742 wrapped-vs-joined pair; (6) classify residual 647/1,293 failures + per-rule attribution + add the 4 missing decisions to draft §10; (7) mandate the D4-4 reporting bundle in `selection_v2.json`.
+
+**Top additional experiments:** (1) v2 final implementation + full re-audit (~1–2 h CPU + 1–3 h adjudication); (2) human 50, 4 arms blind (~12–20 person-hours); (3) fresh P0 confirmatory set sized for CP95 ≤1% (~2–4 h CPU + labeling, no P1); (4) seed-43 replication (~4.5 h, only after D-084 + human 50); (5) over-compression arm (~4–5 h/run, only if human 50 confirms compression is binding).
+
+No gate change is claimed or approved; D-083 strict (`selected_step: null`, pilot300 fallback, test 163 sealed) is verified unchanged, and all v2 figures are labeled hypothetical-under-policy throughout the report.

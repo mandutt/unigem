@@ -1,0 +1,14 @@
+STATUS glm:running sonnet:running sol:running done=0/3
+REPORT 2026-11-07T10:48:29+0900 ['glm:running', 'sonnet:running', 'sol:running'] done=[]
+STATUS glm:running sonnet:running sol:running done=0/3
+STATUS glm:running sonnet:running sol:running done=0/3
+STATUS glm:running sonnet:running sol:running done=0/3
+STATUS glm:running sonnet:running sol:running done=0/3
+SAVED glm review_GLM.md 34527 chars from docs/hoplite/c5_d084_2026-11-07/review_GLM.md
+SAVED sonnet review_SONNET.md 33334 chars from docs/hoplite/c5_d084_2026-11-07/review_SONNET.md
+STATUS glm:ready sonnet:ready sol:running done=2/3
+REPORT 2026-11-07T10:53:41+0900 ['glm:ready', 'sonnet:ready', 'sol:running'] done=['glm', 'sonnet']
+STATUS glm:ready sonnet:ready sol:running done=2/3
+SAVED sol review_SOL.md 48056 chars from docs/hoplite/c5_d084_2026-11-07/review_SOL.md
+STATUS glm:ready sonnet:ready sol:ready done=3/3
+DONE 3/3

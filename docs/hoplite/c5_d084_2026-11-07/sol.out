@@ -1,0 +1,52 @@
+Written: [review_SOL.md](docs/hoplite/c5_d084_2026-11-07/review_SOL.md)
+
+Sync succeeded at **`ae2a5d49777e6999350c945a660f8ed073fed3d7`**. I read all 446 request lines and addressed every item with evidence and next steps.
+
+**Bottom line:** preserve D-083 unchanged. Pursue D-084 only as outcome-informed exploratory work, starting with a conditional URL-only baseline—not the current generic-unit default. No gate change is approved.
+
+### Verdict table
+
+| Item | Verdict | Recommendation |
+|---|---|---|
+| D4-1 | Disagree | No generic-unit default now; audit broader equivalences separately |
+| D4-2 | Conditional | Generic candidate is 2,586 after a faithful rescore |
+| D4-3 | Defer | 1,940 alias eligibility requires independent semantic adjudication |
+| D4-4 | Agree | Add separate nonvacuous, adequacy, CP and INCONCLUSIVE reporting |
+| D4-5 | Defer | Adjudicate all five excluded flips |
+| D4-6 | Agree | Correct URL case/comma handling in v2 with coupled audit |
+| D5-1 | Conditional | Four-system paired human 50; policy-selected decision primary |
+| D5-2 | Agree | Keep test 163 sealed |
+| D5-3 | Agree | Verifier correctness and audit before more training |
+| D5-4 | Conditional | Exploratory amendment, not retrospective preregistration |
+| Q1 | Disagree | Do not approve generic v2 as the immediate baseline |
+| Q2 | Conditional | Separate human-adjudicated alias clause, default off |
+| Q3 | Defer | Truth labels unavailable; require zero confirmed false accepts/unresolved auto-passes |
+| Q4 | Conditional | Preserve useful measurement research without rewriting D-083 |
+| Q5 | Agree | Generic decision candidate is 2,586, not ineligible 1,940 |
+| Q6 | Defer | Require people-count span, entity, event and scope evidence |
+| Q7 | Conditional | Same 50 documents, four blinded systems, frozen primary contrast |
+| Q8 | Conditional | Explicit denominators and separately approved adequacy criteria |
+| Q9 | Agree | Keep empirical gate; add uncertainty and plan independent P0 evidence |
+| Q10 | Agree | No test opening now; distinguish A0, audit and A1 exposure histories |
+| Q11 | Agree | Fix URL safety in v2 and audit both acceptance/rejection changes |
+| Q12 | Conditional | Complete API, provenance, access-boundary and DoD contracts |
+| Q13 | Agree | 1,940 may remain exploratory human primary, not eligible by implication |
+| Q14 | Agree | Correct implementation, exposure and inference overstatements |
+
+### Top Must-fix items
+
+1. **Do not trust the current alias rescue:** reproduced probes show it can accept `18일` as `18 확진자`; enabling it can also remove generic matches.
+2. **Implement faithful URL semantics:** the audit still accepts the known path/query case-and-comma mismatch.
+3. **Adjudicate changed claims:** not merely document-level flips. The five excluded cases remain unresolved because their source passages are absent here.
+4. **Clarify test exposure:** audit code processes all clean sources/targets, including the held-out split, although A1 predictive test evaluation remains unrun.
+5. **Freeze policy, metrics and human protocol:** preserve strict artifacts and keep selection eligibility separate from adequacy.
+
+### Top additional experiments
+
+- Separate URL-only implementation and explicit policy ablations: **0.5–1 engineer-day**, CPU minutes afterward.
+- Blinded rule-change adjudication and negative controls: approximately **4–8 person-hours**.
+- Four-system, double-rated human 50: approximately **16–24 person-hours**.
+- Prospectively planned, fresh P0 group-disjoint evaluation if population claims are needed.
+- Seed-43 replication only after measurement freeze: approximately **4.5 CPU-hours**, plus evaluation.
+
+**Verification:** existing v1 verifier tests passed **11/11**. Only the permitted report was written; tracked files remain unchanged. No training, generation, subagents, additional LLMs, or test-163 opening/evaluation occurred.

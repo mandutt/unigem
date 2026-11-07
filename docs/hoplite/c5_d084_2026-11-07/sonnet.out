@@ -1,0 +1,60 @@
+I've written the full review to `docs/hoplite/c5_d084_2026-11-07/review_SONNET.md`. It is the only file changed, and it is untracked and uncommitted.
+
+**Sync:** `git fetch origin` worked. `git pull --ff-only origin main` reported "Already up to date". HEAD is `fc31b0719f3cd0ad1a9c18b326baf7426c12103e`.
+
+**Limit on checking:** the P0 source data (`data/external/f5_pairs_v3*.jsonl`) is not in the repo or sandbox. I could not re-run the audit or read the source text for `04709`, `03801`, `03992` or the 5 flipped pairs. Where I derived a number from the audit JSON instead of reading it from an artifact, the report marks it as derived.
+
+All v2 numbers below are hypothetical audit results. D-083 strict stands: `selected_step = null`, with pilot300 as fallback and no product approval. No gate change is approved.
+
+## Verdicts
+
+| ID | Verdict | Core point |
+|---|---|---|
+| D4-1 | disagree as drafted / conditional | Unit rule should not decide selection. Report unit-dropped matches as a side column only. |
+| D4-2 | conditional | If no alias is used, 2,586 is the formal max-F1 eligible checkpoint. It is not shown better than pilot300. 1,293 differs from it by noise (0.003 F1). |
+| D4-3 | disagree | Don't treat 1,940 as an "alias candidate". |
+| D4-4 | conditional | Add nonvacuous grounded and CP/INCONCLUSIVE. Coverage/adequacy stays report-only, with no new thresholds chosen after seeing outcomes. |
+| D4-5 | conditional | Handle the 5 flips with a blind two-rater protocol and a rule that removes or narrows any clause with a confirmed false accept. |
+| D4-6 | agree | Fix URL case/comma now. It only makes the verifier stricter. |
+| D5-1 | conditional | No single primary. Blind arms pilot300, 1,940, 2,586, with 1,293 optional. |
+| D5-2 | agree | Keep test 163 sealed. |
+| D5-3 | conditional | Do the CPU-only v2 audit first, then human 50. Seed 43 later. Defer the compression arm. |
+| D5-4 | conditional | Approve only as exploratory and outcome-informed, split into a measurement part and an equivalence part. |
+| Q1 | conditional | Only the URL wrap and strict URL canonicalization are measurement fixes. |
+| Q2 | disagree as an automatic rule / conditional as a human case | The audit's alias is also much looser than the draft describes. |
+| Q3 | conditional | These are adjudication-needed flips. The 5/383 is a flip rate, not a false-accept rate. |
+| Q4 | conditional | Approvable as exploratory. Keep D-083 files unchanged and show the strict column beside v2. |
+| Q5 | conditional | Formal candidate under the rule is 2,586. 1,940 stays a co-primary human-review arm. |
+| Q6 | disagree for now | The only argument for the alias is that it lets 1,940 pass. |
+| Q7 | conditional | Blind and randomized; pilot300 as control; stratify the 50 documents. |
+| Q8 | conditional | Nonvacuous at the same 0.99 gives identical eligibility. Add CP and INCONCLUSIVE. |
+| Q9 | agree | 161 documents can't certify ≥0.99 even at 161/161 (CP lower bound 0.9773). A zero-failure certificate needs n ≥ 368. |
+| Q10 | agree | Don't open it now. Release needs D-084 closed, human 50 done, one frozen candidate, and a use-log noting A0's earlier use. |
+| Q11 | agree | Fix it now, and audit v1 historical false accepts separately. |
+| Q12 | conditional | Seven must-fixes before implementation. |
+| Q13 | agree | Gate eligibility and human-review inclusion should be separate. |
+| Q14 | n/a | 11 factual errors, overstatements and omissions listed in the report. |
+
+## Top must-fix items
+1. The audit matcher differs from the D-084 spec:
+   - URL path/query case strictness is not implemented.
+   - The uniqueness guard counts occurrences, not distinct unit slots.
+   - The alias uses a 24-character window and bypasses the guard for every value.
+   - The summary-side URL join is not checked against the source.
+   Re-run the audit with a spec-faithful matcher before approving anything.
+2. Split D-084 into a measurement part (URL) and an equivalence part (qualifier, unit report-only, alias off).
+3. Add a clause-by-clause ablation. The "URL+qualifier only" row in the request was never run.
+4. Replace the "false accept 0" DoD item with a blind two-rater protocol and a synthetic cross-unit mutation test.
+5. Keep "eligible", "selected" and "promoted" as separate terms. Hash the D-083 outputs and print strict next to v2.
+6. Define nonvacuous grounded, CP and the INCONCLUSIVE label numerically.
+7. Write a test-163 freeze protocol with a use-log, and add data hashes so reviewers can reproduce.
+
+## Top additional experiments
+- **E1:** spec-faithful v2 with clause ablation (CPU only, about 0.5–1 day of work).
+- **E2:** synthetic mutation set to measure v1 and v2 false-accept and false-reject rates (CPU only, under a day).
+- **E3:** human 50, blind, with pilot300, 1,940 and 2,586 arms, double-rating at least 15 documents.
+- **E4:** reference-free grounded check on the 383 unseen P0 sources, only after E1. It needs generation, and I didn't measure per-document cost.
+- **E5:** seed 43 (about 4 h 20 min), conditional on E1–E3.
+
+## Key finding
+1,940 is the max-F1 eligible checkpoint only if the counter alias is adopted. Under every other policy in the ladder, 2,586 is. I derived the URL-only and URL+qualifier rows from the audit's fail IDs, and the unit-clause ablation I recommend would confirm them. The generic unit clause does not change which checkpoints are eligible on val. It only adds false-accept risk (902 of 1,617 documents have unit collisions, and all 5 excluded-pool flips are plain numbers).

@@ -1,8 +1,20 @@
 # D-084 초안 — verifier v2 audit과 A1 재선택
 
 > **상태: DRAFT / 미승인.**  
-> 이 문서는 사용자 승인을 받은 초안이며, 공식 결정이 아니다. `docs/decisions.md`에 D-084로 등록하지 않는다.  
+> 이 문서는 사용자가 **작성·검토를 승인한 초안**이며, 내용은 아직 승인되지 않았다. `docs/decisions.md`에 D-084로 등록하지 않는다.  
 > `eval/slot_verify.py`와 production selection은 아직 수정하지 않았다. D-083 strict 결과는 그대로다.
+
+## 0. 3-AI 검토 후 수정 필요 (2026-11-07)
+
+3-AI(GLM/Sonnet/Sol)는 **현재 초안을 그대로 승인하지 말 것**으로 판정했다. 핵심 수정 방향:
+
+- **URL-only baseline**을 084a로 분리하고, time/unit/alias는 084b equivalence로 default off/report-only.
+- 현재 audit matcher는 v1 URL canonicalizer를 상속해 URL case/comma strictness를 구현하지 않았으므로, **모든 v2 수치는 pre-spec optimistic upper bound**로 표시한다.
+- generic unit rule은 selection-bearing이므로 default로 승인하지 않는다.
+- counter alias는 자동 규칙이 아니라 human adjudication이며, 현재 audit 구현은 그 spec보다 넓다.
+- 5 excluded flips는 false-accept 후보이며 blind human adjudication이 필요하다.
+- 2,586이 non-alias 기준 formal candidate, 1,940은 human exploratory comparator다.
+- 상세: `reports/C5_D084_3AI_REVIEW_SYNTHESIS_2026-11-07.md`
 
 - 작성일: 2026-11-07
 - 대상: C5/F5 A1 full train의 grounded gate 재판정
