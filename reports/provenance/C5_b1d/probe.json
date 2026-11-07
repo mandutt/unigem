@@ -1,0 +1,142 @@
+{
+  "probe_version": "b1d-probe/0.1.0",
+  "status": "PASS_INTERFACE",
+  "train_docs": [
+    "REPORT-news_r-03837-00002",
+    "REPORT-news_r-00514-00001",
+    "REPORT-news_r-00563-00001",
+    "REPORT-news_r-01157-00003",
+    "REPORT-news_r-04550-00002"
+  ],
+  "val_docs": [
+    "REPORT-news_r-00365-00001",
+    "REPORT-news_r-00420-00001"
+  ],
+  "test_split_used": false,
+  "prompt": "summarize: ",
+  "token_alignment": {
+    "train": {
+      "n": 5,
+      "exact": 5,
+      "rate": 1.0,
+      "mismatches": []
+    },
+    "val": {
+      "n": 2,
+      "exact": 2,
+      "rate": 1.0,
+      "mismatches": []
+    },
+    "per_doc": [
+      {
+        "id": "REPORT-news_r-03837-00002",
+        "eg2_len": 758,
+        "t5_len": 758,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00514-00001",
+        "eg2_len": 769,
+        "t5_len": 769,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00563-00001",
+        "eg2_len": 829,
+        "t5_len": 829,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-01157-00003",
+        "eg2_len": 773,
+        "t5_len": 773,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-04550-00002",
+        "eg2_len": 766,
+        "t5_len": 766,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00365-00001",
+        "eg2_len": 799,
+        "t5_len": 799,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00420-00001",
+        "eg2_len": 734,
+        "t5_len": 734,
+        "exact": true,
+        "first_diff": null
+      }
+    ]
+  },
+  "shapes": {
+    "teacher": [
+      758,
+      640
+    ],
+    "student": [
+      758,
+      768
+    ],
+    "teacher_norm_mean": 125.3947036743164,
+    "student_norm_mean": 426.41880493164064
+  },
+  "adapter": {
+    "params": 1084032,
+    "steps": 200,
+    "lr": 0.001,
+    "loss_first": 0.9723461270332336,
+    "loss_last": 0.20387829840183258,
+    "loss_min": 0.20054863393306732,
+    "train_cosine_before": 0.02976887947389562,
+    "train_cosine_after": 0.7992903822002423,
+    "val_cosine_before": 0.026238279502133522,
+    "val_cosine_after": 0.5937383972565217
+  },
+  "generate": {
+    "ok": true,
+    "error": null,
+    "n_tokens": 17,
+    "text": [
+      "자 2000명에 1000명에 "
+    ],
+    "max_new": 16
+  },
+  "generate_teacher_control": {
+    "ok": true,
+    "error": null,
+    "n_tokens": 17,
+    "text": [
+      "\n  협의회 측은 입찰 공고문에 적힌 요구"
+    ],
+    "max_new": 16,
+    "note": "native T5 encoder hidden passed back through encoder_outputs"
+  },
+  "timing_sec": {
+    "eg2": 9.31,
+    "t5": 4.45,
+    "adapter_fit": 3.22,
+    "total": 22.27
+  },
+  "rss_mb": {
+    "after_eg2": 2139.7,
+    "peak": 2474.8
+  },
+  "limitations": [
+    "5 train / 2 val documents; not a quality result.",
+    "adapter is direction-only; scale is fixed at teacher mean norm for generation.",
+    "no decoder LoRA; frozen decoder may ignore or misuse H_s.",
+    "no full teacher cache; no full distillation.",
+    "test 163 remained sealed."
+  ]
+}

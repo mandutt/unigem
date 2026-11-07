@@ -1,0 +1,20 @@
+{
+  "train": {
+    "n": 1293,
+    "exact": 1293,
+    "rate": 1.0,
+    "mismatches": [],
+    "len_min": 629,
+    "len_max": 912,
+    "len_mean": 766.9350348027842
+  },
+  "val": {
+    "n": 161,
+    "exact": 161,
+    "rate": 1.0,
+    "mismatches": [],
+    "len_min": 624,
+    "len_max": 867,
+    "len_mean": 764.0186335403727
+  }
+}

@@ -1,0 +1,65 @@
+Loading weights:   0%|          | 0/1376 [00:00<?, ?it/s]Loading weights:  10%|▉         | 132/1376 [00:00<00:00, 1278.98it/s]Loading weights:  19%|█▉        | 260/1376 [00:00<00:00, 1142.65it/s]Loading weights:  28%|██▊       | 380/1376 [00:00<00:00, 1158.58it/s]Loading weights:  37%|███▋      | 511/1376 [00:00<00:00, 1184.02it/s]Loading weights:  47%|████▋     | 643/1376 [00:00<00:00, 1221.92it/s]Loading weights:  56%|█████▌    | 766/1376 [00:00<00:00, 654.34it/s] Loading weights:  67%|██████▋   | 920/1376 [00:01<00:00, 831.41it/s]Loading weights:  76%|███████▌  | 1044/1376 [00:01<00:00, 918.03it/s]Loading weights:  84%|████████▍ | 1162/1376 [00:01<00:00, 973.36it/s]Loading weights:  93%|█████████▎| 1277/1376 [00:01<00:00, 807.56it/s]Loading weights: 100%|█████████▉| 1375/1376 [00:01<00:00, 678.11it/s]Loading weights: 100%|██████████| 1376/1376 [00:01<00:00, 848.00it/s]
+Loading weights:   0%|          | 0/911 [00:00<?, ?it/s]Loading weights:   6%|▌         | 55/911 [00:00<00:01, 517.89it/s]Loading weights:  12%|█▏        | 107/911 [00:00<00:03, 218.38it/s]Loading weights:  16%|█▋        | 149/911 [00:00<00:02, 268.90it/s]Loading weights:  20%|██        | 185/911 [00:00<00:03, 237.11it/s]Loading weights:  23%|██▎       | 214/911 [00:00<00:03, 222.25it/s]Loading weights:  26%|██▋       | 240/911 [00:01<00:03, 219.12it/s]Loading weights:  29%|██▉       | 264/911 [00:01<00:03, 212.25it/s]Loading weights: 100%|██████████| 911/911 [00:01<00:00, 790.75it/s]
+{
+  "status": "PASS_INTERFACE",
+  "alignment": {
+    "train": 1.0,
+    "val": 1.0
+  },
+  "shapes": {
+    "teacher": [
+      758,
+      640
+    ],
+    "student": [
+      758,
+      768
+    ],
+    "teacher_norm_mean": 124.48224906921386,
+    "student_norm_mean": 443.3257263183594
+  },
+  "loss": [
+    1.0018376111984253,
+    0.24144749343395233
+  ],
+  "cosine": {
+    "train": [
+      -0.008284827282006675,
+      0.7552921282711313
+    ],
+    "val": [
+      -0.00845808148134986,
+      0.6617561888361108
+    ]
+  },
+  "generate": {
+    "ok": true,
+    "error": null,
+    "n_tokens": 17,
+    "text": [
+      "\n  “  ”  ”  ”  ”  ”  ”  "
+    ],
+    "max_new": 16
+  },
+  "generate_teacher_control": {
+    "ok": true,
+    "error": null,
+    "n_tokens": 17,
+    "text": [
+      "\n  협의회 측은 입찰 공고문에 적힌 요구"
+    ],
+    "max_new": 16,
+    "note": "native T5 encoder hidden passed back through encoder_outputs"
+  },
+  "timing_sec": {
+    "eg2": 29.56,
+    "t5": 14.35,
+    "adapter_fit": 7.83,
+    "total": 57.3
+  },
+  "rss_mb": {
+    "after_eg2": 1972.9,
+    "peak": 2658.8
+  },
+  "out": "reports\\provenance\\C5_b1d\\probe_20_10.json"
+}

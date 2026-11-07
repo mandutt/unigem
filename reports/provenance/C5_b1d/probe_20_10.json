@@ -1,0 +1,326 @@
+{
+  "probe_version": "b1d-probe/0.1.0",
+  "status": "PASS_INTERFACE",
+  "train_docs": [
+    "REPORT-news_r-03837-00002",
+    "REPORT-news_r-00514-00001",
+    "REPORT-news_r-00563-00001",
+    "REPORT-news_r-01157-00003",
+    "REPORT-news_r-04550-00002",
+    "REPORT-news_r-01871-00001",
+    "REPORT-news_r-05163-00001",
+    "REPORT-news_r-02608-00001",
+    "REPORT-news_r-03508-00001",
+    "REPORT-news_r-02898-00001",
+    "REPORT-news_r-01018-00001",
+    "REPORT-news_r-03601-00001",
+    "REPORT-news_r-00944-00001",
+    "REPORT-news_r-02518-00001",
+    "REPORT-news_r-01598-00001",
+    "REPORT-news_r-04666-00001",
+    "REPORT-news_r-03575-00001",
+    "REPORT-news_r-05237-00001",
+    "REPORT-news_r-01281-00002",
+    "REPORT-news_r-01921-00001"
+  ],
+  "val_docs": [
+    "REPORT-news_r-00365-00001",
+    "REPORT-news_r-00420-00001",
+    "REPORT-news_r-02318-00002",
+    "REPORT-news_r-04679-00001",
+    "REPORT-news_r-03915-00001",
+    "REPORT-news_r-04161-00002",
+    "REPORT-news_r-00430-00001",
+    "REPORT-news_r-01555-00001",
+    "REPORT-news_r-02180-00001",
+    "REPORT-news_r-01331-00001"
+  ],
+  "test_split_used": false,
+  "prompt": "summarize: ",
+  "token_alignment": {
+    "train": {
+      "n": 20,
+      "exact": 20,
+      "rate": 1.0,
+      "mismatches": []
+    },
+    "val": {
+      "n": 10,
+      "exact": 10,
+      "rate": 1.0,
+      "mismatches": []
+    },
+    "per_doc": [
+      {
+        "id": "REPORT-news_r-03837-00002",
+        "eg2_len": 758,
+        "t5_len": 758,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00514-00001",
+        "eg2_len": 769,
+        "t5_len": 769,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00563-00001",
+        "eg2_len": 829,
+        "t5_len": 829,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-01157-00003",
+        "eg2_len": 773,
+        "t5_len": 773,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-04550-00002",
+        "eg2_len": 766,
+        "t5_len": 766,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-01871-00001",
+        "eg2_len": 784,
+        "t5_len": 784,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-05163-00001",
+        "eg2_len": 706,
+        "t5_len": 706,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-02608-00001",
+        "eg2_len": 773,
+        "t5_len": 773,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-03508-00001",
+        "eg2_len": 745,
+        "t5_len": 745,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-02898-00001",
+        "eg2_len": 757,
+        "t5_len": 757,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-01018-00001",
+        "eg2_len": 772,
+        "t5_len": 772,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-03601-00001",
+        "eg2_len": 874,
+        "t5_len": 874,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00944-00001",
+        "eg2_len": 845,
+        "t5_len": 845,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-02518-00001",
+        "eg2_len": 807,
+        "t5_len": 807,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-01598-00001",
+        "eg2_len": 765,
+        "t5_len": 765,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-04666-00001",
+        "eg2_len": 774,
+        "t5_len": 774,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-03575-00001",
+        "eg2_len": 739,
+        "t5_len": 739,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-05237-00001",
+        "eg2_len": 755,
+        "t5_len": 755,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-01281-00002",
+        "eg2_len": 729,
+        "t5_len": 729,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-01921-00001",
+        "eg2_len": 757,
+        "t5_len": 757,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00365-00001",
+        "eg2_len": 799,
+        "t5_len": 799,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00420-00001",
+        "eg2_len": 734,
+        "t5_len": 734,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-02318-00002",
+        "eg2_len": 821,
+        "t5_len": 821,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-04679-00001",
+        "eg2_len": 796,
+        "t5_len": 796,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-03915-00001",
+        "eg2_len": 787,
+        "t5_len": 787,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-04161-00002",
+        "eg2_len": 763,
+        "t5_len": 763,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-00430-00001",
+        "eg2_len": 750,
+        "t5_len": 750,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-01555-00001",
+        "eg2_len": 805,
+        "t5_len": 805,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-02180-00001",
+        "eg2_len": 717,
+        "t5_len": 717,
+        "exact": true,
+        "first_diff": null
+      },
+      {
+        "id": "REPORT-news_r-01331-00001",
+        "eg2_len": 752,
+        "t5_len": 752,
+        "exact": true,
+        "first_diff": null
+      }
+    ]
+  },
+  "shapes": {
+    "teacher": [
+      758,
+      640
+    ],
+    "student": [
+      758,
+      768
+    ],
+    "teacher_norm_mean": 124.48224906921386,
+    "student_norm_mean": 443.3257263183594
+  },
+  "adapter": {
+    "params": 1084032,
+    "steps": 500,
+    "lr": 0.001,
+    "loss_first": 1.0018376111984253,
+    "loss_last": 0.24144749343395233,
+    "loss_min": 0.23524001240730286,
+    "train_cosine_before": -0.008284827282006675,
+    "train_cosine_after": 0.7552921282711313,
+    "val_cosine_before": -0.00845808148134986,
+    "val_cosine_after": 0.6617561888361108
+  },
+  "generate": {
+    "ok": true,
+    "error": null,
+    "n_tokens": 17,
+    "text": [
+      "\n  “  ”  ”  ”  ”  ”  ”  "
+    ],
+    "max_new": 16
+  },
+  "generate_teacher_control": {
+    "ok": true,
+    "error": null,
+    "n_tokens": 17,
+    "text": [
+      "\n  협의회 측은 입찰 공고문에 적힌 요구"
+    ],
+    "max_new": 16,
+    "note": "native T5 encoder hidden passed back through encoder_outputs"
+  },
+  "timing_sec": {
+    "eg2": 29.56,
+    "t5": 14.35,
+    "adapter_fit": 7.83,
+    "total": 57.3
+  },
+  "rss_mb": {
+    "after_eg2": 1972.9,
+    "peak": 2658.8
+  },
+  "limitations": [
+    "5 train / 2 val documents; not a quality result.",
+    "adapter is direction-only; scale is fixed at teacher mean norm for generation.",
+    "no decoder LoRA; frozen decoder may ignore or misuse H_s.",
+    "no full teacher cache; no full distillation.",
+    "test 163 remained sealed."
+  ]
+}
