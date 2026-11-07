@@ -1,0 +1,19 @@
+{
+  "n": 100,
+  "adapter": "data/models/f5_t5gemma2_lora/b2_gold300/adapter_final.pt",
+  "max_new": 448,
+  "char_f1_mean": 0.3340819290773887,
+  "teacher_char_f1_mean": 0.3287325880451726,
+  "grounded_rate": 0.18,
+  "new_slot_rate_micro": 0.7612903225806451,
+  "new_slot_rate_mean": 0.5908555273026913,
+  "new_slot_count": 472,
+  "summary_slot_count": 620,
+  "eos_rate": 0.67,
+  "nonempty_rate": 1.0,
+  "gen_len_mean": 276.08,
+  "repeated_4gram_rate_mean": 0.5924775487401743,
+  "distinct_2_mean": 0.31507428499327866,
+  "elapsed_sec": 1234.7,
+  "test_split_used": false
+}
