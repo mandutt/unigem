@@ -1,0 +1,7 @@
+{
+  "out": "C:\\code\\unigem\\reports\\C5_human50_primary_rating_sheet.html",
+  "docs": 50,
+  "sessions": 5,
+  "ratings": 200,
+  "bytes": 310991
+}
