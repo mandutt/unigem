@@ -1,0 +1,49 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: the current origin/main HEAD, which includes the review request, the D-084 draft, and the verifier-v2 audit. First sync/pull to that HEAD, then work read-only.
+
+This is an intentionally separate, independent review thread using a different model (Sol 6.1). Do not treat it as a duplicate of another thread; we are collecting multi-model opinions.
+
+Read the full review request:
+reports/EXTERNAL_REVIEW_C5_D084_2026-11-07.md
+
+Read all 446 lines, splitting into chunks if needed. Do not rely on a summary, excerpt, or another model's answer. Then inspect the referenced D-084 draft, audit JSON, strict selection, eval artifacts, and verifier code as needed. Do not run training or generation. Do not open or evaluate test 163. Do not modify repository files. Do not call subagents or additional LLM models; complete the review yourself. Your only permitted write is the single report file named below.
+
+Current strict state (verified):
+- D-083 strict: selected_step = null; no full-train checkpoint eligible; pilot300 fallback, not product approval.
+- Full train: 2,586 steps, 2 epochs, 4 h 20 min 18 s, exit 0.
+- 1,940: F1 0.682278, grounded 158/161, slot-free 4.
+- 2,586: F1 0.668982, grounded 159/161, slot-free 11.
+- pilot300: F1 0.657580, grounded 161/161, new slot 0.
+- test 163: A0 used it in D-080; A1 has not used it.
+
+New verifier-v2 audit (read-only, not production):
+- generic v2 grounded: pilot300 161/161, 647 158/161, 1,293 160/161, 1,940 159/161, 2,586 160/161.
+- generic + counter alias: 1,940 becomes 160/161.
+- Thus selection depends on unit-alias policy: generic max-F1 candidate is 2,586; alias max-F1 candidate is 1,940.
+- Excluded 383 pairs: 5 v1-to-v2 grounded flips, all false-accept candidates requiring human adjudication; clean 1,617 pairs unchanged.
+- Corpus: 3 URL wraps, 7 qualifier collisions, 902 numeric-unit collisions in 1,617.
+- Existing v1 URL canonicalizer has a path/query case/comma false acceptance.
+
+Key questions:
+1. Is generic v2 the right baseline, or should only URL repair be allowed?
+2. Is the 18-counter alias legitimate, or must it be a separate human-adjudicated clause?
+3. How should the 5 excluded flips be adjudicated, and what is the false-accept acceptance criterion?
+4. Can D-084 be approved as outcome-informed exploratory without rewriting D-083?
+5. If generic v2 makes 1,940 ineligible but 2,586 eligible, which candidate should human review use?
+6. What should human 50, G-C5 adequacy, test 163, and the next experiment be?
+
+Answer every D4-1 through D5-4 and Q1 through Q14 item in the request. For each provide:
+- verdict: agree / disagree / conditional / defer
+- evidence tied to this document or artifacts
+- one to three concrete next steps
+
+Deliverable:
+1. Write your full report to this repository-relative file (mandatory, not optional):
+   docs/hoplite/c5_d084_2026-11-07/review_SOL.md
+2. In your final message, include a compact verdict table for D4-1 through D5-4 and Q1 through Q14, plus top Must-fix items and top additional experiments.
+
+Do not claim any gate change is already approved. Do not propose using P1 data. Do not propose opening test 163 now. Keep the distinction between strict D-083 results and hypothetical v2 results explicit. Do not recommend choosing an alias merely to make 1,940 pass.
+
+This is consultation only. Your only permitted write is the single report file named above.
