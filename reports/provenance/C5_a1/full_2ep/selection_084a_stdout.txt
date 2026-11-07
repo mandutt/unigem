@@ -1,0 +1,56 @@
+{
+  "candidate_status": "PROVISIONAL_NOMINEE",
+  "provisional_nominee": {
+    "step": "2586",
+    "char_f1": 0.6689816431466696,
+    "grounded": 160,
+    "note": "provisional 084a nominee only; not D-083 selected, not approved, not promoted"
+  },
+  "eligible_full_train": [
+    "2586",
+    "1293"
+  ],
+  "systems": {
+    "pilot300": {
+      "grounded": "161/161",
+      "micro": 0.0,
+      "eos": 1.0,
+      "rep4": 0.0553504957356422,
+      "screen": true,
+      "evidence": "INCONCLUSIVE"
+    },
+    "0647": {
+      "grounded": "156/161",
+      "micro": 0.0057,
+      "eos": 0.9937888198757764,
+      "rep4": 0.06840038632539303,
+      "screen": false,
+      "evidence": "INCONCLUSIVE"
+    },
+    "1293": {
+      "grounded": "160/161",
+      "micro": 0.00117,
+      "eos": 1.0,
+      "rep4": 0.05865729506391541,
+      "screen": true,
+      "evidence": "INCONCLUSIVE"
+    },
+    "1940": {
+      "grounded": "158/161",
+      "micro": 0.00465,
+      "eos": 1.0,
+      "rep4": 0.05137576238332928,
+      "screen": false,
+      "evidence": "INCONCLUSIVE"
+    },
+    "2586": {
+      "grounded": "160/161",
+      "micro": 0.00262,
+      "eos": 1.0,
+      "rep4": 0.044500569012353115,
+      "screen": true,
+      "evidence": "INCONCLUSIVE"
+    }
+  }
+}
+wrote C:\code\unigem\reports\provenance\C5_a1\full_2ep\selection_084a_provisional.json

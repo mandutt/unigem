@@ -1,0 +1,225 @@
+{
+  "policy": "D084A/1.0.0",
+  "spec_hash": "d084a-rev3-2026-11-07",
+  "source": "verifier_084a_audit.json",
+  "strict_d083_selected_step": null,
+  "strict_d083_fallback": "pilot300",
+  "candidate_status": "PROVISIONAL_NOMINEE",
+  "provisional_nominee": {
+    "step": "2586",
+    "char_f1": 0.6689816431466696,
+    "grounded": 160,
+    "note": "provisional 084a nominee only; not D-083 selected, not approved, not promoted"
+  },
+  "eligible_full_train": [
+    "2586",
+    "1293"
+  ],
+  "approval_status": "NOT_APPROVED",
+  "human_50": "NOT_RUN",
+  "test_163": "SEALED",
+  "systems": {
+    "pilot300": {
+      "system": "pilot300",
+      "n": 161,
+      "char_f1": 0.6575798405292183,
+      "grounded": 161,
+      "grounded_rate": 1.0,
+      "new_slots": 0,
+      "summary_slots": 837,
+      "new_slot_micro": 0.0,
+      "nonvacuous_n": 155,
+      "nonvacuous_grounded": 155,
+      "nonvacuous_rate": 1.0,
+      "slot_free": 6,
+      "slot_free_ids": [
+        "REPORT-news_r-00114-00001",
+        "REPORT-news_r-00138-00003",
+        "REPORT-news_r-00159-00002",
+        "REPORT-news_r-00450-00001",
+        "REPORT-news_r-01331-00001",
+        "REPORT-news_r-04769-00002"
+      ],
+      "eos": 1.0,
+      "repeated4": 0.0553504957356422,
+      "gate": {
+        "grounded": true,
+        "new_slot_micro": true,
+        "eos": true,
+        "repeated4": true
+      },
+      "screen_eligibility": true,
+      "doc_cp95": [
+        0.9773481985863577,
+        1.0
+      ],
+      "slot_cp95": [
+        0.0,
+        0.004397565652813641
+      ],
+      "evidence_status": "INCONCLUSIVE"
+    },
+    "0647": {
+      "system": "0647",
+      "n": 161,
+      "char_f1": 0.6698531474586338,
+      "grounded": 156,
+      "grounded_rate": 0.968944099378882,
+      "new_slots": 5,
+      "summary_slots": 877,
+      "new_slot_micro": 0.005701254275940707,
+      "nonvacuous_n": 159,
+      "nonvacuous_grounded": 154,
+      "nonvacuous_rate": 0.9685534591194969,
+      "slot_free": 2,
+      "slot_free_ids": [
+        "REPORT-news_r-00159-00002",
+        "REPORT-news_r-00450-00001"
+      ],
+      "eos": 0.9937888198757764,
+      "repeated4": 0.06840038632539303,
+      "gate": {
+        "grounded": false,
+        "new_slot_micro": true,
+        "eos": true,
+        "repeated4": false
+      },
+      "screen_eligibility": false,
+      "doc_cp95": [
+        0.9290166325137119,
+        0.989840837039136
+      ],
+      "slot_cp95": [
+        0.001853695876037336,
+        0.01325430673237429
+      ],
+      "evidence_status": "INCONCLUSIVE"
+    },
+    "1293": {
+      "system": "1293",
+      "n": 161,
+      "char_f1": 0.6659464908564732,
+      "grounded": 160,
+      "grounded_rate": 0.9937888198757764,
+      "new_slots": 1,
+      "summary_slots": 854,
+      "new_slot_micro": 0.00117096018735363,
+      "nonvacuous_n": 153,
+      "nonvacuous_grounded": 152,
+      "nonvacuous_rate": 0.9934640522875817,
+      "slot_free": 8,
+      "slot_free_ids": [
+        "REPORT-news_r-00138-00003",
+        "REPORT-news_r-00430-00002",
+        "REPORT-news_r-00306-00001",
+        "REPORT-news_r-00467-00002",
+        "REPORT-news_r-02256-00001",
+        "REPORT-news_r-02741-00001",
+        "REPORT-news_r-03348-00001",
+        "REPORT-news_r-04769-00002"
+      ],
+      "eos": 1.0,
+      "repeated4": 0.05865729506391541,
+      "gate": {
+        "grounded": true,
+        "new_slot_micro": true,
+        "eos": true,
+        "repeated4": true
+      },
+      "screen_eligibility": true,
+      "doc_cp95": [
+        0.965880874845245,
+        0.9998427588979373
+      ],
+      "slot_cp95": [
+        2.964570573804787e-05,
+        0.0065067367119981175
+      ],
+      "evidence_status": "INCONCLUSIVE"
+    },
+    "1940": {
+      "system": "1940",
+      "n": 161,
+      "char_f1": 0.6822781759843934,
+      "grounded": 158,
+      "grounded_rate": 0.9813664596273292,
+      "new_slots": 4,
+      "summary_slots": 860,
+      "new_slot_micro": 0.004651162790697674,
+      "nonvacuous_n": 157,
+      "nonvacuous_grounded": 154,
+      "nonvacuous_rate": 0.9808917197452229,
+      "slot_free": 4,
+      "slot_free_ids": [
+        "REPORT-news_r-00138-00003",
+        "REPORT-news_r-00159-00002",
+        "REPORT-news_r-00450-00001",
+        "REPORT-news_r-00467-00002"
+      ],
+      "eos": 1.0,
+      "repeated4": 0.05137576238332928,
+      "gate": {
+        "grounded": false,
+        "new_slot_micro": true,
+        "eos": true,
+        "repeated4": true
+      },
+      "screen_eligibility": false,
+      "doc_cp95": [
+        0.9465126457402586,
+        0.9961407073810962
+      ],
+      "slot_cp95": [
+        0.001268695397449936,
+        0.011865668509891068
+      ],
+      "evidence_status": "INCONCLUSIVE"
+    },
+    "2586": {
+      "system": "2586",
+      "n": 161,
+      "char_f1": 0.6689816431466696,
+      "grounded": 160,
+      "grounded_rate": 0.9937888198757764,
+      "new_slots": 2,
+      "summary_slots": 762,
+      "new_slot_micro": 0.0026246719160104987,
+      "nonvacuous_n": 150,
+      "nonvacuous_grounded": 149,
+      "nonvacuous_rate": 0.9933333333333333,
+      "slot_free": 11,
+      "slot_free_ids": [
+        "REPORT-news_r-00138-00003",
+        "REPORT-news_r-00159-00002",
+        "REPORT-news_r-00426-00001",
+        "REPORT-news_r-00450-00001",
+        "REPORT-news_r-00706-00001",
+        "REPORT-news_r-00942-00001",
+        "REPORT-news_r-02741-00001",
+        "REPORT-news_r-03220-00002",
+        "REPORT-news_r-03348-00001",
+        "REPORT-news_r-03915-00001",
+        "REPORT-news_r-04769-00002"
+      ],
+      "eos": 1.0,
+      "repeated4": 0.044500569012353115,
+      "gate": {
+        "grounded": true,
+        "new_slot_micro": true,
+        "eos": true,
+        "repeated4": true
+      },
+      "screen_eligibility": true,
+      "doc_cp95": [
+        0.965880874845245,
+        0.9998427588979373
+      ],
+      "slot_cp95": [
+        0.00031801814766447276,
+        0.009448768821681212
+      ],
+      "evidence_status": "INCONCLUSIVE"
+    }
+  },
+  "note": "Point screens are unchanged. CP is evidence-status only and does not remove eligibility. No D-083 file was overwritten."
+}

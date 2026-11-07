@@ -1,0 +1,87 @@
+{
+  "allowed": {
+    "train": 1293,
+    "val": 161,
+    "excluded": 383
+  },
+  "systems": {
+    "pilot300": {
+      "n": 161,
+      "v1_grounded": 161,
+      "a_grounded": 161,
+      "new_pass": [],
+      "new_fail": [],
+      "unresolved_docs": [
+        "REPORT-news_r-01518-00001"
+      ]
+    },
+    "0647": {
+      "n": 161,
+      "v1_grounded": 155,
+      "a_grounded": 156,
+      "new_pass": [
+        "REPORT-news_r-02742-00001"
+      ],
+      "new_fail": [],
+      "unresolved_docs": [
+        "REPORT-news_r-01518-00001"
+      ]
+    },
+    "1293": {
+      "n": 161,
+      "v1_grounded": 159,
+      "a_grounded": 160,
+      "new_pass": [
+        "REPORT-news_r-02742-00001"
+      ],
+      "new_fail": [],
+      "unresolved_docs": [
+        "REPORT-news_r-01518-00001"
+      ]
+    },
+    "1940": {
+      "n": 161,
+      "v1_grounded": 158,
+      "a_grounded": 158,
+      "new_pass": [],
+      "new_fail": [],
+      "unresolved_docs": [
+        "REPORT-news_r-01518-00001"
+      ]
+    },
+    "2586": {
+      "n": 161,
+      "v1_grounded": 159,
+      "a_grounded": 160,
+      "new_pass": [
+        "REPORT-news_r-02742-00001"
+      ],
+      "new_fail": [],
+      "unresolved_docs": [
+        "REPORT-news_r-01518-00001"
+      ]
+    }
+  },
+  "target_audit": {
+    "train_val": {
+      "n": 1454,
+      "v1_grounded": 1454,
+      "a_grounded": 1454,
+      "changes": 0
+    },
+    "excluded": {
+      "n": 383,
+      "v1_grounded": 0,
+      "a_grounded": 0,
+      "changes": 0
+    }
+  },
+  "url_census": {
+    "repair_docs": 3,
+    "unresolved_docs": 2,
+    "reason_counts": {
+      "terminal_punctuation": 2
+    }
+  }
+}
+wrote C:\code\unigem\reports\provenance\C5_a1\full_2ep\verifier_084a_audit.json
