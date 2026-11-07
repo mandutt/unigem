@@ -1,0 +1,63 @@
+{
+  "doc_id": "REPORT-news_r-04237-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "해당 검사 4명은 바로 사직서를 냈다.",
+        "바 장관이 견디다 못해 트윗에 대한 나름의 항의를 했다는 해석"
+      ],
+      "reason": "바 장관의 구형량 조정 논란과 트럼프의 비판은 담았지만, 검사 4명의 사직을 빠뜨렸습니다. 언론의 해석 중 하나인 항의설을 바 장관이 직접 폭로한 사실처럼 서술했습니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "바 장관에 대해선 “트럼프의 하수인”(뉴욕타임스), “트럼프의 장난감”(워싱턴포스트)이라는 비난이 쏟아졌다.",
+        "트럼프 대통령의 지시는 없었다"
+      ],
+      "reason": "서명 인원과 검사들의 사직은 담았지만, 바 장관을 향한 비난을 바 장관이 퍼부은 것처럼 잘못 서술했습니다. 트럼프의 지시가 없었다는 바 장관의 설명과 구형량 하향 발표의 구체적인 경위도 빠졌습니다."
+    },
+    "C": {
+      "adequacy": 1,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": [
+        "트럼프 대통령은 지난 11일 트윗으로 검찰을 정면 비판했다.",
+        "트럼프 대통령의 트윗 후 법무부는 “스톤에 대한 구형량을 낮추겠다”라고 전격 발표했다.",
+        "해당 검사 4명은 바로 사직서를 냈다."
+      ],
+      "reason": "트럼프의 트윗과 법무부의 구형량 하향 발표를 바 장관의 행동으로 뒤섞어 핵심 행위자를 잘못 나타냈습니다. 전직 법무부 관리들의 사퇴 촉구 배경도 구체적으로 설명하지 않습니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "트럼프 대통령은 지난 11일 트윗으로 검찰을 정면 비판했다.",
+        "해당 검사 4명은 바로 사직서를 냈다.",
+        "바 장관이 견디다 못해 트윗에 대한 나름의 항의를 했다는 해석"
+      ],
+      "reason": "사퇴 압력의 배경과 서명 인원, 언론의 상반된 해석을 대체로 정확히 담았습니다. 다만 트윗 뒤 법무부가 구형량을 낮춘 발표와 검사 4명의 사직이라는 중요한 경과를 빠뜨렸습니다."
+    }
+  }
+}

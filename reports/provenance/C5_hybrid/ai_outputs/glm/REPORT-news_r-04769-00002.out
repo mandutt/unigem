@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-04769-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["발렌티노 쇼에선 지갑만 한 작은 가방을 멘 모델들이 줄줄이 걸어 나왔다", "남자들의 핸드백 패션은 최근 소비문화의 화두인 '젠더리스(genderless)' 영향으로 해석할 수 있다"],
+      "reason": "디올·자크뮈스·발렌티노·프라다·펜디 등 전반부 런웨이 사실만 옮겼고 젠더리스 주제와 카세트·브리크 백의 남녀 교차 인기 등 후반부가 통째로 빠졌다. 발렌티노 문장에서 '멘 모델들이'가 '모델로'로 바뀌어 주어가 무너졌다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 2,
+      "evidence": ["지갑만 한 작은 가방을 멘 모델들이", "젠더리스(genderless) 영향으로 해석할 수 있다"],
+      "reason": "브랜드 나열과 핑크 무대, 카세트·브리크 백의 남녀 교차 사실만 남았고, 기사의 핵심 현상인 지갑만 한 작은 가방(머스) 묘사와 젠더리스 설명이 모두 빠져 주제가 드러나지 않는다. 문장 자체는 자연스럽다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["디올은 여행용 가방 브랜드 리모와와 손잡고 알루미늄 소재의 남성용 클러치백(끈 없이 손에 드는 작은 가방)을 선보였다"],
+      "reason": "추세와 앤드로지너스 룩 주제, 2020 봄·여름 시즌 정보까지 담아 넷 중 가장 충실하지만, 디올이 리모와와 손잡고 선보인 알루미늄 클러치백을 '리모와는 손잡고 선보였다'로 귀속시켜 디올이 지워졌고 협업 대상도 매달렸다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["젠더리스(genderless) 영향으로 해석할 수 있다", "보테가 베네타의 '카세트 백'은 여성용으로 출시됐지만 최근에는 남자들도 탐내는 제품이 됐다"],
+      "reason": "디올·지방시·루이 비통·프라다·펜디와 디올-리모와 협업 사실을 정확하게 옮겼으나 발렌티노·자크뮈스는 물론 젠더리스 주제와 남녀 교차 인기 등 후반부 전체가 빠졌다. 문장은 모두 자연스럽다."
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "doc_id": "REPORT-news_r-03991-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "북한과 교역한 이들 업체 중 한 곳만 '허위 신고죄'로 처벌했다.",
+        "출항 목적지가 실제 목적지와 다른 부분에 대해서만 처벌했다"
+      ],
+      "reason": "벌금 부과 사실과 조사 경과는 담았지만, 큰 벌금이 예상됐다는 핵심 배경과 실제 처벌이 출항 목적지 허위 신고에 한정된 이유를 빠뜨렸습니다. 한 업체가 처벌됐다는 사실을 한 선박이 처벌된 것으로 바꿔 서술했습니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "출항 목적지를 잘못 쓴 부분에 대해서만 처벌했다"
+      ],
+      "reason": "벌금액과 예상보다 낮아 솜방망이 처벌이라는 지적, 조사 경과는 정확히 담았습니다. 다만 실제로는 출항 목적지 허위 신고만 처벌했다는 이유가 빠져 처벌 범위에 대한 이해가 부족해집니다."
+    },
+    "C": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 5,
+      "evidence": [
+        "북한과 교역한 이들 업체 중 한 곳만 '허위 신고죄'로 처벌했다.",
+        "신고한 출항 목적지가 실제 목적지와 다른 부분에 대해서만 처벌했다"
+      ],
+      "reason": "낮은 벌금에 대한 지적과 처벌 대상·범위의 핵심 이유를 정확히 요약했습니다. 세부 조사 경과는 생략했지만 핵심 이해를 해치지 않습니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "출항 목적지를 잘못 쓴 부분에 대해서만 처벌했다"
+      ],
+      "reason": "벌금액과 예상보다 낮아 솜방망이 처벌이라는 지적, 조사 경과를 담았습니다. 그러나 실제 처벌이 출항 목적지 허위 신고에 한정됐다는 핵심 설명이 빠졌습니다."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00159-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["낙후된 산업인 농·수·축산업 전환에 돈을 써야 한다", "넷째 신도시 지을 생각하지 말고, 사회공동체 개념을 집어넣어 도심을 개발해야 한다"],
+      "reason": "부동산 실패, 중·일 경제 보복 축복, 수출 20% 의존, 야당 대안 제시 등 핵심 문장이 유지되지만, 마지막 절이 '미래산업·지식인 키워가 낙후된 산업으로 전환돼야 한다'고 뒤집어 소스의 관계(낙후된 농·수·축산업을 전환·육성)를 왜곡했다. 신도시/도심 개발, 기득권, 인순고식 부분은 빠져 있다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["현 정부 출범 때 가졌던 국민의 희망이 많이 희석된 듯하다", "낙후된 산업인 농·수·축산업 전환에 돈을 써야 한다"],
+      "reason": "정치·거버넌스 논의는 충실히 담았으나 미래산업 육성 전략, 중·일 대외 여건, 인순고식 결론이 통째로 생략되어 소스의 절반 이상이 사라졌다. '현 정부'를 '현대 정부'로 잘못 쓰는 등 개체 표기 오류도 있다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 한다", "야당도 반대만 할 게 아니라 대안을 제시해야 한다"],
+      "reason": "담긴 내용(부동산 실패, 스마트 농업, 중·일 보복 축복, 혁신 출발점)은 모두 소스에 부합하지만 디지털화·신도시 방향, 수출 20% 논의, 정부 희망 희석·야당 대안 등 정치 부문 전반이 생략된 매우 얇은 요약이다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["넷째 신도시 지을 생각하지 말고, 사회공동체 개념을 집어넣어 도심을 개발해야 한다", "민주노총이나 참여연대도 현 정부가 가진 기득권이다"],
+      "reason": "기득권 논의와 인순고식·구차미봉 풀이는 잘 보존했으나, 소스가 '신도시를 짓지 말고 도심을 개발하라'고 한 것을 '신도시 지지'로 반대로 전달해 정책 방향을 왜곡한다. 중·일 보복 축복과 야당 대안 논의도 빠졌다."
+    }
+  }
+}

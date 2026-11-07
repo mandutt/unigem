@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00899-00005",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["호메이니가 1989년 세상을 떠나자 오른팔이던 알리 하메네이가 자리를 이어 지금까지 맡고 있다"],
+      "reason": "감독자평의회 구성과 낙하산 공직 논란 등은 충실하나, 계승 문장이 '최고지도자 하메네이는 1989년 세상을 떠나자 오른팔로 공인해지고'로 뒤바뀌어 1989년 사망 주체(호메이니)와 오른팔 공인 관계가 왜곡되고 호메이니가 아예 언급되지 않는다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["프랑스 파리에서 귀국한 호메이니는 제자인 하메네이를 수도 테헤란의 금요예배 이맘에 임명했다"],
+      "reason": "계승과 암살 미수 등 사실은 담겼지만 파리 귀국과 이맘 임명의 주체가 하메네이로 잘못 연결되어(사실상 자기 임명으로 읽힘) 핵심 인물 관계가 왜곡되고, 1981년 암살 미수가 최고지도자 시기 뒤에 놓여 연대기가 흐트러지며 마지막 문장이 그대로 중복된다. 감독자평의회·견제 구도와 낙하산·특혜 논란 등 기사 후반부 논지가 전부 빠졌다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": ["이슬람 법학자 6명과 일반 법학자 6명 등 모두 12명으로 이뤄진 감독자평의회가 있어 상원 역할을 한다"],
+      "reason": "전문가회의 견제 한계, 감독자평의회 구성과 상원 역할, 세속 권력 경험, 낙하산·특혜 논란을 왜곡 없이 담았으나 호메이니 사망(1989년)과 계승 배경 등 전반부 맥락이 빠지고 '최고지도자 하메네이, ... 알리 하메네이'처럼 동일 인물이 중복 호칭되어 어색하다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": ["이란의 이슬람 혁명은 지난해로 40주년을 맞았다"],
+      "reason": "C와 마찬가지로 제도 구도와 특혜 논란을 정확히 전달하고 혁명 40주년 사실까지 추가했으나, 호메이니와의 계승 관계 등 전반부 맥락이 빠지고 하메네이 호칭이 중복되어 다소 어색하다."
+    }
+  }
+}

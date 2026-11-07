@@ -1,0 +1,9 @@
+{
+  "doc_id": "REPORT-news_r-03348-00001",
+  "summaries": {
+    "A": {"adequacy": 4, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 4, "utility": 4, "evidence": ["율촌과 지평은 경찰수사대응팀을 만들고", "백승호 변호사(사법연수원 23기)를 영입했다"], "reason": "핵심 사실(영입 경쟁, 대응팀 신설, 김앤장의 백승호 영입)이 정확히 담겼다. 경찰 전관의 커뮤니케이션 강점과 40여명 규모는 빠졌지만 중요한 누락은 아니다. 문장이 다소 반복적이다."},
+    "B": {"adequacy": 2, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 1, "entity_relation": 1, "fluency": 3, "utility": 3, "evidence": ["정확한 경찰 전관 숫자를 공개하진 않았지만 40여명 수준으로 국내 최대 규모다", "중앙일보는 이른바 6대 로펌...에 경찰 출신 변호사 현황을 확인했다"], "reason": "'40여명 수준으로 국내 최대 규모'가 문맥상 김앤장의 경찰 전관 수가 아니라 백승호 영입 문장에 이어져 읽혀 혼동을 준다. 또 중앙일보가 현황을 확인했다는 내용을 법조계의 행위처럼 서술했고, '검찰의 시대가 저물어 간다'는 말도 로펌 내부에서 나온 말이 아니라 법조계의 평가인 것처럼 썼다. 율촌·지평의 대응팀 신설은 빠졌다."},
+    "C": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 5, "utility": 4, "evidence": ["법무법인 율촌과 지평은 경찰수사대응팀을 만들고", "경찰과의 커뮤니케이션에서는 확실히 강점이 있다"], "reason": "영입 경쟁, 대응팀, 검찰 출신 변호사의 발언이 정확하고 매끄럽게 요약됐다. 김앤장의 영입과 규모 같은 구체 정보는 빠졌다."},
+    "D": {"adequacy": 2, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 3, "utility": 3, "evidence": ["대형로펌의 경찰 출신 변호사는 “수사권조정 관련 동향 파악을 위해 경찰청과 서울지방경찰청을 다녀오기도 했다”"], "reason": "경찰청 방문 발언의 주체를 '검찰 출신 변호사'로 잘못 적었다. 원문에서는 경찰 출신 변호사다. 율촌·지평의 대응팀 같은 핵심 대응 내용은 빠지고 부차적 세부사항이 포함됐다."}
+  }
+}

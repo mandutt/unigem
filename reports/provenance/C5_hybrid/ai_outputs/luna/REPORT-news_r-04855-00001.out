@@ -1,0 +1,60 @@
+{
+  "doc_id": "REPORT-news_r-04855-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": [
+        "팔로워 24만명을 거느린 '파워 트위터리언'",
+        "24일 첫 브리핑에서도 월스트리트저널(WSJ)을 강하게 비난"
+      ],
+      "reason": "임명, 온라인상 영향력, 전랑 이미지와 WSJ 관련 사건을 담았습니다. 영화 설명이 다소 반복적이고 어색하며 일부 트위터 활동은 빠졌지만 핵심 의미는 대체로 유지됩니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": [
+        "'전랑2'는 중국 내 역대 영화 흥행 순위 1위",
+        "화웨이는 91건이다, 중국 기술기업이 여전히 넘버원"
+      ],
+      "reason": "임명과 전랑 이미지, 첫 브리핑에서의 WSJ 비난, 화웨이 관련 리트윗을 요약했습니다. 다만 WSJ 칼럼을 둘러싼 외신기자증 취소라는 중요한 결과가 빠졌고, '그는 별명은'은 어색합니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 2,
+      "evidence": [
+        "중국 외교부 신임대변인에 24만명의 팔로워를 거느린",
+        "그는 미국과 맞서 싸우고 '독한 말'도 서슴지 않는다"
+      ],
+      "reason": "임명과 팔로워 규모, 강경한 대외 발언 성향은 전하지만 첫 브리핑에서의 WSJ 비난 등 구체적인 주요 사건이 빠져 내용이 제한적입니다. 문장은 자연스럽습니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "화춘잉(華春瑩)-겅솽(耿爽) 2인 체제였던 중국 외교부 대변인이 3인 체제로 회복됐다"
+      ],
+      "reason": "화웨이 관련 트윗과 첫 브리핑 등 여러 사실은 담았지만, 대변인 체제가 2인 체제로 회복됐다고 서술해 출처의 3인 체제 회복과 반대입니다. 그 핵심 관계와 인원수를 잘못 전했고, WSJ 관련 외신기자증 취소도 빠졌습니다."
+    }
+  }
+}

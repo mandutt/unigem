@@ -1,0 +1,9 @@
+{
+  "doc_id": "REPORT-news_r-03501-00001",
+  "summaries": {
+    "A": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 4, "utility": 4, "evidence": ["타다는 불법 콜택시이고", "각 징역 1년을, 쏘카와 VCNC에 각 벌금 2000만원을 구형했다"], "reason": "It accurately covers the final statement, the prosecution's argument and the sentencing requests. It leaves out the judge's questioning and Lee's rebuttal, and it drops '오후'."},
+    "B": {"adequacy": 2, "critical_unsupported": 1, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 3, "utility": 2, "evidence": ["이 대표는 \"택시 시장을 목표로 한 것이 아니었다\"", "재판장은 “이용객이 택시와 크게 다르지 않아"], "reason": "It attributes Lee's reply, that Tada did not target the taxi market, to the judge, and it says the judge 'could not foresee' the taxi problem. The source has the judge asking whether Tada foresaw it. It also omits the sentencing requests."},
+    "C": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 4, "evidence": ["각 징역 1년을", "택시 시장을 목표로 한 것이 아니었다"], "reason": "The quotes and the sentencing requests are accurate, and the judge's opening and Lee's reply are attributed correctly. It omits the prosecution's illegal-taxi argument and the content of the judge's questions, and it is long and quote-heavy."},
+    "D": {"adequacy": 4, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 4, "utility": 5, "evidence": ["타다가 불법 콜택시라는 점을 강조했고", "택시와의 문제 예상 못 했나"], "reason": "It covers Lee's statement, the prosecution's position, the sentencing requests and the judge's questions, with correct attribution. Only minor details are missing, such as Lee's reply and the judge's clarification."}
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03906-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["논란의 핵심은 '승무원 전용 화장실'이 아니라 '왜 안내문을 한글로만 썼느냐'다"],
+      "reason": "기자회견, 사건 경위, 전 세계 전용 화장실 금지 조치는 유지되지만, 마지막 문장이 원문의 핵심 대비('전용 화장실이 아니라 왜 한글로만 썼느냐')를 '전용 화장실이 아니라 전용 화장실'로 붕괴시키고 이를 김씨의 사과문 관련 SNS 게시물로 잘못 귀속시킨다. 또한 '(전 세계 KLM 승무원 전용 화장실 금지)'와 같은 중복 삽입구로 인해 가독성이 떨어지며, 차별의 근거가 된 '잠재적 바이러스 보균자' 발언이 누락되었다."
+    },
+    "B": {
+      "adequacy": 1,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 1,
+      "evidence": ["이날 서울 포시즌스 호텔에서 긴급 기자회견을 자청한"],
+      "reason": "기자회견 장소를 서울이 아닌 인천으로 잘못 표기했고, 14일 기자회견 사과문의 발언('승무원 개인의 실수였지만…')을 12일자 공식 사과문에 잘못 연결했으며, 마지막 문장은 승무원 전용 화장실 사용 금지 조치가 김씨의 SNS 게시물에서 나온 것처럼 왜곡했다. 사건 날짜(10일), 편명(KL855), 차별의 근거가 된 '잠재적 바이러스 보균자' 발언 등 핵심 정보가 누락되어 전체적으로 오해의 소지가 크다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["전 세계 KLM 승무원 전용 화장실 금지'를 재발 방지 대책으로 내세웠다"],
+      "reason": "사장의 '인종차별을 이해하지 못하겠다'는 답변, 사건 경위, 김씨의 SNS 지적, 12일자 공식 사과문 내용을 정확히 전달했으나, KLM의 실질적 후속 조치인 전 세계 승무원 전용 화장실 금지 방침과 차별 판단의 근거가 된 '잠재적 바이러스 보균자' 발언이 빠져 있다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["잠재적 바이러스 보균자 고객으로부터 (승객들을) 지키기 위해 결정한 사항"],
+      "reason": "기자회견, 사진 삭제 요구 사건, '승무원 개인의 실수' 발언, 전 세계 전용 화장실 금지 조치를 사실에 맞게 담고 있으나, 논란의 핵심인 '왜 안내문을 한글로만 썼느냐'는 지적과 '잠재적 바이러스 보균자' 발언이 빠져 인종차별 논란의 배경 설명이 부족하다. 또한 글래스 사장을 주어로 반복하는 등 문장이 다소 어색하다."
+    }
+  }
+}

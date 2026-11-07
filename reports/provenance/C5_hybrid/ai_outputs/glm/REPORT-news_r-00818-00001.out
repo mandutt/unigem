@@ -1,0 +1,58 @@
+{
+  "doc_id": "REPORT-news_r-00818-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "가장 많은 63명의 사망자가 나온 캐나다의 저스틴 트뤼도 총리는",
+        "다만 '고의는 아닌 것으로 보인다'고 덧붙였다"
+      ],
+      "reason": "The Trudeau sentence is garbled: it attaches the 63 Canadian death count to the crash itself and says he 'deliberately (고의로) revealed' crash evidence, while dropping that his evidence pointed to an Iranian surface-to-air missile and that the downing did not appear intentional. Trump and crash-detail sentences are accurate."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "이륙 3분 만에 추락해 탑승자 전원이 숨졌다"
+      ],
+      "reason": "All statements are accurate (suspicion, three governments, Trump's doubt, Trudeau's SAM evidence), but the summary contains no casualty information whatsoever even though all 176 aboard including 63 Canadians died, which materially changes the reader's understanding of the event."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": [
+        "증거들은 여객기가 이란의 지대공 미사일을 맞고 추락했다는 것을 가리킨다"
+      ],
+      "reason": "Broad and mostly accurate coverage (governments, Trump, Johnson, crash details, WSJ 'high confidence' quote), but the Trudeau sentence '동맹으로부터 정보를 얻었다고 증거를 밝혔고' garbles his statement and drops that his cited evidence indicated an Iranian SAM hit."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "이란의 러시아산 지대공 미사일 SA-15 두 발을 맞고 떨어진 것으로 보인다"
+      ],
+      "reason": "Accurate and natural: correctly preserves the missile-hit suspicion, Trump's doubt with both quotes, the properly scoped 63 Canadian deaths with Trudeau's SAM-evidence statement, and CNN's SA-15 report; it omits Iran's denial and crash particulars (total 176 dead, flight/time) but key meaning holds."
+    }
+  }
+}

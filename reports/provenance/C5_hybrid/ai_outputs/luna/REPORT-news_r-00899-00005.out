@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-00899-00005",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "이란의 초대 최고지도자인 호메이니가 1989년 세상을 떠나자 오른팔이던 알리 하메네이가 자리를 이어",
+        "이슬람 법학자 6명은 최고지도자가 지명하며 일반 법학자는 대법원장이 지명한 사람 중에서 의회에서 최종 선출한다."
+      ],
+      "reason": "하메네이가 1989년에 세상을 떠난 것처럼 읽히는 표현은 호메이니의 사망과 하메네이의 승계를 혼동한다. 감독자평의회 위원의 선출·임명 방식 등 중요한 권력 관계도 빠져 있다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": [
+        "이슬람 법학자 6명은 최고지도자가 지명하며 일반 법학자는 대법원장이 지명한 사람 중에서 의회에서 최종 선출한다.",
+        "능력이 아닌 낙하산으로 공직을 맡은 사람도 적지 않아 ‘불공정’과 ‘특혜’ 시비를 불러온 것으로 알려졌다."
+      ],
+      "reason": "최고지도자의 견제 어려움, 감독자평의회 구성, 하메네이의 경력과 특혜 논란을 담아 핵심 취지는 전달한다. 다만 평의회 위원을 누가 어떻게 정하는지에 관한 중요한 관계가 생략됐다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": [
+        "이슬람 법학자 6명은 최고지도자가 지명하며 일반 법학자는 대법원장이 지명한 사람 중에서 의회에서 최종 선출한다.",
+        "이란의 이슬람 혁명은 지난해로 40주년을 맞았다."
+      ],
+      "reason": "혁명 40주년과 권력 구조, 하메네이의 경력 및 특혜 논란을 요약하지만 감독자평의회 위원 선출·임명 방식은 빠져 있다. 그 외 서술은 출처에 근거한다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "오른팔이던 알리 하메네이가 자리를 이어",
+        "프랑스 파리에서 귀국한 호메이니는 제자인 하메네이를 수도 테헤란의 금요예배 이맘에 임명했다."
+      ],
+      "reason": "호메이니의 귀국과 하메네이 임명을 하메네이의 행위처럼 서술해 인물 관계를 뒤섞었고, 마지막 문장을 반복한다. 정치 제도와 감독자평의회 등 출처의 중요한 내용도 대부분 빠져 있다."
+    }
+  }
+}

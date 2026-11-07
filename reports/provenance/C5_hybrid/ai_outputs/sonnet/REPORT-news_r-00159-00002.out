@@ -1,0 +1,9 @@
+{
+  "doc_id": "REPORT-news_r-00159-00002",
+  "summaries": {
+    "A": {"adequacy": 2, "critical_unsupported": 1, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 2, "utility": 2, "evidence": ["낙후된 산업인 농·수·축산업 전환에 돈을 써야 한다", "어느 한 국가에 (수출의) 20% 이상을 의존한다면"], "reason": "미래산업·지식인 키워가 낙후된 산업으로 전환돼야 한다는 문장은 원문과 달리 의미가 왜곡됐고 어색하다. 중국·일본 보복과 야당 관련 내용은 맞지만, 정부 기득권 같은 핵심 내용이 빠졌다."},
+    "B": {"adequacy": 2, "critical_unsupported": 1, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 2, "utility": 2, "evidence": ["넷째 신도시 지을 생각하지 말고", "일본이 으레 필요한 부품을 계속 대줄 것으로 생각했던 것이 착각이라는 점도 이번에 알게 됐다"], "reason": "'신도시 지지'는 원문의 '신도시 짓지 말라'와 정반대라서 왜곡이다. 또 '대외 여건이 어렵다는 점을 이번에 알게 됐다'는 부정확하게 합쳐진 문장이다. 기득권과 인순고식 구차미봉 부분은 비교적 충실하다."},
+    "C": {"adequacy": 2, "critical_unsupported": 1, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 3, "utility": 2, "evidence": ["현 정부 출범 때 가졌던 국민의 희망이 많이 희석된 듯하다", "국민은 문재인 정부가 어느 방향으로 가려 하는지 헷갈려 한다"], "reason": "'현대 정부'는 '현 정부'를 잘못 옮긴 오류다. 또 지도층의 성찰이 필요하다는 말을 문재인 정부에 한정해 붙였다. 미래산업 전환 제안과 중국·일본 보복 부분이 빠졌다."},
+    "D": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 3, "evidence": ["역설적으로 다행스러운 일이다", "더 늦었다면 손쓸 수 없었을지 모른다"], "reason": "부동산 실패, 미래산업 육성, 중국·일본 보복에 대한 시각, 혁신 관련 내용을 대체로 정확하게 담았다. 다만 '스마트 농기업 등 미래산업·지식인 키워야 한다'는 문장은 어색하고, 정부 기득권과 야당 대안 제시 등은 빠졌다."}
+  }
+}

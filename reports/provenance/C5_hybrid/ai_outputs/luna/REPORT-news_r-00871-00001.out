@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00871-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 5,
+      "utility": 2,
+      "evidence": ["캐나다는 이 사고에 직접적 지분이 있다", "당시 이란의 민간항공기를 미국 해군 이지스함이 이란의 전투기로 오인해 격추시켰기 때문이다."],
+      "reason": "캐나다가 직접적인 이해관계가 없었다고 해 원문과 반대로 서술한다. 또한 미국이 과거 경험을 언급하는 배경인 1988년 격추 사건의 구체적 내용이 빠져 있다."
+    },
+    "B": {
+      "adequacy": 1,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 1,
+      "evidence": ["캐나다는 이 사고에 직접적 지분이 있다", "290명의 무고한 인명이 희생된 것에 대한 국제사회의 비난 여론은 거셌다."],
+      "reason": "캐나다의 이해관계를 원문과 반대로 쓰고, 290을 사망자 수가 아니라 추락한 항공기의 숫자처럼 설명한다. 1988년 사건의 핵심 내용도 빠져 있으며 반복적인 표현 때문에 요약이 어색하다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 5,
+      "utility": 2,
+      "evidence": ["캐나다는 이 사고에 직접적 지분이 있다", "당시 이란의 민간항공기를 미국 해군 이지스함이 이란의 전투기로 오인해 격추시켰기 때문이다."],
+      "reason": "캐나다가 직접적인 이해관계가 없었다고 해 원문과 어긋난다. 로하니의 트윗을 언급하지만 미국이 기억하는 1988년 격추 사건의 내용과 연결은 생략했다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": ["당시 이란의 민간항공기를 미국 해군 이지스함이 이란의 전투기로 오인해 격추시켰기 때문이다."],
+      "reason": "미국의 의심과 1988년의 관련성은 담았지만, 그 해에 미국이 이란 민간항공기를 격추한 사건이라는 핵심 설명이 없어 배경을 이해하기 어렵다. 일부 표현은 다소 어색하지만 전체적으로는 읽을 수 있다."
+    }
+  }
+}

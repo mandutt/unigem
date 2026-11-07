@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-05480-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["1871명이 병원에서 치료받지 못한다"],
+      "reason": "Verbatim-faithful excerpt with all figures correct (3081/1050, 1661, 1871, ambulances 36/54/90) and no distortions, but it omits the mild/severe transfer plan and the severity-classification discussion, so coverage is partial."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["경증 환자들을 생활치료센터로 옮긴 뒤 빈 병상에 입원대기 중인 중증 환자를 수용한다는 계획"],
+      "reason": "Accurately keeps the transfer plan and the 김종연 quote with correct figures (2031/3081/1050), but drops the '확산세를 감당 못 하고 있다' judgment, the 1871명 untreated conclusion, and the ambulance/manpower constraints."
+    },
+    "C": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["자택에서 입원대기 중인 대구지역 신종 코로나 확진자는 2031명"],
+      "reason": "Broadest accurate coverage: belated-measure framing, waiting/hospitalized figures, the 1871명 capacity gap, the expert quote, and ambulance transport, losing only the bed-swap plan and home-death context (minor loss)."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["대책을 내놨지만, 확산세를 감당 못 하고 있다"],
+      "reason": "Its figures and quote are accurate, but it omits the article's thesis (a belated measure that cannot keep up with the spread), the 1871명 conclusion, and the transfer plan, leaving loosely connected facts."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00450-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["그는 순교자를 추앙하며 성조기를 불태울 것", "미국은 이란을 봉쇄하기 위해 굉장히 중요한 이라크를 잃어버릴 수도 있게 됐다"],
+      "reason": "트럼프주의의 문제와 인용된 비판, 참모진 퇴진은 담았지만, 제거가 솔레이마니를 순교자로 만들고 이라크를 잃을 위험을 낳았다는 핵심 결과가 빠졌다. 첫 문장의 솔레이마니 이름도 오기되어 있다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["미국우선주의를 앞세운 트럼프주의(Trumpism·트럼피즘)의 ‘악몽’", "그는 순교자이자 영웅이 됐고, 미국은 이란을 봉쇄하기 위해 굉장히 중요한 이라크를 잃어버릴 수도 있게 됐다"],
+      "reason": "솔레이마니 제거의 중동 내 결과를 트럼프 대통령 자체가 현실이 된다고 서술해 주체와 관계가 어긋나며, 순교자화와 이라크를 잃을 위험도 누락했다. 참모 그룹 부재와 일부 비판은 요약했지만 첫 문장이 어색하다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["그를 대체할 인물은 이란에 여럿", "그는 순교자이자 영웅이 됐고, 미국은 이란을 봉쇄하기 위해 굉장히 중요한 이라크를 잃어버릴 수도 있게 됐다"],
+      "reason": "순교자화와 이라크 상실 위험, 참모진 퇴진 등 주요 논지는 담았으나 솔레이마니의 역량상 대체 가능하다는 분석이 빠져 있다. 이름 오기와 다소 어색한 표현이 있다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": ["이라크 의회가 5일(현지시간) 미군 철수를 의결한 뒤에도", "이라크가 여기 들어간 돈을 내지 않는 이상 떠나지 않는다", "강력한 제재를 가하겠다면서다"],
+      "reason": "미군 철수 의결 뒤 트럼프의 비용 발언은 요약했지만, 이라크 의회가 의결 주체라는 점과 비용 미납 시 철수하지 않겠다는 조건 및 제재 위협이 빠졌다. 솔레이마니 제거의 결과와 참모진 부재 등 기사의 주요 논지도 담지 못했다."
+    }
+  }
+}

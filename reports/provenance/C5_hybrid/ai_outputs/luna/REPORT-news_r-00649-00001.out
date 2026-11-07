@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00649-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["검찰은 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다."],
+      "reason": "검찰 수사가 정부 정당성에 대한 공격이라는 주장과 구형 내용은 담았지만, 핵심 방어 내용과 혐의 부인을 거의 다 생략했고 같은 주장을 반복합니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": ["삼성으로부터 뇌물을 받았다는 혐의와 이팔성 전 우리금융 회장으로부터 뇌물을 받았다는 혐의 등도 모두 부인했다."],
+      "reason": "정부 정당성 공격 주장, 다스 관련 변론, 주요 뇌물 혐의 부인과 구형액을 요약해 핵심을 전달합니다. 구형 문장이 다소 반복적이고, 검찰 수사 비판의 구체 내용은 빠져 있습니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["이팔성 전 회장이 이 전 대통령과 단독 면담해 청탁했다는 주장에 대해서는 \"다 거짓 진술\"이라며"],
+      "reason": "검찰에 대한 비판과 다스 관련 주장을 잘 담았지만, 뇌물 혐의 부인이라는 중요한 방어 내용은 구체적으로 언급하지 않습니다. 나머지 주요 주장과 구형 내용은 대체로 정확합니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": ["이미 검찰 수사와 특검까지 거쳐 결론이 난 사안을 검찰이 다시 들고나와 정반대의 결과를 만들어 냈다"],
+      "reason": "검찰 수사와 다스 관련 주장, 주요 혐의 부인 및 구형액을 담고 있습니다. 다만 혐의 부인 부분의 표현이 압축되어 다소 모호합니다."
+    }
+  }
+}

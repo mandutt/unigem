@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-02426-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "그룹 차원에서 재무상황과 계열사 간 지분 보유현황 등 지배구조 내역을 공시하는 방안도 거론되고 있다.",
+        "지배구조 개선을 위한 추가 규율체계가 필요하다고 강조했다."
+      ],
+      "reason": "감독 강화 전망과 공시 방안, 세미나 참석 및 연구원의 제안 등 핵심 내용을 담았습니다. 다만 “김상조 실장의 전공 분야에서”가 문장에 어색하게 붙어 자연스러움이 떨어집니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "재무상황과 계열사 간 지분 보유현황 등 지배구조 내역을 공시하는 방안도 거론되고 있다.",
+        "삼성·한화 등 복합금융그룹 감독체계 도입의 필요성을 주장하는 데 가장 앞장서온 장본인이다."
+      ],
+      "reason": "감독 강화와 구체적인 공시 검토, 참석자 및 김상조 실장의 관련 이력을 정확하고 자연스럽게 요약했습니다. 제도 개선 논의의 다른 세부 내용은 생략했지만 핵심 의미는 유지됩니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "금융당국이 삼성·현대차·한화 등 6개 금융그룹의 지배구조에 대한 감독을 강화할 전망",
+        "그룹 차원에서 재무상황과 계열사 간 지분 보유현황 등 지배구조 내역을 공시하는 방안도 거론되고 있다."
+      ],
+      "reason": "감독 강화 전망과 공시 방안, 주요 참석자는 담았지만, 세미나에서 제기된 지배구조 개선과 추가 규율체계 필요성 등 논의의 실질적인 내용은 빠져 있습니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "금융그룹감독제도에 대한 개선방안이 논의됐다.",
+        "지배구조 개선을 위한 추가 규율체계가 필요하다고 강조했다."
+      ],
+      "reason": "세미나의 주요 참석자와 은 위원장 및 연구원의 발언을 정확하게 요약했습니다. 다만 그룹 차원의 재무상황·계열사 지분 보유현황 공시 방안이라는 구체적인 제안이 빠졌습니다."
+    }
+  }
+}

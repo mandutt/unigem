@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00138-00003",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["지난해 4월 전원회의 이후 북한은 각종 단거리 미사일과 초대형 방사포 시험발사로 미국을 압박했으나 ... 무위로 끝났다", "미국이 적대시 정책을 계속할 경우 '조선반도의 비핵화'는 없을 것"],
+      "reason": "The continuation stance is misdated to '전원회의 이후', which the source ties to the failed short-range missile/MLRS pressure campaign, distorting the timeline. It also drops the conditional no-denuclearization stance and the US-hostility cause behind the moratorium withdrawal."
+    },
+    "B": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["미국이 적대시 정책을 계속할 경우 '조선반도의 비핵화'는 없을 것", "대방도 없는 공약에 일방적으로 매여 있을 근거가 없어졌다"],
+      "reason": "Faithfully preserves the military section's key facts: continued strategic weapons development, the no-denuclearization condition under continued US hostility, and the moratorium withdrawal with its stated causes. Minor losses are the economic tasks, the defense-construction goal, and the ICBM/new-nuclear-test prediction."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["전략무기개발 사업을 더욱 활발히 추진해 새로운 전략무기를 선보일 것을 천명했다", "등을 해결방도를 제시했다"],
+      "reason": "It preserves the economic tasks and the moratorium-withdrawal conclusion but omits the military section's core claims (continued strategic weapons development, new weapons unveiling, no-denuclearization condition), which are the report's main focus. Korean has particle errors like '등을 해결방도를 제시했다'."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["미국이 적대시 정책을 계속할 경우 '조선반도의 비핵화'는 없을 것"],
+      "reason": "Key meaning is preserved with the defense goal, the active strategic weapons development commitment, and the moratorium withdrawal with its causes intact. It omits the explicit conditional no-denuclearization stance and the economic tasks, a minor but real loss."
+    }
+  }
+}

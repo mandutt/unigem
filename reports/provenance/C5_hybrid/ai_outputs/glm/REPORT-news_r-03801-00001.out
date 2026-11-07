@@ -1,0 +1,60 @@
+{
+  "doc_id": "REPORT-news_r-03801-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "은평뉴타운 주민 100명을 선정해 3개월간 무료로 운영된다",
+        "하반기 본 사업을 진행할 계획이다"
+      ],
+      "reason": "핵심 사실(시작일, KST모빌리티 제휴, 은평뉴타운, 쏠라티 수요응답형 방식, 100명·3개월 무료, 하반기 본 사업)이 정확하게 보존되어 있으며 왜곡이 없다. 가족 동반 혜택, 쏠라티 6대, 규제 샌드박스, 에어랩 기술 등 부차 정보의 생략만 있어 사실 감점이다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "쏠라티 6대로 시작하는 시범 서비스는 은평뉴타운 주민 100명을 선정해 3개월간 무료로 운영된다",
+        "에어랩(AI 리서치 랩)이 개발했다"
+      ],
+      "reason": "핵심 사실과 세부(쏠라티 6대, 에어랩, 지정좌석제)가 대체로 정확하나 '주민 100명·3개월 무료' 문구가 연속 두 문장에 그대로 반복되고, 서비스가 14일부터 시작되는데 '지정좌석제로 운영됐다'는 과거 시제가 시점과 어긋난다. 서술의 중복과 시제 불일치로 유창성과 유용성이 떨어진다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": [
+        "자세한 내용은 셔클 홈페이지(www.shucle.com)에서 확인할 수 있다",
+        "은평뉴타운 주민 100명을 선정해 3개월간 무료로 운영된다"
+      ],
+      "reason": "첫 문장과 마지막 문장은 정확하지만 두 번째 문장이 뒤섞여 반복되며, 출처에는 없는 '신청자 100명'을 새로 도입하고 홈페이지를 단순 정보 확인처가 아니라 운영·대상 선정의 장소인 것처럼 관계를 왜곡한다. 서비스 방식 설명도 전부 생략되어 요약으로서 보존율이 낮다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": [
+        "선정된 주민 1명당 3명의 가족이 함께 이용할 수 있어 최대 400명의 주민이 혜택을 보게 된다"
+      ],
+      "reason": "시작일, 제휴 관계, 지역, 100명·3개월 무료, 1명당 가족 3명 동반, 하반기 본 사업까지 정확히 담고 있으며 숫자·관계 왜곡이 없다. 수요응답형 서비스 방식과 규제 샌드박스 등 부차 내용의 생략과 '은평뉴타운' 표기 반복만이 감점 요인이다."
+    }
+  }
+}

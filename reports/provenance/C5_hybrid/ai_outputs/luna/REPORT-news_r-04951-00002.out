@@ -1,0 +1,65 @@
+{
+  "doc_id": "REPORT-news_r-04951-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "신천지 관련 확진자는 501명(오전 9시 기준)으로 전체 확진자의 절반이 넘는다.",
+        "코로나19 사태의 정점이 3월 20일이 될 것",
+        "장애인 시설 확진자도 잇따랐다."
+      ],
+      "reason": "신도 명단과 감염 경로, 성장률 전망은 담았지만 확진자 규모와 시설·병원 감염, JP모건의 최악의 경우 감염 추정 및 정점 전망 등 주요 내용이 빠졌다. 정은경 본부장 관련 문장은 다소 어색하다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": [
+        "신천지 관련 확진자는 501명(오전 9시 기준)",
+        "경북 칠곡군 밀알사랑의 집은 확진자가 총 22명이 됐다.",
+        "서울 은평성모병원 확진자가 1명 추가돼 5명으로 늘어났다."
+      ],
+      "reason": "확진자 규모, 명단 제공, 감염 통제와 JP모건의 최악의 경우 추정은 요약했으나 시설·병원 집단감염 등 주요 상황이 빠졌다. 501명에 붙은 오전 9시 기준이 누락됐다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "현재 감염원의 주된 경로는 대구 신천지교회 관계자들과 신도, 그분들의 접촉자",
+        "최악으로 가면 최대 1만 명이 감염될 수 있다",
+        "501명(오전 9시 기준)"
+      ],
+      "reason": "신도 규모와 명단 조사, 확진자 수, 시설·병원 확진 및 성장률 전망을 정확히 담았다. 다만 주요 감염 경로와 JP모건의 최악의 경우 감염 추정이 빠져 상황의 핵심 맥락이 일부 누락됐다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "신천지 관련 확진자는 501명(오전 9시 기준)",
+        "앞으로 약 4주 이내 안정적인 상황으로 전환시키는 것이 목표",
+        "한국의 코로나19 상황이 최악으로 가면 최대 1만 명이 감염될 수 있다"
+      ],
+      "reason": "신도 규모와 감염 경로, 시설·병원 확진 현황을 담았지만 방역 대응 계획과 JP모건의 전망이 빠졌다. 501명에 붙은 오전 9시 기준이 누락됐다."
+    }
+  }
+}

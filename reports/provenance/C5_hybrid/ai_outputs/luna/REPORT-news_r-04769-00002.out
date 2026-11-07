@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-04769-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["이런 형태를 두고 남자(Man)와 지갑(Purse)을 합한 ‘머스(Murse·남성용 손지갑)라고 부른다.", "남성다움, 여성다움을 강조하는 것은 이제 낡은 관습이 됐다."],
+      "reason": "일부 브랜드의 남성용 가방 사례는 담았지만, 머스라는 흐름과 젠더리스 패션이라는 중심 맥락을 빠뜨렸습니다. 발렌티노 문장은 ‘가방을 모델로’라고 해 누가 가방을 착용했는지 관계가 불분명합니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["남성용·여성용의 경계와 구분을 모호하게 만든 것으로, 패션 용어로는 앤드로지너스 룩(Androgynous Look)이 있다.", "방탄소년단의 멤버 뷔가 청재킷에 이 카세트 백을 매치해 주목받은 덕이다."],
+      "reason": "브랜드 목록과 핑크 무대, 성별을 넘나드는 가방 사례는 담았지만, 남성용 가방의 구체적인 모습과 젠더리스 흐름에 대한 설명이 부족합니다. 리모와를 포함한 브랜드들이 남성용 핸드백을 선보였다는 요약은 원문과 모순되지는 않습니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["이런 형태를 두고 남자(Man)와 지갑(Purse)을 합한 ‘머스(Murse·남성용 손지갑)라고 부른다.", "남성다움, 여성다움을 강조하는 것은 이제 낡은 관습이 됐다."],
+      "reason": "여러 브랜드의 남성용 가방 사례를 정확히 요약했지만, 지갑만 한 가방의 유행과 이를 젠더리스 패션으로 해석하는 핵심 맥락을 생략했습니다. 나머지 서술은 원문에 부합합니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["2020 봄·여름 남성 컬렉션의 주요 브랜드들의 패션쇼도 이런 흐름을 반영해 남성다움을 많이 덜어낸 모습이었다.", "디올은 여행용 가방 브랜드 리모와와 손잡고 알루미늄 소재의 남성용 클러치백"],
+      "reason": "남성용 가방 사례와 앤드로지너스 룩의 맥락을 대체로 잘 보존했습니다. 다만 클러치백 출시 대목에서 원문의 협업 주체인 디올이 빠지고 리모와가 주어로 제시되어 관계가 불분명해졌습니다."
+    }
+  }
+}

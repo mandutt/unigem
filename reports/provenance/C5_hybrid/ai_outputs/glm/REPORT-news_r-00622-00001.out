@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00622-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["그룹 빅뱅이 4월 10일과 17일 두 차례 미국 음악축제 '코철라 밸리 뮤직 & 아츠 페스티벌'에 출연한다"],
+      "reason": "The lead sentence misattributes the Coachella appearance to YG Entertainment instead of the group BIGBANG, and the summary omits the entire second half explaining the comeback (military discharges, investigations concluded, Yang cleared). Otherwise the preserved facts (4-member reformation, 3-year full-group resumption, Yang's Instagram post on the 3rd afternoon) are accurate."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["각종 수사가 대부분 마무리되면서 '족쇄'가 풀렸다", "해외 상습 도박 혐의에 대해선 수사가 진행 중이다"],
+      "reason": "The lead again makes YG (not BIGBANG) the performer, and it states the various investigations concluded, dropping the source's qualifier '대부분' while the source says the gambling probe is still ongoing; the phrase '수사 중인 각각 수사가 마무리되면서' is also garbled and repetitive."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["양 전 대표가 SNS 활동을 한 것은 지난해 3월 이후 처음이다"],
+      "reason": "Accurate and fluent on the core news: correct subject (YG's BIGBANG), dates, 4-member reformation, 3-year full-group resumption, and Yang's poster post including the first-SNS-since-March detail; it loses only the explanatory second half on why the resumption became possible (investigations mostly concluded, Yang and 대성 cleared, gambling probe ongoing)."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["지난해 11월 검찰은 양 전 대표의 성매매 알선 및 환치기 의혹 등에 대해 무혐의로 결론을 내렸다"],
+      "reason": "The opening sentence has a broken double subject ('YG엔터테인먼트가 그룹 빅뱅이 ... 출연하며'), and by reporting Yang's resignation and 대성's clearance without ever mentioning that Yang himself was cleared, it leaves a misleading impression of Yang's legal status relative to the source."
+    }
+  }
+}

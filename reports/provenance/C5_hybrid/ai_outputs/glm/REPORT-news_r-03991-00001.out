@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03991-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["선박회사 한 곳에 1500만원 상당의 벌금을 부과했다", "출항 목적지 허위 신고만 처벌"],
+      "reason": "Preserves all core facts: the 15M-won fine on one shipping company, the gap versus the expected 수십억~수백억원, the '솜방망이 처벌' criticism, the limited scope (only the false departure destination was punished), and expert calls for harsher penalties. Only secondary details (ship names, Singapore port denial, importer coal case) are omitted."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["수출·입 물품 가격을 허위로 신고한 건 아니어서 출항 목적지를 잘못 쓴 부분에 대해서만 처벌했다"],
+      "reason": "Accurately reports the fine, the investigation history, and expert criticism, but omits the official explanation that only the false departure destination was punished and that only one of the trading companies was fined, so the reason the penalty was so small is left unexplained."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["선박회사 한 곳에 1500만원 상당의 벌금을 부과했다"],
+      "reason": "Reports the fine and investigation timeline correctly, but states a ship was punished ('선박 중 한 곳만 허위 신고죄로 처벌했다') when the source fined a shipping company, and drops the soft-punishment framing as well as the destination-only punishment scope."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["출항 목적지를 잘못 쓴 부분에 대해서만 처벌했다"],
+      "reason": "Accurately covers the fine, the expected-versus-actual gap, the investigation history, and expert criticism, but omits that only the false departure destination was punished and that only one company was fined, so the basis for the light penalty is missing."
+    }
+  }
+}

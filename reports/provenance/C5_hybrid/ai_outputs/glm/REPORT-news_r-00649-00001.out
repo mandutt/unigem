@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00649-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": ["전 대통령은 삼성으로부터 뇌물을 받았다는 혐의와 이팔성 전 우리금융 회장으로부터 뇌물을 받았다는 혐의 등도 모두 부인했다", "총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다"],
+      "reason": "The hearing, the special-prosecution reversal argument and the sentencing figures are faithfully preserved, but the final clause '...사면 의심 등도 모두 부인했다' is chained to the subject '검찰은', so the default reading credits the prosecution with denying bribe suspicions the source attributes to the ex-president. The DAS keyword and the explicit innocence claim are also absent."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["이명박(79) 전 대통령이 8일 오후 열린 항소심 결심 공판에서 결백을 주장했다", "'다스가 누구 것이냐'에 대한 답으로 변론을 시작했다"],
+      "reason": "Accurate core: innocence claim, legitimacy-attack framing, the DAS ownership argument, criticism of the prosecution's witness handling, and the sentencing figures with the before-the-closing-statement timing. It omits the specific bribery denials (Samsung, Lee Pal-seong, pardon, NIS), but the stated innocence claim covers them at a general level."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["다스 소유권 문제를 말하면서 한 손을 크게 흔드는 제스쳐를 취하기도 했다", "이팔성 전 우리금융 회장으로부터 뇌물을 받았다는 혐의 등도 모두 부인했다"],
+      "reason": "Preserves the DAS opening with the gesture, the correctly attributed bribery denials, and the sentencing figures with timing, with nothing unsupported. It drops the explicit innocence claim and the criticism of the prosecution's witness handling, a moderate but not decision-changing loss."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다", "검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다"],
+      "reason": "Sentence 2 duplicates sentence 1 verbatim, a degeneration artifact that consumes a third of the text; only the political-prosecution framing and the sentencing figures are preserved. The DAS defense, all bribery denials and the prosecution criticism are missing, leaving the reader without the substance of the defense."
+    }
+  }
+}

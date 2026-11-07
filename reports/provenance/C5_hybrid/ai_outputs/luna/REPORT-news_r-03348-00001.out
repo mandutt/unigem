@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03348-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["이르면 7월부터 경찰이 1차 수사권과 수사종결권까지 쥐게 되면서 경찰 단계에서의 수사 대응이 중요해졌기 때문이다.", "법무법인 율촌과 지평은 경찰수사대응팀을 만들고 경찰 수사에 대응하고 있다."],
+      "reason": "경찰 출신 변호사 영입 경쟁과 로펌별 대응, 김앤장의 영입 사례를 잘 담았습니다. 다만 경찰 권한 확대가 대응 경쟁의 배경이라는 핵심 내용을 구체적으로 설명하지 않았습니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["검경수사권 조정안이 통과되면서 경찰 출신 변호사를 영입하기 위한 경쟁이 치열해지고 있다.", "경찰과의 커뮤니케이션에서는 확실히 강점이 있다"],
+      "reason": "영입 경쟁, 대응팀 구성, 경찰과의 소통상 강점을 간결하게 요약했습니다. 경찰에 1차 수사권과 수사종결권이 부여되는 내용이 빠져 있어 경쟁이 중요해진 이유를 충분히 전하지 못합니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["중앙일보는 이른바 6대 로펌 ... 경찰 출신 변호사 현황을 확인했다.", "로펌 내부에선 ‘검찰의 시대는 저물어 간다’는 말도 종종 나온다"],
+      "reason": "영입 경쟁과 김앤장의 사례를 담았지만, 현황을 확인한 주체를 법조계로 바꾸고 로펌 내부의 말을 법조계의 평가처럼 서술했습니다. 경찰 권한 확대의 구체적 내용도 빠져 있습니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["대형 로펌의 경찰 출신 변호사는 “수사권조정 관련 동향 파악을 위해 경찰청과 서울지방경찰청을 다녀오기도 했다”고 했다.", "정확한 경찰 전관 숫자를 공개하진 않았지만 40여명 수준으로 국내 최대 규모다."],
+      "reason": "경찰 출신 변호사의 희소성과 김앤장의 영입 사례는 요약했지만, 경찰청 등을 방문한 사람을 검찰 출신 변호사로 잘못 바꿨습니다. 경찰 권한 확대의 내용과 로펌 대응팀 구성도 빠져 있습니다."
+    }
+  }
+}

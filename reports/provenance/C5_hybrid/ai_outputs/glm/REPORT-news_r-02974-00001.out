@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-02974-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "고양시 전체 어린이집 등원 아동(2만5804명) 가운데 5954명(23%)은 이날 긴급보육 서비스를 받았다",
+        "휴원 기간은 1주일이다"
+      ],
+      "reason": "Closure order, mom-cafe reaction and one emergency-care statistic are preserved accurately with correct numbers and dates, but the one-week closure duration, the cause of the working moms' plight, the 769/711 figure and the stay-at-home-mom section are all missing."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "이 지역 직장맘들은 당황스러운 모습을 보였다. 아이를 맡길 곳이 마땅치 않아서다",
+        "휴원 어린이집 769곳 가운데 711곳이 긴급보육 아동을 돌봤다"
+      ],
+      "reason": "Faithfully combines the closure order with the cause of the parents' confusion plus one correct statistic, but drops the 4일 report date, the 769/711 figure and the stay-at-home-mom section; the opening list-like sentence ('직장맘·전업주부·보육 대란') is awkward."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "5954명(23%)은 이날 긴급보육 서비스를 받았다",
+        "\"집 안에만 있으니…\" 우울한 전업맘"
+      ],
+      "reason": "Keeps the narrative core (closure, cause, cafe posts) but omits both emergency-childcare statistics and the stay-at-home-mom section entirely, leaving the summary purely anecdotal; losing all quantitative grounding materially narrows the reader's picture of the scale."
+    },
+    "D": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": [
+        "휴원 어린이집 769곳 가운데 711곳이 긴급보육 아동을 돌봤다",
+        "맞벌이 가정 '직장맘'이나 전업주부나 고민이 있는 건 마찬가지다"
+      ],
+      "reason": "Nearly all key facts are preserved with correct dates and numbers (closure scope and date, cause, both statistic sentences), and the lead clause retains that stay-at-home moms also struggle; only secondary anecdotes and the one-week duration are lost."
+    }
+  }
+}

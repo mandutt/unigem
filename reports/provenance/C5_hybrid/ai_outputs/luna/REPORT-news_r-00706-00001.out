@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00706-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["이란이 공격 직후 “전쟁을 원하진 않는다”는 메시지", "미국이 가장 싫어하는 장기 게릴라전 상황"],
+      "reason": "이란의 메시지와 장기 게릴라전 우려는 담았지만, 선거 승리 목표 등 확전을 피한 다른 주요 해석이 빠져 내용이 부분적입니다. 괄호로 같은 말을 반복해 다소 어색합니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": ["트럼프의 당면 최대 목표가 올해 11월 대선에서의 승리", "악수는 피했다는 것이다"],
+      "reason": "이란의 메시지, 장기 게릴라전 우려와 선거 목표를 들어 주요 해석을 요약했습니다. 다만 인용 표현인 “전쟁을 원하진 않는다라는”이 어색합니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["미군이 적대국 본토를 공격하는 동안 상대가 게릴라전을 펼쳐 전쟁이 장기화", "이란은 1000여기의 각종 미사일을 보유하고 있다"],
+      "reason": "장기전 우려와 이란의 미사일 능력, 미군 수뇌부의 판단을 담았지만 선거 목표 등 중요한 해석이 빠져 있습니다. 첫 문장의 연결이 어색해 이란의 메시지와 분석의 관계가 불분명합니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["이란이 공격 직후 “전쟁을 원하진 않는다”는 메시지", "전쟁이 장기화되면서 미국에 큰 '시간 비용'으로 작용"],
+      "reason": "이란의 메시지와 장기 게릴라전 우려를 자연스럽고 정확하게 전달하지만, 선거 목표와 다른 확전 억제 요인은 다루지 않습니다."
+    }
+  }
+}

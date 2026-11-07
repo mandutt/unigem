@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-02158-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["심각성을 고려하면 더 선제적인 조치를 고려해야 한다", "70%가 개별관광"],
+      "reason": "회의와 확진자 현황, 관광객 유입 등은 담았지만 시장의 심각성 우려와 구체적인 선제 대응 요구가 대부분 빠져 있습니다. 동영상 관련 문장은 다소 어색하지만 핵심 사실을 명백히 뒤집지는 않습니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["중국에서 688명의 확진자가 발생했고, 15명이 사망자가 나왔다", "후베이 성으로 지역을 확대해 접촉자들을 자가격리할 수 있도록 요청해 중앙정부에서 받아들인 상태"],
+      "reason": "시장 발언과 확진자 현황, 증상 범위 확대 요구는 대체로 정확하지만, 하루 확진·사망 현황과 관광객 및 추가 대응 우려 등 중요한 내용이 빠졌습니다. 언급한 중국 의사 관련 내용은 출처에 근거합니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": ["어제 하루 중국에서 688명의 확진자가 발생했고, 15명이 사망자가 나왔다", "중국은 선제대응이 못해 초동대응에 실패했다"],
+      "reason": "시장 우려와 중국의 초기 대응 비판, 국내 확진자 및 격리·감시 현황을 담아 요지가 잘 전달됩니다. 다만 688명과 15명은 ‘어제 하루’ 발생 수치인데 기간 표시가 빠졌고, 첫 문장이 어색합니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["중국은 그룹 관광을 금지했지만", "화상 감시 카메라를 확대하는 것이 필요하다", "어제 하루 중국에서 688명의 확진자가 발생했고"],
+      "reason": "선제 대응 요구를 요약했지만, 중국의 단체관광 금지를 시장이 요구한 조치처럼 다른 제안들과 한데 묶어 귀속을 왜곡했습니다. 688명 수치의 ‘어제 하루’ 조건이 빠졌고, 국내 확진자 및 접촉자 현황도 누락됐습니다."
+    }
+  }
+}

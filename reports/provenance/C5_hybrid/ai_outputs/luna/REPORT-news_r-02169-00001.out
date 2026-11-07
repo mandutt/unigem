@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-02169-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "탑승자 9명 전원이 사망했다고 전해졌다",
+        "브라이언트는 LA의 악명높은 교통 체증을 피하기 위해 선수 시절부터 헬기를 자주 이용했다"
+      ],
+      "reason": "사망과 최종 사망자 수, 나이키의 추모, 헬기 이용 이유를 담았습니다. 다만 동승자 등 사고의 구체적인 정황은 생략했고, ‘9명이 전원이’는 다소 어색합니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "탑승자 9명 전원이 사망했다고 전해졌다",
+        "브라이언트의 13세 둘째 딸 지안나"
+      ],
+      "reason": "사고 장소와 일부 동승자, 아카데미로 가던 정황은 전달하지만, 브라이언트 외 동승자들이 사망했다는 점과 전체 사망자 수를 밝히지 않아 핵심적인 결과가 빠졌습니다."
+    },
+    "C": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "탑승자 9명 전원이 사망했다고 전해졌다",
+        "나이키는 그를 기리는 글과 함께 사진을 올렸고"
+      ],
+      "reason": "사고와 사망자 수, 보도 경위 및 추모 반응을 간결하게 담아 핵심을 잘 전달합니다. 동승자들의 구체적인 신원은 생략했습니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "사망자가 늘어 탑승자 9명 전원이 사망했다고 전해졌다",
+        "지안나의 농구팀 동료와 이 동료의 부모"
+      ],
+      "reason": "사고 경위와 일부 동승자, 나이키의 추모는 담았지만 동승자 전원의 사망과 전체 사망자 수를 명시하지 않았습니다. 동승자 목록에서도 동료의 부모가 빠졌습니다."
+    }
+  }
+}

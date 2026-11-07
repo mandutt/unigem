@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-02974-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["원아를 등원할 수 있도록 했지만", "5954명(23%)은 이날 긴급보육 서비스를 받았다"],
+      "reason": "휴원과 직장맘의 어려움은 담았지만, 긴급보육이 실제 제공된다는 중요한 정보가 빠져 독자가 상황을 다르게 이해할 수 있습니다. 전업주부들의 구체적인 우려도 생략했습니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["5954명(23%)은 이날 긴급보육 서비스를 받았다"],
+      "reason": "휴원과 맘 카페의 반응, 긴급보육 이용 규모를 정확히 담았습니다. 다만 맞벌이 부모들이 겪는 구체적인 어려움과 전업주부들의 우려는 생략했습니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["아이를 맡길 곳이 마땅치 않아서다", "5954명(23%)은 이날 긴급보육 서비스를 받았다"],
+      "reason": "보육 문제와 긴급보육 이용 규모를 담아 핵심 상황을 전합니다. 다만 맘 카페 반응과 전업주부들이 겪는 구체적인 걱정은 빠졌습니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["5954명(23%)은 이날 긴급보육 서비스를 받았다", "휴원 어린이집 769곳 가운데 711곳이 긴급보육 아동을 돌봤다"],
+      "reason": "직장맘들의 어려움과 긴급보육 이용 아동 및 제공 어린이집 수를 정확히 담았습니다. 전업주부들의 우려와 휴원 기간 등은 생략했습니다."
+    }
+  }
+}

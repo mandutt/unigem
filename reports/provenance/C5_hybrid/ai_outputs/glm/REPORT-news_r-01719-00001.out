@@ -1,0 +1,9 @@
+{
+  "doc_id": "REPORT-news_r-01719-00001",
+  "summaries": {
+    "A": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 4, "utility": 3, "evidence": ["문 대통령이 제청을 받아들여 국회에 노 후보자에 대한 임명 동의를 요청하면 국회는 인사청문회을 거쳐 본회의에서 인준안을 표결한다"], "reason": "제청 사실과 국회 인준 절차를 정확히 옮겼으나 후임 관계, 학력·경력, 주요 판결 등 후속 핵심 정보가 전혀 없어 전달 범위가 좁다. '임명 동의 요청하면'처럼 조사가 빠진 부분이 다소 어색하다."},
+    "B": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 5, "utility": 4, "evidence": ["1984년 제26회 사법시험에 합격해 1990년 성남지원 판사로 임관한 노 부장판사는 대법원 재판연구관, 대전지법 부장판사, 특허법원 부장판사, 서울중앙지법 형사수석부장판사, 서울북부지법원장 등을 거쳤다"], "reason": "제청 사실과 출신·학력·임관·경력·대표 법리를 오류 없이 자연스럽게 담았으나 국회 인준 절차와 후임(조희대) 관계, 주요 판결이 빠졌다."},
+    "C": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 3, "evidence": ["뇌출혈이 발병한 경찰관, 혈관육종이라는희귀병으로 사망한 소방관에게 공무상 재해를 인정한 판결"], "reason": "핵심 사실은 대체로 유지되지만 판결 부분을 '뇌출혈·혈관육종·희귀병·공무상 재해 인정한 판결'로 병렬 나열해 조사가 빠지고 의미가 뭉개졌으며, 경력 서술과 절차 설명도 없다."},
+    "D": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 4, "utility": 4, "evidence": ["3월 4일 임기가 만료되는 조희대(62·사법연수원 13기) 대법관의 후임이다"], "reason": "후임 관계와 임기 만료일까지 정확히 담아 맥락이 가장 풍부하나 국회 인준 절차와 주요 판결이 빠졌고, 한 문장 안에서 주어 '노 부장판사는'이 중복돼 다소 어색하다."}
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03241-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["'열정의 랩소디'(1956)로 골든글로브 남우주연상을 차지했다"],
+      "reason": "All included facts (70-year career, debut, Golden Globe win, two marriages) match the source exactly, but the summary omits notable content such as his age (103세), the son's tribute, 'Spartacus', and his honorary awards. The phrase '제대한 1946년 ... 데뷔했고' is slightly awkward but readable."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["골든글로브상·미국영화연구소·미국영화배우조합·베를린영화제 등에서 공로상을 받았다"],
+      "reason": "The summary wrongly makes the film 'Spartacus' the recipient of the honorary awards; in the source those 공로상 were received by Kirk Douglas himself, while 'Spartacus' was a critical and box-office success. The son's tribute is also garbled into '아버지의 영화와 인생의 황금기를 보낸 배우', losing the 박애주의자 point and reading awkwardly after the dangling connective '받으며'."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["'스파르타쿠스'는 주연·제작을 겸해 비평과 흥행에 큰 성공을 거뒀다"],
+      "reason": "Faithful coverage of the death, the son's full Facebook tribute, career scale, 'Spartacus', and the film-family relations with Catherine Zeta-Jones. It omits his age, film titles like '영광의 길', and awards, and '고인은 70년간 출연한 영화는' has a double topic marker, but nothing is distorted."
+    },
+    "D": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["1916년 뉴욕주 빈민가 러시아계 유대인 이민자 부모에게서 태어난 그는 아메리칸 드림의 상징이었다"],
+      "reason": "Broadest faithful coverage: tribute quote, career span and film count, 'Spartacus', 1916 origins, Navy service and 1946 debut, 'Champion' Oscar nomination, and the 1956 Golden Globe win all match the source. It drops the honorary awards, Medal of Freedom, blacklist role, and family details, which is minor loss for a summary, with only slight awkwardness in '고인은 ... 영화는'."
+    }
+  }
+}

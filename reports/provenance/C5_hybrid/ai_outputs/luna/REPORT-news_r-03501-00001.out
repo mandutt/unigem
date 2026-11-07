@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03501-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["검찰은 마지막 의견으로 “타다는 불법 콜택시이고”", "이 대표는 “택시 시장을 목표로 한 것이 아니었다”"],
+      "reason": "검찰의 주장과 구형 내용은 정확히 담았지만, 재판장의 주요 질문과 이에 대한 이 대표의 답변을 빠뜨려 공판에서 오간 핵심 논쟁이 충분히 드러나지 않는다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["검찰은 이 대표와 박재욱 VCNC대표에게 각 징역 1년을", "이 대표는 “택시 시장을 목표로 한 것이 아니었다”"],
+      "reason": "구형과 이 대표의 반박은 정확히 요약했으나, 검찰이 타다를 불법 콜택시라고 주장하고 승객·운전자 보호 문제를 제기한 핵심 입장은 생략했다. 긴 문장이지만 전반적으로 이해하기 쉽다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": ["검찰은 마지막 의견으로 “타다는 불법 콜택시”", "이 대표는 “택시 시장을 목표로 한 것이 아니었다”며", "재판장은 “이용객이 택시와 크게 다르지 않아 문제가 불거진 거로 보여서”"],
+      "reason": "검찰의 주장을 확정된 결론처럼 표현했고, 이 대표의 답변을 박상구 부장판사의 답변으로 잘못 돌렸다. 이 때문에 공판의 쟁점과 발언 주체를 오해하게 할 수 있다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["검찰은 기존과 같이 타다가 불법 콜택시라는 점을 강조했다", "박 부장판사는 타다 측에 ▶서비스 기획은 언제부터 했는지", "이 대표는 “택시 시장을 목표로 한 것이 아니었다”"],
+      "reason": "검찰의 주장과 구형, 재판장의 질문을 정확히 담았다. 다만 재판장 질문에 대한 이 대표의 구체적인 답변이 빠져 양측의 공방이 완결되게 전달되지는 않는다."
+    }
+  }
+}

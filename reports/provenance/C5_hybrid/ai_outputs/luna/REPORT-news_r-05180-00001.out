@@ -1,0 +1,63 @@
+{
+  "doc_id": "REPORT-news_r-05180-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "저소득 가정 아동 200명을 위해 마스크 등 어린이 안전키트와 식료품을 담은 ‘HF 희망 상자’",
+        "어르신 334명에게 카레·국수 등과 밑반찬으로 구성된 대체식(점심)을 사서 집까지 배달"
+      ],
+      "reason": "It captures several major donation and meal-delivery efforts, but omits the substantial aid for children and other support to the hospital and vulnerable residents. The donor-and-amount phrasing is compressed but not clearly inaccurate."
+    },
+    "B": {
+      "adequacy": 1,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 1,
+      "evidence": [
+        "박수관 와이씨텍 회장은 27일 오거돈 시장에게 성금 1억원을 전달했다.",
+        "신정택 세운철강 회장은 취약계층에 전달할 1억원 상당의 갈비탕·곰탕을 기탁했다.",
+        "대한불교 조계종과 부산항만공사도 이날 성금 각 1000만원을 부산시와 초록어린이 재단에 전달했다."
+      ],
+      "reason": "It conflates distinct cash and in-kind contributions into a 1억원 gift to the city and foundation, and muddles which organizations would use the aid. It also omits nearly all concrete support activities."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 2,
+      "evidence": [
+        "부산시는 이들 성금과 물품을 어린이와 어르신 등 부산·대구지역 취약계층과 피해자 지원 등에 사용할 예정이다.",
+        "저소득 가정 아동 200명을 위해 마스크 등 어린이 안전키트와 식료품을 담은 ‘HF 희망 상자’"
+      ],
+      "reason": "The broad point about charitable support and the city's planned use is accurate, but the summary provides almost no detail about what aid was given or to whom. It names some contributors while omitting the hospital support and the specific assistance to children and older residents."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "박수관 와이씨텍 회장은 27일 오거돈 시장에게 성금 1억원을 전달했다.",
+        "신정택 세운철강 회장은 취약계층에 전달할 1억원 상당의 갈비탕·곰탕을 기탁했다.",
+        "저소득 가정 아동 200명을 위해 마스크 등 어린이 안전키트와 식료품을 담은 ‘HF 희망 상자’"
+      ],
+      "reason": "It summarizes the hospital and older-resident assistance, but groups several donors under a single 1억원 cash contribution, which misstates the amounts and type of aid. It also omits the substantial child-focused support and other aid efforts."
+    }
+  }
+}

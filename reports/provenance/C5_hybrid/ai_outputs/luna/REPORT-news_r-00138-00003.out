@@ -1,0 +1,65 @@
+{
+  "doc_id": "REPORT-news_r-00138-00003",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "경제사령부로서의 ‘내각책임제‧중심제’ 강화",
+        "핵‧미사일 모라토리엄 철회로 새로운 도전을 시사했다",
+        "대륙간탄도미사일(ICBM) 시험발사, 새로운 유형의 핵실험 준비에 박차를 가하게 될 것으로 판단한다"
+      ],
+      "reason": "경제체계 정비와 미국에 대한 북한의 입장을 함께 담아 핵심 흐름을 전달한다. 다만 전략무기 개발 지속의 구체적 전망인 ICBM 시험발사와 핵실험 준비 가능성을 빠뜨렸다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "전략무기개발 사업을 더욱 활발히 추진해 새로운 전략무기를 선보일 것을 천명했다",
+        "경제사업체계와 질서를 합리적으로 정돈",
+        "대륙간탄도미사일(ICBM) 시험발사, 새로운 유형의 핵실험 준비에 박차를 가하게 될 것으로 판단한다"
+      ],
+      "reason": "전략무기 개발과 모라토리엄 관련 입장은 담았지만, 경제체계 정비라는 큰 주제와 향후 ICBM·핵실험 가능성에 대한 결론을 생략했다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 2,
+      "evidence": [
+        "지난해 4월 전원회의 이후 북한은 각종 단거리 미사일과 초대형 방사포 시험발사로 미국을 압박했으나",
+        "전략무기개발 사업을 더욱 활발히 추진해 새로운 전략무기를 선보일 것을 천명했다",
+        "경제사업체계와 질서를 합리적으로 정돈"
+      ],
+      "reason": "군사력 강화와 모라토리엄 철회 시사는 담았지만 경제 분야와 미국의 태도에 관한 맥락을 빠뜨렸다. 전원회의 이후 전략무기 개발·시험을 지속하겠다는 입장을 밝혔다고 서술해, 전원회의 이후의 시험발사 사실과 별도의 개발 방침을 시간상 연결한다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "미국이 적대시 정책을 계속할 경우 ’조선반도의 비핵화‘는 없을 것이며",
+        "핵‧미사일 모라토리엄 철회로 새로운 도전을 시사했다",
+        "경제사업체계와 질서를 합리적으로 정돈"
+      ],
+      "reason": "전략무기와 미국의 적대시 정책을 둘러싼 핵심 입장을 전달하지만, 경제 분야의 주요 과업과 향후 ICBM 시험발사·핵실험 준비 가능성에 대한 결론은 담지 않았다."
+    }
+  }
+}

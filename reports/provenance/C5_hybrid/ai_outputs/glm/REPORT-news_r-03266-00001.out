@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03266-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["사망자가 636명으로 뛰었다", "6일 하루 전날과 같은 73명이 숨졌다"],
+      "reason": "핵심 수치(636, 73, 3만 돌파, 962/4821, 우한 1만 명)는 담겼으나 '636명으로 73명이 빠진'은 출처의 '뛰었다(증가)'와 반대되는 감소 관계로 왜곡했다. 마지막 문장은 '~라는 점이 ~상황이다'로 문법이 무너져 두 사실이 엉켜 있고, 왕천 경고·후베이/우한 사망 집중·전쟁 비유 등이 빠졌다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["중증 환자도 6일 하루 1일 최다인 962명이 발생해 모두 4821명이 됐다"],
+      "reason": "사망 636명, 확진 3만 1161명, 우한 1만 명, 전쟁 비유와 후베이·우한 승리 강조가 정확하나, 중증 환자 문장에서 하루 신규 최다(962명)와 누적(4821명)이 뒤섞여 '하루 1일 최다인' 수식어가 4821명에 붙는다. 왕천 발언과 사망자 지역 집중 정보가 빠졌다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["확진 환자는 6일 자정 처음으로 3만 명을 돌파해 3만 1161명을 기록했다", "우한의 확진 환자는 6일 현재 1만 명이 넘는다"],
+      "reason": "'3만 1161명으로 3만 1161명을 기록했다', '6일 현재 1만 명으로'의 반복과 함께 첫 문장·우한 문장의 구문이 심하게 깨져 있고, 입원·병상 수치가 28개 지정 병원 맥락 없이 확진자 1만 명에 붙어 있다. 기록적인 중증 환자 통계(962/4821)가 통째로 빠졌다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 5,
+      "utility": 2,
+      "evidence": ["확진 환자는 6일 자정 처음으로 3만 명을 돌파해 3만 1161명을 기록했다"],
+      "reason": "31,161명은 확진 환자 수치인데 '사망자는... 3만 1161명을 기록'으로 주어를 바꿔 누적 사망자를 31,161명으로 제시하는 치명적 참조 오류가 있고, 실제 누적 사망 636명은 나오지 않는다. 그 외 73명 발표, 중증 962/4821, 왕천 발언, 병상·입원 정보는 정확하고 한국어도 자연스럽다."
+    }
+  }
+}

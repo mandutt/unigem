@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00942-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": ["이 국장이 인사 발표 전날 대검의 모 간부와 전화통화를 마친 후 문자를 보낸 사실이 있다"],
+      "reason": "Summary A inverts the ministry's statement: the source says the ministry confirmed '문자를 보낸 사실이 있다' (while calling the mocking claim distorted), but A reports the ministry said it is '사실이 아니' — a reversal of the central fact. Other facts (appointment, 13일 부임, 주광덕 claim) are preserved."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["법무부가 '내용이 왜곡됐다'며 해당 문자 메시지를 공개했다"],
+      "reason": "Accurately conveys the distortion claim, the confirmation that the text was sent, the 13일 부임, and 주광덕's press conference in natural Korean. Omits the actual text content, the 윤석열-추미애 standoff, and minor identifiers, which is a minor loss."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["이날 오후 윤석열 검찰총장은 추미애 장관과 상견례를 마치고 대검에 돌아온 뒤 법무부 측과 인사안을 보내는 문제로 논쟁을 벌였다"],
+      "reason": "Key meaning is preserved: the release, the 왜곡 claim, the confirmed text-sending, the 인사안 dispute, and 주광덕's claim, with no distortions. It omits the text content, 추미애's unilateral proceeding with the appointment, and specific dates, a minor loss."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["법무부가 공개한 문자는 지난 8일 인사 발표 전날, 이 국장이 대검 고위 간부인 A검사에게 보낸 것이다"],
+      "reason": "D attributes the release of the text to 이 국장 himself ('이 국장은 … 문자를 공개했으며'), whereas the source says 법무부 released it — a who-did-what error. The middle sentence describing the 윤석열-추미애 dispute is garbled ('윤석열 검찰총장이 법무부 인사안을 먼저 만들어 보내는 논쟁이 벌어졌고'), and the 12일 confirmation and text content are missing."
+    }
+  }
+}

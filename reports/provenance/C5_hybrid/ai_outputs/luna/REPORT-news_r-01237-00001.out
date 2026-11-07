@@ -1,0 +1,60 @@
+{
+  "doc_id": "REPORT-news_r-01237-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "문재인 대통령이 신년 기자회견을 통해 남북 경협 추진에 강한 의욕을 보이면서 제재 면제 또는 예외를 제안",
+        "한국에도 모종의 '경고'를 한 것이 아니냐는 분석"
+      ],
+      "reason": "제재와 문 대통령의 예외 제안, 미 국무부의 공조 표현은 담았지만, 제재 발표 시점이 한국 등에 대한 경고일 수 있다는 핵심 해석과 한·미 간 시각차를 명확히 전하지 않습니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "미 국무부는 한·미 장관회담 결과자료에서 “대북 문제에 있어 한국과 긴밀한 공조를 재확인했다”"
+      ],
+      "reason": "제재와 문 대통령의 발언은 대체로 정확하지만, 결과자료의 주체를 재무부라고도 잘못 적고 같은 내용을 반복합니다. 제재 발표 시점에 대한 경고 가능성과 한·미 간 시각차라는 주요 맥락도 빠졌습니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "제재 면제 또는 예외를 제안한 터라 미묘한 해석을 낳고 있다",
+        "한국에도 모종의 '경고'를 한 것이 아니냐는 분석"
+      ],
+      "reason": "제재 발표와 문 대통령의 예외 제안이 맞물려 해석을 낳았다는 핵심은 담았으나, 그 해석이 중국·러시아·한국에 대한 경고 가능성이라는 점은 생략했습니다. '미묘한 해석이 낳고 있다'는 표현도 다소 어색합니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "문 대통령은 14일 오전 신년 기자회견을 통해 ... 제재에 대해 일부 면제나 예외조치를 인정하는 것에 대한 국제적인 지지를 넓힐 수 있을 것",
+        "문 대통령은 7일 신년사에서도 남북 철도ㆍ도로 연결사업과 개성공단· 금강산 관광 재개의 필요성을 언급"
+      ],
+      "reason": "제재 대상과 트위터 발표, 7일 신년사 언급은 포함했지만, 14일 기자회견의 제재 면제·예외 제안과 제재 발표의 시점이 낳은 정치적 해석을 빠뜨렸습니다. '언급을 언급했다'는 반복도 다소 어색합니다."
+    }
+  }
+}

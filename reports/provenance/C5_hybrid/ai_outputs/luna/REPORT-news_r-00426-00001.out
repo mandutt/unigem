@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00426-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["이란 정부와 국민들을 향해 연일 아버지의 “복수”를 호소해서다.", "제납의 올해 나이는 28세다."],
+      "reason": "장례식의 배경과 나이는 담았지만, 제납이 솔레이마니의 딸이며 복수를 호소하고 트럼프를 비판한 것이 핵심이라는 점을 빠뜨렸습니다. 생중계 관련 문장은 다소 어색하지만 뜻은 파악할 수 있습니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["그는 트럼프를 향해 “미친 트럼프”라고 일갈했다.", "제납의 연설을 포함한 장례식은 이란 언론에 생중계됐다."],
+      "reason": "복수 호소와 트럼프를 향한 발언을 담아 핵심을 대체로 전달합니다. 다만 복수 호소와 생중계 내용을 잇는 문장이 어색하고, 장례식 생중계의 주체 관계가 명확하지 않습니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["솔레이마니는 슬하에 3남2녀를 뒀다.", "미국의 공습으로 거셈 솔레이마니가 폭살 당한 후 그의 딸 제납이 반미(反美) 보복의 상징처럼 떠오르고 있다."],
+      "reason": "장례식 생중계와 제납의 반미 보복 상징화는 담았지만, 트럼프를 향한 발언의 구체적 내용은 생략했습니다. 첫 문장에서 제납을 제납의 딸로 표현해 인물 관계를 잘못 나타냈습니다."
+    },
+    "D": {
+      "adequacy": 1,
+      "critical_unsupported": 1,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["미국의 공습으로 거셈 솔레이마니가 폭살(爆殺) 당한 후", "그의 딸 제납 솔레이마니다."],
+      "reason": "첫 문장은 제납이 미국 공습으로 사망했다고 서술하지만, 사망한 사람은 그녀의 아버지 거셈 솔레이마니입니다. 복수 호소를 이란 언론의 행동처럼 표현한 데다 같은 내용을 반복해 문장이 어색합니다."
+    }
+  }
+}

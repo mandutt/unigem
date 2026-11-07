@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-05467-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "1647년(인조 25) 창덕궁 공사 때 사용된 박석은 모두 강화도에서 채석되었고",
+        "1906년 경운궁 중건을 비롯해 대한제국 시절에 진행된 궁궐 공사에도 석모도에서 채석한 박석을 사용하였다."
+      ],
+      "reason": "1647년 박석을 석모도와 해주에서 채석했다고 뭉뚱그린 데다, 18세기 인근에서 채석한 박석이 1906년 공사에 쓰였다고 연결해 채석지와 시기를 혼동합니다. 눈부심 방지·미끄럼 방지·배수 기능도 빠져 있습니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "박석의 거친 마감은 이런 자연현상에 대한 과학적인 배려로 빛의 되쏘임 현상을 차단하는 의도라고 볼 수 있다.",
+        "1906년 경운궁 중건을 비롯해 대한제국 시절에 진행된 궁궐 공사에도 석모도에서 채석한 박석을 사용하였다."
+      ],
+      "reason": "거친 마감의 눈부심 방지 효과와 주요 채석 관련 사실은 정확히 담았습니다. 다만 미끄럼 방지와 배수 기능, 18세기 채석지 등 중요한 설명이 빠져 있습니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": [
+        "1647년(인조 25) 창덕궁 공사 때 사용된 박석은 모두 강화도에서 채석되었고",
+        "18세기 궁궐 공사 때는 창의문 밖이나 남산 아래 인근에서 채석했다고 한다."
+      ],
+      "reason": "채석 관련 설명과 자연스러운 형태가 건축에 어울린다는 점은 담았지만, 박석의 거친 마감이 가진 기능과 1906년 사용 사례를 생략했습니다. 따라서 기사의 핵심적인 설계 배려를 충분히 전달하지 못합니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "궁궐 공사 때 사용한 다양한 용도의 석재들은 서울 가까운 곳에서 얻었지만, 바닥에 깔리는 박석은 강화 석모도와 해주에서 채석한 것만 사용하였는데",
+        "18세기 궁궐 공사 때는 창의문 밖이나 남산 아래 인근에서 채석했다고 한다."
+      ],
+      "reason": "박석 설명을 반복하고 눈부심·미끄럼·배수 기능과 1906년 사례를 빠뜨렸습니다. 또한 석모도와 해주에서 채석한 것만 썼다는 표현이 박석이 아닌 궁궐 공사용 석재 전반에 적용되는 것처럼 보여 범위를 넓힙니다."
+    }
+  }
+}

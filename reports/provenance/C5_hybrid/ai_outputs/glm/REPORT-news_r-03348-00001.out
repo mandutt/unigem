@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03348-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["대형 로펌의 경찰 출신 변호사는 '수사권조정 관련 동향 파악을 위해 경찰청과 서울지방경찰청을 다녀오기도 했다'"],
+      "reason": "The police-agency visit quote is attributed to a 검찰 출신 lawyer when the source attributes it to a 경찰 출신 lawyer, a central mix-up in a story about ex-police vs ex-prosecutor hires. It otherwise preserves the lede, the scarcity rationale, and the Kim & Chang hires but omits the response-team creation and firm-scale facts."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["김앤장은 지난달 경찰대학장(치안정감)을 역임한 백승호 변호사(사법연수원 23기)를 영입했다"],
+      "reason": "Accurate and natural on the lede, the 율촌/지평/태평양 response teams, and the prosecutor's communication-strength remark, but only part of the article is preserved: the entire Kim & Chang section (백승호 영입, 40여명 국내 최대 규모, 전문위원 영입) and the July 수사종결권 context are missing."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["수년 전부터 변호사 자격증이 없는 경찰 수사관들도 전문위원 자격으로 다수 영입해왔다"],
+      "reason": "Key meaning is preserved with accurate coverage of the lede, team creation at three firms, and the 백승호 hire, but the statement '수년 전부터 경찰 출신 변호사를 다수 영입' merges and flattens the distinct fact that Kim & Chang hired investigators without law licenses as 전문위원. Minor repetition of 김앤장은 keeps it from a perfect flow score."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["중앙일보는 이른바 6대 로펌(광장·김앤장·세종·율촌·태평양·화우)과 최근 경찰수사대응팀을 신설한 법무법인 지평에 경찰 출신 변호사 현황을 확인했다"],
+      "reason": "The summary makes 법조계, not 중앙일보, the agent that checked the six major firms' ex-police lawyer status, distorting who conducted the survey. It otherwise preserves the fading-prosecutors theme, the communication-strength quote, and the 40여명 national-largest scale, though '경찰대학장으로 역임한' is ungrammatical."
+    }
+  }
+}

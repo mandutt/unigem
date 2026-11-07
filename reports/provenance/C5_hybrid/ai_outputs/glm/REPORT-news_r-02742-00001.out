@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-02742-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["\"1일까지 누적 조회수는 390만회를 돌파했다\""],
+      "reason": "Case counts and server-cost point are accurate, but the 390만회 milestone is misdated to 2일 while the source says it was surpassed as of 1일, and the 500만회 projection and search-ranking context are dropped."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["\"2일 서버가 다운된 뒤 이씨는 서버를 한 차례 증설했다\""],
+      "reason": "Milestone dates, ranking, server down/scale-up, daily visitors and solo operation are all preserved accurately; it omits the case-count update (3 additional, 15 total) and the self-funding/ads plan, which weakens completeness."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["\"하루에 100만명 이상 방문하고 있는 상황이라 서버 비용도 만만치 않을 것으로 보인다\""],
+      "reason": "Dates and server-cost details are preserved correctly, but the summary never states what Corona Map is or its URL, and the opening sentence is a run-on with a subject mismatch ('이씨가...돌파했으며') that reads awkwardly."
+    },
+    "D": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 5,
+      "evidence": ["\"2일에도 확진자 3명이 추가 확인돼 현재 확진자는 총 15명으로 늘어난\""],
+      "reason": "Faithfully covers the map's purpose and URL, the milestone with correct 1일/2일 attribution, the 500만회 projection, search ranking and the case-count update, losing only minor qualifiers such as '거뜬히' and '(우한 폐렴)'."
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "doc_id": "REPORT-news_r-04709-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "감염 경로가 너무 애매해 내부적으로 자체 조사를 벌이고 있다",
+        "귀국 후에도 직장, 식당, 병원 등을 돌아다녀 지역사회 확산이 우려된다"
+      ],
+      "reason": "Counts, regional breakdown (sums correctly to 18), mask precautions, and the unclear-route investigation are all preserved accurately with nothing added. The omission of post-return movements and the community-spread warning makes the situation look more contained than the SOURCE describes."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "영주·영덕·예천 각 1명이다. 다른 1명은 서울에 사는 가이드다",
+        "이 밖에도 다른 확진자들은 각각 영주온천랜드, 의성경북의원, 안동소방서 등을 방문했다",
+        "오후 5시쯤 버스 2대에 나눠 타고 오후 9시쯤 안동에 도착해 각자 집으로 갔다"
+      ],
+      "reason": "Dropping '각' makes 영주·영덕·예천 read as one person (16 of 18 accounted for), and omitting 오후 9시쯤 도착 implies arrival at 5시. It also misattributes the site visits to all 18 confirmed patients when SOURCE attributes them to '다른 확진자들', garbles '의성 53·B씨', and omits the unclear-infection-route point entirely."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 2,
+      "utility": 3,
+      "evidence": [
+        "가운데 18명이 이날 코로나19 감염자로 확진됐다",
+        "감염 경로가 너무 애매해 내부적으로 자체 조사를 벌이고 있다",
+        "순례단은 지난 16일 귀국 후 오후 2시쯤 공항 종교시설에서 행사를 마친 뒤"
+      ],
+      "reason": "The lead sentence is garbled by redundant '확진으로 확진된...확진됐다' and drops the Seoul-guide qualifier, leaving the 18th confirmed case unexplained by the regional breakdown. It preserves the clean-region, mask, and return-itinerary details but omits the article's central point — the unclear infection route and self-investigation — plus the spread concern."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": [
+        "다른 1명은 서울에 사는 가이드다",
+        "감염 경로가 너무 애매해 내부적으로 자체 조사를 벌이고 있다",
+        "순례단은 지난 16일 귀국 후 오후 2시쯤 공항 종교시설에서 행사를 마친 뒤 오후 5시쯤 버스 2대에 나눠 타고 오후 9시쯤 안동에 도착해 각자 집으로 갔다"
+      ],
+      "reason": "Very thin: it keeps the counts and return timeline but fuses the Seoul-based guide into the regional breakdown ('각 1명은 서울에 사는 가이드가 있다'), a false relation that obscures the 18th confirmed person. The unclear infection route, mask precautions, and community-spread concern are all missing."
+    }
+  }
+}

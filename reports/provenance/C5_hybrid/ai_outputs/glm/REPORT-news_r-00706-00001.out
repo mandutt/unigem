@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00706-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["이란은 1000여기의 각종 미사일을 보유하고 있다", "니혼게이자이(닛케이) 신문은 9일"],
+      "reason": "핵심 논지(이란의 메시지), 닛케이의 베트남전 시나리오, 비대칭 무기와 1000여기 미사일 수치, 트럼프 결단 배경을 정확히 담았으나 사상자 없음, 11월 대선 변수, '눈에는 눈' 보복 관례 등 주요 해석 일부가 빠졌다. 첫 문장의 '이유로~분석이' 연결이 다소 어색하다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "reason": "도입부, 이란 메시지 분석, 장기 게릴라전 우려, 11월 대선을 고려한 악수 회피 해석을 충실히 전달했으나 닛케이의 베트남전 시나리오 상세와 이란의 미사일·혁명수비대 역량 등 뒷절반 대부분이 생략됐다. 문장이 모두 원문 그대로라 자연스럽다.",
+      "evidence": ["트럼프의 당면 최대 목표가 올해 11월 대선에서의 승리인 만큼 악수는 피했다는 것이다", "일각에선 미국이 가장 싫어하는 장기 게릴라전 상황을 우려했을 가능성도 지적된다"]
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "reason": "도입부와 이란 메시지 분석, 날짜(9일)와 '정권이 흔들리는'까지 포함한 닛케이 베트남전 발언을 원문 그대로 정확히 옮겼으나 대선 변수, 사상자 변수, 이란 역량, 보복 관례 등 다른 해석과 근거가 모두 빠졌다.",
+      "evidence": ["니혼게이자이(닛케이) 신문은 9일 \"미군이 적대국 본토를 공격하는 동안 상대가 게릴라전을 펼쳐\""]
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "reason": "도입부, 이란 메시지 분석, 게릴라전 우려 한 줄만 남기고 베트남전 시나리오, 이란 역량, 대선 변수, 보복 관례 등 기사 대부분이 생략된 부분 요약이다. '전쟁을 원하진 않는다(전쟁을 원하진 않는다)'처럼 같은 내용이 괄호로 중복 표기된 유창성 결함이 있다.",
+      "evidence": ["일각에선 미국이 가장 싫어하는 장기 게릴라전 상황을 우려했을 가능성도 지적된다"]
+    }
+  }
+}

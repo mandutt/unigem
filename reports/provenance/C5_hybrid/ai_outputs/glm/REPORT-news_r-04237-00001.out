@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-04237-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["트럼프 대통령은 지난 11일 트윗으로 검찰을 정면 비판했다", "전직 법무부 관리들 숫자는 하루 만에 1143명에서 2000명으로 늘었다"],
+      "reason": "The pivotal tweet on the 11th is attributed to Barr instead of Trump, breaking the causal chain (Trump tweet → DOJ lowering → prosecutors resign), and the former officials' statement (1143→2000) behind the resignation pressure is omitted. '검사 4명에 사직서를 내고' and the repeated '사직서를 내고' make the key sentence hard to parse."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["미국 언론은 다양한 해석을 내놓고 있다", "위증 및 증인 매수 등 7개의 혐의를 받았다"],
+      "reason": "Core chain (controversy, officials' statement, Trump tweet, Stone's seven charges, DOJ lowering the recommendation) is preserved, but the media's competing interpretations of Barr's remarks are flattened into 'Barr revealed he made a protest about the tweets', distorting the source's attribution. Grammar faults ('검찰을 7~9년을', double topic '스톤은…법무부는') leave it understandable but awkward."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["바 장관에 대해선 '트럼프의 하수인'(뉴욕타임스), '트럼프의 장난감'(워싱턴포스트)이라는 비난이 쏟아졌다"],
+      "reason": "The NYT/WaPo insults were directed at Barr, but C states Barr hurled them, reversing who attacked whom. The lead, statement with signature growth, tweet and resignations are kept, though the closing line about media interpretations dangles because Barr's actual remarks about the tweets are never given."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["하루 만에 1143명에서 2000명으로 늘었다", "바 장관이 견디다 못해 트윗에 대한 나름의 항의를 했다는 해석과"],
+      "reason": "Accurately preserves the lead, the officials' statement with signature growth, the Stone case, Trump's tweet, and both media interpretations with no factual errors. Secondary details (prosecutors' resignations, Barr's 14th remarks and his denial of a presidential directive) are lost and there is minor topic-predicate awkwardness, but the key meaning survives."
+    }
+  }
+}

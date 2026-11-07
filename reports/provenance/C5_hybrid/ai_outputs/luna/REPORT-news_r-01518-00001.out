@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-01518-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["각 이튿날 오전 2시까지 늦추기로 했다"],
+      "reason": "주요 교통대책과 심야 운행, 버스전용차로 운영시간은 담았지만 막차 연장 종료 시각인 다음 날 오전 2시가 빠져 있어 이용자에게 중요한 정보가 누락됐다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["서울 출발 고속‧시외버스도 연휴 기간 중 운행 대수를 하루 평균 562대씩 늘린다", "서울역·용산역·영등포역·청량리역·수서역과 서울고속터미널(센트럴시티)·동서울터미널·남부터미널·상봉터미널을 경유하는 129개 노선"],
+      "reason": "129개 노선은 기차역·터미널을 경유하는 시내버스 노선인데, 이를 고속·시외버스에 붙여 정상 운행한다고 했고 하루 평균 562대 증차도 빠뜨렸다. 시내버스의 오전 2시 기준은 일부 언급하지만 지하철 막차 연장 시각은 제시하지 않았다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["지하철·버스 막차 시간을 각 이튿날 오전 2시까지 늦추기로 했다"],
+      "reason": "주요 대책과 심야 버스·택시, 버스전용차로 운영은 정확히 요약했지만 막차 연장 종료 시각인 다음 날 오전 2시를 빠뜨렸다. 그 밖에 묘지 경유 버스와 고속·시외버스 증차도 생략됐다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["대체공휴일을 포함한 연휴 기간은 24~27일이다", "각 이튿날 오전 2시까지 늦추기로 했다"],
+      "reason": "묘지 경유 버스 증편, 고속·시외버스 증차, 버스전용차로 시간 등은 대체로 충실하지만 막차 연장 종료 시각을 누락했다. 연휴 기간이 '변경된다'는 서술은 출처에 없는 변경 사실을 덧붙인다."
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "doc_id": "REPORT-news_r-03086-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "아시아에서 5번째로 IIHF 명예의 전당에 헌액됐다",
+        "해마다 한라 아이스하키팀에 50~60억원, 협회에 15억원을 출연했다"
+      ],
+      "reason": "핵심 발표(아시아 5번째 헌액)와 주요 경력·출연금 사실이 정확하고 자연스럽게 유지됨. 빌더 자격, 헌액 행사 일정, 평창 관련 내용이 생략되었으나 전체 핵심 의미는 보존됨."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "정 회장의 IIHF 명예의 전당 헌액 공식 행사는 2020 IIHF 월드챔피언십 대회 마지막 날인 5월 25일 스위스 취리히에서 열린다"
+      ],
+      "reason": "주요 사실(아시아 5번째, 행사 일정, 창단·연합리그)은 유지되나 헌액 행사 문장에서 주어-서술어 호응이 깨져 '정 회장은 ... 열린다'로 와전되어 판독에 혼란이 있음. 빌더 자격과 출연금·평창 내용 누락."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "IIHF는 ... '남북 여자 아이스하키 단일팀의 결성과 출전도 정 회장의 비전과 확고한 의지, 헌신이 있었기에 가능했다'고 강조했다"
+      ],
+      "reason": "평창 출전·단일팀 발언의 화자를 IIHF가 아닌 정 회장으로 표기해 누가 무엇을 강조했는지 관계가 와전되고, 문장 구성('정 회장은 ... 출전은')도 어색함. 행사 일정과 경력·출연금 등 상당 부분 누락."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": [
+        "평창 올림픽에서 '평화의 상징'으로 세계적인 관심을 받은 남북 여자 아이스하키 단일팀의 결성과 출전도 정 회장의 비전과 확고한 의지, 헌신이 있었기에 가능했다'고 강조했다"
+      ],
+      "reason": "핵심 발표와 IIHF의 평가(평창 출전·남북 단일팀)를 올바른 귀속으로 전달함. 빌더 자격과 헌액 행사 일정, 경력·출연금 세부는 생략되었으나 핵심 의미는 보존되며 문장만 다소 중복되어 어색함."
+    }
+  }
+}

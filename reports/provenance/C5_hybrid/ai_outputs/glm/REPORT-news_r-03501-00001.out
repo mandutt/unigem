@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03501-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["검찰은 이 대표와 박재욱 VCNC대표에게 각 징역 1년을, 쏘카와 VCNC에 각 벌금 2000만원을 구형했다", "택시 시장을 목표로 한 것이 아니었다"],
+      "reason": "Accurately reports the closing hearing, the CEO's verbatim final statement, the exact sentencing requests, and his defense answer with correct attribution, but omits the prosecution's core argument that Tada is an illegal call taxi that left passengers and drivers unprotected."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["이 대표는 '택시 시장을 목표로 한 것이 아니었다'며", "각 징역 1년을, 쏘카와 VCNC에 각 벌금 2000만원을 구형했다"],
+      "reason": "Reverses roles: it presents '택시와의 문제 예상 못 했고, 택시 시장을 목표로 한 것이 아니라고 답했다' as Judge Park's answer, when the source has the judge asking whether Tada anticipated the taxi conflict and CEO Lee giving that reply. It also omits the sentencing requests (징역 1년, 벌금 2000만원) entirely, and phrases like '택시와의 문제 예상 못 했고' are grammatically incomplete."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["타다는 불법 콜택시이고, 타다로 인해 타다 승객은 승객으로 보호받지 못하고 운전자는 근로자로 보호받지 못하는 부당한 결과를 낳았다", "각 징역 1년을, 쏘카와 VCNC에 각 벌금 2000만원을 구형했다"],
+      "reason": "Faithfully preserves the central conflict (CEO's lawful-business claim vs. the prosecution's full illegal-call-taxi argument) and the exact sentencing requests with correct attribution, but omits Judge Park's questioning, the CEO's response about not targeting the taxi market, and the judge's clarification."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["서비스 기획은 언제부터 했는지", "출시하면서 이런 부분에 대해 전혀 예상하지 못했냐", "각 징역 1년을, 쏘카와 VCNC에 각 벌금 2000만원을 구형했다"],
+      "reason": "Correctly reports the prosecution's stance, the exact sentencing requests, and Judge Park's questions to the Tada side (planning timeline, risk analysis, anticipation of the taxi conflict) with accurate attribution, but omits the CEO's answer to those questions and the judge's clarification."
+    }
+  }
+}

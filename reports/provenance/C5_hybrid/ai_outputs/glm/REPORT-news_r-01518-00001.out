@@ -1,0 +1,58 @@
+{
+  "doc_id": "REPORT-news_r-01518-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "시내버스 4개 노선도 평일·토요일 수준으로 운행 횟수를 늘린다",
+        "서울 출발 고속‧시외버스도 연휴 기간 중 운행 대수를 하루 평균 562대씩 늘린다"
+      ],
+      "reason": "The 129-route figure is misattributed to 고속·시외버스 (in the SOURCE it is the city-bus routes through the listed stations/terminals), and both the cemetery-bus frequency increase and the 562-vehicle-per-day express/intercity bus increase are misstated as '정상 운행'. The bus-extension sentence also narrows the SOURCE rule by implying only routes passing two or more stations/terminals run until 2 a.m."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "지하철·버스 막차 시간을 각 이튿날 오전 2시까지 늦추기로 했다"
+      ],
+      "reason": "The headline policy, 129 target routes, owl-bus/late-night-taxi operation and the bus-lane extension are accurate, but the key qualifier that last trains run until 2 a.m. the following day is missing, and the cemetery-bus and express/intercity-bus service increases are omitted."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "지하철·버스 막차 시간을 각 이튿날 오전 2시까지 늦추기로 했다"
+      ],
+      "reason": "Coverage is accurate as far as it goes (policy, 129 routes, owl buses/taxis, bus-lane hours), but the 2 a.m. last-train end time that quantifies the main measure is omitted, as are the cemetery-bus and express/intercity-bus increases and the 24–27 holiday period."
+    },
+    "D": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": [
+        "지하철·버스 막차 시간을 각 이튿날 오전 2시까지 늦추기로 했다"
+      ],
+      "reason": "Almost all key facts are preserved accurately, including cemetery-bus route numbers, the 562-vehicle daily increase and the Jan 28 reversion to normal bus-lane hours; only the 2 a.m. last-train time and minor figures (capacity projection, fines) are missing, and '연휴 기간이 24~27일로 변경된다' is a slightly garbled rendering of the holiday dates."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "doc_id": "REPORT-news_r-04769-00002",
+  "summaries": {
+    "A": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 3, "utility": 4, "evidence": ["디올은 여행용 가방 브랜드 리모와와 손잡고 알루미늄 소재의 남성용 클러치백을 선보였다", "남성다움을 많이 덜어낸 모습이었다"], "reason": "대부분의 브랜드 사례와 앤드로지너스 룩 흐름을 담았다. 다만 '리모와는 손잡고'라고 써서 디올과 리모와의 협업 관계가 틀렸고, 리모와가 클러치백을 선보인 것처럼 읽힌다. 머스, 젠더리스, 자크뮈스 등은 빠졌다."},
+    "B": {"adequacy": 2, "critical_unsupported": 0, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 4, "utility": 2, "evidence": ["남자들의 핸드백 패션은 최근 소비문화의 화두인 '젠더리스(genderless)' 영향으로 해석할 수 있다", "지갑보다 더 작은 크기의 가방을 착용한 모델들도 눈에 띄었다"], "reason": "브랜드별 가방 사례는 정확하게 옮겼다. 하지만 젠더리스 흐름이라는 핵심 해석과 작은 가방(머스) 트렌드가 모두 빠져 기사의 핵심 맥락을 잃었다."},
+    "C": {"adequacy": 2, "critical_unsupported": 0, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 2, "evidence": ["발렌티노 쇼에선 지갑만 한 작은 가방을 멘 모델들이 줄줄이 걸어 나왔다", "남성다움, 여성다움을 강조하는 것은 이제 낡은 관습이 됐다"], "reason": "작은 가방 사례는 대체로 정확하다. 다만 젠더리스·앤드로지너스 흐름이라는 핵심 주제가 없고, '모델로 줄줄이 걸어 나왔다'는 표현이 어색하다."},
+    "D": {"adequacy": 2, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 4, "utility": 3, "evidence": ["디올은 온통 핑크로 무대를 물들였고, 자크뮈스 쇼에선 분홍색 카펫 위로", "보테가 베네타의 '카세트 백'은 여성용으로 출시됐지만"], "reason": "브랜드 목록과 남녀 경계가 흐려지는 사례는 담았다. 하지만 '주요 브랜드들이 남성용 핸드백을 선보였다'는 일반화에는 보테가 베네타가 포함되지 않고, 전체적으로 구체적인 가방 설명과 젠더리스라는 틀이 부족하다."}
+  }
+}

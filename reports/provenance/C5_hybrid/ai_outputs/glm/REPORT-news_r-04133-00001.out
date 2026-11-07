@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-04133-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 4,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": ["양승조 충남지사가 도청으로 복귀한다", "18일 오전 11시 아산시 초사2통 현장대책본부에서 기자회견을 갖고", "마을회관을 도지사 현장 집무실, 인근 음식점을 현장대책본부로 전환했다"],
+      "reason": "Preserves the headline (return to the provincial office), the 18th 11 a.m. press conference, the thanks, the designation and promise, the village's acceptance via Kim Jae-ho, and the office conversion. Only minor losses: the exact wording of the promise, the residents' initial protest, and the 194 first-batch returnees."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["양승조 충남지사가 도청으로 복귀한다", "주민들이 강하게 반발하자", "교민들이 모두 퇴소할 때까지 이곳을 지키겠다"],
+      "reason": "Omits the article's headline fact that the governor returns to the 도청, and '반발하자 약속했다' leaves the content of the promise unstated. The closing sentence is a grammatically dangling restatement of the 19-day timeline."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["양승조 충남지사가 도청으로 복귀한다", "교민들이 모두 퇴소할 때까지 이곳을 지키겠다", "마을회관을 도지사 현장 집무실, 인근 음식점을 현장대책본부로 전환했다"],
+      "reason": "Keeps the press conference details and the full content of the governor's promise, but omits the headline return to the 도청 and the facility conversion. The opening sentence dangles because it never states what happens after the 19 days."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["18일 오전 11시 아산시 초사2통 현장대책본부에서 기자회견을 갖고", "양승조 충남지사가 도청으로 복귀한다", "교민들이 모두 퇴소할 때까지 이곳을 지키겠다"],
+      "reason": "Preserves the headline return, the designation, and the full promise, but wrongly dates the press conference as 지난달 31일 instead of 18일, merging it with the office-setup day. The thanks and the facility conversion are omitted, but these are secondary."
+    }
+  }
+}

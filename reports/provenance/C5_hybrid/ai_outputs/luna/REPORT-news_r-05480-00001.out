@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-05480-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "대기 중인 160명을 중앙교육연수원에 수용한다해도 1871명이 병원에서 치료받지 못한다.",
+        "매번 방역작업까지 해야 한다."
+      ],
+      "reason": "현재 대기자·입원자 수, 분류 기준, 구급차 수는 담았지만 160명을 수용해도 1871명이 치료받지 못한다는 핵심 결론과 이송 제약을 빠뜨렸다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": [
+        "대기 중인 160명을 중앙교육연수원에 수용한다해도 1871명이 병원에서 치료받지 못한다.",
+        "경증 환자들을 생활치료센터로 옮긴 뒤 빈 병상에 입원대기 중인 중증 환자를 수용한다는 계획이다."
+      ],
+      "reason": "확산세를 감당하지 못하는 상황과 대기 규모를 잘 요약했지만, 경증 환자를 옮겨 중증 환자에게 병상을 내주는 계획 및 인력·물자 부족은 담지 않았다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 4,
+      "evidence": [
+        "대기 중인 160명을 중앙교육연수원에 수용한다해도 1871명이 병원에서 치료받지 못한다.",
+        "병원에 입원 중인 경증 환자가 생활치료센터 수용 우선 대상이다."
+      ],
+      "reason": "센터 수용 뒤에도 병원 치료를 받지 못할 인원과 확진자 수송 정보를 담았으나, 경증 환자를 먼저 센터로 옮겨 중증 대기자를 입원시키려는 계획을 생략했다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "대기 중인 160명을 중앙교육연수원에 수용한다해도 1871명이 병원에서 치료받지 못한다.",
+        "대구지역 확진자는 총 3081명으로 1050명만 입원 조치됐다."
+      ],
+      "reason": "대기 환자 수와 경증 환자를 옮겨 중증 환자에게 병상을 마련하려는 계획, 원격 문진의 한계를 요약했다. 다만 센터 수용 후에도 1871명이 병원 치료를 받지 못한다는 점과 대책이 확산세를 감당하지 못한다는 핵심 결론이 빠졌다."
+    }
+  }
+}

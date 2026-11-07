@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03906-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["논란의 핵심은 ‘승무원 전용 화장실’이 아니라 ‘왜 안내문을 한글로만 썼느냐’다."],
+      "reason": "김씨가 제기한 핵심 문제와 KLM의 사과는 담았지만, 기자회견에서 KLM이 내놓은 재발 방지책과 그에 대한 비판을 빠뜨렸습니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["논란의 핵심은 ‘승무원 전용 화장실’이 아니라 ‘왜 안내문을 한글로만 썼느냐’다."],
+      "reason": "사건과 화장실 운영 금지 대책은 언급하지만, 결론에서 김씨의 지적을 정반대로 바꾸고 이를 김씨에게 잘못 귀속합니다. 핵심 쟁점이 왜곡되고 문장도 반복적입니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": ["논란의 핵심은 ‘승무원 전용 화장실’이 아니라 ‘왜 안내문을 한글로만 썼느냐’다."],
+      "reason": "기자회견과 재발 방지책은 담았지만, 논란의 핵심인 안내문을 한글로만 쓴 이유에 대한 문제 제기와 KLM이 이를 명확히 해명하지 않았다는 점을 빠뜨렸습니다."
+    },
+    "D": {
+      "adequacy": 1,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 1,
+      "evidence": ["이날 서울 포시즌스 호텔에서 긴급 기자회견을 자청했다.", "논란의 핵심은 ‘승무원 전용 화장실’이 아니라 ‘왜 안내문을 한글로만 썼느냐’다."],
+      "reason": "기자회견 장소를 인천으로 잘못 쓰고, KLM의 재발 방지책을 김씨의 지적으로 잘못 귀속합니다. 또한 한글 안내문이 핵심 쟁점이라는 점을 놓쳐 전체 내용이 오해를 부릅니다."
+    }
+  }
+}

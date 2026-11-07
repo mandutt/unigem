@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-04608-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["17일 오후 10시 서귀포시 중문동의 한 맥주전문점을 찾아 이튿날(18일) 오전 3시20분까지", "증상이 나타난 건 18일부터다."],
+      "reason": "확진 사실, 이동·근무, 마트 방문과 접촉자 격리를 담았지만 증상 발현과 주점 방문 등 감염 우려를 이해하는 데 중요한 동선을 생략했습니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["17일 오후 10시 서귀포시 중문동의 한 맥주전문점을 찾아 이튿날(18일) 오전 3시20분까지", "증상이 나타난 건 18일부터다."],
+      "reason": "확진과 검사, 주요 이동 및 격리 조치를 요약했으나 증상 발현 시기와 주점 방문의 구체적 시점·경로가 빠져 있습니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["제주도 관계자는 “17∼19일 A씨가 들른 음식점에 동행한 일행과 숙소, 호텔 동료 직원들과 셔틀버스 이용객 50여명, 택시기사 2명, 병원 직원 6명 등을 자가격리했다”", "증상이 나타난 건 18일부터다."],
+      "reason": "이동과 확진 사실은 담았지만, 격리된 사람들을 A씨가 자가격리한 것처럼 서술해 행위 주체를 잘못 연결했습니다. 증상 발현과 주점 방문 등 중요한 감염 우려 동선도 빠졌습니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["A씨는 지난 17일 오후 10시 서귀포시 중문동의 한 맥주전문점을 찾아 이튿날(18일) 오전 3시20분까지", "증상이 나타난 건 18일부터다."],
+      "reason": "마트·주점 방문과 격리 조치, 앞서 확진된 해군 장병은 언급하지만 A씨의 구체적인 이동 경로와 검사·확진 과정이 빠져 핵심 상황을 파악하기 어렵습니다."
+    }
+  }
+}

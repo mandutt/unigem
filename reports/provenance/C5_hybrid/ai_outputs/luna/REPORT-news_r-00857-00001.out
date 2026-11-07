@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00857-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["더 많은 정보를 빠르게 공유하라고 촉구하고 있다"],
+      "reason": "정보 공개 요구와 여러 과학자의 우려를 전달하지만, 유전자 배열·검사 결과 공유 요구 등 구체적 내용은 생략했다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["환자 한 명에게서 나온 바이러스를 전자현미경으로 확인한 결과"],
+      "reason": "전자현미경으로 확인한 대상은 환자 한 명에게서 나온 바이러스인데, 요약은 이를 환자 15명에게서 나온 바이러스로 바꿔 썼다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["많은 과학자가 이 발견이 중국의 바이러스학 수준을 보여주는 증거라고 말한다"],
+      "reason": "원문에서는 과학자들이 바이러스학 수준에 대한 증거라고 말하고 사이언스가 정보 공개 촉구를 전했지만, 요약은 사이언스가 그 증거라고 촉구한 것처럼 관계를 뒤섞었다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": ["구체적인 유전자(RT-PCR) 검사 결과를 세계보건기구(WHO)나 세계 공중보건계와 공유하는 것이 중요하다"],
+      "reason": "주요 정보 공개 요구와 과학자들의 구체적 제안을 담았지만, 피터 다스작 이름이 반복되어 문장이 어색하다."
+    }
+  }
+}

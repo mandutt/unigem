@@ -1,0 +1,60 @@
+{
+  "doc_id": "REPORT-news_r-00476-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "「하루 한장 파닉스」 시리즈는 하루 한 장씩 40일 간 알파벳과 자음과 모음의 소릿값을 익히는 파닉스 프로그램",
+        "학부모들의 적극적인 요청을 수렴해 개발, 출간했다"
+      ],
+      "reason": "It applies the 40-day phonics description to the whole 'English BITE' series although the SOURCE scopes it to 「하루 한장 파닉스」 only, and it wrongly attributes developing the series and collecting parents' requests to 본부장 정장아 when the SOURCE names the company as the subject. Core numbers (220 words/50 days, 4+1 system) are preserved."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "「하루 한장 파닉스」 시리즈는 하루 한 장씩 40일 간 알파벳과 자음과 모음의 소릿값을 익히는 파닉스 프로그램",
+        "매일 꾸준히 5~6개의 단어를 학습하면 한 권당 220개 내외의 단어를 50일만에"
+      ],
+      "reason": "It describes both 「하루 한장 파닉스」 and 「하루 한장 영단어」 as the same 40-day phonics program for preschoolers, distorting 영단어's scope and erasing its actual 50-day/220-word vocabulary details. Only the publication fact and the verbatim executive quote remain accurate."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": [
+        "학부모들의 적극적인 요청을 수렴해 개발, 출간했다"
+      ],
+      "reason": "The series definition, the phonics/vocabulary split, and the key numbers (5~6 words daily, 220 per book in 50 days) are correctly attributed, so the key meaning is preserved with minor loss. The final sentence wrongly makes 본부장 정장아 the subject who developed and published the series per parents' requests, when the SOURCE attributes this to the company."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "마지막 5일차에는 한 주 동안 학습한 내용을 다시 복습할 수 있는 〈4+1〉 시스템",
+        "「하루 한장 파닉스」 시리즈는 하루 한 장씩 40일 간 알파벳과 자음과 모음의 소릿값을 익히는 파닉스 프로그램"
+      ],
+      "reason": "It conflates the whole series with the 40-day phonics program, and it invents an unsupported cause — that 본부장 정장아 composed the 〈4+1〉 system to resolve the school-vs-academy English gap — whereas the SOURCE defines 〈4+1〉 as a weekly review system. The vocabulary-book numbers themselves are correct."
+    }
+  }
+}

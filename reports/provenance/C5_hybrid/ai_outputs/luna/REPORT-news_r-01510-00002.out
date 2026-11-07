@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-01510-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "하지만 스트레스만 관리한다고 두통이 완전히 사라지는 것은 아니다.",
+        "두통약은 두통이 시작되는 초기에 복용해야 효과적이다."
+      ],
+      "reason": "여성의 월경 관련 내용에 스트레스를 피하면 두통이 사라진다는 주장을 잘못 연결했으며, 이는 원문의 설명과 반대입니다. 소화기 증상을 반복하고 위험 신호의 일부와 조기 복용 조언을 충분히 살리지 못했습니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": [
+        "두통약은 두통이 시작되는 초기에 복용해야 효과적이다.",
+        "두통이 극심해진 다음에 뒤늦게 약을 먹으면 통증이 빨리 가라앉지 않는다."
+      ],
+      "reason": "생활습관과 편두통의 소화기 증상은 담았지만, 약은 참기 어려울 때 복용하라는 결론은 원문의 조기 복용 조언과 어긋납니다. 위험한 두통의 경고 신호도 빠졌습니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "새로운 형태의 극심한 두통이 갑자기 시작됐을 때도 주의해야 한다.",
+        "두통약은 두통이 시작되는 초기에 복용해야 효과적이다."
+      ],
+      "reason": "생활습관·카페인, 편두통의 소화기 증상, 약을 일찍 복용해야 한다는 내용은 대체로 정확합니다. 다만 갑작스러운 극심한 두통이나 전신 상태 변화 같은 위험 신호가 빠져 있습니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "한두 달 내 두통이 점점 심해지거나, 열이 심하고 의식이 혼미해지는 등 전신 상태의 변화를 동반한다면 위험한 것일 수 있다.",
+        "두통약은 두통이 시작되는 초기에 복용해야 효과적이다."
+      ],
+      "reason": "생활습관 요인과 위험한 두통의 일부 경고 신호는 담았지만, 소화기 증상을 중복 서술하고 조기 약 복용에 관한 핵심 조언을 빠뜨렸습니다. 위험 신호 설명도 갑작스러운 극심한 두통 등 원문의 내용을 모두 포함하지는 않습니다."
+    }
+  }
+}

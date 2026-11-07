@@ -1,0 +1,9 @@
+{
+  "doc_id": "REPORT-news_r-05480-00001",
+  "summaries": {
+    "A": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 3, "evidence": ["대구지역 신종 코로나 확진자는 총 3081명으로 1050명만 입원 조치됐다", "1871명이 병원에서 치료받지 못한다", "총 90대로 매일 신종 코로나 확진자를 이송하고 있다"], "reason": "첫 문장의 핵심 주장, 주요 수치(3081명, 1050명, 160명, 1871명)와 구급차 90대를 정확히 담았다. 경증 환자 우선 수용 계획과 인력·물자 부족 문제가 빠졌고, 문장이 길고 나열식이다."},
+    "B": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 2, "utility": 3, "evidence": ["자택에서 입원대기 중인 대구지역 신종 코로나 확진자는 2031명이다", "경증 환자들을 생활치료센터로 옮긴 뒤 빈 병상에 입원대기 중인 중증 환자를 수용한다는 계획", "생태학적 징후를 확인하기 어렵다"], "reason": "수치와 경증 환자 우선 수용 계획, 교수 발언을 정확히 담았다. 다만 '2031명으로 총 3081명으로 1050명만'이라는 문장이 어색하고 헷갈린다. 또 '3000명에 육박'이 대책의 한계와 어긋나게 연결됐고, 1871명 미치료와 구급차·인력 부족이 빠졌다."},
+    "C": {"adequacy": 4, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 4, "evidence": ["대구 확진자가 3000명에 육박하고서야 나온 뒤늦은 대책", "대기 중인 160명을 중앙교육연수원에 수용한다해도 1871명이 병원에서 치료받지 못한다", "총 90대로 매일 신종 코로나 확진자를 이송하고 있다"], "reason": "뒤늦은 대책, 확산세를 감당하지 못한다는 점, 입원 대기 수치, 1871명 미치료, 구급차 현황, 교수 발언까지 폭넓게 정확히 담았다. 일부 문장이 길고 '2031명으로 총 3081명으로'가 어색하다."},
+    "D": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 3, "evidence": ["확산세를 감당 못 하고 있다", "1871명이 병원에서 치료받지 못한다", "경증 환자를 생활치료센터로 옮긴 뒤"], "reason": "수치와 인용문은 정확하다. 그러나 대책이 확산세를 감당하지 못한다는 핵심 결론과 1871명이 여전히 치료받지 못한다는 점이 빠졌다. 그 결과 독자는 대책이 실패하고 있다는 맥락을 알기 어렵다."}
+  }
+}

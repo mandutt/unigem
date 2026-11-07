@@ -1,0 +1,57 @@
+{
+  "doc_id": "REPORT-news_r-04951-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "신천지 관련 확진자는 501명(오전 9시 기준)으로 전체 확진자의 절반이 넘는다"
+      ],
+      "reason": "핵심 수치와 조치(21만 명 신도, 명단 제공, 501명, 밀알사랑의 집 22명, 은평성모병원 5명, 성장률 전망)를 정확하고 자연스럽게 전달하지만, 정은경의 감염 경로·방역 주안점 발언, 대구 전수조사, JP모건의 최대 1만 명 감염 전망이 빠져 있다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": [
+        "대구시민의 3%가 바이러스에 노출됐을 것이란 전제로 중국의 사례를 적용해 이 같은 추정치를 냈다"
+      ],
+      "reason": "방역 대응과 JP모건 최대 1만 명 전망 등 핵심은 유지되지만, 원문에서 추정치의 '전제'인 대구 시민 3% 노출을 JP모건이 내놓은 '추정치'로 바꿔 표현해 인과 관계가 왜곡됐다. 정은경 발언 인용부분이 주어 없이 매달려 어색하며 장애인 시설·병원 집단감염과 경제성장률 전망이 빠졌다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "신천지 관련 확진자는 501명(오전 9시 기준)으로 전체 확진자의 절반이 넘는다"
+      ],
+      "reason": "남긴 내용(3% 노출이 '전제'임을 바르게 유지한 점 포함)은 정확하지만 확진자 수(501명)와 JP모건 추정치의 실제 결과(최대 1만 명)를 모두 생략해 감염 규모에 대한 수치가 전혀 없으며, 정은경 문장('통제가 방역의 주안점을 설명했다')은 문법이 어긋나 있다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 2,
+      "utility": 4,
+      "evidence": [
+        "신천지 관련 확진자는 501명(오전 9시 기준)으로 전체 확진자의 절반이 넘는다"
+      ],
+      "reason": "확진자 수와 장애인 시설(22명), 병원(5명) 집단감염을 함께 전달하지만, '~제공하기로 했다며' 뒤에 마침표 없이 501명 사실을 이어 붙여 김강립 발언인 것처럼 읽히는 비문이 생겼고 '오전 9시 기준' 한정어도 빠졌다. 대구 전수조사와 JP모건 전망 전체가 생략됐다."
+    }
+  }
+}

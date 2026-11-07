@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-05258-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["이란은 감염을 막기 위해 주요 발병 지역에서 금요 대예배까지 취소했다."],
+      "reason": "주요 확진 사례와 이탈리아 수치, 네덜란드 확진자의 이탈리아 여행을 담았지만, 이란의 예배 취소 등 대응을 빠뜨렸고 뉴질랜드 환자 설명을 반복합니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["이란은 전체 인구 8399만명 중에 이슬람교도가 98%다.", "이란 정부는 감염을 막기 위해 주요 발병 지역에서 금요 대예배까지 취소했다."],
+      "reason": "이란의 인구·종교 비율과 금요 대예배 취소를 이탈리아에 잘못 연결하고, 교황의 일정 취소도 감염 예방 조치인 것처럼 서술합니다. 이탈리아 확진자·사망자 수와 파키스탄·조지아 확진자의 이란 여행 사실도 빠졌습니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["유럽 전체 사망자가 19명인데 이탈리아가 17명이고 나머지 2명은 프랑스다.", "이 남성은 유럽 내 코로나19의 진원지가 된 이탈리아 북부 롬바르디아주(州)를 최근 다녀왔으며"],
+      "reason": "이탈리아 사망자 17명과 프랑스 사망자 2명의 관계를 뒤섞어, 프랑스 사망자를 이탈리아와 연결하는 문장이 됐습니다. 네덜란드 확진자의 이탈리아 여행 경위도 누락했습니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["이 남성은 유럽 내 코로나19의 진원지가 된 이탈리아 북부 롬바르디아주(州)를 최근 다녀왔으며 병원에 격리돼 치료를 받고 있다."],
+      "reason": "파키스탄·조지아, 뉴질랜드, 이탈리아의 주요 사실을 정확히 담았지만, 네덜란드 확진자의 이탈리아 여행 및 격리 치료 경위를 생략해 확산 경로가 드러나지 않습니다."
+    }
+  }
+}

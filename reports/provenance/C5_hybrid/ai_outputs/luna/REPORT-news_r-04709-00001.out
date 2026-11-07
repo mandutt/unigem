@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-04709-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["오후 5시쯤 버스 2대에 나눠 타고 오후 9시쯤 안동에 도착", "이 밖에도 다른 확진자들은 각각 영주온천랜드, 의성경북의원, 안동소방서 등을 방문했다"],
+      "reason": "귀국 뒤 감염 경로가 불명확하다는 점과 지역사회 확산 우려를 빠뜨렸고, B씨를 포함한 18명이 나열된 시설을 방문한 것처럼 서술합니다. 또 5시경 버스에 탄 것과 9시경 안동에 도착한 것을 혼동해 전달합니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["경북도민 39명(가이드 1명 서울 포함)", "귀국 후에도 직장, 식당, 병원 등을 돌아다녀 지역사회 확산이 우려된다", "감염 경로가 너무 애매해 내부적으로 자체 조사를 벌이고 있다"],
+      "reason": "순례단의 방역 조치와 귀국 동선을 요약했지만, 감염 경로 조사와 지역사회 확산 우려를 빼 핵심 맥락이 빠졌습니다. 39명에 서울 거주 가이드가 포함된다는 범위 설명도 누락했습니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["감염 경로가 너무 애매해 내부적으로 자체 조사를 벌이고 있다", "귀국 후에도 직장, 식당, 병원 등을 돌아다녀 지역사회 확산이 우려된다"],
+      "reason": "확진자 수와 분포, 마스크 착용 및 감염 경로 조사 내용을 자연스럽게 요약했습니다. 다만 귀국 뒤 동선과 지역사회 확산 우려를 생략해 위험 상황을 파악하는 데 필요한 맥락이 부족합니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["영주·영덕·예천 각 1명", "다른 1명은 서울에 사는 가이드다", "감염 경로가 너무 애매해 내부적으로 자체 조사를 벌이고 있다"],
+      "reason": "지역별 확진자 수와 귀국 동선만 남겨 감염 경로 조사와 지역사회 확산 우려를 생략했습니다. 서울 거주 가이드를 지역별 확진자들과 연결하는 듯한 문장이 원문의 인원 구분을 흐리고 부정확합니다."
+    }
+  }
+}

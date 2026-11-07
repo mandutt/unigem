@@ -1,0 +1,9 @@
+{
+  "doc_id": "REPORT-news_r-00389-00001",
+  "summaries": {
+    "A": {"adequacy": 2, "critical_unsupported": 1, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 3, "utility": 2, "evidence": ["법무부가 검찰청법에 따라 검찰총장과 논의를 하지 않겠냐”면서도 “아직도 법무부는 윤 총장에게 ... 아무런 말이 없다”"], "reason": "관계자의 발언을 법무부가 직접 밝힌 것처럼 바꿔 놓아 주체가 틀렸다. 또 '윤석열 패싱'이라는 핵심 쟁점이 부분적으로만 전달되고, 인사위가 인사 방향을 제시할 뿐 직접 결정하지 않는다는 점이 빠졌다."},
+    "B": {"adequacy": 2, "critical_unsupported": 0, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 3, "utility": 2, "evidence": ["법무부가 검찰청법에 따라 검찰총장과 논의를 하지 않겠냐”면서도 “아직도 법무부는 윤 총장에게 ... 아무런 말이 없다”"], "reason": "'논의하지 않겠냐'는 말이 '논의하지 않겠다'는 취지의 지적처럼 읽혀 의미가 왜곡된다. 윤 총장이 인사 관련 이야기를 듣지 못했다는 핵심 내용도 빠졌다."},
+    "C": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 3, "evidence": ["윤석열 검찰총장은 법무부로부터 아직 인사와 관련된 아무런 이야기를 듣지 못했다", "검찰의 임명과 보직은 법무부 장관이 검찰총장의 의견을 들어 제청하고 대통령이 한다"], "reason": "날짜 요청, 윤 총장 패싱, 위원 구성, 임명 절차를 모두 정확히 담았다. 다만 한 문장에 정보가 몰려 어색하고, 비판 여론은 빠졌다."},
+    "D": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 1, "entity_relation": 0, "fluency": 4, "utility": 3, "evidence": ["검사 3명과 판사 2명, 변호사 2명 등 법조인 이외에"], "reason": "핵심 내용은 정확하고 문장도 자연스럽다. 하지만 변호사 2명이 빠져 구성 설명이 불완전해졌고, 위원 수 11명과 맞지 않게 되었다."}
+  }
+}

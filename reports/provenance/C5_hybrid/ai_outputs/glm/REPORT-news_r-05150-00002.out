@@ -1,0 +1,65 @@
+{
+  "doc_id": "REPORT-news_r-05150-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": [
+        "이날 화 대변인의 또 다른 발언은 중국 네티즌의 분노를 초래했다",
+        "미국에는 단지 11건의 확진자만 발생했다",
+        "허위 보도로 일관했다"
+      ],
+      "reason": "A covers most source segments with accurate figures, but its final sentence garbles the criticism relation (source: netizens criticized Hua's statement; as written, Hua appears as the criticizer). It also omits the US's 11 confirmed cases and the false-reporting context that explains the netizen anger, weakening the source's numeric contrast."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "절대다수 국가는 중국의 전염병 대항 조치에 칭찬과 지지를 표시했다",
+        "중국인 및 과거 중국을 경유한 외국인 입국을 막지 않겠다며",
+        "화 대변인의 또 다른 발언은 중국 네티즌의 분노를 초래했다"
+      ],
+      "reason": "B assigns the praise, quarantine measures, and respect to China itself instead of the majority of countries, and drops Canada's explicit decision not to ban entry, leaving '미국을 따라' incoherent. It omits the US consulate withdrawal and entry ban, China's case figures, and the entire Hua spokesperson controversy."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "절대다수 국가는 중국의 전염병 대항 조치에 칭찬과 지지를 표시했다",
+        "미국 질병통제센터(CDC)는 최근 보고에서 미국은 2019~2020년 독감으로 이미 1900만 명이 감염됐고",
+        "화 대변인의 또 다른 발언은 중국 네티즌의 분노를 초래했다"
+      ],
+      "reason": "C assigns the praise to China instead of the majority of countries and misattributes China's Feb 2 case figures to CDC, whereas the source's CDC report concerned the US flu toll. It omits the US flu/11-case contrast that anchors the source's argument plus the whole Hua spokesperson controversy, though the US actions and Canada passage are preserved accurately."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "최근 중국 국민의 입국에 검역 강화 등의 조처를 하면서 중국에 이해와 존중을 표시했다",
+        "2월 2일까지 중국에서 신종 코로나바이러스 폐렴 확진자는 1만7205명",
+        "화 대변인의 또 다른 발언은 중국 네티즌의 분노를 초래했다"
+      ],
+      "reason": "D renders China itself as the actor imposing quarantine and showing understanding and respect toward China, inverting the source's subject (the majority of countries). It preserves the US actions, CDC flu figures, and Canada passage accurately, but omits China's case figures, the US 11-case contrast, and the entire Hua spokesperson controversy."
+    }
+  }
+}

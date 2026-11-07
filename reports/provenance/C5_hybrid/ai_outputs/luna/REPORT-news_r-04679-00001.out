@@ -1,0 +1,62 @@
+{
+  "doc_id": "REPORT-news_r-04679-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": [
+        "전파 가능성을 최소화하기 위해서이지 식당과 업체를 두 번 죽이자는 의도가 아니다",
+        "정작 제가 마녀사냥을 하고 있었던 사람이었다"
+      ],
+      "reason": "동선 공개의 목적을 부정하는 식으로 서술해 핵심 관계를 뒤집었고, 강 과장의 자기반성도 빠졌습니다. 추가 확진자와 접촉자 수 등 일부 사실은 담았습니다."
+    },
+    "B": {
+      "adequacy": 1,
+      "critical_unsupported": 1,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 1,
+      "evidence": [
+        "전날 본인 페이스북에",
+        "신천지 신도가 아니다",
+        "지난 12일 퇴원했다"
+      ],
+      "reason": "게시 시점을 23일로 잘못 옮기고, 대구 방문·신천지 관련 내용과 퇴원 사실을 혼란스럽게 연결해 사실관계가 오도됩니다. 자기반성과 동선 공개에 대한 당부는 일부 담았습니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": [
+        "확진자 동선 공개는 급속도로 퍼지는 코로나19의 추가 확산을 막기 위한 불가피한 조치라는 시각이 우세하다",
+        "정작 제가 마녀사냥을 하고 있었던 사람이었다"
+      ],
+      "reason": "동선 공개가 불가피하다는 우세한 시각을 강 과장이 직접 밝힌 것처럼 잘못 귀속했고, 그의 자기반성을 생략했습니다. 공감 요청과 확진자·접촉자 수는 정확히 요약했습니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": [
+        "정작 제가 마녀사냥을 하고 있었던 사람이었다",
+        "동선 공개로 아파하실 그분들에게 따사로운 살핌을 바란다"
+      ],
+      "reason": "강 과장의 자기반성과 피해를 입은 업체를 향한 배려 요청, 반응과 확진자·접촉자 수를 대체로 정확히 담았습니다. 다만 '취재진을 모인 자리'가 어색하고 세부 맥락은 일부 생략됐습니다."
+    }
+  }
+}

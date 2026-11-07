@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-00159-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": [
+        "낙후된 산업인 농·수·축산업 전환에 돈을 써야 한다.",
+        "미래산업을 육성할 문화 예술 지식인을 키워야 한다."
+      ],
+      "reason": "주요 정책 제안을 미래산업·지식인을 낙후된 산업으로 전환해야 한다는 뜻으로 뒤바꿔 서술해 핵심 내용이 왜곡됐습니다. 정치·도시 개발 등 여러 주요 내용도 빠졌고, 해당 문장은 한국어로도 어색합니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": [
+        "현 정부 출범 때 가졌던 국민의 희망이 많이 희석된 듯하다.",
+        "야당도 반대만 할 게 아니라 대안을 제시해야 한다."
+      ],
+      "reason": "주거비와 정치권에 관한 몇 가지 요지는 담았지만, 산업 육성·도심 개발·대외 경제 여건 등 중요한 논의가 대부분 빠졌습니다. ‘현대 정부’라는 표현은 원문의 ‘현 정부’와 달라 어색합니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "신도시 지을 생각하지 말고, 사회공동체 개념을 집어넣어 도심을 개발해야 한다.",
+        "어느 한 국가에 (수출의) 20% 이상을 의존한다면 그것이 중국이 아니라 다른 나라여도 문제다."
+      ],
+      "reason": "신도시 건설을 지지하는 것으로 서술해 원문의 도심 개발 제안과 반대되고, ‘이번에 알게 됐다’는 내용도 잘못 연결했습니다. 수출 의존 위험 등 중요한 대외 여건의 요지도 빠져 있습니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 2,
+      "evidence": [
+        "부동산 정책이 완전히 실패해 주거비가 올라가고 가처분 소득은 줄어드는 상황이 됐다.",
+        "중국과 일본의 경제 보복은 역설적으로 다행스러운 일이다."
+      ],
+      "reason": "전반적인 요지는 맞지만, 원문의 ‘완전히 실패’를 ‘실패’로 약화했고 산업·도심 개발 제안과 정치권에 대한 주요 논의가 상당 부분 빠졌습니다."
+    }
+  }
+}

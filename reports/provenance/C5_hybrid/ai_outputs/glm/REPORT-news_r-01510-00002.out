@@ -1,0 +1,60 @@
+{
+  "doc_id": "REPORT-news_r-01510-00002",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "두통약은 두통이 시작되는 초기에 복용해야 효과적이다",
+        "편두통 환자의 80~90%는 구토·구역·메슥거림·체함 같은 소화기 증상을 동반한다"
+      ],
+      "reason": "정보(75% 통계, 유발·악화 요인, 소화기 증상, 위험 두통 경고 신호)는 출처와 일치하지만 80~90% 문장이 그대로 두 번 반복되고, 약 복용 시기(초기 복용, 참지 말 것, 오·남용 위험) 관련 내용 전체가 빠져 있다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": [
+        "하지만 스트레스만 관리한다고 두통이 완전히 사라지는 것은 아니다",
+        "편두통 환자의 80~90%는 구토·구역·메슥거림·체함 같은 소화기 증상을 동반한다"
+      ],
+      "reason": "출처가 명시적으로 부정한 결론('스트레스를 피하면 두통이 사라진다')을 호르몬 통계와 억지로 결합해 인과관계를 왜곡했고, 80~90% 문장도 두 번 반복된다. 위험 두통 신호와 초기 약 복용은 담았지만 생활습관 요인·카페인 메커니즘은 빠져 있다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "한두 달 내 두통이 점점 심해지거나, 열이 심하고 의식이 혼미해지는 등 전신 상태의 변화를 동반한다면 위험한 것일 수 있다"
+      ],
+      "reason": "왜곡·반복 없이 요인, 카페인 반작용 메커니즘, 소화기 증상, 초기 약 복용을 정확히 담았으나 뇌종양·뇌염·뇌출혈 등 위험한 두통의 경고 신호 부분 전체가 생략되어 독자의 판단에 필요한 핵심 정보가 빠진다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": [
+        "두통약은 두통이 시작되는 초기에 복용해야 효과적이다",
+        "새로운 형태의 극심한 두통이 갑자기 시작됐을 때도 주의해야 한다"
+      ],
+      "reason": "스트레스 한계에 대한 단서와 기본 사실은 정확하나 위험한 두통의 경고 신호와 '초기에 복용해야 효과적'이라는 핵심 조건이 빠졌고, 마지막 문장은 소제목만 인용해 참다가 약을 먹어도 된다는 오해를 줄 수 있다."
+    }
+  }
+}

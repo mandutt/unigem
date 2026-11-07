@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-02169-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["탑승자 9명 전원이 사망했다고 전해졌다", "브라이언트의 13세 둘째 딸 지안나와 지안나의 농구팀 동료"],
+      "reason": "Accurately covers the crash, location, date, wire attribution, the 5→9 death toll, and Nike/Dodgers reactions, but omits that Bryant's 13-year-old daughter Gianna and other passengers were aboard the helicopter. Natural, faithful Korean with no distortions."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["캘리포니아주 칼라바사스에서 헬기가 추락하면서 목숨을 잃었다", "브라이언트의 13세 둘째 딸 지안나"],
+      "reason": "Preserves the death, the 5→9 victim toll, the Nike tribute and the helicopter habit, but omits the crash location, the date, the NBA framing, and the passengers including his daughter, so only part of the key information survives. Phrasing like '탑승자 9명이 전원이 사망했다' is awkward."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["탑승자 9명 전원이 사망했다고 전해졌다"],
+      "reason": "Accurately reports the Calabasas crash site, the passenger roster including daughter Gianna, and the Mamba Sports Academy destination, but never states the death toll or that the other occupants died, and gives no date. All included content is supported by the SOURCE."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["탑승자 9명 전원이 사망했다고 전해졌다"],
+      "reason": "The broadest coverage: date, Reuters/AFP/TMZ attribution, crash site, passenger list, academy destination and Nike tribute are all accurate, but it omits the key casualty fact that all 9 aboard died. No unsupported additions."
+    }
+  }
+}

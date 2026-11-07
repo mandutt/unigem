@@ -1,0 +1,51 @@
+I evaluated each summary independently against the SOURCE text. No files needed modification; here are the ratings as requested.
+
+{
+  "doc_id": "REPORT-news_r-01237-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["남강무역회사와 중국 베이징 소재 베이징 숙박소 두 곳을 제재한다고 발표했다", "제재 면제 또는 예외를 제안한 터라 미묘한 해석을 낳고 있다"],
+      "reason": "제재 대상과 트위터 발표 등 기본 사실은 정확하나, 발표 전날 문 대통령의 제재 면제·예외 제안과 시각차가 드러난 한·미·일 외교장관 회담 등 기사의 해석적 핵심이 빠졌다. '언급을 언급했다'라는 중복 표현도 어색하다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 3,
+      "evidence": ["대북 제재 완화를 추진 중인 중국과 러시아", "한국과 미국·일본은 대북 제재와 관련해 시각차를 드러냈다"],
+      "reason": "주요 골격(제재, 문 대통령 제안, 회담, 국무부 입장)은 담았지만 회담의 '시각차'가 빠져 이견이 아닌 단순 의견 교환처럼 보이고, 문 대통령 주어가 끝까지 이어져 강경화·폼페이오의 의견 교환 주체가 모호해졌다. '대북 제재 완화'는 원문에서 중국·러시아의 행위인데 문 대통령에게 붙는 듯한 문장 구조도 관계를 왜곡한다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["제재 면제 또는 예외를 제안한 터라 미묘한 해석을 낳고 있다", "트위터를 통해서도 즉각"],
+      "reason": "제재 내용, 트위터 발표, 문 대통령의 제안과 '미묘한 해석'이라는 핵심 맥락을 정확하고 자연스럽게 전달한다. 장관 회담과 '경고' 분석 등 부가 맥락이 빠진 것이 유일한 손실이다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 3,
+      "evidence": ["반면 미 국무부는 한·미 장관회담 결과자료에서 '대북 문제에 있어 한국과 긴밀한 공조를 재확인했다'는 표현을 썼다", "한국과 미국·일본은 대북 제재와 관련해 시각차를 드러냈다"],
+      "reason": "제재 일시·의미(4개월 만·올해 첫 제재)와 문 대통령 발언은 정확하나, 국무부 표현을 재무부가 한 것으로 잘못 귀속해 같은 문장을 두 번 반복했다(출처에 없는 귀속). 강경화 발언과 시각차가 모두 빠져 한·미가 완전히 조율된 것처럼 비친다."
+    }
+  }
+}

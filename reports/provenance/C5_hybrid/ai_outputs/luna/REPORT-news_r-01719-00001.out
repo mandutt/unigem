@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-01719-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["문재인 대통령에게 임명 제청했다고 20일 밝혔다.", "외국도산절차 대표자의 법적 지위에 관한 최초의 법리를 설시한 법관"],
+      "reason": "임명 제청과 후보자의 학력·경력 및 전문 분야를 정확히 담았습니다. 조희대 대법관의 후임이라는 배경과 임명 절차는 생략했습니다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["문 대통령이 제청을 받아들여 국회에 노 후보자에 대한 임명 동의를 요청하면", "본회의에서 임명동의안이 통과되면 문 대통령은 노 후보자를 새 대법관으로 최종 임명하게 된다."],
+      "reason": "제청 이후 국회 동의와 최종 임명으로 이어지는 절차를 조건에 맞게 요약했습니다. 조희대 대법관의 후임이라는 맥락과 후보자 경력은 담지 않았습니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": ["3월 4일 임기가 만료되는 조희대 대법관의 후임", "사회적 약자를 배려하고 기본권을 증진하기 위한 법원의 역할에도 오랫동안 관심을 둬왔다"],
+      "reason": "후임 제청, 후보자의 경력, 법원 역할에 대한 관심을 대체로 정확히 담았습니다. 긴 문장에서 ‘노 부장판사는’이 반복되어 다소 어색합니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["노 부장판사는 법원 내 알아주는 ‘국제통’이다.", "뇌출혈이 발병한 경찰관, 혈관육종이라는희귀병으로 사망한 소방관에게 공무상 재해를 인정한 판결"],
+      "reason": "제청과 국제 분야 경력, 공무상 재해 인정 판결을 언급했지만 판결의 대상과 내용을 지나치게 압축해 다소 모호합니다. 학력·주요 경력과 후임 제청의 배경은 생략했습니다."
+    }
+  }
+}

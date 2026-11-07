@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-03978-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["격리 생활을 시작한 지 16일 만이다.", "아산시는 교민들에게 머그잔을 선물로 증정했다."],
+      "reason": "귀국 인원과 날짜, 격리 기간 및 환송·선물 관련 핵심을 정확히 담았습니다. 주민들의 환송과 이동 경로 등은 생략했지만 핵심 의미를 바꾸지는 않습니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["주민들은 전날처럼 도로변에 길게 서서 피켓을 들고 무사한 귀가를 응원했다."],
+      "reason": "피켓을 들고 환송한 주체는 주민들인데 이를 교민들이 한 것으로 서술해 관계를 뒤바꿨고, 주민들의 환송 사실도 제대로 전달하지 못합니다. 귀국과 일부 버스의 역 도착 등 다른 내용은 대체로 원문에 부합합니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["생활관에서 정문까지 걸어서 내려온 진 장관과 양 지사 등은 300여 여명의 주민들과 함께 전세버스를 타고 떠나는 교민들에게 손을 흔들며 작별인사를 했다.", "교민들이 탄 버스 중 일부는 20분쯤 뒤인 오전 10시 20분 KTX 천안·아산역에 도착했다."],
+      "reason": "주민들이 교민들과 함께 버스를 탄 것처럼 읽히고, 원문은 일부 버스의 도착이라고 했는데 요약은 교민들이 도착했다고 범위를 넓힙니다. 중복된 ‘여’와 긴 문장도 가독성을 떨어뜨립니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["오세현 아산시장은 어린이 교민에게는 아산시 문화관광 캐릭터 ‘온궁이 빼빼로’를 전달하기도 했다.", "교민들이 탄 버스 중 일부는 20분쯤 뒤인 오전 10시 20분 KTX 천안·아산역에 도착했다."],
+      "reason": "주요 인물과 어린이 교민에게 선물을 전달한 사실, 일부 버스의 도착은 원문에 맞습니다. 역 도착 문장을 같은 내용으로 반복해 요약의 간결성과 활용도가 떨어집니다."
+    }
+  }
+}

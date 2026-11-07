@@ -1,0 +1,18 @@
+{
+  "expected": 600,
+  "parsed": 600,
+  "errors": [],
+  "error_count": 0,
+  "judges": [
+    "glm",
+    "sonnet",
+    "luna"
+  ],
+  "docs": 50,
+  "per_judge": {
+    "glm": 200,
+    "sonnet": 200,
+    "luna": 200
+  },
+  "hash_manifest": "reports\\provenance\\C5_hybrid\\ai_outputs.sha256"
+}

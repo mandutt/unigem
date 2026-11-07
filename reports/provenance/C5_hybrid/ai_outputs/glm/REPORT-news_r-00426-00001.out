@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00426-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["미국의 공습으로 거셈 솔레이마니가 폭살(爆殺) 당한 후 그의 딸 제납이 반미(反美) 보복의 상징처럼 떠오르고 있다", "이란 정부와 국민들을 향해 연일 아버지의 '복수'를 호소해서다"],
+      "reason": "The opening clause grammatically makes daughter Zeinab the one killed in the US airstrike (the source says Qasem Soleimani was killed), and it attributes the daily revenge appeals to Iranian media rather than to Zeinab. The Trump quotes and the Iraq-Iran claim are preserved, but the funeral context and the retaliation warning against US troops are missing, and the first sentence repeats '복수를 호소' awkwardly."
+    },
+    "B": {
+      "adequacy": 1,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["이란 군부 실세 솔레이마니의 딸 제납 솔레이마니다", "제납의 연설은 도널드 트럼프 미 대통령을 향한 분노를 쏟아내며 절정에 달했다"],
+      "reason": "Only scene-setting details survive (date, chador, live broadcast, age 28); the speaker is never identified as Soleimani's daughter, and all substantive content — the revenge appeals, the threat to US soldiers' families, and every Trump quote — is omitted. The broadcast sentence is also ungrammatical ('이란 언론은 ... 장례식은 생중계됐다')."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["중동에 주둔한 미군에 대한 보복을 경고한 것이다", "그는 트럼프를 향해 '미친 트럼프'라고 일갈했다"],
+      "reason": "Zeinab's identity, the revenge theme, and both key Trump quotes are preserved, but the lead element — the warning of retaliation against US troops stationed in the Middle East — is dropped, and the second sentence is garbled ('제납 솔레이마니는 ... 복수를 호소하며 장례식에 생중계됐다'), blurring who appealed to whom and what was broadcast."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["거셈 솔레이마니의 딸 제납 솔레이마니다", "그는 트럼프를 향해 '미친 트럼프'라고 일갈했다"],
+      "reason": "The first sentence states '제납 솔레이마니의 딸 제납 솔레이마니', wrongly making Zeinab her own daughter instead of Qasem Soleimani's daughter. The narrative arc (assassination, revenge symbol, live broadcast, fury at Trump) is kept, but no actual speech content or quotes appear, so the US-troop retaliation warning is lost."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00942-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 2,
+      "evidence": ["“늘 좋은 말씀과 사랑으로 도와주셔서 진심으로 감사드린다”"],
+      "reason": "논란과 법무부의 공개 사실은 담았지만, 공개된 문자의 실제 내용이 빠져 논란을 판단하는 데 중요한 정보가 누락됐다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["“정말 정말 고맙고 감사하다.”"],
+      "reason": "인사 협의 갈등의 맥락은 요약했으나, 법무부가 공개한 문자의 핵심 내용이 빠져 논란의 실체를 파악하기 어렵다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 2,
+      "evidence": ["“12일 법무부는 ... 해당 문자 내용 전체를 공개했다.”"],
+      "reason": "법무부가 공개한 문자를 이 국장이 공개한 것으로 잘못 서술했고, 공개된 문자의 실제 내용도 생략했다."
+    },
+    "D": {
+      "adequacy": 1,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 2,
+      "evidence": ["“이 국장이 ... 문자를 보낸 사실이 있다”"],
+      "reason": "법무부가 문자를 보낸 사실이 없다고 밝혔다고 서술해, 실제로 보낸 사실이 있다고 밝힌 내용과 정반대다. 공개된 문자의 내용도 빠져 있다."
+    }
+  }
+}

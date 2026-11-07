@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-02742-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["1일까지 누적 조회수는 390만회를 돌파했다", "하루에 100만명 이상 방문하고 있는 상황"],
+      "reason": "조회수, 확진자 증가와 서버 부담 등 핵심 내용을 정확히 담았다. 검색어 순위나 운영자의 비용 부담 계획 등은 생략했지만 중심 내용을 바꾸지는 않는다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["조만간 누적 조회수가 500만회를 거뜬히 넘을 것 같다"],
+      "reason": "관심도와 서버 부담, 혼자 운영하는 상황을 요약했지만, 500만회 돌파 전망을 원문보다 단정적으로 표현했다. 확진자 수와 증가 내용은 생략했으나 요약의 중심 취지는 유지된다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["현재 확진자는 총 15명으로 늘어난 만큼", "이틀째 1위를 차지하고 있으며"],
+      "reason": "조회수와 전망, 검색어 순위, 확진자 수 및 서버 비용 등 주요 사실을 정확히 요약했다. 서버 증설이나 제보 처리 등 후반부 세부 내용은 생략했다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["1일까지 누적 조회수는 390만회를 돌파했다", "코로나맵을 제작한 대학생 이동훈(27)씨"],
+      "reason": "누적 조회수가 390만회를 넘은 시점을 2일로 바꾸고, 문장상 조회수를 이동훈 씨에게 귀속시킨다. 나머지 언급은 대체로 원문에 부합하지만 요약이 짧아 핵심 맥락이 일부 빠졌다."
+    }
+  }
+}

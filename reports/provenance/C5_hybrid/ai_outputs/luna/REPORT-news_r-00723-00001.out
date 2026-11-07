@@ -1,0 +1,60 @@
+{
+  "doc_id": "REPORT-news_r-00723-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "헌법재판관 8명은 전원일치 의견으로 A씨가 낸 헌법소원심판에 대해 합헌 결정을 했다고 9일 밝혔다.",
+        "피해자는 동영상 6개를 촬영해 카카오톡으로 보냈다."
+      ],
+      "reason": "헌법소원 기각과 합헌 결정은 전달하지만, A씨가 청소년에게 촬영을 시킨 경위와 법원이 제작을 엄격히 규제해야 한다고 본 핵심 이유가 빠져 있습니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": [
+        "헌법재판관 8명은 전원일치 의견으로 A씨가 낸 헌법소원심판에 대해 합헌 결정을 했다고 9일 밝혔다."
+      ],
+      "reason": "청소년에게 촬영을 시킨 경위와 촬영·제작 구분의 실익이 없다는 판단은 담았지만, 합헌 결정을 A씨가 재판관들에게 밝혔다고 서술해 결정의 주체를 잘못 나타냅니다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": [
+        "촬영과 제작을 명백히 구분할 실익이 없다고 판단했다.",
+        "‘제작’을 엄격히 규제할 필요가 있다"
+      ],
+      "reason": "법 조항과 A씨의 헌법소원 기각 및 만장일치 합헌 결정은 정확히 요약했지만, 이번 판단의 핵심인 촬영과 제작의 관계 및 규제 필요성은 빠져 있습니다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "피해자는 동영상 6개를 촬영해 카카오톡으로 보냈다.",
+        "‘제작’을 엄격히 규제할 필요가 있다"
+      ],
+      "reason": "헌법소원과 위헌법률심판제청 신청의 절차 및 합헌 결정은 담았지만, 청소년에게 영상 촬영을 시킨 경위와 법원의 핵심 판단 이유가 빠져 있습니다."
+    }
+  }
+}

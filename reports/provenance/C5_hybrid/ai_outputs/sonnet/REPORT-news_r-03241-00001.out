@@ -1,0 +1,9 @@
+{
+  "doc_id": "REPORT-news_r-03241-00001",
+  "summaries": {
+    "A": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 4, "utility": 4, "evidence": ["5일(현지시간) 미국 캘리포니아 자택에서 별세했다", "약 90편", "캐서린 제타 존스가 맏며느리다"], "reason": "It keeps the death, the son's tribute, the film career and the family. It leaves out the awards, the philanthropy and the early life, which is a minor loss. The grammar in '고인은 70년간 출연한 영화는' is a little awkward."},
+    "B": {"adequacy": 3, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 4, "evidence": ["1916년 뉴욕주 빈민가 러시아계 유대인 이민자 부모에게서 태어", "'열정의 랩소디'(1956)로 골든글로브 남우주연상을 차지"], "reason": "It is accurate and covers the death, the tribute, the career, the birth and the awards. The sentences are long and repetitive, and it omits the philanthropy and the Presidential Medal of Freedom."},
+    "C": {"adequacy": 1, "critical_unsupported": 1, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 1, "fluency": 2, "utility": 2, "evidence": ["스파르타쿠스'는 주연·제작을 겸해 비평과 흥행에 큰 성공", "골든글로브상·미국영화연구소... 등에서 공로상을 받았다", "정의와 대의에 헌신해"], "reason": "It wrongly says the lifetime achievement awards were given for 'Spartacus'. It also distorts the son's tribute and misstates the timing of the Medal of Freedom, so the relations are wrong."},
+    "D": {"adequacy": 2, "critical_unsupported": 0, "critical_omission": 1, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 3, "utility": 3, "evidence": ["아들 마이클 더글러스(76)는 이날 페이스북으로", "고인은 두 차례 결혼에서 각각 아들 둘 씩을 뒀다"], "reason": "The facts it gives are accurate. It omits the son's tribute and the philanthropy, and it gives little about the legacy. It also ends on a minor family detail."}
+  }
+}

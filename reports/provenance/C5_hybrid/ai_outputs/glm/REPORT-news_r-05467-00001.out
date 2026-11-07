@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-05467-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "1647년(인조 25) 창덕궁 공사 때 사용된 박석은 모두 강화도에서 채석되었고",
+        "1906년 경운궁 중건을 비롯해 대한제국 시절에 진행된 궁궐 공사에도 석모도에서 채석한 박석을 사용하였다"
+      ],
+      "reason": "It wrongly ties 해주/석모도-quarried stone to the 1647 창덕궁 work (source: 모두 강화도) and links 18세기 창의문/남산 stone to the 1906 경운궁/대한제국 works that the source says used 석모도 stone, while omitting the entire functional rationale (glare, slipping, drainage)."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 0,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "바닥에 깔리는 박석은 강화 석모도와 해주에서 채석한 것만 사용하였는데",
+        "거친 마감은 이런 자연현상에 대한 과학적인 배려"
+      ],
+      "reason": "Accurately preserves the glare-blocking rationale, the full quarrying history with correct date associations (1647 강화도, 1906 석모도), and the harmony conclusion; only the anti-slip/drainage functions and the original-vs-restored comparison are lost."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "바닥에 깔리는 박석은 강화 석모도와 해주에서 채석한 것만 사용하였는데",
+        "빛의 되쏘임 현상을 차단하는 의도"
+      ],
+      "reason": "It repeats the paving statement and the harmony conclusion nearly verbatim while omitting the functional rationale, the 1906 경운궁 detail, and the closing comparison, and it drops the scope qualifier '바닥에 깔리는', making the 석모도/해주 exclusivity read as applying to palace stones generally."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "빛의 되쏘임 현상을 차단하는 의도",
+        "남아있는 본래의 박석과 새로 복구한다고 깔아놓은 현대 박석을 비교해 보면"
+      ],
+      "reason": "It preserves the quarrying history accurately but omits the entire functional rationale and the original-vs-modern comparison, and phrasing like '돌의 절리에서 자연스러운 형태' is slightly awkward."
+    }
+  }
+}

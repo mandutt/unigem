@@ -1,0 +1,61 @@
+{
+  "doc_id": "REPORT-news_r-03086-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": [
+        "정 회장의 IIHF 명예의 전당 헌액 공식 행사는 2020 IIHF 월드챔피언십 대회 마지막 날인 5월 25일 스위스 취리히에서 열린다.",
+        "빌더(Builder) 자격으로 명예의 전당에 입성하게 됐다."
+      ],
+      "reason": "핵심 헌액 사실과 경력은 담았지만, 공식 행사가 열리는 것을 정 회장 본인이 열리는 것처럼 서술했습니다. 헌액 자격인 빌더라는 중요한 설명도 빠졌습니다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": [
+        "IIHF는 ... 정 회장의 비전과 확고한 의지, 헌신이 있었기에 가능했다'고 강조했다.",
+        "빌더(Builder) 자격으로 명예의 전당에 입성하게 됐다."
+      ],
+      "reason": "올림픽 출전과 단일팀 결성에 대한 내용은 담았지만, 이를 강조한 주체는 정 회장이 아니라 IIHF입니다. 빌더 자격이라는 중요한 설명도 누락됐습니다."
+    },
+    "C": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 4,
+      "evidence": [
+        "한국은 물론 아시아리그 아이스하키의 발전에 지대한 공헌을 한 점을 높이 평가해",
+        "빌더(Builder) 자격으로 명예의 전당에 입성하게 됐다."
+      ],
+      "reason": "헌액과 올림픽 관련 핵심 내용은 대체로 정확하게 요약했지만, 헌액 자격인 빌더라는 중요한 맥락은 빠졌습니다. 문장 구조가 다소 어색합니다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": [
+        "빌더(Builder) 자격으로 명예의 전당에 입성하게 됐다.",
+        "해마다 한라 아이스하키팀에 50~60억원, 협회에 15억원을 출연했다."
+      ],
+      "reason": "헌액과 주요 경력은 정확하게 요약했지만, 헌액 자격인 빌더라는 설명이 빠졌습니다. 출연금이 해마다 지급됐다는 범위도 생략해 일회성처럼 읽힐 수 있습니다."
+    }
+  }
+}

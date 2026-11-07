@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-01555-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["필수 보직 기간은 1년으로 정해져 있다", "검찰인사위 심의만 거친다면 중간 간부급에 대한 대규모 인사도 법적으로 무리 없어지게 되는 셈"],
+      "reason": "회의의 의미와 1년 보직 기간, 대규모 인사의 법적 가능성을 잘 담았다. 다만 예외 적용에 필요한 사정과 구체적인 교체 대상은 빠졌다."
+    },
+    "B": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["방위사업청에 파견된 검사 3명", "고검검사급(차장·부장검사)의 필수 보직 기간은 1년으로 정해져 있다"],
+      "reason": "파견 검사 복귀 안건과 인사위 심의에 따른 대규모 인사 가능성을 언급하지만, 1년이라는 필수 보직 기간과 그 예외가 핵심적으로 빠졌다. '안건은 ... 안건으로'라는 반복도 다소 어색하다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["수사팀 교체의 가늠자가 될 것이란 해석", "필수 보직 기간은 1년으로 정해져 있다"],
+      "reason": "회의가 수사팀 교체의 가늠자라는 점과 1년 보직 기간은 정확히 담았다. 그러나 예외 규정이 조기·대규모 인사를 가능하게 한다는 핵심 설명이 빠졌다."
+    },
+    "D": {
+      "adequacy": 2,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 1,
+      "entity_relation": 0,
+      "fluency": 4,
+      "utility": 3,
+      "evidence": ["중간 간부 인사에 대한 필수 보직 기간 관련 원칙이 논의 대상", "주요 교체 대상으로 거론되는 인물"],
+      "reason": "회의 안건과 교체 대상으로 거론된 인물들은 제시했지만, 필수 보직 기간이 1년이라는 점과 예외 규정을 거쳐 대규모 인사가 가능해지는 맥락을 생략했다. 마지막 문장은 조금 어색하지만 이해할 수 있다."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "doc_id": "REPORT-news_r-00818-00001",
+  "summaries": {
+    "A": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 4,
+      "evidence": ["다만 \"고의는 아닌 것으로 보인다\"고 덧붙였다.", "이란은 서방 국가들이 \"큰 거짓말\"로 심리전을 벌이는 것이라며 혐의를 부인하고 있다."],
+      "reason": "미사일 피격 의혹과 트럼프·트뤼도·CNN의 관련 내용을 담아 핵심은 전달한다. 다만 격추가 고의가 아닌 듯하다는 단서와 이란의 부인을 빠뜨려 사안의 불확실성이 덜 드러난다."
+    },
+    "B": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 0,
+      "fluency": 5,
+      "utility": 3,
+      "evidence": ["다만 \"고의는 아닌 것으로 보인다\"고 덧붙였다.", "이란은 서방 국가들이 \"큰 거짓말\"로 심리전을 벌이는 것이라며 혐의를 부인하고 있다."],
+      "reason": "미사일 피격 의혹과 각국의 의심, 트뤼도의 증거 언급을 간결하게 요약했다. 고의가 아닌 듯하다는 단서와 이란의 부인이 빠져 있어 사건의 쟁점과 불확실성이 충분히 보이지 않는다."
+    },
+    "C": {
+      "adequacy": 2,
+      "critical_unsupported": 1,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 2,
+      "utility": 2,
+      "evidence": ["증거들은 여객기가 이란의 지대공 미사일을 맞고 추락했다는 것을 가리킨다", "다만 \"고의는 아닌 것으로 보인다\"고 덧붙였다."],
+      "reason": "첫 문장과 트럼프 발언은 담았지만, 트뤼도 관련 문장이 원문의 증거 내용을 전하지 않고 그가 증거를 ‘고의로’ 밝혔다고 서술해 사실을 덧붙이거나 관계를 흐린다. 여객기 추락이 고의가 아닌 듯하다는 원문의 단서도 전달하지 않는다."
+    },
+    "D": {
+      "adequacy": 3,
+      "critical_unsupported": 0,
+      "critical_omission": 1,
+      "wrong_unit_qualifier": 0,
+      "entity_relation": 1,
+      "fluency": 3,
+      "utility": 3,
+      "evidence": ["우리 자체적으로, 또 동맹으로부터 정보를 얻었다", "증거들은 여객기가 이란의 지대공 미사일을 맞고 추락했다는 것을 가리킨다"],
+      "reason": "미사일 피격 의혹과 영국 총리·미 정부 당국자의 입장, 추락 정보를 담았다. 그러나 트뤼도 부분은 정보 입수와 증거가 가리키는 내용을 뒤섞어 관계가 불명확하고, 격추가 고의가 아닌 듯하다는 단서도 빠졌다."
+    }
+  }
+}
