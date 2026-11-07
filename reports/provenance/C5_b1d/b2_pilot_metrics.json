@@ -1,0 +1,58 @@
+{
+  "experiment": "b2_decoder_lora_pilot",
+  "init": "data/models/f5_t5gemma2_lora/b1d_ce_pilot/adapter_final.pt",
+  "train_n": 20,
+  "val_n": 20,
+  "epochs": 2,
+  "lr": 0.0003,
+  "lora": {
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "modules": 72,
+    "params": 737280
+  },
+  "adapter_params": 1084033,
+  "hidden_weight": 0.01,
+  "loss_first": 2.3764278888702393,
+  "loss_last": 1.951432704925537,
+  "loss_min": 1.38663649559021,
+  "before": {
+    "train": {
+      "n_docs": 20,
+      "ce_mean": 2.5951705098152162,
+      "ce_min": 2.0417604446411133,
+      "ce_max": 3.5274658203125
+    },
+    "val": {
+      "n_docs": 20,
+      "ce_mean": 3.0686352014541627,
+      "ce_min": 2.6048583984375,
+      "ce_max": 3.8934950828552246
+    }
+  },
+  "after": {
+    "train": {
+      "n_docs": 20,
+      "ce_mean": 1.5671202749013902,
+      "ce_min": 0.8652315735816956,
+      "ce_max": 2.3760440349578857
+    },
+    "val": {
+      "n_docs": 20,
+      "ce_mean": 3.2225953221321104,
+      "ce_min": 2.735761880874634,
+      "ce_max": 4.079310894012451
+    }
+  },
+  "elapsed_sec": 209.4,
+  "checkpoint": "data/models/f5_t5gemma2_lora/b2_pilot/adapter_final.pt",
+  "test_split_used": false,
+  "note": "adapter + decoder q/k/v/o LoRA; base decoder frozen"
+}

@@ -21,6 +21,7 @@ if str(ROOT) not in sys.path:
 
 from eval.slot_verify import verify_summary  # noqa: E402
 from runner.c5_a2null_eval import char_f1, distinct_2, repeated_4gram_rate  # noqa: E402
+from runner.c5_b1d_b2 import attach_decoder_lora  # noqa: E402
 from runner.c5_b1d_full import B1dFullAdapter, load_cache  # noqa: E402
 
 T5 = ROOT / "data/models/t5gemma-2-270m-270m"
@@ -32,11 +33,16 @@ OUT = ROOT / "reports/provenance/C5_b1d/generation_val.jsonl"
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--adapter", type=Path, default=ADAPTER)
+    ap.add_argument("--lora", type=Path, default=None,
+                    help="B2 checkpoint containing a decoder LoRA state dict")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--max-new", type=int, default=448)
     ap.add_argument("--out", type=Path, default=OUT)
     args = ap.parse_args()
     args.adapter = args.adapter if args.adapter.is_absolute() else ROOT / args.adapter
+    args.lora = args.lora if args.lora is not None and args.lora.is_absolute() else (
+        ROOT / args.lora if args.lora is not None else None
+    )
     args.out = args.out if args.out.is_absolute() else ROOT / args.out
     torch.set_num_threads(6)
     t0 = time.time()
@@ -60,6 +66,21 @@ def main() -> int:
     model = AutoModelForSeq2SeqLM.from_pretrained(
         str(T5), local_files_only=True, dtype=torch.bfloat16, low_cpu_mem_usage=True
     ).eval()
+    if args.lora is not None:
+        lora_ckpt = torch.load(args.lora, map_location="cpu")
+        attach_decoder_lora(
+            model,
+            r=int(lora_ckpt.get("rank", 8)),
+            alpha=int(lora_ckpt.get("alpha", 16)),
+            dropout=0.0,
+        )
+        missing, unexpected = model.load_state_dict(lora_ckpt["lora"], strict=False)
+        bad = [x for x in missing if ".lora_" in x]
+        if bad:
+            raise SystemExit(f"missing LoRA keys: {bad[:5]} n={len(bad)}")
+        model.eval()
+        print(json.dumps({"loaded_lora": str(args.lora), "missing_nonlora": len(missing),
+                          "unexpected": len(unexpected)}), flush=True)
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     done_ids = set()
