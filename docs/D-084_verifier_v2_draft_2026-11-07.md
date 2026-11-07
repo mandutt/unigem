@@ -1,8 +1,8 @@
 # D-084 초안 — verifier v2 audit과 A1 재선택
 
-> **상태: DRAFT / 미승인.**  
-> 이 문서는 사용자가 **작성·검토를 승인한 초안**이며, 내용은 아직 승인되지 않았다. `docs/decisions.md`에 D-084로 등록하지 않는다.  
-> `eval/slot_verify.py`와 production selection은 아직 수정하지 않았다. D-083 strict 결과는 그대로다.
+> **상태: DRAFT / 미승인 — 검토 이력 보존본.**  
+> 3-AI 검토 후 working draft는 `docs/D-084_verifier_v2_rev2_2026-11-07.md`로 대체되었다. 이 파일은 2026-11-07 검토 대상 초안으로 보존한다.  
+> `docs/decisions.md`에 D-084로 등록하지 않는다. `eval/slot_verify.py`와 production selection은 수정하지 않았다. D-083 strict 결과는 그대로다.
 
 ## 0. 3-AI 검토 후 수정 필요 (2026-11-07)
 
