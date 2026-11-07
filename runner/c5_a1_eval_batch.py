@@ -28,7 +28,7 @@ def main() -> int:
     ap.add_argument("--adapter", type=Path, required=True)
     ap.add_argument("--data", type=Path, default=DATA)
     ap.add_argument("--splits", type=Path, default=SPLITS)
-    ap.add_argument("--split", default="val", choices=["val"])
+    ap.add_argument("--split", default="val", choices=["train", "val"])
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--batch-size", type=int, default=8)
     ap.add_argument("--max-input", type=int, default=1024)

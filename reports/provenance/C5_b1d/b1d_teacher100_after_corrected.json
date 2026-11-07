@@ -1,0 +1,22 @@
+{
+  "after": {
+    "train": {
+      "n": 99,
+      "teacher_ce_mean": 2.2160981484133786,
+      "teacher_token_acc_mean": 0.5270655116047522,
+      "hidden_cos_mean": 0.6634217657224096
+    },
+    "val": {
+      "n": 100,
+      "teacher_ce_mean": 2.770494524240494,
+      "teacher_token_acc_mean": 0.4357586187124252,
+      "hidden_cos_mean": 0.6581894361972809
+    },
+    "elapsed": 158.7
+  },
+  "train_n": 99,
+  "val_n": 100,
+  "skipped_ungrounded_teacher": 1,
+  "test_split_used": false,
+  "note": "teacher-forced token accuracy recomputed with logits vs labels direct"
+}

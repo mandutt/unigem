@@ -1,0 +1,17 @@
+Loading weights:   0%|          | 0/911 [00:00<?, ?it/s]Loading weights:   5%|▍         | 43/911 [00:00<00:05, 158.11it/s]Loading weights:  11%|█▏        | 104/911 [00:00<00:02, 312.39it/s]Loading weights:  16%|█▌        | 146/911 [00:00<00:02, 291.29it/s]Loading weights:  20%|█▉        | 181/911 [00:00<00:02, 302.32it/s]Loading weights:  24%|██▎       | 216/911 [00:00<00:02, 258.16it/s]Loading weights:  27%|██▋       | 245/911 [00:01<00:03, 219.28it/s]Loading weights:  71%|███████   | 646/911 [00:01<00:00, 1076.96it/s]Loading weights: 100%|██████████| 911/911 [00:01<00:00, 819.04it/s] 
+{"loaded_lora": "data\\models\\f5_t5gemma2_lora\\pilot300_lr2e4_prefix.pt", "missing_nonlora": 477, "unexpected": 0}
+{"event": "loaded", "lora_modules": 144, "n": 100}
+{"done": 8, "n": 100}
+{"done": 16, "n": 100}
+{"done": 24, "n": 100}
+{"done": 32, "n": 100}
+{"done": 40, "n": 100}
+{"done": 48, "n": 100}
+{"done": 56, "n": 100}
+{"done": 64, "n": 100}
+{"done": 72, "n": 100}
+{"done": 80, "n": 100}
+{"done": 88, "n": 100}
+{"done": 96, "n": 100}
+{"done": 100, "n": 100}
+{"event": "metrics", "n": 100, "char_f1_mean": 0.6696846407337024, "grounded_rate": 0.99, "grounded_rate_nonvacuous": 0.9894736842105263, "new_slot_rate_mean": 0.0025, "new_slot_rate_micro": 0.0017985611510791368, "new_slot_count": 1, "summary_slot_count": 556, "slots_per_doc": 5.56, "slotfree_docs": 5, "slot_preservation_mean": 0.5062426484078848, "slot_preservation_min": 0.0, "slot_preservation_missing_docs": 92, "slot_preservation_zero_docs": 4, "eos_rate": 1.0, "nonempty_rate": 1.0, "gen_len_mean": 255.8, "repeated_4gram_rate_mean": 0.04594473866749081, "distinct_2_mean": 0.8450450139906094, "prefix": "summarize: ", "max_input": 1024, "max_new": 448, "adapter": "data\\models\\f5_t5gemma2_lora\\pilot300_lr2e4_prefix.pt", "out": "reports\\provenance\\C5_b1d\\teacher_train100.jsonl"}

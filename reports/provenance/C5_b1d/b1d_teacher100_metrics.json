@@ -1,0 +1,58 @@
+{
+  "experiment": "b1d_adapter_only_teacher_fidelity",
+  "init": "data/models/f5_t5gemma2_lora/b1d_ce_pilot/adapter_final.pt",
+  "train_n": 99,
+  "val_n": 100,
+  "skipped_ungrounded_teacher": 1,
+  "epochs": 2,
+  "lr": 0.0003,
+  "hidden_weight": 0.05,
+  "adapter_params": 1084033,
+  "before": {
+    "train": {
+      "n": 99,
+      "teacher_ce_mean": 3.0068966872764356,
+      "teacher_token_acc_mean": 0.39022870707993557,
+      "hidden_cos_mean": 0.6966724726888869
+    },
+    "val": {
+      "n": 100,
+      "teacher_ce_mean": 2.93844673037529,
+      "teacher_token_acc_mean": 0.4028657503426075,
+      "hidden_cos_mean": 0.6924314326047898
+    }
+  },
+  "after": {
+    "train": {
+      "n": 99,
+      "teacher_ce_mean": 2.2160981484133786,
+      "teacher_token_acc_mean": 0.5270655116047522,
+      "hidden_cos_mean": 0.6634217657224096
+    },
+    "val": {
+      "n": 100,
+      "teacher_ce_mean": 2.770494524240494,
+      "teacher_token_acc_mean": 0.4357586187124252,
+      "hidden_cos_mean": 0.6581894361972809
+    }
+  },
+  "loss_first": 3.171295166015625,
+  "loss_last": 3.2753093242645264,
+  "ce_first": 3.1565663814544678,
+  "ce_last": 3.257455587387085,
+  "tok_acc_first": null,
+  "tok_acc_last": null,
+  "free_running": {
+    "n": 20,
+    "teacher_f1_mean": 0.23334421655537052,
+    "gold_f1_mean": 0.2591955795616024,
+    "eos_rate": 0.4,
+    "grounded_rate": 0.15,
+    "gen_len_mean": 327.6
+  },
+  "elapsed_sec": 989.4,
+  "checkpoint": "data/models/f5_t5gemma2_lora/b1d_teacher100/adapter_final.pt",
+  "test_split_used": false,
+  "note": "adapter-only; decoder frozen; teacher-forced fidelity is primary; free-running is a small screen; token accuracy corrected",
+  "metric_fix": "Token accuracy recomputed as argmax(logits) vs labels directly; T5Gemma2 shifts labels internally. Original off-by-one values preserved in b1d_teacher100_metrics_offbyone.json."
+}
