@@ -1,0 +1,54 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: the current origin/main HEAD, which includes the rev2 request, D-084 rev2 draft, prior 3-AI synthesis, and audit artifacts. First sync/pull to that HEAD, then work read-only.
+
+This is an intentionally separate independent review thread using a different model (GLM 5.3 Flash). Do not treat it as a duplicate; we are collecting multi-model opinions.
+
+Read the full review request:
+reports/EXTERNAL_REVIEW_C5_D084_REV2_2026-11-07.md
+
+Read all lines, splitting into chunks if needed. Do not rely on a summary or another model's answer. Then read the complete D-084 rev2 draft:
+docs/D-084_verifier_v2_rev2_2026-11-07.md
+and the prior synthesis:
+reports/C5_D084_3AI_REVIEW_SYNTHESIS_2026-11-07.md
+Inspect audit JSON/code and strict artifacts as needed. Do not run training or generation. Do not open or evaluate test 163. Do not modify repository files. Do not call subagents or additional LLM models; complete the review yourself. Your only permitted write is the single report file named below.
+
+Current state (verified):
+- D-083 strict: selected_step = null; no full-train checkpoint eligible; pilot300 fallback, not product approval.
+- Full train: 2,586 steps, 2 epochs, 4 h 20 min 18 s, exit 0.
+- 1,940: F1 .682278, grounded 158/161, slot-free 4.
+- 2,586: F1 .668982, grounded 159/161, slot-free 11.
+- pilot300: F1 .657580, grounded 161/161, new slot 0.
+- test 163: A0 used it in D-080; A1 has not used it.
+
+D-084 rev2 design:
+- 084a is the only selection baseline: URL-only measurement fix (source+summary URL wrap join, URL path/query case/comma preservation). Expected provisional 084a grounded: pilot300 161, 647 156, 1,293 160, 1,940 158, 2,586 160.
+- 084b is report-only/default off: time qualifier, numeric unit, counter alias. It must not affect selection.
+- 084a provisional formal candidate: 2,586; 1,940 is gate-ineligible and human exploratory comparator.
+- Human 50 proposal: 4 arms on the same 50 val docs, blind, 2,586 decision primary, 1,940 exploratory.
+- Test 163 remains sealed.
+- The prior audit matcher is NOT spec-faithful: it inherits v1 URL case/comma loss, occurrence-count uniqueness, and an overbroad alias. All v2 numbers are provisional.
+
+Key questions:
+1. Does rev2 adequately separate measurement (084a) from equivalence policy (084b)?
+2. Is URL-only the right baseline, or should a narrow qualifier be included?
+3. Is 2,586 the right formal candidate despite its over-compression, or should the project report no candidate?
+4. Is 1,940 correctly classified as gate-ineligible but human exploratory?
+5. Is the human-50 4-arm design and 2,586 decision-primary correct?
+6. Are the spec-faithful audit DoD, 383 flip adjudication, CP/INCONCLUSIVE, and test-163 conditions sufficient?
+7. What must be fixed before implementation or approval?
+
+Answer every R1-R8 and Q1-Q14 item in the request. For each:
+- verdict: agree / disagree / conditional / defer
+- evidence tied to this document or artifacts
+- one to three concrete next steps
+
+Deliverable:
+1. Write your full report to this repository-relative file (mandatory, not optional):
+   docs/hoplite/c5_d084_rev2_2026-11-07/review_GLM.md
+2. In your final message, include a compact verdict table for R1-R8 and Q1-Q14, plus top Must-fix items and top additional experiments.
+
+Do not claim any gate change is approved. Do not propose using P1 data. Do not propose opening test 163. Do not propose adopting an alias to make 1,940 eligible. Keep strict D-083 results, 084a provisional results, and 084b report-only results distinct.
+
+This is consultation only. Your only permitted write is the single report file named above.
