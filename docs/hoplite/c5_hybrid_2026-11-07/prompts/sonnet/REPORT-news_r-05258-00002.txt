@@ -1,0 +1,72 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-05258-00002
+이란과 국경을 맞댄 파키스탄에서 첫 확진자가 나왔고, 흑해 연안의 코카서스 3국 가운데 하나인 조지아에서도 최근 코로나19 환자가 처음으로 나왔다.
+  파키스탄과 조지아 보건당국은 첫 확진자 모두 최근 이란에 여행을 다녀왔다고 밝혔다.
+  뉴질랜드에서도 신종 코로나바이러스 감염증(코로나19) 사례가 처음으로 확인됐다.
+  뉴질랜드 언론은 28일 최근 이란을 방문한 사람이 감염된 것으로 확인됐다며 60대인 이 환자는 오클랜드 병원에 입원해 있다고 보도했다.
+  이란 정부는 감염을 막기 위해 주요 발병 지역에서 금요 대예배까지 취소했다.
+  이란은 전체 인구 8399만명 중에 이슬람교도가 98%다.
+  사이디 나마키 보건부 장관은 국영 IRNA 통신에 "확진자가 나온 일부 도시에서 금요 대예배가 열리지 않을 수 있다"고 밝혔다.
+  키아누시 자한푸르 보건부 대변인은 27일 트위터에 "되도록 이동하지 말고 사람이 많이 모이는 예배나 성지순례를 삼가야 한다"라고 주문했다.
+  네덜란드·브라질·그리스·이스라엘·북아일랜드·나이지리아 감염자, 이탈리아 다녀온 공통점 이탈리아 보건당국에 따르면 코로나 누적 확진자는 653명으로 집계됐다.
+  잠정 파악된 사망자 수도 17명으로, 한국의 사망자 수(13명)를 넘어섰다.
+  유럽 전체 사망자가 19명인데 이탈리아가 17명이고 나머지 2명은 프랑스다.
+  교황청이 있는 이탈리아에서는 급기야 프란치스코 교황이 27일(현지시간) 감기 증상으로 외부 일정을 취소했다.
+  AP통신에 따르면 교황은 몸이 좋지 않아 로마에서 지역 성직자들과 함께 집전하기로 한 미사를 빠지기로 했다.
+   인구 6046만명의 이탈리아에서는 가톨릭 신자가 약 85%다.
+  이탈리아 가톨릭 교회는 코로나19 확산 예방책으로 사제들에게 성찬식 제병을 직접 신도들의 혀 위에다 놓지 말 것을 당부했다.
+  또 미사 때 악수를 하지 말라고 언급했다.
+   관광 대국 이탈리아의 감염이 문제가 되는 건 다른 지역으로 쉽게 전파되고 있기 때문이다.
+  실제로 확진자 중에서 이탈리아를 다녀온 사례가 많다.
+   네덜란드에서도 첫 확진자가 나왔다.
+  28일(현지시간) 로이터 통신에 따르면 네덜란드 보건 당국은 남부 도시 틸뷔르흐에서 한 남성이 코로나19 확진 판정을 받았다고 밝혔다.
+  이 남성은 유럽 내 코로나19의 진원지가 된 이탈리아 북부 롬바르디아주(州)를 최근 다녀왔으며 병원에 격리돼 치료를 받고 있다.
+    이밖에도 다수 국가의 확진자들이 이탈리아를 다녀왔다는 점도 확인됐다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+파키스탄과 조지아에서 코로나19 환자가 처음으로 나왔다. 뉴질랜드에서는 28일 이란을 방문한 사람이 감염된 것으로 확인됐다. 이란은 이슬람교도가 98%이며, 이슬람교도가 98%인 이탈리아는 감염을 막기 위해 주요 발병 지역에서 금요 대예배까지 취소했다. 이탈리아는 감염을 막기 위해 프란치스코 교황이 27일 감기 증상으로 외부 일정을 취소했고, 가톨릭 교회는 사제들에게 성찬식 제병을 직접 신도들의 혀 위에 놓지 말 것을 당부했다. 네덜란드에서는 틸뷔르흐에서 한 남성이 코로나19 확진 판정을 받았고, 이탈리아 북부 롬바르디아주를 다녀온 확진자도 확인됐다.
+A>>>
+
+SUMMARY B:
+<<<B
+파키스탄과 조지아에서 코로나19 확진자가 처음으로 나왔으며 뉴질랜드에서도 코로나19 사례가 처음으로 확인됐다. 이란과 국경을 맞은 파키스탄과 조지아 보건당국은 첫 확진자 모두 이란에 여행을 다녀왔다고 밝혔다. 이탈리아 보건당국은 코로나 누적 확진자는 653명으로 집계됐으며, 이탈리아가 17명이고 프랑스 2명은 이탈리아다. 네덜란드에서도 첫 확진자가 나왔다.
+B>>>
+
+SUMMARY C:
+<<<C
+파키스탄과 조지아에서 코로나19 환자가 처음으로 나왔고, 뉴질랜드에서 60대인 환자가 오클랜드 병원에 입원해 있다고 보도됐다. 이란과 국경을 맞댄 파키스탄과 조지아는 첫 확진자 모두 이란에 여행을 다녀왔으며, 뉴질랜드에서 60대인 환자가 오클랜드 병원에 입원해 있다고 보도됐다. 이탈리아 보건당국은 코로나 누적 확진자는 653명으로 집계됐고, 잠정 파악된 사망자 수도 17명으로 한국의 사망자 수(13명)를 넘어섰다. 이탈리아에서는 급기야 프란치스코 교황이 27일(현지시간) 감기 증상으로 외부 일정을 취소했고, 인구 6046만명의 이탈리아에서는 가톨릭 신자가 약 85%다. 네덜란드에서 남부 도시 틸뷔르흐에서 한 남성이 코로나19 확진 판정을 받았다고 로이터 통신에 따르면 이 남성은 유럽 내 코로나19의 진원지가 된 이탈리아 북부 롬바르디아주(州)를 최근 다녀왔으며 병원에 격리돼 치료를 받고 있다.
+C>>>
+
+SUMMARY D:
+<<<D
+파키스탄과 조지아 보건당국은 첫 확진자 모두 최근 이란에 여행을 다녀왔다고 밝혔다. 뉴질랜드 언론은 28일 최근 이란을 방문한 사람이 감염된 것으로 확인됐으며 60대인 이 환자는 오클랜드 병원에 입원해 있다고 보도했다. 이탈리아 보건당국에 따르면 코로나 누적 확진자는 653명으로, 잠정 파악된 사망자 수도 17명으로 한국의 사망자 수(13명)를 넘어섰다. 네덜란드 보건 당국은 남부 도시 틸뷔르흐에서 한 남성이 코로나19 확진 판정을 받았다고 밝혔다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-05258-00002",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

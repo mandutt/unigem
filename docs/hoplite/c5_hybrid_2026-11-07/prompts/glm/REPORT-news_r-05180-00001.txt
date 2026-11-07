@@ -1,0 +1,67 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-05180-00001
+신종 코로나바이러스 감염증(코로나 19) 환자 60명이 발생한 부산에서 병원과 저소득층 등에게 온정의 손길이 이어지고 있다.
+  부산에서 각종 고무제품을 생산하는 박수관 와이씨텍 회장은 27일 오거돈 시장에게 성금 1억원을 전달했다.
+  신정택 세운철강 회장은 취약계층에 전달할 1억원 상당의 갈비탕·곰탕을 기탁했다.
+  대한불교 조계종과 부산항만공사도 이날 성금 각 1000만원을 부산시와 초록어린이 재단에 전달했다.
+  부산시는 이들 성금과 물품을 어린이와 어르신 등 부산·대구지역 취약계층과 피해자 지원 등에 사용할 예정이다.
+    직원 2명이 확진자로 밝혀지면서 코호트 격리(감염병 확산을 막기 위해 병원 전체를 봉쇄하는 조치)된 연제구 아시아드요양병원에도 물품기탁이 이어지고 있다.
+  이성문 연제구청장은 아시아드요양병원에 근무하는 질병관리본부 직원 등으로 구성된 의료지원단에게 100만원 상당의 격려품을 전달했다.
+  지난 26일에는 한국마사회 부산연제지사(지사장 배기한)가 25만원 상당의 에탄올 화장지 등 물품을 아시아드요양병원에 지원했다.
+  앞서 24일에는 병원 인근 BNK 부산은행 연산동금융센터(센터장 허영선)이 50만원 상당의 두유를, 향토기업인 국제식품(대표 장창교)는 갈비탕 패키지 500개를 전달했다.
+  NH농협은행 연산역지점(지점장 윤지영)은 코로나 19 극복을 위한 이웃돕기 성금 300만원을 이성문 연제구청장에게 27일 전달했다.
+   어린이와 어르신을 위한 물품기탁도 이어지고 있다.
+  한국 주택금융공사(HF·사장 이정환)는 아동센터 급식 중단 등으로 어려움을 겪는 저소득 가정 아동 200명을 위해 마스크 등 어린이 안전키트와 식료품을 담은 ‘HF 희망 상자’를 초록우산 어린이재단 부산본부(본부장 여승수)에 27일 전달했다.
+  전달된 희망 상자는 2000만원 상당이다.
+   부산 남구는 코로나 19사태로 잠정 폐쇄된 관내 남구노인복지관과 용호종합사회복지관 등 4개 기관 경로 식당에 출입하던 어르신 334명에게 카레·국수 등과 밑반찬으로 구성된 대체식(점심)을 사서 집까지 배달하고 있다.
+  남구는 식사 배달을 해주는 어르신 141명에게는 별도로 음식을 제공하고 있다.
+ 부산 남구 용호1동 사랑나눔회는 지난 16일 독거노인 30명에게 60만원 상당의 국·죽·밑반찬 등을 구매해 전달했다.
+  지난 20일 세방(주) 부산지사는 우암동 독거노인과 저소득 49가구에 건강식품류와 국·찌개 세트를 기부했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+코로나 19 환자 60명이 발생한 부산에서 박수관 와이씨텍 회장, 대한불교 조계종, 부산항만공사, NH농협은행 연산역지점, 한국 주택금융공사, 부산 남구, 세방(주) 부산지사 등 부산에서 온정의 손길이 이어지고 있다. 부산시는 성금과 물품을 어린이와 어르신 등 부산·대구지역 취약계층과 피해자 지원 등에 사용할 예정이다.
+A>>>
+
+SUMMARY B:
+<<<B
+부산에서 신종 코로나바이러스 감염증(코로나 19) 환자 60명이 발생한 가운데 부산에서 박수관 와이씨텍 회장과 신정택 세운철강 회장, 대한불교 조계종과 부산항만공사 등 부산에서 성금 1억원을 전달하고, 연제구 아시아드요양병원 직원 2명이 확진자로 밝혀지면서 코호트 격리된 아시아드요양병원에도 물품기탁이 이어지고 있다. 부산 남구는 어르신 334명에게 카레·국수 등과 밑반찬으로 구성된 대체식(점심)을 사서 집까지 배달하고, 용호1동 사랑나눔회는 지난 16일 독거노인 30명에게 60만원 상당의 국·죽·밑반찬 등을 구매해 전달했다.
+B>>>
+
+SUMMARY C:
+<<<C
+신종 코로나바이러스 감염증(코로나 19) 환자 60명이 발생한 부산에서 박수관 와이씨텍 회장, 신정택 세운철강 회장, 대한불교 조계종과 부산항만공사 등 부산·대구지역 취약계층과 피해자 지원에 성금 1억원과 물품을 기탁했다. 부산시는 이들 성금과 물품을 어린이와 어르신 등 부산·대구지역 취약계층과 피해자 지원 등에 사용할 예정이다. 직원 2명이 확진자로 밝혀지면서 코호트 격리된 연제구 아시아드요양병원에도 한국마사회 부산연제지사(지사장 배기한)가 25만원 상당의 에탄올 화장지 등 물품을 지원했고, NH농협은행 연산역지점은 코로나 19 극복을 위한 이웃돕기 성금 300만원을 이성문 연제구청장에게 전달했다. 부산 남구는 관내 남구노인복지관과 용호종합사회복지관 등 4개 기관 경로 식당에 출입하던 어르신 334명에게 카레·국수 등과 밑반찬을 사서 집까지 배달하고 있다.
+C>>>
+
+SUMMARY D:
+<<<D
+부산에서 각종 고무제품을 생산하는 박수관 와이씨텍 회장과 신정택 세운철강 회장, 대한불교 조계종과 부산항만공사, 부산시와 초록어린이 재단에 성금 1억원을 전달했으며, 부산시와 연제구 아시아드요양병원, 부산 남구, 용호1동 사랑나눔회, 세방 부산지사 등 부산·대구지역 취약계층과 피해자 지원에 사용할 예정이다. 부산시는 성금과 물품을 어린이와 어르신 등 부산·대구지역 취약계층과 피해자 지원 등에 사용할 예정이다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-05180-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

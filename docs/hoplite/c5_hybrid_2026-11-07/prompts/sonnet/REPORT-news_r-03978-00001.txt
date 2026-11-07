@@ -1,0 +1,68 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-03978-00001
+신종 코로나바이러스 감염증(코로나19)을 피해 중국 우한(武漢)에서 귀국했던 2차 교민 334명이 잠복기(2주)를 무사히 견디고 16일 가족의 품으로 돌아갔다.
+  지난 1일 충남 아산의 경찰인재개발원에서 격리 생활을 시작한 지 16일 만이다.
+  이날 오전 10시쯤 정부에서 마련한 전세버스(45인승)에 나눠 타고 경찰인재개발원 정문을 빠져나온 교민들은 전국 권역별 거점인 서울역과 수원역·대전역·동대구역 등으로 이동했다.
+  지난 15일 1차로 귀국했던 교민들이 퇴소할 때 경찰인재개발원을 찾았던 진영 행정안전부 장관과 양승조 충남지사·오세현 아산시장 등은 이날도 오전 9시 30분쯤 현장에 도착해 정부합동지원단 근무자를 격려한 뒤 교민들이 격리됐던 생활관 앞에서 환송 인사를 건넸다.
+  아산시는 교민들에게 머그잔을 선물로 증정했다.
+  건강한 모습으로 다시 아산을 찾아달라는 의미에서라고 한다.
+  오세현 아산시장은 어린이 교민에게는 아산시 문화관광 캐릭터 ‘온궁이 빼빼로’를 전달하기도 했다.
+  이 자리에서 양승조 충남지사는 “힘겨운 고통의 시간이었지만 동시에 삶과 주변을 돌아보는 소중한 시간이었을 것”이라며 “이런 특별한 경험을 바탕으로 더 힘찬 일상을 살아가기를 응원하겠다”고 당부했다.
+  생활관에서 정문까지 걸어서 내려온 진 장관과 양 지사 등은 300여 여명의 주민들과 함께 전세버스를 타고 떠나는 교민들에게 손을 흔들며 작별인사를 했다.
+  주민들은 전날처럼 도로변에 길게 서서 피켓을 들고 무사한 귀가를 응원했다.
+  ‘우리는 다 같은 국민’이라는 아산시민의 마음을 교민들에게 전하기 위해서였다.
+  일부 주민들은 ‘힘든 시간 잘 이겨내신 여러분 고맙습니다’ ‘가족과 고향이 품에서 행복하세요’ ‘아산은 여러분을 기억하겠습니다’라고 쓰인 피켓을 들고 교민들을 환송했다.
+  마스크를 쓴 채 고개를 숙였던 교민들은 주민들의 환송이 이어지자 그제야 환하게 웃으며 손을 흔들었다.
+  자신들을 따뜻하게 맞아주고 환송까지 해주는 주민들에게 감사 인사를 전하는 의미였다.
+  10~20대로 보이는 청년들은 휴대전화로 환송 길에 나온 주민들의 모습을 촬영하기도 했다.
+  교민들이 탄 버스 중 일부는 20분쯤 뒤인 오전 10시 20분 KTX 천안·아산역에 도착했다.
+  버스에서 내린 교민들은 크게 기지개를 켜며 한숨을 크게 내쉬었다.
+  커다란 여행 가방에다 아산시에서 증정한 선물까지 모두 챙긴 뒤 기다리고 있던 가족·친구들과 포옹하며 오랜만의 만남에 환하게 웃기도 했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+신종 코로나바이러스 감염증(코로나19)을 피해 중국 우한에서 귀국했던 2차 교민 334명이 16일 가족의 품으로 돌아갔다. 진영 행정안전부 장관과 양승조 충남지사·오세현 아산시장은 이날 오전 9시 30분쯤 현장에 도착해 환송 인사를 건넸으며, 아산시는 교민들에게 머그잔을 선물로 증정했다. 교민들은 전날처럼 도로변에 피켓을 들고 환송했다. 교민들이 탄 버스 중 일부는 20분쯤 뒤인 오전 10시 20분 KTX 천안·아산역에 도착했다.
+A>>>
+
+SUMMARY B:
+<<<B
+신종 코로나바이러스 감염증(코로나19) 피해 중국 우한에서 귀국했던 2차 교민 334명이 16일 충남 아산 경찰인재개발원에서 격리 생활을 시작한 뒤 가족의 품으로 돌아왔다. 진영 행정안전부 장관과 양승조 충남지사 등은 정부합동지원단 근무자를 격려한 뒤 생활관 앞에서 환송 인사를 건넸고, 오세현 아산시장은 어린이 교민에게 아산시 문화관광 캐릭터 '온궁이 빼빼로'를 전달했다. 교민들이 탄 전세버스 중 일부는 20분쯤 뒤인 오전 10시 20분 KTX 천안·아산역에 도착했으며, 교민들이 탄 버스 중 일부는 오전 10시 20분 KTX 천안·아산역에 도착했다.
+B>>>
+
+SUMMARY C:
+<<<C
+신종 코로나바이러스 감염증(코로나19)을 피해 중국 우한에서 귀국했던 2차 교민 334명이 16일 오전 10시쯤 전세버스에 나눠 타고 경찰인재개발원 정문을 빠져나왔다. 진영 행정안전부 장관과 양승조 충남지사·오세현 아산시장 등은 9시 30분쯤 현장에 도착해 정부합동지원단 근무자를 격려한 뒤 생활관 앞에서 환송 인사를 건넸고, 300여 여명의 주민들과 함께 전세버스를 타고 떠나는 교민들은 20분쯤 뒤인 오전 10시 20분 KTX 천안·아산역에 도착했다.
+C>>>
+
+SUMMARY D:
+<<<D
+신종 코로나바이러스 감염증(코로나19)을 피해 중국 우한에서 귀국했던 2차 교민 334명이 16일 충남 아산 경찰인재개발원에서 격리 생활을 시작한 지 16일 만에 가족의 품으로 돌아갔다. 진영 행정안전부 장관과 양승조 충남지사·오세현 아산시장 등은 이날 오전 9시 30분쯤 현장에 도착해 정부합동지원단 근무자를 격려한 뒤 환송 인사를 건넸고, 아산시는 교민들에게 머그잔을 선물로 증정했다. 오세현 아산시장은 어린이 교민에게는 아산시 문화관광 캐릭터 '온궁이 빼빼로'를 전달하기도 했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-03978-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

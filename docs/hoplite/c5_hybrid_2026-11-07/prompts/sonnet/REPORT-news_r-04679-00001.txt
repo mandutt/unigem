@@ -1,0 +1,71 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-04679-00001
+"저 자신이 가소롭고 가증스럽습니다.
+ " 23일 오후 1시 전북도청 기자실.
+  강영석 전북도 보건의료과장은 "어제 올린 소셜네트워크서비스(SNS) 글에다 '마녀사냥이 참 쉽다'고 했는데 정작 제가 마녀사냥을 하고 있었던 사람이었다"며 이같이 말했다.
+  신종 코로나바이러스 감염증(코로나19) 관련 일일 브리핑을 하기 위해 취재진이 모인 자리에서다.
+  의사 출신인 강 과장은 전날 본인 페이스북에 '위대한 전북도민들께 바랍니다'로 시작하는 글을 올렸다.
+  강 과장은 "검사량이 늘어나 몸이 피곤한 건 괜찮다"며 "진정 안타까운 것은 (확진자) 동선 공개로 피해를 당하시는 분들"이라며 안타까움을 나타냈다.
+   그는 "방역 당국에서 확진자 동선을 공개하는 건 전파 가능성을 최소화하기 위해서이지 식당과 업체를 두 번 죽이자는 의도가 아니다"며 "지금이라도 당장 사무실을 박차고 달려가 그분들의 식당이며 업체에서 두 번 세 번이고 맛나게 밥도 먹고 참치도 먹고 싶다"고 했다.
+  그러면서 "마녀사냥은 아무나 할 수 있다.
+  동선 공개로 아파하실 그분들에게 따사로운 살핌을 바란다"고 당부했다.
+  오후 4시 현재 1000명 이상이 이 글에 공감을 눌렀고, 댓글 150여 개가 달렸다.
+  대부분 "어떤 말 한마디보다 따뜻합니다" "응원합니다" "공감합니다" "힘 내세요" 등 긍정적인 내용이다.
+  전북도에 따르면 지난 20일과 21일 코로나19 확진자 2명이 추가로 발생했다.
+  각각 김제에 거주하면서 전주에 직장을 둔 28세 남성(113번 환자)과 그의 직장 동료인 36세 남성(231번 환자)이다.
+  지난달 31일 전북에서 처음 확진 판정을 받은 63세 여성(8번 환자)은 지난 12일 퇴원했다.
+  전북도가 현재 접촉자로 관리하는 사람은 총 40명이다.
+   113번 환자는 지난 7일부터 2박3일간 신천지 신도들이 집단으로 감염된 대구에 다녀온 것으로 확인됐다.
+  하지만 보건 당국에는 "신천지 신도가 아니다"고 부인했다.
+  강 과장은 "안 해도 되는 얘기를 해 오해를 빚었다"고 말했다.
+  도내에서 두 번째 확진자가 나왔다는 사실을 알리는 과정에서 "(신천지 신도라는) 심증은 가는데 물증은 없다"고 한 발언을 두고서다.
+  확진자 동선 공개에 부담감을 드러낸 강 과장과 달리 확진자의 구체적인 동선 공개는 급속도로 퍼지는 코로나19의 추가 확산을 막기 위한 불가피한 조치라는 시각이 우세하다.
+  실제로 지난 21일부터 사흘간 경남에 코로나19 확진자가 15명에 이르자 확진자들이 다닌 구체적인 동선을 공개해 달라는 민원이 쇄도했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+강영석 전북도 보건의료과장은 23일 본인 페이스북에 '위대한 전북도민들께 바랍니다'로 시작하는 글을 올리고 확진자 동선 공개에 대해 '마녀사냥이 참 쉽다'고 말하며 마녀사냥을 하고 있었던 사람이었다고 말했다. 강 과장은 지난 20일과 21일 코로나19 확진자 2명이 추가로 발생해 전주에 직장을 둔 28세 남성(113번 환자)과 36세 남성(231번 환자)이 113번 환자(7일부터 2박3일간 대구에 다녀온 신천지 신도)이 퇴원했으며, 113번 환자는 지난 7일부터 2박3일간 대구에 다녀온 신천지 신도라고 보건 당국에 부인했다. 강 과장은 확진자 동선 공개는 전파 가능성을 최소화하기 위해서 식당과 업체를 두 번 죽이자는 의도가 아니며 지금이라도 당장 사무실을 달려가 그분들의 식당이며 업체에서 두 번 세 번이고 맛나게 밥도 먹고 참치도 먹고 싶다고 당부했다.
+A>>>
+
+SUMMARY B:
+<<<B
+강영석 전북도 보건의료과장은 23일 오후 1시 전북도청 기자실에서 코로나19 관련 브리핑을 위해 취재진을 모인 자리에서 SNS 글에 마녀사냥을 하고 있었던 사람이었다고 말했다. 강 과장은 확진자 동선 공개로 피해를 당하시는 분들에게 따사로운 살핌을 바란다고 당부했고, 오후 4시 현재 1000명 이상이 글에 공감을 눌렀고 댓글 150여 개가 달렸다. 전북도에 따르면 지난 20일과 21일 코로나19 확진자 2명이 추가로 발생해 전북도가 현재 접촉자로 관리하는 사람은 총 40명이다.
+B>>>
+
+SUMMARY C:
+<<<C
+강영석 전북도 보건의료과장은 23일 오후 1시 전북도청 기자실에서 확진자 동선 공개로 피해를 당하시는 분들에게 따사로운 살핌을 당부했다. 강 과장은 검사량이 늘어나 몸이 피곤한 건 괜찮다고 밝혔으며, 확진자 동선 공개는 급속도로 퍼지는 추가 확산을 막기 위한 불가피한 조치라고 시각을 밝혔다. 전북도에 따르면 지난 20일과 21일 확진자 2명이 추가 발생했으며, 전북도가 현재 접촉자로 관리하는 사람은 총 40명이다.
+C>>>
+
+SUMMARY D:
+<<<D
+강영석 전북도 보건의료과장은 23일 오후 1시 전북도청 기자실에서 코로나19 관련 일일 브리핑을 위해 취재진 모인 자리에서 SNS 글에 마녀사냥이 참 쉽다고 말했다. 강 과장은 확진자 동선 공개는 전파 가능성을 최소화하기 위한 것이 아니라 식당과 업체를 두 번 죽이자는 의도가 아니라고 밝혔다. 오후 4시 현재 1000명 이상이 글에 공감을 눌렀고 댓글 150여 개가 달렸다. 전북도는 지난 20일과 21일 확진자 2명이 추가로 발생해 접촉자 관리 총 40명이다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-04679-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

@@ -1,0 +1,70 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-02742-00001
+신종코로나바이러스 감염증(우한 폐렴) 확진자들의 동선과 정보를 한 번에 볼 수 있는 '코로나맵'(http://coronamap.
+ site)에 대한 관심이 커지고 있다.
+  코로나맵을 제작한 대학생 이동훈(27)씨는 2일 본지와의 통화에서 "1일까지 누적 조회수는 390만회를 돌파했다"며 "현재도 방문자들이 폭증하고 있어 조만간 누적 조회수가 500만회를 거뜬히 넘을 것 같다"고 밝혔다.
+  2일에도 확진자 3명이 추가 확인돼 현재 확진자는 총 15명으로 늘어난 만큼, 확진자들의 동선에 대한 소비자 관심은 더욱 커질 것으로 보인다.
+     코로나맵은 네이버·다음 실시간 검색어 순위에서도 이틀째 1위를 차지하고 있다.
+  1일 중앙일보가 이씨와의 인터뷰를 보도한 이후 사이트 방문자가 폭증하면서 이날 오후엔 서버가 다운되기도 했다.
+  지난 2015년 중동호흡기증후군(메르스) 감염자들이 거쳐 간 동선을 모은 '메르스맵'도 7일간 500만명이 방문하며 전국민적인 관심을 끈 바 있다.
+    폭증하는 방문자들로 인해 크게 늘어난 코로나맵의 서버 비용도 문제다.
+  2일 서버가 다운된 뒤 이씨는 서버를 한 차례 증설했다.
+  그러나 하루에 100만명 이상 방문하고 있는 상황이라 서버 비용도 만만치 않을 것으로 보인다.
+  이씨는 "서버비는 후불로 내는 것이라 정확히 얼마가 나올지 모르겠다"면서도 "공익 목적으로 하고 있는 일이라 당분간은 사비로 부담할 예정"이라고 말했다.
+  "서버 비용이 개인이 감당하기 어려운 수준이 되면 코로나맵 사이트에 광고를 붙이는 방법도 검토하겠다"고도 했다.
+  코로나맵에 표기된 이씨 e메일로 시민들의 제보가 100건 넘게 왔다고 한다.
+  제보들은 주로 신종코로나 확진자들의 동선과 관련된 것들이다.
+  이밖에도 "외국에서도 관심이 많은만큼 누구나 한국내 신종코로나 정보를 알 수 있게 영어로 만들어달라"는 제안도 있었다.
+    이씨는 "현재 혼자서 코로나맵을 운영, 업데이트하고 있어서 요청 사항들을 모두 반영하기 쉽지않은 상황"이라고 말했다.
+  현재 국내 여행 중인 그는 질병관리본부 발표와 e메일 제보가 있을 때마다 컴퓨터로 추가된 내용을 분석해 지도에 반영하고 있다.
+  정부의 발표와 언론 기사들과 대조해서 제보의 사실 여부를 판단하는 것은 어려운 일이다.
+  이씨는 "언론에서 기사로 쓴 내용들 중에서도 확인되지 않은 사실을 보도하는 경우도 많기 때문에 최대한 보수적으로 반영하려고 한다"고 강조했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+코로나맵 제작 대학생 이동훈(27)씨가 2일 본지와의 통화에서 1일까지 누적 조회수 390만회를 돌파했으며 2일에도 확진자 3명이 추가 확인돼 현재 확진자는 총 15명으로 늘어난 만큼 확진자들의 동선에 대한 소비자 관심이 커질 것으로 보인다. 폭증하는 방문자들로 인해 코로나맵의 서버 비용도 문제다. 2일 서버가 다운된 뒤 이씨는 서버를 한 차례 증설했으며, 하루에 100만명 이상 방문하고 있는 상황이라 서버 비용도 만만치 않을 것으로 보인다.
+A>>>
+
+SUMMARY B:
+<<<B
+신종코로나바이러스 감염증(우한 폐렴) 확진자들의 동선과 정보를 한 번에 볼 수 있는 '코로나맵'(http://coronamap.site)에 대한 관심이 커지고 있다. 코로나맵을 제작한 대학생 이동훈(27)씨는 2일 누적 조회수 390만회를 돌파했고, 2일 확진자 3명이 추가 확인돼 현재 확진자는 총 15명으로 늘어난 만큼 확진자들의 동선에 대한 소비자 관심이 더욱 커질 것으로 보인다. 폭증하는 방문자들로 인해 서버 비용도 문제다.
+B>>>
+
+SUMMARY C:
+<<<C
+신종코로나바이러스 감염증 확진자 동선과 정보를 한 번에 볼 수 있는 '코로나맵'(http://coronamap.site)에 대한 소비자 관심이 커지고 있다. 대학생 이동훈(27)씨는 2일 본지와의 통화에서 1일까지 누적 조회수가 390만회를 돌파했다며 현재도 방문자들이 폭증하고 있어 조만간 누적 조회수가 500만회를 넘을 것 같다고 밝혔다. 코로나맵은 네이버·다음 실시간 검색어 순위에서도 이틀째 1위를 차지하고 있으며, 2일에도 확진자 3명이 추가 확인돼 현재 확진자는 총 15명으로 늘어난 만큼 확진자 동선에 대한 소비자 관심은 더욱 커질 것으로 보인다. 폭증하는 방문자들로 인해 크게 늘어난 서버 비용도 문제다.
+C>>>
+
+SUMMARY D:
+<<<D
+신종코로나바이러스 감염증(우한 폐렴) 확진자들의 동선과 정보를 한 번에 볼 수 있는 '코로나맵'(http://coronamap.
+site)에 대한 관심이 커지고 있다. 대학생 이동훈(27)씨는 2일 본지와의 통화에서 1일까지 누적 조회수 390만회를 돌파했다며 현재도 방문자들이 폭증하고 있어 조만간 누적 조회수가 500만회를 넘을 것이라고 밝혔다. 코로나맵은 네이버·다음 실시간 검색어 순위에서도 이틀째 1위를 차지하고 있다. 2일 서버가 다운된 뒤 이씨는 서버를 한 차례 증설했지만 하루 100만명 이상 방문한 상황이라 서버 비용도 만만치 않을 것으로 보인다. 이씨는 현재 혼자서 코로나맵을 운영하고 있어 요청 사항들을 모두 반영하기 쉽지않은 상황이라고 말했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-02742-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

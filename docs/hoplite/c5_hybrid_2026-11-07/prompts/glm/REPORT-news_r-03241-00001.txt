@@ -1,0 +1,72 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-03241-00001
+할리우드의 전설적 배우 커크 더글러스가 5일(현지시간) 미국 캘리포니아 자택에서 별세했다.
+  103세.
+  고인의 아들인 배우 마이클 더글러스(76)는 이날 페이스북으로 부친의 죽음을 알리며 “(아버지는) 영화의 황금기를 거치고 인생의 황금기까지 보낸 배우이자, 정의와 대의에 헌신해 모두가 우러러볼 기준을 세운 박애주의자”라고 애도했다.
+   고인이 70년간 출연한 영화는 ‘OK목장의 결투’(1957)를 비롯한 약 90편.
+  ‘영광의 길’ ‘해저 2만리’ 등 주로 전쟁·서부극에서 선 굵은 인물을 연기했다.
+  스탠리 큐브릭 감독의 ‘스파르타쿠스’는 주연·제작을 겸해 비평과 흥행에 큰 성공을 거뒀다.
+  골든글로브상·미국영화연구소·미국영화배우조합·베를린영화제 등에서 공로상을 받았다.
+  1996년 아카데미 시상식에선 아들 마이클이 아버지에게 공로상을 수여했다.
+  세계 분쟁지역에 학교와 공원을 세우는 자선활동에도 힘써 1981년 지미 카터 대통령으로부터 최고의 영예 시민상 ‘대통령 자유 메달’을 받았다.
+  1916년 뉴욕주 빈민가 러시아계 유대인 이민자 부모에게서 태어난 그는 아메리칸 드림의 상징이었다.
+  부친은 넝마주이 생활도 한 문맹의 노동자였다.
+  고인은 신문 배달, 노점상 등으로 대학 학비를 벌었고, 레슬링 선수로 활동했다.
+  미국 드라마 예술 아카데미 1941년 졸업공연 ‘봄이여 다시’로 브로드웨이에 데뷔했다.
+  그의 자서전 『넝마주이의 아들』(1988)은 베스트셀러였다.
+  제2차 세계대전 때인 1941년 해군에 입대했다가 3년 뒤 제대한 고인은 1946년 ‘마사 아이버스의 위험한 사랑’으로 스크린에 데뷔했다.
+  ‘챔피언’(1949)에서 권투선수 역으로 아카데미 남우주연상 후보에 올랐고, 화가 반 고흐 역으로 안소니 퀸(폴 고갱 역)과 호흡을 맞춘 ‘열정의 랩소디’(1956)로 골든글로브 남우주연상을 차지했다.
+  아카데미 연기상엔 세 차례 후보로 올랐지만 수상은 하지 못했다.
+  할리우드 매카시즘 광풍 땐 공산주의 연루 의혹으로 배척된 ‘블랙리스트’ 영화인들의 복귀에도 큰 역할을 했다.
+  고인은 두 차례 결혼에서 각각 아들 둘 씩을 뒀다.
+  장남 마이클 등 아들들이 배우·프로듀서로 활동한 영화인 집안이다.
+  배우 캐서린 제타 존스가 맏며느리다.
+  그가 영화화를 꿈꾼 ‘뻐꾸기 둥지 위로 날아간 새’는 마이클이 대신 제작해 1976년 아카데미 남우주연상·작품상·감독상 등 5관왕에 올랐다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+할리우드의 전설적 배우 커크 더글러스가 5일(현지시간) 미국 캘리포니아 자택에서 별세했다. 고인은 70년간 출연한 영화 'OK목장의 결투'(1957)를 비롯해 '영광의 길' '해저 2만리' 등 주로 전쟁·서부극에서 선굵은 인물을 연기했다. 고인은 1941년 해군 입대 후 3년 뒤 제대한 1946년 '마사 아이버스의 위험한 사랑'으로 스크린에 데뷔했고, '열정의 랩소디'(1956)로 골든글로브 남우주연상을 차지했다. 고인은 두 차례 결혼에서 각각 아들 둘 씩을 뒀다.
+A>>>
+
+SUMMARY B:
+<<<B
+할리우드의 전설적 배우 커크 더글러스가 5일(현지시간) 미국 캘리포니아 자택에서 별세했다. 고인은 70년간 출연한 영화 'OK목장의 결투'(1957)를 비롯해 '영광의 길' '해저 2만리' 등 약 90편을 연기했으며, 스탠리 큐브릭 감독의 '스파르타쿠스'는 골든글로브상·미국영화연구소·미국영화배우조합·베를린영화제 등에서 공로상을 받았다. 고인은 1981년 지미 카터 대통령으로부터 대통령 자유 메달을 받으며, 아들 마이클은 아버지의 영화와 인생의 황금기를 보낸 배우라고 애도했다.
+B>>>
+
+SUMMARY C:
+<<<C
+할리우드의 전설적 배우 커크 더글러스가 5일(현지시간) 미국 캘리포니아 자택에서 별세했다. 고인의 아들 마이클 더글러스(76)는 이날 페이스북으로 부친의 죽음을 알리며 "아버지는 영화의 황금기를 거치고 인생의 황금기까지 보낸 배우이자, 정의와 대의에 헌신해 모두가 우러러볼 기준을 세운 박애주의자"라고 애도했다. 고인은 70년간 출연한 영화는 'OK목장의 결투'(1957)를 비롯해 약 90편으로 전쟁·서부극에서 선 굵은 인물을 연기했으며, 스탠리 큐브릭 감독의 '스파르타쿠스'는 주연·제작을 겸해 비평과 흥행에 큰 성공을 거뒀다. 마이클 등 아들들이 배우·프로듀서로 활동한 영화인 집안으로 캐서린 제타 존스가 맏며느리다.
+C>>>
+
+SUMMARY D:
+<<<D
+할리우드의 전설적 배우 커크 더글러스가 5일(현지시간) 미국 캘리포니아 자택에서 별세했으며, 아들 마이클 더글러스(76)는 이날 페이스북으로 부친의 죽음을 알리며 "(아버지는) 영화의 황금기를 거치고 인생의 황금기까지 보낸 배우이자, 정의와 대의에 헌신해 모두가 우러러볼 기준을 세운 박애주의자"라고 애도했다. 고인은 70년간 출연한 영화는 'OK목장의 결투'(1957)를 비롯해 약 90편, '영광의 길' '해저 2만리' 등 주로 전쟁·서부극에서 선굵은 인물을 연기했으며, 스탠리 큐브릭 감독의 '스파르타쿠스'는 주연·제작을 겸해 비평과 흥행에 큰 성공을 거뒀다. 고인은 1916년 뉴욕주 빈민가 러시아계 유대인 이민자 부모에게서 태어났으며, 1941년 해군에 입대해 3년 뒤 제대한 그는 1946년 '마사 아이버스의 위험한 사랑'으로 스크린에 데뷔했고, '챔피언'에서 권투선수 역으로 아카데미 남우주연상 후보에 올랐고, '열정의 랩소디'(1956)로 골든글로브 남우주연상을 차지했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-03241-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

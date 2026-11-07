@@ -1,0 +1,66 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-02158-00001
+국내에서 이른바 '우한 폐렴' 세번째 확진자가 나온 가운데 박원순(사진) 서울시장이 "우한 코로나바이러스가 생각보다 심각하다"며 주의를 당부했다.
+  박 시장은 26일 서울시청 6층에 꾸린 신종 코로나바이러스 감염증 방역대책반 상황실에서 긴급회의를 열었다.
+  박 시장은 이 자리에서 "어제 하루 중국에서 688명의 확진자가 발생했고, 15명이 사망자가 나왔다"며 "생각보다 사태가 심각한 것 같다"고 우려를 표했다.
+   박 시장은 "전 세계적으로 바이러스가 확산하고 있는 상황이며, 언론에서 보도되는 (중국 우한 현지) 동영상을 보면 쉽게 해결될 것 같지 않다"며 "우리도 안전지대가 아니며 세 번째 확진자가 나와 계속될 가능성이 충분히 있다"고 밝혔다.
+   중국 현지 의사로 추정되는 인물이 언론과의 인터뷰에서 중국 내 감염자가 9만명 이상이며 2차 변이 가능성이 있다고 밝힌 것을 언급한 것이다.
+  또 바이러스로 인해 연쇄 실신자가 발생하고 병원으로 환자들이 몰리는 영상 등 출처가 불분명한 영상이 인터넷으로 유포되고 있는 상황으로 서울시민들의 우려를 불식시키기 위해 '선제 긴급 대책'을 마련해야 할 필요성이 있다는 뜻으로 해석된다.
+  서울시에 따르면 국내 확진자는 3명으로 이 중 서울시 확진자는 1명이다.
+  이 들 중 격리해제를 받은 환자는 6명, 접촉자 능동 감시자는 36명이다.
+  서울시는 "3번 확진자의 접촉자를 조사하고 있다"고 설명했다.
+  박 시장은 "감염병은 선제대응이 중요한데, 중국은 선제대응이 못해 초동대응에 실패했다"고 지적했다.
+  박 시장은 "심각성을 고려하면 더 선제적인 조치를 고려해야 한다"고 주장했다.
+  그는 "지난 24일 총리주재 대책회의에서 서울시는 발열과 기침 등 호흡기 증상에 국한하지 말고, 기침과 가래 증상도 포함해야 하며, 우한 외에도 후베이 성으로 지역을 확대해 접촉자들을 자가격리할 수 있도록 요청해 중앙정부에서 받아들인 상태"라고 밝혔다.
+  박 시장은 "중국은 그룹 관광을 금지했지만, 여전히 개별관광으로 서울과 국내에 계속 중국인 관광객들이 들어오고 있다"고 말했다.
+  그는 "관광형태로 보면 (전체 중국인 관광객 입국자의) 70%가 개별관광으로 호텔보다 게스트하우스 등 우리가 통제하기 어려운 숙소에서 지내는 경우가 많다"고 우려했다.
+  박 시장은 "이런 의미에서 늑장 대응보다는 과잉대응이 낫다"며 "중국 상황을 정확히 모니터링할 필요가 있다"고 덧붙였다.
+  박 시장은 "메르스(중동호흡기증후군) 때 했던 것처럼 화상 감시 카메라를 확대하는 것이 필요하다"고 말했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+박원순 서울시장이 국내에서 이른바 '우한 폐렴' 세번째 확진자가 나온 가운데 우한 코로나바이러스가 생각보다 심각하다며 주의를 당부했다. 박 시장은 26일 서울시청 6층에 꾸린 신종 코로나바이러스 감염증 방역대책반 상황실에서 긴급회의를 열었고, 중국 현지 의사 인물이 언론과의 인터뷰에서 중국 내 감염자가 9만명 이상이며 2차 변이 가능성이 있다고 밝힌 것을 언급한 것으로 해석된다. 박 시장은 국내 확진자는 3명으로 이 중 서울시 확진자는 1명이며, 격리해제를 받은 환자는 6명, 접촉자 능동 감시자는 36명이다. 박 시장은 지난 24일 총리주재 대책회의에서 발열과 기침 등 호흡기 증상에 국한하지 말고 기침과 가래 증상도 포함해야 한다고 밝혔다.
+A>>>
+
+SUMMARY B:
+<<<B
+박원순 서울시장이 국내에서 이른바 '우한 폐렴' 세번째 확진자가 나온 가운데 박 시장은 26일 서울시청 6층에 신종 코로나바이러스 감염증 방역대책반 상황실에서 긴급회의를 열었다. 박 시장은 중국 현지 의사로 추정되는 인물이 언론과의 인터뷰에서 중국 내 감염자가 9만명 이상이며 2차 변이 가능성이 있다고 밝힌 것을 언급하며 우한 현지 동영상을 보도하는 상황에 대비해 선제 긴급 대책을 마련해야 할 필요성을 밝혔다. 서울시 따르면 국내 확진자는 3명으로 이 중 서울시 확진자는 1명이며 격리해제를 받은 환자는 6명, 접촉자 능동 감시자는 36명이다. 박 시장은 중국은 그룹 관광을 금지했지만 여전히 개별관광으로 서울과 국내에 계속 중국인 관광객들이 들어오고 있다고 말했다.
+B>>>
+
+SUMMARY C:
+<<<C
+박원순 서울시장이 26일 서울시청 6층에 꾸린 신종 코로나바이러스 감염증 방역대책반 상황실에서 중국에서 688명의 확진자가 발생했고 15명이 사망자로 사태를 우려했다. 박 시장은 "우한 코로나바이러스가 생각보다 심각하다"며 주의를 당부했고, 중국 현지 의사로 추정되는 인물이 중국 내 감염자가 9만명 이상이며 2차 변이 가능성이 있다고 밝힌 것을 언급했다. 서울시는 국내 확진자 3명 중 서울시 확진자는 1명으로 격리해제를 받은 환자는 6명, 접촉자 능동 감시자는 36명이다. 박 시장은 "감염병은 선제대응이 중요한데, 중국은 선제대응이 못해 초동대응에 실패했다"고 지적했다.
+C>>>
+
+SUMMARY D:
+<<<D
+박원순 서울시장이 26일 서울시청 6층 상황실에서 신종 코로나바이러스 감염증 방역대책반 상황실에서 긴급회의를 열고 중국에서 688명의 확진자가 발생해 사태가 심각하다고 우려했다. 박 시장은 중국 현지 의사 인터뷰에서 감염자가 9만명 이상이며 2차 변이 가능성이 있다고 밝힌 것을 언급하며 선제 긴급 대책을 마련해야 할 필요성을 밝혔다. 박 시장은 지난 24일 총리주재 대책회의에서 발열·기침·가래·우한·후베이 성 지역 확대·중국 그룹 관광 금지·화상 감시 카메라 확대 등을 선제 조치를 요구했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-02158-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

@@ -1,0 +1,67 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-03086-00001
+정몽원(65) 한라회장 겸 대한아이스하키협회 회장이 국제아이스하키연맹(IIHF) 아이스하키 명예의 전당에 헌액된다.
+    IIHF는 5일(한국시간) 홈페이지를 통해 2020년 명예의 전당 헌액자 6명(선수 5명·빌더 1명)을 발표했다.
+  정 회장은 지도자·행정가로서 아이스하키 발전에 공로가 큰 인물을 대상으로 하는 빌더(Builder) 자격으로 명예의 전당에 입성하게 됐다.
+    정 회장은 츠츠미 요시아키, 가와부치 츠토무, 도미다 소이치(이상 일본), 보리스 알렉산드로프(카자흐스탄)에 이어 아시아에서 5번째로 IIHF 명예의 전당에 헌액됐다.
+  정 회장의 IIHF 명예의 전당 헌액 공식 행사는 2020 IIHF 월드챔피언십 대회 마지막 날인 5월 25일 스위스 취리히에서 열린다.
+    IIHF는 정 회장이 변함 없는 의지와 노력, 헌신으로 한국은 물론 아시아리그 아이스하키의 발전에 지대한 공헌을 한 점을 높이 평가해 명예의 전당에 헌액한다고 밝히며, 정 회장이 걸어온 길을 소개했다.
+    특히 ‘한국 아이스하키의 2018년 평창 올림픽 출전은 정 회장의 변함없는 의지가 없었다면 이뤄질 수 없었고, 평창 올림픽에서 ‘평화의 상징’으로 세계적인 관심을 받은 남북 여자 아이스하키 단일팀의 결성과 출전도 정 회장의 비전과 확고한 의지, 헌신이 있었기에 가능했다’고 강조했다.
+   1990년대 중반, 한국남자아이스하키 실업팀인 안양 한라는 캐나다 전지훈련에서 낯선 현지팀과 연습경기에서 1-8 대패를 당했다.
+  알고보니 상대는 캐나다 동네 피자배달원·집배원들이 만든 동호회팀이었다.
+  1996년 한라는 일본 실업팀 오지 제지에 교류전을 요청했다가, 전력차가 너무 크다며 문전박대 당한 적도 있다.
+  한국남자아이스대표팀은 1982년 0-25 참패를 시작으로 34년간 일본전 1무19패에 그쳤다.
+   ‘아이스하키에 미친 사람’ 정 회장이 상전벽해를 이뤄냈다.
+  그는 94년 실업팀 만도 위니아(현 한라)를 창단했고, 97년 외환위기 때도 팀을 지켰다.
+  2003년 일본실업팀에 손을 내밀어 연합리그를 발족시켰고 지금의 아시아리그가 됐다.
+  2013년 대한아이스하키협회장에 취임한 그는 해마다 한라 아이스하키팀에 50~60억원, 협회에 15억원을 출연했다.
+  2008년부터 대표팀 원정경기마다 동행해 선수들이 묵는 3성급 호텔에서 함께 자고, ‘주무’처럼 선수들 물통에 물을 손수 채워넣었다.
+  대회기간 경기를 말아먹을까봐 면(麵)류를 절대 먹지 않는다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+정몽원(65) 한라회장 겸 대한아이스하키협회 회장이 국제아이스하키연맹(IIHF) 아이스하키 명예의 전당에 헌액된다. 정 회장은 츠츠미 요시아키, 가와부치 츠토무, 도미다 소이치(이상 일본), 보리스 알렉산드로프(카자흐스탄)에 이어 아시아에서 5번째로 IIHF 명예의 전당에 헌액됐다. 정 회장은 2018년 평창 올림픽 출전과 남북 여자 아이스하키 단일팀 결성과 출전도 정 회장의 비전과 확고한 의지, 헌신이 있었기에 가능했다고 IIHF는 밝히며 정 회장이 걸어온 길을 소개했다.
+A>>>
+
+SUMMARY B:
+<<<B
+정몽원(65) 한라회장 겸 대한아이스하키협회 회장이 국제아이스하키연맹(IIHF) 아이스하키 명예의 전당에 헌액된다. 정 회장은 츠츠미 요시아키, 가와부치 츠토무, 도미다 소이치, 보리스 알렉산드로프(카자흐스탄)에 이어 아시아에서 5번째로 헌액됐다. 정 회장은 2020 IIHF 월드챔피언십 대회 마지막 날인 5월 25일 스위스 취리히에서 열린다. 정 회장은 94년 만도 위니아 창단, 97년 외환위기 때도 팀을 지켰고 2003년 일본실업팀에 손을 내밀어 연합리그를 발족시켰다.
+B>>>
+
+SUMMARY C:
+<<<C
+정몽원 한라회장 겸 대한아이스하키협회 회장이 국제아이스하키연맹(IIHF) 아이스하키 명예의 전당에 헌액된다. 정 회장은 츠츠미 요시아키, 가와부치 츠토무, 도미다 소이치(이상 일본), 보리스 알렉산드로프(카자흐스탄)에 이어 아시아에서 5번째로 IIHF 명예의 전당에 헌액됐다. 정 회장은 2018년 평창 올림픽 출전은 변함없는 의지가 없었다면 이뤄질 수 없었고, 평창 올림픽에서 '평화의 상징'으로 세계적인 관심을 받은 남북 여자 아이스하키 단일팀의 결성과 출전도 정 회장의 비전과 확고한 의지, 헌신이 있었기에 가능했다고 강조했다.
+C>>>
+
+SUMMARY D:
+<<<D
+정몽원(65) 한라회장 겸 대한아이스하키협회 회장이 국제아이스하키연맹(IIHF) 아이스하키 명예의 전당에 헌액된다. 정 회장은 츠츠미 요시아키, 가와부치 츠토무, 도미다 소이치(이상 일본), 보리스 알렉산드로프(카자흐스탄)에 이어 아시아에서 5번째로 IIHF 명예의 전당에 헌액됐다. 정 회장은 94년 만도 위니아를 창단했고 97년 외환위기 때도 팀을 지켰으며, 2003년 일본실업팀에 손을 내밀어 연합리그를 발족했고 지금의 아시아리그가 됐다. 정 회장은 2013년 대한아이스하키협회장에 취임한 뒤 한라 아이스하키팀에 50~60억원, 협회에 15억원을 출연했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-03086-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

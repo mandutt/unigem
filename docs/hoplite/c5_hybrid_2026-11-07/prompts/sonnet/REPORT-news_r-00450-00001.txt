@@ -1,0 +1,66 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00450-00001
+미국우선주의를 앞세운 트럼프주의(Trumpism·트럼피즘)의 ‘악몽’이 거셈 솔레이마니 이란 혁명수비대 쿠드스군 사령관 제거를 통해 중동 지역에서 현실이 되고 있다.
+  이라크 의회가 5일(현지시간) 미군 철수를 의결한 뒤에도 트럼프 대통령이 돈 타령을 한 게 대표적이다.
+  그는 “이라크에는 엄청나게 비싼, 수십억 달러가 들어간 공군기지가 있다.
+  이라크가 여기 들어간 돈을 내지 않는 이상 떠나지 않는다”고 했다.
+  이라크가 미군을 추방할 경우 강력한 제재를 가하겠다면서다.
+  이란과 국경을 맞대고 있는 이라크가 미국의 대이란 정책에서 핵심적 전략 요충지라는 점은 간과한 발언이었다.
+  솔레이마니 제거로 혹 떼려다 혹 붙인 격이라는 지적도 트럼프 대통령의 이런 중동 정세에 대한 판단력 부족에서 비롯된다.
+  뉴욕타임스(NYT)의 외교·안보 전문 칼럼니스트 토머스 프리드먼은 솔레이마니를 “이란에서 가장 멍청한 자”로 칭하며 공격적 무력 사용으로 이란에 유리한 핵 합의를 미국이 깰 명분을 줬고, 이라크 정치에 지나치게 개입해 오히려 반이란 감정을 부추겼다고 지적했다.
+  그는 “이란에 제대로 된 의회가 있었다면 그는 진작 해임됐을 것”이라며 “하지만 이제 이란에서는 순교자를 추앙하며 성조기를 불태울 것”이라고 했다.
+  이와 관련, 인남식 국립외교원 교수는 “솔레이마니는 정치적 존재감은 높지만 사실 역량으로만 보면 그를 대체할 인물은 이란에 여럿 있다.
+  하지만 미국이 제거함으로써 그는 순교자이자 영웅이 됐고, 미국은 이란을 봉쇄하기 위해 굉장히 중요한 이라크를 잃어버릴 수도 있게 됐다”고 분석했다.
+  또 “흡사 이라크전의 데자뷔인데, 지금은 미 행정부 내에 그때 같은 네오콘 전략가들도 없어 보인다는 게 문제”라고 지적했다.
+  실제 트럼프 대통령이 솔레이마니 제거를 결정한 데는 진언을 할 수 있는 참모 그룹이 없는 점이 주요하게 작용했다는 지적이 나온다.
+  제임스 매티스 전 국방장관, 렉스 틸러슨 전 국무장관, 허버트 맥마스터 전 국가안보보좌관 등 이른바 ‘어른의 축’에 속하는 참모들의 퇴진으로 안전핀이 뽑혔다는 우려가 현실이 된 셈이다.
+  이들은 트럼프 대통령이 경솔한 결정을 하지 않도록 만류하는 역할을 해 외교가에선 ‘저항의 연대’로도 불렸다.
+  2018년 초 트럼프 대통령이 주한미군 가족 소개령을 내리려 할 때 “대북 공격의 신호로 간주될 수 있다”며 적극 반대해 없던 일로 만든 사람이 매티스 전 장관이었다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+트럼프 대통령이 거셈 솔레이마니 이란 혁명수비대 쿠드스군 사령관 제거를 통해 중동 지역에서 현실이 되고 있다. 뉴욕타임스 칼럼니스트 토머스 프리드먼은 솔레이마니를 "이란에서 가장 멍청한 자"로 칭하며 공격적 무력 사용으로 이란에 유리한 핵 합의를 미국이 깰 명분을 줬다고 지적했고, 인남식 국립외교원 교수는 "솔레이마니는 정치적 존재감은 높지만 사실 역량으로만 보면 그를 대체할 인물은 이란에 여럿 있다"고 분석했다. 실제로 트럼프 대통령이 솔레이마니 제거를 결정한 데는 진언을 할 수 있는 참모 그룹이 없는 점이 주요하게 작용했다는 지적이 나온다.
+A>>>
+
+SUMMARY B:
+<<<B
+트럼프주의(Trumpism·트럼피즘)의 악몽이 거스르 솔레이마니 이란 혁명수비대 쿠드스군 사령관 제거를 통해 중동 지역에서 현실이 되고 있다. 뉴욕타임스(NYT)의 외교·안보 전문 칼럼니스트 토머스 프리드먼은 솔레이마니를 "이란에서 가장 멍청한 자"로 칭하며 이란에 유리한 핵 합의를 미국이 깰 명분을 줬고, 이라크 정치에 지나치게 개입해 반이란 감정을 부추겼다고 지적했다. 인남식 국립외교원 교수는 솔레이마니는 정치적 존재감은 높지만 사실 역량으로만 대체할 인물은 이란에 여럿 있다고 분석했다. 제임스 매티스 전 국방장관, 렉스 틸러슨 전 국무장관, 허버트 맥마스터 전 국가안보보좌관 등 이른바 '어른의 축'에 속하는 참모들의 퇴진으로 안전핀이 뽑혔다는 우려가 현실이 된 셈이다.
+B>>>
+
+SUMMARY C:
+<<<C
+트럼프주의의 '악몽'이 거스름 솔레이마니 이란 혁명수비대 쿠드스군 사령관 제거를 통해 중동 지역에서 현실이 되고 있다. 뉴욕타임스는 솔레이마니를 '이란에서 가장 멍청한 자'로 칭하며 공격적 무력 사용으로 핵 합의를 미국이 깰 명분을 줬고 이라크 정치에 지나치게 개입해 반이란 감정을 부추겼다고 지적했다. 인남식 국립외교원 교수는 솔레이마니를 '이란에서 순교자'로 칭하며 미국이 제거함으로써 이라크를 잃어버릴 수도 있다고 분석했다. 제임스 매티스 전 국방장관, 렉스 틸러슨 전 국무장관, 허버트 맥마스터 전 국가안보보좌관 등 '어른의 축'에 속하는 참모들의 퇴진으로 안전핀이 뽑혔다는 우려가 현실이 된 셈이다.
+C>>>
+
+SUMMARY D:
+<<<D
+미국우선주의를 앞세운 트럼프주의(Trumpism)의 '악몽'이 거셈 솔레이마니 이란 혁명수비대 쿠드스군 사령관 제거를 통해 중동 지역에서 현실이 되고 있다. 트럼프 대통령은 5일(현지시간) 미군 철수를 의결한 뒤 돈 타령을 한 게 대표적이며, 그는 수십억 달러가 들어간 공군기지가 있다고 했다. 뉴욕타임스(NYT)의 외교·안보 전문 칼럼니스트 토머스 프리드먼은 솔레이마니를 "이란에서 가장 멍청한 자"로 칭하며 공격적 무력 사용으로 이란에 유리한 핵 합의를 미국이 깰 명분을 줬다고 지적했다. 인남식 국립외교원 교수는 "솔레이마니는 정치적 존재감은 높지만 사실 역량으로만 보면 그를 대체할 인물은 이란에 여럿 있다"고 분석했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00450-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

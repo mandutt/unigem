@@ -1,0 +1,68 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-01518-00001
+엊그제 같은 새해맞이를 뒤로하고 어느새 설 연휴 계획을 세울 때가 됐다.
+   귀성·귀경길과 관련해 서울시는 지하철·버스 막차 연장 등의 설 연휴 특별교통대책을 실시한다고 19일 밝혔다.
+  올해 설날은 오는 25일로 대체공휴일을 포함한 연휴 기간은 24~27일이다.
+  서울시는 서울에 오는 귀경객이 몰릴 25·26일 지하철·버스 막차 시간을 각 이튿날 오전 2시까지 늦추기로 했다.
+  이에 따라 지하철 1~9호선과 우이신설선을 종착역 도착시각 기준 오전 2시까지 운행한다.
+   25·26일 지하철·버스 막차 연장 운행 같은 날 시내버스 역시 주요 기차역과 버스터미널 앞 정류소(차고지 방면) 정차시간을 기준으로 오전 2시까지 연장 운행한다.
+  서울역·용산역·영등포역·청량리역·수서역과 서울고속터미널(센트럴시티)·동서울터미널·남부터미널·상봉터미널을 경유하는 129개 노선이 대상이다.
+  기차역·버스터미널을 2곳 이상 경유하는 노선은 마지막 정류소 정차시간을 기준으로 한다.
+  시는 심야전용 버스인 올빼미버스 9개 노선과 심야전용 택시 3000여 대 역시 연휴 기간 정상 운행할 계획이다.
+   시립묘지 성묘객을 위해 25·26일 용미리(774번), 망우리(201·262·270번) 시립묘지를 경유하는 시내버스 4개 노선도 평일·토요일 수준으로 운행 횟수를 늘린다.
+  시내 5개 터미널을 경유하는 서울 출발 고속‧시외버스도 연휴 기간 중 운행 대수를 하루 평균 562대씩 늘린다.
+  서울시는 “만차 기준 하루 수송 가능 인원이 평소보다 3만7000여 명 늘어난 12만3000명에 달할 전망”이라고 밝혔다.
+    경부고속 버스전용차로 운영시간 확대  평소 오전 7시~오후 9시에 운영되는 경부고속도로 버스전용차로(한남나들목~신탄진나들목)는 설 전날인 23일부터 연휴가 끝나는 27일까지 오전 7시~이튿날 오전 1시까지로 운영시간을 확대한다.
+  고속·시외버스 이용객의 이동을 돕기 위해서다.
+  28일 오전 1시 이후부터는 기존 운영시간과 같게 운영된다.
+  서울시는 “고속도로 버스전용차로를 통행할 수 있는 차량은 9인승 이상 차량이며 12인승 이하 차량은 실제 탑승 인원이 6명 이상일 때만 통행할 수 있다”면서 “적발된 횟수만큼 중복으로 부과되며 한남대교 남단~서울요금소도 단속구간에 포함된다”고 주의를 당부했다.
+  위반 시 과태료는 이륜차 4만원, 승용차 5만원, 승합차 6만원이다.
+   귀성·귀경객은 서울교통정보센터 토피스 누리집(http://topis.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+서울시는 25·26일 지하철·버스 막차 연장 등 설 연휴 특별교통대책을 실시한다. 서울시는 서울역·용산역·영등포역·청량리역·수서역과 서울고속터미널·동서울터미널·남부터미널·상봉터미널을 경유하는 129개 노선이 대상이다. 서울시는 심야전용 버스인 올빼미버스 9개 노선과 심야전용 택시 3000여 대를 정상 운행할 계획이다. 경부고속도로 버스전용차로는 23일부터 27일까지 오전 7시~이튿날 오전 1시까지 운영시간을 확대한다.
+A>>>
+
+SUMMARY B:
+<<<B
+서울시는 25·26일 지하철·버스 막차 연장 등의 설 연휴 특별교통대책을 실시한다. 서울시는 서울역·용산역·영등포역·청량리역·수서역·서울고속터미널·동서울터미널·남부터미널·상봉터미널을 경유하는 129개 노선이 대상이다. 시내버스는 기차역·버스터미널을 2곳 이상 경유하는 노선이 마지막 정류소 정차시간을 기준으로 오전 2시까지 연장 운행한다. 서울시는 25·26일 용미리·망우리 시립묘지 시내버스 4개 노선과 시내 5개 터미널 고속·시외버스 129개 노선도 정상 운행할 계획이다. 경부고속도로 버스전용차로는 23일부터 27일까지 오전 7시~이튿날 오전 1시까지 운영시간을 확대한다.
+B>>>
+
+SUMMARY C:
+<<<C
+서울시는 25·26일 지하철·버스 막차 연장 등의 설 연휴 특별교통대책을 실시한다고 19일 밝혔다. 서울시는 서울역·용산역·영등포역·청량리역·수서역과 서울고속터미널·동서울터미널·남부터미널·상봉터미널을 경유하는 129개 노선이 대상이며, 올빼미버스 9개 노선과 심야전용 택시 3000여 대 역시 연휴 기간 정상 운행할 계획이다. 경부고속도로 버스전용차로는 23일부터 연휴가 끝나는 27일까지 오전 7시~이튿날 오전 1시까지 운영된다.
+C>>>
+
+SUMMARY D:
+<<<D
+서울시는 25·26일 지하철·버스 막차 연장 등 설 연휴 특별교통대책을 실시하며, 올해 설날은 오는 25일로 대체공휴일과 연휴 기간이 24~27일로 변경된다. 서울시는 25·26일 서울역·용산역·영등포역·청량리역·수서역과 서울고속터미널·동서울터미널·남부터미널·상봉터미널을 경유하는 129개 노선이 대상이며, 올빼미버스 9개 노선과 심야전용 택시 3000여 대도 정상 운행할 계획이다. 서울시는 25·26일 용미리(774번), 망우리(201·262·270번) 시립묘지를 경유하는 시내버스 4개 노선도 평일·토요일 수준으로 운행 횟수를 늘리고, 서울 출발 고속‧시외버스도 연휴 기간 중 운행 대수를 하루 평균 562대씩 늘릴 계획이다. 경부고속도로 버스전용차로는 23일부터 27일까지 오전 7시~이튿날 오전 1시까지 운영시간을 확대하며, 28일 오전 1시 이후부터는 기존 운영시간과 같게 운영된다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-01518-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

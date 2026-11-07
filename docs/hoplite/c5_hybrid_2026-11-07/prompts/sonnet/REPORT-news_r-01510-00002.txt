@@ -1,0 +1,78 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-01510-00002
+편두통을 앓는 여성의 75%는 초경·월경·임신·폐경 등과 관련이 있다는 연구도 있다.
+  스트레스를 피하면 두통이 사라진다 심리적 스트레스는 두통을 키운다.
+  매일 두통을 달고 살던 수험생도 시험을 마치면 저절로 증상이 나아지곤 한다.
+  스트레스를 잘 관리하고 정서적 안정을 취하는 것은 두통 치료에 매우 중요하다.
+  하지만 스트레스만 관리한다고 두통이 완전히 사라지는 것은 아니다.
+  불규칙한 식사, 카페인 과다 섭취, 부족한 수면, 목·어깨를 숙이고 앉는 자세 등은 두통 유발·악화 요인이다.
+  의학적 치료를 받았는데도 두통이 심하다면 생활습관을 점검하는 것이 좋다.
+  대표적인 것이 카페인이다.
+  커피·초콜릿·홍차 등에 함유된 카페인은 뇌 표면의 혈관을 수축시킨다.
+  그런데 카페인 효과가 떨어지면 반작용으로 뇌혈관이 확장돼 두통이 생길 수 있다.
+  구토하면 위험한 두통이다 의외로 머리가 아플 때 구토를 하는 사람이 많다.
+  편두통 환자의 80~90%는 구토·구역·메슥거림·체함 같은 소화기 증상을 동반한다.
+  편두통으로 통증이 절정에 달했을 때 구토로 속을 게워 내면 편해진다고 호소하기도 한다.
+  구토한다고 위험한 두통은 아니다.
+  편두통의 전형적인 동반 증상일 뿐이다.
+  머리가 맑지 못하고 머리 뒷부분이 묵직하게 짓누르는 듯한 통증을 겪는 긴장성 두통에서는 구토·구역이 나타나지 않는다.
+  　위험한 두통은 따로 있다.
+  드물지만 뇌종양·뇌염·뇌출혈 등 뇌 질환이 원인으로 작용하는 두통이다.
+  이때의 두통은 뇌에서 보내는 경고 신호다.
+  한두 달 내 두통이 점점 심해지거나, 열이 심하고 의식이 혼미해지는 등 전신 상태의 변화를 동반한다면 위험한 것일 수 있다.
+  새로운 형태의 극심한 두통이 갑자기 시작됐을 때도 주의해야 한다.
+  뇌출혈로 뇌압이 상승하면서 주변 뇌혈관·뇌막을 압박해 망치로 머리를 내리치는 듯한 강렬한 통증이 특징적이다.
+  두통을 참기 어려울 때 약을 복용한다 두통약은 두통이 시작되는 초기에 복용해야 효과적이다.
+  체한 듯 속이 메슥거리거나 빛에 신경이 쓰이면 아프지 않아도 바로 먹는다.
+  일부 환자는 두통약의 부작용을 우려해 아파도 참을 수 있을 때까지 버틴다.
+  이는 어리석은 행동이다.
+  두통이 극심해진 다음에 뒤늦게 약을 먹으면 통증이 빨리 가라앉지 않는다.
+  또 두통이 더 심해진 상태라 이를 진정시키기 위해 추가로 약을 먹으면서 오·남용할 수 있다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+편두통을 앓는 여성의 75%는 초경·월경·임신·폐경 등과 관련이 있다는 연구도 있다. 스트레스만 관리한다고 두통이 사라지는 것은 아니다. 불규칙한 식사, 카페인 과다 섭취, 목·어깨를 숙이고 앉는 자세 등은 두통 유발·악화 요인이다. 편두통 환자의 80~90%는 구토·구역·메슥거림·체함 같은 소화기 증상을 동반한다. 두통을 참기 어려울 때 약을 복용한다.
+A>>>
+
+SUMMARY B:
+<<<B
+편두통을 앓는 여성의 75%는 초경·월경·임신·폐경 등과 관련해 스트레스를 피하면 두통이 사라진다. 편두통 환자의 80~90%는 구토·구역·메슥거림·체함 같은 소화기 증상을 동반하며, 편두통으로 통증이 절정에 달했을 때 구토로 속을 게워 내면 편해진다고 호소한다. 뇌종양·뇌염·뇌출혈 등 뇌 질환이 원인으로 작용하는 두통은 한두 달 내 두통이 점점 심해지거나 열이 심하고 의식이 혼미해지는 등 전신 상태 변화를 동반하면 위험한 것일 수 있다. 두통약은 두통 시작 초기에 복용해야 효과적이며, 편두통 환자의 80~90%는 구토·구역·메슥거림·체함 같은 소화기 증상을 동반한다.
+B>>>
+
+SUMMARY C:
+<<<C
+편두통을 앓는 여성의 75%는 초경·월경·임신·폐경 등과 관련이 있다는 연구도 있다. 심리적 스트레스, 불규칙한 식사, 카페인 과다섭취, 목·어깨를 숙이고 앉는 자세 등은 두통 유발·악화 요인으로, 편두통 환자의 80~90%는 구토·구역·메슥거림·체함 같은 소화기 증상을 동반한다. 편두통 환자의 80~90%는 구토·구역·메슥거림·체함 같은 소화기 증상을 동반하며, 뇌종양·뇌염·뇌출혈 등 뇌 질환이 원인으로 작용하는 두통은 한두 달 내 두통이 점점 심해지거나 열이 심하고 의식이 혼미해지는 등 전신 상태의 변화를 동반하면 위험한 것일 수 있다.
+C>>>
+
+SUMMARY D:
+<<<D
+편두통을 앓는 여성의 75%는 초경·월경·임신·폐경 등과 관련이 있다는 연구도 있다. 심리적 스트레스와 불규칙한 식사, 카페인 과다 섭취, 부족한 수면, 목·어깨를 숙이고 앉는 자세 등은 두통 유발·악화 요인으로, 카페인 효과가 떨어지면 뇌혈관이 확장돼 두통이 생길 수 있다. 편두통 환자의 80~90%는 구토·구역·메슥거림·체함 같은 소화기 증상을 동반한다. 두통약은 두통이 시작되는 초기에 복용해야 효과적이며, 일부 환자는 부작용을 우려해 아파도 참을 수 있을 때까지 버틴다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-01510-00002",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

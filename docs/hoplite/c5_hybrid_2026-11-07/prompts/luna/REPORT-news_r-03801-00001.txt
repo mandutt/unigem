@@ -1,0 +1,70 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-03801-00001
+현대자동차그룹이 모빌리티 사업을 본격화한다.
+  현대차그룹은 마카롱택시를 운영하는 KST모빌리티와 함께 14일부터 커뮤니티형 모빌리티 서비스 ‘셔클’의 시범운영을 시작한다고 13일 밝혔다.
+  시범 운영은 서울 은평뉴타운에서 이뤄진다.
+  은평뉴타운 주민들이 차량을 호출하면 현대차의 승합차 쏠라티(11인승 개조차)가 실시간 생성되는 최적의 경로를 따라 승객들이 원하는 장소에서 태우고 내려주는 수요응답형 서비스다.
+  신규 호출이 발생하면 합승 알고리즘을 통해 실시간으로 경로를 재구성하고, 신규 배차도 이뤄진다.
+  현행 택시발전법상으로는 합승 서비스가 금지돼 있지만, 지난해 11월 현대차와 KST모빌리티의 프로젝트가 과학기술정보통신부의 정보통신기술(ICT) 규제 샌드박스 실증 특례로 지정되면서 셔클의 시범 서비스가 가능해졌다.
+  셔클은 정기적 이동수단이라는 의미의 셔틀과 지역∙모임 등을 뜻하는 서클의 합성어다.
+  쏠라티 6대로 시작하는 시범 서비스는 은평뉴타운 주민 100명을 선정해 3개월간 무료로 운영된다.
+  선정된 주민 1명당 3명의 가족이 함께 이용할 수 있어 최대 400명의 주민이 혜택을 보게 된다.
+  자세한 내용은 셔클 홈페이지(www.
+ shucle.
+ com)에서 확인할 수 있다.
+  이번 사업에 활용된 ‘실시간 최적 경로 설정’ 기술은 현대차그룹의 인공지능 전문 조직인 에어랩(AI 리서치 랩)이 개발했다.
+  인공지능을 기반으로 실시간 발생하는 이동 수요를 분석해 가장 적합한 경로를 찾아주고, 정확한 대기 시간과 도착 시간을 예측해 차량을 효율적으로 배차하는 핵심 기술이다.
+  지정좌석제로 운영 또 모바일 앱과 전체 운영 시스템을 포함한 통합 모빌리티 플랫폼 패키지를 구축해 이번 서비스에 적용했다.
+  사용자가 셔클 앱을 통해 목적지를 입력하면 실시간 수요와 교통 상황을 고려해 최적의 차량이 배차되며, 호출 후에는 앱으로 실시간 차량의 위치와 도착 예정 시간을 확인할 수 있다.
+  지정 좌석제를 도입해 승객의 이용 편의성도 높였다.
+  현대차와 KST모빌리티는 시범 서비스를 통해 축적한 데이터와 노하우를 바탕으로 솔루션을 고도화해 하반기 본 사업을 진행할 계획이다.
+  본 사업에서는 국토교통부, 지방자치단체와 협의를 통해 서비스 지역을 확대해 나갈 예정이다.
+  현대차 측은 셔클 서비스가 활성화되면 지역 내 주민들의 이동이 편리해질 뿐 아니라 불필요한 단거리 승용차 운행을 줄이고, 향후에는 주차난 해소에도 일정 부문 기여할 수 있을 것으로 기대된다고 설명했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+현대차그룹은 14일부터 KST모빌리티와 함께 셔클의 시범운영을 시작한다고 13일 밝혔다. 은평뉴타운에서 이뤄지는 시범 운영은 현대차의 승합차 쏠라티가 실시간 생성되는 최적의 경로를 따라 승객들이 원하는 장소에서 태우고 내려주는 수요응답형 서비스다. 시범 서비스는 은평뉴타운 주민 100명을 선정해 3개월간 무료로 운영된다. 현대차와 KST모빌리티는 시범 서비스를 통해 축적한 데이터와 노하우를 바탕으로 하반기 본 사업을 진행할 계획이다.
+A>>>
+
+SUMMARY B:
+<<<B
+현대자동차그룹이 14일부터 셔클의 시범운영을 시작한다. 은평뉴타운 주민 100명을 선정해 3개월간 무료로 운영되는 셔클은 서울 은평뉴타운에서 이뤄진다. 쏠라티 6대로 시작하는 시범 서비스는 은평뉴타운 주민 100명을 선정해 3개월간 무료로 운영되며, 셔클 홈페이지에서 확인할 수 있다. 실시간 최적 경로 설정 기술은 에어랩이 개발했으며, 지정좌석제로 운영됐다. 현대차와 KST모빌리티는 시범 서비스를 통해 축적한 데이터와 노하우를 바탕으로 하반기 본 사업을 진행할 계획이다.
+B>>>
+
+SUMMARY C:
+<<<C
+현대자동차그룹은 마카롱택시를 운영하는 KST모빌리티와 함께 14일부터 커뮤니티형 모빌리티 서비스 '셔클'의 시범운영을 시작한다고 13일 밝혔다. 은평뉴타운 주민 100명을 선정해 3개월간 무료로 운영되며, 셔클 홈페이지(www.shucle.com)에서 신청자 100명을 대상으로 3개월간 무료로 운영된다. 현대차와 KST모빌리티는 시범 서비스를 통해 축적한 데이터와 노하우를 바탕으로 하반기 본 사업을 진행할 계획이다.
+C>>>
+
+SUMMARY D:
+<<<D
+현대차그룹은 마카롱택시를 운영하는 KST모빌리티와 함께 14일부터 커뮤니티형 모빌리티 서비스 '셔클'의 시범운영을 시작한다고 13일 밝혔다. 은평뉴타운에서 시작하는 시범 서비스는 은평뉴타운 주민 100명을 선정해 3개월간 무료로 운영되며, 선정한 주민 1명당 3명의 가족이 함께 이용할 수 있다. 현대차와 KST모빌리티는 시범 서비스를 통해 축적한 데이터와 노하우를 바탕으로 솔루션을 고도화해 하반기 본 사업을 진행할 계획이다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-03801-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

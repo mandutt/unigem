@@ -1,0 +1,66 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-01237-00001
+미국 재무부가 14일(현지시간) 북한의 해외 노동자 송출에 관여한 북한 기업 등 두 곳을 제재 대상으로 올렸다.
+  재무부 해외자산통제국(OFAC)은 이날 해외 노동력 수출을 금지한 행정명령 13722호 등에 따라 북한 기업 남강무역회사와 중국 베이징 소재 베이징 숙박소 두 곳을 제재한다고 발표했다.
+  재무부는 트위터를 통해서도 즉각 “북한의 노동자 송출을 독려하는 기업들을 제재했다”는 사실을 알렸다.
+  지난해 9월 이후 4개월 만의 제재 부과이자 올해 들어 첫 번째 제재 발표였다.
+  그런데 하필 발표 전날 문재인 대통령이 신년 기자회견을 통해 남북 경협 추진에 강한 의욕을 보이면서 제재 면제 또는 예외를 제안한 터라 미묘한 해석을 낳고 있다.
+  대북 제재 완화를 추진 중인 중국과 러시아는 물론 한국에도 모종의 '경고'를 한 것이 아니냐는 분석이 나오는 이유다.
+    文 “남북경협, 제재 예외 필요” 언급 하루도 안 돼 美 추가 제재 문 대통령은 14일 오전 신년 기자회견을 통해 “대북 제재는 자체가 목표가 아니다”며 “필요한 경우 북한에 대한 제재에 대해 일부 면제나 예외조치를 인정하는 것에 대한 국제적인 지지를 넓힐 수 있을 것”이라고 밝혔다.
+  문 대통령은 7일 신년사에서도 남북 철도ㆍ도로 연결사업과 개성공단· 금강산 관광 재개의 필요성을 언급했다.
+  물론 재무부의 제재 발표는 단순 행정 절차 이행이라고도 볼 수 있다.
+  특히 재무부는 그동안 제재 이행에 있어 국무부와는 별도의 트랙으로 움직여왔다.
+  하지만 정치적 고려를 충분히 할 수 있었는데도 발표 시점을 굳이 이렇게 잡은 배경이 석연치 않다.
+  더구나 이날 오전 미국 샌프란시스코 인근 팰로앨토에서는 한·미 외교장관회담이 예정돼 있었다.
+   실제 이날 한·미 및 한·미·일 외교장관 회담에서 한국과 미국· 일본은 대북 제재와 관련해 시각차를 드러냈다,  강경화 외교장관은 현지에서 기자들과 만나 “북·미와 남북 대화가 선순환해야 한다는 것이 기본 입장이지만 특정 시점에 따라 북·미가 먼저 나갈 수도 있고, 남북이 먼저 나갈 수도 있다”며 올해 남북 경협과 관련해 한국이 주도적으로 움직일 수 있다는 점을 부각했다.
+  강 장관은 또 “남북 간 중요한 합의들이 있고, 제재 문제가 있다면 예외 인정을 받아 할 수 있는 사업들이 있다.
+  이런 것에 대해서 마이크 폼페이오 장관과 의견을 나눴다”고 전했다.
+    반면 미 국무부는 한·미 장관회담 결과자료에서 “대북 문제에 있어 한국과 긴밀한 공조를 재확인했다”는 표현을 썼다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+미국 재무부가 14일(현지시간) 북한의 해외 노동자 송출에 관여한 북한 기업 등 두 곳을 제재 대상으로 올리며, 남강무역회사와 베이징 숙박소 두 곳을 제재했다. 문재인 대통령은 14일 오전 신년 기자회견을 통해 남북 경협 추진에 대한 제재 면제 또는 예외를 제안한 뒤 대북 제재 완화를 언급하며, 한·미·일 외교장관 회담에서 강경화 외교장관과 마이크 폼페이오 장관이 의견을 나눴다. 반면 미 국무부는 한·미 장관회담 결과자료에서 한국과 긴밀한 공조를 재확인했다는 표현을 썼다.
+A>>>
+
+SUMMARY B:
+<<<B
+미국 재무부가 14일(현지시간) 북한의 해외 노동자 송출에 관여한 북한 기업 등 두 곳을 제재 대상으로 올렸다. 재무부는 남강무역회사와 베이징 소재 베이징 숙박소 두 곳을 제재한다고 발표했고, 이는 지난해 9월 이후 4개월 만의 제재 부과이자 올해 들어 첫 제재 발표였다. 문재인 대통령은 14일 오전 신년 기자회견을 통해 대북 제재는 자체가 목표가 아니며 필요하면 북한에 대한 제재에 대해 일부 면제나 예외조치를 인정하는 것에 대한 국제적인 지지를 넓힐 수 있을 것이라고 밝혔다. 재무부는 한·미 장관회담 결과자료에서 대북 문제에 있어 한국과 긴밀한 공조를 재확인했다고 표현했고, 미 국무부는 한·미 장관회담 결과자료에서 대북 문제에 있어 한국과 긴밀한 공조를 재확인했다고 표현했다.
+B>>>
+
+SUMMARY C:
+<<<C
+미국 재무부가 14일 북한의 해외 노동자 송출에 관여한 북한 기업 등 두 곳을 제재 대상으로 올리고 남강무역회사와 베이징 숙박소 두 곳을 제재한다고 발표했다. 재무부는 북한의 노동자 송출을 독려하는 기업들을 제재했다고 트위터에서 즉각 알렸다. 문재인 대통령은 14일 신년 기자회견에서 남북 경협 추진에 대한 제재 면제 또는 예외를 제안한 터라 미묘한 해석이 낳고 있다.
+C>>>
+
+SUMMARY D:
+<<<D
+미국 재무부가 14일 북한의 해외 노동자 송출에 관여한 북한 기업 등 두 곳을 제재 대상으로 올렸다. 재무부는 남강무역회사와 베이징 숙박소 두 곳을 제재한다고 발표했고, 문재인 대통령이 7일 신년사에서도 남북 경협 추진에 대한 언급을 언급했다. 재무부는 트위터에서 즉각 북한 노동자 송출을 독려하는 기업들을 제재했다고 알렸다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-01237-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

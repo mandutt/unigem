@@ -1,0 +1,69 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00942-00001
+서울중앙지검장으로 임명된 이성윤(59ㆍ사법연수원 23기) 법무부 검찰국장이 최근 무더기로 좌천된 검찰 간부들을 조롱하는 문자 메시지를 보냈다는 논란이 일자, 법무부가 “내용이 왜곡됐다”며 해당 문자 메시지를 공개했다.
+   이 국장은 문재인 대통령의 경희대 후배로, 검찰 내 ‘친문 인사’로 꼽힌다.
+  그는 추미애 법무부 장관이 단행한 이번 인사에서 서울중앙지검장에 임명돼 13일 정식 부임한다.
+  이성윤 "늘 감사…덕분에 여기까지 왔다"  12일 법무부는 해당 논란에 대해 “전혀 사실이 아니다”면서도 “이 국장이 인사 발표 전날 대검의 모 간부와 전화통화를 마친 후 문자를 보낸 사실이 있다”며 해당 문자 내용 전체를 공개했다.
+   법무부가 공개한 문자는 지난 8일 인사 발표 전날, 이 국장이 대검 고위 간부인 A검사에게 보낸 것이다.
+  공개된 문자에 따르면 이 국장은 해당 검사에게 “늘 좋은 말씀과 사랑으로 도와주셔서 진심으로 감사드린다”며 “참 어려운 환경속에서도 늘 관심을 주시고 도와주신 덕분에 그래도 그럭저럭 여기까지 왔다고 생각하고 감사하게 생각한다”고 했다.
+  이어 “정말 정말 고맙고 감사하다.
+  늦은 시간이다.
+  평화와 휴식이 있는 복된 시간 되시길 간절히 기도드린다.
+  늘 감사하다”며 문자를 마무리했다.
+  윤석열-추미애 '인사안 신경전' 도중 문자 해당 문자가 오간 시점은 법무부와 대검 측이 고위 간부 인사 협의 문제로 한창 신경전을 벌이고 있던 때다.
+  검찰 측 설명을 종합하면, 이날 오후 윤석열 검찰총장은 추미애 장관과 상견례를 마치고 대검에 돌아온 뒤 법무부 측과 인사안을 보내는 문제로 논쟁을 벌였다.
+   추 장관이 먼저 “내일 아침까지 인사안을 가지고 오라”고 하자 윤 총장이 “법무부에서 인사안을 먼저 만들어 보내는 게 맞다”고 지적하면서다.
+  다음날 검찰인사위원회가 잡혔다는 사실도 밤 늦게 대검에 통보됐다.
+  그런 상황에서 이 국장이 대검 간부인 A검사에게 이런 내용의 문자를 보낸 것이다.
+  다음날 추 장관은 인사안을 보내지 않은 채 인사위 30분 전 윤 총장을 호출했다가, 그가 불응하자 협의 없이 인사를 단행했다.
+  A검사는 중앙일보와의 통화에서 “왜 내 문자가 공개됐는지 모르겠다.
+  당시 시간이 늦은 시간이라 (이 국장이) 문자에서 저런 표현을 쓴 것 같다”고 했다.
+  법무부 "개인 문자 유출? 주광덕, 선 넘었다"  앞서 주광덕 자유한국당 의원은 이날 국회에서 기자회견을 열고 “이 국장이 인사대상이 됐던 검찰 고위간부 여러 명에게 도저히 이해할 수 없는 문자를 보냈다”고 주장했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+서울중앙지검장으로 임명된 이성윤(59·사법연수원 23기) 법무부 검찰국장이 최근 무더기로 좌천된 검찰 간부들을 조롱하는 문자 메시지를 보냈다는 논란이 일자, 법무부가 내용이 왜곡됐다며 공개했다. 이 국장은 지난 8일 인사 발표 전날 대검 고위 간부인 A검사에게 보낸 문자를 공개했으며, 윤석열 검찰총장이 법무부 인사안을 먼저 만들어 보내는 논쟁이 벌어졌고, 추미애 장관은 인사안을 보내지 않은 채 인사위 30분 전 윤 총장을 호출해 협의 없이 인사를 단행했다. 주광덕 자유한국당 의원은 국회 기자회견에서 이 국장이 인사대상이 됐던 검찰 고위간부 여러 명에게 도저히 이해할 수 없는 문자를 보냈다고 주장했다.
+A>>>
+
+SUMMARY B:
+<<<B
+서울중앙지검장으로 임명된 이성윤(59·사법연수원 23기) 법무부 검찰국장이 최근 무더기로 좌천된 검찰 간부들을 조롱하는 문자 메시지를 보냈다는 논란이 일자 법무부가 해당 문자 메시지를 공개했다. 이 국장은 추미애 법무부 장관이 단행한 이번 인사에서 서울중앙지검장에 임명돼 13일 정식 부임한다. 12일 법무부는 이 국장이 인사 발표 전날 대검의 모 간부와 전화통화를 마친 후 문자를 보낸 사실이 아니라고 밝혔다. 주광덕 자유한국당 의원은 이 국장이 인사대상이 됐던 검찰 고위간부 여러 명에게 도저히 이해할 수 없는 문자를 보냈다고 주장했다.
+B>>>
+
+SUMMARY C:
+<<<C
+서울중앙지검장으로 임명된 이성윤 법무부 검찰국장이 최근 무더기로 좌천된 검찰 간부들을 조롱하는 문자 메시지를 보냈다는 논란이 일자 법무부가 "내용이 왜곡됐다"며 해당 문자 메시지를 공개했다. 법무부는 이 국장이 인사 발표 전날 대검의 모 간부와 전화통화를 마친 후 문자를 보낸 사실이 있다고 밝혔다. 검찰 측 설명을 종합하면 이날 오후 윤석열 검찰총장은 법무부 측과 인사안을 보내는 문제로 논쟁을 벌였고, 다음날 검찰인사위원회가 잡혔다는 사실도 밤 늦게 대검에 통보됐다. 주광덕 자유한국당 의원은 이날 국회에서 기자회견을 열고 이 국장이 인사대상이 됐던 검찰 고위간부 여러 명에게 도저히 이해할 수 없는 문자를 보냈다고 주장했다.
+C>>>
+
+SUMMARY D:
+<<<D
+서울중앙지검장으로 임명된 이성윤(59) 법무부 검찰국장이 최근 무더기로 좌천된 검찰 간부들을 조롱하는 문자 메시지를 보냈다는 논란이 일자, 법무부가 "내용이 왜곡됐다"며 해당 문자 메시지를 공개했다. 이성윤은 추미애 법무부 장관이 단행한 이번 인사에서 서울중앙지검장에 임명돼 13일 정식 부임한다. 12일 법무부는 이 국장이 인사 발표 전날 대검의 모 간부와 전화통화를 마친 후 문자를 보낸 사실이 있다고 밝혔다. 주광덕 자유한국당 의원은 이날 국회에서 기자회견을 열고 이 국장이 인사대상이 됐던 검찰 고위간부 여러 명에게 도저히 이해할 수 없는 문자를 보냈다고 주장했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00942-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

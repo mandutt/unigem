@@ -1,0 +1,69 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-01719-00001
+김명수 대법원장이 노태악(58·사법연수원 16기) 서울고법 부장판사를 문재인 대통령에게 임명 제청했다고 20일 밝혔다.
+  3월 4일 임기가 만료되는 조희대(62·사법연수원 13기) 대법관의 후임이다.
+    문 대통령이 제청을 받아들여 국회에 노 후보자에 대한 임명 동의를 요청하면 국회는 인사청문회을 거쳐 본회의에서 인준안을 표결한다.
+  본회의에서 임명동의안이 통과되면 문 대통령은 노 후보자를 새 대법관으로 최종 임명하게 된다.
+  노 부장판사는 경남 창녕 출신으로 대구 계성고등학교와 한양대학교 법대를 졸업했다.
+  역대 남성 대법관 중 첫 한양대 출신이다.
+  1984년 제26회 사법시험에 합격해 1990년 성남지원 판사로 임관한 노 부장판사는 대법원 재판연구관, 대전지법 부장판사, 특허법원 부장판사, 서울중앙지법 형사수석부장판사, 서울북부지법원장 등을 거쳤다.
+  현재는 서울고법 부장판사로 근무 중이다.
+  법원행정처 파견 근무 없이 법관 생활 동안 재판만 해온 판사라는 평가다.
+  박근혜 전 대통령에게 ‘나쁜 사람’으로 지목됐던 노태강 전 문화체육관광부 2차관의 동생이기도 한 노 부장판사는 과거에도 대법관 후보로 오른 적 있다.
+  서울고법의 한 부장판사는 “될 만한 분이 되셨다”며 “온화하고 따뜻한 인격을 가졌다”고 말했다.
+  차분한 성품을 취미인 서예가 증명하듯, 노 부장판사의 집무실은 항상 붓글씨로 가득하다.
+   노 부장판사는 법원 내 알아주는 ‘국제통’이다.
+  한·중국회사법학회 부회장으로서도 활동했다.
+  이런 특기를 살려 외국도산절차 대표자의 법적 지위에 관한 최초의 법리를 설시한 법관으로도 잘 알려져 있다.
+   노 부장판사는 사회적 약자를 배려하고 기본권을 증진하기 위한 법원의 역할에도 오랫동안 관심을 둬왔다고 알려져 있다.
+  뇌출혈이 발병한 경찰관, 혈관육종이라는희귀병으로 사망한 소방관에게 공무상 재해를 인정한 판결도 노 부장판사의 주요 판결로 꼽힌다.
+  그는 “야간 근무 때 고도의 정신적 긴장이 요청되고 높은 스트레스를 유발하는 경찰관의 상병이나, 유독성 물질에 상시 노출돼 발생하는 소방관의 희귀병으로 인한 사망에 관해 공무상 재해와의 인과관계를 전향적으로 판단했다”고 했다.
+   고(故) 이승만 대통령이 친일 행위를 한 것처럼 표현했다며 사자명예훼손 혐의로 기소된 KBS 드라마 〈서울 1945〉의 PD·작가에게 “실존 인물에 의한 역사적 사실보다 가상 인물에 의한 허구의 사실이 더 많은 드라마라는 점이 인정된다”며 무죄를 선고하기도 했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+김명수 대법원장이 노태악(58·사법연수원 16기) 서울고법 부장판사를 문재인 대통령에게 임명 제청했다고 20일 밝혔다. 노 부장판사는 경남 창녕 출신으로 대구 계성고등학교와 한양대학교 법대를 졸업했으며, 1984년 제26회 사법시험 합격해 1990년 성남지원 판사로 임관했다. 노 부장판사는 법원 내 알아주는 '국제통'으로 한·중국회사법학회 부회장으로서 활동했으며, 뇌출혈·혈관육종·희귀병·공무상 재해 인정한 판결도 주요 판결로 꼽힌다.
+A>>>
+
+SUMMARY B:
+<<<B
+김명수 대법원장이 3월 4일 임기가 만료되는 조희대 대법관의 후임으로, 노태악 서울고법 부장판사를 문재인 대통령에게 임명 제청했다고 20일 밝혔다. 노 부장판사는 경남 창녕 출신으로 대구 계성고등학교와 한양대학교 법대를 졸업했으며, 1984년 제26회 사법시험에 합격해 1990년 성남지원 판사로 임관한 노 부장판사는 대법원 재판연구관, 대전지법 부장판사, 특허법원 부장판사, 서울중앙지법 형사수석부장판사, 서울북부지법원장 등을 거쳤다. 노 부장판사는 사회적 약자를 배려하고 기본권을 증진하기 위한 법원의 역할에도 오랫동안 관심을 둬왔다고 알려져 있다.
+B>>>
+
+SUMMARY C:
+<<<C
+김명수 대법원장이 노태악(58·사법연수원 16기) 서울고법 부장판사를 문재인 대통령에게 임명 제청했다고 20일 밝혔다. 노 부장판사는 경남 창녕 출신으로 대구 계성고등학교와 한양대학교 법대를 졸업했으며, 1984년 제26회 사법시험에 합격해 1990년 성남지원 판사로 임관했다. 노 부장판사는 대법원 재판연구관, 대전지법 부장판사, 특허법원 부장판사, 서울중앙지법 형사수석부장판사, 서울북부지법원장 등을 거쳤으며, 외국도산절차 대표자의 법적 지위에 관한 최초의 법리를 설시한 법관으로도 잘 알려져 있다.
+C>>>
+
+SUMMARY D:
+<<<D
+김명수 대법원장이 노태악(58·사법연수원 16기) 서울고법 부장판사를 문재인 대통령에게 임명 제청했다고 20일 밝혔다. 문 대통령이 제청을 받아들여 국회에 노 후보자에 대한 임명 동의 요청하면 인사청문회를 거쳐 본회의에서 인준안을 표결한다. 본회의에서 임명동의안이 통과되면 문 대통령은 노 후보자를 새 대법관으로 최종 임명하게 된다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-01719-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

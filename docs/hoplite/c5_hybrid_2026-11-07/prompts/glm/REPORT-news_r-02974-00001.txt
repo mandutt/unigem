@@ -1,0 +1,71 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-02974-00001
+신종 코로나바이러스 감염증(우한 폐렴) 사태가 장기화할 조짐을 보이며 엄마들의 시름도 깊어지고 있다.
+  맞벌이 가정 '직장맘'이나 전업주부나 고민이 있는 건 마찬가지다.
+   "전쟁이 따로 없다" 애타는 맞벌이  확진자가 나온 경기도 수원·고양·부천시 등은 지난 3일 지역 내 모든 어린이집에 휴원 명령을 내렸다.
+  휴원 기간은 1주일이다.
+  맞벌이나 한부모 가정 등 부득이하게 어린이집 보육이 필요한 아이를 둔 부모들에 대해서는 원아를 등원할 수 있도록 했지만 이 지역 직장맘들은 당황스러운 모습을 보였다.
+  아이를 맡길 곳이 마땅치 않아서다.
+   회원 수 30만명이 넘는 고양시 일산 지역 최대 맘 카페에는 이날 이 같은 소식이 전해진 후 "맞벌이는 어떻게 하느냐" "전쟁이 따로 없다" 등과 같은 직장맘들의 글이 계속 올라왔다.
+   한 직장맘은 이 카페에 올린 글에서 "맞벌이에 딱히 아이 둘을 맡길만한 곳도 없는데 어린이집에 문화센터까지 줄줄이 휴원하니 진짜 막막하다.
+  어린이집에서는 긴급보육을 해준다고 하지만 아직 영아반이라 하원 시간도 이르고 퇴근할 때까지 어째야 할지 모르겠다"고 적었다.
+  또 다른 직장맘은 "우리 아이가 다니는 어린이집은 우리 애 혼자만 나왔다고 한다.
+  내가 뭘 그렇게 잘못했는지 눈물이 멈추지 않는다"고 했다.
+  "긴급보육이 있어도 차량 지원이 안 된다고 한다.
+  이럴 땐 어떡하냐" 등 제도를 지적하는 글도 있었다.
+   아이를 당장 어린이집에 보내지 않아도 되는 방법을 찾은 직장맘들도 걱정을 내려놓지 못했다.
+  한 직장맘은 "휴가를 쓰긴 했는데 언제까지 이럴 수 있을지 모르겠다"고 했다.
+       부모들은 갑작스럽게 휴원 통보를 받았을 경우 어린이집에 긴급보육을 신청할 수 있다.
+  4일 고양시청에 따르면 지난 3일 고양시 전체 어린이집 등원 아동(2만5804명) 가운데 5954명(23%)은 이날 긴급보육 서비스를 받았다.
+  휴원 어린이집 769곳 가운데 711곳이 긴급보육 아동을 돌봤다.
+   "집 안에만 있으니…" 우울한 전업맘휴원 명령이 내려진 지역의 직장맘들만 보육 대란을 겪고 있는 게 아니다.
+  4일 각 지역 맘 카페에는 "미세먼지 때야 실내만 다니면 됐지 신종코로나 사태에는 어떻게 버텨야 하는지 모르겠다" "코로나 때문에 집에만 있고 키즈카페도 못 가고 우울하다.
+  애가 울기만 한다" "예방접종 하러 동네병원을 가도 되겠냐" 등 신종코로나 사태를 우려하는 글들이 다수 발견됐다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+신종 코로나바이러스 감염증(우한 폐렴) 사태가 장기화할 조짐을 보이며 맞벌이 가정 '직장맘'이나 전업주부나 고민이 있는 건 마찬가지다. 경기도 수원·고양·부천시 등은 지난 3일 지역 내 모든 어린이집에 휴원 명령을 내렸지만, 고양시 일산 지역 최대 맘 카페에는 직장맘들의 글이 계속 올라왔다. 4일 고양시청에 따르면 지난 3일 고양시 전체 어린이집 등원 아동(2만5804명) 가운데 5954명(23%)은 이날 긴급보육 서비스를 받았다.
+A>>>
+
+SUMMARY B:
+<<<B
+신종 코로나바이러스 감염증 사태로 맞벌이 가정 직장맘·전업주부·보육 대란이 이어지고 있다. 경기도 수원·고양·부천시 등은 지난 3일 지역 내 모든 어린이집에 휴원 명령을 내렸지만 직장맘들은 아이를 맡길 곳이 마땅치 않아서 당황스러움을 보였다. 고양시청에 따르면 지난 3일 고양시 전체 어린이집 등원 아동(2만5804명) 가운데 5954명(23%)은 이날 긴급보육 서비스를 받았다.
+B>>>
+
+SUMMARY C:
+<<<C
+신종 코로나바이러스 감염증(우한 폐렴) 사태가 장기화할 조짐을 보이며 맞벌이 가정 '직장맘'이나 전업주부나 고민이 있는 건 마찬가지다. 경기도 수원·고양·부천시 등은 지난 3일 지역 내 모든 어린이집에 휴원 명령을 내렸지만 이 지역 직장맘들은 아이를 맡길 곳이 마땅치 않아서다. 고양시 일산 지역 최대 맘 카페에는 직장맘들의 글이 계속 올라왔다.
+C>>>
+
+SUMMARY D:
+<<<D
+신종 코로나바이러스 감염증(우한 폐렴) 사태가 장기화할 조짐을 보이며 맞벌이 가정 '직장맘'이나 전업주부나 고민이 있는 건 마찬가지다. 경기도 수원·고양·부천시 등은 지난 3일 지역 내 모든 어린이집에 휴원 명령을 내렸지만 이 지역 직장맘들은 아이를 맡길 곳이 마땅치 않아서다. 4일 고양시청에 따르면 지난 3일 고양시 전체 어린이집 등원 아동(2만5804명) 가운데 5954명(23%)은 이날 긴급보육 서비스를 받았다. 휴원 어린이집 769곳 가운데 711곳이 긴급보육 아동을 돌봤다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-02974-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

@@ -1,0 +1,76 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00426-00001
+6일(현지시간) 이란 수도 테헤란에서 국장(國葬)으로 치러진 거셈 솔레이마니의 장례식.
+  수십만 명의 인파가 지켜보는 가운데 검정색 차도르를 입은 한 젊은 여성이 침통한 표정으로 연단에 올랐다.
+  마이크 앞에 선 이 여성은 격앙된 목소리로 미리 준비해 온 연설문을 읽어내려 갔다.
+   그는 “중동 내 미국 군인의 가족들은 자녀들의 죽음을 기다리며 남은 날들을 보내게 될 것”이라고 말했다.
+  중동에 주둔한 미군에 대한 보복을 경고한 것이다.
+   저주에 가까운 이런 독설을 퍼부은 이는 이란 군부 실세 솔레이마니의 딸 제납 솔레이마니다.
+  미국의 공습으로 거셈 솔레이마니가 폭살(爆殺) 당한 후 그의 딸 제납이 반미(反美) 보복의 상징처럼 떠오르고 있다.
+  이란 정부와 국민들을 향해 연일 아버지의 “복수”를 호소해서다.
+  이란 언론은 제납의 이런 모습을 부각시키고 있다.
+  제납의 연설을 포함한 장례식은 이란 언론에 생중계됐다.
+   보수적인 이슬람 사회에서 여성이 공개 행사의 연사로 나서는 것은 드문 일이다.
+    제납이 아버지의 사망 이후 언론에 처음 등장한 건 하산 로하니 이란 대통령이 솔레이마니의 유족을 찾아 조문했을 때다.
+  로하니 대통령은 솔레이마니가 폭살당한 이튿날인 4일 유가족을 찾아갔다.
+  이때 제납은 로하니 대통령에게 “누가 우리 아버지의 복수를 하느냐”고 당차게 물어 강렬한 인상을 남겼다.
+  이에 로하니 대통령은 “우리 모두”라고 약속했다.
+     6일 영국 더 선에 따르면 제납의 올해 나이는 28세다.
+  솔레이마니는 슬하에 3남2녀를 뒀다.
+  제납이 몇 번째 자녀인지, 어떤 일을 하는지 등 자세한 정보는 알려지지 않았다.
+    제납의 연설은 도널드 트럼프 미 대통령을 향한 분노를 쏟아내며 절정에 달했다.
+  그는 트럼프를 향해 “미친 트럼프”라고 일갈했다.
+  그러면서 “당신은 국제 시온주의자들(이스라엘을 지칭)의 손에 쥐어진 우둔함의 상징이자 장난감”이라고 말했다.
+  그의 한 마디 한 마디에 수십 만 군중은 환호성을 지르며 호응했다.
+  제납은 연설 중간 중간 검지 손가락을 치켜 세우며 힘주어 말하기도 했다.
+   제납은 자신의 아버지를 폭살한 트럼프의 판단을 깎아내리기도 했다.
+  “아버지와 아부 마흐디(카다이브 헤즈볼라 지도자)를 암살한 사악한 계획은 실패했다”면서 “이라크와 이란을 분리하려는 의도였으나 오히려 미국에 대한 영원한 증오만 키웠다”고 주장했다.
+  이어 미국과 미국의 동맹국 이스라엘을 향해서 “아버지의 죽음이 더 어두운 날들을 가져올 것”이라고 경고했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+6일(현지시간) 이란 수도 테헤란에서 국장으로 치러진 거셈 솔레이마니의 장례식에서 검정색 차도르를 입은 한 젊은 여성이 연단에 올랐다. 이 여성은 연설문을 읽어내려 갔다. 이란 언론은 제납의 연설을 포함한 장례식은 생중계됐다. 제납의 올해 나이는 28세다.
+A>>>
+
+SUMMARY B:
+<<<B
+6일(현지시간) 이란 수도 테헤란에서 거셈 솔레이마니의 장례식에 참석한 한 여성은 격앙된 목소리로 연설문을 읽어내려 갔다. 이란 군부 실세 솔레이마니의 딸 제납 솔레이마니는 이란 언론에 연일 아버지의 복수를 호소하며 장례식에 생중계됐다. 제납의 연설은 도널드 트럼프 미 대통령을 향해 분노를 쏟아내며 절정에 달했고, 제납은 트럼프의 판단을 깎아내리기도 했다. 제납은 트럼프를 향해 "미친 트럼프"라고 일갈하며 "당신은 국제 시온주의자들(이스라엘을 지칭)의 손에 쥐어진 우둔함의 상징이자 장난감"이라고 말했다.
+B>>>
+
+SUMMARY C:
+<<<C
+6일(현지시간) 이란 수도 테헤란에서 국장으로 치러진 거셈 솔레이마니의 장례식에서 제납 솔레이마니의 딸 제납 솔레이마니가 연설문을 읽어내려 갔다. 제납은 미국 공습으로 거셈 솔레이마니가 폭살당한 후 그의 딸 제납이 반미 보복의 상징처럼 떠오르고 있으며, 제납의 연설을 포함한 장례식은 이란 언론에 생중계됐다. 제납의 연설은 도널드 트럼프 미 대통령을 향한 분노를 쏟아내며 절정에 달했고, 제납은 트럼프의 판단을 깎아내리기도 했다.
+C>>>
+
+SUMMARY D:
+<<<D
+거셈 솔레이마니의 딸 제납 솔레이마니가 미국 공습으로 폭살당한 후 이란 언론은 아버지의 복수를 호소하며 연일 아버지의 복수를 호소하고 있다. 제납은 도널드 트럼프 미 대통령을 향해 "미친 트럼프"라고 일갈하며 "당신은 국제 시온주의자들(이스라엘을 지칭)의 손에 쥐어진 우둔함의 상징이자 장난감"이라고 말했다. 제납은 아버지와 아부 마흐디(카다이브 헤즈볼라 지도자)를 암살한 계획을 실패했다며 "이라크와 이란을 분리하려는 의도였으나 오히려 미국에 대한 영원한 증오만 키웠다"고 주장했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00426-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

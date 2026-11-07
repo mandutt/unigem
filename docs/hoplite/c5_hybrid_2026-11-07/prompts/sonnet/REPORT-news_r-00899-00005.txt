@@ -1,0 +1,71 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00899-00005
+각 주도의 중앙 모스크에서 금요예배를 주도하는 이맘(이슬람 예배지도자이자 종교지도자)을 임명하는 권한도 있다.
+  하지만, 임기 8년의 전문가회의 의원이 종신직인 최고지도자를 견제하기란 쉽지 않다.
+  이란에는 국민이 뽑은 의원으로 구성하는 의회(마슈레스)가 존재하지만 이슬람 법학자 6명과 일반 법학자 6명 등 모두 12명으로 이뤄진 감독자평의회가 있어 상원 역할을 한다.
+  이슬람 법학자 6명은 최고지도자가 지명하며 일반 법학자는 대법원장이 지명한 사람 중에서 의회에서 최종 선출한다.
+ 최고지도자 하메네이,혁명수비대 감독관 출신이란의 초대 최고지도자인 호메이니가 1989년 세상을 떠나자 오른팔이던 알리 하메네이가 자리를 이어 지금까지 맡고 있다.
+  하메네이는 어려서 이슬람 종교학교에 다닐 당시 호메이니의 제자였다.
+  그는 혁명 전인 1960년대 이슬람 활동으로 친미 샤(이란 군주) 정부에 체포되기도 했다.
+  샤 정부의 박해를 피해 소련으로 피신했다.
+  1979년 이슬람 혁명이 일어나 팔레비 샤가 해외로 망명하자 오랜 망명생활을 끝내고 프랑스 파리에서 귀국한 호메이니는 제자인 하메네이를 수도 테헤란의 금요예배 이맘에 임명했다.
+  자신의 오른팔로 공인한 셈이다.
+  하메네이는 국방부 장관과 혁명수비대 감독관을 지내는 등 혁명 정부의 핵심으로 활동했다.
+  1981년 폭탄을 이용한 암살 기도에서 가까스로 목숨을 건지기도 했다.
+  그는 그해 대통령 선거에 출마해 95%라는 압도적인 지지로 당선돼 3대 대통령에 올랐다.
+  유권자들이 하메네이가 호메이니의 복심으로 인정했기 때문이다.
+  하메네이는 혁명수비대 감독관과 대통령이라는 세속 권력을 경험하고 최고지도자를 맡고 있다.
+   '혁명 확산보다 민생' 개혁 목소리 어디까지이런 신정체제에서는 군과 공직자는 국민이 아니라 최고지도자에게만 잘 보이면 된다.
+  실제로 이란에서는 혁명 유족이나 참가자를 중심으로 능력이 아닌 낙하산으로 공직을 맡은 사람도 적지 않아 ‘불공정’과 ‘특혜’ 시비를 불러온 것으로 알려졌다.
+  이번 사건을 계기로 이란에서 전근대적인 체제를 개혁해야 한다는 목소리가 나올지 주목된다.
+  이란의 이슬람 혁명은 지난해로 40주년을 맞았다.
+  이란은 그동안 반미와 반서구, 반사우디아라비아를 외치면서 시리아의 알아사드 정부, 레바논의 무장정파 헤즈볼라.
+  예멘의 후티 반군, 팔레스타인의 무장정파 하마스 등을 지원하면서 중동에서 영향력을 키워왔다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+이란의 이슬람 혁명은 지난해로 40주년을 맞았다. 임기 8년 전문가회의 의원이 종신직인 최고지도자를 견제하기 어렵고, 이슬람 법학자 6명과 일반 법학자 6명 등 모두 12명으로 이뤄진 감독자평의회가 상원 역할을 한다. 최고지도자 하메네이, 혁명수비대 감독관 출신 알리 하메네이가 자리를 이어 지금까지 맡고 있으며, 하메네이는 혁명수비대 감독관과 대통령이라는 세속 권력을 경험하고 최고지도자를 맡고 있다. 이란에서는 혁명 유족이나 참가자를 중심으로 낙하산으로 공직을 맡은 사람도 적지 않아 불공정과 특혜 시비를 불러온 것으로 알려졌다.
+A>>>
+
+SUMMARY B:
+<<<B
+이란은 임기 8년 전문가회의 의원이 종신직인 최고지도자를 견제하기 어렵고, 이슬람 법학자 6명과 일반 법학자 6명 등 감독자평의회가 12명으로 구성돼 상원 역할을 한다. 최고지도자 하메네이, 혁명수비대 감독관 출신 알리 하메네이가 자리를 이어 지금까지 맡고 있으며, 하메네이는 혁명수비대 감독관과 대통령이라는 세속 권력을 경험하고 최고지도자를 맡고 있다. 이란에서는 혁명 유족이나 참가자를 중심으로 능력이 아닌 낙하산으로 공직을 맡은 사람도 적지 않아 불공정과 특혜 시비를 불러온 것으로 알려졌다.
+B>>>
+
+SUMMARY C:
+<<<C
+이란의 최고지도자 호메이니가 1989년 세상을 떠나자 오른팔이던 알리 하메네이가 자리를 이어 지금까지 맡고 있으며, 하메네이는 1960년대 친미 샤 정부 체포와 소련 피신 등으로 1979년 팔레비 샤가 해외로 망명하자 프랑스 파리에서 귀국한 후 제자인 하메네이를 수도 테헤란의 금요예배 이맘에 임명했다. 하메네이는 혁명수비대 감독관과 대통령이라는 세속 권력을 경험하고 최고지도자를 맡고 있으며, 1981년 폭탄을 이용한 암살 기도에서 가까스로 목숨 건지기도 했다. 하메네이는 혁명수비대 감독관과 대통령이라는 세속 권력을 경험하고 최고지도자를 맡고 있다.
+C>>>
+
+SUMMARY D:
+<<<D
+각 주도의 중앙 모스크에서 금요예배를 주도하는 이맘을 임명하는 권한이 있지만, 임기 8년 전문가회의 의원이 종신직인 최고지도자를 견제하기란 쉽지 않다. 이란에는 이슬람 법학자 6명과 일반 법학자 6명 등 12명으로 이뤄진 감독자평의회가 있어 상원 역할을 한다. 최고지도자 하메네이는 1989년 세상을 떠나자 오른팔로 공인해지고, 혁명수비대 감독관과 대통령이라는 세속 권력을 경험해 최고지도자를 맡고 있다. 이란에서는 혁명 유족이나 참가자를 중심으로 낙하산으로 공직을 맡은 사람도 적지 않아 불공정과 특혜 시비를 불러온 것으로 알려졌다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00899-00005",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

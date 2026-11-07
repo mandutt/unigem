@@ -1,0 +1,75 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-02169-00001
+미국프로농구(NBA)의 전설적인 스타 코비 브라이언트(41·미국)가 헬리콥터 추락사고로 사망했다.
+  소셜미디어(SNS)에는 그를 기리는 글들이 올라오고 있다.
+  스포츠 스타들도 브라이언트를 추도하고 있다.
+    로이터, AFP통신 등은 27일(한국시간) 미 연예매체 TMZ를 인용해 "브라이언트가 이날 아침 자신의 전용 헬리콥터를 타고 가던 중 캘리포니아주 칼라바사스에서 헬기가 추락하면서 목숨을 잃었다"고 보도했다.
+  칼라바사스는 LA에서 서쪽으로 30마일(48㎞) 떨어져 있다.
+  LA 카운티 보안관실은 사고 직후 트위터를 통해 헬기 사고로 총 5명이 사망했다고 전했다.
+  그러나 사망자가 늘어 탑승자 9명 전원이 사망했다고 전해졌다.
+  보도에 따르면 브라이언트의 13세 둘째 딸 지안나와 지안나의 농구팀 동료와 이 동료의 부모, 오렌지코스트 칼리지 소속 농구 코치와 부코치, 헬기 조종사 등이 탑승하고 있었다.
+       이들은 브라이언트가 캘리포니아 사우전드 오크스에 세운 맘바 스포츠 아카데미로 가려다가 변을 당한 것으로 전해졌다.
+  브라이언트는 이곳에서 딸이 속한 농구팀의 경기를 감독할 예정이었다.
+  브라이언트 아내 바네사는 동승하지 않은 것으로 알려졌다.
+  당시 안개가 낀 것으로 전해진다.
+  신속대응팀은 사고 현장에 출동해 화재를 진화했지만 생존자는 없는 것으로 밝혀졌다.
+  브라이언트는 LA의 악명높은 교통 체증을 피하기 위해 선수 시절부터 헬기를 자주 이용했다.
+   이 소식을 들은 스포츠 용품 브랜드 나이키는 "영원히 기억하겠다"는 글과 함께 그를 기리는 사진을 올렸다.
+  메이저리그 LA 다저스 출신 선수들도 그를 추모하고 있다.
+  2018년부터 지난해까지 다저스에서 뛴 내야수 데이비드 프리스는 SNS에 "그가 누군지 알기 전에 그를 느꼈다.
+  코비는 그런 사람들 중 한 명이었다"며 브라이언트와 함께 찍은 사진을 올렸다.
+   다저스에서 2013년부터 2018년까지 뛴 외야수 야시엘 푸이그도 "이 소식을 믿을 수가 없다.
+  브라이언트는 진짜 삶의 영웅이었다"는 글을 SNS에 올렸다.
+  현재 다저스에서 뛰고 있는 저스틴 터너는 "아무 말도 할 수가 없다.
+  모든 추억에 감사드린다"고 적었다.
+  '수영 황제' 마이클 펠프스도 "너무 힘든 소식을 들었다.
+  (브라이언트 아내) 바네사와 딸들에게 깊은 애도를 표한다"고 전했다.
+  남자 테니스 스타 라파엘 나달은 이날 호주오픈 16강전을 앞뒀지만, 브라이언트 사망 소식을 듣고 SNS에 "세계에서 가장 위대한 스포츠맨의 죽음으로 비극이 일어났다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+미국프로농구(NBA)의 전설적인 스타 코비 브라이언트(41·미국)가 헬리콥터 추락사고로 사망했다. 로이터, AFP통신 등은 27일(한국시간) 미 연예매체 TMZ를 인용해 브라이언트가 이날 아침 자신의 전용 헬리콥터를 타고 칼라바사스에서 헬기가 추락하면서 목숨을 잃었다고 보도했다. LA 카운티 보안관실은 사고 직후 트위터를 통해 헬기 사고로 총 5명이 사망했고, 사망자가 늘어 탑승자 9명 전원이 사망했다고 전해졌다. 스포츠 용품 브랜드 나이키는 그를 기리는 글과 함께 사진을 올렸고, 메이저리그 LA 다저스 출신 선수들도 그를 추모했다.
+A>>>
+
+SUMMARY B:
+<<<B
+코비 브라이언트(41·미국)가 헬리콥터 추락사고로 사망했다. LA 카운티 보안관실은 헬기 사고로 총 5명이 사망했다고 전했고, 탑승자 9명이 전원이 사망했다고 보도됐다. 나이키는 영원히 기억하겠다 글과 함께 사진을 올렸다. 브라이언트는 LA의 교통 체증을 피하기 위해 선수 시절부터 헬기를 자주 이용했다.
+B>>>
+
+SUMMARY C:
+<<<C
+미국프로농구(NBA) 스타 코비 브라이언트가 헬리콥터 추락사고로 사망했다. 브라이언트는 칼라바사스에서 헬기가 추락하면서 목숨을 잃었다. 브라이언트의 13세 둘째 딸 지안나와 지안나의 농구팀 동료와 이 동료의 부모, 오렌지코스트 칼리지 소속 농구 코치와 부코치, 헬기 조종사 등이 탑승하고 있었다. 브라이언트는 캘리포니아 사우전드 오크스에 세운 맘바 스포츠 아카데미로 가려다가 변을 당한 것으로 전해졌다. 나이키는 브라이언트를 기리는 사진을 올렸다.
+C>>>
+
+SUMMARY D:
+<<<D
+미국프로농구(NBA) 스타 코비 브라이언트(41·미국)가 헬리콥터 추락사고로 사망했다. 로이터, AFP통신 등은 27일(한국시간) 미 연예매체 TMZ를 인용해 브라이언트가 이날 아침 자신의 전용 헬리콥터를 타고 가던 중 캘리포니아주 칼라바사스에서 헬기가 추락하면서 목숨을 잃었다고 보도했다. 브라이언트의 13세 둘째 딸 지안나와 농구팀 동료와 오렌지코스트 칼리지 소속 농구 코치와 부코치, 헬기 조종사 등이 탑승하고 있었으며, 브라이언트가 캘리포니아 사우전드 오크스에 세운 맘바 스포츠 아카데미로 가려다가 변을 당한 것으로 전해졌다. 스포츠 용품 브랜드 나이키는 "영원히 기억하겠다"는 글과 함께 그를 기리는 사진을 올렸다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-02169-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

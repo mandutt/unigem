@@ -1,0 +1,74 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00871-00001
+8일(현지시간) 이란에서 추락한 우크라이나 민간항공기를 두고 미국이 격추 가능성을 강하게 제기하는 배경엔 과거의 뼈아픈 경험도 작용하는 것으로 보인다.
+  우크라이나항공(UIA) 소속 PS752편은 8일 새벽 이란이 이웃 이라크에 있는 미군 기지를 향해 미사일을 발사 공격을 벌인 뒤 추락했다.
+  이란은 “기체 결함으로 인해 엔진에 불이 붙었다”며 단순한 추락사고라고 주장하고 있다.
+  그러나 미국은 도널드 트럼프 대통령까지 나서서 9일 기자들에게 “다른 쪽(이란)의 누군가가 실수를 했을 수도 있다”며 “나는 (단순 추락이 아니라는) 의심을 갖고 있다”고 말했다.
+ 캐나다 쥐스탱 트뤼도 총리도 “격추라는 증거가 있다”고 이란을 압박하고 나섰지만 캐나다는 이 사고에 직접적 지분이 있다.
+  전원 사망한 탑승객 중 63명이 캐나다 국적이었다.
+  미국인 승객은 없었다.
+  미국의 보잉사(社)가 제조한 737-800 여객기라는 점을 제외하고 미국이 직접적인 인명 또는 재산 피해를 본 것은 없는 셈이다.
+  그럼에도 미국이 이번 사건이 격추라고 강조하고 나서는 이유는 뭘까.
+   답은 1988년에 있다.
+  미국은 이란과의 관계에서 88년을 잊지 못한다.
+  당시 이란의 민간항공기를 미국 해군 이지스함이 이란의 전투기로 오인해 격추시켰기 때문이다.
+  지난 8일 우크라이나 항공기가 격추된 것이 맞다면, 이번 사고는 미국에게 있어서 미묘한 데자뷔다.
+  민간 항공기가 미사일 격추로 탑승객 전원이 사망했다는 점에서다.
+  단, 가해 주체와 피해 주체가 뒤바뀌었다는 점이 다르다.
+   88년 추락한 이란 항공기의 추억은 공교롭게도 이란이 먼저 소환했다.
+  하산 로하니 이란 대통령이 지난 6일 관련 트윗을 올리면서다.
+  우크라이나 항공기 추락 전 시점이었다.
+  트럼프 대통령이 앞서 “이란이 공격을 할 경우 이란 내 중요한 52곳의 장소를 타격하겠다”고 경고 트윗을 날린데 대한 반격으로 로하니 대통령은 “290을 기억하라”는 내용을 트윗했다.
+  52라는 숫자는 이란이 40년 전 억류했던 미국인 인질 숫자이고, 290은 88년 미국의 이란 항공기 격추로 사망한 이란 국민의 숫자다.
+  로하니 대통령은 이 트윗에 해시태그로 #IR655를 달았다.
+  당시 격추됐던 이란 항공기의 편명이다.
+   당시 이란은 미국에게 “민간 항공기인 줄 알면서도 격추시켰다”며 분노를 표출했다.
+  미국은 “이란의 F-14 전투기로 오인했다”고 해명했지만 290명의 무고한 인명이 희생된 것에 대한 국제사회의 비난 여론은 거셌다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+우크라이나항공 PS752편이 8일 새벽 이란이 이라크 미군 기지를 향해 미사일을 발사 공격을 벌인 뒤 추락했다. 미국은 도널드 트럼프 대통령까지 나서서 9일 기자들에게 "다른 쪽의 누군가가 실수를 했을 수도 있다"며 "나는 의심을 갖고 있다"고 말했다. 캐나다 쥐스탱 트뤼도 총리도 이란을 압박하고 나섰지만 캐나다는 이 사고에 직접적 지분이 없으며, 전원 사망 탑승객 중 63명이 캐나다 국적이었다. 88년 추락한 이란 항공기의 추억은 로하니 이란 대통령이 지난 6일 관련 트윗을 올리면서 공교롭게도 이란이 먼저 소환했다.
+A>>>
+
+SUMMARY B:
+<<<B
+8일(현지시간) 이란에서 추락한 우크라이나 민간항공기를 두고 미국이 격추 가능성을 강하게 제기하는 배경엔 과거의 뼈아픈 경험도 작용하는 것으로 보인다. 우크라이나항공(UIA) 소속 PS752편은 8일 새벽 이란이 이라크 미군 기지를 향해 미사일을 발사 공격을 벌인 뒤 추락했고, 도널드 트럼프 대통령은 9일 기자들에게 "다른 쪽(이란)의 누군가가 실수를 했을 수도 있다"고 말했다. 쥐스탱 트뤼도 총리도 이란을 압박하고 나섰지만 캐나다는 이 사고에 직접적 지분이 없으며, 63명이 캐나다 국적이었고 88년 추락한 이란 항공기의 추억은 88년 이란과의 관계에서 88년을 잊지 못했다. 하산 로하니 이란 대통령은 6일 트윗에 290을 기억하라는 내용을 트윗했고, 290은 88년 추락한 이란 항공기의 숫자이다.
+B>>>
+
+SUMMARY C:
+<<<C
+8일(현지시간) 이란에서 추락한 우크라이나 민간항공기를 두고 미국이 격추 가능성을 강하게 제기하는 배경엔 과거의 뼈아픈 경험도 작용하는 것으로 보인다. 우크라이나항공(UIA) 소속 PS752편은 8일 새벽 이란이 이라크 미군 기지를 향해 미사일을 발사 공격을 벌인 뒤 추락했고, 미국은 도널드 트럼프 대통령까지 나서서 9일 기자들에게 "다른 쪽(이란)의 누군가가 실수를 했을 수도 있다"며 "나는 (단순 추락이 아니라는) 의심을 갖고 있다"고 말했다. 캐나다 쥐스탱 트뤼도 총리도 "격추라는 증거가 있다"고 압박하고 나섰지만 캐나다는 이 사고에 직접적 지분이 없었다.
+C>>>
+
+SUMMARY D:
+<<<D
+8일(현지시간) 이란에서 추락한 우크라이나 민간항공기를 두고 미국이 격추 가능성을 강하게 제기하는 배경엔 과거의 뼈아픈 경험도 작용하는 것으로 보인다. 우크라이나항공(UIA) 소속 PS752편은 8일 새벽 이란이 이라크에 미군 기지를 향해 미사일을 발사 공격을 벌인 뒤 추락했고, 미국은 도널드 트럼프 대통령까지 나서서 9일 기자들에게 "다른 쪽(이란)의 누군가가 실수를 했을 수도 있다"며 "단순 추락이 아니라는 의심을 갖고 있다"고 말했다. 미국은 1988년 당시 이란과의 관계에서 88년을 잊지 못한다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00871-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

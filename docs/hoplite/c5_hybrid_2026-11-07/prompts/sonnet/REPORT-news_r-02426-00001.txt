@@ -1,0 +1,66 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-02426-00001
+금융당국이 삼성‧현대차‧한화 등 6개 금융그룹의 지배구조에 대한 감독을 강화할 전망이다.
+  특히 그룹 차원에서 재무상황과 계열사 간 지분 보유현황 등 지배구조 내역을 공시하는 방안도 거론되고 있다.
+   삼성 등 6개 그룹이 규제 대상29일 오후 서울 중구 은행회관에서 한국금융연구원과 자본시장연구원 주최로 열린 ‘금융그룹감독제도 향후 추진방향’ 세미나에서는 금융그룹감독제도에 대한 이 같은 개선방안이 논의됐다.
+  금융그룹감독제도는 은행(여수신)‧금융투자‧보험 중 2개 이상 업종의 금융회사를 운영하는 자산 5조원 이상의 금융그룹에 대한 관리‧감독 제도다.
+  그룹 내 비금융계열사 부실로 인한 금융계열사의 동반 부실을 복잡한 출자구조 해소 등을 통해 사전에 방지한다는 취지로, 문재인 정부의 100대 국정과제 중 하나로 추진돼왔다.
+  현재 관련 법 제정안이 오랫동안 국회 정무위원회 법안심사소위에 계류하면서, 2018년 6월부터 금융위원회가 ‘우회로’로 관련 모범규준을 마련해 현재 6개 복합금융그룹(삼성‧한화‧현대차‧DB‧미래에셋‧교보생명)에 대해 적용하고 있다.
+  김상조 실장의 전공 분야특히 이날 세미나에는 은성수 금융위원장‧민병두 국회 정무위원장과 더불어 김상조 청와대 정책실장이 이례적으로 참석해 눈길을 끌었다.
+  이날 김 실장은 별도의 축사 없이 맨 앞줄에 앉아 1시간여 동안 필기를 해 가며 세미나를 경청했다.
+  다만 김 실장은 참석이유 등과 관련한 취재진의 질문에는 “오늘 저는 아무 말도 하지 않겠다”며 답변을 피했다.
+  김 실장의 이날 세미나 참석에는 금융그룹감독제도를 통해 삼성 등 대기업집단에 지배구조 개선을 압박하겠다는 청와대 의지가 반영됐다는 분석이 나온다.
+  김 실장은 한성대 교수 시절부터 삼성·한화 등 복합금융그룹 감독체계 도입의 필요성을 주장하는 데 가장 앞장서온 장본인이다.
+  공정거래위원장으로 있을 때도 “기업 소유‧지배구조 변화가 비가역적 구조개혁으로 뿌리 내리기 위해서는 공정거래법‧상법‧금융그룹통합감독법 등 3개 법안이 함께 추진돼야 한다”고 강조해왔다.
+  이날 세미나에서도 금융그룹의 지배구조 개선 문제가 집중적으로 거론됐다.
+  은 위원장은 축사에서 “금융그룹의 재무적 위험뿐만 아니라 지배구조와 같은 비재무적 요인에서 오는 위험도 없는지 세밀하게 살펴보겠다”고 말했다.
+  여당 법제화 추진에 야당 “사회주의적”발제자들도 금융그룹의 지배구조 개선 및 감시 필요성을 강조했다.
+  이재연 금융연구원 선임연구원은 “지배구조 및 위험관리는 금융그룹 손실을 막기 위한 사전관리 조건”이라며 지배구조 개선을 위한 추가 규율체계가 필요하다고 강조했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+금융당국이 삼성·현대차·한화 등 6개 금융그룹의 지배구조에 대한 감독을 강화할 전망이다. 특히 그룹 차원에서 재무상황과 계열사 간 지분 보유현황 등 지배구조 내역을 공시하는 방안도 거론되고 있다. 이날 세미나에는 은성수 금융위원장‧민병두 국회 정무위원장과 김상조 청와대 정책실장이 이례적으로 참석해 눈길을 끌었다. 김상조 실장은 한성대 교수 시절부터 삼성·한화 등 복합금융그룹 감독체계 도입의 필요성을 주장하는 데 가장 앞장서온 장본인이다.
+A>>>
+
+SUMMARY B:
+<<<B
+금융당국이 삼성‧현대차‧한화 등 6개 금융그룹의 지배구조에 대한 감독을 강화할 전망이다. 그룹 차원에서 재무상황과 계열사 간 지분 보유현황 등 지배구조 내역을 공시하는 방안도 거론되고 있다. 김상조 실장의 전공 분야에서 은성수 금융위원장‧민병두 국회 정무위원장과 더불어 김상조 청와대 정책실장이 이례적으로 참석해 눈길을 끌었다. 이재연 금융연구원 선임연구원은 지배구조 및 위험관리는 금융그룹 손실을 막기 위한 사전관리 조건이라며 지배구조 개선을 위한 추가 규율체계가 필요하다고 강조했다.
+B>>>
+
+SUMMARY C:
+<<<C
+금융당국이 삼성·현대차·한화 등 6개 금융그룹의 지배구조에 대한 감독을 강화할 전망이다. 29일 오후 서울 중구 은행회관에서 열린 '금융그룹감독제도 향후 추진방향' 세미나에서는 금융그룹감독제도에 대한 개선방안이 논의됐다. 은성수 금융위원장·민병두 국회 정무위원장과 김상조 청와대 정책실장이 참석해 눈길을 끌었고, 김상조 실장은 축사 없이 맨 앞줄에 앉아 1시간여 동안 필기를 해 가며 경청했다. 은 위원장은 축사에서 지배구조와 같은 비재무적 요인에서 오는 위험도 없는지 세밀하게 살펴보겠다고 말했다. 이재연 금융연구원 선임연구원은 지배구조 및 위험관리는 금융그룹 손실을 막기 위한 사전관리 조건이라며 지배구조 개선을 위한 추가 규율체계가 필요하다고 강조했다.
+C>>>
+
+SUMMARY D:
+<<<D
+금융당국이 삼성·현대차·한화 등 6개 금융그룹의 지배구조에 대한 감독을 강화할 전망이며, 그룹 차원에서 재무상황과 계열사 간 지분 보유현황 등 지배구조 내역을 공시하는 방안도 거론되고 있다. 은성수 금융위원장·민병두 국회 정무위원장과 더불어 김상조 청와대 정책실장이 이례적으로 참석해 눈길을 끌었다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-02426-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

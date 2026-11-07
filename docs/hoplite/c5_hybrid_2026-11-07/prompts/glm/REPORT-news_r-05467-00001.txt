@@ -1,0 +1,67 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-05467-00001
+[더,오래] 이향우의 궁궐 가는 길(12) 근정전 마당은 조정(朝廷)이라 부른다.
+  조정에는 거칠게 떼어낸 돌 박석(薄石)이 바닥 포장재로 깔려있다.
+  근정전의 마당에 깔린 박석은 투박하게 다듬어서 언뜻 보기에도 상당히 울퉁불퉁하고 거친 느낌이다.
+  제대로 마무리를 한 것 같지 않아 보이지만 이 거친 마감마저도 의도된 것으로 볼 수 있다.
+  매끄럽게 다듬질한 석재 표면은 보기에는 깔끔해 보일 지라도 장시간 야외에서 진행하는 행사의 경우 사람들은 햇빛의 반사로 인한 눈부심으로 몹시 지치게 된다.
+  박석의 거친 마감은 이런 자연현상에 대한 과학적인 배려로 빛의 되쏘임 현상을 차단하는 의도라고 볼 수 있다.
+  또한 표면이 거칠어 미끄러운 가죽신을 신은 관리들이 미끄러지지 않게 해주었으며, 비가 오면 자연스럽게 배수가 되도록 눈에 띄지 않는 지표면의 경사를 두고 포장되었다.
+  비오는 날 근정전 마당 박석 위로 쏟아지는 물길을 보면 일제히 북쪽에서 남쪽으로 흘러 양 끝의 수구로 빠지는 것을 볼 수 있다.
+  우리가 그냥 근정전 마당에 들어섰을 때는 지면의 경사를 전혀 느낄 수 없는데 동서 양 행각의 기단을 살펴보았을 때 차이가 확실 해 진다.
+  박석의 자연스러운 형태와 여러 기능들은 자연과의 조화를 추구했던 조선의 건축에 어울리는 훌륭한 부재였다.
+  자연석(화강암)을 거칠게 떠내어 깔아놓은 박석이 지니는 자연스러운 돌 맛이 얼마나 장중하고 아름다운지는 근정전 조정에서만 느껴 볼 수 있다.
+   조선시대 궁궐 공사 때 사용된 석재는 돌의 중량 때문에 가까운 곳에서 채석하려 했다.
+  궁궐 공사 때 사용한 다양한 용도의 석재들은 서울 가까운 곳에서 얻었지만, 바닥에 깔리는 박석은 강화 석모도와 해주에서 채석한 것만 사용하였는데, 특히 강화 석모도 박석은 그 절리가 고르고 반듯해서 많이 사용하였다.
+  1647년(인조 25) 창덕궁 공사 때 사용된 박석은 모두 강화도에서 채석되었고, 18세기 궁궐 공사 때는 창의문 밖이나 남산 아래 인근에서 채석했다고 한다.
+  1906년 경운궁 중건을 비롯해 대한제국 시절에 진행된 궁궐 공사에도 석모도에서 채석한 박석을 사용하였다.
+  박석은 돌의 절리(節理)에서 오는 자연스러운 형태와 바닥재로서의 여러 기능에서 자연과의 조화를 추구했던 조선의 건축에 잘 어울리는 훌륭한 부재였다.
+  옛 사람들이 선택했던 궁궐의 박석이 얼마나 자연친화적이고 아름다운지를 확인하려면 남아있는 본래의 박석과 새로 복구한다고 깔아놓은 현대 박석을 비교해 보면 그 차이가 확연해 진다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+이향우의 궁궐 가는 길에서 거칠게 떼어낸 돌 박석이 바닥 포장재로 깔려있으며, 박석은 자연스러운 돌 맛과 장중한 모습이 근정전 조정에서 느껴진다. 조선시대 궁궐 공사 때 사용된 석재는 돌의 중량 때문에 가까운 곳에서 채석하려 했고, 강화 석모도와 해주에서 채석한 박석은 1647년(인조 25) 창덕궁 공사 때 사용되었고, 18세기 창의문 밖이나 남산 아래 인근에서 사용된 박석은 1906년 경운궁 중건과 대한제국 시절에 진행된 궁궐 공사에도 사용되었다. 옛 사람들이 선택했던 궁궐의 박석이 얼마나 자연친화적이고 아름다운지를 확인하려면 남아있는 본래의 박석과 새로 복구한다고 깔아놓은 현대 박석을 비교해 보면 그 차이가 확연해 진다.
+A>>>
+
+SUMMARY B:
+<<<B
+근정전 마당에 깔린 박석은 거친 마감으로 울퉁불퉁하고 거친 느낌이 들지만, 거친 마감은 자연현상에 과학적인 배려로 빛의 되쏘임 현상을 차단하는 의도라고 볼 수 있다. 조선시대 궁궐 공사 때 사용된 석재는 돌의 중량 때문에 가까운 곳에서 채석하려 했지만 바닥에 깔리는 박석은 강화 석모도와 해주에서 채석한 것만 사용하였고, 1647년(인조 25) 창덕궁 공사 때 사용된 박석은 모두 강화도에서 채석되었고, 1906년 경운궁 중건을 비롯해 대한제국 시절에 진행된 궁궐 공사에도 석모도에서 채석한 박석을 사용하였다. 박석은 돌의 절리에서 오는 자연스러운 형태와 바닥재로서의 여러 기능에서 자연과의 조화를 추구했던 조선의 건축에 어울리는 훌륭한 부재였다.
+B>>>
+
+SUMMARY C:
+<<<C
+조정에는 거칠게 떼어낸 돌 박석이 바닥 포장재로 깔려 있으며, 근정전 마당에는 거칠게 떼어낸 돌 박석이 바닥 포장재로 깔려있다. 박석은 자연스러운 형태와 여러 기능에서 자연과의 조화를 추구했던 조선의 건축에 어울리는 부재였다. 조선시대 궁궐 공사 때 사용된 석재는 돌의 중량 때문에 가까운 곳에서 채석하려 했지만, 강화 석모도와 해주에서 채석한 것만 사용하였고, 1647년(인조 25) 창덕궁 공사 때 사용된 박석은 모두 강화도에서 채석되었고, 18세기 궁궐 공사 때는 창의문 밖이나 남산 아래 인근에서 채석했다고 한다. 박석은 돌의 절리에서 오는 자연스러운 형태와 바닥재로서의 여러 기능에서 자연과의 조화를 추구했던 조선의 건축에 잘 어울리는 부재였다.
+C>>>
+
+SUMMARY D:
+<<<D
+이향우의 궁궐 가는 길(12) 근정전 마당에는 돌 박석이 바닥 포장재로 깔려 있으며, 박석은 강화 석모도와 해주에서 채석한 것만 사용하였고, 1647년(인조 25) 창덕궁 공사 때 사용된 박석은 모두 강화도에서 채석되었고, 18세기 궁궐 공사 때는 창의문 밖이나 남산 아래 인근에서 채석했다고 한다. 박석은 돌의 절리에서 자연스러운 형태와 바닥재로서의 여러 기능에서 자연과의 조화를 추구했던 조선의 건축에 어울리는 훌륭한 부재였다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-05467-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

@@ -1,0 +1,71 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-03906-00001
+“개인적으로는 (신종 코로나 감염증) 확진자가 (한국보다) 유럽에 더 많다.
+  어떻게 유럽에서 오는 사람이 한국인을 잠재적 보균자라고 말할 수 있겠나.
+  (인종)차별이라고 생각할 수 있다는 것 자체를 이해하지 못하겠다.
+ ” 네덜란드 항공사 KLM 항공의 기욤 글래스 한국·일본·뉴칼레도니아 지역본부 사장은 14일 “인종차별이라고 생각하느냐”는 취재진의 질문에 이같이 답했다.
+   최근 한국인 인종차별 논란이 벌어진 데 대해 사과하겠다면서 이날 서울 포시즌스 호텔에서 긴급 기자회견을 자청한 자리에서다.
+  논란의 전말은 이렇다.
+  지난 10일 네덜란드 암스테르담에서 출발해 인천으로 향하는 KL855 항공기에 탑승한 한국인 김모씨는 기내 화장실을 이용하려다 한글로 ‘승무원 전용 화장실’이라고 쓰인 종이가 문에 붙어있는 것을 봤다.
+   김씨가 이 종이를 촬영하자 부사무장이 “기내에서는 사진을 찍을 수 없다”며 사진 삭제를 요구했다.
+  부사무장은 “왜 한글로만 문구가 적혀 있느냐”는 김 씨에게 “잠재적 바이러스 보균자 고객으로부터 (승객들을) 지키기 위해 결정한 사항”이라고 답했다.
+  “기분 나쁘다면 영어로도 써주겠다”라고도 했다.
+   김 씨는 소셜미디어(SNS)에 “2차 감염 가능성이 높은 승무원의 안전을 위해 전용 화장실을 만드는 것은 예방책으로 충분히 이해할 수 있다.
+  하지만 왜 코로나바이러스 예방을 위해 마련된 승무원 전용 화장실을 한국어로만 고지했는지가 중요한 포인트”라고 지적했다.
+    인종차별 재발 방지책이 ‘전용 화장실 금지’KLM 측은 12일 공식 사과문을 냈다.
+  “해당 승무원의 발언이 의도가 있는 것은 아니지만, 승객들이 차별적인 행위로 느낀 것에 대해 매우 죄송하다”는 내용이었다.
+  그런데도 논란이 가라앉지 않자 지역본부 경영진이 긴급 기자회견을 자청한 것이다.
+   하지만 이날 회견에서도 김씨가 지적한 ‘중요한 포인트’에 대해 명확한 해명은 없었다.
+  글래스 사장은 이날 낭독한 사과문에서 “승무원 개인의 실수였지만 결코 가볍지 않은 실수였다”면서 ‘전 세계 KLM 승무원 전용 화장실 금지’를 재발 방지 대책으로 내세웠다.
+  “전용 화장실 운영이 (코로나) 예방 효과가 없다고 판단했기 때문”이라면서다.
+  이날 기자회견의 핵심은 ‘인종차별’이 아닌, ‘승무원 전용 화장실’이 됐다.
+  바로 이에 대한 지적이 나왔다.
+  논란의 핵심은 ‘승무원 전용 화장실’이 아니라 ‘왜 안내문을 한글로만 썼느냐’다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+네덜란드 항공사 KLM 항공의 기욤 글래스 한국·일본·뉴칼레도니아 지역본부 사장은 14일 서울 포시즌스 호텔에서 긴급 기자회견을 자청한 자리에서 한국인 인종차별 논란에 대해 사과하겠다고 밝혔다. 논란은 지난 10일 네덜란드 암스테르담에서 인천으로 향하는 KL855 항공기에 탑승한 김모씨가 기내 화장실을 이용하려 한글로 쓰인 승무원 전용 화장실 종이를 촬영한 뒤 부사무장이 사진을 삭제 요구했다. 글래스 사장은 낭독한 사과문에서 전 세계 KLM 승무원 전용 화장실 금지(전 세계 KLM 승무원 전용 화장실 금지)를 재발 방지 대책으로 내세웠다고 밝혔다. 김씨는 SNS에 전용 화장실을 한국어로만 고지했는지를 지적하며 KLM 측의 사과문에 대해 논란의 핵심은 승무원 전용 화장실이 아니라 승무원 전용 화장실이라고 지적했다.
+A>>>
+
+SUMMARY B:
+<<<B
+네덜란드 항공사 KLM 항공의 기욤 글래스 한국·일본·뉴칼레도니아 지역본부 사장은 14일 서울 포시즌스 호텔에서 긴급 기자회견을 자청하며 한국인 인종차별 논란에 대해 사과하겠다고 밝혔다. 글래스 사장은 지난 10일 네덜란드 암스테르담에서 인천으로 향하는 KL855 항공기에 탑승한 한국인 김모씨가 한글로 쓰인 승무원 전용 화장실 종이를 촬영하자 부사무장이 사진을 삭제 요구했고, 글래스 사장은 전 세계 KLM 승무원 전용 화장실 금지 대책을 재발 방지 대책으로 내세웠다고 밝혔다. 글래스 사장은 승무원 개인의 실수였지만 결코 가볍지 않은 실수였다고 설명했다.
+B>>>
+
+SUMMARY C:
+<<<C
+네덜란드 항공사 KLM 항공의 기욤 글래스 한국·일본·뉴칼레도니아 지역본부 사장은 14일 인천 포시즌스 호텔에서 긴급 기자회견을 자청한 자리에서 한국인 김모씨가 한글로 승무원 전용 화장실이라고 쓰인 종이를 촬영하자 부사무장이 사진을 찍을 수 없다고 요구했다며 사과하겠다고 답했다. 글래스 사장은 12일 공식 사과문을 내며 승무원 개인의 실수였지만 결코 가볍지 않은 실수였다고 설명했다. 김씨는 소셜미디어(SNS)에 승무원 전용 화장실을 한국어로만 고지했는지를 지적하며 승무원 전용 화장실을 재발 방지책으로 내세웠다고 지적했다.
+C>>>
+
+SUMMARY D:
+<<<D
+네덜란드 항공사 KLM 항공의 기욤 글래스 한국·일본·뉴칼레도니아 지역본부 사장은 14일 취재진의 질문에 "인종 차별"이라고 생각할 수 있다는 것 자체를 이해하지 못하겠다고 답했다. 논란은 지난 10일 네덜란드 암스테르담에서 출발해 인천으로 향하는 KL855 항공기에 탑승한 한국인 김모씨가 한글로 '승무원 전용 화장실'이라고 쓰인 종이를 촬영하자 부사무장이 사진을 찍을 수 없다고 요구했고, 김씨는 SNS에 "왜 코로나바이러스 예방을 위해 마련된 승무원 전용 화장실을 한국어로만 고지했는지가 중요한 포인트"라고 지적했다. KLM 측은 12일 공식 사과문을 내고 "해당 승무원의 발언이 의도가 있는 것은 아니지만, 승객들이 차별적인 행위로 느낀 것에 대해 매우 죄송하다"는 내용이었다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-03906-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

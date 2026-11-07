@@ -1,0 +1,66 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00723-00001
+청소년에게 돈을 주고 스스로 나체 동영상 등을 찍게 했다면 이런 행위는 아동ㆍ청소년 보호법(아청법)상 ‘제작’으로 볼 수 있을까.
+  아청법 위반죄로 처벌받게 된 A씨가 아동·청소년음란물 ‘제작’에 관한 부분이 헌법에 위반된다며 헌법소원심판을 냈지만 받아들여지지 않았다.
+  헌법재판관 8명은 전원일치 의견으로 A씨가 낸 헌법소원심판에 대해 합헌 결정을 했다고 9일 밝혔다.
+  A씨는 청소년인 피해자에게 카카오톡으로 접근한 뒤 "68만원을 줄 테니 교복을 입은 사진과 나체 동영상 등을 찍어서 보내라"고 시켰다.
+  피해자는 동영상 6개를 촬영해 카카오톡으로 보냈다.
+  A씨는 아동ㆍ청소년 이용음란물을 제작했다는 혐의로 2017년 기소돼 1심 재판을 받으며 법에서 말하는 ‘제작’이 헌법에 위배된다는 주장을 폈다.
+   아청법 제11조1항은 아동ㆍ청소년 이용음란물을 제작ㆍ수입 또는 수출한 자는 무기징역 또는 5년 이상의 유기징역에 처하도록 정하고 있다.
+   A씨는 이 법조문에 두 가지 문제가 있다고 주장했다.
+  먼저 법에서 말하는 ‘제작’이 적용 범위가 너무 넓고 명확하지 않다고 주장했다.
+  두 번째 주장은 ‘제작’으로 처벌을 하려면 제작에 영리 목적이 있었는지, 아동ㆍ청소년이 몇살인지, 동의는 했는지 등에 따라서 죄질을 달리 평가받아야 한다는 주장이다.
+  제작만 했다고 무기징역 또는 5년 이상 유기징역에 처한다면 너무 과하다는 취지다.
+  A씨는 1심 소송 중 위헌법률심판제청 신청을 냈지만 기각되자 헌법소원심판을 냈다.
+    촬영과 제작 구분 실익 없어, 엄격 규제 필요 헌재는 먼저 "모든 법규범 문언을 순수한 개념으로 구성하는 건 불가능하고, 어느 정도 법관의 보충적 해석을 필요로하는 표현을 사용했다고 하더라도 통상적인 법감정을 가진 사람이 알 수 있을 정도면 죄형법정주의의 명확성에 반하지 않는다"고 전제했다.
+   그러면서 아동ㆍ청소년 이용 음란물에서 촬영과 제작을 명백히 구분할 실익이 없다고 판단했다.
+  헌재는 "지금은 카메라나 컴퓨터 및 통신기기 기술로 단순 촬영한 디지털 영상이 즉시 유포가 가능한 음란물을 만들 수 있다"며 "특별한 사정이 없으면 아동ㆍ청소년 이용음란물이 촬영돼 재생 가능한 형태로 디지털카메라나 스마트폰 주기억장치에 입력되면 하나의 아동ㆍ청소년 이용음란물이 완성된 것으로 볼 수 있다"고 결정문에 썼다.
+   이어 "일단 제작되면 제작자의 의도와 관계없이 언제든 무분별하고 무차별적으로 유통에 제공될 가능성이 있기 때문에 ‘제작’을 엄격히 규제할 필요가 있다"고 봤다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+아동·청소년음란물 제작에 관한 부분이 헌법에 위반된다며 헌법소원심판을 냈지만 받아들여지지 않았다. 헌법재판관 8명은 전원일치 의견으로 A씨가 낸 헌법소원심판에 대해 합헌 결정을 했다고 9일 밝혔다. A씨는 아동·청소년 이용음란물을 제작했다는 혐의로 2017년 기소돼 1심 재판을 받으며 법에서 말하는 '제작'이 헌법에 위배된다는 주장을 폈다. A씨는 1심 소송 중 위헌법률심판제청 신청을 냈지만 기각되자 헌법소원심판을 냈다.
+A>>>
+
+SUMMARY B:
+<<<B
+아동·청소년 보호법(아청법)상 제작이 헌법에 위반된다며 헌법소원심판을 냈지만 받아들여지지 않았던 A씨가 헌법재판관 8명에게 합헌 결정을 9일 밝혔다. A씨는 청소년인 피해자에게 카카오톡으로 접근한 뒤 68만원을 줄 테니 나체 동영상 등을 찍어서 보내라고 시켰고, 피해자는 동영상 6개를 촬영해 카카오톡으로 보냈다. 헌법재판관 8명은 촬영과 제작 구분 실익이 없다고 판단한 헌법소원심판에 대해 엄격히 규제할 필요가 있다고 밝혔다.
+B>>>
+
+SUMMARY C:
+<<<C
+아동·청소년 보호법 제11조1항에 따르면 아동·청소년 이용음란물을 제작한 자는 무기징역 또는 5년 이상 유기징역에 처하도록 정하고 있다. A씨는 아동·청소년 이용음란물 제작에 관한 부분이 헌법에 위반된다며 헌법소원심판을 냈지만 받아들여지지 않았다. 헌법재판관 8명은 전원일치 의견으로 A씨가 낸 헌법소원심판에 대해 합헌 결정을 했다고 9일 밝혔다.
+C>>>
+
+SUMMARY D:
+<<<D
+아동·청소년 보호법(아청법)상 제작이 헌법에 위반된다며 헌법소원심판을 냈지만 받아들여지지 않았다. A씨는 아동·청소년 이용음란물을 제작했다는 혐의로 2017년 기소돼 1심 재판을 받으며 법에서 말하는 '제작'이 헌법에 위배된다는 주장을 폈다. 헌법재판관 8명은 전원일치 의견으로 A씨가 낸 헌법소원심판에 대해 합헌 결정을 했다고 9일 밝혔다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00723-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

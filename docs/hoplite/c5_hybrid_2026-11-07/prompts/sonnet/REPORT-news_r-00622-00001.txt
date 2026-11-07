@@ -1,0 +1,69 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00622-00001
+YG엔터테인먼트가 바닥을 치고 다시 도약할 수 있을까.
+  그룹 빅뱅이 4월 10일과 17일 두 차례 미국 음악축제 ‘코첼라 밸리 뮤직 & 아츠 페스티벌(Coachella Valley Music & Arts Festival)’에 출연한다.
+  비록 정식 탈퇴한 승리가 빠지면서 4인조(탑, 태양, 지드래곤, 대성)로 재편됐지만 탑이 입대한 2017년 이후 3년 만에 사실상 완전체로 활동을 재개하는 셈이다.
+  빅뱅은 그동안 탑, 태양, 지드래곤의 입대와 대성, 승리의 경찰 수사 등으로 오랜 기간 공백기를 가졌다.
+   코첼라 페스티벌은 1999년부터 시작된 미국의 연례 음악 축제 중 하나다.
+  미국 음악잡지 빌보드도 2일 이들의 참여 소식을 전하면서 “빅뱅이 코첼라 페스티벌을 통해 공백기를 끝냈다(BIGBANG Set to End Hiatus with Coachella Announcement)”는 기사를 게재했다.
+  또 빌보드는 “한국 언론은 최근 빅뱅이 지난 몇 년간 여러 멤버들에 대한 강도 높은 수사 때문에 그룹이 유지되지 않을 것이라고 보도했지만 코첼라 측의 발표로 빅뱅의 컴백이 확실해졌다”고 덧붙였다.
+  양현석 전 YG엔터테인먼트 대표 프로듀서도 3일 오후 코첼라 페스티벌의 포스터를 자신의 인스타그램에 올렸다.
+  포스터에 게재된 출연진 중 ‘빅뱅(BIGBANG)’ 부분을 빨간색 네모로 강조했다.
+  양 전 대표가 SNS 활동을 한 것은 지난해 3월 이후 처음이다.
+   YG 측이 긴 침묵을 깨고 활동을 재개한 데는 여러 가지 요인이 복합적으로 작용했다.
+     일단 YG 소속 아티스트 중 가장 큰 팬덤을 가진 빅뱅이 군 복무를 마치면서 탈퇴한 승리 외 멤버들의 활동이 가능해졌다.
+  지난해 7월 사회복무요원이던 탑이 제대했고 이어 10월엔 지드래곤, 11월엔 태양과 대성이 각각 제대했다.
+    무엇보다도 그간 YG를 둘러싼 최대 악재였던 각종 수사가 대부분 마무리되면서 ‘족쇄’가 풀렸다.
+  양 전 대표는 성매매 알선 혐의 등에 연루돼 지난해 6월 대표 프로듀서직에서 사퇴했다.
+  하지만 지난해 11월 검찰은 양 전 대표의 성매매 알선 및 환치기 의혹 등에 대해 무혐의로 결론을 내렸다.
+  또, 자신이 소유한 서울 강남 건물에서 성매매가 알선돼 경찰 수사를 받았던 대성도 무혐의 처리됐다.
+  다만 양 전 대표의 해외 상습 도박 혐의에 대해선 수사가 진행 중이다.
+  설령 양 전 대표의 도박 혐의가 인정되더라도 경범죄에 해당되는만큼 소속 아티스트들의 활동에는 지장이 없을 것이라는 게 가요계의 전망이다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+YG엔터테인먼트가 그룹 빅뱅이 4월 10일과 17일 코첼라 밸리 뮤직 & 아츠 페스티벌(Coachella Valley Music & Arts Festival)에 출연하며 공백기를 끝내고 활동을 재개했다. 양현석 전 YG엔터테인먼트 대표 프로듀서도 3일 코첼라 페스티벌 포스터를 인스타그램에 올리며 빅뱅 멤버들의 활동을 강조했다. 양 전 대표는 지난해 6월 대표 프로듀서직에서 사퇴했고, 대성도 무혐의 처리됐다.
+A>>>
+
+SUMMARY B:
+<<<B
+YG엔터테인먼트 빅뱅이 4월 10일과 17일 두 차례 미국 음악축제 '코첼라 밸리 뮤직 & 아츠 페스티벌'에 출연한다. 빅뱅은 승리가 탈퇴하면서 4인조로 재편됐지만 탑이 입대한 2017년 이후 3년 만에 완전체로 활동을 재개하는 셈이다. 양현석 전 YG엔터테인먼트 대표 프로듀서도 3일 오후 코첼라 페스티벌의 포스터를 자신의 인스타그램에 올렸다. 양 전 대표가 SNS 활동을 한 것은 지난해 3월 이후 처음이다.
+B>>>
+
+SUMMARY C:
+<<<C
+YG엔터테인먼트가 4월 10일과 17일 두 차례 코첼라 밸리 뮤직 & 아츠 페스티벌에 출연한다. 빅뱅은 2017년 이후 3년 만에 사실상 완전체로 활동을 재개했으며, 양현석 전 YG엔터테인먼트 대표 프로듀서도 3일 오후 코첼라 페스티벌의 포스터를 인스타그램에 올리며 빅뱅의 활동을 강조했다. YG 측은 수사 중인 각종 수사가 마무리되면서 활동을 재개했고, 양 전 대표는 성매매 알선 혐의 등에 연루돼 지난해 6월 사퇴했지만 지난해 11월 검찰은 성매매 알선 및 환치기 의혹 등에 대해 무혐의로 결론을 내렸다.
+C>>>
+
+SUMMARY D:
+<<<D
+YG엔터테인먼트가 4월 10일과 17일 두 차례 코첼라 밸리 뮤직 & 아츠 페스티벌에 출연한다. 빅뱅은 승리가 탈퇴하면서 4인조(탑, 태양, 지드래곤, 대성)로 재편됐지만 탑이 입대한 2017년 이후 3년 만에 사실상 완전체로 활동을 재개하는 셈이다. 양현석 전 YG엔터테인먼트 대표 프로듀서도 3일 오후 코첼라 페스티벌의 포스터를 자신의 인스타그램에 올렸다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00622-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

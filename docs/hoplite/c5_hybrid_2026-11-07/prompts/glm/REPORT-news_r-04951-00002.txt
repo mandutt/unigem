@@ -1,0 +1,76 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-04951-00002
+보건당국에 따르면 신천지의 전체 신도는 21만 명 안팎이다.
+  김강립 중앙재난안전대책본부 1총괄조정관(보건복지부 차관)은 “교회 측이 1∼2월 대구교회를 방문한 고위험군 신도 명단을 먼저 제공하고, 전체 신도 명단도 빠른 시간 내에 제공하기로 했다”며 “명단이 확보되는 대로 조사를 시작할 것”이라고 말했다.
+  신천지 관련 확진자는 501명(오전 9시 기준)으로 전체 확진자의 절반이 넘는다.
+  정은경 중앙방역대책본부장(질병관리본부장)은 “현재 감염원의 주된 경로는 대구 신천지교회 관계자들과 신도, 그분들의 접촉자”라며 “이분들이 2·3차 감염을 유발하는 부분이 많다.
+  이에 대한 통제가 방역의 주안점”이라고 설명했다.
+  대구시에선 신천지 교인뿐 아니라 감기 증상을 보이는 시민까지 전수조사하고 있다.
+  김강립 차관은 “2주간 집중적인 진단검사를 통해 혹시 있을 감염자를 적극 찾아내 격리 치료하겠다.
+  앞으로 약 4주 이내 안정적인 상황으로 전환시키는 것이 목표”라고 말했다.
+  장애인 시설 확진자도 잇따랐다.
+  경북 칠곡군 밀알사랑의 집은 확진자가 총 22명이 됐다.
+  23일 첫 확진자(46·장애 1급)가 나온 뒤 이틀동안 장애인 11명, 근로장애인 5명, 종사자 5명이 추가로 확진 판정을 받았다.
+  이곳엔 30명의 중증장애인을 포함해 직원 등 69명이 있다.
+  예천의 중증장애인 시설 극락마을에서도 간호사가 확진 판정을 받았고, 2명은 발열 증상이 있어 검사를 받았다.
+  이 시설에는 거주자 52명과 종사자 36명이 있다.
+  병원 내 감염 우려도 커졌다.
+  서울 은평성모병원 확진자가 1명 추가돼 5명으로 늘어났다.
+  환자와 간병인, 환자의 가족까지 줄줄이 확진됐다.
+  병원 전 직원에겐 대중교통 이용 금지령이 내려졌다.
+  이 병원에선 환자 이송 요원으로 일하던 남성(35)이 지난 21일 첫 확진자로 확인됐다.
+  한편 국제 투자은행인 JP모건은 이날 “한국의 코로나19 상황이 최악으로 가면 최대 1만 명이 감염될 수 있다”고 밝혔다.
+  그러면서 “코로나19 사태의 정점이 3월 20일이 될 것”이라고 예측했다.
+  JP모건은 대구시민의 3%가 바이러스에 노출됐을 것이란 전제로 중국의 사례를 적용해 이 같은 추정치를 냈다.
+  올해 한국의 경제성장률은 2.
+ 3%에서 2.
+ 2%로 하락할 것으로 전망했다.
+    황수연 기자, 부산·안동=황선윤·김정석 기자 ppangshu@joongang.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+보건당국에 따르면 신천지의 전체 신도는 21만 명 안팎이다. 김강립 중앙재난안전대책본부 1총괄조정관은 고위험군 신도 명단을 먼저 제공하고 전체 신도 명단을 빠른 시간 내에 제공하기로 했다며 명단이 확보되는 대로 조사를 시작할 것이라고 말했다. 신천지 관련 확진자는 501명(오전 9시 기준)으로 전체 확진자의 절반이 넘는다. 경북 칠곡군 밀알사랑의 집은 확진자가 총 22명이 됐고, 서울 은평성모병원 확진자는 1명 추가돼 5명으로 늘어났다. JP모건은 올해 한국 경제성장률이 2.3%에서 2.2%로 하락할 것으로 전망했다.
+A>>>
+
+SUMMARY B:
+<<<B
+신천지 관련 확진자는 501명으로 전체 확진자의 절반 이상이며, 김강립 중앙재난안전대책본부 1총괄조정관(보건복지부 차관)은 1∼2월 대구교회를 방문한 고위험군 신도 명단을 먼저 제공하고 전체 신도 명단을 빠른 시간 내 제공하겠다고 말했다. 정은경 중앙방역대책본부장(질병관리본부장)은 대구 신천지교회 관계자들과 신도, 그분들의 접촉자라며 2·3차 감염을 통제하겠다고 설명했다. 대구시에선 신천지 교인뿐 아니라 감기 증상을 보이는 시민까지 전수조사하고 있다. 국제 투자은행인 JP모건은 코로나19 상황이 최악으로 가면 최대 1만 명이 감염될 수 있다고 예측했으며, 대구시민의 3%가 바이러스에 노출됐을 것이란 추정치를 내놨다.
+B>>>
+
+SUMMARY C:
+<<<C
+보건당국에 따르면 신천지의 전체 신도는 21만 명 안팎이다. 김강립 중앙재난안전대책본부 1총괄조정관은 고위험군 신도 명단을 먼저 제공하고 전체 신도 명단을 빠른 시간 내 제공하겠다고 밝혔다. 정은경 중앙방역대책본부장은 대구 신천지교회 관계자들과 신도, 그분들의 접촉자라며 통제가 방역의 주안점을 설명했다. 대구시에선 신천지 교인뿐 아니라 감기 증상을 보이는 시민까지 전수조사하고 있다. 국제 투자은행인 JP모건은 대구시민의 3%가 바이러스에 노출됐을 것이란 전제로 중국의 사례를 적용해 추정치를 내고 올해 한국 경제성장률이 2.3%에서 2.2%로 하락할 것으로 전망했다.
+C>>>
+
+SUMMARY D:
+<<<D
+보건당국에 따르면 신천지의 전체 신도는 21만 명 안팎이다. 김강립 중앙재난안전대책본부 1총괄조정관(보건복지부 차관)은 고위험군 신도 명단을 먼저 제공하고 전체 신도 명단을 빠른 시간 내 제공하기로 했다며 신천지 관련 확진자는 501명으로 전체 확진자의 절반이 넘는다. 정은경 중앙방역대책본부장(질병관리본부장)은 대구 신천지교회 관계자들과 신도, 그분들의 접촉자 통제가 방역의 주안점이라고 설명했다. 장애인 시설 확진자도 잇따랐다. 경북 칠곡군 밀알사랑의 집은 확진자가 총 22명이 됐다. 서울 은평성모병원 확진자가 1명 추가돼 5명으로 늘어났다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-04951-00002",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

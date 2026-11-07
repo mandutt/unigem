@@ -1,0 +1,71 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-04237-00001
+도널드 트럼프 미국 대통령의 측근 윌리엄 바 법무장관에 대한 사퇴 압력이 거세지고 있다.
+  바 장관이 트럼프 대통령의 최측근에 대한 검찰 측의 구형량을 낮춰주면서 사법부의 정치적 독립을 훼손했다는 논란 때문이다.
+   전직 법무부 관리들은 16일(현지시간) 인터넷에 공개 성명서를 내고 바 장관의 사퇴를 촉구했다.
+  이 성명서에 서명한 전직 법무부 관리들 숫자는 하루 만에 1143명에서 2000명으로 늘었다.
+     문제가 된 케이스는 트럼프 대통령의 러시아 스캔들로 기소된 그의 측근 로저 스톤의 재판이다.
+  검찰이 7~9년을 구형하자 트럼프 대통령은 지난 11일 트윗으로 검찰을 정면 비판했다.
+  트럼프 대통령은 “도대체 이 4명의 검사는 누구냐”라며 “(검사들이) 불법 수사에 당한 사람에게 9년이라는 말도 안 되는 형량을 구형하고 황급히 도망갔다”고 적었다.
+   트럼프 대통령이 ‘불법 수사’라고 주장한 것은 러시아 스캔들에 대한 로버트 뮬러 특별검사의 조사다.
+  뮬러 특검은 러시아가 2016년 대선 당시 트럼프 후보에게 유리하게 판을 흔들기 위해 개입했다는 러시아 스캔들을 조사했다.
+  스톤은 이 과정에서 위증 및 증인 매수 등 7개의 혐의를 받았다.
+      트럼프 대통령의 트윗 후 법무부는 “스톤에 대한 구형량을 낮추겠다”라고 전격 발표했다.
+  바 장관은 “트럼프 대통령의 지시는 없었다”고 말했지만, 손바닥으로 하늘을 가리는 격이 됐다.
+     해당 검사 4명은 바로 사직서를 냈다.
+  항의 표시였다.
+  바 장관에 대해선 “트럼프의 하수인”(뉴욕타임스), “트럼프의 장난감”(워싱턴포스트)이라는 비난이 쏟아졌다.
+       당시 트럼프 대통령의 트윗 공격은 검사뿐 아니라 판사에게도 이어졌다.
+  로저 스톤 사건을 담당하기로 예정된 에이미 잭슨 판사에 대해 트럼프 대통령은 “이 판사가 바로 (내 측근인) 폴 매나포트를 독방에 감금했던 그 사람인가”라며 “그 독방에선 조직폭력배 알 카포네도 못 버틸 정도”라고 주장했다.
+     바 장관은 지난 14일 “대통령이 법무부 소관 사건에 대해 트윗을 이젠 그만해야 한다”며 “트윗 때문에 일을 못 할 지경”이라고 폭로했다.
+  생방송 인터뷰에 출연해서다.
+   ‘충복’으로 통하는 바 장관의 이런 언급을 두고 미국 언론은 다양한 해석을 내놓고 있다.
+  바 장관이 견디다 못해 트윗에 대한 나름의 항의를 했다는 해석과 바 장관이 자신도 트럼프에게 할 말은 한다는 인상을 주기 위해 일부러 그런 언급을 했다는 해석 등이다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+도널드 트럼프 미국 대통령의 측근 윌리엄 바 법무장관에 대한 사퇴 압력이 거세지고 있다. 바 장관이 트럼프 대통령의 러시아 스캔들로 기소된 로저 스톤의 재판에서 검찰이 7~9년을 구형하자 사법부의 정치적 독립을 훼손했다는 논란이 제기됐다. 바 장관은 지난 11일 트윗으로 검찰을 정면 비판하며 검사 4명에 사직서를 내고 구형량을 낮추겠다고 발표했지만, 검사 4명은 사직서를 내고 항의 표시를 했다. 바 장관은 지난 14일 법무부 소관 사건에 대해 트윗을 그만해야 한다며 트윗 때문에 일을 못 할 지경이라고 폭로했다.
+A>>>
+
+SUMMARY B:
+<<<B
+도널드 트럼프 미국 대통령의 측근 윌리엄 바 법무장관이 검찰 측의 구형량을 낮춰주면서 사법부의 정치적 독립을 훼손했다는 논란이 거세지고 있다. 전직 법무부 관리들은 16일(현지시간) 인터넷에 공개 성명서를 내고 바 장관의 사퇴를 촉구했다. 트럼프 대통령은 지난 11일 검찰을 정면 비판하며 검찰을 7~9년을 구형하고 도망갔다고 적었다. 로버트 뮬러 특별검사의 조사 과정에서 위증 및 증인 매수 등 7개의 혐의를 받던 스톤은 검찰이 7~9년을 구형하자 법무부는 구형량을 낮추겠다고 전격 발표했다. 바 장관은 트윗에 대한 나름의 항의를 했다고 폭로했다.
+B>>>
+
+SUMMARY C:
+<<<C
+도널드 트럼프 미국 대통령의 측근 윌리엄 바 법무장관이 검찰의 구형량을 낮춰주면서 사법부의 정치적 독립을 훼손했다는 논란이 거세지고 있다. 전직 법무부 관리들은 16일(현지시간) 인터넷에 공개 성명서를 내고 바 장관의 사퇴를 촉구했으며, 이 성명서에 서명한 전직 법무부 관리들 숫자는 하루 만에 1143명에서 2000명으로 늘었다. 트럼프 대통령의 러시아 스캔들로 기소된 로저 스톤의 재판은 검찰의 7~9년을 구형하자 트럼프 대통령은 지난 11일 트윗으로 검찰을 정면 비판했고, 검사 4명은 사직서를 냈고, 바 장관은 트럼프의 하수인, 장난감이라는 비난을 퍼부었다. 미국 언론은 바 장관의 언급을 복잡하게 해석하고 있다.
+C>>>
+
+SUMMARY D:
+<<<D
+도널드 트럼프 미국 대통령의 측근 윌리엄 바 법무장관이 검찰 측의 구형량을 낮춰주면서 사법부의 정치적 독립을 훼손했다는 논란이 거세지고 있다. 전직 법무부 관리들은 16일(현지시간) 인터넷에 공개 성명서를 내고 바 장관의 사퇴를 촉구했으며, 이 성명서에 서명한 전직 법무부 관리들 숫자는 하루 만에 1143명에서 2000명으로 늘었다. 트럼프 대통령의 러시아 스캔들로 기소된 측근 로저 스톤의 재판은 검찰이 7~9년을 구형하자 트럼프 대통령은 지난 11일 트윗으로 검찰을 정면 비판했다. 미국 언론은 바 장관이 견디다 못해 트윗에 대한 나름의 항의를 했다는 해석과 바 장관이 자신도 트럼프에게 할 말은 한다는 인상을 주기 위해 일부러 그런 언급을 했다는 해석 등이다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-04237-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

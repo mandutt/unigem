@@ -1,0 +1,72 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-04608-00001
+22일 코로나 19 확진자로 추가된 20대 여성이 서귀포 시내 곳곳을 돌아다닌 것으로 확인됐다.
+  이에 따라 코로나 19의 지역내 확산이 우려된다.
+  이 여성은 서귀포시 회수동 WE호텔의 '수(水) 치료사' (물속에서 각종 질환을 치료함)다.
+    제주도는 22일 '코로나 19' 양성 반응을 보인 여성 A씨(22)가 “증상을 보인 시점을 전후해 서귀포시내 대형마트와 주점 등을 찾은 것으로 확인됐다”고 밝혔다.
+  A씨는 지난 13일 고향인 대구에 갔다가 16일 오전 아시아나 항공기를 이용해 제주에 돌아왔다.
+  이후 17일 정상 근무를 한 후 18일 휴무를 지냈다.
+  증상이 나타난 건 18일부터다.
+  제주도에 따르면 A씨는 이날부터 두통과 몸살 등의 증상을 보여 해열제를 복용한 것으로 확인됐다.
+    A씨는 지난 17일 오후 10시 서귀포시 중문동의 한 맥주전문점을 찾아 이튿날(18일) 오전 3시20분까지 일행들과 시간을 보냈다.
+  새벽시간 직원 기숙사에 복귀한 A씨는 휴식을 취한 뒤 19일 오후 1시 셔틀버스를 이용해 WE호텔에 출근했다.
+  이후 이날 오후 3시 45분쯤 중문신내과를 찾았고 오후 4시 30분 다시 서귀포 열린병원을 방문했다.
+  하지만 이날 특별한 의심 증상이 없어 귀가했다.
+    A씨는 대형 마트도 찾았다.
+  20일 오후 2시 버스를 이용해 서귀포 이마트에 가 약 30분 가량 체류했다.
+  마트에서는 필요한 물건만 구입한 후 셀프 계산대를 이용했고 마스크를 사용해 밀접 접촉자는 없는 것으로 전해졌다.
+  제주도는 이마트와 주점 등은 임시폐쇄 조치를 했고 방역 소독작업을 하고 있다”고 밝혔다.
+  마트에서 숙소로 돌아온 A씨는 같은날 오후 4시 58분께 편의점 CU 오네뜨점을 찾았다가 복귀했다.
+  해열제를 복용하던 A씨는 발열이 이어지자 21일 낮 버스를 이용해 서귀포 열린병원 선별 진료소를 방문한 뒤 검사를 받았고 양성 반응이 나왔다.
+  제주도 관계자는 “17∼19일 A씨가 들른 음식점에 동행한 일행과 숙소, 호텔 동료 직원들과 셔틀버스 이용객 50여명, 택시기사 2명, 병원 직원 6명 등을 자가격리했다”며 “16일 A씨의 항공편 이용 등 이동 동선에 따른 접촉자도 조사 중”이라고 밝혔다.
+  앞서 전날 현역 해군 장병 B(22)씨가 제주에서 처음으로 코로나19 최종 확진을 받았다.
+  B씨는 지난 13일부터 18일까지 휴가를 받아 고향인 대구를 방문했다.
+  이 해군은 대구에서 와 함께 다녔던 지인이 대구 신천지교회와 관련 있는지 조사 중이다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+제주도는 22일 코로나 19 확진자 A씨(22)가 서귀포시 회수동 WE호텔의 '수(水) 치료사'로 확인됐다고 밝혔다. A씨는 지난 13일 고향인 대구에 갔다가 16일 오전 아시아나 항공기를 이용해 제주에 돌아왔으며, 17일 정상 근무를 한 후 18일 휴무를 지냈다. A씨는 19일 오후 1시 셔틀버스를 이용해 WE호텔에 출근했고, 20일 오후 2시 버스를 이용해 서귀포 이마트에 가 약 30분 가량 체류했다. 제주도는 17∼19일 A씨가 들른 음식점에 동행한 일행과 숙소, 호텔 동료 직원들과 셔틀버스 이용객 50여명, 택시기사 2명, 병원 직원 6명 등을 자가격리했으며, 16일 A씨의 항공편 이용 등 이동 동선에 따른 접촉자도 조사 중이라고 밝혔다.
+A>>>
+
+SUMMARY B:
+<<<B
+제주도는 22일 코로나19 양성 반응을 보인 여성 A씨(22)가 증상을 전후해 서귀포시내 대형마트와 주점 등을 찾은 것으로 확인했다고 밝혔다. A씨는 지난 13일 대구에 갔다가 16일 오전 아시아나 항공기를 이용해 제주에 돌아왔으며, 17일 정상 근무 후 18일 휴무를 지냈고, 19일 오후 1시 셔틀버스를 이용해 WE호텔에 출근했다. A씨는 20일 오후 2시 서귀포 이마트에 가 약 30분 가량 체류했고, 21일 낮 버스를 이용해 서귀포 열린병원 선별 진료소를 방문한 뒤 검사를 받았고 양성 반응이 나왔다. 제주도는 17∼19일 A씨가 음식점에 동행한 일행과 숙소, 호텔 동료 직원들과 셔틀버스 이용객 50여명, 택시기사 2명, 병원 직원 6명 등을 자가격리했다며 16일 A씨의 항공편 이용 등 이동 동선에 따른 접촉자도 조사 중이라고 밝혔다.
+B>>>
+
+SUMMARY C:
+<<<C
+제주도는 22일 코로나 19 양성 반응을 보인 여성 A씨(22)가 서귀포시 회수동 WE호텔의 '수(水) 치료사'로 확인됐다고 밝혔다. A씨는 지난 13일 대구에 갔다가 16일 아시아나 항공기를 이용해 제주에 돌아왔으며, 17일 정상 근무 후 18일 휴무를 지냈고, 19일 오후 1시 셔틀버스를 이용해 WE호텔에 출근했고, 20일 오후 2시 서귀포 이마트에 가 약 30분 가량 체류했다. A씨는 17∼19일 일행과 숙소, 호텔 동료 직원들과 셔틀버스 이용객 50여명, 택시기사 2명, 병원 직원 6명 등을 자가격리했으며, 16일 항공편 이용 등 이동 동선에 따른 접촉자도 조사 중이라고 밝혔다.
+C>>>
+
+SUMMARY D:
+<<<D
+제주도는 22일 코로나19 양성 반응을 보인 여성 A씨(22)가 서귀포시내 대형마트와 주점 등을 찾은 것으로 확인됐다고 밝혔다. A씨는 지난 13일 대구에 갔다가 16일 오전 아시아나 항공기를 이용해 제주에 돌아왔으며, 17일 정상 근무 후 18일 휴무를 지냈다. 제주도는 17∼19일 A씨가 들른 음식점에 동행한 일행과 숙소, 호텔 동료 직원들과 셔틀버스 이용객 50여명, 택시기사 2명, 병원 직원 6명 등을 자가격리했으며 16일 A씨의 항공편 이용 등 이동 동선에 따른 접촉자도 조사 중이라고 밝혔다. 전날 현역 해군 장병 B(22)씨가 제주에서 처음으로 코로나19 최종 확진을 받았다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-04608-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

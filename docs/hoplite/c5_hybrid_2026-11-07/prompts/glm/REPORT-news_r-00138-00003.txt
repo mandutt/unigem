@@ -1,0 +1,63 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00138-00003
+그는 우선 풀어야 할 문제로 “경제사업체계와 질서를 합리적으로 정돈”하고, “오늘에 와서까지 지난 시기의 과도적이며 임시적인 사업방식을 답습할 필요는 없다”고 했다.
+  경제사령부로서의 ‘내각책임제‧중심제’ 강화로 내각의 통일적 지휘 보장, 현실적 요구에 맞게 계획사업 개선해 인민경제계획 신뢰도 제고, 전반적인 경제 기구체계 정비.
+  경제관리개선 사업 강화 및 불필요한 규제 및 비효율 요소들 개선, 국가 상업체계‧사회주의상업 복원, 전문건설역량 확대 및 건설장비 현대화, 현실성 있게 사회주의 기업책임 관리제 실시 등을 해결방도를 제시했다.
+  이 밖에도 공업 및 농업부문 과업도 구체적으로 제시했다.
+    ‘정면돌파 전’(2) : 전략무기 개발 지속으로 정치외교 및 군사적 돌파북한은 ‘무적의 군사력’을 보유하고 계속 강화해 나가는 것을 그들의 국방건설 목표로 설정했다.
+  전략무기개발 사업을 더욱 활발히 추진해 새로운 전략무기를 선보일 것을 천명했다.
+  미국이 적대시 정책을 계속할 경우 ’조선반도의 비핵화‘는 없을 것이며, 항구적이며 공고한 평화체제가 구축될 때까지 전략무기 개발을 계속 진행해 나가겠다는 입장을 밝혔다.
+  그들은 상시로 핵 억제력의 동원태세를 유지할 것이며, 그 폭과 심도는 미국의 태도 변화에 달렸다는 유보적 주장을 펼친 것으로 보아 미국과의 대화 여지도 남겨놓고 있기는 하다.
+  하지만 미국이 자발적으로 그들이 바라는 근본적인 태도 변화를 지켜보기보다는 핵·미사일과 같은 전략무기 개발과 시험을 지속함으로써 압박을 통한 인위적 변화를 미국으로부터 끌어내겠다는 의지를 내비쳤다.
+     지난해 4월 전원회의 이후 북한은 각종 단거리 미사일과 초대형 방사포 시험발사로 미국을 압박했으나, 도널드 트럼프 미국 대통령의 무시로 인해 무위로 끝났다.
+  이제 북한은 미국이 무시할 수 없는 더 강한 대응을 준비할 명분을 찾고자 한다.
+   김정은 위원장은 북한의 “핵시험과 대륙간탄도로케트 시험발사 중지, 핵시험장 폐기 등의 선제적인 중대조치”에도 불구하고 미국은 “합동군사연습, 첨단전쟁장비 반입, 십여 차례 단독 제제조치로 압살하려는 야망에 변함이 없음을 보였다”면서 “이러한 조건에서 대방도 없는 공약에 일방적으로 매여 있을 근거가 없어졌다”며 핵‧미사일 모라토리엄 철회로 새로운 도전을 시사했다.
+  이렇게 볼 때 북한이 그들의 기술개발이 허락하는 대로 대륙간탄도미사일(ICBM) 시험발사, 새로운 유형의 핵실험 준비에 박차를 가하게 될 것으로 판단한다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+북한은 '무적의 군사력'을 보유하고 계속 강화해 나가는 것을 국방건설 목표로 설정했다. 북한은 전원회의 이후 핵·미사일과 같은 전략무기 개발과 시험을 지속해 나가겠다는 입장을 밝혔고, 김정은 위원장은 핵·미사일 모라토리엄 철회로 새로운 도전을 시사했다.
+A>>>
+
+SUMMARY B:
+<<<B
+북한은 전략무기 개발을 지속해 나가겠다는 입장을 밝히며, 미국이 적대시 정책을 계속할 경우 조선반도의 비핵화는 없을 것이라고 주장했다. 김정은 위원장은 북한의 핵시험과 대륙간탄도로케트 시험발사 중지, 핵시험장 폐기 등의 선제적인 중대조치에도 불구하고 미국은 합동군사연습, 첨단전쟁장비 반입, 십여 차례 단독 제제조치로 압살하려는 야망에 변함이 없음을 보였다며 핵‧미사일 모라토리엄 철회로 새로운 도전을 시사했다.
+B>>>
+
+SUMMARY C:
+<<<C
+북한은 경제사업체계와 질서를 합리적으로 정돈하고 과도적 임시사업방식을 답습할 필요가 없다고 밝혔으며, 경제사령부로서의 내각책임제·중심제 강화로 계획사업 개선을, 경제관리개선 사업 강화 및 불필요 규제 및 비효율 요소 개선, 국가 상업체계·사회주의상업 복원, 전문건설역량 확대 및 건설장비 현대화, 사회주의 기업책임 관리제 실시 등을 해결방도를 제시했다. 김정은 위원장은 북한의 핵시험과 대륙간탄도로케트 시험발사 중지, 핵시험장 폐기 등의 선제적인 중대조치에도 불구하고 미국은 합동군사연습, 첨단전쟁장비 반입, 십여 차례 단독 제제조치로 압살하려는 야망에 변함이 없음을 보였다며 핵·미사일 모라토리엄 철회로 새로운 도전을 시사했다.
+C>>>
+
+SUMMARY D:
+<<<D
+북한은 '무적의 군사력'을 보유하고 계속 강화해 나가는 것을 국방건설 목표로 설정했으며, 전략무기개발 사업을 더욱 활발히 추진해 새로운 전략무기를 선보일 것을 천명했다. 김정은 위원장은 북한의 핵시험과 대륙간탄도로케트 시험발사 중지, 핵시험장 폐기 등의 선제적인 중대조치에도 불구하고 미국은 합동군사연습, 첨단전쟁장비 반입, 십여 차례 단독 제제조치로 압살하려는 야망에 변함이 없음을 보였다며 핵‧미사일 모라토리엄 철회로 새로운 도전을 시사했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00138-00003",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

@@ -1,0 +1,66 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00649-00001
+“검찰은 사람을 죽이지 않아도 살인자로 만들 수 있겠구나, 그런 마음을 갖게 됐습니다”  이명박(79) 전 대통령이 8일 오후 열린 항소심 결심 공판에서 결백을 주장했다.
+  오히려 검찰 수사 과정이 부당하다고 언급하며 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다.
+  이 전 대통령은 피고인석에 선 상태로 약 30분가량 미리 준비해온 최후 진술을 읽으며 때로는 재판부에 호소했고, 때로는 검찰을 바라보며 목소리를 높였다.
+  "'내 것 아니다' 주장에 검찰 개입, 전례 없어"이 전 대통령은 수사와 재판 내내 키워드가 됐던 "다스(DASㆍ자동차부품회사)가 누구 것이냐"에 대한 답으로 변론을 시작했다.
+  이 전 대통령은 "이미 검찰 수사와 특검까지 거쳐 결론이 난 사안을 검찰이 다시 들고나와 정반대의 결과를 만들어 냈다"고 말했다.
+  다스 소유권 문제를 말하면서 한 손을 크게 흔드는 제스쳐를 취하기도 했다.
+  그는 "대한민국 건국 이래 소유를 주장해 문제가 되는 것은 봤지만 ‘내 것이 아니다’ 하는 사건에 검찰이 개입하는 것은 상상할 수 없다"며 재판부에 강하게 호소했다.
+   이어 "검찰은 잘 알지도 못하는 사람들을 불러 목적에 짜 맞춘 진술을 끌어냈다"며 검찰을 강도 높게 비판했다.
+  그러면서 "이 재판이 제 개인을 넘어 이 나라의 법치와 민주주의에 미칠지 모르는 악영향이 우려된다"고도 했다.
+  검찰의 구속과 기소가 자신의 대통령 당선 및 통치행위에 대한 정치적 정당성을 부정하려 한다는 주장이다.
+  뇌물 관련 모든 혐의 부인이 전 대통령은 삼성으로부터 뇌물을 받았다는 혐의와 이팔성 전 우리금융 회장으로부터 뇌물을 받았다는 혐의 등도 모두 부인했다.
+  이건희 삼성 회장 사면이 삼성으로부터 뇌물을 받은 대가라는 의심에 대해서는 "삼성 회장을 사면한 것이 아니라 IOC 위원 이건희를 사면한 것"이라고 주장했다.
+   이팔성 전 회장이 이 전 대통령과 단독 면담해 청탁했다는 주장에 대해서는 "다 거짓 진술"이라며 "나는 진실을 이야기하고 있다"고 말했다.
+  국정원으로부터 뇌물을 받았다는 의혹에 대해서도 "공상 같은 일을 이야기한 것"이라고 일축했다.
+  이 전 대통령은 "저 자신의 억울한 옥살이는 참을 수 있지만, 저의 삶과 이명박 정부에 대한 억울한 모독은 참을 수 없다"며 "명백한 정치적 의도에 의한 기소"라고 변론을 마쳤다.
+    검찰 구형은 이 전 대통령의 최후진술에 앞서 검찰은 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+이명박(79) 전 대통령이 8일 오후 열린 항소심 결심 공판에서 검찰 수사 과정이 부당하다고 주장하며 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다. 이명박 전 대통령은 수사와 특검까지 거쳐 결론이 난 사안을 검찰이 다시 들고나와 정반대의 결과를 만들어 냈다고 말했다. 검찰은 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했고, 이팔성 전 우리금융 회장과 이건희 삼성 회장 사면 의심 등도 모두 부인했다.
+A>>>
+
+SUMMARY B:
+<<<B
+이명박(79) 전 대통령이 8일 오후 열린 항소심 결심 공판에서 결백을 주장하며 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다. 이 전 대통령은 수사와 재판 내내 키워드가 됐던 다스 소유권 문제에 대해 검찰이 개입하는 것은 상상할 수 없다며 재판부에 호소했고, 검찰은 잘 알지도 못하는 사람들을 불러 목적에 맞춘 진술을 끌어냈다며 강도 높게 비판했다. 검찰 구형은 이 전 대통령의 최후진술에 앞서 검찰이 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다.
+B>>>
+
+SUMMARY C:
+<<<C
+이명박 전 대통령이 8일 오후 열린 항소심 결심 공판에서 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다. 이 전 대통령은 검찰 수사와 재판 내내 키워드가 됐던 다스(DAS)에 대한 답으로 변론을 시작했고, 다스 소유권 문제를 말하면서 한 손을 크게 흔드는 제스쳐를 취하기도 했다. 전 대통령은 삼성으로부터 뇌물을 받았다는 혐의와 이팔성 전 우리금융 회장으로부터 뇌물을 받았다는 혐의 등도 모두 부인했다. 검찰 구형은 이 전 대통령의 최후진술에 앞서 검찰은 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다.
+C>>>
+
+SUMMARY D:
+<<<D
+이명박(79) 전 대통령이 8일 오후 열린 항소심 결심 공판에서 검찰 수사 과정이 부당하다고 언급하며 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다. 이 전 대통령은 검찰 수사 과정이 부당하다고 언급하며 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다. 검찰은 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00649-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

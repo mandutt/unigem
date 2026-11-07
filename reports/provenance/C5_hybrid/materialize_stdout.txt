@@ -1,0 +1,5 @@
+{
+  "tasks": 150,
+  "outdir": "C:\\code\\unigem\\docs\\hoplite\\c5_hybrid_2026-11-07",
+  "manifest": "C:\\code\\unigem\\reports\\provenance\\C5_hybrid\\tasks.json"
+}

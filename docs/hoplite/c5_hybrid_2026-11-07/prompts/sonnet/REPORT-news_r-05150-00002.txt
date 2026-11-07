@@ -1,0 +1,75 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-05150-00002
+전염병에 대응해 절대다수 국가는 중국의 전염병 대항 조치에 칭찬과 지지를 표시했다.
+  최근 중국 국민의 입국에 검역 강화 등의 조처를 하면서 중국에 이해와 존중을 표시했다.
+  이와 동시에 일련의 국가, 특히 미국은 중국의 전염병에 과격한 반응을 내놓고 과도한 조처를 했다.
+  세계보건기구의 건의와 분명히 배치된다.
+ 미국 정부는 지금까지 중국에 어떤 실질적 도움도 주지 않고 있다.
+  도리어 처음으로 우한(武漢)에서 영사 인원을 철수했다.
+  처음으로 중국 국민의 입국을 전면적으로 제한하는 조치를 선포했다.
+  끊임없이 공포를 제조하고 확산하며 나쁜 사례를 퍼뜨리고 있다.
+  미국 언론과 전문가는 모두 미국 정부의 조치에 의문을 표시하며 “미국 정부가 중국에 취한 제한 조치는 세계보건기구와 배치된다.
+  미국은 지금 과도한 자신감을 공포와 과잉대응으로 바꾸고 있다.
+  지난 14일간 중국을 여행한 외국인 입국 금지 등 조치는 시민권 침해 혐의가 있다.
+  또 진정으로 바이러스가 확산하는 리스크를 낮출 수 없다.
+ ” 실제 미국 질병통제센터(CDC)는 최근 보고에서 미국은 2019~2020년 독감으로 이미 1900만 명이 감염됐고 적어도 1만명이 사망했다.
+  2월 2일까지 중국에서 신종 코로나바이러스 폐렴 확진자는 1만7205명, 사망, 361명, 치유 475건이다.
+  미국에는 단지 11건의 확진자만 발생했다.
+  이 숫자의 대비는 깊이 생각하게 한다.
+  캐나다 보건부장은 명확하게 캐나다는 미국을 따라 중국인 및 과거 중국을 경유한 외국인 입국을 막지 않겠다며 입국 금지는 근거가 없고 불합리적이라고 밝혔다.
+  이는 미국의 행위와 선명하게 대비된다.
+ 우리는 관련 국가가 이성, 냉정, 과학적 판단으로 대응하길 희망한다.
+  중국은 계속해서 공개, 투명, 고도로 책임지는 태도로 세계보건기구와 국제사회와 협력을 계속하길 희망한다.
+  우리는 가능한 한 빨리 이 전쟁에서 승리할 믿음과 능력을 갖추고 있다.
+  ”이날 화 대변인의 또 다른 발언은 중국 네티즌의 분노를 초래했다.
+  미국 NBC 기자에게 한 “1월 3일부터 모두 30차례 미국에 전염병 정보와 방역 조치를 통보했다”는 발언이다.
+  중국 당국은 1월 20일 시진핑(習近平) 주석의 지시 전까지 “사람 대 사람 감염은 없고, 코로나19를 통제할 수 있다”며 허위 보도로 일관했다.
+  네티즌들은 “화 대변인의 발언은 자국민과 미국에 서로 다른 이야기를 했음을 실토한 것”이라고 비난했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+중국 전염병 대항 조치에 칭찬과 지지를 표하고, 중국 국민의 입국에 검역 강화 등의 조처를 하면서 중국에 이해와 존중을 표시했다. 미국은 중국의 전염병에 과격한 반응을 내놓고 과도한 조처를 했으며, 우한에서 영사 인원을 철수하고 중국 국민의 입국을 전면적으로 제한하는 조치를 선포했다. 미국 질병통제센터(CDC)는 2019~2020년 독감으로 이미 1900만 명이 감염됐고 적어도 1만명이 사망했으며, 2월 2일까지 중국에서 신종 코로나바이러스 폐렴 확진자는 1만7205명, 사망, 361명, 치유 475건이다. 캐나다 보건부장은 입국 금지는 근거가 없고 불합리적이라고 밝혔고, 화 대변인은 미국 NBC 기자에게 한 1월 3일부터 모두 30차례 미국에 전염병 정보와 방역 조치를 통보했다는 발언을 중국 네티즌의 분노로 비난했다.
+A>>>
+
+SUMMARY B:
+<<<B
+중국은 최근 중국 국민 입국 검역 강화 등 조처를 하면서 중국에 이해와 존중을 표시했고, 특히 미국은 중국 전염병에 과격한 반응을 내놓고 과도한 조처를 했다. 미국은 도리어 우한에서 영사 인원을 철수했고, 중국 국민 입국을 전면적으로 제한하는 조치를 선포했다. 미국 질병통제센터(CDC)는 최근 보고에서 미국은 2019~2020년 독감으로 이미 1900만 명이 감염됐고 적어도 1만명이 사망했다. 캐나다 보건부장은 미국을 따라 중국인 및 과거 중국을 경유한 외국인 입국을 막지 않겠다며 입국 금지는 근거가 없고 불합리적이라고 밝혔다.
+B>>>
+
+SUMMARY C:
+<<<C
+중국은 중국 국민의 입국 검역 강화 조처와 중국의 전염병 대응을 칭찬하고 지지를 표했다. 미국은 중국의 전염병에 과격한 반응을 내놓고 과도한 조처를 했으며, 우한에서 영사 인원을 철수한 뒤 중국 국민 입국을 전면 제한하는 조치를 선포했다. 미국 질병통제센터(CDC)는 2월 2일까지 중국에서 신종 코로나바이러스 폐렴 확진자가 1만7205명, 사망 361명, 치유 475건을 기록했다. 캐나다 보건부장은 미국을 따라 중국인 및 과거 중국을 경유한 외국인 입국을 막지 않겠다며 입국 금지는 근거가 없고 불합리적이라고 밝혔다.
+C>>>
+
+SUMMARY D:
+<<<D
+중국은 전염병 대항 조치에 칭찬과 지지를 표시하며, 중국 국민의 입국 검역 강화 등의 조처를 시작으로 중국에 이해와 존중을 표시했다. 미국은 중국의 전염병에 과격한 반응을 내놓고 과도한 조처를 했다. 실제 미국 질병통제센터(CDC)는 2019~2020년 독감으로 이미 1900만 명이 감염됐고 적어도 1만명이 사망했다. 캐나다 보건부장은 명확하게 캐나다는 미국을 따라 중국인 및 과거 중국을 경유한 외국인 입국 금지 근거가 없고 불합리적이라고 밝혔다. 중국은 공개, 투명, 고도로 책임지는 태도로 세계보건기구와 협력을 계속하길 희망한다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-05150-00002",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

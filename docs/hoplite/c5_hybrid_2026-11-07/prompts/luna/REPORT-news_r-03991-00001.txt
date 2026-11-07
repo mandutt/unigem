@@ -1,0 +1,64 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-03991-00001
+관세청이 북한 선박과 불법으로 교역한 한국 선박회사 한 곳에 '수출·입 허위신고제'를 적용, 벌금 1500만원을 부과한 것으로 뒤늦게 확인됐다.
+  당초에는 불법 환적 규모에 따라 많게는 수십억~수백억원대 벌금형도 예상했으나, 실제 부과 액수는 이에 크게 못미쳐 '솜방망이 처벌'이란 지적도 나온다.
+  관세청 "출항 목적지 허위 신고만 처벌" 16일 관세청 핵심 관계자는 "지난해 6월 대북 불법 교역 의심 선박에 대한 정밀 조사에 착수해 선박회사 한 곳에 1500만원 상당의 벌금을 부과했다"며 "수출·입 물품 가격을 허위로 신고한 건 아니어서 출항 목적지를 잘못 쓴 부분에 대해서만 처벌했다"고 설명했다.
+  지난해 드러난 대북 불법 환적 의심 선박 운영회사 중 어떤 곳에 벌금형을 내렸는지에 대해 관세청은 "개별 업체 범죄 사실에 대한 공표가 어렵다"는 이유로 밝히진 않았다.
+  관세청은 지난 2018년 9~10월 파이어니어호·루니스호 등 대북 불법 환적 의심 선박을 수색한 데 이어 지난해 4월에는 관세법상의 '허위신고죄' 적용이 가능한지 살펴보기 위해 조사를 벌였다.
+  이들 선박은 2018년 4월부터 지난해 1월까지 총 12차례에 걸쳐 한국 정부에 출항 목적지를 '싱가포르'라고 신고했지만, 싱가포르 항만청은 이들의 입항 사실을 부인한 것으로 알려졌다.
+  관세법상 수출·입 신고서를 허위로 기재하면 허위 신고 물품의 원가나 2000만원 중 높은 가격을 벌금으로 내야 한다.
+  지난해 조사를 받은 루니스호의 경우 2017년 이후 16만5400t의 석유 제품을 싣고 나간 것으로 전해졌다.
+  또 한국 수입업체 3곳도 3만5000t 규모, 66억원 상당의 북한산 석탄과 선철을 국내에 반입한 혐의가 드러나기도 했다.
+  수입업자들은 러시아 공해 상에서 북한 선박에 실린 물품을 한국 선박으로 옮겼기 때문에 원산지 허위 신고죄에 해당할 수 있다.
+  조사 당시에는 이들이 불법 환적한 물품의 원가로 계산하면 수십억~수백억원대 벌금을 받을 수 있다는 관측도 나왔다.
+  그러나 관세청은 북한과 교역한 이들 업체 중 한 곳만 '허위 신고죄'로 처벌했다.
+  관세청 관계자는 "어떤 물품을 불법 환적했는 지와는 상관없이 신고한 출항 목적지가 실제 목적지와 다른 부분에 대해서만 처벌했다"고 말했다.
+  "고의적 허위 신고, 가중 처벌해야" 전문가들은 교역 금지국과의 불법 무역 행위가 드러날 경우 좀 더 강도 높은 처벌이 필요하다고 강조한다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+관세청이 북한 선박과 불법으로 교역한 한국 선박회사 한 곳에 '수출·입 허위신고제'를 적용해 벌금 1500만원을 부과한 것으로 뒤늦게 확인됐다. 16일 관세청 핵심 관계자는 지난해 6월 대북 불법 교역 의심 선박 운영회사 한 곳에 1500만원 상당의 벌금을 부과했다고 밝혔다. 관세청은 지난 2018년 9~10월 파이어니어호·루니스호 등 대북 불법 환적 의심 선박을 수색한 데 이어 지난해 4월 관세법상의 허위신고죄 조사를 벌였으며, 2018년 4월부터 지난해 1월까지 총 12차례에 걸쳐 싱가포르 출항 목적지를 신고한 선박 중 한 곳만 허위 신고죄로 처벌했다. 전문가들은 교역 금지국과의 불법 무역 행위가 드러날 경우 좀 더 강도 높은 처벌이 필요하다고 강조한다.
+A>>>
+
+SUMMARY B:
+<<<B
+관세청이 북한 선박과 불법으로 교역한 한국 선박회사 한 곳에 '수출·입 허위신고제'를 적용해 벌금 1500만원을 부과한 것으로 뒤늦게 확인됐다. 관세청은 지난 2018년 9~10월 파이어니어호·루니스호 등 대북 불법 환적 의심 선박을 수색한 데 이어 지난해 4월에는 관세법상의 '허위신고죄' 적용이 가능한지 살펴보기 위해 조사를 벌였다. 당초에는 수십억~수백억원대 벌금형도 예상했으나 실제 부과 액수는 이에 크게 못미쳐 '솜방망이 처벌' 지적도 나온다. 전문가들은 교역 금지국과의 불법 무역 행위가 드러날 경우 좀 더 강도 높은 처벌이 필요하다고 강조한다.
+B>>>
+
+SUMMARY C:
+<<<C
+관세청이 북한 선박과 불법으로 교역한 한국 선박회사 한 곳에 '수출·입 허위신고제'를 적용해 벌금 1500만원을 부과한 것으로 뒤늦게 확인됐다. 당초에는 수십억~수백억원대 벌금형도 예상했으나 실제 부과 액수는 이에 크게 못미쳐 '솜방망이 처벌'이란 지적도 나온다. 관세청은 북한과 교역한 이들 업체 중 한 곳만 허위 신고죄로 처벌했고, 어떤 물품을 불법 환적했는 지와는 상관없이 신고한 출항 목적지가 실제 목적지와 다른 부분에 대해서만 처벌했다. 전문가들은 교역 금지국과의 불법 무역 행위가 드러날 경우 좀 더 강도 높은 처벌이 필요하다고 강조한다.
+C>>>
+
+SUMMARY D:
+<<<D
+관세청이 북한 선박과 불법으로 교역한 한국 선박회사 한 곳에 '수출·입 허위신고제'를 적용해 벌금 1500만원을 부과한 것으로 뒤늦게 확인됐다. 당초에는 수십억~수백억원대 벌금형도 예상했으나 실제 부과 액수는 이에 크게 못미쳐 '솜방망이 처벌'이란 지적도 나온다. 관세청은 지난 2018년 9~10월 파이어니어호·루니스호 등 대북 불법 환적 의심 선박을 수색한 데 이어 지난해 4월에는 관세법상의 '허위신고죄' 적용이 가능한지 살펴보기 위해 조사를 벌였다. 전문가들은 교역 금지국과의 불법 무역 행위가 드러날 경우 좀 더 강도 높은 처벌이 필요하다고 강조한다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-03991-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

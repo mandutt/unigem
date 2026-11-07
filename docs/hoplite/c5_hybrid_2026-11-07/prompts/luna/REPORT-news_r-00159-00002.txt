@@ -1,0 +1,86 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00159-00002
+미시적으로는 부동산 정책이 완전히 실패해 주거비가 올라가고 가처분 소득은 줄어드는 상황이 됐다.
+   “스마트 농기업 등 미래산업·지식인 키워야”  미래로 가려면 어디에 집중해야 하나.
+ 낙후된 산업인 농·수·축산업 전환에 돈을 써야 한다.
+  동남아 고급 소비층이 빠르게 성장하고 있어 스마트 농·수·축산업에 기회가 있다.
+  둘째 기존 산업의 디지털화를 빠르게 진행해야 한다.
+  강점(수월성)이 있는 곳에 투자해야 한다.
+  셋째는 미래산업을 육성할 문화 예술 지식인을 키워야 한다.
+  돈이 많이 들지도 않는 일이다.
+  1만 명에 1억 원씩 줘도 1조원이다.
+  넷째 신도시 지을 생각하지 말고, 사회공동체 개념을 집어넣어 도심을 개발해야 한다.
+  중국, 일본 등 대외 여건이 어렵다.
+ (중국과 일본의 경제 보복은) 역설적으로 다행스러운 일이다.
+  너무 늦지 않게 온 축복이다.
+  어느 한 국가에 (수출의) 20% 이상을 의존한다면 그것이 중국이 아니라 다른 나라여도 문제다.
+  일본이 으레 필요한 부품을 계속 대줄 것으로 생각했던 것이 착각이라는 점도 이번에 알게 됐다.
+  긍정적으로 볼 필요가 있다.
+  더 늦었다면 손쓸 수 없었을지 모른다.
+  조용히 준비해나가면 된다.
+  현 정부 출범 때 가졌던 국민의 희망이 많이 희석된 듯하다.
+  총선 결과가 어떻게 나오든 미래에 대한 지도층의 성찰이 필요하다.
+  진영 싸움은 이제 더는 안된다.
+  국민은 문재인 정부가 어느 방향으로 가려 하는지 헷갈려 한다.
+  야당도 반대만 할 게 아니라 대안을 제시해야 한다.
+  여든 야든 국민이 무엇을 두려워하고 무엇을 열망하는가에 맞춰 대안 제시의 길로 가야 한다.
+  미래가 과거와 대립해서는 안 된다.
+    여야가 어떻게 해야 하나.
+   혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 한다.
+  현 정부 주도 세력에도 기득권이 많다.
+  민주노총이나 참여연대도 현 정부가 가진 기득권이다.
+  정부가 혁신을 하려면 가장 먼저 살펴야 할 것이 내부의 자기 기득권이다.
+  야당은 무엇이 보수의 가치인지, 무엇을 하겠다는 것인지 알 수 없다.
+  권력과 기득권에 기생해 온 과거를 넘어서려는 자세와 각오를 구체적으로 보여줘야 한다.
+     그래도 희망은 있을까.
+   연암이 쓰고 다산이 좋아했던 말이 있다.
+  인순고식(因循姑息) 구차미봉(苟且彌縫)이다.
+  '세상이 바뀌었는데 생각은 바뀌지 않는 것(인순고식), 문제가 생기면 정면돌파할 생각은 하지 않고 얼버무려 넘어가려는 것(구차미봉)'이라는 뜻이다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+미시적으로는 부동산 정책이 완전히 실패해 주거비가 올라가고 가처분 소득이 줄어드는 상황이 됐으며, 농·수·축산업 전환, 기존 산업 디지털화, 미래산업 육성, 문화 예술 지식인 키워 등 미래산업·지식인 키워가 낙후된 산업으로 전환돼야 한다. 중국과 일본의 경제 보복은 너무 늦지 않게 온 축복이 됐고, 수출의 20% 이상 의존은 중국이 아니라 다른 나라여도 문제다. 야당도 반대만 할 게 아니라 대안을 제시해야 하며, 혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 한다.
+A>>>
+
+SUMMARY B:
+<<<B
+미시적으로 부동산 정책이 완전히 실패해 주거비가 올라가고 가처분 소득이 줄어드는 상황이 됐으며, 현대 정부 출범 때 가졌던 국민의 희망이 많이 희석된 듯하다. 문재인 정부는 총선 결과가 어떻게 나오든 미래에 대한 지도층의 성찰이 필요하다. 야당도 반대만 할 게 아니라 대안을 제시해야 한다. 혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 한다.
+B>>>
+
+SUMMARY C:
+<<<C
+미시적으로 부동산 정책이 완전히 실패해 주거비가 올라가고 가처분 소득이 줄어드는 상황이 됐으며, 스마트 농·수·축산업 전환, 디지털화, 문화 예술 지식인 육성, 신도시 지지, 대외 여건이 어렵다는 점을 이번에 알게 됐다. 여야는 혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 하며, 현 정부 주도 세력에도 기득권이 많고 민주노총이나 참여연대도 현 정부가 가진 기득권이다. 연암이 쓰고 다산이 좋아했던 인순고식 구차미봉은 '세상이 바뀌었는데 생각은 바뀌지 않는 것'과 '정면돌파할 생각은 하지 않고 얼버무려 넘어가려는 것'이라는 뜻이다.
+C>>>
+
+SUMMARY D:
+<<<D
+미시적으로 부동산 정책이 실패해 주거비가 올라가고 가처분 소득이 줄어드는 상황이 됐다. 스마트 농기업 등 미래산업·지식인 키워야 한다. 중국과 일본의 경제 보복은 축복이지만, 더 늦었다면 손쓸 수 없었을지 모른다. 혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 한다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00159-00002",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

@@ -1,0 +1,72 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00114-00001
+이라크 주재 미국 대사관을 습격한 시위대가 철수했음에도 미국이 강경한 태도로 일관하고 있다.
+  그 배경에는 미국의 ‘트라우마’가 된 2가지 사건이 있다는 얘기가 나온다.
+   이라크 내 친(親)이란 시위대가 바그다드 주재 미국 대사관을 습격한 것은 지난달 31일(현지시간).
+  이들이 대사관에 진입해 불을 지르고 반미 구호를 외치자, 미국 정부는 병력 750여명 파병을 결정하고 공수부대 투입 대기령을 내리는 등 초강경 대응에 나섰다.
+  결국 시위대는 이틀 만에 물러났다.
+  그러나 미국과 이란의 갈등은 더욱 커질 것으로 전망된다.
+  도널드 트럼프 미국 대통령은 “이란은 큰 대가를 치르게 될 것”이라며 경고하고 나섰고, 마이크 폼페이오 미 국무장관은 중동의 지도자들과 통화하며 이란을 압박하고 있다.
+   인명 피해가 없었음에도 미국이 ‘공수부대 투입’을 거론하며 강경하게 대응한 데는 ‘1979년 이란 주재 미국 대사관 습격’과 ‘2012년 리비아 주재 영사관 테러’가 큰 영향을 끼쳤으리란 게 미 언론의 평가다.
+ 미국과 이란은 20세기 중반 서로 ‘혈맹’이라 칭할 정도로 가까운 사이였다.
+  미국 정부는 소련 세력이 남하하는 것을 막고 석유를 확보하기 위해 이란 정부와 밀접한 관계를 맺었고, 무함마드 레자 팔라비 국왕의 독재에 눈을 감았다.
+   독재정권에 비밀경찰까지 지원할 정도로 돈독했던 미국과 이란의 관계가 깨진 것은 1979년.
+  아야톨라 루홀라 호메이니가 이끈 이슬람 혁명이 성공하면서였다.
+  독재에 신음하던 시민들의 분노는 국왕의 망명을 받아준 미국으로 향했고, 11월 4일 마침내 미국 대사관을 공격하기에 이르렀다.
+  시위대는 외교관과 직원 등 70여 명을 인질로 붙잡았고 분위기는 험악해졌다.
+ 협상이 계속 결렬되자 분노한 미 정부는 1980년 4월 이란과 단교했다.
+  특수부대를 투입해 인질 구출 작전을 벌였지만 실패, 부대원 8명이 목숨을 잃는 일도 발생했다.
+  세계 최강대국이라 자부하던 미국인들이 받은 충격은 어마어마했다.
+  1년여를 끌던 인질 사건은 1981년 1월 20일, 인질 전원이 석방되며 종지부를 찍었다.
+  대사관 공격 444일 만이었다.
+  그러나 미국과 이란의 사이는 돌이킬 수 없을 지경에 이르렀다.
+  수십 년이 지난 2015년, 오바마 전 대통령이 핵 합의를 끌어내며 잠시 화해 무드가 조성됐지만 트럼프가 취임하며 원점으로 돌아갔다.
+   이란 주재 미국 대사관 습격 사건은 2012년 할리우드 톱스타 벤 애플렉이 연출하고 직접 주연을 맡은 영화 ‘아르고’에서 다뤄져 다시 한번 주목받기도 했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+이라크 내 친(親)이란 시위대가 바그다드 주재 미국 대사관을 습격한 것은 지난달 31일(현지시간)이었지만 미국 정부는 병력 750여명 파병을 결정하고 공수부대 투입 대기령을 내리는 등 초강경 대응에 나섰고, 결국 시위대는 이틀 만에 물러났다. 그러나 미국과 이란의 갈등은 더욱 커질 것으로 전망된다. 도널드 트럼프 미국 대통령은 "이란은 큰 대가를 치르게 될 것"이라며 경고하고 마이크 폼페이오 미 국무장관은 중동 지도자들과 통화하며 이란을 압박하고 있다. 인명 피해가 없었음에도 미국이 공수부대 투입을 거론하며 강경하게 대응한 데는 1979년 이란 주재 미국 대사관 습격과 2012년 리비아 주재 영사관 테러가 큰 영향을 끼쳤으리란 게 미 언론의 평가다.
+A>>>
+
+SUMMARY B:
+<<<B
+미국은 이라크 주재 미국 대사관을 습격한 시위대가 철수했음에도 강경한 태도로 일관하고 있다. 도널드 트럼프 미국 대통령은 이란을 경고하고 마이크 폼페이오 미 국무장관은 중동 지도자들과 통화하며 이란을 압박하고 있다. 1979년 이란 주재 미국 대사관 습격과 2012년 리비아 주재 영사관 테러가 큰 영향을 끼쳤다.
+B>>>
+
+SUMMARY C:
+<<<C
+이라크 내 친(親)이란 시위대가 바그다드 주재 미국 대사관을 습격한 것은 지난달 31일(현지시간)이며, 미국 정부는 병력 750여명 파병을 결정하고 공수부대 투입 대기령을 내리는 등 초강경 대응에 나섰다. 도널드 트럼프 미국 대통령은 "이란은 큰 대가를 치르게 될 것"이라며 경고하고, 마이크 폼페이오 미 국무장관은 중동의 지도자들과 통화하며 이란을 압박하고 있다. 미국과 이란의 갈등은 1979년 이란 주재 미국 대사관 습격과 2012년 리비아 주재 영사관 테러가 큰 영향을 끼쳤다.
+C>>>
+
+SUMMARY D:
+<<<D
+이라크 주재 미국 대사관을 습격한 시위대가 철수했음에도 미국이 강경한 태도로 일관하고 있다. 도널드 트럼프 미국 대통령은 이란을 큰 대가를 치르게 될 것이라며 경고하고 나섰고, 마이크 폼페이오 미 국무장관은 이란을 압박하고 있다. 미국과 이란의 갈등은 더욱 커질 것으로 전망된다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00114-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

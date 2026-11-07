@@ -1,0 +1,71 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00818-00001
+지난 7일(현지시간) 이란 수도 테헤란에서 이륙 직후 추락한 우크라이나 여객기가 이란 미사일에 피격됐다는 의혹이 확산하고 있다.
+  미국과 캐나다, 영국 정부가 여객기 격추 가능성을 의심하는 가운데 소셜미디어에는 미사일 오폭설이 퍼지고 있다.
+   도널드 트럼프 미국 대통령은 9일(현지시간) 여객기 추락이 기계적 결함 때문이라는 주장에 대해 "의심을 갖고 있다"면서 "저쪽에서 누군가 실수했을 수 있다"고 말했다.
+  그는 "끔찍한 일"이라면서 이란을 직접 거론하지는 않았다.
+   가장 많은 63명의 사망자가 나온 캐나다의 저스틴 트뤼도 총리는 "우리 자체적으로, 또 동맹으로부터 정보를 얻었다"면서 "증거들은 여객기가 이란의 지대공 미사일을 맞고 추락했다는 것을 가리킨다"고 말했다.
+  다만 "고의는 아닌 것으로 보인다"고 덧붙였다.
+  보리스 존슨 영국 총리도 이란의 여객기 격추 가능성을 제시했다.
+  사실로 확인되면 미국과 이란은 서로 공격을 주고받다가 가까스로 위기를 넘겼지만, 이 과정에서 민간인 176명이 무고하게 희생되는 비극이 일어난 셈이다.
+  이란은 서방 국가들이 "큰 거짓말"로 심리전을 벌이는 것이라며 혐의를 부인하고 있다.
+   우크라이나국제항공(PS 752편) 소속 보잉 737-800 여객기는 지난 7일 오전 6시 12분(현지시간) 이륙 3분 만에 추락해 탑승자 전원이 숨졌다.
+  이란은 이날 오전 1시 20분쯤 이라크 내 미군 기지 두 곳에 미사일을 쏘며 미국에 대한 군사적 보복을 감행했다.
+  미사일 공격은 약 1시간 동안 이어진 것으로 알려졌다.
+  공격 종료 약 4시간 뒤 여객기가 추락한 것이다.
+  CNN은 이륙이 1시간 가까이 지연됐다고 전했다.
+  추락 당일에는 미사일 발사와 무관하며 기계적 결함이 원인인 것으로 알려졌다.
+  이란 관계 당국이 그렇게 발표했기 때문이다.
+  하지만 이틀 만에 이란 미사일 발사와 여객기 추락이 관련 있다는 주장이 속속 나오고 있다.
+  CNN은 소식통을 인용해 우크라이나 여객기가 이란의 러시아산 지대공 미사일 SA-15 두 발을 맞고 떨어진 것으로 보인다고 보도했다.
+  토르 M1, 건틀렛(Gauntlet)으로도 불리는 이 단거리 미사일은 이란이 2007년 러시아로부터 도입했다.
+  미 정부 당국자는 "이란이 여객기를 쐈다는 높은 수준의 확신을 갖고 있다"고 월스트리트저널(WSJ)에 말했다.
+  이란이 미사일 추적 레이더로 이 여객기를 쫓는 신호를 포착했고, 여객기 부근에서 폭발이 일어난 뒤 여객기가 추락하면서 화염에 휩싸였다는 것이다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+지난 7일(현지시간) 이란 수도 테헤란에서 이륙 직후 추락한 우크라이나 여객기가 이란 미사일에 피격됐다는 의혹이 확산하고 있다. 미국과 캐나다, 영국 정부가 여객기 격추 가능성을 의심하는 가운데 소셜미디어에는 미사일 오폭설이 퍼지고 있다. 도널드 트럼프 미국 대통령은 9일(현지시간) 기계적 결함 때문이라는 주장에 대해 "의심을 갖고 있다"고 말했다. 저스틴 트뤼도 캐나다 총리는 증거가 여객기가 이란의 지대공 미사일을 맞고 추락했다고 말했다.
+A>>>
+
+SUMMARY B:
+<<<B
+지난 7일(현지시간) 이란 수도 테헤란에서 이륙 직후 추락한 우크라이나 여객기가 이란 미사일에 피격됐다는 의혹이 확산하고 있다. 미국과 캐나다, 영국 정부가 여객기 격추 가능성을 의심하는 가운데 소셜미디어에는 미사일 오폭설이 퍼지고 있다. 도널드 트럼프 미국 대통령은 9일(현지시간) 기계적 결함 때문이라는 주장에 대해 "의심을 갖고 있다"고 말했다. 저스틴 트뤼도 캐나다 총리는 동맹으로부터 정보를 얻었다고 증거를 밝혔고, 보리스 존슨 영국 총리는 여객기 격추 가능성을 제시했다. 우크라이나국제항공(PS 752편) 소속 보잉 737-800 여객기는 지난 7일 오전 6시 12분(현지시간) 이륙 3분 만에 추락해 탑승자 전원이 숨졌다. 미 정부 당국자는 "이란이 여객기를 쐈다는 높은 수준의 확신을 갖고 있다"고 월스트리트저널에 말했다.
+B>>>
+
+SUMMARY C:
+<<<C
+지난 7일(현지시간) 이란 수도 테헤란에서 이륙 직후 추락한 우크라이나 여객기가 이란 미사일에 피격됐다는 의혹이 확산하고 있다. 도널드 트럼프 미국 대통령은 9일(현지시간) 여객기 추락이 기계적 결함 때문이라는 주장에 대해 "의심을 갖고 있다"며 "저쪽에서 누군가 실수했을 수 있다"고 말했다. 가장 많은 63명의 사망자가 나온 캐나다의 저스틴 트뤼도 총리는 증거가 여객기가 이란의 지대공 미사일을 맞고 추락했다는 것을 가리킨다고 말했다. CNN은 소식통을 인용해 우크라이나 여객기가 이란의 러시아산 지대공 미사일 SA-15 두 발을 맞고 떨어진 것으로 보인다고 보도했다.
+C>>>
+
+SUMMARY D:
+<<<D
+지난 7일(현지시간) 이란 수도 테헤란에서 이륙 직후 추락한 우크라이나 여객기가 이란 미사일에 피격됐다는 의혹이 확산하고 있다. 도널드 트럼프 미국 대통령은 9일(현지시간) 여객기 추락이 기계적 결함 때문이라는 주장에 대해 "의심을 갖고 있다"며 "저쪽에서 누군가 실수했을 수 있다"고 말했다. 캐나다의 저스틴 트뤼도 총리는 63명의 사망자가 나온 7일(현지시간) 우크라이나 여객기 추락 증거를 고의로 밝히고 보리스 존슨 영국 총리도 여객기 격추 가능성을 제시했다. 우크라이나국제항공(PS 752편) 소속 보잉 737-800 여객기는 지난 7일 오전 6시 12분(현지시간) 이륙 3분 만에 추락해 탑승자 전원이 숨졌다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00818-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

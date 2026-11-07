@@ -1,0 +1,67 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00389-00001
+법무부가 6일 검찰 고위 간부 인사를 논의하는 검찰 인사위원회 위원들에게 이번 주 위원회 참석 가능 날짜를 제출하라고 요청한 것으로 확인됐다.
+  물 밑에서 검찰 인사 절차가 초고속으로 진행되고 있지만, 윤석열 검찰총장은 법무부로부터 아직 인사와 관련된 아무런 이야기를 듣지 못했다고 한다.
+  검찰 사령탑에 검찰 인사를 꼭꼭 숨기는 법무부의 ‘윤석열 패싱’이다.
+   물론 추미애 법무부 장관과 윤 총장의 상견례 날짜를 조율하고 있지만, 이는 요식행위에 불과하다는 게 법조계의 시각이다.
+  검찰의 정치적 독립성을 해치는 초유의 ‘답정너(답은 정해져 있고 너는 대답만 하면 돼)’식 인사라는 비판까지 나온다.
+    코앞으로 다가온 검찰 고위직 인사법조계에 따르면 법무부는 이날 오전 검찰인사위 위원들에게 이번 주 위원회 참여가 가능한 복수의 날짜를 제출해 달라고 요청했다.
+  법조계 관계자는 “이날 오전까지 소집 요청이 오진 않았다”면서도 “이번 주에 가능한 날짜를 복수로 적어내라고 했기 때문에 이번 주에 인사위가 열리는 게 확실해졌다”고 말했다.
+    검찰청법에 따르면 검찰인사위는 위원장을 포함해 11명으로 구성된다.
+  검사 3명과 판사 2명, 변호사 2명 등 법조인 이외에 법학 교수 2명과 외부 인사 2명 등이다.
+  인사위가 검사들의 보직과 근무지, 근무 기간 등을 직접 결정하는 것은 아니다.
+  이번 인사에서 검사장 승진은 ‘몇 기수까지 한다’, ‘인사 방향은 어떻다’는 등의 인사 방향을 제시하는 성격이 짙다.
+  검찰의 임명과 보직은 법무부 장관이 검찰총장의 의견을 들어 제청하고 대통령이 한다.
+    "윤석열은 1도 모른다" 법무부가 검사장급 이상 고위 간부의 인사에 속도를 내고 있지만, 법령상 규정된 검찰총장과의 소통은 전혀 이뤄지지 않고 있다.
+  대검찰청 내부 소식에 정통한 한 관계자는 “법무부가 검찰청법에 따라 검찰총장과 논의를 하지 않겠냐”면서도 “아직도 법무부는 윤 총장에게 인사 시기, 인사 범위, 인사 절차에 대해 아무런 말이 없다”고 전했다.
+    이는 ‘검찰총장의 의견을 들으라’고 명시한 검찰청법의 법령에도 맞지 않는 데다 기존 검찰 인사 관례에서도 상당히 어긋나 있다는 게 법조계의 해석이다.
+   검찰 인사 관례상 검사장급 이상의 인사는 몇 명 되지 않기 때문에 법무부 장관과 검찰총장이 직접 만나 협의를 해왔다.
+  그 이하 직급에 대한 인사는 법무부 검찰국장이 법무부 장관의 인사 안을 가져오면 검찰총장과 협의하는 방식이었다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+법무부가 6일 검찰 인사위원회 위원들에게 이번 주 위원회 참석 가능 복수의 날짜를 제출하라고 요청한 것으로 확인됐다. 윤석열 검찰총장은 법무부로부터 아직 인사와 관련된 아무런 이야기를 듣지 못했고, 검찰청법에 따르면 검찰인사위는 위원장을 포함해 11명으로 구성되며, 검사 3명과 판사 2명, 변호사 2명 등 법조인 이외에 법학 교수 2명과 외부 인사 2명 등이다. 검찰의 임명과 보직은 법무부 장관이 검찰총장의 의견을 들어 제청하고 대통령이 한다.
+A>>>
+
+SUMMARY B:
+<<<B
+법무부가 6일 검찰 인사위원회 위원들에게 이번 주 위원회 참여 가능 날짜를 제출하라고 요청한 것으로 확인됐다. 윤석열 검찰총장은 법무부로부터 아직 인사와 관련된 아무런 이야기를 듣지 못했다고 한다. 검찰인사위는 위원장을 포함해 11명으로 구성되며, 검사 3명과 판사 2명 등 법조인 이외에 법학 교수 2명과 외부 인사 2명 등이다. 검찰의 임명과 보직은 법무부 장관이 검찰총장의 의견을 들어 제청하고 대통령이 한다.
+B>>>
+
+SUMMARY C:
+<<<C
+법무부가 6일 검찰 인사위원회 위원들에게 이번 주 위원회 참석 가능 날짜를 제출하라고 요청한 것으로 확인됐다. 검찰청법에 따르면 검찰인사위는 위원장을 포함해 11명으로 구성되며, 검사 3명과 판사 2명, 변호사 2명 등 법조인 이외에 법학 교수 2명과 외부 인사 2명 등이다. 법무부는 검찰총장과의 소통을 검찰청법에 따라 하지 않겠냐고도 밝혔지만, 윤석열 검찰총장은 법무부로부터 인사 시기, 범위, 절차에 대해 아무런 말이 없다고 전했다.
+C>>>
+
+SUMMARY D:
+<<<D
+법무부가 6일 검찰 고위 간부 인사를 논의하는 검찰 인사위원회 위원들에게 이번 주 위원회 참석 가능 날짜를 제출하라고 요청한 것으로 확인됐다. 검찰청법에 따르면 검찰인사위는 위원장을 포함해 11명으로 구성되며, 검사 3명과 판사 2명, 변호사 2명 등 법조인 이외에 법학 교수 2명과 외부 인사 2명 등이다. 검찰총장과의 소통은 법무부가 검찰청법에 따라 논의하지 않겠냐는 지적이 나온다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00389-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

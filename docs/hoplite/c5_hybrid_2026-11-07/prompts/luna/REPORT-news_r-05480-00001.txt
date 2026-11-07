@@ -1,0 +1,65 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-05480-00001
+보건당국이 병원에서 치료받지 못하는 대구지역 신종 코로나바이러스 감염증(코로나19) 확진자를 공공시설에서 치료하겠다는 대책을 내놨지만, 확산세를 감당 못 하고 있다.
+  대구 확진자가 3000명에 육박하고서야 나온 뒤늦은 대책인데다 지원 인력·물자 부족 문제도 가중되고 있다.
+   160명 생활치료센터 수용해도 1800명 이상 입원대기  2일 대구시 등에 따르면 이날 기준 자택에서 입원대기 중인 대구지역 신종 코로나 확진자는 2031명이다.
+  대구지역 신종 코로나 확진자는 총 3081명으로 1050명만 입원 조치됐다.
+  중앙재난대책본부가 지난 1일 중앙교육연수원을 '생활치료센터'로 지정해 확진자 160명을 수용하겠다며 '코로나바이러스 감염증 대응지침'을 개정할 때 대구지역 확진자 1661명이 입원대기 상태였다.
+  2일 추가 확진자가 크게 늘면서 대기 중인 160명을 중앙교육연수원에 수용한다해도 1871명이 병원에서 치료받지 못한다.
+  생활치료센터로 160명(2일 현재 실제 입소는 100명) 을 보낸다해도 절대치로는 입원 대기자가 전날보다 210명 증가한 셈이다.
+    병원 입원 중 경증 환자 생활치료센터 우선 수용 대구시와 보건당국은 대구동산병원과 대구의료원 등 코로나19 전담병원에 입원한 경증 환자들을 생활치료센터로 옮긴 뒤 빈 병상에 입원대기 중인 중증 환자를 수용한다는 계획이다.
+  병원에 입원 중인 경증환자가 생활치료센터 수용 우선 대상이다.
+  늘어나는 확진자에 비해 격리시설이 크게 부족하고 당뇨·고혈압 등 지병을 가진 70~80대 코로나19 확진자들이 집에서 입원을 기다리다 숨지는 일이 연이어서 발생하면서 나온 기준이다.
+   하지만 자가격리 중인 환자들은 전화로 문진하고 있어 정확하게 증상을 파악하기 어려운 문제가 있다.
+  김종연 대구시 감염병관리지원단 교수도 2일 코로나19 대응 정례브리핑에서 '경증·중증 분류 기준' 질문에 "바뀐 지침상으로는심박수·수축기 혈압·호흡수·발열·의식 수준 등 5가지 기준으로 점수를 내고 기저 질환자를 고위험자로 분류하지만, 자가격리나 입원 대기 중인 분들은 생태학적 징후를 확인하기 어렵다"고 했다.
+  생활치료센터 운영해도 인력·물자 부족 생활치료센터로 경증 환자를 옮기는 것부터 난관이다.
+  대구시는 자체 확보한 구급차 36대, 대구시 소방본부가 보유한 구급차 54대 등 총 90대로 매일 신종 코로나 확진자를 이송하고 있다.
+  생활치료센터로 확진자 이송은 구급차 1대당 1명이 원칙이고 매번 방역작업까지 해야 한다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+대구지역 코로나19 확진자가 3000명에 육박하고 있다. 중앙재난대책본부가 지난 1일 중앙교육연수원을 '생활치료센터'로 지정해 확진자 160명을 수용하겠다고 발표했지만, 2일 기준 자택에서 입원대기 중인 대구지역 신종 코로나 확진자는 2031명으로 총 3081명으로 1050명만 입원조치됐다. 대구시는 자체 확보 구급차 36대, 대구시 소방본부가 보유 구급차 54대 등 총 90대로 매일 확진자를 이송하고 있다. 김종연 대구시 감염병관리지원단 교수도 2일 코로나19 대응 정례브리핑에서 '경증·중증 분류 기준'에 "심박수·수축기 혈압·호흡수·발열·의식 수준 등 5가지 기준으로 점수를 내고 기저 질환자를 고위험자로 분류하지만 자가격리나 입원 대기 중인 분들은 생태학적 징후를 확인하기 어렵다"고 했다.
+A>>>
+
+SUMMARY B:
+<<<B
+대구지역 신종 코로나바이러스 확진자가 3000명에 육박하고서야 공공시설에서 치료하겠다는 대책을 내놨지만 확산세를 감당 못 하고 있다. 2일 대구시 등에 따르면 이날 기준 자택에서 입원대기 중인 대구지역 신종 코로나 확진자는 2031명으로 총 3081명으로 1050명만 입원 조치됐다. 중앙재난대책본부가 지난 1일 중앙교육연수원을 '생활치료센터'로 지정해 확진자 160명을 수용하겠다고 발표했지만, 2일 추가 확진자가 크게 늘면서 대기 중인 160명을 중앙교육연수원에 수용해도 1871명이 병원에서 치료받지 못한다. 김종연 대구시 감염병관리지원단 교수도 2일 코로나19 대응 정례브리핑에서 '경증·중증 분류 기준' 질문에 바뀐 지침상으로는 심박수·수축기 혈압·호흡수·발열·의식 수준 등 5가지 기준으로 점수를 내고 기저 질환자를 고위험자로 분류하지만 자가격리나 입원 대기 중인 분들은 생태학적 징후를 확인하기 어렵다고 했다. 대구시는 자체 확보한 구급차 36대, 대구시 소방본부가 보유한 구급차 54대 등 총 90대로 매일 신종 코로나 확진자를 이송하고 있다.
+B>>>
+
+SUMMARY C:
+<<<C
+보건당국이 대구지역 신종 코로나바이러스 감염증 확진자를 공공시설에서 치료하겠다는 대책을 내놨지만 확산세를 감당 못 하고 있다. 대구지역 신종 코로나 확진자는 총 3081명으로 1050명만 입원 조치됐고, 중앙재난대책본부가 지난 1일 중앙교육연수원을 '생활치료센터'로 지정해 확진자 160명을 수용하겠다며 '코로나바이러스 감염증 대응지침'을 개정할 때 대구지역 확진자 1661명이 입원대기 상태였다. 2일 추가 확진자가 크게 늘면서 대기 중인 160명을 중앙교육연수원에 수용한다해도 1871명이 병원에서 치료받지 못한다. 대구시는 자체 확보한 구급차 36대, 대구시 소방본부가 보유한 구급차 54대 등 총 90대로 매일 신종 코로나 확진자를 이송하고 있다.
+C>>>
+
+SUMMARY D:
+<<<D
+보건당국이 병원에서 치료받지 못하는 대구지역 코로나19 확진자를 공공시설에서 치료하겠다는 대책을 내놨지만, 대구지역 신종 코로나 확진자는 3000명에 육박하고 있다. 중앙재난대책본부가 지난 1일 중앙교육연수원을 '생활치료센터'로 지정해 확진자 160명을 수용하겠다고 발표한 뒤 2일 기준 자택에서 입원대기 중인 대구지역 신종 코로나 확진자는 2031명으로 총 3081명으로 1050명만 입원 조치됐다. 대구시와 보건당국은 대구동산병원과 대구의료원 등 코로나19 전담병원에 입원한 경증 환자들을 생활치료센터로 옮긴 뒤 빈 병상에 입원대기 중인 중증 환자를 수용한다는 계획이다. 김종연 대구시 감염병관리지원단 교수도 2일 코로나19 대응 정례브리핑에서 '경증·중증 분류 기준' 질문에 "바뀐 지침상으로는 심박수·수축기 혈압·호흡수·발열·의식 수준 등 5가지 기준으로 점수를 내고 기저 질환자를 고위험자로 분류하지만 자가격리나 입원 대기 중인 분들은 생태학적 징후를 확인하기 어렵다"고 말했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-05480-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

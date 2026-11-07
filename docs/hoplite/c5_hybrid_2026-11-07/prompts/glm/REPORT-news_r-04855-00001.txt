@@ -1,0 +1,72 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-04855-00001
+중국 외교부 신임대변인에 24만명의 팔로워를 거느린 '파워 트위터리언' 자오리젠(趙立堅)이 임명됐다.
+   24일 자오리젠 대변인이 첫 브리핑을 가지면서 화춘잉(華春瑩)-겅솽(耿爽) 2인 체제였던 중국 외교부 대변인이 3인 체제로 회복됐다.
+   그는 중국에서는 접속이 어려운 트위터를 개설해 이미 팔로워 24만명을 거느린 '인플루언서'다.
+  그의 별명은 '전랑(戰狼)' 외교관이다.
+  전랑은 특수부대 '전랑'을 소재로 다룬 중국 영화다.
+  유엔(UN)도 포기한 인질 구출 작전을 중국 특수부대 출신이 해낸다는 내용이다.
+  중국인들의 애국심에 불을 지핀 액션물로 '전랑2'는 중국 내 역대 영화 흥행 순위 1위다.
+  이번에 그가 대변인 자리를 꿰찬 것은 특수부대처럼 '전투력'이 높기 때문으로 풀이된다.
+  그는 미국과 맞서 싸우고, '독한 말'도 서슴지 않는다.
+  과거에 그는 서방 22개국이 연합해 중국을 비판하자 미국의 인종 차별 문제로 맞받으며 유엔주재 미국 대사를 지낸 수전 라이스 전 백악관 국가안보보좌관과 온라인상에서 설전도 벌였다.
+   역시나 24일 첫 브리핑에서도 월스트리트저널(WSJ)을 강하게 비난했다.
+  앞서 중국 외교부는 '중국은 아시아의 진정한 병자'라는 제목의 칼럼을 내보낸 WSJ 소속 베이징 주재 기자 3명의 외신기자증을 취소했다.
+   과거에도 그는 트위터에 여러 차례 촌철살인의 멘트를 날렸다.
+  자국 기업인 화웨이를 감싸거나 트럼프 대통령을 비판하는 내용이 많다.
+  그는 "트럼프가 화웨이를 그렇게 싫어하는 이유가 이제야 밝혀졌다"면서 "화웨이의 로고를 보라, '애플'을 조각낸 것"이라며 사진과 글을 올렸다.
+   대놓고 중국 기업인 화웨이를 지지하는 글을 리트윗하기도 한다.
+  지난 22일에는 "5G(5세대 통신) 계약 건에서 노키아 63건, 에릭슨 81건에 비해 화웨이는 91건이다, 중국 기술기업이 여전히 넘버원"이라는 글을 리트윗했다.
+  여기에 "미국이 화웨이에 대한 가장 능숙한 마케팅 부서였다는 것을 역사가 증명할 것이다"라는 글도 리트윗했다.
+    그는 하루에 10개 가량의 트윗을 날린다.
+  '파워 트위터리언'인 자오리젠이 가장 먼저 팔로우한 사람은 화춘잉 대변인이다.
+   요즘 그의 타임라인은 신종 코로나 관련 글로 거의 도배가 돼 있다.
+  일본이 신종 코로나 대응책으로 마스크를 보낸 것에 대해 지난 13일 트위터에 '아리가토 니혼!' 이라고 감사의 글을 올렸다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+중국 외교부 신임대변인에 24만명의 팔로워를 거느린 '파워 트위터리언' 자오리젠(趙立堅)이 임명됐다. 그는 중국에서는 접속이 어려운 트위터를 개설해 이미 팔로워 24만명을 거느린 '인플루언서'이며, '전랑2' 액션물로 '전랑'을 소재로 다룬 중국 영화로 '전랑2'는 중국 내 역대 영화 흥행 순위 1위다. 그는 서방 22개국이 연합해 중국을 비판하자 미국의 인종 차별 문제로 맞받으며 수전 라이스 전 백악관 국가안보보좌관과 온라인상에서 설전도 벌였다. 24일 첫 브리핑에서도 월스트리트저널(WSJ)을 강하게 비난했고, 중국 외교부는 '중국은 아시아의 진정한 병자'라는 제목의 칼럼을 내보낸 WSJ 소속 베이징 주재 기자 3명의 외신기자증을 취소했다.
+A>>>
+
+SUMMARY B:
+<<<B
+중국 외교부 신임대변인에 24만명의 팔로워를 거느린 '파워 트위터리언' 자오리젠이 임명됐다. 그는 '전랑' 외교관으로, 24일 첫 브리핑에서 월스트리트저널(WSJ)을 비난하며 화춘잉-겅솽 2인 체제 대변인으로 회복됐다. 그는 트위터에 화웨이를 감싸거나 트럼프 대통령을 비판하는 글을 올렸고, 지난 22일에는 5G 계약 건에서 노키아 63건, 에릭슨 81건에 비해 화웨이는 91건이라는 글을 리트윗했다. 그는 하루에 10개 가량의 트윗을 날린다.
+B>>>
+
+SUMMARY C:
+<<<C
+중국 외교부 신임대변인에 24만명의 팔로워를 거느린 '파워 트위터리언' 자오리젠이 임명됐다. 그는 중국에서는 접속이 어려운 트위터를 개설해 이미 팔로워 24만명을 거느린 '인플루언서'다. 그는 미국과 맞서 싸우고 '독한 말'도 서슴지 않는다.
+C>>>
+
+SUMMARY D:
+<<<D
+중국 외교부 신임대변인에 24만명의 팔로워를 거느린 '파워 트위터리언' 자오리젠이 임명됐다. 그는 중국에서는 접속이 어려운 트위터를 개설해 이미 팔로워 24만명을 거느린 '인플루언서'다. 그는 별명은 '전랑' 외교관으로 '전랑2'는 중국 내 역대 영화 흥행 순위 1위다. 그는 24일 첫 브리핑에서도 월스트리트저널(WSJ)을 강하게 비난했으며, 지난 22일에는 5G 계약 건에서 노키아 63건, 에릭슨 81건에 비해 화웨이는 91건으로 중국 기술기업이 여전히 넘버원이라고 리트윗했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-04855-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

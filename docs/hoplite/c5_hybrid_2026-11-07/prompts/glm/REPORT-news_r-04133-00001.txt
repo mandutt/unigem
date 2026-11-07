@@ -1,0 +1,67 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-04133-00001
+신종 코로나바이러스 감염증(코로나19)을 피해 귀국한 중국 우한(武漢) 교민의 격리시설 인근에 사무실을 마련하고 현장을 지켰던 양승조 충남지사가 도청으로 복귀한다.
+  지난달 31일 충남 아산시 초사2통에 현장 집무실을 차린 지 19일 만이다.
+  양승조 충남지사는 18일 오전 11시 아산시 초사2통 현장대책본부에서 기자회견을 갖고 지난 19일간 진행했던 충남도 차원의 대응과정과 소회를 설명했다.
+  이 자리에서 양 지사는 마을 주민과 아산시민, 220만 충남도민에게 감사 인사도 전했다.
+  전시를 제외하고 국가·사회적 재난 때 현장에 집무실을 차린 것은 충남도 역사상 이번이 처음이다.
+  그는 “희생을 감수해준 초사2통 마을 주민과 아산시민께 존경과 각별한 감사인사를 드린다”며 “아산방문 릴레이운동을 통해 어려움을 함께해준 도민과 국민께도 머리 숙여 감사드린다”고 밝혔다.
+  이어 “국가적 위기 앞에 앞장섰던 아산시민의 포용 정신과 상부상조 정신, 도민과 국민의 따뜻한 마음을 역사는 기억할 것”이라며 “지난 19일간 근무하고 생활했던 현장 집무실과 현장대책본부, 임시숙소를 철수한다”고 말했다.
+  양승조 지사는 지난달 30일 정부가 아산 경찰인재개발원과 진천 국가공무원인재발원을 우한 교민 격리시설로 지정한 뒤 주민들이 강하게 반발하자 “주민들이 불안해하지 않도록 교민들이 모두 퇴소할 때까지 이곳을 지키겠다”며 약속했다.
+  정부 발표 직후 아산지역 주민들은 현장을 찾은 진영 행정안전부 장관과 양승조 충남지사, 오세현 아산시장 등에게 “돌아가라.
+  아무 말도 듣기 싫다”며 거칠게 항의했다.
+  정부의 결정을 받아들일 수 없다는 이유에서였다.
+  일부 주민은 달걀을 던지기도 했다.
+  당시 양 지사는 마이크를 잡고 “여러 시설을 종합적으로 평가해 경찰인재개발원으로 결정된 것”이라며 “정부가 정치적인 이유로 아산을 선정했다면 (도지사로서)절대로 받아들이지 않았을 것”이라며 주민들을 설득했다.
+  결국 마을 주민들은 정부 방침 하루 만인 31일 오전 “교민을 경찰인재개발원에 격리 수용하는 것을 받아들이겠다”며 수용을 결정했다.
+  곧바로 도로변에 ‘편하게 지내시고 건강하게 귀가하기를 바란다’는 현수막도 설치했다.
+  아산시 초사2통 김재호 통장은 “더는 막을 수도 없고 다른 곳으로 갈 수도 없다고 판단해 주민회의를 거쳐 수용을 결정했다”며 “도지사께서 책임을 지겠다고 약속하신 게 가장 큰 힘이 됐다”고 말했다.
+  우한에서 1차로 귀국한 교민 194명이 경찰인재개발원에 입소한 31일 충남도는 초사2통 마을회관을 도지사 현장 집무실, 인근 음식점을 현장대책본부로 전환했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+신종 코로나바이러스 감염증(코로나19)을 피해 귀국한 중국 우한 교민의 격리시설 인근에 사무실을 마련하고 현장을 지켰던 양승조 충남지사가 도청으로 복귀한다. 양승조 지사는 18일 오전 11시 아산시 초사2통 현장대책본부에서 기자회견을 갖고 지난 19일간 진행했던 충남도 차원의 대응과정과 소회를 설명했다. 양승조 지사는 마을 주민과 아산시민, 220만 충남도민에게 감사인사를 전했으며, 지난달 30일 정부가 아산 경찰인재개발원과 진천 국가공무원인재발원을 우한 교민 격리시설로 지정한 뒤 주민들이 불안해하지 않도록 약속했다. 아산시 초사2통 김재호 통장은 주민회의를 거쳐 수용을 결정했으며, 31일 충남도는 초사2통 마을회관을 도지사 현장 집무실, 인근 음식점을 현장대책본부로 전환했다.
+A>>>
+
+SUMMARY B:
+<<<B
+양승조 충남지사는 18일 오전 11시 현장대책본부 기자회견에서 지난 19일간 진행된 충남도 차원의 대응과정과 소회를 설명했다. 그는 마을 주민과 아산시민, 220만 충남도민에게 감사인사를 전했으며, 지난달 30일 정부가 아산 경찰인재개발원과 진천 국가공무원인재발원을 우한 교민 격리시설로 지정한 뒤 주민들이 강하게 반발하자 약속했다. 양승조 지사는 지난달 31일 충남 아산시 초사2통에 현장 집무실을 차린 지 19일 만이다.
+B>>>
+
+SUMMARY C:
+<<<C
+양승조 충남지사가 지난달 31일 아산시 초사2통에 현장 집무실을 차린 지 19일 만이다. 양 지사는 18일 오전 11시 아산시 초사2통 현장대책본부에서 기자회견을 갖고 지난 19일간 진행했던 충남도 차원의 대응과정과 소회를 설명했다. 양 지사는 마을 주민과 아산시민, 220만 충남도민에게 감사인사를 전했다. 양 지사는 지난달 30일 정부가 아산 경찰인재개발원과 진천 국가공무원인재발원을 우한 교민 격리시설로 지정한 뒤 주민들이 강하게 반발하자 교민들이 모두 퇴소할 때까지 이곳을 지키겠다며 약속했다.
+C>>>
+
+SUMMARY D:
+<<<D
+양승조 충남지사는 지난달 31일 아산시 초사2통에 현장 집무실을 차린 지 19일 만에 도청으로 복귀한다. 양승조 지사는 지난달 30일 정부가 아산 경찰인재개발원과 진천 국가공무원인재발원을 우한 교민 격리시설로 지정한 뒤 주민들이 불안해하지 않도록 교민들이 모두 퇴소할 때까지 이곳을 지키겠다고 약속했다. 양승조 지사는 지난달 31일 아산시 초사2통 현장대책본부에서 기자회견을 갖고 지난 19일간 진행했던 충남도 차원의 대응과정과 소회를 설명했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-04133-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

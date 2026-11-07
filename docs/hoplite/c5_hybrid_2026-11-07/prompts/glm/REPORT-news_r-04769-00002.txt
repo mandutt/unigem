@@ -1,0 +1,74 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-04769-00002
+디올의 남자 모델들은 단정한 슈트나 재킷 등의 정장 차림에 아담한 크기의 크로스 바디백을 멨다.
+  지방시 역시 슈트 차림에 크로스 바디백을 사용한 남자 모델을 등장시켰다.
+   루이 비통의 모델들은 도시락처럼 네모반듯한 핸드백을 짧게 멘 역동적인 스타일을 선보였다.
+  지갑보다 더 작은 크기의 가방을 착용한 모델들도 눈에 띄었다.
+  디자이너 브랜드 자크뮈스의 미소년들은 말 그대로 손바닥만 한 작은 가방을 목과 어깨에 둘렀다.
+  발렌티노 쇼에선 지갑만 한 작은 가방을 멘 모델들이 줄줄이 걸어 나왔다.
+  이런 형태를 두고 남자(Man)와 지갑(Purse)을 합한 ‘머스(Murse·남성용 손지갑)라고 부른다.
+   프라다 역시 여행지나 일상에서 편히 활용할 수 있는 작은 크기의 ‘브리크 백’을 내놨다.
+  제품 상단에 손잡이와 긴 어깨끈이 함께 있는 제품이다.
+  펜디는 브랜드의 대표 상품인 ‘바게트 백’ 남성용을 내놨다.
+  펜디 관계자는 “남성 신제품 중에서 가방이 중요 아이템으로 부각된 것은 이번이 처음”이라고 했다.
+  디올은 여행용 가방 브랜드 리모와와 손잡고 알루미늄 소재의 남성용 클러치백(끈 없이 손에 드는 작은 가방)을 선보였다.
+  별도의 가죽 끈을 이용하면 어깨에 멜 수도 있다.
+    성 경계 구분 안 될수록 멋져남자들의 핸드백 패션은 최근 소비문화의 화두인 ‘젠더리스(genderless)’ 영향으로 해석할 수 있다.
+  남성용·여성용의 경계와 구분을 모호하게 만든 것으로, 패션 용어로는 앤드로지너스 룩(Androgynous Look)이 있다.
+     2020 봄·여름 남성 컬렉션의 주요 브랜드들의 패션쇼도 이런 흐름을 반영해 남성다움을 많이 덜어낸 모습이었다.
+  디올은 온통 핑크로 무대를 물들였고, 자크뮈스 쇼에선 분홍색 카펫 위로 소년같은 모델들이 걸어 나왔다.
+  디자이너 버질 아블로가 이끈 루이 비통 쇼에선 꽃이 주요 모티브로 등장했다.
+  꽃무늬 옷은 물론, 꽃목걸이를 건 모델이 등장하고 가방에도 꽃이 한아름 담겼다.
+   남성다움, 여성다움을 강조하는 것은 이제 낡은 관습이 됐다.
+  남자도 꽃무늬 옷을 입고 작은 핸드백을 든다.
+  보테가 베네타의 ‘카세트 백’은 여성용으로 출시됐지만 최근에는 남자들도 탐내는 제품이 됐다.
+  방탄소년단의 멤버 뷔가 청재킷에 이 카세트 백을 매치해 주목받은 덕이다.
+  반대로 프라다의 브리크 백은 남성용으로 출시됐지만 여성들이 많이 찾는다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+디올의 남자 모델들은 단정한 슈트나 재킷 등의 정장 차림에 아담한 크기의 크로스 바디백을 멨으며, 지갑보다 더 작은 크기의 가방을 착용하는 모델들도 눈에 띄었다. 자크뮈스의 미소년들은 말 그대로 손바닥만 한 작은 가방을 목과 어깨에 둘렀고, 발렌티노 쇼에선 지갑만 한 작은 가방을 모델로 줄줄이 걸어 나왔다. 프라다는 여행지나 일상에서 편히 활용할 수 있는 작은 크기의 브리크 백을 내놨으며, 펜디는 브랜드의 대표 상품인 '바게트 백' 남성용을 내놨다.
+A>>>
+
+SUMMARY B:
+<<<B
+디올, 지방시, 루이 비통, 자크뮈스, 발렌티노, 프라다, 펜디, 리모와 등 주요 브랜드들이 남성용 핸드백을 선보였다. 디올은 온통 핑크로 무대를 물들였고, 자크뮈스 쇼에선 분홍색 카펫 위로 소년같은 모델들이 걸어 나왔다. 보테가 베네타의 '카세트 백'은 여성용으로 출시됐지만 최근에는 남자들도 탐내는 제품이 됐다. 프라다의 브리크 백은 남성용으로 출시됐지만 여성들이 많이 찾는다.
+B>>>
+
+SUMMARY C:
+<<<C
+디올의 남자 모델들은 단정한 슈트나 재킷 등의 정장 차림에 크로스 바디백을 멨고, 지방시 역시 슈트 차림에 크로스 바디백을 사용한 모델이 등장했다. 루이 비통의 모델들은 도시락처럼 네모반듯한 핸드백을 짧게 멘 역동적인 스타일을 선보였고, 발렌티노 쇼에선 지갑만 한 작은 가방을 멘 모델들이 줄줄이 나왔다. 프라다는 여행지나 일상에서 편히 활용할 수 있는 작은 크기의 브리크 백을 내놨다. 펜디는 바게트 백을 남성용으로 내놨고, 리모와는 손잡고 알루미늄 소재의 남성용 클러치백을 선보였다. 2020 봄·여름 남성 컬렉션 주요 브랜드 패션쇼는 남성용·여성용의 경계와 구분을 모호하게 만든 앤드로지너스 룩을 반영해 남성다움을 덜어냈다.
+C>>>
+
+SUMMARY D:
+<<<D
+디올의 남자 모델들은 아담한 크기의 크로스 바디백을 멨다. 지방시 역시 크로스 바디백을 사용한 남자 모델을 등장시켰다. 루이 비통의 모델들은 도시락처럼 네모반듯한 핸드백을 짧게 멘 역동적인 스타일을 선보였다. 프라다 역시 여행지나 일상에서 편히 활용할 수 있는 작은 크기의 브리크 백을 내놨다. 펜디는 바게트 백 남성용을 내놨다. 디올은 리모와와 손잡고 알루미늄 소재의 남성용 클러치백을 선보였다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-04769-00002",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

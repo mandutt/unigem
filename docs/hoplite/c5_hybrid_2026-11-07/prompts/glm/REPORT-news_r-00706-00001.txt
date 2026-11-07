@@ -1,0 +1,69 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00706-00001
+도널드 트럼프 미국 행정부가 이란과 확전을 피한 이유를 두고 여러 해석이 나오고 있다.
+  무엇보다 이란이 공격 직후 “전쟁을 원하진 않는다”는 메시지를 내놓은 것이 미국 수뇌부의 결정에 큰 영향을 미쳤을 것이란 분석이 설득력을 얻고 있다.
+  이란 측 주장과는 달리 이번 공격으로 사상자가 발생하지 않은 것도 변수였다.
+  기지 두 곳 모두 이라크군과 함께 쓰는 이라크 관할지란 점에서 군사시설 훼손만으로는 응징 명분도 약했다.
+       그런데 일각에선 미국이 가장 싫어하는 장기 게릴라전 상황을 우려했을 가능성도 지적된다.
+  이른바 ‘중동판 베트남전’ 시나리오다.
+  이와 관련, 니혼게이자이(닛케이) 신문은 9일 “미군이 적대국 본토를 공격하는 동안 상대가 게릴라전을 펼쳐 전쟁이 장기화되면서 미국에 큰 ‘시간 비용’으로 작용, 결국 정권이 흔들리는 베트남전의 재림”이라고 짚었다.
+  이란 최고지도자인 아야톨라 알리 하메네이의 외교 고문인 알리 악바르 벨라야티는 “(전쟁이 나면 미국은) 베트남 이상으로 수렁에 빠질 것”이라고 경고했다.
+    군사력 자체만 놓고 보면 이란은 미국의 적수가 되지 못한다.
+  그러나 이란은 이번 탄도미사일 공격처럼 실질적인 피해와 심리적인 충격을 동시에 주기 위한 비대칭 무기를 사용할 수 있다.
+  이란은 1000여기의 각종 미사일을 보유하고 있다.
+  또 12만이 넘는 이란 혁명수비대가 이라크•시리아 내 친이란 무장조직과 결탁해 게릴라전이나 파괴공작(사보타주)을 일으키는 상황도 떠올릴 수 있다.
+  미군이 베트남에서 10년간 전쟁 수렁에서 헤어나지 못했던 상황과 판박이처럼 돌아갈 수 있다는 것이다.
+  미군의 전쟁 목표 설정도 관건이었다고 닛케이는 전했다.
+  ① 이란 정부나 군사시설을 미사일이나 드론으로 제한 타격, ② 해외에서 활동 중인 혁명수비대 소탕, ③ 이란 레짐 체인지 등의 시나리오 가운데 미국이 ①을 선택하면 이란이 반격해 결국 미국이 ②의 상황에 말려들고, 전쟁이 장기화되면서 어느새 ③으로 목표가 옮아가는 악순환이 전개될 가능성이 높다는 것이다.
+  결국 이런 미군 수뇌부의 판단을 배경으로 트럼프 대통령이 결단을 내린 것으로 보인다는 해석이다.
+  트럼프의 당면 최대 목표가 올해 11월 대선에서의 승리인 만큼 악수는 피했다는 것이다.
+    미국과 이란 간 긴장이 고조된 흐름을 놓고도 확전이 어려웠을 것이란 분석도 나온다.
+  ‘눈에는 눈’이란 중동 지역의 오랜 ‘보복 관례’에 따라 양국이 서로 주고받을 건 다 주고받았다는 것이다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+도널드 트럼프 미국 행정부가 이란과 확전을 피한 이유로 이란이 공격 직후 전쟁을 원하진 않는다라는 메시지를 내놓은 분석이 설득력을 얻고 있다. 니혼게이자이(닛케이) 신문은 9일 미군이 적대국 본토를 공격하는 동안 상대가 게릴라전을 펼쳐 전쟁이 장기화되면서 미국에 큰 '시간 비용'으로 작용, 결국 베트남전의 재림이라고 짚었다. 이란은 탄도미사일 공격처럼 실질적인 피해와 심리적인 충격을 주기 위한 비대칭 무기를 사용할 수 있으며, 1000여기의 각종 미사일을 보유하고 있다. 미군 수뇌부의 판단을 배경으로 트럼프 대통령이 결단을 내린 것으로 보인다는 해석도 나온다.
+A>>>
+
+SUMMARY B:
+<<<B
+도널드 트럼프 미국 행정부가 이란과 확전을 피한 이유를 두고 여러 해석이 나오고 있다. 이란이 공격 직후 전쟁을 원하진 않는다라는 메시지를 내놓은 것이 미국 수뇌부의 결정에 큰 영향을 미쳤을 것이란 분석이 설득력을 얻고 있다. 일각에선 미국이 가장 싫어하는 장기 게릴라전 상황을 우려했을 가능성도 지적된다. 트럼프의 당면 최대 목표가 올해 11월 대선에서의 승리인 만큼 악수는 피했다는 해석이다.
+B>>>
+
+SUMMARY C:
+<<<C
+도널드 트럼프 미국 행정부가 이란과 확전을 피한 이유를 두고 여러 해석이 나오고 있다. 이란이 공격 직후 "전쟁을 원하진 않는다"는 메시지를 내놓은 것이 미국 수뇌부의 결정에 큰 영향을 미쳤을 것이란 분석이 설득력을 얻고 있다. 니혼게이자이(닛케이) 신문은 9일 "미군이 적대국 본토를 공격하는 동안 상대가 게릴라전을 펼쳐 전쟁이 장기화되면서 미국에 큰 '시간 비용'으로 작용, 결국 정권이 흔들리는 베트남전의 재림"이라고 짚었다.
+C>>>
+
+SUMMARY D:
+<<<D
+도널드 트럼프 미국 행정부가 이란과 확전을 피한 이유를 두고 여러 해석이 나오고 있다. 이란이 공격 직후 전쟁을 원하진 않는다(전쟁을 원하진 않는다)는 메시지를 내놓은 것이 미국 수뇌부의 결정에 큰 영향을 미쳤을 것이란 분석이 설득력을 얻고 있다. 일각에선 미국이 가장 싫어하는 장기 게릴라전 상황을 우려했을 가능성도 지적된다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00706-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

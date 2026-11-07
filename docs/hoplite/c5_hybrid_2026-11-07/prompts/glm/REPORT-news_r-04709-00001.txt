@@ -1,0 +1,73 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-04709-00001
+이스라엘 성지 순례를 다녀온 뒤 신종 코로나바이러스 감염증(코로나19)으로 확진된 경북도민들의 감염 경로가 오리무중이다.
+  귀국 후에도 직장, 식당, 병원 등을 돌아다녀 지역사회 확산이 우려된다.
+  23일 경북도에 따르면 지난 8~16일 이스라엘 성지순례에 참여한 경북도민 39명(가이드 1명 서울 포함) 가운데 18명이 이날 코로나19 감염자로 확진됐다.
+  의성 9명, 안동 5명, 영주·영덕·예천 각 1명이다.
+  다른 1명은 서울에 사는 가이드다.
+  이들이 성지순례를 떠날 당시만 해도 이스라엘은 코로나19 청정지역이었다.
+  가톨릭 안동교구 관계자는 “출국할 때만 해도 이스라엘에서는 중국인이나 14일 이내에 중국을 경유한 사람은 입국을 금지하고 있었다”며 “그때까지 한국 공항이나 비행기 안에서 감염된 사례는 없었다”고 말했다.
+  39명의 순례단은 이스라엘 현지에서도 전용 버스를 타고 마스크를 낀 채 이동했다고 했다.
+  안동교구 관계자는 “1인당 마스크를 3개씩 지급하고, 혹시라도 모르니 착용을 당부했다.
+  성지 순례 중에도 마스크를 꼈고, 한국의 공항과 출국장에서도 전원이 마스크를 착용한 상태였다”고 말했다.
+  그러면서 “순례객 중 감기나 폐렴 증세를 보이는 사람은 없었다.
+  감염 경로가 너무 애매해 내부적으로 자체 조사를 벌이고 있다”고 설명했다.
+  순례단은 지난 16일 귀국 후 오후 2시쯤 공항 종교시설에서 행사를 마친 뒤 오후 5시쯤 버스 2대에 나눠 타고 오후 9시쯤 안동에 도착해 각자 집으로 갔다.
+  제일 먼저 증상을 보인 사람은 경북 의성에 사는 공무원 A씨(59·여)다.
+   귀국 다음 날인 17일 몸이 좋지 않아 연가를 냈다.
+  18일 고열과 기침 증세를 보여 선별진료소를 방문했고, 처음 확진 판정을 받았다.
+  귀국 직후부터 증상을 보인 A씨는 외부 활동 없이 집에만 머물렀던 것으로 전해졌다.
+     그러나 비교적 증세가 늦게 나타난 사람들은 마트와 온천 등을 돌아다녔다.
+  의성의 B씨(53·여)는 17일 낮 12시40분쯤 안계면 홈마트를 방문하고 인근의 다인중학교에 들렀다 오후 3시쯤 귀가했다.
+  18일엔 오후 3시쯤 하나로마트(안계점)에 갔다 오후 5시30분쯤 안계성당 미사에 참석했다.
+  19일엔 오전 10시30분쯤 안계성당을 거쳐 탑산온천에 갔다.
+  20일엔 자택에 머물다 21일 오전 11시30분쯤 의성군보건소를 찾았다.
+  이 밖에도 다른 확진자들은 각각 영주온천랜드, 의성경북의원, 안동소방서 등을 방문했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+이스라엘 성지 순례에 참여한 경북도민 39명(가이드 1명 서울 포함) 가운데 18명이 코로나19 감염자로 확진됐다. 의성 9명, 안동 5명, 영주·영덕·예천 각 1명, 다른 1명은 서울에 사는 가이드다. 39명의 순례단은 이스라엘 현지에서도 전용 버스를 타고 마스크를 낀 채 이동했으며, 1인당 마스크를 3개씩 지급하고 혹시라도 모르니 착용을 당부했다. 감염 경로가 너무 애매해 내부적으로 자체 조사를 벌이고 있다.
+A>>>
+
+SUMMARY B:
+<<<B
+이스라엘 성지 순례를 다녀온 경북도민 39명(가이드 1명 서울 포함) 가운데 18명이 코로나19 감염자로 확진됐다. 의성 9명, 안동 5명, 영주·영덕·예천 1명, 서울 가이드 1명 등 18명이 순례단에 포함됐다. 안동교구 관계자는 1인당 마스크를 3개씩 지급하고 착용을 당부했으며, 순례단은 지난 16일 오후 2시쯤 귀국 후 오후 5시쯤 버스 2대에 나눠 안동에 도착해 각 집으로 갔다. 의성 53·B씨 등 18 확진자는 각각 영주온천랜드, 의성경북의원, 안동소방서 등을 방문했다.
+B>>>
+
+SUMMARY C:
+<<<C
+이스라엘 성지 순례를 다녀온 뒤 신종 코로나바이러스 감염증(코로나19) 확진으로 확진된 경북도민 39명 가운데 18명이 이날 코로나19 감염자로 확진됐다. 의성 9명, 안동 5명, 영주·영덕·예천 각 1명이다. 안동교구 관계자는 출국할 때만 해도 이스라엘은 코로나19 청정지역이었으며, 1인당 마스크를 3개씩 지급하고, 성지 순례 중에도 마스크를 꼈고, 한국 공항과 출국장에서도 전원이 마스크를 착용한 상태였다고 설명했다. 순례단은 지난 16일 귀국 후 오후 2시쯤 공항 종교시설에서 행사를 마친 뒤 오후 5시쯤 버스 2대에 나눠 타고 오후 9시쯤 안동에 도착해 각자 집으로 갔다.
+C>>>
+
+SUMMARY D:
+<<<D
+이스라엘 성지순례에 참여한 경북도민 39명(가이드 1명 서울 포함) 가운데 18명이 이날 코로나19 감염자로 확진됐다. 의성 9명, 안동 5명, 영주·영덕·예천 각 1명은 서울에 사는 가이드가 있다. 순례단은 지난 16일 귀국 후 오후 2시쯤 공항 종교시설에서 행사를 마친 뒤 오후 5시쯤 버스 2대에 나눠 타고 오후 9시쯤 안동에 도착해 각자 집으로 갔다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-04709-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

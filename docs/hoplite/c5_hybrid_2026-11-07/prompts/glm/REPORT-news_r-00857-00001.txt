@@ -1,0 +1,66 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-00857-00001
+중국 당국이 후베이(湖北)성 우한(武漢)시에서 집단 발병한 폐렴의 원인으로 신종 코로나바이러스 가능성을 지목한 가운데 “정보를 더 많이 빠르게 공개하라”는 요구가 빗발치고 있다.
+  정확한 진단을 위해 유전 정보 등을 자세히 공유해야 한다는 것이다.
+   미국과학진흥협회(AAAS)가 발행하는 과학 저널 ‘사이언스’는 “많은 과학자가 이 발견이 중국의 바이러스학 수준을 보여주는 증거라고 말한다”면서도 “새로운 매개체가 어떻게 질병을 퍼뜨렸는지와 관련해 더 많은 정보를 빠르게 공유하라고 촉구하고 있다”고 9일(현지시간) 전했다.
+   이날 중국 관영 CCTV는 당국이 초보 단계 조사 결과 환자 15명에서 신종 바이러스를 확인했다고 발표했다.
+  CCTV는 “환자 한 명에게서 나온 바이러스를 전자현미경으로 확인한 결과 표면이 전형적인 코로나바이러스의 모양을 보였다”고 보도했다.
+  그러나 세계 곳곳의 과학자들은 ‘통제국가’로 오명을 안고 있는 중국에 보다 구체적인 정보를 신속히 제공할 것을 요구하고 있다.
+   미국의 비영리단체 에코헬스 연합의 피터 다스작은 “그들은 우리가 알고 있는 것보다 훨씬 더 많은 정보를 가지고 있다.
+  그 정보가 빨리 공개됐으면 좋겠다”면서 이번 사태가 “중국이 21세기 바이러스학뿐 아니라 21세기 공중보건을 하고 있단 것을 보여줄 기회”라고 강조했다.
+  이어 “진짜로 알고 싶은 건 병리학과 역학”이라며 “그래야 첫 번째로 이 코로나바이러스가 발병의 원인인지 확신할 수 있고, 두 번째로 감염경로를 알 수 있다.
+  이 정보를 얻지 못하면 질병이 퍼질 위험이 있다는 것이 내 의견”이라고 말했다.
+   바이러스 연구의 권위자인 마리온 쿠프만스 네덜란드 에라스 무스 메디컬 센터 교수 또한 더 구체적인 정보를 공유해야 한다고 강조했다.
+  쿠프만스는 “그들은 (바이러스의 게놈)배열 데이터를 공유해야 한다.
+  그래야 그 지역 여행객들이 왔을 때 이 바이러스 검사를 할 수 있다”고 말했다.
+  바이러스 전문가인 말릭 페이리스 홍콩대 교수도 “그들이 구체적인 유전자(RT-PCR) 검사 결과를 세계보건기구(WHO)나 세계 공중보건계와 공유하는 것이 중요하다”고 주장했다.
+    정보 통제 우려가 나오는 건 중증급성호흡기증후군(SARSㆍ사스)와 지난해 페스트(흑사병) 발병 때의 학습효과 탓도 있다.
+  2003년 사스 발생 초기 중국 당국이 관련 정보를 철저히 통제해 방역을 위한 ‘골든타임’을 놓쳤다는 지적이 나왔다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+중국 당국이 후베이성 우한시에서 집단 발병한 폐렴의 원인으로 신종 코로나바이러스 가능성을 지목한 가운데 정보 공개 요구가 빗발치고 있다. 미국과학진흥협회(AAAS)가 발행하는 과학 저널 '사이언스'는 많은 과학자가 이 발견이 중국의 바이러스학 수준을 보여주는 증거라고 말한다면서도 새로운 매개체가 어떻게 질병을 퍼뜨렸는지와 관련해 더 많은 정보를 빠르게 공유하라고 촉구하고 있다고 9일(현지시간) 전했다. 중국 관영 CCTV는 환자 15명에서 나온 신종 바이러스를 전자현미경으로 확인한 결과 표면이 전형적인 코로나바이러스의 모양을 보였다고 보도했다.
+A>>>
+
+SUMMARY B:
+<<<B
+중국 당국이 후베이성 우한시에서 집단 발병한 폐렴의 원인으로 신종 코로나바이러스 가능성을 지목한 가운데 정보를 더 많이 빠르게 공개하라는 요구가 빗발치고 있다. 미국과학진흥협회(AAAS)가 발행하는 과학 저널 '사이언스'는 많은 과학자가 이 발견이 중국의 바이러스학 수준을 보여주는 증거라고 말하며, 더 많은 정보를 빠르게 공유하라고 촉구하고 있다. 중국 관영 CCTV는 초보 단계 조사 결과 환자 15명에서 신종 바이러스를 확인했다고 발표했고, 피터 다스작 미국 비영리단체 에코헬스 연합의 피터 다스작은 정보가 빨리 공개됐으면 좋겠다고 강조했다. 마리온 쿠프만스 네덜란드 에라스 무스 메디컬 센터 교수도 구체적인 정보를 공유해야 한다고 강조했고, 말릭 페이리스 홍콩대 교수도 구체적인 유전자(RT-PCR) 검사 결과를 세계보건기구(WHO)나 세계 공중보건계와 공유하는 것이 중요하다고 주장했다.
+B>>>
+
+SUMMARY C:
+<<<C
+중국 당국이 후베이성 우한시에서 폐렴의 원인으로 신종 코로나바이러스 가능성을 지목한 가운데 유전 정보 등을 자세히 공유해야 한다는 요구가 빗발치고 있다. 미국과학진흥협회(AAAS)가 발행하는 과학 저널사이언스는 중국의 바이러스학 수준을 보여주는 증거라고 촉구하며 더 많은 정보를 빠르게 공유하라고 촉구하고 있다. 중국 관영 CCTV는 초보 단계 조사 결과 환자 15명에서 신종 바이러스를 확인했다고 발표했으며, 마리온 쿠프만스 네덜란드 에라스 무스 메디컬 센터 교수도 더 구체적인 정보를 공유해야 한다고 강조했다.
+C>>>
+
+SUMMARY D:
+<<<D
+중국 당국이 후베이성 우한시에서 집단 발병한 폐렴의 원인으로 신종 코로나바이러스 가능성을 지목한 가운데 정보 공개 요구가 빗발치고 있다. 미국과학진흥협회(AAAS)가 발행하는 과학 저널 '사이언스'는 많은 과학자가 이 발견이 중국의 바이러스학 수준을 보여주는 증거라고 말하지만, 새로운 매개체가 질병을 퍼뜨렸는지와 관련해 더 많은 정보를 빠르게 공유하라고 촉구하고 있다. 중국 관영 CCTV는 당국이 초보 단계 조사 결과 환자 15명에서 신종 바이러스를 확인했다고 발표했고, 에코헬스 연합의 피터 다스작은 병리학과 역학을 알고 싶다고 강조했다. 마리온 쿠프만스 네덜란드 에라스 무스 메디컬 센터 교수, 말릭 페이리스 홍콩대 교수 등 과학자들은 구체적인 정보를 공유해야 한다고 주장했다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-00857-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}

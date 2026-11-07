@@ -1,0 +1,68 @@
+You are an independent evaluator for Korean news summaries.
+Read the SOURCE and four summaries A-D. Rate each summary independently against the SOURCE.
+Use only the SOURCE. Do not use outside knowledge. Do not try to infer which system produced a summary.
+Do not compare a summary to another summary; rate each on its own.
+
+SOURCE:
+<<<SOURCE
+REPORT-news_r-03348-00001
+검경수사권 조정안이 통과되면서 대형 로펌을 위주로 변호사 업계가 대응에 나서고 있다.
+  이르면 7월부터 경찰이 1차 수사권과 수사종결권까지 쥐게 되면서 경찰 단계에서의 수사 대응이 중요해졌기 때문이다.
+  대형 로펌들은 경찰 출신 변호사를 영입하고 경찰 수사 대응팀까지 따로 꾸리고 있다.
+  "검찰 시대 저문다" 경찰 전관 영입경쟁16일 법조계에 따르면 대형 로펌을 중심으로 경찰 출신 변호사를 영입하기 위한 경쟁이 치열해지고 있다.
+  변호사 자격증을 소지한 경찰 수가 많지 않은 만큼 그 희소성이 크다는 게 법조계의 평가다.
+  대형 로펌의 경찰 출신 변호사는 “수사권조정 관련 동향 파악을 위해 경찰청과 서울지방경찰청을 다녀오기도 했다”며 “로펌 내부에선 ‘검찰의 시대는 저물어 간다’는 말도 종종 나온다”고 했다.
+   중앙일보는 이른바 6대 로펌(광장·김앤장·세종·율촌·태평양·화우)과 최근 경찰수사대응팀을 신설한 법무법인 지평에 경찰 출신 변호사 현황을 확인했다.
+  그 결과 대형 로펌이 일제히 경찰 경력이 있는 법률 전문가를 영입하고 있는 것으로 파악됐다.
+  법무법인 율촌과 지평은 경찰수사대응팀을 만들고 경찰 수사에 대응하고 있다.
+  태평양도 경찰 전담팀을 새로 꾸릴 방침이다.
+  "경찰 출신, 커뮤니케이션에 강점"로펌에서는 경찰 사건이 꾸준히 늘어온 데다 수사권조정안까지 통과되면서 경찰 출신 변호사의 영향력과 역할이 커질 것이라고 본다.
+  검찰 고위 간부 출신의 변호사는 “경찰 전관의 사건 청탁은 불가능한 얘기지만 경찰과의 커뮤니케이션에서는 확실히 강점이 있다”며 “검찰 출신 변호사가 검찰청에 방문해 상담하는 것처럼 경찰 출신은 경찰서에 찾아가 쟁점에 관해 이야기하기 편하다”고 했다.
+  대형로펌의 검찰 출신 변호사는 “경찰 수사 사건을 제일 잘 아는 건 아무래도 경찰 출신 변호사다”며 “경찰에 수사종결권까지 부여되면서 경찰 전관의 중요도가 점차 커질 것으로 보인다”고 했다.
+  최대 규모는 김앤장 김앤장은 지난달 경찰대학장(치안정감)을 역임한 백승호 변호사(사법연수원 23기)를 영입했다.
+  김앤장은 일찌감치 경찰 출신 변호사를 다수 영입해왔다.
+  정확한 경찰 전관 숫자를 공개하진 않았지만 40여명 수준으로 국내 최대 규모다.
+  김앤장은 수년 전부터 변호사 자격증이 없는 경찰 수사관들도 전문위원 자격으로 다수 영입해왔다.
+ 김앤장은 지난해 말에는 서울지방경찰청 지능범죄수사대장으로 버닝썬 수사를 이끈 곽정기(연수원 33기) 변호사를 영입했다.
+SOURCE>>>
+
+SUMMARY A:
+<<<A
+대형 로펌을 중심으로 경찰 출신 변호사를 영입하기 위한 경쟁이 치열해지고 있다. 검경수사권 조정안이 통과되면서 대형 로펌은 경찰 출신 변호사를 영입하고 경찰 수사 대응팀까지 따로 꾸리고 있다. 법무법인 율촌과 지평은 경찰수사대응팀을 만들고 경찰 수사에 대응하고 있으며 태평양도 경찰 전담팀을 새로 꾸릴 방침이다. 김앤장은 지난달 경찰대학장 역임 백승호 변호사(사법연수원 23기)를 영입했으며, 김앤장은 수년 전부터 경찰 출신 변호사를 다수 영입해왔다.
+A>>>
+
+SUMMARY B:
+<<<B
+검경수사권 조정안이 통과되면서 대형 로펌을 중심으로 경찰 출신 변호사를 영입하기 위한 경쟁이 치열해지고 있다. 법무법인 율촌과 지평은 경찰수사대응팀을 만들고 경찰 수사에 대응하고 있으며, 태평양도 경찰 전담팀을 새로 꾸릴 방침이다. 검찰 출신 변호사는 경찰 전관의 사건 청탁은 불가능하지만 경찰과의 커뮤니케이션에서는 확실히 강점이 있다고 평가했다.
+B>>>
+
+SUMMARY C:
+<<<C
+검경수사권 조정안이 통과되면서 대형 로펌을 중심으로 경찰 출신 변호사를 영입하기 위한 경쟁이 치열해지고 있다. 법조계는 대형 로펌의 경찰 출신 변호사가 검찰의 시대가 저물어 간다는 평가를 내고, 6대 로펌(광장·김앤장·세종·율촌·태평양·화우)과 최근 경찰수사대응팀을 신설한 법무법인 지평에 경찰 출신 변호사 현황을 확인했다. 검찰 고위 간부 출신의 변호사는 경찰 전관의 사건 청탁은 불가능하지만 경찰과의 커뮤니케이션에서는 강점이 있다고 말했다. 김앤장은 지난달 경찰대학장으로 역임한 백승호 변호사를 영입했고, 40여명 수준으로 국내 최대 규모다.
+C>>>
+
+SUMMARY D:
+<<<D
+검경수사권 조정안이 통과되면서 대형 로펌을 중심으로 경찰 출신 변호사를 영입하기 위한 경쟁이 치열해지고 있다. 법조계는 변호사 자격증을 소지한 경찰 수가 많지 않은 만큼 그 희소성이 크다는 평가를 받으며, 대형 로펌의 검찰 출신 변호사는 수사권조정 관련 동향 파악을 위해 경찰청과 서울지방경찰청을 다녀오기도 했다고 했다. 김앤장은 지난달 경찰대학장(치안정감)을 역임한 백승호 변호사를 영입했고, 김앤장은 수년 전부터 변호사 자격증이 없는 경찰 수사관들도 전문위원 자격으로 다수 영입해왔다.
+D>>>
+
+RUBRIC:
+- adequacy (0-4): 4 = almost all key facts/relations/qualifiers preserved and sufficient; 3 = key meaning preserved with minor loss; 2 = only part preserved or one important omission/distortion; 1 = most key meaning lost or misleading; 0 = not a functioning summary (empty/repetition/severe hallucination).
+- critical_unsupported (0/1): 1 if the summary adds important facts, numbers, entities, causes, dates, or conclusions not supported by SOURCE. Do not flag ordinary paraphrase or harmless connective wording.
+- critical_omission (0/1): 1 if omitting a fact changes a reader's understanding or decision; do not flag every minor detail.
+- wrong_unit_qualifier (0/1): 1 if a number/unit, time, date, condition, or scope is wrong or materially missing (e.g. 18명 -> 18, 오전 -> 오후, 2020 -> 2021).
+- entity_relation (0/1): 1 if a person/institution/place or a relation (who did what to whom, cause/effect) is wrong.
+- fluency (1-5): 5 = natural Korean; 3 = understandable but awkward/repetitive; 1 = barely readable.
+- utility (1-5): 5 = directly useful for a reader's decision; 3 = needs work; 1 = not useful.
+Multiple flags may be 1 at the same time. Be conservative: flag critical issues only when clear from SOURCE.
+
+Return ONLY valid JSON, with no markdown fences, in exactly this schema:
+{
+  "doc_id": "REPORT-news_r-03348-00001",
+  "summaries": {
+    "A": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "B": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "C": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"},
+    "D": {"adequacy": 0, "critical_unsupported": 0, "critical_omission": 0, "wrong_unit_qualifier": 0, "entity_relation": 0, "fluency": 1, "utility": 1, "evidence": ["short source quote"], "reason": "one or two sentences"}
+  }
+}
