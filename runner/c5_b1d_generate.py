@@ -35,6 +35,8 @@ def main() -> int:
     ap.add_argument("--adapter", type=Path, default=ADAPTER)
     ap.add_argument("--lora", type=Path, default=None,
                     help="B2 checkpoint containing a decoder LoRA state dict")
+    ap.add_argument("--teacher-preds", type=Path, default=None,
+                    help="optional teacher predictions jsonl for teacher-relative F1")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--max-new", type=int, default=448)
     ap.add_argument("--out", type=Path, default=OUT)
@@ -43,6 +45,7 @@ def main() -> int:
     args.lora = args.lora if args.lora is not None and args.lora.is_absolute() else (
         ROOT / args.lora if args.lora is not None else None
     )
+    args.teacher_preds = args.teacher_preds if args.teacher_preds is None or args.teacher_preds.is_absolute() else ROOT / args.teacher_preds
     args.out = args.out if args.out.is_absolute() else ROOT / args.out
     torch.set_num_threads(6)
     t0 = time.time()
@@ -52,6 +55,12 @@ def main() -> int:
         if line.strip()
     ]
     by_id = {str(r["id"]): r for r in rows}
+    teacher_map = {}
+    if args.teacher_preds is not None:
+        teacher_map = {
+            str(r["id"]): str(r["pred"])
+            for r in [json.loads(x) for x in args.teacher_preds.read_text(encoding="utf-8").splitlines() if x.strip()]
+        }
     splits = json.loads((ROOT / "reports/provenance/C5_clean/splits.json").read_text(encoding="utf-8"))
     ids = list(splits["val"])
     if args.limit:
@@ -111,16 +120,19 @@ def main() -> int:
                 )
             pred = tok.decode(gen[0], skip_special_tokens=True)
             target = str(rec["summary"])
+            teacher = teacher_map.get(rid)
             rep = verify_summary(str(rec["passage"]), pred)
             row = {
                 "id": rid,
                 "pred": pred,
                 "target": target,
+                "teacher": teacher,
                 "gen_len": int(gen[0].shape[0]),
                 "h_norm_mean": float(h_s.float().norm(dim=-1).mean()),
                 "ended_eos": bool((gen[0] == tok.eos_token_id).any()),
                 "nonempty": bool(pred.strip()),
                 "char_f1": char_f1(pred, target),
+                "teacher_char_f1": char_f1(pred, teacher) if teacher else None,
                 "repeated_4gram_rate": repeated_4gram_rate(pred),
                 "distinct_2": distinct_2(pred),
                 "new_slot_count": len(rep.new),
@@ -145,6 +157,10 @@ def main() -> int:
         "adapter": str(args.adapter.relative_to(ROOT).as_posix()),
         "max_new": args.max_new,
         "char_f1_mean": sum(x["char_f1"] for x in outputs) / n if n else 0.0,
+        "teacher_char_f1_mean": (
+            sum(x["teacher_char_f1"] for x in outputs if x.get("teacher_char_f1") is not None)
+            / sum(1 for x in outputs if x.get("teacher_char_f1") is not None)
+        ) if any(x.get("teacher_char_f1") is not None for x in outputs) else None,
         "grounded_rate": sum(x["grounded"] for x in outputs) / n if n else 0.0,
         "new_slot_rate_micro": sum_new / sum_slots if sum_slots else 0.0,
         "new_slot_rate_mean": sum(x["new_slot_rate"] for x in outputs) / n if n else 0.0,
