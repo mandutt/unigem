@@ -1,0 +1,9 @@
+{
+  "adapter": "data/models/f5_t5gemma2_lora/b2_teacher100/adapter_final.pt",
+  "lora": "data/models/f5_t5gemma2_lora/b2_teacher100/adapter_final.pt",
+  "target": "gold",
+  "n": 100,
+  "ce_mean": 3.200903260707855,
+  "token_acc_mean": 0.3908697071671486,
+  "test_split_used": false
+}

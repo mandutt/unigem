@@ -1,0 +1,19 @@
+{
+  "n": 20,
+  "adapter": "data/models/f5_t5gemma2_lora/b2_teacher100/adapter_final.pt",
+  "max_new": 448,
+  "char_f1_mean": 0.296409935852544,
+  "teacher_char_f1_mean": 0.270874277638926,
+  "grounded_rate": 0.15,
+  "new_slot_rate_micro": 0.8553459119496856,
+  "new_slot_rate_mean": 0.6906900738150739,
+  "new_slot_count": 136,
+  "summary_slot_count": 159,
+  "eos_rate": 0.5,
+  "nonempty_rate": 1.0,
+  "gen_len_mean": 341.6,
+  "repeated_4gram_rate_mean": 0.6357235047085932,
+  "distinct_2_mean": 0.27960782949462637,
+  "elapsed_sec": 318.8,
+  "test_split_used": false
+}

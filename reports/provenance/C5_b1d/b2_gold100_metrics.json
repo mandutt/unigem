@@ -1,0 +1,62 @@
+{
+  "experiment": "b2_gold100",
+  "init": "data/models/f5_t5gemma2_lora/b1d_teacher100/adapter_final.pt",
+  "target": "gold",
+  "teacher_preds": "reports/provenance/C5_b1d/teacher_train100.jsonl",
+  "teacher_val_preds": "reports/provenance/C5_a1/pilot300_val161/predictions.jsonl",
+  "require_teacher": true,
+  "train_n": 99,
+  "val_n": 100,
+  "epochs": 2,
+  "lr": 0.0003,
+  "lora": {
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "rank": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "modules": 72,
+    "params": 737280
+  },
+  "adapter_params": 1084033,
+  "hidden_weight": 0.01,
+  "loss_first": 2.7258405685424805,
+  "loss_last": 3.4684906005859375,
+  "loss_min": 0.9390077590942383,
+  "before": {
+    "train": {
+      "n_docs": 99,
+      "ce_mean": 2.672924607691139,
+      "ce_min": 1.5089269876480103,
+      "ce_max": 3.870448589324951
+    },
+    "val": {
+      "n_docs": 100,
+      "ce_mean": 2.937525029182434,
+      "ce_min": 2.0689597129821777,
+      "ce_max": 3.8535561561584473
+    }
+  },
+  "after": {
+    "train": {
+      "n_docs": 99,
+      "ce_mean": 1.6722726255956322,
+      "ce_min": 0.6052178144454956,
+      "ce_max": 3.3237054347991943
+    },
+    "val": {
+      "n_docs": 100,
+      "ce_mean": 2.9969163489341737,
+      "ce_min": 1.7233085632324219,
+      "ce_max": 3.9025022983551025
+    }
+  },
+  "elapsed_sec": 1034.5,
+  "checkpoint": "data/models/f5_t5gemma2_lora/b2_gold100/adapter_final.pt",
+  "test_split_used": false,
+  "note": "adapter + decoder q/k/v/o LoRA; base decoder frozen"
+}
