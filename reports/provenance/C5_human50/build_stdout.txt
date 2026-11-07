@@ -1,0 +1,50 @@
+{
+  "out": "C:\\code\\unigem\\reports\\provenance\\C5_human50\\manifest.json",
+  "targeted": 20,
+  "random": 30,
+  "repeat": 10,
+  "primary_ratings": 200,
+  "repeat_ratings": 40,
+  "total_ratings": 240,
+  "categories": {
+    "2586_low_preservation": 4,
+    "2586_slot_free": 6,
+    "647_residual": 2,
+    "known_residual": 6,
+    "seeded_fill": 2
+  },
+  "targeted_ids": [
+    "REPORT-news_r-02742-00001",
+    "REPORT-news_r-03978-00001",
+    "REPORT-news_r-04709-00001",
+    "REPORT-news_r-04951-00002",
+    "REPORT-news_r-01518-00001",
+    "REPORT-news_r-03801-00001",
+    "REPORT-news_r-00138-00003",
+    "REPORT-news_r-00159-00002",
+    "REPORT-news_r-00426-00001",
+    "REPORT-news_r-00450-00001",
+    "REPORT-news_r-00706-00001",
+    "REPORT-news_r-00942-00001",
+    "REPORT-news_r-03991-00001",
+    "REPORT-news_r-04855-00001",
+    "REPORT-news_r-00476-00001",
+    "REPORT-news_r-03086-00001",
+    "REPORT-news_r-00114-00001",
+    "REPORT-news_r-00818-00001",
+    "REPORT-news_r-03893-00001",
+    "REPORT-news_r-04608-00001"
+  ],
+  "repeat_ids": [
+    "REPORT-news_r-02742-00001",
+    "REPORT-news_r-03978-00001",
+    "REPORT-news_r-04709-00001",
+    "REPORT-news_r-04951-00002",
+    "REPORT-news_r-00138-00003",
+    "REPORT-news_r-00159-00002",
+    "REPORT-news_r-03906-00001",
+    "REPORT-news_r-04679-00001",
+    "REPORT-news_r-00389-00001",
+    "REPORT-news_r-01555-00001"
+  ]
+}

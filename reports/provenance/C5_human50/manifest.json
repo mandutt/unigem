@@ -1,0 +1,1076 @@
+{
+  "protocol": "D-085 human50 single-rater v1.0.0",
+  "status": "FROZEN",
+  "frozen_before_ratings": true,
+  "created": "2026-11-07",
+  "seed": 20261107,
+  "val_n": 161,
+  "targeted_n": 20,
+  "random_n": 30,
+  "sample_n": 50,
+  "repeat_n": 10,
+  "primary_ratings": 200,
+  "repeat_ratings": 40,
+  "total_ratings": 240,
+  "arms": [
+    "pilot300",
+    "1293",
+    "1940",
+    "2586"
+  ],
+  "selection_rule": {
+    "targeted": [
+      "6 known residual IDs",
+      "6 lowest-ID 2586 slot-free docs not already selected",
+      "4 lowest-preservation non-slot-free 2586 docs",
+      "2 lowest-ID 647 residual failures not already selected",
+      "seeded fill to 20"
+    ],
+    "random": "30 from remaining val, seed 20261107",
+    "repeat": "4 known residual + 2 2586 slot-free targeted + first 4 random30"
+  },
+  "targeted": [
+    {
+      "id": "REPORT-news_r-02742-00001",
+      "category": "known_residual",
+      "session": 5,
+      "arm_order": [
+        "1293",
+        "1940",
+        "2586",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-03978-00001",
+      "category": "known_residual",
+      "session": 2,
+      "arm_order": [
+        "2586",
+        "1940",
+        "1293",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-04709-00001",
+      "category": "known_residual",
+      "session": 1,
+      "arm_order": [
+        "2586",
+        "pilot300",
+        "1940",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-04951-00002",
+      "category": "known_residual",
+      "session": 1,
+      "arm_order": [
+        "pilot300",
+        "1293",
+        "1940",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-01518-00001",
+      "category": "known_residual",
+      "session": 1,
+      "arm_order": [
+        "pilot300",
+        "1293",
+        "2586",
+        "1940"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-03801-00001",
+      "category": "known_residual",
+      "session": 5,
+      "arm_order": [
+        "1940",
+        "pilot300",
+        "1293",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00138-00003",
+      "category": "2586_slot_free",
+      "session": 4,
+      "arm_order": [
+        "1940",
+        "pilot300",
+        "1293",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00159-00002",
+      "category": "2586_slot_free",
+      "session": 2,
+      "arm_order": [
+        "2586",
+        "1940",
+        "1293",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00426-00001",
+      "category": "2586_slot_free",
+      "session": 1,
+      "arm_order": [
+        "2586",
+        "pilot300",
+        "1940",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00450-00001",
+      "category": "2586_slot_free",
+      "session": 1,
+      "arm_order": [
+        "pilot300",
+        "1940",
+        "2586",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00706-00001",
+      "category": "2586_slot_free",
+      "session": 3,
+      "arm_order": [
+        "pilot300",
+        "1940",
+        "1293",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00942-00001",
+      "category": "2586_slot_free",
+      "session": 3,
+      "arm_order": [
+        "pilot300",
+        "1940",
+        "1293",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-03991-00001",
+      "category": "2586_low_preservation",
+      "session": 2,
+      "arm_order": [
+        "1293",
+        "2586",
+        "pilot300",
+        "1940"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-04855-00001",
+      "category": "2586_low_preservation",
+      "session": 3,
+      "arm_order": [
+        "1293",
+        "pilot300",
+        "1940",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00476-00001",
+      "category": "2586_low_preservation",
+      "session": 5,
+      "arm_order": [
+        "2586",
+        "1293",
+        "1940",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-03086-00001",
+      "category": "2586_low_preservation",
+      "session": 2,
+      "arm_order": [
+        "1940",
+        "pilot300",
+        "1293",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00114-00001",
+      "category": "647_residual",
+      "session": 4,
+      "arm_order": [
+        "2586",
+        "pilot300",
+        "1940",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00818-00001",
+      "category": "647_residual",
+      "session": 1,
+      "arm_order": [
+        "1940",
+        "1293",
+        "pilot300",
+        "2586"
+      ],
+      "train_prefix_shared": true
+    },
+    {
+      "id": "REPORT-news_r-03893-00001",
+      "category": "seeded_fill",
+      "session": 3,
+      "arm_order": [
+        "1940",
+        "2586",
+        "1293",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-04608-00001",
+      "category": "seeded_fill",
+      "session": 5,
+      "arm_order": [
+        "1940",
+        "pilot300",
+        "1293",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    }
+  ],
+  "random": [
+    {
+      "id": "REPORT-news_r-03906-00001",
+      "category": "random30",
+      "session": 5,
+      "arm_order": [
+        "1293",
+        "1940",
+        "2586",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-04679-00001",
+      "category": "random30",
+      "session": 1,
+      "arm_order": [
+        "1293",
+        "1940",
+        "2586",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00389-00001",
+      "category": "random30",
+      "session": 3,
+      "arm_order": [
+        "2586",
+        "1293",
+        "1940",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-01555-00001",
+      "category": "random30",
+      "session": 4,
+      "arm_order": [
+        "2586",
+        "pilot300",
+        "1940",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-03241-00001",
+      "category": "random30",
+      "session": 5,
+      "arm_order": [
+        "pilot300",
+        "1940",
+        "1293",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-02426-00001",
+      "category": "random30",
+      "session": 4,
+      "arm_order": [
+        "1940",
+        "2586",
+        "pilot300",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-02169-00001",
+      "category": "random30",
+      "session": 3,
+      "arm_order": [
+        "pilot300",
+        "1940",
+        "1293",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00649-00001",
+      "category": "random30",
+      "session": 5,
+      "arm_order": [
+        "1293",
+        "2586",
+        "1940",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-05467-00001",
+      "category": "random30",
+      "session": 5,
+      "arm_order": [
+        "pilot300",
+        "2586",
+        "1940",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00622-00001",
+      "category": "random30",
+      "session": 4,
+      "arm_order": [
+        "2586",
+        "1940",
+        "pilot300",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-05480-00001",
+      "category": "random30",
+      "session": 2,
+      "arm_order": [
+        "2586",
+        "1293",
+        "1940",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-02158-00001",
+      "category": "random30",
+      "session": 1,
+      "arm_order": [
+        "1293",
+        "1940",
+        "pilot300",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-04133-00001",
+      "category": "random30",
+      "session": 2,
+      "arm_order": [
+        "1293",
+        "1940",
+        "2586",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00723-00001",
+      "category": "random30",
+      "session": 2,
+      "arm_order": [
+        "2586",
+        "1293",
+        "1940",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-01510-00002",
+      "category": "random30",
+      "session": 4,
+      "arm_order": [
+        "2586",
+        "pilot300",
+        "1293",
+        "1940"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-03954-00001",
+      "category": "random30",
+      "session": 5,
+      "arm_order": [
+        "1293",
+        "2586",
+        "pilot300",
+        "1940"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00899-00005",
+      "category": "random30",
+      "session": 2,
+      "arm_order": [
+        "pilot300",
+        "1940",
+        "2586",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-01719-00001",
+      "category": "random30",
+      "session": 3,
+      "arm_order": [
+        "1293",
+        "pilot300",
+        "1940",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-00857-00001",
+      "category": "random30",
+      "session": 3,
+      "arm_order": [
+        "1940",
+        "2586",
+        "pilot300",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-02974-00001",
+      "category": "random30",
+      "session": 2,
+      "arm_order": [
+        "1940",
+        "2586",
+        "1293",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-01237-00001",
+      "category": "random30",
+      "session": 4,
+      "arm_order": [
+        "1940",
+        "2586",
+        "pilot300",
+        "1293"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-04769-00002",
+      "category": "random30",
+      "session": 4,
+      "arm_order": [
+        "1940",
+        "1293",
+        "2586",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-05180-00001",
+      "category": "random30",
+      "session": 2,
+      "arm_order": [
+        "1293",
+        "2586",
+        "1940",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-03501-00001",
+      "category": "random30",
+      "session": 4,
+      "arm_order": [
+        "1293",
+        "pilot300",
+        "1940",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-05150-00002",
+      "category": "random30",
+      "session": 5,
+      "arm_order": [
+        "1940",
+        "pilot300",
+        "2586",
+        "1293"
+      ],
+      "train_prefix_shared": true
+    },
+    {
+      "id": "REPORT-news_r-00871-00001",
+      "category": "random30",
+      "session": 3,
+      "arm_order": [
+        "1293",
+        "1940",
+        "2586",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-05258-00002",
+      "category": "random30",
+      "session": 4,
+      "arm_order": [
+        "1293",
+        "pilot300",
+        "1940",
+        "2586"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-04237-00001",
+      "category": "random30",
+      "session": 1,
+      "arm_order": [
+        "1940",
+        "2586",
+        "1293",
+        "pilot300"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-03266-00001",
+      "category": "random30",
+      "session": 3,
+      "arm_order": [
+        "2586",
+        "pilot300",
+        "1293",
+        "1940"
+      ],
+      "train_prefix_shared": false
+    },
+    {
+      "id": "REPORT-news_r-03348-00001",
+      "category": "random30",
+      "session": 1,
+      "arm_order": [
+        "pilot300",
+        "2586",
+        "1293",
+        "1940"
+      ],
+      "train_prefix_shared": false
+    }
+  ],
+  "repeat": [
+    {
+      "id": "REPORT-news_r-02742-00001",
+      "stratum": "targeted",
+      "repeat_session": 2,
+      "arm_order": [
+        "pilot300",
+        "1293",
+        "1940",
+        "2586"
+      ]
+    },
+    {
+      "id": "REPORT-news_r-03978-00001",
+      "stratum": "targeted",
+      "repeat_session": 1,
+      "arm_order": [
+        "pilot300",
+        "1293",
+        "2586",
+        "1940"
+      ]
+    },
+    {
+      "id": "REPORT-news_r-04709-00001",
+      "stratum": "targeted",
+      "repeat_session": 2,
+      "arm_order": [
+        "2586",
+        "1293",
+        "1940",
+        "pilot300"
+      ]
+    },
+    {
+      "id": "REPORT-news_r-04951-00002",
+      "stratum": "targeted",
+      "repeat_session": 1,
+      "arm_order": [
+        "2586",
+        "pilot300",
+        "1293",
+        "1940"
+      ]
+    },
+    {
+      "id": "REPORT-news_r-00138-00003",
+      "stratum": "targeted",
+      "repeat_session": 2,
+      "arm_order": [
+        "1940",
+        "2586",
+        "pilot300",
+        "1293"
+      ]
+    },
+    {
+      "id": "REPORT-news_r-00159-00002",
+      "stratum": "targeted",
+      "repeat_session": 1,
+      "arm_order": [
+        "2586",
+        "pilot300",
+        "1293",
+        "1940"
+      ]
+    },
+    {
+      "id": "REPORT-news_r-03906-00001",
+      "stratum": "random30",
+      "repeat_session": 1,
+      "arm_order": [
+        "1940",
+        "pilot300",
+        "1293",
+        "2586"
+      ]
+    },
+    {
+      "id": "REPORT-news_r-04679-00001",
+      "stratum": "random30",
+      "repeat_session": 2,
+      "arm_order": [
+        "2586",
+        "1293",
+        "pilot300",
+        "1940"
+      ]
+    },
+    {
+      "id": "REPORT-news_r-00389-00001",
+      "stratum": "random30",
+      "repeat_session": 1,
+      "arm_order": [
+        "pilot300",
+        "2586",
+        "1940",
+        "1293"
+      ]
+    },
+    {
+      "id": "REPORT-news_r-01555-00001",
+      "stratum": "random30",
+      "repeat_session": 2,
+      "arm_order": [
+        "1293",
+        "pilot300",
+        "2586",
+        "1940"
+      ]
+    }
+  ],
+  "sessions": {
+    "primary": {
+      "1": [
+        "REPORT-news_r-04709-00001",
+        "REPORT-news_r-04237-00001",
+        "REPORT-news_r-00818-00001",
+        "REPORT-news_r-04679-00001",
+        "REPORT-news_r-04951-00002",
+        "REPORT-news_r-01518-00001",
+        "REPORT-news_r-02158-00001",
+        "REPORT-news_r-00426-00001",
+        "REPORT-news_r-00450-00001",
+        "REPORT-news_r-03348-00001"
+      ],
+      "2": [
+        "REPORT-news_r-03978-00001",
+        "REPORT-news_r-02974-00001",
+        "REPORT-news_r-00159-00002",
+        "REPORT-news_r-00899-00005",
+        "REPORT-news_r-00723-00001",
+        "REPORT-news_r-05180-00001",
+        "REPORT-news_r-05480-00001",
+        "REPORT-news_r-04133-00001",
+        "REPORT-news_r-03086-00001",
+        "REPORT-news_r-03991-00001"
+      ],
+      "3": [
+        "REPORT-news_r-00871-00001",
+        "REPORT-news_r-00857-00001",
+        "REPORT-news_r-00706-00001",
+        "REPORT-news_r-03893-00001",
+        "REPORT-news_r-03266-00001",
+        "REPORT-news_r-01719-00001",
+        "REPORT-news_r-04855-00001",
+        "REPORT-news_r-00389-00001",
+        "REPORT-news_r-02169-00001",
+        "REPORT-news_r-00942-00001"
+      ],
+      "4": [
+        "REPORT-news_r-01510-00002",
+        "REPORT-news_r-00114-00001",
+        "REPORT-news_r-01237-00001",
+        "REPORT-news_r-00622-00001",
+        "REPORT-news_r-02426-00001",
+        "REPORT-news_r-05258-00002",
+        "REPORT-news_r-01555-00001",
+        "REPORT-news_r-03501-00001",
+        "REPORT-news_r-00138-00003",
+        "REPORT-news_r-04769-00002"
+      ],
+      "5": [
+        "REPORT-news_r-03801-00001",
+        "REPORT-news_r-00649-00001",
+        "REPORT-news_r-05150-00002",
+        "REPORT-news_r-02742-00001",
+        "REPORT-news_r-03954-00001",
+        "REPORT-news_r-03241-00001",
+        "REPORT-news_r-04608-00001",
+        "REPORT-news_r-00476-00001",
+        "REPORT-news_r-05467-00001",
+        "REPORT-news_r-03906-00001"
+      ]
+    },
+    "repeat": {
+      "1": [
+        "REPORT-news_r-03906-00001",
+        "REPORT-news_r-00389-00001",
+        "REPORT-news_r-00159-00002",
+        "REPORT-news_r-04951-00002",
+        "REPORT-news_r-03978-00001"
+      ],
+      "2": [
+        "REPORT-news_r-00138-00003",
+        "REPORT-news_r-01555-00001",
+        "REPORT-news_r-04679-00001",
+        "REPORT-news_r-02742-00001",
+        "REPORT-news_r-04709-00001"
+      ]
+    }
+  },
+  "repeat_gap_days_min": 7,
+  "ratings_per_session_max": 40,
+  "train_prefix_article_rule": "first three hyphen-separated components of id",
+  "train_prefix_ids": [
+    "REPORT-news_r-00005-00001",
+    "REPORT-news_r-00459-00003",
+    "REPORT-news_r-00818-00001",
+    "REPORT-news_r-01440-00002",
+    "REPORT-news_r-01744-00001",
+    "REPORT-news_r-01755-00002",
+    "REPORT-news_r-02086-00001",
+    "REPORT-news_r-02317-00004",
+    "REPORT-news_r-02318-00002",
+    "REPORT-news_r-02583-00002",
+    "REPORT-news_r-03118-00002",
+    "REPORT-news_r-03188-00002",
+    "REPORT-news_r-03220-00002",
+    "REPORT-news_r-03720-00005",
+    "REPORT-news_r-04454-00004",
+    "REPORT-news_r-05150-00002"
+  ],
+  "train_prefix_n": 16,
+  "hashes": {
+    "REPORT-news_r-02742-00001": {
+      "source_sha256": "f85c7bd2ebfd316cc9e1cff47f62ada435b9413bc5c62d2399cac33944a6317f",
+      "target_sha256": "2e031d1d0e51f3998cb029482819f02c66c62827b0af7697dc1444c363d536d6"
+    },
+    "REPORT-news_r-03978-00001": {
+      "source_sha256": "4028d13cdc5a6d626e107889ef614235c036cf7d9410aba4f2ce0928013395d5",
+      "target_sha256": "951b3d085a063f42c1edb12e9ea35a3494561055b69d8c28a6aa26c808138147"
+    },
+    "REPORT-news_r-04709-00001": {
+      "source_sha256": "7af89d1239a448eff30fd5e06875a82479d81029504277fb662df012a2eb575d",
+      "target_sha256": "cd81d283f167ca88a7a657a2a734e48d3a2cae5c98f62193276cfb75d3cb09f8"
+    },
+    "REPORT-news_r-04951-00002": {
+      "source_sha256": "775367b5958355b7dc3db2896b20a7d7ea12d51490aadbc5ff7f6d1bdd74e4cb",
+      "target_sha256": "716808ff77ca608ca187465ca086fcd7b3f8c2cb7bd02765fb1c5a4150ab2c21"
+    },
+    "REPORT-news_r-01518-00001": {
+      "source_sha256": "a7f0314b109840822d7e4520061c61f00dd8699ff8d24361a5e270619493557a",
+      "target_sha256": "932564fd2de26a4b7c5b2bcd395cad0d6ab476b10b05fe7d108d722ff8bf463b"
+    },
+    "REPORT-news_r-03801-00001": {
+      "source_sha256": "c774b8d9a1166ffc9b5eb1b10f537a0b04cd26619c9a4cb4e5cd2fe186a0092d",
+      "target_sha256": "90a8f53e7a39144ecb4b332935b7341a95e3fac33cf4138a52e110b23dcc2b1d"
+    },
+    "REPORT-news_r-00138-00003": {
+      "source_sha256": "39c8a8963ca1b0e261b739293b0b1cfb8ed88e267183c7d155d1b5d6eb3ab669",
+      "target_sha256": "690ec3d9e5b46d49c824e0291450f23b02100ba84c2639ef7190e5798f2c1e17"
+    },
+    "REPORT-news_r-00159-00002": {
+      "source_sha256": "e930ced4aca94bc2b4dd5b7e3ff0cd2425043da7905c56df0bd5d3e921363b83",
+      "target_sha256": "33f69195c5fccc3eba3233c75359cf488703d87d73962ae89839572d2d659be6"
+    },
+    "REPORT-news_r-00426-00001": {
+      "source_sha256": "bce86d2aad14a00b8a1870d632934977d3282ac241623c867121955412ec5a54",
+      "target_sha256": "e74d0a4d0065f4af9092fd1f252551c6f1d4ca48d0aee6477ddafc295d8267c2"
+    },
+    "REPORT-news_r-00450-00001": {
+      "source_sha256": "0f0fce28a1347bc2436defe16439409e1e7603b5bb4e6c81eb95817afd9b7e2e",
+      "target_sha256": "3990c9ddd155c5fa597b5e4bf17cd60d09c721afbfefa9f15338a95a25fb3e7d"
+    },
+    "REPORT-news_r-00706-00001": {
+      "source_sha256": "b02a0616e189068935891a996b17f27e99d08804d1444a2df6577f2cb24bcc3c",
+      "target_sha256": "a56d4739488a89da0763559328939d3461f43464be0f85cfcd9581e9ea095926"
+    },
+    "REPORT-news_r-00942-00001": {
+      "source_sha256": "03e167f53efd682d029a47268470ac7ec27d9e0fe74950271399e21d12cc2464",
+      "target_sha256": "0a221c9ae9f6c3a23306a59b2d531c6131eef168316c40b758189dca9b603191"
+    },
+    "REPORT-news_r-03991-00001": {
+      "source_sha256": "17e03b9da0d504b7a6d93c397e6cddb2d379760ee0d9969bdbd1ed8461d4b8b9",
+      "target_sha256": "39f1c436fc61f09c3750a7590c9b74abbeff01e43f2128e2d61eaf1fff3f0c49"
+    },
+    "REPORT-news_r-04855-00001": {
+      "source_sha256": "fe1aae9fe186536f0f0e68995edc3d3d9323991b6752c5a1f21e153e90ff49c7",
+      "target_sha256": "5ccbffc284fe2d1126f6cafcb7bea8d3f37e72cd4e30804c984b86b78173dd52"
+    },
+    "REPORT-news_r-00476-00001": {
+      "source_sha256": "d0da19d45b6a1eea0b818b71e1fd12e8f2c8b137e33d964c1dbce1c6f4ca6d5d",
+      "target_sha256": "67cd284b279955cd4fc4a546ca4e4f31cf8ba55019fe0c276936c2bb05216f97"
+    },
+    "REPORT-news_r-03086-00001": {
+      "source_sha256": "086c53751ad0c22c597da60c787e8d3acd248f5507bccad70f712e037ab9f7de",
+      "target_sha256": "a7256db625fd47574c1736c5531de440a702a94cccb994f11bb28ab77476ecb7"
+    },
+    "REPORT-news_r-00114-00001": {
+      "source_sha256": "0a67346cfb601e1ecd836f413bbc600402c411579032d7b2eb0a61051d34a350",
+      "target_sha256": "b2b7ba7f8ba9f7e8d301e159672668031ed836fa3621d3c8432ff670f182aa34"
+    },
+    "REPORT-news_r-00818-00001": {
+      "source_sha256": "4efb2788bae041267d40730610159ace409f10c269a0f26d43022f4acba899b7",
+      "target_sha256": "f02d67a0b05b2a3919f40a771b7d7199cb36e6c1368313e9491b969fea18715c"
+    },
+    "REPORT-news_r-03893-00001": {
+      "source_sha256": "3fe0a524b8738490822d1cba077b3c360d1b01d5ed75e7ebb1665da421eed1a4",
+      "target_sha256": "44e15c9c93c8f59066d008f38906b33103472f711441dad7d6707f593c008b6b"
+    },
+    "REPORT-news_r-04608-00001": {
+      "source_sha256": "582cdc9bbc4f3570a55b43a734f05e088fd35e9666e88f38feacf1c29876003b",
+      "target_sha256": "97537a6110b0cc79f7ecd5dada1a3844771ae56b5c74fab533eeeaca9f6d1443"
+    },
+    "REPORT-news_r-03906-00001": {
+      "source_sha256": "dc0c17d76f2e355f999c7b57b9e6145e3e74a952c7826f2ec692e4470e0773e7",
+      "target_sha256": "31a9c2f1dde275553882cb5e8b1a8d4b2c1828c72a477f5c9d62c4b98acfd2d9"
+    },
+    "REPORT-news_r-04679-00001": {
+      "source_sha256": "ddb72084e461ef05bb493eef6e04e4d5eec7bca11d5cfdc2353e413698009a38",
+      "target_sha256": "dfb7d09a3f85c748462c78ed83338a55f16bb1e199656e2dc9a2b514933c87fb"
+    },
+    "REPORT-news_r-00389-00001": {
+      "source_sha256": "f425b25f2c00b1a3d5f7e18880fb0e13576bc6ef72eb552896250c789c82f50e",
+      "target_sha256": "0dde0ff796677a4bd28c393de54853f7b23f3b9d67ac0e56faa7ef3f9f9d8172"
+    },
+    "REPORT-news_r-01555-00001": {
+      "source_sha256": "be560b920b02ac4986ec064945d96a0c848131a1d857cbf54fb1e16fb6f716ad",
+      "target_sha256": "c3d23dec929c7a41f82e6d6d4be940e80263d5a48e19ff9f87298e340cd6543b"
+    },
+    "REPORT-news_r-03241-00001": {
+      "source_sha256": "6677cde815375256280de7dafff08bcabda3922dc330a5e6cc5c327484c1d525",
+      "target_sha256": "caf32b57e1d6a30f6065b94b31e28333d74bf99cb6394f1c73b6a53ebfc0dc63"
+    },
+    "REPORT-news_r-02426-00001": {
+      "source_sha256": "6474e7958780c2bca5f065e347a6ab88728f983a5d837bbce9ceb6e12c6845ef",
+      "target_sha256": "5ccfca7577d7dd58609dd4e9e41569776958e68f7c2d9cfe7fe222c9b85e962d"
+    },
+    "REPORT-news_r-02169-00001": {
+      "source_sha256": "f66d98a72e26465b00a3ef8ccba95d89b441f47bb6f8c4e1957a52c4c1814941",
+      "target_sha256": "0875acd49e919e2713dd415f6f33ec7e720fdd6fa1e0d959b7019438a58e8842"
+    },
+    "REPORT-news_r-00649-00001": {
+      "source_sha256": "27e88873f56787da38e691230eba26350bb6f52d97d986029a84a7b52108c991",
+      "target_sha256": "878417d1aca06bafc37d6a05460f16ecd1a3b159c7d401b52a82758a3d8c6436"
+    },
+    "REPORT-news_r-05467-00001": {
+      "source_sha256": "abc17e830a7aed845bffbb38e93ecd2d778fc0f2914096eb3d0dc430c69b3d4a",
+      "target_sha256": "ee6069e08922dc1fa1bb04f4e9bb7364fe04e867f340bd5ce1d24e65f804fcc3"
+    },
+    "REPORT-news_r-00622-00001": {
+      "source_sha256": "bff0f36a823b3e40f34e93d7fa8ea920b2cea0eed49290ee53d23cf52a387bfd",
+      "target_sha256": "98e4867fe6c4ce4fbd64a27af54dff17cdfd8eda3c4949660dbea5cbb01df820"
+    },
+    "REPORT-news_r-05480-00001": {
+      "source_sha256": "3aac74e5646a138f8b2e1e85c31ce0de371c5f7a326af22ee97323643360583c",
+      "target_sha256": "0fe56d96a2ad9bc792e194fc10838a950582e20e80b125dad970baf5d99016ce"
+    },
+    "REPORT-news_r-02158-00001": {
+      "source_sha256": "e7c935e3427101996c14ed26fdb2534c0296082928f9a984947608c5625ae570",
+      "target_sha256": "40261f7a877298d6264f6fbdd4816ef08f16f4fa0b1f810077c998cc91e77aa6"
+    },
+    "REPORT-news_r-04133-00001": {
+      "source_sha256": "d8ab65439cfa24f4baf10b4abfd6c05a8566660bb93c0535e296a9cb2a92d5ea",
+      "target_sha256": "cd026d2f716fad1e1abca03fd2a700d83245f73819edf80ab90fd6bf4ae7beae"
+    },
+    "REPORT-news_r-00723-00001": {
+      "source_sha256": "350096c9087c49e1371c88006a9d3e78cacdbb71773833b686b5f16b1fd14579",
+      "target_sha256": "a06be3bf640bdf0825c96bbf37580d5f8769c583d2fc6de309647ba537946fc1"
+    },
+    "REPORT-news_r-01510-00002": {
+      "source_sha256": "01236ce54df55160791feb50a48ff8b2e0f0fce291aaf6b5f6fae7ad0a3f2ed3",
+      "target_sha256": "dc67d07c9a9b77d40bbccb294107ece20e14bcfe2ce697f2b7283558636c3ca3"
+    },
+    "REPORT-news_r-03954-00001": {
+      "source_sha256": "65c3d1115ec1fa101128aed9ee791fdd703dfacf0801438931daaa05f21e4cf6",
+      "target_sha256": "fe00e66d841e538369dc64a8616784e607896f325f91b9478244bc2f4f3b43f8"
+    },
+    "REPORT-news_r-00899-00005": {
+      "source_sha256": "544eae432312e0c416a2488ef33f57cb22673028af81ba08899502d25a9f4f0e",
+      "target_sha256": "461537ad81d77cc5d5162210d9f366d04375ddaaa97ba6ab96abe36831c715cb"
+    },
+    "REPORT-news_r-01719-00001": {
+      "source_sha256": "a10e6dac763b78eea131130e7e0592d74ee298abb2148dae2b2d4a745cc5110d",
+      "target_sha256": "300daa2077a799d383bdfeb79c441473adeb4b47d6ff95f70a4eb66dcc884590"
+    },
+    "REPORT-news_r-00857-00001": {
+      "source_sha256": "01b2e2e0c0d29c73f314d3c11d44bbe4be89f41463e713b31354f40c10d7781b",
+      "target_sha256": "30cd9c3bef8225b1b764f99f692d2ae0abd2dfaf92175bef7f94d1a2dc79be69"
+    },
+    "REPORT-news_r-02974-00001": {
+      "source_sha256": "5bcaf3878688e0d69be3b292ab1c51117ee315506864437d7a9e271a4740fad3",
+      "target_sha256": "cbf5bfa2bfbb9a4fd2c439818e14a80f11781a93a6388b4403859c58758d9678"
+    },
+    "REPORT-news_r-01237-00001": {
+      "source_sha256": "b729752e1f1825fa4614820f1918756a7e1abdaab62c27281f6a2fccf8fec4b5",
+      "target_sha256": "2b9a75ba7cc938b5b44b426c4cba40c5e02dd6f5aaba28bd51a1776c157e2258"
+    },
+    "REPORT-news_r-04769-00002": {
+      "source_sha256": "77a8d747c3285ac0b5de47075082ba654fa0f81812abba8fbe2c239fb97d0ca4",
+      "target_sha256": "a22fdeaef08b408fcb5679bf58154be707412e642e058f48f89cd85b60949d38"
+    },
+    "REPORT-news_r-05180-00001": {
+      "source_sha256": "d4944af02b8b4a3d6eee97e58f060c5f554b964092bc2c2b2cf54902a492a76f",
+      "target_sha256": "9f0ce3de771c68f314788ccfc6a27df167466638b66f5cf8e167991109712981"
+    },
+    "REPORT-news_r-03501-00001": {
+      "source_sha256": "9c211f9095a8355bd6b0e11c62da5c73be1d63a53cf25563384d56e308c8ac55",
+      "target_sha256": "e996b3054039d1bac155dcaec618e20ad2fea7b81f8d1563183a1f235f20c16e"
+    },
+    "REPORT-news_r-05150-00002": {
+      "source_sha256": "1565109fd6b2d8f94ac85e7384e62f928d41fd923ca7b83f5c7a72a05241a489",
+      "target_sha256": "bf0845e203b4243999578b1871d362d33df659df7286c620e3596891e0c67055"
+    },
+    "REPORT-news_r-00871-00001": {
+      "source_sha256": "be9a44636f057d7c3005488b321432b8217281709e5a48513de2c4fab698159e",
+      "target_sha256": "3f01f9e30a04e24befde65987149c8852759fb687f6ea842691b7d88f7022587"
+    },
+    "REPORT-news_r-05258-00002": {
+      "source_sha256": "e53db12776c2537961c60179571950ad7f187bd749ec401dad0707a40e263cbd",
+      "target_sha256": "22ffd490d38836d64531af0185c63a86b5a36270f7f1f49dbeb2e379f1aebd6d"
+    },
+    "REPORT-news_r-04237-00001": {
+      "source_sha256": "1782425bbdcefaa23343133b85bfd53bb458b1646ff4c5563728e9ee443f44ec",
+      "target_sha256": "20ce44dd941233ff740d4d7a39d5f08cd54f83d7d4829ff7ef559c9841bfd323"
+    },
+    "REPORT-news_r-03266-00001": {
+      "source_sha256": "4fff8506e26f5375286a10e06414ce833aeef42f148d21a1c7cb5ffb4b46b052",
+      "target_sha256": "d56f3d91fa33fd88c60a2e89a759f942770caa73e4df4ad98c86c7a7dda9308e"
+    },
+    "REPORT-news_r-03348-00001": {
+      "source_sha256": "e67f87380757f9f3dc64494e8c75b6b2f85e39e88a37f62aedefc84672f2485a",
+      "target_sha256": "cc00afb1e1865fd305826fc55b4b6ba693125d6258d614c46cb91a7695c20dcd"
+    }
+  },
+  "decision_rule": {
+    "primary_contrast": "2586 - pilot300",
+    "adequacy_scale": [
+      0,
+      4
+    ],
+    "adequacy_lower_95_margin": -0.25,
+    "critical_unsupported_upper_95_margin": 0.05,
+    "critical_omission_upper_95_margin": 0.05,
+    "train_prefix_sensitivity": {
+      "exclude_train_prefix_ids": true,
+      "adequacy_lower_95_margin": -0.25,
+      "critical_unsupported_upper_95_margin": 0.05,
+      "critical_omission_upper_95_margin": 0.05
+    },
+    "intra_rater_icc_min": 0.7,
+    "intra_rater_weighted_kappa_min": 0.6,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20261107
+  },
+  "test_163": "SEALED",
+  "rater_count": 1,
+  "inter_rater_reliability": "NOT_AVAILABLE",
+  "note": "No ratings were collected before this manifest was frozen. Test 163 is not in the sample."
+}
