@@ -11,7 +11,7 @@
 ## Files
 
 - `reports/provenance/C5_hybrid/manifest.json` — 50-doc sample, 3 judge orders, 20-doc calibration, 5-doc repeat, gates
-- `reports/provenance/C5_hybrid/ai_inputs/judge_{glm,sonnet,sol}.jsonl` — 50 prompts per judge, no arm names/metrics/targets
+- `reports/provenance/C5_hybrid/ai_inputs/judge_{glm,sonnet,luna}.jsonl` — 50 prompts per judge, no arm names/metrics/targets
 - `docs/D-086_hybrid_ai_human_protocol_2026-11-07.md` — protocol
 - `runner/c5_hybrid_build_manifest.py`
 - `runner/c5_hybrid_build_ai_inputs.py`
@@ -23,8 +23,10 @@
 | judge | model | reasoning |
 |---|---|---|
 | glm | `z-ai/glm-5.3-flash` | max |
-| sonnet | `claude-sonnet-5-5` | high |
-| sol | `gpt-6.1-sol` | xhigh |
+| sonnet | `claude-sonnet-5-5` | low |
+| luna | `gpt-6-luna` | high |
+
+카탈로그 ID는 `gpt-6-luna`(GPT-6 Luna)이며 `gpt-6.1-luna`는 현재 카탈로그에 없습니다.
 
 150 calls = 3 × 50 docs. Each call returns 4 ratings → 600 AI ratings.
 

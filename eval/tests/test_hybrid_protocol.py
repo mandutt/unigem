@@ -102,8 +102,8 @@ class TestAiInputs(unittest.TestCase):
             {j["id"]: (j["model"], j["reasoning"]) for j in self.m["ai_panel"]["judges"]},
             {
                 "glm": ("z-ai/glm-5.3-flash", "max"),
-                "sonnet": ("claude-sonnet-5-5", "high"),
-                "sol": ("gpt-6.1-sol", "xhigh"),
+                "sonnet": ("claude-sonnet-5-5", "low"),
+                "luna": ("gpt-6-luna", "high"),
             },
         )
 

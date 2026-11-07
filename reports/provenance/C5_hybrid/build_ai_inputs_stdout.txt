@@ -9,12 +9,12 @@
     "sonnet": {
       "path": "C:\\code\\unigem\\reports\\provenance\\C5_hybrid\\ai_inputs\\judge_sonnet.jsonl",
       "docs": 50,
-      "bytes": 436704
+      "bytes": 436654
     },
-    "sol": {
-      "path": "C:\\code\\unigem\\reports\\provenance\\C5_hybrid\\ai_inputs\\judge_sol.jsonl",
+    "luna": {
+      "path": "C:\\code\\unigem\\reports\\provenance\\C5_hybrid\\ai_inputs\\judge_luna.jsonl",
       "docs": 50,
-      "bytes": 436304
+      "bytes": 436254
     }
   },
   "total_prompts": 150

@@ -24,8 +24,8 @@ SEED = 20261107
 ARMS = ["pilot300", "1293", "1940", "2586"]
 JUDGES = [
     {"id": "glm", "model": "z-ai/glm-5.3-flash", "reasoning": "max"},
-    {"id": "sonnet", "model": "claude-sonnet-5-5", "reasoning": "high"},
-    {"id": "sol", "model": "gpt-6.1-sol", "reasoning": "xhigh"},
+    {"id": "sonnet", "model": "claude-sonnet-5-5", "reasoning": "low"},
+    {"id": "luna", "model": "gpt-6-luna", "reasoning": "high"},
 ]
 
 

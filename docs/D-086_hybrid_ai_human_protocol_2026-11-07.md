@@ -77,8 +77,11 @@ AI panel·human calibration 결과 모두 **train-prefix 제외 sensitivity**를
 | judge | model | reasoning |
 |---|---|---|
 | `glm` | `z-ai/glm-5.3-flash` | `max` |
-| `sonnet` | `claude-sonnet-5-5` | `high` |
-| `sol` | `gpt-6.1-sol` | `xhigh` |
+| `sonnet` | `claude-sonnet-5-5` | `low` |
+| `luna` | `gpt-6-luna` | `high` |
+
+- 카탈로그 ID는 **`gpt-6-luna`**(GPT-6 Luna)이며, `gpt-6.1-luna`는 현재 카탈로그에 없다.
+- Sonnet 5.5는 `low`, Luna는 `high`를 사용한다.
 
 - 3 models × 50 docs = **150 calls**
 - 각 call은 4 summaries를 평가하므로 **600 ratings**
@@ -287,7 +290,7 @@ AI panel outputs는 human calibration 전에 hash로 lock한다.
 
 - 이 protocol
 - `reports/provenance/C5_hybrid/manifest.json`
-- `reports/provenance/C5_hybrid/ai_inputs/judge_{glm,sonnet,sol}.jsonl`
+- `reports/provenance/C5_hybrid/ai_inputs/judge_{glm,sonnet,luna}.jsonl`
 - `runner/c5_hybrid_build_manifest.py`
 - `runner/c5_hybrid_build_ai_inputs.py`
 - future: `reports/C5_hybrid_human_calibration_sheet.html`
