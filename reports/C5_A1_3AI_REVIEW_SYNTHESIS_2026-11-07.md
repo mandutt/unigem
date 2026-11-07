@@ -291,3 +291,28 @@ A0가 이미 test 163을 사용했으므로 “project 전체 미사용”이 �
 - 오류 분석: `reports/C5_A1_error_analysis_2026-11-07.md`
 - strict selection: `reports/provenance/C5_a1/full_2ep/selection_summary.json`
 - 비용: **$2.2989** (GLM $0.1629 / Opus $1.4412 / Sol $0.6948)
+
+---
+
+## 11. 후속 audit 정정 (2026-11-07)
+
+D-084 초안 작성 중 `runner/c5_a1_verifier_v2_audit.py`로 저장된 val 예측을 재검증했다. 이 결과는 위 3-AI 검토의 “conditional 160/161”을 다음과 같이 구체화한다.
+
+| system | V1 | V2 generic | V2 + counter alias |
+|---|---:|---:|---:|
+| pilot300 | 161/161 | 161/161 | 161/161 |
+| 647 | 155/161 | 158/161 | 158/161 |
+| **1,293** | 159/161 | **160/161** | 160/161 |
+| **1,940** | 158/161 | **159/161** | **160/161** |
+| **2,586** | 159/161 | **160/161** | 160/161 |
+
+- **generic v2**(URL + qualifier + uniqueness-guarded number)만 적용하면 **1,940은 159/161**이며, 160/161이 되려면 `18 확진자` **counter alias**가 필요하다.
+- generic v2에서 eligible 후보의 max F1은 **2,586(0.6690)**, alias를 추가하면 **1,940(0.6823)**이다. 즉 **selection 결과가 alias policy에 의존**한다.
+- corpus collision: URL wrap **3/1,617**, qualifier collision **7/1,617**, numeric unit collision **902/1,617 (55.8%)**.
+- **target audit**: excluded 383쌍 중 v2가 grounded로 뒤집은 5건(`00291`, `01844`, `03253`, `04791`, `05019`)이 있어 human adjudication 필요; clean 1,617쌍은 v1/v2 차이 0.
+- 기존 v1 URL canonicalizer는 path/query case와 comma를 잃는 **false accept**가 있다 (`Case?key=A,B` vs `case?key=ab`가 grounded).
+- raw: `reports/provenance/C5_a1/full_2ep/verifier_v2_audit.json`
+- audit: `reports/C5_A1_verifier_v2_audit_2026-11-07.md`
+- D-084 초안: `docs/D-084_verifier_v2_draft_2026-11-07.md`
+
+**D-083 strict 결과는 여전히 `selected_step: null`, pilot300 fallback이다.**

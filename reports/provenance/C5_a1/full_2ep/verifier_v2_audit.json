@@ -1,0 +1,188 @@
+{
+  "scope": "P0 clean, val predictions only; no test, no production verifier changes",
+  "clean_n": 1617,
+  "excluded_n": 383,
+  "corpus": {
+    "url_wrap_docs": 3,
+    "url_wrap_occurrences": 3,
+    "qualifier_collision_docs": 7,
+    "numeric_unit_collision_docs": 902
+  },
+  "target_audit": {
+    "excluded": {
+      "n": 383,
+      "v1_grounded": 0,
+      "v2_grounded": 5,
+      "flips": [
+        {
+          "id": "REPORT-news_r-00291-00002",
+          "v1_grounded": false,
+          "v2_grounded": true,
+          "v1_new": [
+            "2020"
+          ],
+          "v2_new": []
+        },
+        {
+          "id": "REPORT-news_r-01844-00001",
+          "v1_grounded": false,
+          "v2_grounded": true,
+          "v1_new": [
+            "2021"
+          ],
+          "v2_new": []
+        },
+        {
+          "id": "REPORT-news_r-03253-00001",
+          "v1_grounded": false,
+          "v2_grounded": true,
+          "v1_new": [
+            "404"
+          ],
+          "v2_new": []
+        },
+        {
+          "id": "REPORT-news_r-04791-00001",
+          "v1_grounded": false,
+          "v2_grounded": true,
+          "v1_new": [
+            "20"
+          ],
+          "v2_new": []
+        },
+        {
+          "id": "REPORT-news_r-05019-00001",
+          "v1_grounded": false,
+          "v2_grounded": true,
+          "v1_new": [
+            "5000",
+            "200"
+          ],
+          "v2_new": []
+        }
+      ]
+    },
+    "clean": {
+      "n": 1617,
+      "v1_grounded": 1617,
+      "v2_grounded": 1617,
+      "flips": []
+    }
+  },
+  "checkpoints": {
+    "pilot300": {
+      "n": 161,
+      "v1_grounded": 161,
+      "v2_grounded": 161,
+      "v2_alias_grounded": 161,
+      "v1_fail_ids": [],
+      "v2_fail_ids": [],
+      "v2_alias_fail_ids": [],
+      "url_repair_docs": [
+        "REPORT-news_r-02742-00001"
+      ],
+      "v2_new_counts": {}
+    },
+    "0647": {
+      "n": 161,
+      "v1_grounded": 155,
+      "v2_grounded": 158,
+      "v2_alias_grounded": 158,
+      "v1_fail_ids": [
+        "REPORT-news_r-00114-00001",
+        "REPORT-news_r-00818-00001",
+        "REPORT-news_r-01767-00002",
+        "REPORT-news_r-02742-00001",
+        "REPORT-news_r-03086-00001",
+        "REPORT-news_r-03978-00001"
+      ],
+      "v2_fail_ids": [
+        "REPORT-news_r-00114-00001",
+        "REPORT-news_r-01767-00002",
+        "REPORT-news_r-03086-00001"
+      ],
+      "v2_alias_fail_ids": [
+        "REPORT-news_r-00114-00001",
+        "REPORT-news_r-01767-00002",
+        "REPORT-news_r-03086-00001"
+      ],
+      "url_repair_docs": [
+        "REPORT-news_r-02742-00001"
+      ],
+      "v2_new_counts": {
+        "REPORT-news_r-00114-00001": 1,
+        "REPORT-news_r-01767-00002": 1,
+        "REPORT-news_r-03086-00001": 1
+      }
+    },
+    "1293": {
+      "n": 161,
+      "v1_grounded": 159,
+      "v2_grounded": 160,
+      "v2_alias_grounded": 160,
+      "v1_fail_ids": [
+        "REPORT-news_r-02742-00001",
+        "REPORT-news_r-03801-00001"
+      ],
+      "v2_fail_ids": [
+        "REPORT-news_r-03801-00001"
+      ],
+      "v2_alias_fail_ids": [
+        "REPORT-news_r-03801-00001"
+      ],
+      "url_repair_docs": [
+        "REPORT-news_r-02742-00001"
+      ],
+      "v2_new_counts": {
+        "REPORT-news_r-03801-00001": 1
+      }
+    },
+    "1940": {
+      "n": 161,
+      "v1_grounded": 158,
+      "v2_grounded": 159,
+      "v2_alias_grounded": 160,
+      "v1_fail_ids": [
+        "REPORT-news_r-03978-00001",
+        "REPORT-news_r-04709-00001",
+        "REPORT-news_r-04951-00002"
+      ],
+      "v2_fail_ids": [
+        "REPORT-news_r-04709-00001",
+        "REPORT-news_r-04951-00002"
+      ],
+      "v2_alias_fail_ids": [
+        "REPORT-news_r-04951-00002"
+      ],
+      "url_repair_docs": [
+        "REPORT-news_r-02742-00001"
+      ],
+      "v2_new_counts": {
+        "REPORT-news_r-04709-00001": 1,
+        "REPORT-news_r-04951-00002": 2
+      }
+    },
+    "2586": {
+      "n": 161,
+      "v1_grounded": 159,
+      "v2_grounded": 160,
+      "v2_alias_grounded": 160,
+      "v1_fail_ids": [
+        "REPORT-news_r-02742-00001",
+        "REPORT-news_r-04951-00002"
+      ],
+      "v2_fail_ids": [
+        "REPORT-news_r-04951-00002"
+      ],
+      "v2_alias_fail_ids": [
+        "REPORT-news_r-04951-00002"
+      ],
+      "url_repair_docs": [
+        "REPORT-news_r-02742-00001"
+      ],
+      "v2_new_counts": {
+        "REPORT-news_r-04951-00002": 2
+      }
+    }
+  }
+}
