@@ -1,0 +1,43 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: the current origin/main HEAD (the request file is included in it). First sync/pull to that HEAD, then work read-only.
+
+This is an intentionally separate, independent review thread using a different model (GLM 5.3 Flash). Do not treat it as a duplicate of any other thread; we are collecting multi-model opinions.
+
+You must read the review request in full:
+reports/EXTERNAL_REVIEW_C5_A1_FULLTRAIN_2026-11-07.md
+
+Read the entire file, splitting it into chunks of roughly 150-250 lines if necessary. Do not rely on a summary, excerpt, or another model's answer. Then inspect the referenced result files, error-analysis JSON, and code as needed. Do not run training. Do not open or evaluate test 163. Do not modify repository files. Do not call subagents and do not call additional LLM models; complete the review yourself.
+
+Key numbers already verified from raw artifacts (do not re-litigate; you may independently verify):
+- Full train: 2,586 steps, 2 epochs, 4 h 20 min 18 s, exit 0.
+- pilot300 fallback: char F1 0.657580, grounded 161/161, new slot 0, EOS 161/161.
+- 1,940: char F1 0.682278, grounded 158/161 (0.9814), new slot 4, slot-free 4.
+- 2,586: char F1 0.668982, grounded 159/161 (0.9876), new slot 3, slot-free 11.
+- Strict D-083 gate: selected_step null; no eligible checkpoint.
+- Error analysis: 3 of 5 checkpoint-level grounded failures are verifier-normalization candidates (URL line break, AM/PM qualifier, number/unit); one genuine new-slot hallucination remains (REPORT-news_r-04951-00002, 2.3% and 2.2%).
+- 1,940 to 2,586: total slots 860 to 762, slots/doc 5.342 to 4.733, slot preservation 0.4761 to 0.4188, slot-free 4 to 11.
+- test 163: A0 used it previously (D-080); A1 has not used it.
+
+Review focus:
+1. Is the proposed verifier v2 normalization legitimate, and which exact normalizations should be allowed?
+2. If it makes 1,940 and 2,586 160/161, must this be pre-registered as D-084 rather than applied post hoc?
+3. Should the strict fallback pilot300 remain, or should 1,940/2,586 be candidates for human review?
+4. Which checkpoint should be the primary human-review candidate, given F1 vs compression vs slot-free tradeoffs?
+5. Is the grounded >= 0.99 gate appropriate for n=161, and should G-C5 add slot preservation?
+6. What should be done with test 163, human 50, and the next experiment?
+
+Answer every D1-D5 and Q1-Q12 item in the request. For each item provide:
+- verdict: agree / disagree / conditional / defer
+- evidence tied to this document or artifacts
+- one to three concrete next steps
+
+Deliverable:
+1. Write your full report to this repository-relative file (mandatory, not optional):
+   docs/hoplite/c5_fulltrain_2026-11-07/review_GLM.md
+2. In your final message, include a compact verdict table for D1-D5 and Q1-Q12 plus your top Must-fix items and top additional experiments.
+
+Do not claim that a gate change is already approved. Do not propose using P1 data. Keep the distinction between strict D-083 results and verifier-normalization candidates explicit.
+
+This is consultation only. Your only permitted write is the single report file named above.
