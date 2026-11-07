@@ -36,6 +36,8 @@ def main() -> int:
     ap.add_argument("--max-new", type=int, default=448)
     ap.add_argument("--out", type=Path, default=OUT)
     args = ap.parse_args()
+    args.adapter = args.adapter if args.adapter.is_absolute() else ROOT / args.adapter
+    args.out = args.out if args.out.is_absolute() else ROOT / args.out
     torch.set_num_threads(6)
     t0 = time.time()
     rows = [

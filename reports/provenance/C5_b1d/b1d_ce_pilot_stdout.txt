@@ -1,0 +1,86 @@
+Loading weights:   0%|          | 0/911 [00:00<?, ?it/s]Loading weights:   4%|▎         | 33/911 [00:00<00:02, 327.39it/s]Loading weights:   7%|▋         | 66/911 [00:00<00:05, 154.39it/s]Loading weights:  12%|█▏        | 108/911 [00:00<00:03, 225.49it/s]Loading weights:  16%|█▌        | 142/911 [00:00<00:03, 255.29it/s]Loading weights:  19%|█▉        | 173/911 [00:00<00:02, 261.89it/s]Loading weights:  22%|██▏       | 203/911 [00:00<00:02, 271.09it/s]Loading weights:  26%|██▌       | 233/911 [00:00<00:02, 261.13it/s]Loading weights:  29%|██▊       | 261/911 [00:01<00:03, 214.01it/s]Loading weights:  32%|███▏      | 288/911 [00:01<00:02, 224.70it/s]Loading weights: 100%|██████████| 911/911 [00:01<00:00, 727.35it/s]
+{"epoch": 1, "step": 0, "n": 20, "loss": 3.3298897743225098, "elapsed": 37.9}
+{"epoch": 1, "step": 1, "n": 20, "loss": 4.448562145233154, "elapsed": 39.8}
+{"epoch": 1, "step": 2, "n": 20, "loss": 3.7271599769592285, "elapsed": 41.7}
+{"epoch": 1, "step": 3, "n": 20, "loss": 3.6579887866973877, "elapsed": 43.6}
+{"epoch": 1, "step": 4, "n": 20, "loss": 3.339114189147949, "elapsed": 45.5}
+{"epoch": 1, "step": 5, "n": 20, "loss": 3.4249980449676514, "elapsed": 47.5}
+{"epoch": 1, "step": 6, "n": 20, "loss": 3.6230406761169434, "elapsed": 49.4}
+{"epoch": 1, "step": 7, "n": 20, "loss": 2.81038498878479, "elapsed": 51.3}
+{"epoch": 1, "step": 8, "n": 20, "loss": 4.268151760101318, "elapsed": 53.2}
+{"epoch": 1, "step": 9, "n": 20, "loss": 3.501008987426758, "elapsed": 55.1}
+{"epoch": 1, "step": 10, "n": 20, "loss": 3.729757070541382, "elapsed": 57.0}
+{"epoch": 1, "step": 11, "n": 20, "loss": 3.0565288066864014, "elapsed": 58.9}
+{"epoch": 1, "step": 12, "n": 20, "loss": 3.363405704498291, "elapsed": 60.8}
+{"epoch": 1, "step": 13, "n": 20, "loss": 2.6775457859039307, "elapsed": 62.6}
+{"epoch": 1, "step": 14, "n": 20, "loss": 2.9976232051849365, "elapsed": 64.4}
+{"epoch": 1, "step": 15, "n": 20, "loss": 2.6838228702545166, "elapsed": 66.3}
+{"epoch": 1, "step": 16, "n": 20, "loss": 3.2451846599578857, "elapsed": 68.1}
+{"epoch": 1, "step": 17, "n": 20, "loss": 3.0038812160491943, "elapsed": 69.9}
+{"epoch": 1, "step": 18, "n": 20, "loss": 3.0919837951660156, "elapsed": 71.6}
+{"epoch": 1, "step": 19, "n": 20, "loss": 2.901517868041992, "elapsed": 73.5}
+{"epoch": 2, "step": 0, "n": 20, "loss": 2.541628122329712, "elapsed": 75.3}
+{"epoch": 2, "step": 1, "n": 20, "loss": 3.0598666667938232, "elapsed": 77.1}
+{"epoch": 2, "step": 2, "n": 20, "loss": 2.6510796546936035, "elapsed": 78.9}
+{"epoch": 2, "step": 3, "n": 20, "loss": 2.369067907333374, "elapsed": 80.7}
+{"epoch": 2, "step": 4, "n": 20, "loss": 2.4030752182006836, "elapsed": 82.6}
+{"epoch": 2, "step": 5, "n": 20, "loss": 3.013939380645752, "elapsed": 84.4}
+{"epoch": 2, "step": 6, "n": 20, "loss": 2.7830095291137695, "elapsed": 86.2}
+{"epoch": 2, "step": 7, "n": 20, "loss": 3.091338634490967, "elapsed": 88.0}
+{"epoch": 2, "step": 8, "n": 20, "loss": 2.985208034515381, "elapsed": 89.7}
+{"epoch": 2, "step": 9, "n": 20, "loss": 2.6380577087402344, "elapsed": 91.5}
+{"epoch": 2, "step": 10, "n": 20, "loss": 2.7687652111053467, "elapsed": 93.4}
+{"epoch": 2, "step": 11, "n": 20, "loss": 2.7087314128875732, "elapsed": 95.2}
+{"epoch": 2, "step": 12, "n": 20, "loss": 3.3875813484191895, "elapsed": 97.0}
+{"epoch": 2, "step": 13, "n": 20, "loss": 2.610091209411621, "elapsed": 98.8}
+{"epoch": 2, "step": 14, "n": 20, "loss": 3.020240068435669, "elapsed": 100.6}
+{"epoch": 2, "step": 15, "n": 20, "loss": 3.7427220344543457, "elapsed": 102.4}
+{"epoch": 2, "step": 16, "n": 20, "loss": 2.5741307735443115, "elapsed": 104.2}
+{"epoch": 2, "step": 17, "n": 20, "loss": 2.8850929737091064, "elapsed": 106.0}
+{"epoch": 2, "step": 18, "n": 20, "loss": 2.768903970718384, "elapsed": 107.8}
+{"epoch": 2, "step": 19, "n": 20, "loss": 2.610034227371216, "elapsed": 109.5}
+{
+  "experiment": "b1d_ce_pilot",
+  "init": "data/models/f5_t5gemma2_lora/b1d_full/adapter_final.pt",
+  "train_n": 20,
+  "val_n": 20,
+  "epochs": 2,
+  "lr": 0.0003,
+  "max_target": 512,
+  "adapter_params": 1084033,
+  "loss_first": 3.3298897743225098,
+  "loss_last": 2.610034227371216,
+  "loss_min": 2.369067907333374,
+  "before": {
+    "train": {
+      "n_docs": 20,
+      "ce_mean": 3.8803202509880066,
+      "ce_min": 3.1871392726898193,
+      "ce_max": 5.192437648773193
+    },
+    "val": {
+      "n_docs": 20,
+      "ce_mean": 3.9322758674621583,
+      "ce_min": 3.0606606006622314,
+      "ce_max": 4.790754318237305
+    }
+  },
+  "after": {
+    "train": {
+      "n_docs": 20,
+      "ce_mean": 2.5951705098152162,
+      "ce_min": 2.0417604446411133,
+      "ce_max": 3.5274658203125
+    },
+    "val": {
+      "n_docs": 20,
+      "ce_mean": 3.0686352014541627,
+      "ce_min": 2.6048583984375,
+      "ce_max": 3.8934950828552246
+    }
+  },
+  "elapsed_sec": 138.9,
+  "checkpoint": "data/models/f5_t5gemma2_lora/b1d_ce_pilot/adapter_final.pt",
+  "test_split_used": false,
+  "note": "adapter-only CE through frozen decoder; no decoder LoRA"
+}

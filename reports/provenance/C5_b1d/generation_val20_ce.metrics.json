@@ -1,0 +1,18 @@
+{
+  "n": 20,
+  "adapter": "data/models/f5_t5gemma2_lora/b1d_ce_pilot/adapter_final.pt",
+  "max_new": 448,
+  "char_f1_mean": 0.2061421582898307,
+  "grounded_rate": 0.05,
+  "new_slot_rate_micro": 0.8888888888888888,
+  "new_slot_rate_mean": 0.7928998778998779,
+  "new_slot_count": 136,
+  "summary_slot_count": 153,
+  "eos_rate": 0.1,
+  "nonempty_rate": 1.0,
+  "gen_len_mean": 414.35,
+  "repeated_4gram_rate_mean": 0.7744060432916752,
+  "distinct_2_mean": 0.1721186580501727,
+  "elapsed_sec": 4.2,
+  "test_split_used": false
+}

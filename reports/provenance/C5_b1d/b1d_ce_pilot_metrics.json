@@ -1,0 +1,45 @@
+{
+  "experiment": "b1d_ce_pilot",
+  "init": "data/models/f5_t5gemma2_lora/b1d_full/adapter_final.pt",
+  "train_n": 20,
+  "val_n": 20,
+  "epochs": 2,
+  "lr": 0.0003,
+  "max_target": 512,
+  "adapter_params": 1084033,
+  "loss_first": 3.3298897743225098,
+  "loss_last": 2.610034227371216,
+  "loss_min": 2.369067907333374,
+  "before": {
+    "train": {
+      "n_docs": 20,
+      "ce_mean": 3.8803202509880066,
+      "ce_min": 3.1871392726898193,
+      "ce_max": 5.192437648773193
+    },
+    "val": {
+      "n_docs": 20,
+      "ce_mean": 3.9322758674621583,
+      "ce_min": 3.0606606006622314,
+      "ce_max": 4.790754318237305
+    }
+  },
+  "after": {
+    "train": {
+      "n_docs": 20,
+      "ce_mean": 2.5951705098152162,
+      "ce_min": 2.0417604446411133,
+      "ce_max": 3.5274658203125
+    },
+    "val": {
+      "n_docs": 20,
+      "ce_mean": 3.0686352014541627,
+      "ce_min": 2.6048583984375,
+      "ce_max": 3.8934950828552246
+    }
+  },
+  "elapsed_sec": 138.9,
+  "checkpoint": "data/models/f5_t5gemma2_lora/b1d_ce_pilot/adapter_final.pt",
+  "test_split_used": false,
+  "note": "adapter-only CE through frozen decoder; no decoder LoRA"
+}
