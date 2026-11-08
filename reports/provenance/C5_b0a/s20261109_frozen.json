@@ -1,0 +1,383 @@
+[
+  {
+    "experiment": "c5_b0_two_arm_runner",
+    "arm": "frozen",
+    "model": "data/models/mt5-small",
+    "cache": "data/wave2c/eg2_native_layer19/layer19",
+    "layer": 19,
+    "train_n": 20,
+    "val_n": 20,
+    "steps": 100,
+    "seed": 20261109,
+    "lora": {
+      "r": 8,
+      "alpha": 16,
+      "dropout": 0.05,
+      "modules": 0
+    },
+    "train_ce_first": 21.684322357177734,
+    "train_ce_last": 7.114007949829102,
+    "train_ce_last10_mean": 6.859793615341187,
+    "n_docs": 20,
+    "mean_delta_shuffled_copy": 0.03337629795074463,
+    "bootstrap_delta_shuffled_copy": {
+      "mean": 0.03337629795074463,
+      "ci_lower": -0.08587055671215056,
+      "ci_upper": 0.16862100255489346,
+      "seeds_positive": 11,
+      "n": 20,
+      "n_boot": 1000
+    },
+    "mean_delta_shuffled_full": 0.007940602302551262,
+    "mean_real_ce_copy": 7.967512316703795,
+    "mean_wrong_ce_copy": 8.00088861465454,
+    "mean_copy_coverage": 0.8246195051392069,
+    "median_copy_coverage": 0.8307461873638344,
+    "copy_guard_failed": false,
+    "per_doc": {
+      "REPORT-news_r-04161-00002": {
+        "n_donors": 5,
+        "real_ce_copy": 7.857730102539063,
+        "wrong_ce_copy": 7.9314533233642575,
+        "delta_shuffled_copy": 0.07372322082519531,
+        "real_ce_full": 6.874985313415527,
+        "wrong_ce_full": 7.068826961517334,
+        "delta_shuffled_full": 0.19384164810180665,
+        "copy_tokens": 145,
+        "copy_coverage": 0.8011049723756906
+      },
+      "REPORT-news_r-00430-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.909075546264648,
+        "wrong_ce_copy": 8.186738586425781,
+        "delta_shuffled_copy": 0.2776630401611328,
+        "real_ce_full": 6.67002239227295,
+        "wrong_ce_full": 6.935794067382813,
+        "delta_shuffled_full": 0.26577167510986327,
+        "copy_tokens": 165,
+        "copy_coverage": 0.7674418604651163
+      },
+      "REPORT-news_r-01555-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.801911640167236,
+        "wrong_ce_copy": 7.530770683288575,
+        "delta_shuffled_copy": -0.27114095687866213,
+        "real_ce_full": 7.399010562896729,
+        "wrong_ce_full": 7.070658493041992,
+        "delta_shuffled_full": -0.3283520698547363,
+        "copy_tokens": 197,
+        "copy_coverage": 0.8418803418803419
+      },
+      "REPORT-news_r-02180-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.607481956481934,
+        "wrong_ce_copy": 8.019457054138183,
+        "delta_shuffled_copy": 0.41197509765625,
+        "real_ce_full": 7.002188873291016,
+        "wrong_ce_full": 7.245243644714355,
+        "delta_shuffled_full": 0.24305477142333984,
+        "copy_tokens": 159,
+        "copy_coverage": 0.8412698412698413
+      },
+      "REPORT-news_r-01331-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.765686893463135,
+        "wrong_ce_copy": 7.646212768554688,
+        "delta_shuffled_copy": -0.11947412490844726,
+        "real_ce_full": 7.107709980010986,
+        "wrong_ce_full": 7.024481678009034,
+        "delta_shuffled_full": -0.08322830200195312,
+        "copy_tokens": 224,
+        "copy_coverage": 0.875
+      },
+      "REPORT-news_r-01058-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 8.112827110290528,
+        "wrong_ce_copy": 8.059423637390136,
+        "delta_shuffled_copy": -0.053403472900390624,
+        "real_ce_full": 7.294262886047363,
+        "wrong_ce_full": 7.222078418731689,
+        "delta_shuffled_full": -0.07218446731567382,
+        "copy_tokens": 128,
+        "copy_coverage": 0.810126582278481
+      },
+      "REPORT-news_r-03503-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 8.109199142456054,
+        "wrong_ce_copy": 8.113735771179199,
+        "delta_shuffled_copy": 0.004536628723144531,
+        "real_ce_full": 7.3431449890136715,
+        "wrong_ce_full": 7.336132526397705,
+        "delta_shuffled_full": -0.007012462615966797,
+        "copy_tokens": 178,
+        "copy_coverage": 0.7574468085106383
+      },
+      "REPORT-news_r-03991-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.9322772979736325,
+        "wrong_ce_copy": 7.857998561859131,
+        "delta_shuffled_copy": -0.07427873611450195,
+        "real_ce_full": 7.160155296325684,
+        "wrong_ce_full": 7.111051177978515,
+        "delta_shuffled_full": -0.04910411834716797,
+        "copy_tokens": 171,
+        "copy_coverage": 0.8423645320197044
+      },
+      "REPORT-news_r-05258-00002": {
+        "n_donors": 5,
+        "real_ce_copy": 8.09055004119873,
+        "wrong_ce_copy": 8.238191223144531,
+        "delta_shuffled_copy": 0.14764118194580078,
+        "real_ce_full": 7.401155948638916,
+        "wrong_ce_full": 7.42502908706665,
+        "delta_shuffled_full": 0.023873138427734374,
+        "copy_tokens": 140,
+        "copy_coverage": 0.8695652173913043
+      },
+      "REPORT-news_r-02086-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.873334980010986,
+        "wrong_ce_copy": 7.931719970703125,
+        "delta_shuffled_copy": 0.05838499069213867,
+        "real_ce_full": 6.872569179534912,
+        "wrong_ce_full": 6.940907955169678,
+        "delta_shuffled_full": 0.06833877563476562,
+        "copy_tokens": 196,
+        "copy_coverage": 0.8166666666666667
+      },
+      "REPORT-news_r-03271-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.8145301818847654,
+        "wrong_ce_copy": 7.635953521728515,
+        "delta_shuffled_copy": -0.17857666015625,
+        "real_ce_full": 7.183661842346192,
+        "wrong_ce_full": 6.932737064361572,
+        "delta_shuffled_full": -0.25092477798461915,
+        "copy_tokens": 169,
+        "copy_coverage": 0.7971698113207547
+      },
+      "REPORT-news_r-01951-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.965438652038574,
+        "wrong_ce_copy": 7.772552108764648,
+        "delta_shuffled_copy": -0.1928865432739258,
+        "real_ce_full": 7.379412364959717,
+        "wrong_ce_full": 7.133297634124756,
+        "delta_shuffled_full": -0.24611473083496094,
+        "copy_tokens": 191,
+        "copy_coverage": 0.8721461187214612
+      },
+      "REPORT-news_r-02861-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 8.059521198272705,
+        "wrong_ce_copy": 8.054422283172608,
+        "delta_shuffled_copy": -0.005098915100097657,
+        "real_ce_full": 7.184830570220948,
+        "wrong_ce_full": 7.1862953186035154,
+        "delta_shuffled_full": 0.0014647483825683595,
+        "copy_tokens": 188,
+        "copy_coverage": 0.7932489451476793
+      },
+      "REPORT-news_r-00020-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 8.728891563415527,
+        "wrong_ce_copy": 8.47765827178955,
+        "delta_shuffled_copy": -0.2512332916259766,
+        "real_ce_full": 7.89930830001831,
+        "wrong_ce_full": 7.610763072967529,
+        "delta_shuffled_full": -0.28854522705078123,
+        "copy_tokens": 121,
+        "copy_coverage": 0.7960526315789473
+      },
+      "REPORT-news_r-02804-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.474912643432617,
+        "wrong_ce_copy": 8.263456344604492,
+        "delta_shuffled_copy": 0.788543701171875,
+        "real_ce_full": 6.697490692138672,
+        "wrong_ce_full": 7.433298778533936,
+        "delta_shuffled_full": 0.7358080863952636,
+        "copy_tokens": 177,
+        "copy_coverage": 0.8388625592417062
+      },
+      "REPORT-news_r-01127-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.855200290679932,
+        "wrong_ce_copy": 8.21658535003662,
+        "delta_shuffled_copy": 0.36138505935668946,
+        "real_ce_full": 7.10645055770874,
+        "wrong_ce_full": 7.497218322753906,
+        "delta_shuffled_full": 0.390767765045166,
+        "copy_tokens": 140,
+        "copy_coverage": 0.8235294117647058
+      },
+      "REPORT-news_r-04798-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 8.037162399291992,
+        "wrong_ce_copy": 8.169645404815673,
+        "delta_shuffled_copy": 0.13248300552368164,
+        "real_ce_full": 7.256790733337402,
+        "wrong_ce_full": 7.344540119171143,
+        "delta_shuffled_full": 0.08774938583374023,
+        "copy_tokens": 181,
+        "copy_coverage": 0.8379629629629629
+      },
+      "REPORT-news_r-05220-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 8.134677696228028,
+        "wrong_ce_copy": 8.199850082397461,
+        "delta_shuffled_copy": 0.06517238616943359,
+        "real_ce_full": 7.4121901512146,
+        "wrong_ce_full": 7.4281237602233885,
+        "delta_shuffled_full": 0.01593360900878906,
+        "copy_tokens": 205,
+        "copy_coverage": 0.8401639344262295
+      },
+      "REPORT-news_r-01518-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 8.290728187561035,
+        "wrong_ce_copy": 7.639918231964112,
+        "delta_shuffled_copy": -0.6508099555969238,
+        "real_ce_full": 7.636654281616211,
+        "wrong_ce_full": 7.013825702667236,
+        "delta_shuffled_full": -0.6228285789489746,
+        "copy_tokens": 163,
+        "copy_coverage": 0.8489583333333334
+      },
+      "REPORT-news_r-03445-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.929108810424805,
+        "wrong_ce_copy": 8.072029113769531,
+        "delta_shuffled_copy": 0.14292030334472655,
+        "real_ce_full": 7.353420639038086,
+        "wrong_ce_full": 7.433923816680908,
+        "delta_shuffled_full": 0.08050317764282226,
+        "copy_tokens": 138,
+        "copy_coverage": 0.8214285714285714
+      }
+    },
+    "generation": [
+      {
+        "id": "REPORT-news_r-04161-00002",
+        "text": "남    고고   고고   고고   고   고   고   고   고   고   고   고   고  고   고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고  고 ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-00430-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-01555-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-02180-00001",
+        "text": "남    을         을을                                                                                                을을                                                                                                                 을을                          ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-01331-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-01058-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-03503-00001",
+        "text": "는                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-03991-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-05258-00002",
+        "text": "는                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-02086-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-03271-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-01951-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-02861-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-00020-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-02804-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-01127-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-04798-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-05220-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-01518-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      },
+      {
+        "id": "REPORT-news_r-03445-00001",
+        "text": "남                                                                                                                                                                                                                                                               ",
+        "gen_len": 257,
+        "eos": false
+      }
+    ],
+    "test_split_used": false
+  }
+]

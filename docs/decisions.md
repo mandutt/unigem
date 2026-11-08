@@ -133,6 +133,8 @@
 
 | D-115 | 2026-11-09 | **C5 B0-A metric/donor/bootstrap/generation implementation smoke — PASS (no training)**: `runner/c5_mt5_lora_b0.py`에 copyable target mask, length-matched donors, `Δshuffled_copy`, 문서 단위 bootstrap, copy-coverage guard, val20 generation 경로를 구현. metric smoke(2 docs/2 donors)에서 frozen=LoRA(zero-init) `mean_delta_shuffled_copy -0.14960`, copy coverage .78427, guard false, 64 modules; generation 8-token wiring only. **2문서 smoke는 성능 결과 아님**; B0-A 20/20·3 seeds·100 updates는 **미실행**. | reports/C5_B0_METRIC_IMPL_2026-11-09.md; reports/provenance/C5_b0/metric_smoke.json; runner/c5_mt5_lora_b0.py |
 
+| D-116 | 2026-11-09 | **C5 B0-A result — INCONCLUSIVE**: 20 train/20 val(val[5:25]), F(adapter-only) vs L(adapter+decoder LoRA), 3 seeds, 100 updates, 5 donors. frozen `Δshuffled_copy` **+0.00781** CI [-0.037997,+0.051194], positive seeds 1/3; lora **+0.021751** CI [-0.028004,+0.067209], positive seeds 2/3; **L−F +0.013942** CI [-0.052508,+0.078599]. copy coverage .8246, guard false. generation: frozen 60/60 nonempty, lora **22/60 nonempty**, EOS 0/60 both → **LoRA generation collapse**. **B0-A는 content selectivity를 확립하지 못했고, B1/B2/C 및 B0-B 즉시 실행 금지**. bridge 전체 STOP 아님; 다음은 LoRA collapse·native positive control·memory-free control을 분리하는 별도 진단/승인. test 163 sealed. | reports/C5_B0A_2026-11-09.md; reports/provenance/C5_b0a/{s20261108_frozen,s20261108_lora,s20261109_frozen,s20261109_lora,s20261110_frozen,s20261110_lora,aggregate}.json; runner/c5_b0a_aggregate.py |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
