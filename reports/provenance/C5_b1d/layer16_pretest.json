@@ -1,0 +1,94 @@
+{
+  "experiment": "layer12_capacity_pretest",
+  "feature": "data/wave2c/eg2_layer16",
+  "train_n": 300,
+  "val_n": 100,
+  "epochs": 2,
+  "lr": 0.001,
+  "init": "scratch; same seed for all arms",
+  "final_768_reference": {
+    "kind": "mlp768",
+    "cosine_mean": 0.699763472444729
+  },
+  "arms": [
+    {
+      "kind": "linear",
+      "d_in": 512,
+      "params": 329601,
+      "before": {
+        "n_docs": 100,
+        "n_tokens": 76636,
+        "cosine_mean": 0.009027364025556081,
+        "cosine_min": -0.135012686252594,
+        "cosine_p05": -0.04933081287890673,
+        "norm_ratio_mean": 1.0527369052171707,
+        "normalized_mse_mean": 0.0030968213989399375
+      },
+      "after": {
+        "n_docs": 100,
+        "n_tokens": 76636,
+        "cosine_mean": 0.7124553838753946,
+        "cosine_min": -0.04494965821504593,
+        "cosine_p05": 0.5625561475753784,
+        "norm_ratio_mean": 1.0845053577423096,
+        "normalized_mse_mean": 0.0008985810470767319
+      },
+      "loss_first": 0.9910848140716553,
+      "loss_last": 0.2809147238731384,
+      "elapsed_sec": 4.3
+    },
+    {
+      "kind": "mlp768",
+      "d_in": 512,
+      "params": 887425,
+      "before": {
+        "n_docs": 100,
+        "n_tokens": 76636,
+        "cosine_mean": -0.019650207481833392,
+        "cosine_min": -0.16574829816818237,
+        "cosine_p05": -0.07767896726727486,
+        "norm_ratio_mean": 1.0526929396390914,
+        "normalized_mse_mean": 0.0031864087376743556
+      },
+      "after": {
+        "n_docs": 100,
+        "n_tokens": 76636,
+        "cosine_mean": 0.7391034497247689,
+        "cosine_min": -0.034098438918590546,
+        "cosine_p05": 0.5846109092235565,
+        "norm_ratio_mean": 1.0692468011379241,
+        "normalized_mse_mean": 0.0008153961435891688
+      },
+      "loss_first": 1.0186655521392822,
+      "loss_last": 0.25186318159103394,
+      "elapsed_sec": 9.0
+    },
+    {
+      "kind": "mlp1536",
+      "d_in": 512,
+      "params": 1772929,
+      "before": {
+        "n_docs": 100,
+        "n_tokens": 76636,
+        "cosine_mean": 0.007114739337503,
+        "cosine_min": -0.1463654488325119,
+        "cosine_p05": -0.050116561353206635,
+        "norm_ratio_mean": 1.052694278359413,
+        "normalized_mse_mean": 0.0031028503482230007
+      },
+      "after": {
+        "n_docs": 100,
+        "n_tokens": 76636,
+        "cosine_mean": 0.7506185530867551,
+        "cosine_min": -0.03838673233985901,
+        "cosine_p05": 0.5886471569538116,
+        "norm_ratio_mean": 1.0704296278953551,
+        "normalized_mse_mean": 0.0007794199784984812
+      },
+      "loss_first": 0.9938428401947021,
+      "loss_last": 0.23878353834152222,
+      "elapsed_sec": 16.3
+    }
+  ],
+  "test_split_used": false
+}

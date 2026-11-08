@@ -1,0 +1,292 @@
+{
+  "experiment": "eg2_all_layer_hidden_pretest",
+  "train_n": 300,
+  "val_n": 100,
+  "epochs": 2,
+  "seed": 20261108,
+  "max_length": 1024,
+  "teacher": "base T5Gemma2 encoder hidden 640",
+  "layers": [
+    {
+      "layer": 0,
+      "kind": "embedding",
+      "dim": 512,
+      "linear": 0.7267,
+      "mlp768": 0.7521,
+      "mlp1536": 0.7597,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.5
+    },
+    {
+      "layer": 1,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7296,
+      "mlp768": 0.755,
+      "mlp1536": 0.7689,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.5
+    },
+    {
+      "layer": 2,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.737,
+      "mlp768": 0.7539,
+      "mlp1536": 0.7621,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.3
+    },
+    {
+      "layer": 3,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7382,
+      "mlp768": 0.7598,
+      "mlp1536": 0.7704,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.3
+    },
+    {
+      "layer": 4,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7489,
+      "mlp768": 0.7723,
+      "mlp1536": 0.7853,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 5,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.758,
+      "mlp768": 0.7789,
+      "mlp1536": 0.7927,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.9
+    },
+    {
+      "layer": 6,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7582,
+      "mlp768": 0.7766,
+      "mlp1536": 0.7883,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.7
+    },
+    {
+      "layer": 7,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7611,
+      "mlp768": 0.7773,
+      "mlp1536": 0.7878,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.7
+    },
+    {
+      "layer": 8,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7607,
+      "mlp768": 0.7793,
+      "mlp1536": 0.7907,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 9,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7604,
+      "mlp768": 0.7798,
+      "mlp1536": 0.791,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 10,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7558,
+      "mlp768": 0.7773,
+      "mlp1536": 0.7886,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 11,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7535,
+      "mlp768": 0.7731,
+      "mlp1536": 0.785,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 12,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7424,
+      "mlp768": 0.7629,
+      "mlp1536": 0.7747,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 13,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.737,
+      "mlp768": 0.7591,
+      "mlp1536": 0.7709,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.5
+    },
+    {
+      "layer": 14,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7304,
+      "mlp768": 0.7535,
+      "mlp1536": 0.7671,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 15,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7217,
+      "mlp768": 0.7482,
+      "mlp1536": 0.761,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.5
+    },
+    {
+      "layer": 16,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7125,
+      "mlp768": 0.7391,
+      "mlp1536": 0.7506,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 4.3
+    },
+    {
+      "layer": 17,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7076,
+      "mlp768": 0.7305,
+      "mlp1536": 0.7398,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.7
+    },
+    {
+      "layer": 18,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.7,
+      "mlp768": 0.7261,
+      "mlp1536": 0.7357,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.7
+    },
+    {
+      "layer": 19,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.6942,
+      "mlp768": 0.7208,
+      "mlp1536": 0.7297,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.7
+    },
+    {
+      "layer": 20,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.6894,
+      "mlp768": 0.7168,
+      "mlp1536": 0.7259,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 21,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.6864,
+      "mlp768": 0.7151,
+      "mlp1536": 0.7242,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 22,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.6834,
+      "mlp768": 0.713,
+      "mlp1536": 0.7223,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 23,
+      "kind": "transformer",
+      "dim": 512,
+      "linear": 0.6806,
+      "mlp768": 0.7105,
+      "mlp1536": 0.7197,
+      "params_mlp1536": 1772929,
+      "elapsed_sec_pretest": 3.4
+    },
+    {
+      "layer": 24,
+      "kind": "projected_output",
+      "dim": 768,
+      "linear": 0.6665,
+      "mlp768": 0.6998,
+      "mlp1536": 0.7102,
+      "params_mlp1536": 2166145,
+      "elapsed_sec_pretest": 4.5
+    }
+  ],
+  "best_mlp1536": {
+    "layer": 5,
+    "kind": "transformer",
+    "dim": 512,
+    "linear": 0.758,
+    "mlp768": 0.7789,
+    "mlp1536": 0.7927,
+    "params_mlp1536": 1772929,
+    "elapsed_sec_pretest": 3.9
+  },
+  "best_mlp768": {
+    "layer": 9,
+    "kind": "transformer",
+    "dim": 512,
+    "linear": 0.7604,
+    "mlp768": 0.7798,
+    "mlp1536": 0.791,
+    "params_mlp1536": 1772929,
+    "elapsed_sec_pretest": 3.4
+  },
+  "best_linear": {
+    "layer": 7,
+    "kind": "transformer",
+    "dim": 512,
+    "linear": 0.7611,
+    "mlp768": 0.7773,
+    "mlp1536": 0.7878,
+    "params_mlp1536": 1772929,
+    "elapsed_sec_pretest": 3.7
+  },
+  "test_split_used": false
+}
