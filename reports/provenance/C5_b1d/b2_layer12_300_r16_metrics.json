@@ -1,0 +1,66 @@
+{
+  "experiment": "b2_layer12_300_r16",
+  "init": "data/models/f5_t5gemma2_lora/layer12_hidden/mlp1536_adapter_final.pt",
+  "target": "gold",
+  "input_dim": 512,
+  "adapter_hidden": 1536,
+  "feature_dir": "data/wave2c/eg2_layer12",
+  "scratch": false,
+  "teacher_preds": "reports/provenance/C5_b1d/teacher_train100.jsonl",
+  "teacher_val_preds": "reports/provenance/C5_a1/pilot300_val161/predictions.jsonl",
+  "require_teacher": false,
+  "train_n": 300,
+  "val_n": 100,
+  "epochs": 2,
+  "lr": 0.0003,
+  "lora": {
+    "targets": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj"
+    ],
+    "rank": 16,
+    "alpha": 32,
+    "dropout": 0.05,
+    "modules": 72,
+    "params": 1474560
+  },
+  "adapter_params": 1772929,
+  "hidden_weight": 0.01,
+  "loss_first": 2.9471166133880615,
+  "loss_last": 1.8542284965515137,
+  "loss_min": 1.1467258930206299,
+  "before": {
+    "train": {
+      "n_docs": 300,
+      "ce_mean": 3.687164847056071,
+      "ce_min": 2.5910046100616455,
+      "ce_max": 5.078212261199951
+    },
+    "val": {
+      "n_docs": 100,
+      "ce_mean": 3.6873177742958068,
+      "ce_min": 2.6197683811187744,
+      "ce_max": 4.92299747467041
+    }
+  },
+  "after": {
+    "train": {
+      "n_docs": 300,
+      "ce_mean": 1.3923594599962235,
+      "ce_min": 0.6099223494529724,
+      "ce_max": 2.7047150135040283
+    },
+    "val": {
+      "n_docs": 100,
+      "ce_mean": 2.353573114871979,
+      "ce_min": 1.5912549495697021,
+      "ce_max": 3.312436819076538
+    }
+  },
+  "elapsed_sec": 2563.6,
+  "checkpoint": "data/models/f5_t5gemma2_lora/b2_layer12_300_r16/adapter_final.pt",
+  "test_split_used": false,
+  "note": "adapter + decoder q/k/v/o LoRA; base decoder frozen"
+}
