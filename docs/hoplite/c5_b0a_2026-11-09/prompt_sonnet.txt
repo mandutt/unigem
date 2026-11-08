@@ -1,0 +1,55 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: the current origin/main HEAD. First sync/pull to that HEAD, then work read-only.
+
+This is a NEW, intentionally separate, independent review round using a DIFFERENT model (Sonnet 5.5, reasoning high). Do not treat it as a duplicate of any other thread. Do not reuse another model's answer; we are collecting independent opinions.
+
+You must read the full review request yourself:
+reports/EXTERNAL_REVIEW_C5_B0A_2026-11-09.md
+
+The file is about 495 lines. Read it in chunks of roughly 150-250 lines if necessary. Do not rely on a summary, excerpt, chat context, or another model's answer. Then inspect the referenced result files and code as needed.
+
+Scope and constraints:
+- Do not run training or evaluation.
+- Do not open or evaluate test 163; it is sealed.
+- Do not use P1 data or external APIs.
+- Do not modify repository files. Your only permitted write is the single report file named below.
+- Do not call subagents and do not call additional LLM models; complete the review yourself.
+- The production verifier eval/slot_verify.py is unmodified.
+- T5Gemma2 bridge remains closed by D-108 STOP; do not reopen it without a new decision record.
+
+Key numbers already verified from raw artifacts (do not re-litigate without evidence; you may independently verify):
+- B0-A: 20 train / 20 val, val[5:25], F(adapter-only) vs L(adapter plus decoder LoRA), 3 seeds, 100 updates, 5 length-matched donors.
+- B0-A F mean delta_shuffled_copy +0.007810, document bootstrap 95 percent CI -0.037997 to +0.051194, positive seeds 1/3.
+- B0-A L mean delta_shuffled_copy +0.021751, CI -0.028004 to +0.067209, positive seeds 2/3.
+- B0-A L minus F +0.013942, CI -0.052508 to +0.078599.
+- B0-A copy coverage 0.8246, copy guard false for both arms.
+- B0-A generation: F 60/60 nonempty, L 22/60 nonempty; EOS 0/60 both. L per seed: 2/20, 20/20, 0/20.
+- B0-A verdict: INCONCLUSIVE. It is not a bridge-wide STOP.
+- B0-A did NOT include native encoder positive control (P) or memory-free/mean (M).
+- E0: native vs legacy tokenizer content IDs 400/400 identical; content mismatch 0; character mismatch 0/498455; digit mismatch 0/12538; only difference is native EOS one token in 400/400.
+- E0 legacy vs native hidden cosine: train mean 0.991352, val mean 0.991501; about 2.4-2.5 percent of tokens have cosine below 0.95.
+- mT5 decoder LoRA inventory: 64 q/k/v/o modules; zero-output LoRA reproduces frozen forward with loss and logits delta 0.0.
+- test 163 was not used.
+
+Core focus for this round:
+1. Was the B0-A INCONCLUSIVE verdict statistically and methodologically correct?
+2. Does the LoRA generation collapse make B0-A uninterpretable, or is it a separate training-instability finding?
+3. What is the minimal next step: repair B0-A, run B0-B 4-arm 300/95, run only native-positive/memory-free controls, or stop the mT5 track?
+4. What Must-fix items block any next experiment?
+
+Answer every Q1-Q12 item in section 9 of the review request. For each item provide:
+- verdict: agree / disagree / conditional / defer
+- evidence tied to this document or artifacts
+- one to three concrete next steps
+
+Deliverable:
+1. Write your full report to this repository-relative file (mandatory, not optional):
+   docs/hoplite/c5_b0a_2026-11-09/review_SONNET.md
+   Start the report with a line that identifies you as the Sonnet 5.5 high reviewer.
+2. In your final message, include a compact table for Q1-Q12 plus your top Must-fix items and final STOP / NARROW / CONTINUE verdict.
+
+Do not claim that a gate change is already approved. Do not propose using P1 data or test 163. Keep exploratory bridge results distinct from the A1 native fallback. Do not reopen T5Gemma2 without a new decision record. Do not propose changing thresholds after seeing B0-A results; if a change is needed, require a new preregistration.
+
+This is consultation only. Your only permitted write is the single report file named above.
