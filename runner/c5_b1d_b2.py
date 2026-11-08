@@ -100,6 +100,51 @@ def ce_plus_hidden(model, adapter, student, teacher, rid: str, target_text: str,
     return ce + hidden_weight * hc, ce
 
 
+def ce_scheduled(model, adapter, student, teacher, rid: str, target_text: str, tok,
+                 max_target: int, hidden_weight: float, ss_prob: float,
+                 generator: torch.Generator | None = None) -> tuple[torch.Tensor, torch.Tensor]:
+    """Gold-label CE on a decoder prefix where student argmax tokens replace gold with p=ss_prob."""
+    s = student[rid]
+    t = teacher[rid]
+    x = s["h"][: s["length"]].float().unsqueeze(0)
+    h_s = adapter(x)
+    mask = torch.ones(1, s["length"], dtype=torch.bool)
+    labels = labels_for(tok, target_text, max_target)
+    with torch.no_grad():
+        first = model(
+            encoder_outputs=BaseModelOutput(last_hidden_state=h_s.to(torch.bfloat16)),
+            attention_mask=mask,
+            labels=labels,
+        )
+    target = labels[0][labels[0] != -100]
+    n = int(target.shape[0])
+    if n <= 1:
+        return ce_plus_hidden(model, adapter, student, teacher, rid, target_text, tok,
+                              max_target, hidden_weight)
+    pred = first.logits[0, :n].argmax(dim=-1)
+    bos = tok.bos_token_id if tok.bos_token_id is not None else tok.pad_token_id
+    dec = torch.full((1, n), int(tok.pad_token_id), dtype=torch.long)
+    dec[0, 0] = int(bos)
+    dec[0, 1:] = target[:-1]
+    noise = torch.rand(n - 1, generator=generator)
+    replace = noise < ss_prob
+    if bool(replace.any()):
+        dec[0, 1:][replace] = pred[:-1][replace]
+    out = model(
+        encoder_outputs=BaseModelOutput(last_hidden_state=h_s.to(torch.bfloat16)),
+        attention_mask=mask,
+        decoder_input_ids=dec,
+        labels=labels[:, :n],
+    )
+    ce = out.loss
+    if hidden_weight > 0:
+        y = t["h"][: t["length"]].float().unsqueeze(0)
+        hc = 1.0 - (F.normalize(h_s.float(), dim=-1) * F.normalize(y, dim=-1)).sum(-1).mean()
+    else:
+        hc = ce.new_zeros(())
+    return ce + hidden_weight * hc, ce
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--train-limit", type=int, default=0,
@@ -122,6 +167,8 @@ def main() -> int:
     ap.add_argument("--alpha", type=int, default=16)
     ap.add_argument("--lora-dropout", type=float, default=0.05)
     ap.add_argument("--hidden-weight", type=float, default=0.01)
+    ap.add_argument("--ss-prob", type=float, default=0.0,
+                    help="scheduled-sampling probability; replace gold decoder-input tokens with student argmax")
     ap.add_argument("--max-target", type=int, default=512)
     ap.add_argument("--input-dim", type=int, default=768)
     ap.add_argument("--adapter-hidden", type=int, default=768)
@@ -252,11 +299,18 @@ def main() -> int:
         order = list(train_ids)
         perm = torch.randperm(len(order), generator=torch.Generator().manual_seed(20261107 + epoch)).tolist()
         order = [order[i] for i in perm]
+        ss_gen = torch.Generator().manual_seed(20261108 + epoch)
         begin = start_step if epoch == start_epoch else 0
         for step0, rid in enumerate(order[begin:], start=begin):
-            loss, ce = ce_plus_hidden(model, adapter, student_train, teacher_train, rid,
-                                      target_for(rid, "train"), tok,
-                                      args.max_target, args.hidden_weight)
+            if args.ss_prob > 0:
+                loss, ce = ce_scheduled(model, adapter, student_train, teacher_train, rid,
+                                        target_for(rid, "train"), tok,
+                                        args.max_target, args.hidden_weight,
+                                        args.ss_prob, ss_gen)
+            else:
+                loss, ce = ce_plus_hidden(model, adapter, student_train, teacher_train, rid,
+                                          target_for(rid, "train"), tok,
+                                          args.max_target, args.hidden_weight)
             opt.zero_grad(set_to_none=True)
             loss.backward()
             torch.nn.utils.clip_grad_norm_(params, 1.0)
