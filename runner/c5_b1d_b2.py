@@ -13,6 +13,7 @@ import sys
 import time
 from pathlib import Path
 
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -65,6 +66,18 @@ def labels_for(tok, text: str, max_target: int = 512) -> torch.Tensor:
     return lab
 
 
+def load_npz_cache(directory: Path, split: str) -> dict:
+    out = {}
+    for p in sorted(directory.glob(f"{split}_*.npz")):
+        z = np.load(p)
+        for i, rid in enumerate(z["ids"]):
+            out[str(rid)] = {
+                "h": torch.from_numpy(z["h"][i]).float(),
+                "length": int(z["lengths"][i]),
+            }
+    return out
+
+
 def ce_plus_hidden(model, adapter, student, teacher, rid: str, target_text: str, tok,
                    max_target: int, hidden_weight: float) -> tuple[torch.Tensor, torch.Tensor]:
     s = student[rid]
@@ -110,13 +123,19 @@ def main() -> int:
     ap.add_argument("--lora-dropout", type=float, default=0.05)
     ap.add_argument("--hidden-weight", type=float, default=0.01)
     ap.add_argument("--max-target", type=int, default=512)
+    ap.add_argument("--input-dim", type=int, default=768)
+    ap.add_argument("--adapter-hidden", type=int, default=768)
+    ap.add_argument("--feature-dir", type=Path, default=None,
+                    help="optional layer12 feature cache dir; uses h/lengths/ids npz")
+    ap.add_argument("--scratch", action="store_true",
+                    help="random adapter init; required for input-dim !=768")
     ap.add_argument("--init", type=Path, default=INIT)
     ap.add_argument("--out-dir", type=Path, default=OUT)
     ap.add_argument("--report", type=Path, default=REPORT)
     args = ap.parse_args()
-    for name in ("init", "out_dir", "report", "teacher_preds", "teacher_val_preds"):
+    for name in ("init", "out_dir", "report", "teacher_preds", "teacher_val_preds", "feature_dir"):
         p = getattr(args, name)
-        setattr(args, name, p if p.is_absolute() else ROOT / p)
+        setattr(args, name, p if p is None or p.is_absolute() else ROOT / p)
 
     torch.set_num_threads(6)
     torch.manual_seed(20261107)
@@ -157,6 +176,9 @@ def main() -> int:
     teacher_train = load_cache("teacher", "train")
     student_val = load_cache("student", "val")
     teacher_val = load_cache("teacher", "val")
+    if args.feature_dir is not None:
+        student_train = load_npz_cache(args.feature_dir, "train")
+        student_val = load_npz_cache(args.feature_dir, "val")
 
     tok = AutoTokenizer.from_pretrained(str(T5), local_files_only=True)
     model = AutoModelForSeq2SeqLM.from_pretrained(
@@ -169,9 +191,12 @@ def main() -> int:
         if ".lora_" in n:
             p.requires_grad_(True)
 
-    adapter = B1dFullAdapter()
+    adapter = B1dFullAdapter(d_in=args.input_dim, hidden=args.adapter_hidden)
     resume = None
-    if not args.no_resume:
+    if args.scratch:
+        print(json.dumps({"init": "scratch", "input_dim": args.input_dim,
+                          "adapter_hidden": args.adapter_hidden}), flush=True)
+    elif not args.no_resume:
         candidates = []
         for p in args.out_dir.glob("adapter_step_*.pt"):
             try:
@@ -194,14 +219,17 @@ def main() -> int:
         start_epoch = int(resume.get("epoch_index", max(0, int(resume.get("epoch", 1)) - 1)))
         start_step = int(resume.get("step_in_epoch", 0))
     else:
-        ckpt = torch.load(args.init, map_location="cpu")
-        adapter.load_state_dict(ckpt["adapter"])
-        if "lora" in ckpt:
-            missing, unexpected = model.load_state_dict(ckpt["lora"], strict=False)
-            bad = [x for x in missing if ".lora_" in x]
-            if bad:
-                raise SystemExit(f"missing init LoRA keys: {bad[:5]}")
-        start_epoch, start_step = 0, 0
+        if args.scratch:
+            start_epoch, start_step = 0, 0
+        else:
+            ckpt = torch.load(args.init, map_location="cpu")
+            adapter.load_state_dict(ckpt["adapter"])
+            if "lora" in ckpt:
+                missing, unexpected = model.load_state_dict(ckpt["lora"], strict=False)
+                bad = [x for x in missing if ".lora_" in x]
+                if bad:
+                    raise SystemExit(f"missing init LoRA keys: {bad[:5]}")
+            start_epoch, start_step = 0, 0
     adapter.train()
     params = list(adapter.parameters()) + [p for p in model.parameters() if p.requires_grad]
     opt = torch.optim.AdamW(params, lr=args.lr, weight_decay=0.01)

@@ -21,7 +21,7 @@ if str(ROOT) not in sys.path:
 
 from eval.slot_verify import verify_summary  # noqa: E402
 from runner.c5_a2null_eval import char_f1, distinct_2, repeated_4gram_rate  # noqa: E402
-from runner.c5_b1d_b2 import attach_decoder_lora  # noqa: E402
+from runner.c5_b1d_b2 import attach_decoder_lora, load_npz_cache  # noqa: E402
 from runner.c5_b1d_full import B1dFullAdapter, load_cache  # noqa: E402
 
 T5 = ROOT / "data/models/t5gemma-2-270m-270m"
@@ -37,6 +37,10 @@ def main() -> int:
                     help="B2 checkpoint containing a decoder LoRA state dict")
     ap.add_argument("--teacher-preds", type=Path, default=None,
                     help="optional teacher predictions jsonl for teacher-relative F1")
+    ap.add_argument("--input-dim", type=int, default=768)
+    ap.add_argument("--adapter-hidden", type=int, default=768)
+    ap.add_argument("--feature-dir", type=Path, default=None,
+                    help="optional layer12 feature cache dir")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--max-new", type=int, default=448)
     ap.add_argument("--out", type=Path, default=OUT)
@@ -46,6 +50,7 @@ def main() -> int:
         ROOT / args.lora if args.lora is not None else None
     )
     args.teacher_preds = args.teacher_preds if args.teacher_preds is None or args.teacher_preds.is_absolute() else ROOT / args.teacher_preds
+    args.feature_dir = args.feature_dir if args.feature_dir is None or args.feature_dir.is_absolute() else ROOT / args.feature_dir
     args.out = args.out if args.out.is_absolute() else ROOT / args.out
     torch.set_num_threads(6)
     t0 = time.time()
@@ -67,10 +72,10 @@ def main() -> int:
         ids = ids[: args.limit]
 
     ckpt = torch.load(args.adapter, map_location="cpu")
-    adapter = B1dFullAdapter()
+    adapter = B1dFullAdapter(d_in=args.input_dim, hidden=args.adapter_hidden)
     adapter.load_state_dict(ckpt["adapter"])
     adapter.eval()
-    student = load_cache("student", "val")
+    student = load_npz_cache(args.feature_dir, "val") if args.feature_dir is not None else load_cache("student", "val")
     tok = AutoTokenizer.from_pretrained(str(T5), local_files_only=True)
     model = AutoModelForSeq2SeqLM.from_pretrained(
         str(T5), local_files_only=True, dtype=torch.bfloat16, low_cpu_mem_usage=True
