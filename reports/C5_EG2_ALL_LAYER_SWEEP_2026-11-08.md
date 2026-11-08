@@ -63,6 +63,8 @@
 
 ## 5. mT5 smoke에의 시사점
 
+> **범위 정정 (2026-11-08):** 이 sweep의 teacher는 **base T5Gemma2 encoder hidden 640**이다. 따라서 이 결과는 **mT5-small에 적합한 layer를 식별한 것이 아니다.** layer5/12/9는 **후보**일 뿐이며, mT5 decoder의 CE/memory ablation으로 별도 검증해야 한다. mT5의 d_model은 512이고 cross-attention 분포도 T5Gemma2와 다르므로 hidden cosine 순위를 전이할 수 없다.
+
 - EG2 feature는 **layer5(최고 hidden)**와 **layer12(B2 free-running 최고)**를 비교하는 것이 합리적이다. layer9는 hidden 상위권 비교군으로 유지한다.
 
 - layer24(768 projection)와 layer0(embedding)은 bridge 입력으로 쓰지 않는다.
