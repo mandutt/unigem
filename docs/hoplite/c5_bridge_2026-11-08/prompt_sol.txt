@@ -1,0 +1,47 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: the current origin/main HEAD. First sync/pull to that HEAD, then work read-only.
+
+This is a NEW, intentionally separate, independent review round using a DIFFERENT model (Sol 6.1). Do not treat it as a duplicate of any other thread. Do not reuse another model's answer; we are collecting independent opinions.
+
+You must read the full review request yourself:
+reports/EXTERNAL_REVIEW_C5_BRIDGE_2026-11-08.md
+
+The file is about 624 lines. Read it in chunks of roughly 150-250 lines if necessary. Do not rely on a summary, excerpt, chat context, or another model's answer. Then inspect the referenced result files and code as needed.
+
+Scope and constraints:
+- Do not run training.
+- Do not open or evaluate test 163; it is sealed.
+- Do not modify repository files.
+- Do not call subagents and do not call additional LLM models; complete the review yourself.
+- P1 data and external APIs are out of scope.
+- The production verifier eval/slot_verify.py is unmodified.
+
+Key numbers already verified from raw artifacts (do not re-litigate without evidence; you may independently verify):
+- bridge best F1: val100 char F1 0.4074, grounded 12%, EOS 69% (B2 layer12 SS slot-aware).
+- bridge best grounded: 22%, F1 0.3340 (B2 layer9).
+- A1 native matched val100: F1 0.6552, grounded 100%, EOS 100%; val161 is 0.6576.
+- slot repair grounded-100 F1 ceiling: 0.3203.
+- D-107 pre-registered DoD: F1 >= 0.36 PASS, grounded >= 20 FAIL (12%), EOS >= 58 PASS.
+- test 163 was not used.
+
+Core questions for this round:
+1. Given A1 native 0.6552/100%/100% versus bridge 0.4074/12%, is STOP the correct verdict, or is there a single valid falsification experiment that justifies NARROW?
+2. Is the scheduled-sampling grounding collapse and slot-aware partial recovery a real mechanism, or a measurement/design artifact?
+3. If bridge continues, should the next step be slot auxiliary, copy/pointer, constrained decoding, or B2 full 1,293? Give a ranked answer with DoD and stop conditions.
+4. What are the top methodological defects in the reviewed experiments?
+
+Answer every Q1-Q12 item in the review request. For each item provide:
+- verdict: agree / disagree / conditional / defer
+- evidence tied to this document or artifacts
+- one to three concrete next steps
+
+Deliverable:
+1. Write your full report to this repository-relative file (mandatory, not optional):
+   docs/hoplite/c5_bridge_2026-11-08/review_SOL.md
+2. In your final message, include a compact table for Q1-Q12 plus your top Must-fix items and top additional experiments.
+
+Do not claim that a gate change is already approved. Do not propose using P1 data or test 163. Keep exploratory bridge results distinct from the A1 native product fallback.
+
+This is consultation only. Your only permitted write is the single report file named above.
