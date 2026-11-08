@@ -53,6 +53,7 @@ def main() -> int:
     ap.add_argument("--model", type=Path, default=MODEL)
     ap.add_argument("--data", type=Path, default=DATA)
     ap.add_argument("--splits", type=Path, default=SPLITS)
+    ap.add_argument("--tokenizer-path", type=Path, default=T5_PATH)
     ap.add_argument("--out-root", type=Path, default=OUT_ROOT)
     ap.add_argument("--out-prefix", default="eg2_layer")
     ap.add_argument("--layers", default="0-24")
@@ -63,6 +64,7 @@ def main() -> int:
     ap.add_argument("--overwrite", action="store_true")
     args = ap.parse_args()
     args.out_root = args.out_root if args.out_root.is_absolute() else ROOT / args.out_root
+    args.tokenizer_path = args.tokenizer_path if args.tokenizer_path.is_absolute() else ROOT / args.tokenizer_path
     layers = parse_layers(args.layers)
     args.out_root.mkdir(parents=True, exist_ok=True)
     torch.set_num_threads(6)
@@ -70,8 +72,7 @@ def main() -> int:
     rows = read_jsonl(args.data)
     by_id = {str(r["id"]): r for r in rows}
     split_data = json.loads(args.splits.read_text(encoding="utf-8"))
-    tok = AutoTokenizer.from_pretrained(str(args.model), local_files_only=True)
-    t5_tok = AutoTokenizer.from_pretrained(str(T5_PATH), local_files_only=True)
+    text_tok = AutoTokenizer.from_pretrained(str(args.tokenizer_path), local_files_only=True)
     model = AutoModel.from_pretrained(
         str(args.model), local_files_only=True, dtype=torch.float32, low_cpu_mem_usage=True
     ).eval()
@@ -100,7 +101,7 @@ def main() -> int:
             for rid in chunk:
                 rec = by_id[rid]
                 text = PROMPT + str(rec["passage"])
-                ids_t = t5_tok(text, add_special_tokens=True, truncation=True,
+                ids_t = text_tok(text, add_special_tokens=True, truncation=True,
                                max_length=args.max_length)["input_ids"]
                 enc = {
                     "input_ids": torch.tensor([ids_t], dtype=torch.long),
@@ -143,6 +144,8 @@ def main() -> int:
             "dim": dim if dim else None,
             "splits": {"train": args.train_limit, "val": args.val_limit},
             "max_length": args.max_length,
+            "tokenizer_path": str(args.tokenizer_path.relative_to(ROOT).as_posix()),
+            "tokenizer_class": type(text_tok).__name__,
             "elapsed_sec": elapsed,
             "test_split_used": False,
         }
@@ -150,8 +153,7 @@ def main() -> int:
             json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
     print(json.dumps({"layers": layers, "elapsed_sec": elapsed,
-                      "out_root": str(args.out_root.relative_to(ROOT).as_posix())},
-                     ensure_ascii=False, indent=2), flush=True)
+                      "out_root": str(args.out_root)}, ensure_ascii=False, indent=2), flush=True)
     return 0
 
 

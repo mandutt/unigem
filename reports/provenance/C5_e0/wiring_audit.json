@@ -1,0 +1,67 @@
+{
+  "experiment": "c5_e0_wiring_audit",
+  "model": "data/models/mt5-small",
+  "doc_id": "REPORT-news_r-03837-00002",
+  "source_tokens": 256,
+  "target_tokens": 64,
+  "native_encoder_vs_external": {
+    "normal_loss": 12.603192329406738,
+    "external_loss": 12.603192329406738,
+    "loss_abs_delta": 0.0,
+    "logits_max_abs_delta": 0.0,
+    "allclose_atol_1e-5": true,
+    "finite": true,
+    "encoder_hidden_shape": [
+      1,
+      256,
+      512
+    ]
+  },
+  "eg2_native_layer19_cache": {
+    "cache": "C:\\code\\unigem\\data\\wave2c\\eg2_native_layer19\\layer19",
+    "exists": true,
+    "file": "data/wave2c/eg2_native_layer19/layer19/train_0000.npz",
+    "h_shape": [
+      50,
+      1024,
+      512
+    ],
+    "h_dtype": "float16",
+    "mask_shape": [
+      50,
+      1024
+    ],
+    "length_n": 38617,
+    "lengths_min": 707,
+    "lengths_max": 875,
+    "finite": true,
+    "dim_512": true,
+    "external_memory_loss": 24.79705810546875,
+    "external_memory_finite": true,
+    "external_memory_logits_shape": [
+      1,
+      64,
+      250112
+    ]
+  },
+  "decoder_lora_inventory": {
+    "decoder_linear_modules": 88,
+    "q": 16,
+    "k": 16,
+    "v": 16,
+    "o": 16,
+    "q_k_v_o_total": 64,
+    "legacy_q_proj_style_total": 0,
+    "sample_names": [
+      "decoder.block.0.layer.0.SelfAttention.q",
+      "decoder.block.0.layer.0.SelfAttention.k",
+      "decoder.block.0.layer.0.SelfAttention.v",
+      "decoder.block.0.layer.0.SelfAttention.o",
+      "decoder.block.0.layer.1.EncDecAttention.q",
+      "decoder.block.0.layer.1.EncDecAttention.k",
+      "decoder.block.0.layer.1.EncDecAttention.v",
+      "decoder.block.0.layer.1.EncDecAttention.o"
+    ]
+  },
+  "test_split_used": false
+}

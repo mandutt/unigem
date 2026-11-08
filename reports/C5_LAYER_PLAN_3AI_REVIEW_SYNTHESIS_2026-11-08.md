@@ -311,3 +311,16 @@ T5Gemma2       = D-108 STOP 유지
 A1 native      = frozen fallback/reference, 제품 승인 아님
 Final          = NARROW — E0 + 통제된 단일 B0만
 ```
+
+---
+
+## 9. E0 addendum — tokenizer 우려의 정정 (2026-11-09)
+
+E0 audit 300 train + 100 val 결과:
+
+- EG2 native와 T5Gemma2 tokenizer의 **content token ID는 400/400 일치**했다.
+- 차이는 **native EOS 1 token**뿐이었다. character/digit mismatch는 **0**.
+- 다만 native EOS 추가로 layer19 hidden cosine은 train mean **.99135**(p01 .9275), val **.99150**(p01 .9292)였고, 약 **2.4% token**이 cosine < .95였다.
+- 따라서 **“T5Gemma2 tokenizer ID가 EG2 PLE를 광범위하게 오염시켰다”는 우려는 content 기준으로 재현되지 않았다.** native cache는 **EOS/sequence semantics 보존**을 위해 계속 사용하되, Stage A legacy cache를 “wrong IDs”라고 부르지 않는다.
+- E0의 mT5 wiring은 native encoder vs external `encoder_outputs`에서 loss/logits delta **0.0**으로 PASS했고, decoder는 `q/k/v/o` **64 modules**를 노출했지만 legacy `q_proj` target은 **0**이었다. B0 LoRA runner는 아직 구현되지 않았다.
+- 상세: `reports/C5_E0_NATIVE_AUDIT_2026-11-09.md`, `reports/provenance/C5_e0/`.

@@ -1,0 +1,31 @@
+{
+  "experiment": "c5_e0_legacy_native_hidden_diff",
+  "legacy_cache": "data/wave2c/eg2_layer19",
+  "native_cache": "data/wave2c/eg2_native_layer19/layer19",
+  "layer": 19,
+  "test_split_used": false,
+  "splits": {
+    "train": {
+      "n_docs": 300,
+      "n_token_pairs": 229987,
+      "cosine_mean": 0.9913522051982318,
+      "cosine_min": 0.7208558917045593,
+      "cosine_p01": 0.9275182378292084,
+      "cosine_lt_0_99": 52647,
+      "cosine_lt_0_95": 5743,
+      "mean_abs_norm_delta": 2.808967483043671,
+      "length_delta_mean": 1.0
+    },
+    "val": {
+      "n_docs": 100,
+      "n_token_pairs": 76636,
+      "cosine_mean": 0.9915006430129852,
+      "cosine_min": 0.6261890530586243,
+      "cosine_p01": 0.9292494505643845,
+      "cosine_lt_0_99": 17165,
+      "cosine_lt_0_95": 1825,
+      "mean_abs_norm_delta": 2.7738559567928314,
+      "length_delta_mean": 1.0
+    }
+  }
+}
