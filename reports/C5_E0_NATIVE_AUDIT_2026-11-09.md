@@ -234,3 +234,21 @@ cd C:/code/unigem
 | `runner/c5_eg2_all_layers_cache.py` | `--tokenizer-path` 지원 추가 |
 
 **test split used: false.**
+
+---
+
+## 8. Post-E0 update — B0 runner smoke (D-114, 2026-11-09)
+
+E0 직후 `runner/c5_mt5_lora_b0.py`를 구현하고 **학습 없이 smoke**만 수행했다.
+
+- mT5 decoder q/k/v/o **64/64 modules attach**
+- LoRA **458,752** params, adapter **526,336** params
+- zero-output LoRA가 frozen forward를 정확히 재현:
+  - loss **27.43998146057129** both
+  - loss/logits delta **0.0**
+  - allclose true, finite
+- train/val ablation 경로는 구현됐으나 **실행하지 않음**
+- generation/native positive/memory-free/mean/multiple donor/bootstrap은 아직 미구현
+- **B0 학습은 미승인·미실행**
+
+상세: `reports/C5_B0_LORA_RUNNER_SMOKE_2026-11-09.md`, `reports/provenance/C5_b0/mt5_lora_smoke.json`.

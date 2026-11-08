@@ -323,4 +323,5 @@ E0 audit 300 train + 100 val 결과:
 - 다만 native EOS 추가로 layer19 hidden cosine은 train mean **.99135**(p01 .9275), val **.99150**(p01 .9292)였고, 약 **2.4% token**이 cosine < .95였다.
 - 따라서 **“T5Gemma2 tokenizer ID가 EG2 PLE를 광범위하게 오염시켰다”는 우려는 content 기준으로 재현되지 않았다.** native cache는 **EOS/sequence semantics 보존**을 위해 계속 사용하되, Stage A legacy cache를 “wrong IDs”라고 부르지 않는다.
 - E0의 mT5 wiring은 native encoder vs external `encoder_outputs`에서 loss/logits delta **0.0**으로 PASS했고, decoder는 `q/k/v/o` **64 modules**를 노출했지만 legacy `q_proj` target은 **0**이었다. B0 LoRA runner는 아직 구현되지 않았다.
-- 상세: `reports/C5_E0_NATIVE_AUDIT_2026-11-09.md`, `reports/provenance/C5_e0/`.
+- **Post-E0 (D-114):** `runner/c5_mt5_lora_b0.py` smoke에서 **64/64 modules attach**, zero-output LoRA가 frozen forward를 **loss/logits delta 0.0**으로 재현했다. **B0 학습은 아직 미실행**이며 native positive/memory-free/mean controls는 추가 구현이 필요하다.
+- 상세: `reports/C5_E0_NATIVE_AUDIT_2026-11-09.md`, `reports/C5_B0_LORA_RUNNER_SMOKE_2026-11-09.md`, `reports/provenance/C5_e0/`.

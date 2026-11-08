@@ -1,0 +1,46 @@
+{
+  "experiment": "c5_b0_two_arm_runner_smoke",
+  "mode": "smoke_no_training",
+  "model": "data/models/mt5-small",
+  "cache": "data/wave2c/eg2_native_layer19/layer19",
+  "layer": 19,
+  "doc_id": "REPORT-news_r-03837-00002",
+  "source_tokens": 759,
+  "label_tokens": 171,
+  "seed": 20261108,
+  "lora": {
+    "r": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "attached_modules": 64,
+    "expected_modules": 64,
+    "module_names_head": [
+      "decoder.block.0.layer.0.SelfAttention.q",
+      "decoder.block.0.layer.0.SelfAttention.k",
+      "decoder.block.0.layer.0.SelfAttention.v",
+      "decoder.block.0.layer.0.SelfAttention.o",
+      "decoder.block.0.layer.1.EncDecAttention.q",
+      "decoder.block.0.layer.1.EncDecAttention.k",
+      "decoder.block.0.layer.1.EncDecAttention.v",
+      "decoder.block.0.layer.1.EncDecAttention.o"
+    ],
+    "trainable_lora_parameters": 458752
+  },
+  "adapter_parameters": 526336,
+  "frozen_arm": {
+    "loss": 27.43998146057129,
+    "trainable_adapter_parameters": 526336
+  },
+  "lora_arm": {
+    "loss": 27.43998146057129,
+    "trainable_parameters": 985088
+  },
+  "zero_lora_equivalence": {
+    "loss_abs_delta": 0.0,
+    "logits_max_abs_delta": 0.0,
+    "allclose_atol_1e-5": true,
+    "finite": true
+  },
+  "base_encoder_frozen": true,
+  "test_split_used": false
+}
