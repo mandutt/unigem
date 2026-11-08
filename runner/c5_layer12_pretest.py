@@ -89,9 +89,9 @@ def eval_hidden_min(adapter, student, teacher, ids):
     }
 
 
-def load_layer_cache(split: str) -> dict:
+def load_layer_cache(split: str, directory: Path = LAYER_DIR) -> dict:
     out = {}
-    for p in sorted(LAYER_DIR.glob(f"{split}_*.npz")):
+    for p in sorted(directory.glob(f"{split}_*.npz")):
         z = np.load(p)
         for i, rid in enumerate(z["ids"]):
             n = int(z["lengths"][i])
@@ -148,21 +148,24 @@ def main() -> int:
     ap.add_argument("--save-dir", type=Path, default=None,
                     help="optional directory to save each arm's adapter_final.pt")
     ap.add_argument("--out", type=Path, default=OUT)
+    ap.add_argument("--input-dim", type=int, default=512)
+    ap.add_argument("--feature-dir", type=Path, default=LAYER_DIR)
     args = ap.parse_args()
     args.out = args.out if args.out.is_absolute() else ROOT / args.out
+    args.feature_dir = args.feature_dir if args.feature_dir.is_absolute() else ROOT / args.feature_dir
     if args.save_dir is not None:
         args.save_dir = args.save_dir if args.save_dir.is_absolute() else ROOT / args.save_dir
     torch.set_num_threads(6)
     splits = json.loads((ROOT / "reports/provenance/C5_clean/splits.json").read_text(encoding="utf-8"))
     train_ids = list(splits["train"])[: args.train_limit]
     val_ids = list(splits["val"])[: args.val_limit]
-    layer = load_layer_cache("train")
-    layer.update(load_layer_cache("val"))
+    layer = load_layer_cache("train", args.feature_dir)
+    layer.update(load_layer_cache("val", args.feature_dir))
     teacher = load_cache("teacher", "train")
     teacher.update(load_cache("teacher", "val"))
     result = {
         "experiment": "layer12_capacity_pretest",
-        "feature": "EG2 hidden_states[12] 512",
+        "feature": str(args.feature_dir.relative_to(ROOT).as_posix()),
         "train_n": len(train_ids),
         "val_n": len(val_ids),
         "epochs": args.epochs,
@@ -174,11 +177,11 @@ def main() -> int:
     }
     for kind in ("linear", "mlp768", "mlp1536"):
         print(json.dumps({"arm": kind, "status": "start"}), flush=True)
-        arm, adapter = train_arm(kind, 512, train_ids, val_ids, layer, teacher, args.epochs, args.lr)
+        arm, adapter = train_arm(kind, args.input_dim, train_ids, val_ids, layer, teacher, args.epochs, args.lr)
         result["arms"].append(arm)
         if args.save_dir is not None:
             args.save_dir.mkdir(parents=True, exist_ok=True)
-            torch.save({"adapter": adapter.state_dict(), "kind": kind, "d_in": 512,
+            torch.save({"adapter": adapter.state_dict(), "kind": kind, "d_in": args.input_dim,
                         "hidden": {"linear": None, "mlp768": 768, "mlp1536": 1536}[kind]},
                        args.save_dir / f"{kind}_adapter_final.pt")
         print(json.dumps(arm, ensure_ascii=False, indent=2), flush=True)
