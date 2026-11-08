@@ -1,0 +1,17 @@
+[
+  {
+    "tag": "glm",
+    "model": "z-ai/glm-5.3-flash",
+    "id": "thr_26472f2a918440909e3fb0f594373154"
+  },
+  {
+    "tag": "opus",
+    "model": "claude-opus-5-5",
+    "id": "thr_7baaf3ffd6a541ffa0d0a3c37c1a636f"
+  },
+  {
+    "tag": "sol",
+    "model": "gpt-6.1-sol",
+    "id": "thr_e66237db358b4d4dbfe9c1a3ba5414cd"
+  }
+]
