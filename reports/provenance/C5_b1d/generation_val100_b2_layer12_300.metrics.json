@@ -1,0 +1,19 @@
+{
+  "n": 100,
+  "adapter": "data/models/f5_t5gemma2_lora/b2_layer12_300/adapter_final.pt",
+  "max_new": 448,
+  "char_f1_mean": 0.34639223157144294,
+  "teacher_char_f1_mean": 0.3392468837577449,
+  "grounded_rate": 0.21,
+  "new_slot_rate_micro": 0.5348837209302325,
+  "new_slot_rate_mean": 0.44897360045889456,
+  "new_slot_count": 322,
+  "summary_slot_count": 602,
+  "eos_rate": 0.6,
+  "nonempty_rate": 1.0,
+  "gen_len_mean": 309.59,
+  "repeated_4gram_rate_mean": 0.5882360908166774,
+  "distinct_2_mean": 0.3280752805456568,
+  "elapsed_sec": 1404.4,
+  "test_split_used": false
+}
