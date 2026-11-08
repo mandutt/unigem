@@ -1,0 +1,49 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: the current origin/main HEAD. First sync/pull to that HEAD, then work read-only.
+
+This is a NEW, intentionally separate, independent review round using a DIFFERENT model (GLM 5.3 Flash). Do not treat it as a duplicate of any other thread. Do not reuse another model's answer; we are collecting independent opinions.
+
+You must read the full review request yourself:
+reports/EXTERNAL_REVIEW_C5_LAYER_PLAN_2026-11-08.md
+
+The file is about 620 lines. Read it in chunks of roughly 150-250 lines if necessary. Do not rely on a summary, excerpt, chat context, or another model's answer. Then inspect the referenced result files and code as needed.
+
+Scope and constraints:
+- Do not run training.
+- Do not open or evaluate test 163; it is sealed.
+- Do not modify repository files.
+- Do not call subagents and do not call additional LLM models; complete the review yourself.
+- P1 data and external APIs are out of scope.
+- The production verifier eval/slot_verify.py is unmodified.
+
+Key numbers already verified from raw artifacts (do not re-litigate without evidence; you may independently verify):
+- Stage A mT5-small: best real CE 6.623 at layer19; delta zero 18.4-19.3; max delta shuffled 0.189.
+- Stage A UMT5-small: best real CE 8.185 at layer12; delta zero 3.5-4.0; max delta shuffled 0.009.
+- EG2 all-layer teacher-cosine sweep: MLP1536 layer5 0.7927 is the highest; layer9 0.7910; layer12 0.7747; layer24 projection 0.7102.
+- A1 native matched val100: F1 0.6552, grounded 100 percent, EOS 100 percent; val161 F1 0.6576.
+- T5Gemma2 bridge is closed: D-107 DoD failed and D-108 was 3/3 STOP. Do not reopen it without a new decision record.
+- test 163 was not used.
+
+Core questions for this round:
+1. Is the proposed layer role probing design adequate to distinguish lexical, numeric/date, slot-overlap, and sentence-position information? What is missing?
+2. Is Stage B0 (mT5 layer19, 20 train / 20 val, adapter plus decoder LoRA) the right minimum experiment to diagnose whether decoder adaptation is the bottleneck? Is the proposed DoD sufficient?
+3. Are Stage B1 and B2 correctly ordered and controlled? Is the layer/model factorial separation sufficient?
+4. What are the top methodological defects or confounds in this plan?
+5. Should Stage A be re-run with the EG2 native tokenizer before Stage B, or is the existing T5Gemma2-tokenizer cache acceptable as a screening result?
+6. What should be the exact stop / narrow / continue recommendation?
+
+Answer every Q1-Q10 item in section 13 of the review request. For each item provide:
+- verdict: agree / disagree / conditional / defer
+- evidence tied to this document or artifacts
+- one to three concrete next steps
+
+Deliverable:
+1. Write your full report to this repository-relative file (mandatory, not optional):
+   docs/hoplite/c5_layer_plan_2026-11-08/review_GLM.md
+2. In your final message, include a compact table for Q1-Q10 plus your top Must-fix items and top additional experiments.
+
+Do not claim that a gate change is already approved. Do not propose using P1 data or test 163. Keep exploratory bridge results distinct from the A1 native product fallback. Do not propose reopening T5Gemma2 without a new decision record.
+
+This is consultation only. Your only permitted write is the single report file named above.

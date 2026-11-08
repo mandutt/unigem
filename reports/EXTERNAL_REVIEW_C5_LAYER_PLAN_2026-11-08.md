@@ -3,7 +3,8 @@
 - 작성일: 2026-11-08
 - 대상: EG2(EmbeddingGemma 2) hidden layer의 역할 분석과, mT5-small / UMT5-small decoder 연결 계획
 - 상태: **계획 검토용**. test 163은 봉인. 이 문서는 P0 데이터만 사용한다.
-- 직전 HEAD: `949df7a` (문서 커밋 전)
+- 작성 기준: `949df7a` (문서 작성 시점)
+- **검토 기준: Hoplite 스레드 생성 시점의 origin/main HEAD** — 이 문서와 아래 프롬프트가 포함된 최신 커밋을 사용한다.
 
 ---
 
