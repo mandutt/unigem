@@ -1,0 +1,34 @@
+Report saved to [docs/hoplite/c5_layer_plan_2026-11-08/review_SOL.md](docs/hoplite/c5_layer_plan_2026-11-08/review_SOL.md).
+
+Sync succeeded. Workspace HEAD and `origin/main` are:
+`bb8bf702cbff4c73129098d4b660784be289fd75`
+
+## Recommendation: **NARROW**
+
+Run only a corrected B0 diagnostic package before considering B1/B2. An exhaustive native-tokenizer Stage A rerun is unnecessary, but B0 needs a **native-input, matched adapter-only baseline**.
+
+| Question | Verdict | Main conclusion |
+|---|---|---|
+| Q1 — Role probes | Conditional | Useful accessibility survey; shortcut controls, span audits and corrected statistics are missing. |
+| Q2 — Stage A interpretation | Disagree | Screening supports “selectivity unconfirmed,” not a uniquely identified decoder bottleneck. |
+| Q3 — B0 layer19 | Conditional | Reasonable fixed local anchor; failure cannot eliminate every layer/interface. |
+| Q4 — B0 DoD | Disagree | Needs adaptation contrast, correct-memory improvement and an inconclusive category. |
+| Q5 — B1 layers | Conditional | Keep 5/9/12/19 bounded; do not expand the neighborhood sweep. |
+| Q6 — B2 comparison | Conditional | Same-layer comparison is conditional, not factorial; generated-text quality should lead. |
+| Q7 — Stage C | Defer | Audit metrics and compare matched A1 outputs before authorizing scaling. |
+| Q8 — Metrics | Disagree | No-new grounded, bag-character F1 and EOS are insufficient for preservation/factuality. |
+| Q9 — T5Gemma2 closure | Agree | Maintain D-107/D-108 STOP; no reopening within this plan. |
+| Q10 — Priorities | Disagree | Native/wiring audit → controlled B0 first; defer parallel full role probing. |
+
+### Top Must-fix items
+1. **Add a contemporaneous frozen-decoder control:** same 20/20 documents, native cache, initialization, three seeds and training budget.
+2. **Control memory length and donor assignment:** Stage A’s shuffled memory changes length/mask alongside content.
+3. **Measure useful adaptation:** require improved selectivity *relative to the frozen arm* and improved correct-memory loss—not merely worse wrong-memory loss.
+4. **Separate metric meanings:** preserve production code and historical reporting; audit preservation, reference-required slots, entities and generation collapse.
+
+### Top additional experiments
+- **Native-tokenizer/provenance and forwarding-equivalence audit**, without training.
+- **Paired adapter-only versus adapter-plus-LoRA B0** at layer19.
+- After a positive result, **controlled numeric/date interventions**; use a **2×2 model×layer design** only if a general model-effect claim is needed.
+
+Only the requested report file changed. No training or new model evaluation ran, test 163 was not opened, and the production verifier’s hash remains unchanged. All gate revisions in the report are proposals—not approvals.

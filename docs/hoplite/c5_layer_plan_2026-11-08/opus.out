@@ -1,0 +1,38 @@
+My verdict is **NARROW**: run one revised Stage B0 with proper controls, hold the layer-role probing apart from two cheap checks, and leave Stage C out of this plan. The full report is in `docs/hoplite/c5_layer_plan_2026-11-08/review_OPUS.md`, which is the only file I changed (not committed).
+
+**Sync:** `git fetch` worked and `git pull --ff-only origin main` said "Already up to date". HEAD is `bb8bf702cbff4c73129098d4b660784be289fd75`. I read the whole 618-line review request, the Stage A runner, the EG2 cache script, both Stage A result files (all 23 layers), and D-017 and D-107 to D-111. I ran no training and did not touch test 163, P1 data or `eval/slot_verify.py`.
+
+**What the raw artifacts show**
+- **Stage A never fit its training data.** mT5 training CE stayed at 5.16–5.95 after 100 steps on 5 documents. UMT5 training CE was about 8.3, the same as its val CE, so it learned almost nothing. That makes Stage A inconclusive rather than negative: it can't support either "frozen decoder is the bottleneck" or "no content selectivity".
+- **The "zero memory" control isn't a fair null.** The runner feeds all-zeros after the adapter's LayerNorm, which a trained adapter never outputs. The large Δzero measures that disruption, not use of memory.
+- **The seed changes with the layer** (`seed = 20261108 + layer`), so layer rankings mix layer and seed effects. Layer 19 was the best of 23 noisy estimates on 5 documents, and its Δshuffled is only 0.030; layer 17 had the highest (0.189).
+- **mT5 Δshuffled is positive in 18 of 23 layers** (mean about +0.037). The layers share the same 5 documents and pairing, so this is only a weak hint, but "≈0 everywhere" overstates it.
+- **The EG2 cache was built with the T5Gemma2 tokenizer.** Because EG2's per-layer embeddings re-inject token identity at every layer, a wrong token ID corrupts that position at every depth. I couldn't measure the mismatch rate: `data/wave2c` and `data/models` are not in this workspace.
+
+| Q | Verdict | Core evidence | Next step |
+|---|---|---|---|
+| Q1 Probe design | disagree (redesign) | Frequency and numeric labels depend only on the token, so they saturate from layer 0 (D-017: 99.57% / 100%). The within-document permutation control only tests "above chance". | Report every probe against a per-token baseline and layer 0; use type-level control tasks; add probes for recovering nearby tokens and telling documents apart. |
+| Q2 Stage A reading | disagree | Underfit training CE; zero control off-distribution; 5 docs, 1 seed. | Record Stage A as inconclusive; rebuild its frozen condition as a control arm inside B0. |
+| Q3 B0 single layer | conditional | Layer 19 is a noisy pick tied to its seed. | Keep one pre-registered layer, but make the decoder setup the variable (frozen / LoRA / native encoder / no memory). |
+| Q4 B0 DoD | disagree | 20 docs × 100 steps risks a false STOP. The 0.10 threshold has no anchor (frozen layer 17 already hit 0.189). "3 seeds positive" happens 1 in 8 by chance. | Use 300/100 docs, about 900 steps. Primary metric: Δshuffled on target tokens copyable from the source, with ≥5 length-matched shuffles. Gate relative to the native-encoder control. |
+| Q5 B1 layers | defer | 5/9/12 were chosen using T5Gemma2 evidence, which D-109 says doesn't transfer. | If B0 passes, pick layers spread by depth, correct for multiple comparisons, and avoid a dense sweep. |
+| Q6 B2 models | conditional | UMT5 didn't train under shared settings, so optimisation confounds the model comparison. | Tune learning rate per model and match memory scale; compare selectivity normalised to each model's native control. |
+| Q7 Stage C | disagree | Its bar (.45 / 50% / 60%) is far below A1 (.6552 / 100% / 100%), and no resource saving has been shown. | Remove it; any future Stage C needs a new decision record and a non-inferiority test against A1. |
+| Q8 Metrics | agree | `grounded` only checks for no new slots, not preservation; bridges failed on preservation (.36). | Add a separate eval-only preservation metric and entity audit, starting with A1; leave the production verifier unchanged. |
+| Q9 T5Gemma2 | agree (keep STOP) | D-107/D-108: gap of about 0.25 F1 and 88 points of grounding; repair ceiling .3203. | Don't reopen; any external K/V idea needs a new decision record. |
+| Q10 Priority | conditional | B0 decides everything downstream; probes as designed would saturate. | Tokenizer audit first, then revised B0; drop Stage C and the frequency probe first. |
+
+**Top must-fix items**
+1. Measure the tokenizer mismatch and re-extract the cache with EG2's own tokenizer for B0. Stage A doesn't need a separate re-run; its frozen condition becomes a B0 control arm.
+2. Give B0 four arms: frozen adapter-only, adapter + LoRA, native mT5 encoder + LoRA (positive control), and LoRA with no memory content (negative control). Use the same seeds and data for all, with seeds not tied to the layer.
+3. Size B0 at 300 train / 100 val, with val excluding the 5 Stage A documents, and about 900 steps.
+4. Measure selectivity on source-copyable target tokens across multiple shuffles, with a bootstrap over documents and seeds. Replace the zero control with a mean-memory control.
+5. Pre-register a DoD tied to the native control. If the positive control itself fails, treat that as a broken metric to fix, not a reason to stop.
+
+**Top additional experiments**
+1. Tokenizer audit plus per-layer activation scale (about 1 CPU-hour, no training).
+2. The revised four-arm B0 (8 CPU-hours or less; hard cap of 10 for the whole plan before a new decision record).
+3. A memory knock-out test inside B0: blank the memory at source slot positions and measure the CE change on the matching target tokens. This is the causal link the probes can't provide.
+4. Only if B0 passes: the redesigned role probes.
+
+None of these gates are approved; they are reviewer recommendations awaiting a decision record. A1 native stays the fallback reference, and these exploratory results should not be listed alongside it as product numbers.

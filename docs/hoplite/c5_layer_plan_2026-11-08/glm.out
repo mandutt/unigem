@@ -1,0 +1,30 @@
+Review complete. **HEAD after sync: `bb8bf702cbff4c73129098d4b660784be289fd75`** (`git fetch origin` + `git pull --ff-only origin main` → "Already up to date"). Full report written to **`docs/hoplite/c5_layer_plan_2026-11-08/review_GLM.md`** (279 lines; the only file touched). I read the full 618-line request and independently recomputed Stage A statistics from the provenance JSONs; no training, no test 163, no subagents, `eval/slot_verify.py` untouched (hash re-verified).
+
+**Final verdict: CONTINUE (conditional)** — role probing + B0 approved with must-fixes as hard preconditions; B1 only after a B0 pass; B2 only after B1; Stage C excluded (separate decision + metric audit). D-108 STOP on T5Gemma2 stays.
+
+| §13 | Topic | Verdict | One-line rationale |
+|---|---|---|---|
+| Q1 | Role-probe design | **conditional** | 4 axes covered, but missing a **document-identity/retrievability probe** (directly measures the observed failure), multiplicity control (23×4 grid), source-based slot labels, doc-level bootstrap |
+| Q2 | Stage A interpretation | **conditional** | "Frozen-decoder bottleneck" is a hypothesis, not established: 5 docs/1 seed, 1 cyclic permutation, no per-doc CE stored (no CI possible) — low power is the live alternative, and B0 is exactly the test |
+| Q3 | B0 single layer | **conditional** | Pass branch is a valid existence proof; the **fail branch over-generalizes** (layer19 ≠ all layers). Add layer5 as a cheap confirmatory cell or pre-register one follow-up |
+| Q4 | B0 DoD | **conditional** | Δshuffled ≥ 0.10 + CI>0 + 3 seeds positive is directionally right, but pooling unit, bootstrap unit, direction-rate, and length-matched/within-doc-permutation controls are unspecified; demote Δzero (it's degenerate — see below) |
+| Q5 | B1 layer set | **agree** | 5/9/12/19 is proportionate; 6–11 unnecessary (cosine plateau .7883–.7927); optional layer2/3 contrast if anything |
+| Q6 | B2 comparison | **conditional** | Same-layer design correctly isolates the model effect at a fixed interface; keep Δshuffled primary (CE not cross-model comparable), generation as a pre-registered numeric tiebreak only |
+| Q7 | Stage C entry | **conditional (defer)** | Metric audit must precede; A1 baseline is already fixed (.6552/100/100) — no new A1 run needed, comparison is reporting-only |
+| Q8 | Metric | **agree** | `grounded = not rep.new` verified in code; fix costs ~0 — `verify_summary` already returns `slot_preservation`/`new_slot_rate`; report grounded_no_new vs grounded_strict; entity audit gates product claims, not screening |
+| Q9 | T5Gemma2 reopen | **agree** | Keep D-108 STOP; note B0's decoder LoRA (incl. cross-attn q/k/v/o) partially tests the external-K/V hypothesis on mT5/UMT5 without reopening it |
+| Q10 | Priority | **conditional** | Parallel is fine; serial = B0 first (it holds the branch decision); first thing to drop/defer: **Stage C**, then B2 |
+
+**Top Must-fix items**
+1. **M1 (Blocker) — LoRA attach naming:** `attach_decoder_lora` targets `q_proj/k_proj/v_proj/o_proj` (`c5_b1d_b2.py:38`) — valid for T5Gemma2 (proven by D-102's r8/r16 difference) but HF mT5/UMT5 attention uses `q/k/v/o`; unmodified it would silently attach **0 modules** and B0–B2 would merely reproduce Stage A. Fix naming + assert module count (expect 64 for mT5-small) + log the list.
+2. **M2 — Tokenizer:** the EG2 cache is tokenized with the T5Gemma2 tokenizer (`c5_eg2_all_layers_cache.py:103`; the native tokenizer is loaded but unused). Measure ID agreement first (~10 min), then re-cache natively (~7 min) for probing + B0–B2; never mix the two caches in one analysis; keep Stage A as screening-only.
+3. **M3 — DoD v2 pre-registration:** pooled 60 paired diffs (3 seeds × 20 docs), document-level cluster bootstrap, per-doc direction rate ≥ 2/3, plus length-matched and within-doc token-order permutation controls; Δzero demoted to diagnostic (zero-CE is exactly constant per model: mT5 25.877, UMT5 12.214 across all 23 layers — off-manifold, layer-independent); generation over all 20 val docs; pin r8/α16/0.05/lr 3e-4 + config manifest.
+4. **M4 — Stop-rule scope:** B0 failure at one layer must not end the bridge; layer19's anchor is weak (Stage A itself says real-CE rank is uninterpretable; train↔val real-CE r=.813 shows the scatter is largely fit noise; init seed varies per layer).
+5. **M5 — Probing statistics:** pre-registered primary probes + BH-FDR, doc-level bootstrap, AUC, 2 probe-fit seeds.
+
+**Top additional experiments**
+- **E1 — Tokenizer ID-agreement audit** (no training, ~10 min): the only data-based way to close the §12.5 question.
+- **E2 — Document-identity/retrieval probe** per layer (own-doc vs other-doc pooled AUC, +~30 min): directly measures the capability Stage A found missing.
+- (Optional) E3 post-adapter accessibility probe; E4 B0-checkpoint teacher-forced vs free-running slot-preservation on val20.
+
+Budget recommendation: cap the approved program at ~12 CPU-hours (plan's own 6.5–10.5h + re-cache), with stop-reviews immediately after B0 and B1.
