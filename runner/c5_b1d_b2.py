@@ -26,7 +26,7 @@ if str(ROOT) not in sys.path:
 
 from runner.c5_a1_lora import LoRALinear  # noqa: E402
 from runner.c5_b1d_full import B1dFullAdapter, load_cache  # noqa: E402
-from eval.slot_verify import verify_summary  # noqa: E402
+from eval.slot_verify import extract_slots, verify_summary  # noqa: E402
 
 T5 = ROOT / "data/models/t5gemma-2-270m-270m"
 DATA = ROOT / "data/external/f5_pairs_v3_clean.jsonl"
@@ -66,6 +66,28 @@ def labels_for(tok, text: str, max_target: int = 512) -> torch.Tensor:
     return lab
 
 
+def labels_and_slot_mask(tok, text: str, max_target: int = 512) -> tuple[torch.Tensor, torch.Tensor]:
+    """Labels plus a mask marking slot/number/EOS target tokens that must not be corrupted."""
+    enc = tok(text, add_special_tokens=False, truncation=True, max_length=max_target - 1,
+              return_offsets_mapping=True)
+    ids = enc["input_ids"]
+    offsets = enc["offset_mapping"]
+    lab = torch.full((1, max_target), -100, dtype=torch.long)
+    lab[0, : len(ids)] = torch.tensor(ids, dtype=torch.long)
+    lab[0, len(ids)] = tok.eos_token_id
+    protect = torch.zeros(len(ids), dtype=torch.bool)
+    spans = [(s.start, s.end) for s in extract_slots(text)]
+    for i, (a, b) in enumerate(offsets):
+        piece = text[int(a):int(b)]
+        if any(ch.isdigit() for ch in piece):
+            protect[i] = True
+        if any(a < e and b > s for s, e in spans):
+            protect[i] = True
+    if len(ids):
+        protect[-1] = True  # EOS
+    return lab, protect
+
+
 def load_npz_cache(directory: Path, split: str) -> dict:
     out = {}
     for p in sorted(directory.glob(f"{split}_*.npz")):
@@ -102,7 +124,8 @@ def ce_plus_hidden(model, adapter, student, teacher, rid: str, target_text: str,
 
 def ce_scheduled(model, adapter, student, teacher, rid: str, target_text: str, tok,
                  max_target: int, hidden_weight: float, ss_prob: float,
-                 generator: torch.Generator | None = None) -> tuple[torch.Tensor, torch.Tensor]:
+                 generator: torch.Generator | None = None,
+                 slot_aware: bool = False) -> tuple[torch.Tensor, torch.Tensor]:
     """Gold-label CE on a decoder prefix where student argmax tokens replace gold with p=ss_prob."""
     s = student[rid]
     t = teacher[rid]
@@ -110,6 +133,10 @@ def ce_scheduled(model, adapter, student, teacher, rid: str, target_text: str, t
     h_s = adapter(x)
     mask = torch.ones(1, s["length"], dtype=torch.bool)
     labels = labels_for(tok, target_text, max_target)
+    protect = None
+    if slot_aware:
+        labels, protect_ids = labels_and_slot_mask(tok, target_text, max_target)
+        protect = torch.cat([protect_ids, torch.ones(1, dtype=torch.bool)])
     with torch.no_grad():
         first = model(
             encoder_outputs=BaseModelOutput(last_hidden_state=h_s.to(torch.bfloat16)),
@@ -128,6 +155,8 @@ def ce_scheduled(model, adapter, student, teacher, rid: str, target_text: str, t
     dec[0, 1:] = target[:-1]
     noise = torch.rand(n - 1, generator=generator)
     replace = noise < ss_prob
+    if protect is not None:
+        replace &= ~protect[:n - 1]
     if bool(replace.any()):
         dec[0, 1:][replace] = pred[:-1][replace]
     out = model(
@@ -169,6 +198,8 @@ def main() -> int:
     ap.add_argument("--hidden-weight", type=float, default=0.01)
     ap.add_argument("--ss-prob", type=float, default=0.0,
                     help="scheduled-sampling probability; replace gold decoder-input tokens with student argmax")
+    ap.add_argument("--ss-slot-aware", action="store_true",
+                    help="do not corrupt slot/number/EOS target tokens")
     ap.add_argument("--max-target", type=int, default=512)
     ap.add_argument("--input-dim", type=int, default=768)
     ap.add_argument("--adapter-hidden", type=int, default=768)
@@ -306,7 +337,7 @@ def main() -> int:
                 loss, ce = ce_scheduled(model, adapter, student_train, teacher_train, rid,
                                         target_for(rid, "train"), tok,
                                         args.max_target, args.hidden_weight,
-                                        args.ss_prob, ss_gen)
+                                        args.ss_prob, ss_gen, args.ss_slot_aware)
             else:
                 loss, ce = ce_plus_hidden(model, adapter, student_train, teacher_train, rid,
                                           target_for(rid, "train"), tok,
@@ -370,6 +401,8 @@ def main() -> int:
                  "params": sum(p.numel() for p in model.parameters() if p.requires_grad)},
         "adapter_params": sum(p.numel() for p in adapter.parameters()),
         "hidden_weight": args.hidden_weight,
+        "ss_prob": args.ss_prob,
+        "ss_slot_aware": bool(args.ss_slot_aware),
         "loss_first": losses[0] if losses else None,
         "loss_last": losses[-1] if losses else None,
         "loss_min": min(losses) if losses else None,
