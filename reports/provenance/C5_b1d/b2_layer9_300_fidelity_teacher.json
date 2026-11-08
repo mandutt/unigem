@@ -1,0 +1,9 @@
+{
+  "adapter": "data/models/f5_t5gemma2_lora/b2_layer9_300/adapter_final.pt",
+  "lora": "data/models/f5_t5gemma2_lora/b2_layer9_300/adapter_final.pt",
+  "target": "teacher",
+  "n": 100,
+  "ce_mean": 1.8904006546735763,
+  "token_acc_mean": 0.5957954421639442,
+  "test_split_used": false
+}
