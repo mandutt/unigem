@@ -261,14 +261,15 @@ B0-B는 이 문서의 승인 범위가 아니다. **별도 사전등록서와 �
 
 ## 10. 구현 전제
 
-현재 `runner/c5_mt5_lora_b0.py`는 F/L 학습·real/zero/shuffled ablation 경로를 갖지만, B0-A에 필요한 다음은 아직 구현되지 않았다.
+현재 `runner/c5_mt5_lora_b0.py`는 F/L 학습·real/zero/shuffled ablation 경로와 아래 B0-A metric 경로를 갖는다. 구현 상태는 다음과 같다.
 
-- [ ] copyable target token mask
-- [ ] 5 length-matched donors + prefix crop
-- [ ] `Δshuffled_copy` aggregation
-- [ ] 문서×seed cluster bootstrap
-- [ ] val20 generation
-- [ ] B0-A 결과 JSON/provenance
+- [x] copyable target token mask
+- [x] 5 length-matched donors + prefix crop
+- [x] `Δshuffled_copy` aggregation
+- [x] 문서×seed cluster bootstrap
+- [x] val20 generation
+- [x] B0-A 결과 JSON/provenance 경로
+- [x] metric smoke (2 docs / 2 donors, no training)
 
 이 항목을 구현하고 **2/2 smoke**를 통과한 뒤에만 B0-A를 실행한다.
 

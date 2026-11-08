@@ -131,6 +131,8 @@
 
 | D-114 | 2026-11-09 | **C5 B0 two-arm LoRA runner smoke — PASS (no training)**: `runner/c5_mt5_lora_b0.py` implements adapter-only vs adapter+decoder LoRA on native EG2 layer19. mT5 decoder targets `decoder.block.*.{SelfAttention,EncDecAttention}.{q,k,v,o}`: **64/64 modules attach**, LoRA **458,752** params, adapter **526,336**. Same adapter init, zero-output LoRA reproduces frozen forward exactly: loss **27.43998146057129** both, loss/logits delta **0.0**, allclose true, finite; base encoder frozen. Train/val ablation path implemented but **not executed**; generation, native positive, memory-free/mean controls, multiple donors/bootstrap still missing. **B0 training not approved/run**; test 163 sealed. | reports/C5_B0_LORA_RUNNER_SMOKE_2026-11-09.md; reports/provenance/C5_b0/mt5_lora_smoke.json; runner/c5_mt5_lora_b0.py |
 
+| D-115 | 2026-11-09 | **C5 B0-A metric/donor/bootstrap/generation implementation smoke — PASS (no training)**: `runner/c5_mt5_lora_b0.py`에 copyable target mask, length-matched donors, `Δshuffled_copy`, 문서 단위 bootstrap, copy-coverage guard, val20 generation 경로를 구현. metric smoke(2 docs/2 donors)에서 frozen=LoRA(zero-init) `mean_delta_shuffled_copy -0.14960`, copy coverage .78427, guard false, 64 modules; generation 8-token wiring only. **2문서 smoke는 성능 결과 아님**; B0-A 20/20·3 seeds·100 updates는 **미실행**. | reports/C5_B0_METRIC_IMPL_2026-11-09.md; reports/provenance/C5_b0/metric_smoke.json; runner/c5_mt5_lora_b0.py |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |

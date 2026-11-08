@@ -13,7 +13,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
+import unicodedata
 from copy import deepcopy
 from pathlib import Path
 from typing import Any
@@ -21,6 +23,7 @@ from typing import Any
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from transformers import MT5ForConditionalGeneration, T5Tokenizer
 from transformers.modeling_outputs import BaseModelOutput
 
@@ -36,6 +39,7 @@ DATA = ROOT / "data/external/f5_pairs_v3_clean.jsonl"
 SPLITS = ROOT / "reports/provenance/C5_clean/splits.json"
 CACHE = ROOT / "data/wave2c/eg2_native_layer19/layer19"
 OUT = ROOT / "reports/provenance/C5_b0/mt5_lora_smoke.json"
+METRIC_OUT = ROOT / "reports/provenance/C5_b0/metric_smoke.json"
 EXPECTED_LORA_MODULES = 64
 
 
@@ -96,6 +100,178 @@ def forward_loss(model, memory: torch.Tensor, labels: torch.Tensor) -> tuple[flo
     mask = torch.ones(1, memory.shape[0], dtype=torch.long)
     out = model(encoder_outputs=enc, attention_mask=mask, labels=labels)
     return float(out.loss.detach()), out.logits.detach()
+
+
+def token_losses(model, memory: torch.Tensor, labels: torch.Tensor) -> tuple[float, torch.Tensor]:
+    """Return full mean CE and per-target-token CE (labels[:, 1:] aligned)."""
+    model.eval()
+    enc = BaseModelOutput(last_hidden_state=memory.unsqueeze(0))
+    mask = torch.ones(1, memory.shape[0], dtype=torch.long)
+    out = model(encoder_outputs=enc, attention_mask=mask, labels=labels)
+    logits = out.logits[:, :-1, :]
+    target = labels[:, 1:]
+    losses = F.cross_entropy(
+        logits.reshape(-1, logits.shape[-1]),
+        target.reshape(-1),
+        reduction="none",
+        ignore_index=-100,
+    ).view_as(target)
+    return float(out.loss.detach()), losses.detach()
+
+
+def copyable_mask(source: str, target_ids: list[int], tok, special_ids: set[int]) -> tuple[torch.Tensor, int]:
+    """Mark target tokens whose decoded surface occurs in the source passage."""
+    source_norm = unicodedata.normalize("NFKC", source).replace(" ", "")
+    vals: list[bool] = []
+    for tid in target_ids:
+        if int(tid) in special_ids:
+            vals.append(False)
+            continue
+        piece = tok.decode([int(tid)], skip_special_tokens=False)
+        piece = unicodedata.normalize("NFKC", piece).strip().replace(" ", "")
+        if not piece or not re.search(r"[0-9A-Za-z가-힣]", piece):
+            vals.append(False)
+            continue
+        vals.append(piece in source_norm)
+    mask = torch.tensor([vals], dtype=torch.bool)
+    return mask, int(mask.sum())
+
+
+def shifted_copy_mask(copy_mask: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
+    return copy_mask[:, 1:] & (labels[:, 1:] != -100)
+
+
+def copy_ce(losses: torch.Tensor, labels: torch.Tensor, copy_mask: torch.Tensor) -> float | None:
+    m = shifted_copy_mask(copy_mask, labels)
+    if int(m.sum()) < 5:
+        return None
+    return float(losses[m].mean())
+
+
+def donors_for(ids: list[str], cache: dict[str, dict], count: int = 5) -> dict[str, list[str]]:
+    """Deterministic length-nearest donor assignment, same for all arms/seeds."""
+    lengths = {rid: int(cache[rid]["h"].shape[0]) for rid in ids}
+    out: dict[str, list[str]] = {}
+    for rid in ids:
+        candidates = [x for x in ids if x != rid]
+        candidates.sort(key=lambda x: (abs(lengths[x] - lengths[rid]), x))
+        out[rid] = candidates[:count]
+    return out
+
+
+def bootstrap_paired(values: list[float], n_boot: int = 1000, seed: int = 20261108) -> dict[str, Any]:
+    arr = np.asarray(values, dtype=np.float64)
+    if arr.size == 0:
+        return {"mean": None, "ci_lower": None, "ci_upper": None, "n": 0, "n_boot": n_boot}
+    rng = np.random.default_rng(seed)
+    means = np.asarray([rng.choice(arr, size=arr.size, replace=True).mean() for _ in range(n_boot)])
+    return {
+        "mean": float(arr.mean()),
+        "ci_lower": float(np.percentile(means, 2.5)),
+        "ci_upper": float(np.percentile(means, 97.5)),
+        "seeds_positive": int((arr > 0).sum()),
+        "n": int(arr.size),
+        "n_boot": n_boot,
+    }
+
+
+def evaluate_arm(
+    model,
+    adapter,
+    cache: dict[str, dict],
+    ids: list[str],
+    labels_by_id: dict[str, torch.Tensor],
+    copy_by_id: dict[str, torch.Tensor],
+    donors: dict[str, list[str]],
+) -> dict[str, Any]:
+    """Evaluate real vs wrong-document memory on copyable and full target CE."""
+    adapter.eval()
+    model.eval()
+    per_doc: dict[str, dict[str, float]] = {}
+    with torch.no_grad():
+        for rid in ids:
+            h_real = cache[rid]["h"]
+            labels = labels_by_id[rid]
+            copies = copy_by_id[rid]
+            real_copy_values: list[float] = []
+            wrong_copy_values: list[float] = []
+            real_full_values: list[float] = []
+            wrong_full_values: list[float] = []
+            for donor in donors[rid]:
+                h_wrong = cache[donor]["h"]
+                k = min(int(h_real.shape[0]), int(h_wrong.shape[0]))
+                mem_real = adapter(h_real[:k].unsqueeze(0)).squeeze(0)
+                mem_wrong = adapter(h_wrong[:k].unsqueeze(0)).squeeze(0)
+                full_real, tok_real = token_losses(model, mem_real, labels)
+                full_wrong, tok_wrong = token_losses(model, mem_wrong, labels)
+                rc = copy_ce(tok_real, labels, copies)
+                wc = copy_ce(tok_wrong, labels, copies)
+                if rc is not None and wc is not None:
+                    real_copy_values.append(rc)
+                    wrong_copy_values.append(wc)
+                real_full_values.append(full_real)
+                wrong_full_values.append(full_wrong)
+            if not real_copy_values:
+                continue
+            per_doc[rid] = {
+                "n_donors": len(real_copy_values),
+                "real_ce_copy": float(np.mean(real_copy_values)),
+                "wrong_ce_copy": float(np.mean(wrong_copy_values)),
+                "delta_shuffled_copy": float(np.mean(np.asarray(wrong_copy_values) - np.asarray(real_copy_values))),
+                "real_ce_full": float(np.mean(real_full_values)),
+                "wrong_ce_full": float(np.mean(wrong_full_values)),
+                "delta_shuffled_full": float(np.mean(np.asarray(wrong_full_values) - np.asarray(real_full_values))),
+                "copy_tokens": int(copies.sum()),
+                "copy_coverage": float(copies.sum()) / max(1, int(copies.numel())),
+            }
+
+    values = list(per_doc.values())
+    if not values:
+        return {"n_docs": 0, "error": "no copyable target token document"}
+    deltas = [x["delta_shuffled_copy"] for x in values]
+    mean_coverage = float(np.mean([x["copy_coverage"] for x in values]))
+    median_coverage = float(np.median([x["copy_coverage"] for x in values]))
+    return {
+        "n_docs": len(values),
+        "mean_delta_shuffled_copy": float(np.mean(deltas)),
+        "bootstrap_delta_shuffled_copy": bootstrap_paired(deltas),
+        "mean_delta_shuffled_full": float(np.mean([x["delta_shuffled_full"] for x in values])),
+        "mean_real_ce_copy": float(np.mean([x["real_ce_copy"] for x in values])),
+        "mean_wrong_ce_copy": float(np.mean([x["wrong_ce_copy"] for x in values])),
+        "mean_copy_coverage": mean_coverage,
+        "median_copy_coverage": median_coverage,
+        "copy_guard_failed": bool(median_coverage < 0.10),
+        "per_doc": per_doc,
+    }
+
+
+def generate_arm(model, adapter, cache, ids, tok, args) -> list[dict[str, Any]]:
+    """Greedy generation on every selected val document; sanity check only."""
+    adapter.eval()
+    model.eval()
+    outputs: list[dict[str, Any]] = []
+    with torch.no_grad():
+        for rid in ids:
+            h = cache[rid]["h"]
+            mem = adapter(h.unsqueeze(0)).squeeze(0)
+            gen_ids = model.generate(
+                encoder_outputs=BaseModelOutput(last_hidden_state=mem.unsqueeze(0)),
+                attention_mask=torch.ones(1, mem.shape[0], dtype=torch.long),
+                max_new_tokens=args.max_new_tokens,
+                num_beams=1,
+                do_sample=False,
+                decoder_start_token_id=model.config.decoder_start_token_id or tok.pad_token_id,
+                eos_token_id=tok.eos_token_id,
+                pad_token_id=tok.pad_token_id,
+            )
+            text = tok.decode(gen_ids[0], skip_special_tokens=True)
+            outputs.append({
+                "id": rid,
+                "text": text,
+                "gen_len": int(gen_ids.shape[1]),
+                "eos": bool(gen_ids.shape[1] > 0 and gen_ids[0, -1].item() == tok.eos_token_id),
+            })
+    return outputs
 
 
 def smoke(args) -> int:
@@ -177,12 +353,83 @@ def smoke(args) -> int:
     return 0 if (payload["zero_lora_equivalence"]["allclose_atol_1e-5"] and finite) else 2
 
 
+def metric_smoke(args) -> int:
+    """Evaluate the copy metric once per arm and one short generation; no training."""
+    rows = {str(r["id"]): r for r in read_jsonl(args.data)}
+    split = json.loads(args.splits.read_text(encoding="utf-8"))
+    train_ids = [str(x) for x in split["train"][: args.train_limit]]
+    val_ids = [str(x) for x in split["val"][args.val_start : args.val_start + args.val_limit]]
+    val_cache = load_layer_cache("val", args.cache_dir)
+    if not val_ids:
+        raise RuntimeError("empty val selection")
+
+    tok, model = load_base()
+    labels_by_id = {rid: make_labels(tok, str(rows[rid]["summary"]), args.target_max_length) for rid in val_ids}
+    special = {int(x) for x in tok.all_special_ids}
+    copy_by_id = {
+        rid: copyable_mask(str(rows[rid]["passage"]), labels_by_id[rid][0].tolist(), tok, special)[0]
+        for rid in val_ids
+    }
+    donors = donors_for(val_ids, val_cache, args.donor_count)
+    adapter = make_adapter(args.seed)
+    adapter.eval()
+
+    frozen = evaluate_arm(model, adapter, val_cache, val_ids, labels_by_id, copy_by_id, donors)
+    attached = attach_decoder_lora_mt5(model, args.lora_r, args.lora_alpha, args.lora_dropout)
+    lora = evaluate_arm(model, adapter, val_cache, val_ids, labels_by_id, copy_by_id, donors)
+
+    common = sorted(set(frozen.get("per_doc", {})) & set(lora.get("per_doc", {})))
+    l_minus_f = [
+        lora["per_doc"][rid]["delta_shuffled_copy"] - frozen["per_doc"][rid]["delta_shuffled_copy"]
+        for rid in common
+    ]
+
+    rid = val_ids[0]
+    h = val_cache[rid]["h"]
+    mem = adapter(h.unsqueeze(0)).squeeze(0)
+    gen_ids = model.generate(
+        encoder_outputs=BaseModelOutput(last_hidden_state=mem.unsqueeze(0)),
+        attention_mask=torch.ones(1, mem.shape[0], dtype=torch.long),
+        max_new_tokens=args.smoke_new_tokens,
+        num_beams=1,
+        do_sample=False,
+        decoder_start_token_id=model.config.decoder_start_token_id or tok.pad_token_id,
+        eos_token_id=tok.eos_token_id,
+        pad_token_id=tok.pad_token_id,
+    )
+    text = tok.decode(gen_ids[0], skip_special_tokens=True)
+    payload = {
+        "experiment": "c5_b0_metric_smoke",
+        "mode": "metric_smoke_no_training",
+        "cache": str(args.cache_dir.relative_to(ROOT).as_posix()),
+        "layer": 19,
+        "train_ids": train_ids,
+        "val_ids": val_ids,
+        "frozen": frozen,
+        "lora": lora,
+        "lora_minus_frozen_copy": bootstrap_paired(l_minus_f),
+        "lora_modules": len(attached),
+        "generation": {
+            "doc_id": rid,
+            "text": text,
+            "token_ids": gen_ids[0].tolist(),
+            "eos": bool(gen_ids.shape[1] > 0 and gen_ids[0, -1].item() == tok.eos_token_id),
+        },
+        "test_split_used": False,
+    }
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    print(f"wrote {args.out}")
+    return 0
+
+
 def train_arm(args, arm: str) -> dict[str, Any]:
     """Train one arm. Not invoked by smoke; kept for the approved B0 run."""
     rows = {str(r["id"]): r for r in read_jsonl(args.data)}
     split = json.loads(args.splits.read_text(encoding="utf-8"))
     train_ids = [str(x) for x in split["train"][: args.train_limit]]
-    val_ids = [str(x) for x in split["val"][: args.val_limit]]
+    val_ids = [str(x) for x in split["val"][args.val_start : args.val_start + args.val_limit]]
     cache = load_layer_cache("train", args.cache_dir)
     val_cache = load_layer_cache("val", args.cache_dir)
     missing = [x for x in train_ids + val_ids if x not in cache and x not in val_cache]
@@ -230,27 +477,17 @@ def train_arm(args, arm: str) -> dict[str, Any]:
         opt.step()
         losses.append(float(loss.detach()))
 
-    # Evaluation uses the same real/zero/shuffled protocol as Stage A.
     adapter.eval()
     model.eval()
-    real: list[float] = []
-    zero: list[float] = []
-    shuffled: list[float] = []
-    with torch.no_grad():
-        for i, rid in enumerate(val_ids):
-            h = val_cache[rid]["h"]
-            mem = adapter(h.unsqueeze(0)).squeeze(0)
-            labels = labels_by_id[rid]
-            lr, _ = forward_loss(model, mem, labels)
-            lz, _ = forward_loss(model, torch.zeros_like(mem), labels)
-            rid2 = val_ids[(i + 1) % len(val_ids)]
-            mem2 = adapter(val_cache[rid2]["h"].unsqueeze(0)).squeeze(0)
-            ls, _ = forward_loss(model, mem2, labels)
-            real.append(lr)
-            zero.append(lz)
-            shuffled.append(ls)
+    special = {int(x) for x in tok.all_special_ids}
+    copy_by_id = {
+        rid: copyable_mask(str(rows[rid]["passage"]), labels_by_id[rid][0].tolist(), tok, special)[0]
+        for rid in val_ids
+    }
+    donors = donors_for(val_ids, val_cache, args.donor_count)
+    evaluation = evaluate_arm(model, adapter, val_cache, val_ids, labels_by_id, copy_by_id, donors)
+    generation = generate_arm(model, adapter, val_cache, val_ids, tok, args)
 
-    n = len(val_ids)
     result = {
         "experiment": "c5_b0_two_arm_runner",
         "arm": arm,
@@ -270,11 +507,8 @@ def train_arm(args, arm: str) -> dict[str, Any]:
         "train_ce_first": losses[0],
         "train_ce_last": losses[-1],
         "train_ce_last10_mean": sum(losses[-10:]) / min(10, len(losses)),
-        "val_real_ce": sum(real) / n,
-        "val_zero_ce": sum(zero) / n,
-        "val_shuffled_ce": sum(shuffled) / n,
-        "delta_zero": (sum(zero) - sum(real)) / n,
-        "delta_shuffled": (sum(shuffled) - sum(real)) / n,
+        **evaluation,
+        "generation": generation,
         "test_split_used": False,
     }
     return result
@@ -282,7 +516,7 @@ def train_arm(args, arm: str) -> dict[str, Any]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["smoke", "train"], default="smoke")
+    ap.add_argument("--mode", choices=["smoke", "metric-smoke", "train"], default="smoke")
     ap.add_argument("--arm", choices=["frozen", "lora", "both"], default="both")
     ap.add_argument("--model-dir", type=Path, default=MODEL)
     ap.add_argument("--data", type=Path, default=DATA)
@@ -291,8 +525,12 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=OUT)
     ap.add_argument("--train-limit", type=int, default=20)
     ap.add_argument("--val-limit", type=int, default=20)
+    ap.add_argument("--val-start", type=int, default=5)
+    ap.add_argument("--donor-count", type=int, default=5)
     ap.add_argument("--steps", type=int, default=100)
     ap.add_argument("--target-max-length", type=int, default=256)
+    ap.add_argument("--max-new-tokens", type=int, default=256)
+    ap.add_argument("--smoke-new-tokens", type=int, default=32)
     ap.add_argument("--seed", type=int, default=20261108)
     ap.add_argument("--lora-r", type=int, default=8)
     ap.add_argument("--lora-alpha", type=int, default=16)
@@ -300,11 +538,17 @@ def main() -> int:
     ap.add_argument("--adapter-lr", type=float, default=1e-3)
     ap.add_argument("--lora-lr", type=float, default=1e-4)
     args = ap.parse_args()
+    if args.mode == "metric-smoke" and args.out == OUT:
+        args.out = METRIC_OUT
     args.cache_dir = args.cache_dir if args.cache_dir.is_absolute() else ROOT / args.cache_dir
     args.out = args.out if args.out.is_absolute() else ROOT / args.out
     torch.set_num_threads(6)
     if args.mode == "smoke":
         return smoke(args)
+    if args.mode == "metric-smoke":
+        return metric_smoke(args)
+    if args.steps < 1:
+        raise ValueError("--steps must be >= 1 for train mode")
 
     arms = ["frozen", "lora"] if args.arm == "both" else [args.arm]
     results = [train_arm(args, arm) for arm in arms]
