@@ -1,0 +1,41 @@
+{
+  "n": 100,
+  "source": "reports/provenance/C5_b1d/generation_val100_b2_layer12_300.jsonl",
+  "original": {
+    "n": 100,
+    "char_f1_mean": 0.34639223157144294,
+    "grounded_rate": 0.21,
+    "nonempty_rate": 1.0,
+    "new_count": 322,
+    "new_slot_rate_micro": 0.5348837209302325,
+    "missing_count": 927,
+    "slot_preservation_mean": 0.25115270542047363,
+    "gen_len_mean": 443.23
+  },
+  "drop_new_sentences": {
+    "n": 100,
+    "char_f1_mean": 0.2929136848012057,
+    "grounded_rate": 1.0,
+    "nonempty_rate": 1.0,
+    "new_count": 0,
+    "new_slot_rate_micro": 0.0,
+    "missing_count": 1065,
+    "slot_preservation_mean": 0.14240387271097998,
+    "gen_len_mean": 197.19
+  },
+  "oracle_subset": {
+    "n": 100,
+    "char_f1_mean": 0.3076036008654105,
+    "grounded_rate": 1.0,
+    "nonempty_rate": 1.0,
+    "new_count": 0,
+    "new_slot_rate_micro": 0.0,
+    "missing_count": 1070,
+    "slot_preservation_mean": 0.138417858724966,
+    "gen_len_mean": 136.63
+  },
+  "n_sentences_mean": 3.54,
+  "n_bad_sentences_mean": 2.1,
+  "note": "oracle_subset uses the target summary for sentence selection; it is a ceiling, not a deployable method.",
+  "test_split_used": false
+}

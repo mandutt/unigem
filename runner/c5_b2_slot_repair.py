@@ -151,6 +151,9 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=OUT)
     ap.add_argument("--report", type=Path, default=REPORT)
     args = ap.parse_args()
+    for name in ("pred", "out", "report"):
+        p = getattr(args, name)
+        setattr(args, name, p if p.is_absolute() else ROOT / p)
     recs = [json.loads(x) for x in DATA.read_text(encoding="utf-8").splitlines() if x.strip()]
     by_id = {str(r["id"]): r for r in recs}
     preds = [json.loads(x) for x in args.pred.read_text(encoding="utf-8").splitlines() if x.strip()]
