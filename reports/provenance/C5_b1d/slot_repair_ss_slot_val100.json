@@ -1,0 +1,41 @@
+{
+  "n": 100,
+  "source": "reports/provenance/C5_b1d/generation_val100_b2_layer12_300_ss_slot.jsonl",
+  "original": {
+    "n": 100,
+    "char_f1_mean": 0.40735547375369635,
+    "grounded_rate": 0.12,
+    "nonempty_rate": 1.0,
+    "new_count": 480,
+    "new_slot_rate_micro": 0.5594405594405595,
+    "missing_count": 829,
+    "slot_preservation_mean": 0.3655713989424112,
+    "gen_len_mean": 396.73
+  },
+  "drop_new_sentences": {
+    "n": 100,
+    "char_f1_mean": 0.3159350819866152,
+    "grounded_rate": 1.0,
+    "nonempty_rate": 1.0,
+    "new_count": 0,
+    "new_slot_rate_micro": 0.0,
+    "missing_count": 1063,
+    "slot_preservation_mean": 0.16209494939315575,
+    "gen_len_mean": 156.32
+  },
+  "oracle_subset": {
+    "n": 100,
+    "char_f1_mean": 0.32030815121691797,
+    "grounded_rate": 1.0,
+    "nonempty_rate": 1.0,
+    "new_count": 0,
+    "new_slot_rate_micro": 0.0,
+    "missing_count": 1063,
+    "slot_preservation_mean": 0.16209494939315575,
+    "gen_len_mean": 143.77
+  },
+  "n_sentences_mean": 3.27,
+  "n_bad_sentences_mean": 2.12,
+  "note": "oracle_subset uses the target summary for sentence selection; it is a ceiling, not a deployable method.",
+  "test_split_used": false
+}
