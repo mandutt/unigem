@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from runner.c5_b1d_b2 import attach_decoder_lora, labels_for  # noqa: E402
+from runner.c5_b1d_b2 import attach_decoder_lora, labels_for, load_npz_cache  # noqa: E402
 from runner.c5_b1d_full import B1dFullAdapter, load_cache  # noqa: E402
 
 T5 = ROOT / "data/models/t5gemma-2-270m-270m"
@@ -34,11 +34,14 @@ def main() -> int:
     ap.add_argument("--teacher-preds", type=Path, default=VAL_TEACHER)
     ap.add_argument("--limit", type=int, default=100)
     ap.add_argument("--max-target", type=int, default=512)
+    ap.add_argument("--input-dim", type=int, default=768)
+    ap.add_argument("--adapter-hidden", type=int, default=768)
+    ap.add_argument("--feature-dir", type=Path, default=None)
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
-    for n in ("adapter", "lora", "teacher_preds", "out"):
+    for n in ("adapter", "lora", "teacher_preds", "out", "feature_dir"):
         p = getattr(args, n)
-        setattr(args, n, p if p.is_absolute() else ROOT / p)
+        setattr(args, n, p if p is None or p.is_absolute() else ROOT / p)
     torch.set_num_threads(6)
 
     rows = [json.loads(x) for x in DATA.read_text(encoding="utf-8").splitlines() if x.strip()]
@@ -50,7 +53,7 @@ def main() -> int:
     splits = json.loads((ROOT / "reports/provenance/C5_clean/splits.json").read_text(encoding="utf-8"))
     ids = [rid for rid in splits["val"] if rid in teacher][: args.limit]
 
-    student = load_cache("student", "val")
+    student = load_npz_cache(args.feature_dir, "val") if args.feature_dir is not None else load_cache("student", "val")
     t_hidden = load_cache("teacher", "val")
     tok = AutoTokenizer.from_pretrained(str(T5), local_files_only=True)
     model = AutoModelForSeq2SeqLM.from_pretrained(
@@ -65,7 +68,7 @@ def main() -> int:
     if bad:
         raise SystemExit(f"missing LoRA keys: {bad[:5]}")
     ck = torch.load(args.adapter, map_location="cpu")
-    adapter = B1dFullAdapter()
+    adapter = B1dFullAdapter(d_in=args.input_dim, hidden=args.adapter_hidden)
     adapter.load_state_dict(ck["adapter"])
     adapter.eval()
 
