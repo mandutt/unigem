@@ -8,6 +8,18 @@
 - test split: **163건 sealed, 미사용**
 - 목적: 지금까지의 bridge 실측·연구 결과를 독립적으로 검토하고, **중단/축소/추가 실험**을 판정
 
+> **POST-REVIEW ADDENDUM (2026-11-08):** 3-AI 검토에서 아래 요청서 자체의 결함이 확인됐다.
+> 원문은 검토 시점의 기록으로 보존하되, 해석 시 다음을 적용한다.
+> 1. §2.3의 `grounded` 정의는 코드와 불일치한다. 실제 `runner/c5_b1d_generate.py`는
+>    `grounded = not rep.new`만 사용하며, **source slot 보존은 검사하지 않는다**.
+>    `slot repair`의 grounded 100%도 missing slot을 방치한 **no-new-only** 결과다.
+> 2. §3.5의 “teacher hidden”은 **A1 LoRA가 없는 base T5Gemma2 encoder** 캐시이고,
+>    “teacher output”은 A1 native pilot300 출력이다. 둘은 같은 객체가 아니다.
+> 3. §5.2 표의 `train n`은 실제로 **val100 teacher-forced 평가**다.
+> 4. SS 구현은 gold-context argmax를 사용하는 one-pass 변형이며, EOS 보호는 no-op이다.
+> 5. 최종 판정과 수치 정정은 `reports/C5_BRIDGE_3AI_REVIEW_SYNTHESIS_2026-11-08.md`를 따른다.
+
+
 ---
 
 ## 0. Reviewer instructions

@@ -99,7 +99,7 @@ DoD:
 
 - **A1 native**: F1 **0.6576**, grounded **100%**, EOS **100%**
 - bridge 최고 F1: **0.4074** (grounded 12%)
-- bridge 최고 grounded: **21%** (F1 .3464)
+- bridge 최고 grounded: **22%** (layer9, F1 .3340); layer12 21% (F1 .3464)
 - slot repair 상한 F1: **0.320**
 - **bridge는 A1 native를 대체할 수 없다.**
 
