@@ -1,0 +1,38 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: current origin/main HEAD. First sync/pull, then work read-only.
+
+This is a NEW, intentionally separate review round using DeepSeek V4.1 Flash 1017, reasoning high. It reviews v1.0.4. Do not reuse another model's answer.
+
+Model identity: Hoplite deepseek-v4.1-flash-1017 (OpenRouter), distinct from deepseek/deepseek-v4.1-flash.
+
+Read:
+reports/EXTERNAL_REVIEW_C5_B0A_PM_PREREG_V1_0_4_2026-11-09.md
+docs/plan_c5_b0a_pm_prereg_v1_0_4.md
+docs/hoplite/c5_b0a_pm_prereg_v1_0_4_2026-11-09/golden_vectors.json
+reports/C5_B0A_PM_PREREG_V1_0_3_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/provenance/C5_b0a/m_cohort_preflight.json
+reports/provenance/C5_b0a/p0_native_sanity.json
+reports/provenance/C5_b0a/p1_usage.json
+reports/provenance/C5_b0a/p1_usage.postrun.json
+reports/provenance/C5_b0a/phase6_artifact_registry.json
+runner/c5_mt5_lora_b0.py
+eval/tests/test_c5_b0_metric.py
+
+Constraints:
+- Do not run training/evaluation; do not open test 163; do not use P1.
+- Only permitted write: docs/hoplite/c5_b0a_pm_prereg_v1_0_4_2026-11-09/review_DS1017.md
+- No subagents/other LLMs.
+- T5Gemma2 D-108 STOP; Phase 6/B0-B/B1/B2/Stage C not approved.
+
+Key facts:
+- v1.0.3 was 1 CONTINUE / 2 NARROW with 10 residuals.
+- v1.0.4 fixes phase-7 K_d/baseline_ce, null sort, flat 8-field hash, 12-key checkpoint, P1 frozen/postrun, control fixture, module contracts, D0 timing, notation.
+- 1,680 / 560 / 600; F=360, L=360, P=480, PA=480.
+- P0: train +3.7617 [1.8917,5.6050]; val +5.2375 [2.5013,8.0753].
+- No trained P/PA/M result.
+
+Answer all Q1-Q13 with verdict/evidence/next steps. Final message: Q table, Must-fix, STOP/NARROW/CONTINUE.
+
+Do not claim Phase 6/B0-B approval. No P1/test 163 use. No T5Gemma2 reopening. No post-result threshold changes. Consultation only.
