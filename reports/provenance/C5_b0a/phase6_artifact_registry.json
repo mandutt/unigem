@@ -1,8 +1,8 @@
 {
-  "version": 6,
+  "version": 7,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "labels_complete",
+  "status": "cause_analysis_complete",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -245,6 +245,22 @@
       "status": "present",
       "units": 12,
       "all_ok": true
+    },
+    "cause_report": {
+      "path": "reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md",
+      "sha256": "77c79bdc99fba80ae8652b0b97b5ba2a7013591ee9b6f841eef1591e286de141",
+      "status": "present",
+      "conclusion": "adapter bottleneck"
+    },
+    "cause_analysis": {
+      "path": "reports/provenance/C5_b0a/labels/cause_analysis.json",
+      "sha256": "ad52223c8977041b72d27c5dbb76ec1da7eff7427a54da48b7660fd23f939ada",
+      "status": "present"
+    },
+    "cause_centered": {
+      "path": "reports/provenance/C5_b0a/labels/cause_centered.json",
+      "sha256": "51fb03c3bac2cec37116491d497e819236b71b8f33a5c0bda123ad937e883829",
+      "status": "present"
     }
   },
   "gates": {
@@ -255,11 +271,12 @@
     "b1": "not_approved",
     "b2": "not_approved",
     "stage_c": "not_approved",
-    "labels": "complete"
+    "labels": "complete",
+    "cause_analysis": "complete"
   },
   "test_split_used": false,
   "p1_used": false,
   "labels_computed": true,
   "not_a_result": false,
-  "note": "D0, D1, registered 3-seed, labels/replay complete. B0-B candidate gate false (L signal false, tail true); B0-B not approved."
+  "note": "D0, D1, registered 3-seed, labels/replay, cause analysis complete. B0-B candidate false (adapter bottleneck); B0-B not approved."
 }
