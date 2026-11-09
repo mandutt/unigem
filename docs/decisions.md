@@ -201,6 +201,8 @@
 
 | D-149 | 2026-11-09 | **Phase 6 v1.0.9 3-AI same-thread final review — 2 CONTINUE / 1 NARROW, no freeze**: GLM 5.3 Flash max = CONTINUE(조건부 ERRATA-1), DeepSeek 1017 high = CONTINUE, Sol 6.1 medium = NARROW. 새 스레드/아카이브 없음. `bootstrap_paired_v2`, `freeze_manifest_sha256`, external txt custody는 closed. 잔여: **`evaluate_arm` bootstrap 교체를 freeze 전에 하라는 §17.3과 no-code-before-freeze §16.1의 lifecycle 충돌**. **v1.0.10 text-only: Phase 6 own eval wrapper, evaluate_arm 미재사용.** | reports/C5_B0A_PM_PREREG_V1_0_9_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_b0a_pm_prereg_v1_0_9_2026-11-09/review_{GLM,DS1017,SOL}.md |
 
+| D-150 | 2026-11-09 | **Phase 6 v1.0.10 repair 생성 (text-only, Option A)**: v1.0.9 2 CONTINUE/1 NARROW의 lifecycle blocker를 폐쇄. Phase 6 entrypoint는 `runner/c5_pm_phase6.py`가 **own eval loop**를 사용하고 `evaluate_arm`을 import/call하지 않는다. `train_arm`은 training only로 재사용 가능. pre-freeze helper edit 없음. §13.5에 Phase 6 path `evaluate_arm` 미사용 단언 추가. **문서 1,769줄, 미승인. same-thread 최종 확인 예정.** | docs/plan_c5_b0a_pm_prereg_v1_0_10.md; docs/plan_c5_b0a_pm_prereg_v1_0_10_FREEZE.template.json; docs/hoplite/c5_b0a_pm_prereg_v1_0_10_2026-11-09/golden_vectors.json |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
