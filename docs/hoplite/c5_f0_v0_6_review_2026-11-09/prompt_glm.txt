@@ -1,0 +1,27 @@
+This is the FINAL review round for C5 F0 v0.6 in this session. It is a new independent thread; prior v0.5 review threads were archived. Do not inherit prior conclusions.
+
+Read:
+reports/EXTERNAL_REVIEW_C5_F0_V0_6_2026-11-09.md
+docs/plan_c5_f0_v0_6_2026-11-09.md
+docs/plan_c5_f0_v0_5_2026-11-09.md
+reports/C5_F0_V0_5_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/C5_F0_V0_4_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md
+reports/C5_PM_PHASE6_RESULTS_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+docs/plan_c5_b0a_pm_prereg_v1_0_11.md
+runner/c5_pm_phase6.py
+
+MANDATORY: include reviewed HEAD and the verbatim phrase paired E01-E11.
+
+Focus on Q1-Q6:
+1. initialization audit
+2. D1 seal
+3. STOP taxonomy / ALL_FAIL+benefit / equivalence
+4. cohort/CI / seed gate
+5. compute / T_proj
+6. H3
+
+Write your report ONLY to:
+docs/hoplite/c5_f0_v0_6_review_2026-11-09/review_GLM.md
+
+Do not modify other files. No training/evaluation, no test 163/P1, no subagents. Answer Q1-Q6 and final STOP/NARROW/CONTINUE block. Do not write a generic summary; cite revised sections and exact numbers. Consultation only.
