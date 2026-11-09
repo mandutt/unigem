@@ -1,8 +1,8 @@
 {
-  "version": 4,
+  "version": 5,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "d1_complete",
+  "status": "registered_complete",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -45,7 +45,9 @@
     },
     "final_checkpoint_hash": {
       "path": "reports/provenance/C5_b0a/final_checkpoint_hash.json",
-      "status": "pending_d1"
+      "sha256": "7186efe066b724c84a2821fcdf55ab09c166e53e0765b1414693466631f1592a",
+      "status": "present",
+      "keys": 12
     },
     "control_manifest": {
       "path": "reports/provenance/C5_b0a/control_manifest/",
@@ -58,7 +60,8 @@
     },
     "p1_usage_postrun": {
       "path": "reports/provenance/C5_b0a/p1_usage.postrun.json",
-      "status": "pending_d1"
+      "sha256": "a3bbb97652d48b1f25c89e625f9a8d98fc97af5bd284fc2947ba5b1468b296b5",
+      "status": "present"
     },
     "d1_report": {
       "path": "reports/provenance/C5_b0a/d1/d1_report.json",
@@ -132,12 +135,108 @@
       "path": "reports/provenance/C5_b0a/d1_checkpoint_hash.json",
       "sha256": "233dc1dc77094e185bc0b371ef69ad54dbf0218181befc4a38978ba923ec6384",
       "status": "present"
+    },
+    "registered_report": {
+      "path": "reports/provenance/C5_b0a/registered/registered_report.json",
+      "sha256": "6f58d04ef22e6e128e86c5e4e91804c2c36aa7ab4eeee888bc1ac62112c6e286",
+      "status": "present",
+      "units": 12,
+      "m_records": 1680,
+      "phase7_records": 7200,
+      "wall_estimate_s": 4939.884,
+      "cap_ok": true
+    },
+    "registered_m_records": {
+      "path": "reports/provenance/C5_b0a/registered/registered_m_records.json",
+      "sha256": "82327a2a254832d25525ed190992c05732c8b5ecc2c9873ae0e7da0ec28f0486",
+      "status": "present",
+      "records": 1680
+    },
+    "registered_control_manifest": {
+      "path": "reports/provenance/C5_b0a/control_manifest/control_manifest_registered.json",
+      "sha256": "b9eaedb057b8d453028bfb2bc963545dcf64e9619e318f00c4a3f16114542ca9",
+      "status": "present",
+      "units": 12
+    },
+    "registered_phase7": {
+      "F/20261108": {
+        "path": "reports/provenance/C5_b0a/phase7_records/F/20261108.json",
+        "sha256": "48175c4234bf1e487158ab02f93c10c123196dfcd00c6f5eab3e0303b9d468fb",
+        "status": "present",
+        "records": 600
+      },
+      "F/20261109": {
+        "path": "reports/provenance/C5_b0a/phase7_records/F/20261109.json",
+        "sha256": "c18f6f65d4a8eb357f618e126c4fab7353c54bf874c36fa5e4831337c2a442f7",
+        "status": "present",
+        "records": 600
+      },
+      "F/20261110": {
+        "path": "reports/provenance/C5_b0a/phase7_records/F/20261110.json",
+        "sha256": "86e7b283caf4c6a6ac3a60b1d477fd872266671a5c1b11508fb4cd13dd38338a",
+        "status": "present",
+        "records": 600
+      },
+      "L/20261108": {
+        "path": "reports/provenance/C5_b0a/phase7_records/L/20261108.json",
+        "sha256": "179937b0a15182384eef71256832c8ebc7f4918352576328fdc66290e1c9df9f",
+        "status": "present",
+        "records": 600
+      },
+      "L/20261109": {
+        "path": "reports/provenance/C5_b0a/phase7_records/L/20261109.json",
+        "sha256": "4e4261fee71c28c0ca89740214815bb02b80f7bb3fe6de329bd294ebd0e5a45f",
+        "status": "present",
+        "records": 600
+      },
+      "L/20261110": {
+        "path": "reports/provenance/C5_b0a/phase7_records/L/20261110.json",
+        "sha256": "356ed08496789a9e7725c9bd47ac13a5c7ba847c17624888ea54fa8f3d44b0f5",
+        "status": "present",
+        "records": 600
+      },
+      "P/20261108": {
+        "path": "reports/provenance/C5_b0a/phase7_records/P/20261108.json",
+        "sha256": "552a17555ec3162d79faea374523ee682fe5b1aec3ac261365a714daf5d207c4",
+        "status": "present",
+        "records": 600
+      },
+      "P/20261109": {
+        "path": "reports/provenance/C5_b0a/phase7_records/P/20261109.json",
+        "sha256": "8f9bc0a72d0e46bc33ccaef2259326989784775587af409cb8dfe59eeca172bf",
+        "status": "present",
+        "records": 600
+      },
+      "P/20261110": {
+        "path": "reports/provenance/C5_b0a/phase7_records/P/20261110.json",
+        "sha256": "9d78bf0e652f42fe38e71527ed7f4d341c2d1485c22d4b7afdb274a2f01d66f2",
+        "status": "present",
+        "records": 600
+      },
+      "PA/20261108": {
+        "path": "reports/provenance/C5_b0a/phase7_records/PA/20261108.json",
+        "sha256": "25393e79696ef9821be17ba30422c1056d877e516a7a959894c6823a76752e4a",
+        "status": "present",
+        "records": 600
+      },
+      "PA/20261109": {
+        "path": "reports/provenance/C5_b0a/phase7_records/PA/20261109.json",
+        "sha256": "329a5ac8f2011313ecd33f7d41b4a35a2aec47d0ad58a7f48f5c47d6e64119bb",
+        "status": "present",
+        "records": 600
+      },
+      "PA/20261110": {
+        "path": "reports/provenance/C5_b0a/phase7_records/PA/20261110.json",
+        "sha256": "5215856c4fc1d5b9358ee43221e5acd66b3a47ad6bcb835f3bc8c4dd02ed8da0",
+        "status": "present",
+        "records": 600
+      }
     }
   },
   "gates": {
     "d0": "complete",
     "d1": "complete",
-    "registered": "not_approved",
+    "registered": "complete",
     "b0_b": "not_approved",
     "b1": "not_approved",
     "b2": "not_approved",
@@ -146,6 +245,6 @@
   "test_split_used": false,
   "p1_used": false,
   "labels_computed": false,
-  "not_a_result": true,
-  "note": "D0 and D1 complete. D1 is one-update debug, not a result. registered/B0-B/B1/B2/Stage C not approved."
+  "not_a_result": false,
+  "note": "D0, D1, and registered 3-seed complete. Registered labels_computed=false; B0-B/B1/B2/Stage C not approved."
 }
