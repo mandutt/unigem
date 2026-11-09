@@ -241,6 +241,8 @@
 
 | D-169 | 2026-11-09 | **F0 v0.6 최종 라운드 중단**: v0.5 3/3 NARROW 반영 v0.6 작성. 최종 3-AI 발송 시 Hoplite API `invalid_api_key` — DS/Luna `POST /api/threads` 401, GLM thread `thr_00c02c51…` 생성 후 `thread_not_found` 404. 검토 결과 없음. 사용자 지시(이번 라운드까지만)에 따라 추가 라운드/실행 중지. **F0 v0.6 미승인·미실행.** | docs/plan_c5_f0_v0_6_2026-11-09.md; reports/C5_F0_V0_5_3AI_REVIEW_SYNTHESIS_2026-11-09.md |
 
+| D-170 | 2026-11-09 | **F0 v0.6 review — 3/3 NARROW**: GLM/DS/Luna. v0.7 반영: `PASS_POSITIVE` lower bound `>.05`로 EQUIVALENT 중복 제거; ALL_FAIL fallback reason `no_signal_direction_uncertain`; §0/§6.3/§7 predicate 통일; seed gate PASS-only; H3 trigger STOP harm/benefit only. **F0 미승인·미실행**; v0.7 재검토 진행. | reports/C5_F0_V0_6_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v0_7_2026-11-09.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
