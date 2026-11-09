@@ -1,0 +1,39 @@
+I wrote the report to `docs/hoplite/c5_b0a_pm_prereg_v0_2_2026-11-09/review_SONNET.md`. It is the only change in the working tree, and it opens by identifying me as the Sonnet 5.5 high reviewer. My verdict is **NARROW**.
+
+The sync worked: `git fetch origin` and `git pull --ff-only origin main` both succeeded, and HEAD is `918cfa5`. The clone is shallow, so I did not diff the v0.2 plan against 8c4f197, the HEAD the request cites as its authoring commit. I ran no training or evaluation and did not touch test 163, P1 or external APIs.
+
+## Q1–Q12
+
+| Q | Verdict | Key point |
+|---|---|---|
+| Q1 P gate | conditional | The `.05` floor is about 1% of P0 (val +5.24, train +3.76), so the gate only catches near-total erasure. `P_RETENTION` is descriptive only, and P's learning rate and movement are not specified. |
+| Q2 PA arm | conditional | PA is the right control, but it has no step-0 reference. It likely starts near the CE 27 regime that F/L show at step 1, not P0's 12.7/13.2. A P-valid, PA-invalid outcome has no label. |
+| Q3 M real reference | agree | Full real K is correct. Store the crop effect and add a reconciliation test, since Δshuffled (donor-cropped real) and Δmemfree (full-K real) are different estimands. |
+| Q4 Mean-memory definition | conditional | The adapter ends in LayerNorm, so the position-wise mean is norm-shrunk and out of distribution. `M_VALID` shows the intervention is detectable, not that it is fair. Checkpoint persistence, survivorship and the "P/PA" quantifier are unspecified. |
+| Q5 Decision labels | disagree as written | `NO_AFFIRMATIVE_CONTENT_USE_EVIDENCE` is in §6.3 but missing from the §6.4 table. PA is in no label, precedence can hide a true `L_SIGNAL`, and `REGIME_ERASES_SELECTIVITY` is causal wording. |
+| Q6 Copy vs full | agree | Keep both co-primary. They are nearly collinear (as-run coverage .82/.84), so agreement is not evidence of copy-specificity. Add a strict-mask or noncopy contrast. |
+| Q7 Heavy tail / power | conditional | n = 20 whichever number of seeds. Val top-3 share is .486, and the bootstrap is anti-conservative. I list what can and cannot be concluded, and add a `TAIL_DRIVEN` flag. |
+| Q8 Compute / implementation | conditional | Compute looks plausible (I did not measure it), but generation with `use_cache=False` is the main cost. "CPU-hours" is ambiguous, so use wall-clock. `pm-diagnostic`, the no-adapter policy, M and checkpoints are all missing from the code. |
+| Q9 Tests | agree, with additions | Add P step-0 equivalence to the stored `p0_native_sanity.json`, M leakage and invariance, a cropped-vs-full reconciliation test, a real-vs-real null, labeler totality over all flag combinations, and `documents_positive` vs `seeds_positive`. |
+| Q10 1-seed debug | conditional | Use a short run or an unregistered seed, mechanics only, and compute no labels from debug values. Freeze a commit hash first. |
+| Q11 B0-B boundary | agree | Auto-approval is correctly withheld. A B0-B proposal needs its own prereg, a power analysis, a fresh held-out set (not test 163 or P1), a non-teacher-forced readout, and M passing on both the plain and norm-matched mean. |
+| Q12 Final | NARROW | See below. |
+
+## Must-fix (ranked)
+
+1. Make the label function total. Add the missing rows and PA cells, report independent flags plus a headline, and rename `REGIME_ERASES_SELECTIVITY` to an observational name.
+2. Pin down what the P/PA gate means. Freeze the learning rates, require step-0 vs step-100 CE and parameter-movement reporting, choose a retention floor or restrict the wording, and define PA's step-0 reference.
+3. Make M adequate. `M_CONTROL_PASS` should require both the plain and norm-matched mean (`M_POS_MEAN` and `M_NORM`). Also pin down the `M_VALID` quantifier, a minimum eligible-doc count, same-doc comparison, and final-state persistence.
+4. Specify the statistics. Use a document bootstrap on seed-averaged Δ, define "L > F" and "2/3 seeds", state that the full-CE condition has no magnitude floor, and rename the document-count key `seeds_positive`.
+5. Write the debug protocol before running anything: seed and steps, a mechanics-only checklist, and a frozen commit hash.
+6. Fix the cap and artifact contract: wall-clock hours, per-phase timing, an extrapolation before the 3-seed gate, and checkpoint hash and persistence.
+
+## Verdict
+
+**NARROW.** Freeze a v0.2.1 errata covering the six Must-fix items before any code depends on it. After that, implementation with unit tests and a non-gating mechanics debug can go ahead. The 3-seed run is not approved and needs a separate gate.
+
+- **Forbidden:** test 163, P1, T5Gemma2, B0-B, B1, B2, Stage C, and any post-result change to thresholds, seeds, donors, steps or learning rates.
+- **Compute cap:** 12 arm-seeds, ≤1,200 updates, ≤2 wall-clock hours on 6 threads, with debug counted inside the cap.
+- **Not approved by this round:** Phase 6, B0-B and anything beyond them.
+
+Everything in the report comes from repository artifacts. Where I estimated something (power at the floor, P's movement under lr 1e-4, the old-metric per-doc spread), the report labels it as unmeasured.

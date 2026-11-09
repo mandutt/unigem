@@ -1,0 +1,35 @@
+Review complete. Full report written to `docs/hoplite/c5_b0a_pm_prereg_v0_2_2026-11-09/review_GLM.md` (275 lines — the only file added; no other repo changes).
+
+**Sync:** `git fetch origin` + `git pull --ff-only origin main` → "Already up to date"; review basis HEAD = `918cfa5` (origin/main; `8c4f197` is its parent, both post-v0.2-plan). I read the full review request plus all listed artifacts (v0.2/v0.1 plans, synthesis, P0 sanity, repair, runner 802 lines, tests 128 lines) myself; no subagents, no training/eval, test 163 untouched, P1 unused.
+
+### Q1–Q12 verdicts (GLM 5.3 Flash max — independent new round)
+
+| Q | Topic | Verdict | One-line basis |
+|---|---|---|---|
+| Q1 | P gate | **conditional** | `.05` + full CE + both CIs + step0/step100 closes vacuousness for binary validity; residual: gate catches full destruction, partial erosion (e.g. Δcopy 0.3 → P_RETENTION≈0.08 passes) is only visible via descriptive P_RETENTION — must be documented pre-results |
+| Q2 | PA arm | **conditional** | Native+adapter+LoRA correctly separates the adapter soft-prompt confound (`Adapter(512,512)` dim-compatible); but PA-vs-P comparison unoperationalized ("크게 잃으면" undefined) and M_VALID must require P_VALID ∧ PA_VALID ∧ P/PA M pass |
+| Q3 | M real reference | **agree** | Full real K_real avoids confounding crop effects with mean effects; donor-cropped real CE stays in Δshuffled only; record both per-doc, never mix in one delta |
+| Q4 | Mean-memory | **conditional** | Train-only/len≥K/eligible≥10/P·PA validation adequate; missing: M_NORM zero-norm guard, m_eligible=false exclusion-rate report, permutation/perturbation invariance executed; M_NORM uses target real-memory norm → must be disclosed as scale-matching |
+| Q5 | Decision labels | **conditional** | Overclaim reduced (NO_AFFIRMATIVE…, L_SIGNAL_M_CONTROL_FAIL, REGIME_ERASES_SELECTIVITY); missing: precedence order (ASSAY_INVALID > REGIME_ERASES > M_CONTROL_NOT_VALID > signal cells), PA-only-failure cell, M-pass+no-L_SIGNAL cell, XOR×M-status definition |
+| Q6 | Copy vs full | **agree** | Δcopy≈Δfull in P0 with .82–.85 coverage → full CE co-primary + copy-naming restriction is right; requiring both in L_SIGNAL is nearly free and guards mask artifacts |
+| Q7 | Heavy-tail/power | **agree** | Detectable: direction-level validity (P_VALID/PA_VALID/L_SIGNAL/M_CONTROL_PASS + 2/3 seeds, leave-top-3-out). Forbidden: cross-regime effect-size comparison, "graded content use" (untrained CE 12.70/13.24 > ln\|V\| 12.43 = catastrophe sensitivity), CI as confirmatory, top-3-driven claims (val top-3 share .4862) |
+| Q8 | Compute/implementation | **conditional** | 12×100 updates + eval + M probes plausibly ≤2 CPU-h but tight; `pm-diagnostic` absent, `set_training_mode` F/L-only, `seeds_positive` mislabel still in code; "wall time ≤2 CPU-hours" definition ambiguous |
+| Q9 | P/PA/M tests | **agree** | 8 required test families: structure/64-module, seed reproducibility (manual_seed before LoRA init), mode parity extension, M leakage, M invariance+guards, native-path CE==built-in, documents_positive separation, donor duplicate exclusion, synthetic label-engine tests |
+| Q10 | 1-seed debug | **conditional** | Allow: implementation + full tests + seed 20261108 × F/L/P/PA + M mechanics + timing, strictly non-gating; 3-seed gate needs: tests pass, D2 artifact completeness, asserts pass, no stop conditions, cap-backed timing, explicit approval |
+| Q11 | B0-B boundary | **agree** | L_SIGNAL+M pass is 20-doc screening; B0-B 300/95 needs own prereg (power, thresholds, data, seeds); §12 necessary-not-sufficient + "scale fixes it" ban correct |
+| Q12 | Final | **NARROW** | v0.2 closes v0.1's 6 Must-fixes at prereg level, but contract items remain + zero trained P/PA/M results exist |
+
+### Must-fix (ranked, before implementation & 1-seed debug)
+1. **Label precedence + missing cells** frozen pre-results (synthetic unit-testable)
+2. **PA gate integration**: PA_VALID into M_VALID premises; PA_RETENTION defined; ADAPTER_SOFT_PROMPT_RISK descriptive field
+3. **M_NORM zero-norm guard** + exclusion-rate/real-vs-mean-norm artifacts + target-norm disclosure
+4. **Cap measurement definition** (wall vs CPU-hours) + per-phase timing artifacts, no auto-extension
+5. **Code-contract tests** frozen pre-implementation (documents_positive split, set_training_mode P/PA, seeding order, donor duplicate exclusion, leakage/invariance)
+
+### Final verdict: **NARROW**
+- **v0.2:** conditionally approved once MF-1–5 are reflected pre-results (no threshold/seed/donor/step changes; else new prereg)
+- **Implementation + non-gating 1-seed debug:** approved after MF-1–5 + full test suite passes
+- **3-seed:** not approved — separate gate
+- **Forbidden:** test 163 (sealed), P1, T5Gemma2 (D-108 STOP), B0-B/B1/B2/Stage C auto-advance, post-results threshold changes, cross-regime absolute-CE comparison, trained-M arm
+- **Max compute:** 12 arm-seeds, ≤1,200 updates, ≤2 CPU-hours (definition per MF-4), 6 threads, no GPU, no retries
+- **Next gate:** 1-seed debug artifact review → 3-seed decision; M probe/report only after 3-seed

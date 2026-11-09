@@ -1,0 +1,35 @@
+Written: [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v0_2_2026-11-09/review_SOL.md)
+
+Synchronization succeeded. Reviewed `HEAD = origin/main = 918cfa5bc9129016b91d506bb412a1938f119bcf`.
+
+## Final verdict: **NARROW**
+
+v0.2 substantially improves the design, but remaining protocol ambiguities must be resolved before implementation and authorized non-gating debug.
+
+| Q | Verdict | Main finding |
+|---|---|---|
+| Q1 | conditional | P is a stronger sensitivity screen, not evidence that adaptation learned useful selectivity. |
+| Q2 | conditional | PA helps address the regime confound, but needs explicit gating and its own step-zero baseline. |
+| Q3 | agree | Full-real-K is the correct M reference; donor-cropped CE must remain separate. |
+| Q4 | conditional | M is useful diagnostically, but eligibility, validation conjunction, norm dependence, and distribution limitations remain. |
+| Q5 | disagree | Statistical non-pass does not establish “erasure”; decision cells remain missing or overlapping. |
+| Q6 | conditional | Full/copy co-primary conjunction is defensible; “copy secondary” wording contradicts it. |
+| Q7 | agree | Exploratory conclusions only; three seeds do not increase the independent document count to 60. |
+| Q8 | defer | Runtime feasibility is unverified; budget units and debug accounting are ambiguous. |
+| Q9 | agree | P/PA/M invariants need fresh tests with correctly defined permutation and perturbation expectations. |
+| Q10 | conditional | Mechanics-only debug after Must-fix closure, passing tests, and explicit owner authorization. |
+| Q11 | agree | Even a positive diagnostic cannot automatically approve B0-B. |
+| Q12 | conditional | **NARROW**; not approval as written or authorization to execute Phase 6. |
+
+### Ranked Must-fix
+
+1. **Complete the decision function:** explicit P/PA requirements, M-validation conjunction, missing-data states, label precedence, and non-erasure wording.
+2. **Freeze statistics and cohorts:** pooling, paired bootstrap, `L > F`, copy/full missingness, and M target coverage.
+3. **Finish the M contract:** full-K pairing, contributor provenance, crop/EOS/padding rules, norm handling, and secondary-only variants.
+4. **Specify and test P/PA mechanics:** initialization, optimizer/order, PA baseline, frozen encoder/base, modes, gradients, and 64-module inventory.
+5. **Resolve metric hierarchy and overclaim:** co-primary versus secondary wording; neither full/copy agreement nor strict substring overlap proves semantic copying.
+6. **Clarify budget and artifacts:** wall versus CPU-hours, replayable checkpoints, and debug inclusion. A separate four-arm debug plus a fresh three-seed rerun would total **16 units / 1,600 updates**, exceeding **12 / 1,200**.
+
+An independent arithmetic check of historical P0 results found validation mean delta still **+3.16586 after removing the top three documents**. Heavy-tail caution is warranted; an “outliers-only” dismissal is not.
+
+Only the authorized report was added. No training, evaluation, tests, subagents, or additional models were run. Phase 6 and downstream stages remain unapproved; test 163 remains sealed, P1 unused, and T5Gemma2 closed under D-108 STOP.
