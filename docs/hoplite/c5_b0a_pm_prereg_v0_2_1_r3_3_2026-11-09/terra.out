@@ -1,0 +1,22 @@
+## Verdict: NARROW
+
+The workspace synchronized successfully to `origin/main` HEAD `2ed41f096dc66180a09804b8555abbb3d62f7db5`. The full report is in [review_TERRA.md](docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_3_2026-11-09/review_TERRA.md).
+
+| Question | Verdict | Summary |
+|---|---|---|
+| Q1 | Disagree | Decision contract is not internally total. |
+| Q2 | Disagree | Two L table entries conflict with consensus; small-N qualifies the false+NA claim. |
+| Q3 | Conditional | Preflight supports a narrow prefix cohort, not endpoint validity. |
+| Q4 | Disagree | Builder and replay/hash specifications remain incomplete. |
+| Q5 | Conditional | PA framing is sound; optimizer and arm details need clarification. |
+| Q6 | Conditional | Cap arithmetic is correct; D1 workload mapping needs closure. |
+| Q7 | Conditional | Tail rules overlap for null inputs; reproducibility details remain. |
+| Q8 | Disagree | Some r3.2 blockers remain, alongside new inconsistencies. |
+| Q9 | Disagree | Do not freeze r3.3 or approve implementation/D0 yet. |
+| Q10 | Conditional | Separate gates are sound but the checklist needs completion. |
+| Q11 | Conditional | B0-B separation is adequate once tail and artifacts are auditable. |
+| Q12 | Conditional | **NARROW:** text-only repair and review before freeze. |
+
+**Ranked must-fixes:** reconcile the L table and named-cell premises; specify per-arm lengths, builders and optimizer groups; complete replay/hash golden vectors and D1 primary-replay mapping; make tail precedence and statistical reproduction total; then define the synthetic acceptance-test matrix.
+
+No training, evaluation, or tests were run. D1, 3-seed and downstream stages remain unapproved. The prospective combined ceiling, if separately authorized, is **1,204 updates and 155 wall minutes**; it is not a grant. Test 163 remains sealed, and T5Gemma2 remains closed under D-108 STOP.

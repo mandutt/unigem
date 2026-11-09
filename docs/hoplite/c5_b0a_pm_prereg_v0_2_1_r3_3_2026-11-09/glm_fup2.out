@@ -1,0 +1,32 @@
+Report written to `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_3_2026-11-09/review_GLM.md` (the only write performed). Review basis: origin/main HEAD **`3500bc3`** after `git fetch` + `git pull --ff-only`; preflight SHA-256 independently verified as `3ee3f1ca…9837af` (exact match). Scope note, reflected in the report and M1: this round read the review request in full and verified repo state/hash directly; the plan bodies were not re-read per your close-out directive, so all verdicts are specification-level against the request's own §2/§3/§4 — enumeration ≠ verification.
+
+## Q1–Q12 (GLM 5.3 Flash, max)
+
+| Q | Topic | Verdict | Basis (one line) |
+|---|---|---|---|
+| 1 | Total factored contract | conditional | Consensus tri-state + NOT3/DoD closes blockers 1/8 at spec level, but `ANDn(l_copy, NOT3(l_full))` has no pinned argument domain — ill-typed if ANDn=seeds and NOT3=3-seed unanimity; F1–F11 totality unverified |
+| 2 | L consensus / fixtures | conditional | 2 determined + 7 NA cells; false+NA → NOT_ASSESSABLE only; fixtures 16–18 cover the 3 labels; §6.3 cell deleted (correct); §9.2 alias removal + dangling refs unverified in primary text |
+| 3 | M preflight / cohort | conditional | Hash verified intact; K=753, 15/20 ≥ contributors 10 consistent; JSON derivations unread |
+| 4 | M builder / replay | conditional | Recipe + frame + key close blockers 4/6, but M_NORM(t) absent from summary, donor_id encoding for donor-free primary M unstated, digest must be pinned in-repo |
+| 5 | PA | agree | PA_STEP100_NOT_VALID non-reusable, PA_RETENTION non-gate, scale/geometry caveat justified by K=512 vs K=753 arm table |
+| 6 | Cap / D0 / D1 | conditional | 12×100=1,200, D0=0, D1=4×1 arithmetic ✓; donor factor only phases 2/3/7 consistent (2: 20×5, 3: 20×5, 7: 15×5); ≤96 min asserted, not re-derived |
+| 7 | Statistics | agree | Seed 20261109 + n_boot 1,000 + percentile CI reproducible and right for n=20 (P0 CIs demonstrate width); missing-seed→NA closes blocker 9 |
+| 8 | Must-fix / new problems | conditional | All 12 blockers enumerated; new-problem candidates: ANDn/NOT3 ambiguity, donor_id sentinel gap, fixture migration vs 54 historical tests, dangling refs after §6.3 deletion |
+| 9 | Freeze / implementation | conditional | Remaining work is verification-grade (M1–M3); implementation + unit tests + D0 are the cheapest mismatch surface; six named contract tests required first |
+| 10 | D1 / 3-seed | agree | Timing gate ≠ signal gate is the right split; add phase-5 OOD logging, timing ledger, golden-vector-in-D1, endpoint_ok-at-D1 |
+| 11 | B0-B | agree | Predicate restated: no affirmative L consensus (any NA ⇒ fail) AND tail_driven==false exactly AND endpoint_ok on registered 512 artifacts; P0 .4862 is 1.4 pts under .50 and 256-length — never B0-B evidence |
+| 12 | Final | **CONTINUE** | Blockers closed at spec level; residual items are verification-grade; ladder stays sequential and gated |
+
+## Must-fix (ranked)
+
+1. **M1** — Primary-text closure audit: §9.2 ANDn alias gone, §2.4 9-cell table ≡ §2.3, zero dangling refs to the deleted §6.3 cell (r3.2's blockers were doc defects; a doc errata's closure must be text-verified)
+2. **M2** — Pin ANDn/NOT3 argument domains with worked examples
+3. **M3** — Replay completeness: donor_id encoding for donor-free primary M + golden-vector test with pinned in-repo digest
+4. **M4** — Re-derive ≤96 min T_proj with phase 5; assert donor factor only in phases 2/3/7
+5. **M5** — Confirm M_NORM(t) is explicitly defined
+6. **M6** — Unit suite: 9 consensus cells, tail tri-state+NA, missing-seed→NA, stats determinism, fixture purity, builder contributors/eval-mode/shape
+7. **M7** — Phase-5 initial CE read against the P0 OOD caveat (untrained CE 12.7/13.2 > ln|V| 12.43); P0 numbers never gate evidence
+
+## Final verdict
+
+**CONTINUE (conditional)** — r3.3 freeze: conditional on M1–M3 · Implementation+unit tests: approved (CPU-only) · D0: approved (0 updates) · D1: conditional (after D0 + M4; 4 updates, ≤96 min) · 3-seed: not released (gated on explicit D1 pass; 1,200-update budget reserved, not approved) · Forbidden: Phase 6 execution, B0-B/B1/B2, Stage C, test 163, P1, T5Gemma2 (D-108 stands), post-results threshold changes, P0-as-gate-evidence.

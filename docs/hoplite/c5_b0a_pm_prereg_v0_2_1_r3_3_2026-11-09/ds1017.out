@@ -1,0 +1,29 @@
+Review complete. Workspace synced (`git fetch origin` + `git pull --ff-only origin main` → "Already up to date"), HEAD **`2ed41f096dc66180a09804b8555abbb3d62f7db5`**. The preflight content SHA-256 was recomputed and matches `3ee3f1ca…37af`. Report written to the single permitted path: `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_3_2026-11-09/review_DS1017.md` (241 lines; `git status` shows only that untracked file). No training/eval was run, test 163 was not opened, P1 was not used.
+
+## Q1–Q12
+
+| Q | Topic | Verdict | Core evidence |
+|---|---|---|---|
+| Q1 | Total factored contract | **agree** | Re-derived §2.4's 9 rows, F1–F11 and all §5.3 branches; every input combination resolves, incl. `else→L_SIGNAL_CONTROL_NOT_ASSESSABLE` and final `else→NOT_ASSESSABLE` |
+| Q2 | L consensus / fixtures | **agree** | §9.2 `L_SIGNAL=ANDn` deleted; `false+NA→NA`, `copy_only=false`, `full_only=NA` → `NOT_ASSESSABLE`; fixtures 16/17/18 derive correctly |
+| Q3 | M preflight / cohort | **conditional** | Hash matches, 15/20 and full-K 11/20 correct; but K=753 is **zero-margin** (754→14), cohort 15/15, and §5.1's val20/0..20 contradicts 15 eligible |
+| Q4 | M builder / M_NORM / endpoint / replay | **conditional (disagree as written)** | F required by §8.4 but absent from §8.1/§8.2; `real_prefix_t` space undefined; `A=identity` for P unstated; `h_i >= K_M` is not type-correct |
+| Q5 | PA | **conditional** | Caveat/labels restored, but §7.3 `adapter_lr (PA only)` contradicts §7.4 and the runner (uses it for F/L); PA vetoes L's `m_valid` |
+| Q6 | Cap / D0 / D1 | **conditional** | 1,200 / 1,204 / 155 min / 96 min all correct and 8 phases coherent; but phases 5 & 7 `T_proj` terms omit the real/control factor (2× undercount vs §10.6) |
+| Q7 | Statistics | **conditional** | New module/seed 20261109/2-of-3 exact and needed (runner still has `seed=20261108`, mislabeled `seeds_positive`); `tail_driven` input endpoint undefined and `top3_share` is "descriptive only" yet gates |
+| Q8 | Remaining Must-fix | **conditional** | 13/15 blockers closed; M builder and `tail_driven` only partial; r3.3 created 4 new defects |
+| Q9 | Freeze + implementation | **conditional** | §2–§5 implementable now; M/replay/D1 code must wait — 0 P/M decision tests exist (54 total, 7 C5-B0) |
+| Q10 | D1 / 3-seed | **agree (with additions)** | Separate gates correct; checklist lacks MF-1/2/3/6, donor-free `null` record, zero-margin failure path |
+| Q11 | B0-B | **agree** | Hard gate intact, no auto-advance; 3 conjuncts redundant (fine as assertions), `tail_driven` unusable until MF-4 |
+| Q12 | Final verdict | **NARROW** | Text-only repair in one r3.4; no STOP, no threshold dispute |
+
+## Must-fix (ranked)
+1. **MF-1 (blocker)** — Arm **F** mandatory in §8.4 but has no `K_M`/builder; §8.2 applies `A` to P, which has no adapter.
+2. **MF-2 (blocker)** — `real_prefix_t` space undefined; `M_NORM` numerator/denominator may mix EG2 embedding with adapter-output mean.
+3. **MF-3 (blocker)** — `n_signal ∈ {NA,0..20}` / "signal cohort val20" vs preflight L eligibility = 15.
+4. **MF-4 (blocker)** — `tail_driven` input endpoint/arm/variant never defined, yet hard-gates B0-B; `top3_share` is descriptive-only but gating.
+5. **MF-5 (high)** — `adapter_lr: 1e-3 (PA only)` contradicts §7.4 and the runner.
+6. **MF-6 (high)** — `T_proj` phases 5/7 omit the real/control factor (300→600 replay records/arm-seed).
+7. MF-7 drafting questions in §7.4; MF-8 endpoint count 15×3×4×2 omits variants; MF-9 PA-veto rationale; MF-10 golden vector is self-generated; MF-11 zero-margin failure path; MF-12 low-level naming/threshold scoping.
+
+**Final verdict: NARROW** — freeze held pending text-only r3.4 (MF-1…MF-6). Implementation + unit tests + D0 approvable after that freeze (pure decision/stats layer + golden vectors); **D1, 3-seed, B0-B/B1/B2/Stage C remain separate and unapproved**; T5Gemma2 stays D-108 STOP; no P1/test 163 use; no threshold changes.
