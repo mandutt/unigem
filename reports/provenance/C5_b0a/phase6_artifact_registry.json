@@ -1,8 +1,8 @@
 {
-  "version": 12,
+  "version": 13,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "f0_v0_3_draft_pending_report",
+  "status": "f0_v0_6_review_blocked_invalid_api_key",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -327,6 +327,16 @@
       "path": "docs/plan_c5_f0_v0_3_2026-11-09.md",
       "sha256": "9405ee8464f2d5d31f1feb68f875dd264dc6bbb45eb68a02b41274e630171cf9",
       "status": "draft_not_reviewed_not_approved"
+    },
+    "f0_v0_6_prereg": {
+      "path": "docs/plan_c5_f0_v0_6_2026-11-09.md",
+      "sha256": "ff56327e34f4e3927709753d91224f51cf8a17e3300b941195b93b7e0095c39b",
+      "status": "draft_not_reviewed_not_approved"
+    },
+    "f0_v0_6_review_attempt": {
+      "status": "blocked",
+      "reason": "hoplite invalid_api_key",
+      "reports": 0
     }
   },
   "gates": {
@@ -340,11 +350,11 @@
     "labels": "complete",
     "cause_analysis": "complete",
     "labels_audit": "complete",
-    "f0": "v0_3_draft_pending_user_report"
+    "f0": "v0_6_draft_review_blocked"
   },
   "test_split_used": false,
   "p1_used": false,
   "labels_computed": true,
   "not_a_result": false,
-  "note": "F0 v0.3 draft created; 3-AI review not sent; no execution. B0-B false unchanged."
+  "note": "F0 v0.6 draft created; final round blocked by Hoplite invalid_api_key. No approval/execution. B0-B false unchanged."
 }
