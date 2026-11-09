@@ -1,0 +1,54 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: current origin/main HEAD. First sync/pull, then work read-only.
+
+This is a NEW, intentionally separate, independent review round using a DIFFERENT model (GLM 5.3 Flash, reasoning max). It reviews v1.0.2. Do not treat it as a duplicate of the v1.0.1 thread. Do not reuse another model's answer.
+
+Read the full review request yourself:
+reports/EXTERNAL_REVIEW_C5_B0A_PM_PREREG_V1_0_2_2026-11-09.md
+
+Then read:
+docs/plan_c5_b0a_pm_prereg_v1_0_2.md
+docs/hoplite/c5_b0a_pm_prereg_v1_0_2_2026-11-09/golden_vectors.json
+reports/C5_B0A_PM_PREREG_V1_0_1_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/provenance/C5_b0a/m_cohort_preflight.json
+reports/provenance/C5_b0a/p0_native_sanity.json
+reports/provenance/C5_b0a/p1_usage.json
+runner/c5_mt5_lora_b0.py
+eval/tests/test_c5_b0_metric.py
+
+Scope and constraints:
+- Do not run training or evaluation.
+- Do not open test 163; it is sealed.
+- Do not use P1 data or external APIs.
+- Do not modify repository files. Your only permitted write is the report file named below.
+- Do not call subagents or additional LLM models.
+- T5Gemma2 remains closed by D-108 STOP.
+- Phase 6/B0-B/B1/B2/Stage C are not approved by this round.
+
+Key facts:
+- v1.0.1 was 3/3 NARROW with 15 blockers.
+- v1.0.2 closes them: P0 mode-only path, arm-specific donor, control_manifest .npz tensors, allowlist/P1, h_len/data paths, P/PA 3-seed, validity/calibration split, copy-token scope, phase-7 recipe, threshold asymmetry, F11, training mode/RNG, T_proj primary replay, D1 semantics, golden supplemental.
+- mixed 1,680, D1 phase 5 560, phase 7 600.
+- P0: train +3.7617 [1.8917,5.6050]; val +5.2375 [2.5013,8.0753].
+- No trained P/PA/M result has been seen.
+
+Core focus:
+1. Are all 15 blockers actually closed?
+2. Does P_VALID/PA_VALID separation make M_CONTROL_INVALID reachable without becoming unconditional?
+3. Are donor arm-specific and control tensor replay executable?
+4. What Must-fix remains before freeze/implementation?
+5. Should v1.0.2 be STOP/NARROW/CONTINUE?
+
+Answer every Q1-Q13 in section 4. For each: verdict, evidence, 1-3 next steps.
+
+Deliverable:
+1. Write your full report to:
+   docs/hoplite/c5_b0a_pm_prereg_v1_0_2_2026-11-09/review_GLM.md
+   Identify yourself as GLM 5.3 Flash max.
+2. Final message: compact Q1-Q13 table + Must-fix + STOP/NARROW/CONTINUE.
+
+Do not claim Phase 6/B0-B approval. Do not propose P1/test 163 use. Do not reopen T5Gemma2. Do not propose post-result threshold changes.
+
+This is consultation only. Your only permitted write is the report file named above.
