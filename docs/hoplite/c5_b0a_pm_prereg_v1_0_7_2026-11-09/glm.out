@@ -1,0 +1,30 @@
+Review complete. Workspace synced (`git pull --ff-only origin main` → already up to date; HEAD `a826308`, review basis `9613ef6` — the intervening commit only adds review infrastructure, so all 12 reviewed files are byte-identical). The full report is written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_7_2026-11-09/review_GLM.md` (the only file written), containing the reviewed HEAD SHA `9613ef6` and the verbatim §9.6.1 quote `K_d = min(K_M, len(real_prefix), len(donor_prefix))`. Independent hash-only verification (no training/eval, no test 163, no P1, no subagents): all 5 golden digests (`43ecb58e…`, `e3b0c442…`, `c43ea35c…`, `8277a713…`, `6b50c226…`) and the preflight content SHA `3ee3f1ca…` reproduce exactly, as do 1,680 / 560 / 600 and F=360, L=360, P=480, PA=480.
+
+## Q table
+
+| Q | Topic | Verdict |
+|---|---|---|
+| Q1 | 6 residual closures | agree — 5 closed; freeze_commit/manifest_commit **partial** (definitions distinct, but `manifest_commit` is self-referential in-file → MF-A) |
+| Q2 | Self-containedness | agree — no implicit knowledge; externals limited to §17.1 helper contracts pinned by `helper_commits` |
+| Q3 | Freeze chain | conditional — paths v1_0_7 ✓, template matches ✓, `freeze_commit`/`freeze_manifest_sha256` chain works; `manifest_commit` in-file cannot be populated (git SHA depends on content) |
+| Q4 | T_proj | agree — per-seed 120/160, outer `3*`, 360/480 descriptive only, unit test present; triple-count removed |
+| Q5 | Phase-7 | agree — bound+asserts+slicing executable; P/PA always K_d=512 (preflight all-512); F/L truncation only via donors <753; baseline recomputed, no renorm; 600 numeric-only with `diagnostic_replay_ok` separate |
+| Q6 | Key coverage | agree — 4-record fixture vs 600 numeric cleanly separated; fixture exercises `donor_id=4`; digest reproduces |
+| Q7 | Legacy bootstrap test | conditional — import ban + behavioral pins (seed 20261109, PCG64, percentile linear, `documents_positive` vs `registered_seeds_positive`) suffice; add constant/presence assertions |
+| Q8 | Hash/golden | agree — all 5 golden + preflight independently reproduced; flat 8-field, donor_sort internal-only, control order verified |
+| Q9 | D0/D1/cap | agree — 4 configs, 4 arms ×1 seed ×1 update, 8 phases, 560/600, T_proj ≤96, 120-min hard abort, 1,204/155 not-a-grant all consistent |
+| Q10 | New issues | conditional — 3 minor, no scientific defects: MF-A/B/C below |
+| Q11 | Freeze + implement approval | conditional — approve after MF-A folded into the freeze commit; essential test list given in report |
+| Q12 | Boundaries | agree — B0-B predicate restated for v1.0.7 labels (VALID ∧ M_CONTROL_PASS ∧ EXPLORATORY_L_SIGNAL ∧ m_valid ∧ n_signal==15 ∧ tail_driven==false ∧ path flags ∧ replay/artifacts ∧ separate prereg) |
+| Q13 | Final | **CONTINUE (conditional)** |
+
+## Must-fix (ranked)
+
+1. **MF-A** §16.2: `manifest_commit` cannot be stored inside `_FREEZE.json` (self-reference). Fix with one sentence, e.g. file records `manifest_commit: null`; the actual manifest commit SHA is recorded in the D0 report next to `freeze_manifest_sha256`.
+2. **MF-B** §10.4 P0 tail numbers (val signed `.4862`, absolute `.43355`, 15-common `.455`) are **not present in `p0_native_sanity.json`** — add provenance or mark "derived, not stored". Descriptive, non-gating; not freeze-blocking.
+3. **MF-C** §4.6 bullet 2 "`p_step NA + p_valid=false`" is an unreachable state (P_VALID is NA whenever p_step is NA); reword to F9's `p_valid=NA`. No conflict with §4.4/F3/§4.7.
+4. Cosmetic: one line on template copy procedure (`status:"frozen"`, drop `note`).
+
+## Final
+
+**CONTINUE (conditional)** — v1.0.7 freeze approved once MF-A is included in the freeze commit (text-only, no scientific change, so no re-dispatch needed); implementation + unit tests + D0 (0 updates, ≤4 configs, ≤15 min, seed 20261111) approved. **Not approved:** D1, 3-seed, B0-B, B1/B2/Stage C, test 163 (sealed), P1, T5Gemma2 (D-108 STOP). Registered Phase 6 compute (1,200 updates / 120 min / T_proj ≤96) remains separately gated; no post-result threshold/seed/donor/step/LR changes.

@@ -1,0 +1,36 @@
+Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_7_2026-11-09/review_DS1017.md` (the only file changed; `git status` shows just that untracked file).
+
+**Reviewed HEAD SHA:** `9613ef6`
+**§9.6.1 verbatim:** `K_d = min(K_M, len(real_prefix), len(donor_prefix))`
+
+**Sync:** `git fetch origin` and `git pull --ff-only origin main` both succeeded. `origin/main` is `a826308`; `9613ef6` is its parent (the clone needed `git fetch --deepen=100`). `git diff 9613ef6 HEAD` adds only the review-harness files, so the reviewed artifact bytes are identical to current main. Preflight hash `3ee3f1ca…69837af` matches; all five golden digests were independently recomputed and match.
+
+## Q1–Q13
+
+| Q | Verdict | Core finding |
+|---|---|---|
+| Q1 | conditional | Paths, T_proj; K_d; key-coverage closed. `freeze_commit`/`manifest_commit` and the legacy-bootstrap test remain partial. |
+| Q2 | conditional | Self-contained for the contract; helper internals are external by design; §3.5 paired L>F cohort is undefined. |
+| Q3 | disagree as written | `plan_path` is correct, but `_FREEZE.json` cannot contain its own `manifest_commit`. Template also has an extra `note`/`status` mismatch. |
+| Q4 | agree | Per-seed 120/160, outer `3*` → 360/480, total 1,680; triple-count hazard removed. |
+| Q5 | agree | K_d bound/asserts, slicing, phase-7 `baseline_ce` recompute, 600 count, 753/512 all consistent. |
+| Q6 | agree | 4-record key-coverage fixture vs 600-record numeric-only phase 7 is clean. |
+| Q7 | disagree | Checking only `c5_pm_stats` imports is insufficient: `evaluate_arm` still reaches legacy `bootstrap_paired(seed=20261108)` at runner line 460. |
+| Q8 | agree | Array digest, flat 8-field record, donor_sort, control order, and all golden vectors verified. |
+| Q9 | agree | D0 4 configs/0 updates/≤15 min; D1 4×1/≤20 min; 560/600; T_proj ≤96; 120-min abort; cap labels need disambiguation. |
+| Q10 | agree (problems remain) | Five ranked must-fixes below. |
+| Q11 | conditional | Freeze only after text/schema repair; then implementation + unit tests + D0 mechanics. No training. |
+| Q12 | agree | B0-B boundary sufficient; predicate restated in v1.0.7 labels. |
+| Q13 | **NARROW** | Freeze withheld pending must-fixes. |
+
+## Must-fix (ranked)
+
+1. **MF-1 (blocker):** §16.2 `manifest_commit` self-reference — the committed manifest cannot contain its own commit SHA. Commit with `manifest_commit: null` and record the actual SHA/hash in D0.
+2. **MF-2 (high):** Legacy bootstrap remains reachable via `evaluate_arm`; require the Phase 6 entrypoint to use `c5_pm_stats` only, with a call-graph/source assertion.
+3. **MF-3 (medium):** Define the paired `L>F` cohort, endpoint alignment, and seed-averaging in §3.5.
+4. **MF-4 (low):** Template/schema mismatch (`note`, `status` value).
+5. **MF-5 (low):** Disambiguate registered 120-min cap vs aggregate 155-min prospective ceiling.
+
+## Final
+
+**NARROW.** v1.0.7 freeze: **no as-is**; **yes after MF-1…MF-3** as numbered text/schema/test-plan repairs plus re-hash. Implementation + unit tests + D0: conditional after freeze only (≤4 configs, 0 updates, ≤15 min, seed 20261111). D1, 3-seed, B0-B, B1/B2, Stage C: **not approved**. No compute granted; prospective ceiling only ≤1,204 updates / 155 min. Test 163 remains sealed, P1 unused, T5Gemma2 D-108 STOP. No post-result threshold/seed/donor/step/LR changes.

@@ -1,0 +1,45 @@
+## Final verdict: **NARROW**
+
+Report: [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_7_2026-11-09/review_SOL.md)
+
+Synchronization succeeded. Current `origin/main` is **`a826308`**; the requested reviewed protocol HEAD is **`9613ef6`**. I verified that all required underlying protocol/source files are unchanged between them.
+
+Mandatory §9.6.1 quote:
+```text
+K_d = min(K_M, len(real_prefix), len(donor_prefix))
+```
+
+### Q1–Q13
+
+| Q | Judgment | Conclusion |
+|---|---|---|
+| Q1 | Conditional | Five residuals closed at specification level; freeze/manifest identity remains partial. |
+| Q2 | Conditional | Substantially consolidated, but not freeze-ready; explicitly pinned helpers remain dependencies. |
+| Q3 | Disagree | Paths align, but the embedded `manifest_commit` creates self-reference. |
+| Q4 | Agree | Per-seed 120/160 and outer factor 3 correctly produce 360/480 and 1,680 total. |
+| Q5 | Agree | Phase-7 bounds, slicing, baseline/delta semantics, and 600-record domain are coherent. |
+| Q6 | Agree | Four-record golden fixture and 600-record numeric diagnostic are clearly separated. |
+| Q7 | Conditional | No-import assertion is useful but needs the specified behavioral statistics tests. |
+| Q8 | Agree | All five golden digest constants independently reproduced. |
+| Q9 | Conditional | Counts and caps are consistent; timing feasibility remains unmeasured. |
+| Q10 | Agree | One demonstrated freeze-blocking text/schema defect remains. |
+| Q11 | Conditional | Corrected freeze first, then implementation/tests, then controlled D0—not approval as written. |
+| Q12 | Agree | Joint B0-B predicate and separate downstream approvals remain mandatory. |
+| Q13 | Conditional | **NARROW**, with no experimental execution authorized now. |
+
+### Must-fix
+
+**MF-1 — Freeze-blocking: circular `manifest_commit`.**
+
+Section 16.2 requires `_FREEZE.json` to contain the hash of the commit containing that same file. Populating that hash changes the file, tree, and resulting commit hash.
+
+Recommended narrow correction: keep `freeze_commit` and content hashes inside the manifest; record `manifest_commit` externally in later provenance alongside `freeze_manifest_sha256`. Update the schema, template, and freeze-order wording together before freezing.
+
+### Verification and boundaries
+
+- Independently confirmed **1,680 distinct primary keys**, **560 per-seed across arms**, and **600 diagnostic records per arm-seed**.
+- Confirmed the preflight content hash and reproduced all five golden digests.
+- Wrote **only** the permitted review report.
+- No training, evaluation, model forwards, D0/D1, subagents, test-163 access, or P1 data use occurred.
+
+**Freeze withheld as-is. D1/three-seed execution and B0-B/B1/B2/Stage C remain unapproved. T5Gemma2 remains D-108 STOP. No post-result setting changes are recommended.**
