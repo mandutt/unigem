@@ -1,0 +1,62 @@
+{
+  "spec": "C5 Phase 6 P/M v1.0",
+  "created": "2026-11-09",
+  "note": "Independent expected digests for state and replay canonicalization. Do not regenerate from the implementation under test.",
+  "state": {
+    "frame_spec": "u32le name_len | name_utf8 | u8 dtype_len | dtype_str | u8 ndim | u32le shape[ndim] | u64le nbytes | little_endian_contiguous_bytes",
+    "tensors": [
+      {
+        "name": "a",
+        "dtype": "<f4",
+        "shape": [2],
+        "values": [1.0, -2.0],
+        "payload_hex": "0000803f000000c0"
+      },
+      {
+        "name": "b",
+        "dtype": "<f4",
+        "shape": [1, 1],
+        "values": [0.5],
+        "payload_hex": "0000003f"
+      }
+    ],
+    "expected_sha256": "43ecb58e197d5789df0a9dbbc67beba11538b8063c3da8ac46f96e1e95d65712",
+    "empty_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "replay": {
+    "canonical_json": "sort_keys=true,separators=(',',':')",
+    "records": [
+      {
+        "arm": "L",
+        "ce": 1.0,
+        "doc_id": "doc_a",
+        "donor_id": null,
+        "endpoint": "copy",
+        "memory_kind": "control",
+        "seed": 20261108,
+        "variant": "M_POS_MEAN"
+      },
+      {
+        "arm": "L",
+        "ce": 2.0,
+        "doc_id": "doc_a",
+        "donor_id": null,
+        "endpoint": "copy",
+        "memory_kind": "real",
+        "seed": 20261108,
+        "variant": "M_POS_MEAN"
+      },
+      {
+        "arm": "L",
+        "ce": 3.5,
+        "doc_id": "doc_b",
+        "donor_id": 0,
+        "endpoint": "full",
+        "memory_kind": "real",
+        "seed": 20261108,
+        "variant": "M_POS_MEAN"
+      }
+    ],
+    "expected_sha256": "c43ea35c46c51a0e82cebe5764a989d1b67012b2690246a0f89a94dff7851667"
+  }
+}
