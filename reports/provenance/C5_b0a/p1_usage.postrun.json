@@ -1,5 +1,12 @@
 {
-  "status": "not_run",
-  "checked_artifacts": [],
-  "note": "Postrun inventory placeholder. Frozen p1_usage.json must not be modified."
+  "manifest_version": 1,
+  "p1_used": false,
+  "test_split_read": false,
+  "phase": "registered_3seed",
+  "units": 12,
+  "checked_artifacts": [
+    "reports/provenance/C5_b0a/registered/registered_report.json",
+    "reports/provenance/C5_b0a/registered/registered_m_records.json"
+  ],
+  "note": "Attestation, not proof of non-access."
 }

@@ -514,6 +514,48 @@ def train_one_update(
     return {"doc_id": rid, "loss": float(loss.detach()), "updates": 1}
 
 
+
+def train_registered(
+    built: dict[str, Any],
+    rows: dict[str, dict],
+    cache: dict[str, dict],
+    native: dict[str, torch.Tensor],
+    ids: list[str],
+    updates: int = 100,
+) -> dict[str, Any]:
+    """Frozen registered training loop: 100 updates, batch 1, order step % 20."""
+    if updates != 100:
+        raise ValueError("registered training requires exactly 100 updates")
+    opt = optimizer_for(built)
+    set_arm_training(built, True)
+    losses: list[float] = []
+    for step in range(updates):
+        rid = ids[step % len(ids)]
+        memory = memory_for(built, rid, cache, native)
+        labels = make_labels(built["tok"], rows[rid]["summary"], 256)
+        opt.zero_grad(set_to_none=True)
+        loss = train_forward_loss(built["model"], memory, labels)
+        if not torch.isfinite(loss):
+            raise RuntimeError(f"{built['arm']}: non-finite loss at step {step}")
+        loss.backward()
+        params = [p for p in built["model"].parameters() if p.requires_grad]
+        if built["adapter"] is not None:
+            params += [p for p in built["adapter"].parameters() if p.requires_grad]
+        torch.nn.utils.clip_grad_norm_(params, 1.0)
+        opt.step()
+        losses.append(float(loss.detach()))
+    set_arm_training(built, False)
+    return {
+        "updates": updates,
+        "loss_first": losses[0],
+        "loss_last": losses[-1],
+        "loss_mean": float(np.mean(losses)),
+        "loss_min": float(np.min(losses)),
+        "loss_max": float(np.max(losses)),
+        "all_finite": bool(np.all(np.isfinite(losses))),
+    }
+
+
 def build_controls(
     built: dict[str, Any],
     ids: list[str],

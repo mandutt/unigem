@@ -1,0 +1,364 @@
+{
+  "version": 1,
+  "experiment": "C5 Phase 6 P/M",
+  "status": "registered_built",
+  "seeds": [
+    20261108,
+    20261109,
+    20261110
+  ],
+  "arms": {
+    "F/20261108": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\F\\20261108",
+      "M_POS_MEAN_shape": [
+        753,
+        512
+      ],
+      "M_NORM_count": 15,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "21bc8f6911eb0c2fa18d1296dcf03e762641d0463ca59c64c978bc5540c16fcd"
+    },
+    "L/20261108": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\L\\20261108",
+      "M_POS_MEAN_shape": [
+        753,
+        512
+      ],
+      "M_NORM_count": 15,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "3271755c0c857d33174f045ddc7d22e652a669eade120efcf9fabd4f0f49db73"
+    },
+    "P/20261108": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\P\\20261108",
+      "M_POS_MEAN_shape": [
+        512,
+        512
+      ],
+      "M_NORM_count": 20,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-05163-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-03508-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-03575-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01281-00002",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "75d0582b0552249ef429c8a24e2203b8f2a3ee32f3d3a40752dc411b0adf2ea3"
+    },
+    "PA/20261108": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\PA\\20261108",
+      "M_POS_MEAN_shape": [
+        512,
+        512
+      ],
+      "M_NORM_count": 20,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-05163-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-03508-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-03575-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01281-00002",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "2b2c3528d11e3164b92b8248f5f9a9d4589f593a30e6226134b97834bd2d3539"
+    },
+    "F/20261109": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\F\\20261109",
+      "M_POS_MEAN_shape": [
+        753,
+        512
+      ],
+      "M_NORM_count": 15,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "5abef41523706158d7f7c31aba52317ee86fc884a908888f5711f4ab4ebe4dce"
+    },
+    "L/20261109": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\L\\20261109",
+      "M_POS_MEAN_shape": [
+        753,
+        512
+      ],
+      "M_NORM_count": 15,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "8f5760355dac86d06f02e123ad2f1027fe7406894a9443a6a890d7963256eb3d"
+    },
+    "P/20261109": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\P\\20261109",
+      "M_POS_MEAN_shape": [
+        512,
+        512
+      ],
+      "M_NORM_count": 20,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-05163-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-03508-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-03575-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01281-00002",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "75d0582b0552249ef429c8a24e2203b8f2a3ee32f3d3a40752dc411b0adf2ea3"
+    },
+    "PA/20261109": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\PA\\20261109",
+      "M_POS_MEAN_shape": [
+        512,
+        512
+      ],
+      "M_NORM_count": 20,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-05163-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-03508-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-03575-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01281-00002",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "06cc984b263d85f71d7bc02dccc0b2cbce148ffa6766122422e99617a692b3f6"
+    },
+    "F/20261110": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\F\\20261110",
+      "M_POS_MEAN_shape": [
+        753,
+        512
+      ],
+      "M_NORM_count": 15,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "9c595285238e78051fe065954e2b2b97ae0c711350839ea1b4f431d45956e1bf"
+    },
+    "L/20261110": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\L\\20261110",
+      "M_POS_MEAN_shape": [
+        753,
+        512
+      ],
+      "M_NORM_count": 15,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "ff7a95e796e16d35d1236f4beceabcc3c780c29abd63f25c378e31ca736619e4"
+    },
+    "P/20261110": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\P\\20261110",
+      "M_POS_MEAN_shape": [
+        512,
+        512
+      ],
+      "M_NORM_count": 20,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-05163-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-03508-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-03575-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01281-00002",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "75d0582b0552249ef429c8a24e2203b8f2a3ee32f3d3a40752dc411b0adf2ea3"
+    },
+    "PA/20261110": {
+      "path": "reports\\provenance\\C5_b0a\\control_manifest\\PA\\20261110",
+      "M_POS_MEAN_shape": [
+        512,
+        512
+      ],
+      "M_NORM_count": 20,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-05163-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-03508-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-03575-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01281-00002",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "2ed52068f13ea72b8eb254e26f0241645b7aee6551de5d4088754fc1e557eabf"
+    }
+  },
+  "test_split_used": false,
+  "p1_used": false,
+  "labels_computed": false,
+  "not_a_result": false
+}

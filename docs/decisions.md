@@ -215,6 +215,8 @@
 
 | D-156 | 2026-11-09 | **Phase 6 D1 one-update debug 완료 (4 arms, debug seed 20261111)**: 4 arms 병렬(3 threads each), 1 update/arm, step0/final eval 20 docs×5 donors, M **560**(F/L 120, P/PA 160), phase7 **2,400**(600/arm), generation 80, checkpoints 4, control manifest 4. wall **1,180.6s / 1,200s cap** (`cap_ok:true`). 1차 P/PA inference-tensor 실패 후 `native_cache_for`를 `no_grad`로 수정, 2차 완료. `labels_computed:false`, `not_a_result:true`, test 163/P1 미사용. **registered 3-seed/B0-B/B1/B2/Stage C 미승인.** | reports/C5_B0A_PM_PHASE6_D1_2026-11-09.md; reports/provenance/C5_b0a/d1/d1_report.json; reports/provenance/C5_b0a/d1/m_records.json; reports/provenance/C5_b0a/phase7_records/{F,L,P,PA}/20261111.json; reports/provenance/C5_b0a/control_manifest/control_manifest.json |
 
+| D-157 | 2026-11-09 | **Phase 6 registered 3-seed 완료 (12 units)**: seeds 20261108/09/10, 4 arms ×100 updates =1,200 updates. 3 wave(4 arms each, 2 threads) wall **4,939.9s / 7,200s (82.3/120 min)**, `cap_ok:true`. M **1,680**, phase7 **7,200**, generation 240, checkpoints 12. **M_PASS_POS/NORM all arms true, m_pass_l true**. F/L final donor-crop signal Δ는 0 근처. **decision/signal labels 미계산**, `labels_computed:false`. B0-B/B1/B2/Stage C 미승인. | reports/C5_B0A_PM_PHASE6_REGISTERED_2026-11-09.md; reports/provenance/C5_b0a/registered/registered_report.json; reports/provenance/C5_b0a/registered/registered_m_records.json; reports/provenance/C5_b0a/final_checkpoint_hash.json |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
