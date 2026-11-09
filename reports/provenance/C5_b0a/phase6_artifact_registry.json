@@ -1,12 +1,16 @@
 {
-  "version": 1,
+  "version": 2,
   "phase": "C5 Phase 6 P/M",
+  "base": "reports/provenance/C5_b0a/",
   "expected": [
     "checkpoints/{arm}/{seed}.pt",
     "final_checkpoint_hash.json",
     "control_manifest/control_manifest.json",
+    "control_manifest/{arm}/{seed}/M_POS_MEAN.npz",
+    "control_manifest/{arm}/{seed}/M_NORM/{target_id}.npz",
+    "phase7_records/{arm}/{seed}.json",
     "p1_usage.json",
     "p1_usage.postrun.json"
   ],
-  "note": "Base registry only; run artifacts are added under reports/provenance/C5_b0a/."
+  "note": "All paths are under base; phase-7 records are diagnostic only."
 }
