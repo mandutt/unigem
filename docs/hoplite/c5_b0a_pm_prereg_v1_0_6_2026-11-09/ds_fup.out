@@ -1,0 +1,43 @@
+[hoplite] thread=thr_cab6458244d343b6809540456a065474 (followup, run=run_4c9624c254e8)
+Sync: `git fetch origin` → `git pull --ff-only origin main` → **Already up to date**. HEAD = `e619885` (v1.0.6 repair `db68565` is its ancestor; HEAD only adds the review-request doc). Review written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_6_2026-11-09/review_DS1017.md`. No training/eval, no test 163, no P1, no subagents.
+
+**Independent recomputation (all match):** state `43ecb58e…`, empty `e3b0c442…`, replay_base `c43ea35c…`, key_coverage `8277a713…`, control `6b50c226…`, preflight `3ee3f1ca…`. P0 train +3.7617 [1.8917, 5.6050], val +5.2375 [2.5013, 8.0753].
+
+| Q | Verdict | Core evidence |
+|---|---|---|
+| Q1 | conditional | 7/8 closed; freeze handoff **partial** (§16.2 still v1.0.5) |
+| Q2 | conditional | self-contained except §16.2 path + §11.5 T_proj ambiguity |
+| Q3 | agree | array digest, 8-field record, donor_sort, 5 goldens all reproduce |
+| Q4 | agree | equal-dim assert, baseline_ce/delta replay, 600/arm-seed, diagnostic split |
+| Q5 | agree | §13.5 preserves `registered_seeds_positive`; P0 doc-count separated; RNG reproducible |
+| Q6 | agree | M_NORM-before-M_POS_MEAN; `[1,1]` synthetic; real `[K_M,512]` postrun-only |
+| Q7 | **disagree** | §16.2 manifest path/`plan_path` = v1.0.5; `freeze_commit` undefined |
+| Q8 | agree | glob expansion, self-list, frozen/postrun split, contradiction fail-closed |
+| Q9 | conditional | D0/D1/560/600/cap consistent; T_proj input triple-count risk |
+| Q10 | disagree | 1 new material defect + 3 ambiguities; digest/phase-7/control clean |
+| Q11 | conditional | freeze after text-only MF-1..4; 7 required tests listed |
+| Q12 | agree | B0-B predicate restated; D1/3-seed/B0-B separate approvals |
+| Q13 | **NARROW** | 7 closed, freeze handoff partial, no scientific change needed |
+
+**Must-fix (ranked)**
+1. **MF-1 (blocking, text-only)** — §16.2 freeze manifest path and `plan_path` still point at v1.0.5; must be v1.0.6 to match the template.
+2. **MF-2 (high)** — §11.5 `t_primary_replay_arm` mixes “arm-seed 120/160” with “360/480 per arm across 3 seeds”; risks triple counting under the outer ×3.
+3. **MF-3 (medium)** — §11.4 step 5 “verify key-coverage golden” can be misread as the 600-record phase-7 domain; clarify 4-record fixture + numeric-only.
+4. **MF-4 (medium)** — define `freeze_commit` (final plan commit vs manifest commit).
+5. **MF-5 (low, test-only)** — legacy `bootstrap_paired` (seed 20261108, `seeds_positive`) remains in the frozen helper; assert the new stats module does not import it.
+
+```text
+최종 판정: NARROW
+v1.0.6 freeze: MF-1~MF-4 text-only 수정 후 승인 (as-is 불가)
+구현+unit tests: freeze 후 승인 (Q11 필수 test 포함)
+D0: 구현+unit tests 통과 후 승인 (≤4 configs, ≤15 min, seed 20261111)
+D1: 미승인 (별도 승인)
+3-seed: 미승인 (D1 이후 별도)
+금지 범위: test 163, P1, T5Gemma2(D-108 STOP), Phase 6/B0-B/B1/B2/Stage C, post-result threshold/seed/donor/step/LR 변경
+최대 compute: D0 ≤15 min; D1 ≤20 min; registered prospective 1,204 updates / 155 min (grant 아님)
+Must-fix (ranked): MF-1 §16.2 v1.0.5 경로; MF-2 T_proj 입력; MF-3 key-coverage 문구; MF-4 freeze_commit; MF-5 legacy bootstrap assert
+v1.0.6 self-contained: conditional (MF-1/MF-2 해소 후)
+잘못된 전제: “freeze handoff가 완전히 닫혔다”는 요청서 §2.6 진술은 §16.2 경로 때문에 과장이다.
+```
+
+No Phase 6/B0-B approval is implied; T5Gemma2 remains D-108 STOP.

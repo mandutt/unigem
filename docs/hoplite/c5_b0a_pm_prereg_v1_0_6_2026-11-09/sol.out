@@ -1,0 +1,48 @@
+## Verdict: **NARROW**
+
+Synchronization succeeded: `git fetch origin`, then `git pull --ff-only origin main` reported **Already up to date**.
+
+**Reviewed HEAD:** `e619885ce34c9f498008b00fd6d0a52e40c7316d`, matching `origin/main`.
+
+Full verdicts, evidence and next steps are recorded in [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_6_2026-11-09/review_SOL.md), the only file written.
+
+### Q1–Q13
+
+| Q | Verdict | Evidence / next step |
+|---|---|---|
+| **Q1 — Eight residuals** | Conditional | **Six closed, two partial:** phase-7 prefix bounding and freeze handoff. Correct both before freeze. |
+| **Q2 — Self-containedness** | Disagree as-is | Prefix scope remains ambiguous; freeze paths contradict the template. Resolve these and pin declared helpers. |
+| **Q3 — Hash contract** | Agree | All five golden digests independently reproduce. Array-envelope hashes match; per-record concatenation does not. Preserve constants and implement negative tests. |
+| **Q4 — Phase 7** | Conditional | The equal-dimension assertion detects mismatches but does not prevent them. Explicitly bound prefixes by `K_M`; test long/short donors and diagnostic replay. |
+| **Q5 — Seeds/statistics** | Agree | Required `registered_seeds_positive` is preserved; document counts are distinguished. PCG64/fresh RNG/linear percentiles are specified. Test missing-seed NA and deterministic aggregation. |
+| **Q6 — Control golden** | Agree | JSON order is `M_NORM` before `M_POS_MEAN`; `6b50…` reproduces. Synthetic `[1,1]` framing remains separate from real postrun tensors. |
+| **Q7 — Freeze chain** | Conditional | Handoff order is noncircular, but normative paths still name **v1.0.5**. Align them with v1.0.6 before creating the actual manifest. |
+| **Q8 — P1/postrun** | Conditional | Contract specifies expansion, self-listing and contradiction handling. Current `not_run` placeholder proves no completed coverage. Test expected-domain completeness and missing artifacts. |
+| **Q9 — D0/D1/caps** | Agree on accounting | 560 debug primary records; 1,680 registered; 600 diagnostic **per arm-seed**. Mechanics fixes and separate approvals remain prerequisites. |
+| **Q10 — Must-fix** | Disagree that all are closed | Two blockers remain, ranked below. Limit corrections to normative mechanics/schema. |
+| **Q11 — Freeze/implementation/D0** | Conditional; withheld as-is | Correct and re-review the blockers, freeze properly, then obtain authorization for implementation/tests and D0. |
+| **Q12 — Downstream boundaries** | Agree; execution deferred | B0-B requires VALID, M_CONTROL_PASS, EXPLORATORY_L_SIGNAL, `m_valid=true`, exactly 15 signal docs, `tail_driven=false`, complete artifacts and separate preregistration/approval. |
+| **Q13 — Final scope** | **NARROW** | Text/schema corrections and re-review only. No execution approval. |
+
+### Must-fix — ranked
+
+1. **Bound phase-7 prefixes explicitly — §9.6.1, lines 1087–1091.**  
+   Written `K_d=min(real_length, donor_length)` can exceed the controls’ 753 rows. Using frozen metadata and the prescribed donor rule, **64 of 75 F/L pairs** exceed 753. For example, target length 777 and donor length 771 yield `K_d=771`, so the new assertion fails against 753-row controls.
+
+   Define both prefixes with `[:K_M]`, or explicitly include `K_M` in the minimum. Preserve all diagnostic keys and the no-renormalization rule.
+
+2. **Correct stale freeze paths — §16.2, lines 1651 and 1658.**  
+   The normative manifest filename and `plan_path` still reference **v1.0.5**, while the template correctly references v1.0.6. Align them before the final-plan-commit → manifest → D0 hash handoff.
+
+### Scope and verification
+
+- **Freeze, implementation and D0:** withheld as-is.
+- **D1 and three-seed run:** not approved.
+- **Phase 6/B0-B/B1/B2/Stage C:** not approved.
+- **Current experimental compute authorized:** zero updates/model forwards.
+- Future caps remain conditional: D0 ≤15 minutes; D1 ≤20 minutes/4 updates; registered ≤120 minutes/1,200 updates with `T_proj≤96`. Combined **1,204 updates/155 minutes is not a grant**.
+- No training, evaluation, generation or model-forward tests ran. Golden hashes and metadata arithmetic were checked read-only.
+- **Test 163 remains sealed; no P1 use; T5Gemma2 D-108 STOP unchanged.**
+- No post-result threshold, seed, donor, step or LR changes proposed.
+
+**Final: NARROW — not freeze-ready as written.**
