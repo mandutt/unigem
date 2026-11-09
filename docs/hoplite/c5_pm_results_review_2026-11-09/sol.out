@@ -1,0 +1,5 @@
+Report written to [review_SOL.md](docs/hoplite/c5_pm_results_review_2026-11-09/review_SOL.md), covering Q1–Q6 and the final decision block.
+
+Reviewed HEAD: `d809e0002d0653e3c4207c58a38bb8af0b641467`.
+
+Only the authorized report was added. No training or evaluation was run; test 163 and P1 were not opened.

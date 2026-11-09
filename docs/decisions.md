@@ -221,6 +221,8 @@
 
 | D-159 | 2026-11-09 | **Phase 6 signal collapse 원인 분석 완료 — adapter bottleneck**: LoRA 효과 기각(F vs L paired -0.0026, 8/15), adapter 효과 결정적(P no-adapter 3.076 vs PA adapter 0.011, paired +3.065, 14/15). F/L adapter가 EG2 between-doc variance를 4.883→0.085로 98%+ 압축. M은 control-real 0.365~6.118로 통과하지만 wrong-real은 F/L/PA ~0; **M_PASS ≠ donor specificity**. tail top3 제거 후에도 L mean -0.0279로 broad negative. **다음은 새 prereg의 F0(EG2 raw + decoder LoRA, no adapter) 필요.** | reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md; reports/provenance/C5_b0a/labels/cause_analysis.json; reports/provenance/C5_b0a/labels/cause_centered.json |
 
+| D-160 | 2026-11-09 | **C5 Phase 6 results/cause 3-AI review — 3/3 NARROW**: 새 독립 스레드 GLM/DS1017/Sol. 3/3 B0-B candidate false 동의, Phase 6 negative 종료 동의. Must-fix: **registered/label/replay/gate 실행 code 미커밋(재생성 불가)**, labels/registry 상태 불일치, “adapter bottleneck” EG2 일반화 과대, F0 vs F가 adapter+LoRA 동시 차이(confound), M≠donor specificity, access/audit chain. F0/H3는 새 prereg + 별도 승인, 즉시 실행 금지. | reports/C5_PM_PHASE6_RESULTS_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_pm_results_review_2026-11-09/review_{GLM,DS1017,SOL}.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |

@@ -1,0 +1,16 @@
+Review complete. Report written to `docs/hoplite/c5_pm_results_review_2026-11-09/review_DS1017.md` (the only file changed; untracked, nothing committed).
+
+**Sync / provenance**
+- `git fetch origin` → `git pull --ff-only origin main` = **Already up to date**
+- **reviewed HEAD: `d809e0002d0653e3c4207c58a38bb8af0b641467`** (data HEAD `8118204`; current HEAD only adds the review request)
+- Freeze verified: plan SHA `327a3e34…` matches at `6fad89e` and at HEAD; manifest SHA `f5d9ac8a…` matches at `05b7abe`; plan unchanged since freeze; all 7 registry hashes match.
+
+**Verdicts**
+- **Q1 agree** — labels/gate match frozen v1.0.11. I independently reproduced L means (`-0.1135`), tail (`0.477464 / 0.803495 / -0.027881`, `tail_driven=true`), dispatch (`MEAN_CONTRAST_ONLY`), `M_CONTROL_PASS`, and `b0_b_candidate_gate=false`. Caveat: `tail_driven=true` is mechanically forced by the negative mean, and the 15-doc cohort is length-selected (20-doc L mean is only `-0.0222`).
+- **Q2 conditional** — P vs PA (`3.076` vs `0.011`, 14/15) genuinely supports adapter-induced donor-specificity loss **on the native path**, but it also differs in +526k params and 10× adapter LR. The EG2 generalization is invalid: `cause_centered.json` shows centered cosine/CV/eff_rank nearly identical across representations, so the “98% variance collapse” is a norm/shared-mean artifact; raw EG2 already has mean cosine `0.998`.
+- **Q3 disagree** — the proposed `F0/F/P/PA` set cannot isolate the adapter: F0 vs F changes adapter **and** LoRA. The clean pair is **F0 vs L** (EG2 raw, both with LoRA). Missing fixed-projection, residual-adapter, zero/permuted-null, and donor-discrimination controls.
+- **Q4 agree (stronger)** — `M_PASS` is calibration against a global mean and is compatible with input-insensitive memory (F/L/PA have `wrong−real ≈ 0`). Do not use M as content-use evidence; do not retune/reinterpret it post hoc to rescue B0-B.
+- **Q5 NARROW** — close Phase 6 as a negative B0-B result; new prereg required; run a narrow 1-seed diagnostic (F0/L + controls) before any 3-seed commitment.
+- **Q6 conditional** — artifacts/hashes/counts are solid, but there is **no committed driver** for the registered run (`main()` rejects `--mode registered`) or for labels/replay/gate, and `registered_report.json` still says `labels_computed:false`. Replay proves eval determinism only, not training reproducibility.
+
+**Final: NARROW.** Required phrase `adapter bottleneck` and the reviewed SHA are both present in the report.
