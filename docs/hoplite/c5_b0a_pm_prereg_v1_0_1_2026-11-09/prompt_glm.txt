@@ -1,0 +1,57 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: the current origin/main HEAD. First sync/pull to that HEAD, then work read-only.
+
+This is a NEW, intentionally separate, independent review round using a DIFFERENT model (GLM 5.3 Flash, reasoning max). It reviews the v1.0.1 consolidated repair. Do not treat it as a duplicate of the earlier v1.0 thread. Do not reuse another model's answer; we are collecting independent opinions.
+
+You must read the full review request yourself:
+reports/EXTERNAL_REVIEW_C5_B0A_PM_PREREG_V1_0_1_2026-11-09.md
+
+Then read:
+docs/plan_c5_b0a_pm_prereg_v1_0_1.md
+docs/hoplite/c5_b0a_pm_prereg_v1_0_2026-11-09/golden_vectors.json
+reports/C5_B0A_PM_PREREG_V1_0_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/provenance/C5_b0a/m_cohort_preflight.json
+reports/C5_B0A_P0_NATIVE_SANITY_2026-11-09.md
+runner/c5_mt5_lora_b0.py
+eval/tests/test_c5_b0_metric.py
+
+Scope and constraints:
+- Do not run training or evaluation.
+- Do not open test 163; it is sealed.
+- Do not use P1 data or external APIs.
+- Do not modify repository files. Your only permitted write is the report file named below.
+- Do not call subagents or additional LLM models; complete the review yourself.
+- T5Gemma2 remains closed by D-108 STOP.
+- Phase 6/B0-B/B1/B2/Stage C are not approved by this round.
+
+Key facts:
+- v1.0 was 3/3 NARROW.
+- v1.0.1 adopts mixed M domain: F/L 15 common + P/PA 20 native = 1,680 records; D1 phase 5 = 560; phase 7 = 600/arm-seed diagnostic.
+- v1.0.1 adds measurement semantics, donor rule, wrong-donor definition, path flags, P/PA bindings, replay procedure, M control digest, training-vs-eval wording, 3^6 axis.
+- P0: train mean delta_copy +3.7617, CI [1.8917, 5.6050]; val +5.2375, CI [2.5013, 8.0753]. Val median 2.9739; signed top3 .4862, absolute .43355; untrained CE 12.7/13.2 > ln|V| 12.43.
+- No trained P/PA/M result has been seen.
+- Repair phases 1-4 and P0 are implemented; 54 tests pass historically.
+
+Core focus:
+1. Is v1.0.1 genuinely self-contained and total?
+2. Do mixed 1,680, D1 560, replay 1,680, measurement semantics, donor rule, path flags close v1.0 Must-fix?
+3. Are D0/D1/3-seed/B0-B boundaries adequate?
+4. What Must-fix remains before freeze and implementation?
+5. Should v1.0.1 be STOP/NARROW/CONTINUE?
+
+Answer every Q1-Q13 in section 4 of the review request. For each:
+- verdict: agree / disagree / conditional / defer
+- evidence tied to this document or artifacts
+- one to three next steps
+
+Deliverable:
+1. Write your full report to this repository-relative file (mandatory):
+   docs/hoplite/c5_b0a_pm_prereg_v1_0_1_2026-11-09/review_GLM.md
+   Start by identifying yourself as the GLM 5.3 Flash max reviewer.
+2. In your final message, include a compact Q1-Q13 table plus Must-fix and final STOP / NARROW / CONTINUE verdict.
+
+Do not claim approval of Phase 6 or B0-B. Do not propose P1 or test 163 use. Do not reopen T5Gemma2. Do not propose threshold changes after results.
+
+This is consultation only. Your only permitted write is the single report file named above.
