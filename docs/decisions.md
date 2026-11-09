@@ -225,6 +225,8 @@
 
 | D-161 | 2026-11-09 | **Review MF-1/MF-2 보완 완료**: `runner/c5_pm_phase6.py`에 `run_registered_unit` + `--mode registered` 공개, `c5_pm_registered.py`/`c5_pm_replay.py`/`c5_pm_gate.py`/`c5_pm_aggregate.py` 커밋(543c267). `registered_report` labels_computed=true/decision_labels_computed=true + labels artifact/audit 경로, `labels_audit.json`(code commit/commands/input·output SHA) 커밋(14067a9), registry v8(35e3d43). 추가 학습/평가 없음. B0-B candidate false 불변; F0/H3 새 prereg 필요. | runner/c5_pm_registered.py; runner/c5_pm_replay.py; runner/c5_pm_gate.py; runner/c5_pm_aggregate.py; reports/provenance/C5_b0a/labels/labels_audit.json; reports/provenance/C5_b0a/phase6_artifact_registry.json |
 
+| D-162 | 2026-11-09 | **MF-3 문구 축소 + F0 prereg 초안 작성**: cause 결론을 “native 경로의 adapter-associated donor-specific signal loss”로 한정; EG2 전체 일반화·구조적 bottleneck·variance 인과 철회. F0 초안: adapter×LoRA 2×2(E00/E10/E01/E11), LoRA 고정 E01 vs E11 primary, Stage D 1-seed 300 updates ≤45min → Stage R 3-seed 900 updates ≤150min, H3 LN/projection/residual 분리. **미승인·미실행.** | reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md; docs/plan_c5_f0_2026-11-09.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |

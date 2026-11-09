@@ -5,7 +5,7 @@
 - 추가 학습: **없음**
 - test 163: **sealed**
 - P1: **unused**
-- 결론: **adapter bottleneck**. LoRA나 EG2 layer 단독 문제가 아닙니다.
+- 결론: **native 경로에서 adapter 부착과 연관된 donor-specific signal 소실**. EG2 전체 일반화와 구조적 bottleneck 인과는 미확립.
 
 ## 1. 관찰
 
@@ -87,9 +87,9 @@
 | M endpoint 실패 | **기각** | M_PASS all arms true |
 | tail-only outlier | **기각** | top3 제거 후에도 mean -0.0279 |
 
-## 4. 메커니즘
+## 4. 메커니즘 — 가설적 설명 (인과 확정 아님)
 
-가장 일관된 설명:
+가장 일관된 **가설**:
 
 1. **Adapter training on 20 train docs**가 decoder에 대해 “global mean보다 나은” generic shift를 학습합니다.
 2. 이 shift는 **real vs global mean**에서는 충분히 커서 M_PASS를 만듭니다.
@@ -100,11 +100,14 @@
 
 ## 5. 결론
 
-- **주원인: adapter bottleneck / generic shift.**
-- LoRA는 주원인이 아닙니다.
-- EG2 layer19 자체도 단독 원인이 아닙니다. native + adapter(PA)에서도 signal이 사라집니다.
+- **P/PA native 경로에서는 adapter 부착 시 donor-specific signal이 소실된다.**
+- LoRA는 이 실험의 주원인이 아닙니다.
+- EG2/F-L로의 일반화는 **미확립**입니다. F/L vs P/PA는 memory source도 다릅니다.
+- “bottleneck”은 구조적 진단명이 아니라 **관찰된 adapter-associated signal loss**로 한정합니다.
+- Adapter는 512→512이며 width bottleneck이 아닙니다. LayerNorm/input-insensitive mapping, optimization interference, decoder off-manifold 중 어느 것인지 미분리.
+- variance contraction은 원인 증거가 아닐 수 있습니다. centered cosine/CV/eff_rank는 거의 동일하고 raw EG2도 이미 mean cosine 0.998입니다.
 - M gate는 donor specificity를 측정하지 않으므로 **M_PASS ≠ content-use signal**입니다.
-- B0-B candidate gate false는 **측정 오류가 아니라 실제 signal 부재**로 해석됩니다.
+- B0-B candidate gate false는 **측정 오류가 아니라 signal 부재**로 해석됩니다.
 
 ## 6. 다음 실험 제안 — 새 prereg 필요
 
@@ -155,3 +158,12 @@ T5Gemma2 = D-108 STOP
 
 - 이 분석은 **원인 진단**이며 새 실험 승인이 아닙니다.
 - H1/H2/H3는 **새 prereg + 별도 승인**이 필요합니다.
+
+## 9. MF-3 correction (post-review)
+
+- 3-AI review (GLM/DS1017/Sol) 판정: “adapter bottleneck”은 **P/PA native 경로의 관찰**로는 지지되지만, EG2/F-L 전체 일반화·구조적 bottleneck·variance 인과는 미확립.
+- DS 지적: Adapter는 512→512로 width bottleneck이 아니며, LayerNorm/input-insensitive mapping/optimization interference/decoder off-manifold가 분리되지 않았다.
+- Sol 지적: mean-vector variance contraction은 information destruction의 증거가 아니다.
+- 따라서 이 보고서의 결론을 **adapter-associated donor-specific signal loss (native path)**로 한정한다.
+- 수치(L signal, tail, P/PA contrast, M table)는 변경하지 않는다.
+- 후속 F0 prereg에서 adapter × LoRA 2×2, projection/residual/null control로 원인을 분리한다.
