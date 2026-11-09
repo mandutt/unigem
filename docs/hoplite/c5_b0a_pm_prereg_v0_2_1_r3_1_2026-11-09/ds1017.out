@@ -1,0 +1,36 @@
+Review complete. Workspace synced with `git fetch origin` + `git pull --ff-only origin main` → already up to date at **HEAD `c4ed30a`** (request header cites `7264c55`; two docs commits later). Preflight hash recomputed and matches `3ee3f1ca…69837af`. Report written to `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_1_2026-11-09/review_DS1017.md` — the only file changed (untracked).
+
+I am **DeepSeek V4.1 Flash 1017** (Hoplite model `deepseek-v4.1-flash-1017`), high reasoning; independent round, no other model's answer reused, no subagents, no training/eval, test 163 not opened, P1 unused.
+
+## Q1–Q12 verdicts
+
+| Q | Topic | Verdict | Core evidence |
+|---|---|---|---|
+| Q1 | Total factored contract | conditional | ANDn total, 2/4/5 arities fixed; but §4.3 collapses `p_valid/pa_valid` NA into `M_NOT_EVALUABLE`, and the p_step-vs-P/PA precedence tier is unstated/uncovered by F1–F8 |
+| Q2 | L preservation | agree | §5.2 splits INVALID vs NOT_ASSESSABLE; §5.4 keeps raw flags + reason. Caveat: `MEAN_CONTRAST_ONLY` emitted when `l_signal=false` (inherited r3) |
+| Q3 | M preflight/cohort | conditional | `753/16/15`, common 15, `zero_margin=true`, full-K 11/20 secondary — legitimate; must load the 15 IDs from the artifact, not recompute; r3.1 drops r3's P/PA-20-secondary sentence |
+| Q4 | M builder/endpoint/replay | conditional | builder_ok + 15×3×4×variants + prelaunch/post-run split are real fixes; hash canonicalization undefined; `M_NORM` formula removed |
+| Q5 | PA | conditional | acquisition naming, `PA_STEP100_NOT_VALID`, `PA_RETENTION` non-gate correct; PA adapter init seed and scale/geometry caveat are placeholders |
+| Q6 | Cap/D0/D1 | conditional | 1200/1204 updates and 155 min arithmetic correct; **T_proj omits generation (20×256) and the 20-train M build** |
+| Q7 | Statistics | **disagree** | seed 20261109 / documents_positive / seeds_positive / 2-of-3 executable, but §9.2 changes `L_FULL_SIGNAL` from `>0` (v0.2 §218, errata §314) to `>=.05` while §0 claims "no threshold change"; anti-conservative caveat dropped |
+| Q8 | Remaining Must-fix | disagree (residuals not all closed) | 9 declared residuals get concrete mechanisms, but 4 new/regressed freeze defects + weakened B0-B |
+| Q9 | Freeze + implementation + D0 | disagree now; conditional after r3.2 | Freezing would lock an undeclared gate change and undefined hash/control |
+| Q10 | D1 / 3-seed boundary | conditional | separation correct; checklist missing generation, hash, artifact-load, PA seed, stats/no-P0 tests |
+| Q11 | B0-B | conditional | boundary right, but "`tail_driven == false` (or explicitly reported)" weakens the gate |
+| Q12 | Final | **NARROW** | — |
+
+## Must-fix (ranked, for r3.2)
+
+1. **Restore `L_FULL_SIGNAL = mean delta_full > 0`** (or declare `.05` as a new preregistration) — §9.2 vs §0/§7.1/v0.2/errata. Undeclared gate change.
+2. **Add generation (20×256) and 20-train M build to D1 phases + `T_proj`** and re-derive `≤96 min`.
+3. **Restore the exact `M_NORM` formula** (errata §229 / r1 §313 / r2 §515 / r3 §527); state one-matrix vs per-target and which `real_prefix` norm `builder_ok` checks.
+4. **Define a canonical checkpoint/state/replay hash** + golden vector.
+5. **Make `tail_driven == false` hard**; drop "(or explicitly reported)".
+6. Preserve NA in `control_status` for `p_valid/pa_valid`.
+7. Add `p_step100_path_ok=NA + p_valid=false` fixture/tier statement.
+8. Restore P/PA full-20 secondary sentence and the anti-conservative bootstrap caveat.
+9. Fix PA adapter init seed and write the scale/geometry caveat.
+
+## Final verdict
+
+**NARROW.** r3.1 is **not frozen**; implementation + unit tests **not approved**; D0/D1/3-seed **not approved**; B0-B/B1/B2/Stage C **not approved**; max compute **0**; test 163 **sealed**; P1 **unused**; T5Gemma2 **D-108 STOP**. If Must-fix 1–5 land in a text-only r3.2, a later round can move to CONTINUE(conditional) for freeze + implementation + D0.

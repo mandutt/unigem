@@ -1,0 +1,36 @@
+Review complete. Report delivered to `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_1_2026-11-09/review_GLM.md` (the only write made; tree otherwise clean). Sync result: `git fetch origin` + `git pull --ff-only origin main` → "Already up to date", HEAD = `c4ed30a1f120b01905291602e3aec53f87c765fc`.
+
+**GLM 5.3 Flash (max) — independent r3.1 review summary**
+
+| Q | Topic | Verdict | Core evidence |
+|---|---|---|---|
+| Q1 | Total factored contract | **agree** | ANDn/ORn/NOT3 total + false-dominant; §3.2→3.4→§4.3→§5.3 all dispatches total, every branch reachable; F1–F8 reproduce exactly from dispatch order (traced). Nits: §1 map refs nonexistent "§6.4"; n<15 branch precedes validity (masks INVALID as small-N — fail-closed, undocumented); §3.4 known-vs-NA edges (F9/F10 missing) |
+| Q2 | L preservation | **agree** | INVALID vs NOT_ASSESSABLE label sets split (§5.2); small-N labels L-qualified; raw flags + signal_reason always preserved (§5.4) |
+| Q3 | M preflight/cohort | **agree** | Preflight IDs match splits.json exactly (train[:20], val[5:25] of 161); K-rule arithmetic reproduces (753→15/16, 754→14); zero-margin recorded; full-K 11/20 secondary justified; hash verified |
+| Q4 | M builder/endpoint/replay | **agree** | builder_ok→ANDn(5)→M_NOT_EVALUABLE (R-4 closed); §8.3 identity 15×3×4×variants+finite+copy≥5+no 15→14 (R-5); prelaunch debug hash ≠ post-run final hash (R-6 hash). Nits: tensor enumeration, named-cell full input vectors |
+| Q5 | PA | **agree** | Acquisition naming, PA_STEP100_NOT_VALID, ADAPTER_REGIME_LOSS banned, PA_RETENTION non-gating, scale/geometry caveat. Nit: r3's "PA step0 separate run" not restated; D1-phase-2 relation undefined |
+| Q6 | Cap/D0/D1 | **conditional** | Arithmetic verified: 12×100=1,200; D0 0-up/≤15min; D1 4×1/≤20min; T_proj=3×Σ(…) ≤96min; combined 1,204/155min "not a grant". **Gap: generation telemetry (v0.2 §5.2/D2) absent from the 5 timed phases → T_proj may undercount; t_M_build_15 vs "20 train/15 target" naming** |
+| Q7 | Statistics | **agree** | New stats module + seed 20261109 + documents_positive/seeds_positive split justified (runner's seed=20261108 + mislabel confirmed in code); 2-of-3 rule anchored in v0.2 §6.2. Nits: "paired L>F > 0" terse; bootstrap seed collides numerically with training seed #2 (role note) |
+| Q8 | Remaining Must-fix | **conditional** | All 9 r3 residuals closed (verified against text); 6 micro-residuals remain (below); no fatal new problem |
+| Q9 | Freeze/implementation | **conditional** | Approve freeze + implementation + unit tests + D0 **after** Must-fix 1–4 folded in (text-only); PM tests must be model-free (current test file skips without local model); DoD list §13 + F9/F10 + full fixture vectors |
+| Q10 | D1/3-seed boundary | **agree** | D1≤20min/no-labels/separate-approval; 3-seed gated on 18-item checklist; hash separation explicit. Add: "all 5 phases in all 4 runs" checkbox, hash-algorithm wording |
+| Q11 | B0-B boundary | **agree** | §14 predicate correctly restated incl. m_valid consistency check; M_CONTROL_PASS already implies it; EXPLORATORY_L_SIGNAL alone insufficient; separate prereg maintained |
+| Q12 | Final | **CONTINUE (conditional)** | See below |
+
+**Must-fix (ranked, all text-only, no threshold/seed/donor/step/LR changes):**
+1. Fix small-N-vs-validity precedence in signal dispatch as an explicit contract clause + fixture (n<15 ∧ validity INVALID) — deterministic and fail-closed, but the masking of hard validity failures (e.g., `test_split_used=true`) must be a written decision.
+2. D1 projection completeness: declare generation in/out of the registered eval (or add a timed phase); clarify `t_M_build` covers the 20-train encode — protects the 96-min gate.
+3. Add F9/F10 fixtures for §3.4 known-vs-NA edges.
+4. Correct hash wording: `3ee3f1ca…` is the content SHA-256 (verified ✓), not the "committed blob" (git blob OID = `b02af58…`).
+5. State the L signal-endpoint length rule (full cached h; 753 crop is M-only) so n_signal 16..20 reachability is grounded.
+6. Editorial: §6.4 ref, PA step0 restatement, L>F definition, builder_ok tensor enumeration, named-cell input vectors, 2 checklist additions.
+
+**Final verdict: CONTINUE (conditional)**
+- **r3.1 freeze:** conditional — fold Must-fix 1–5 (min 1–4) into the freeze commit first
+- **Implementation + unit tests:** conditional, after freeze (model-free contract tests)
+- **D0:** conditional, after freeze + green tests — 0 updates, ≤4 configs, ≤15 min, seed 20261111, `not_a_result:true`
+- **D1 / 3-seed:** **not approved** this round (separate approval / separate gate; D1 requires the generation-scope fix)
+- **Forbidden:** test 163 (sealed), P1 data, T5Gemma2 (D-108 STOP), B0-B/B1/B2/Stage C, P0 rerun, post-results threshold/seed changes
+- **Max compute:** registered cap unchanged — 12 units / 1,200 updates / 2 h / 6 threads / no GPU, plus D0 ≤15 min (0 updates); D1 only on separate approval (+4 updates / ≤20 min); combined 1,204 updates / 155 min is a ceiling notation, not a grant
+
+Wrong premises noted: the "committed blob" hash wording; the implied data-reachability of n_signal 16–20; "54 tests" are historical B0/A1-era tests, not PM contract tests; r3.1's "6/6 closure" refers to r2 must-fix groups, distinct from the 9 r3 residuals.

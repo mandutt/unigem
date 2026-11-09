@@ -1,0 +1,33 @@
+Wrote the full independent review to [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_1_2026-11-09/review_SOL.md).
+
+Sync succeeded. Reviewed HEAD: `c4ed30a1f120b01905291602e3aec53f87c765fc`.
+
+## Final verdict: **NARROW**
+
+The factored dispatch is substantially improved, but the complete contract is not yet consistent enough to freeze unchanged.
+
+| Question | Verdict | Summary |
+|---|---|---|
+| Q1 Total contract | conditional | Dispatch is total; mandatory fixtures conflict with it. |
+| Q2 L preservation | agree | Raw flags and validity-NA labels preserve distinctions. |
+| Q3 M cohort | agree | Verified hash, K=753, 16 contributors and exact 15 targets. |
+| Q4 Builder/endpoints/replay | conditional | Strong fail-closed design; coverage must be explicit. |
+| Q5 PA | agree | Acquisition naming and non-gating retention are appropriate. |
+| Q6 Compute/D0/D1 | conditional | Arithmetic is correct; workload accounting remains incomplete. |
+| Q7 Statistics | conditional | Good pooling/constants; threshold shorthand and NA cases remain. |
+| Q8 Residual closure | disagree | Not every residual is fully closed. |
+| Q9 Freeze/implementation | disagree | Do not freeze or implement unchanged r3.1. |
+| Q10 D1/three-seed | conditional | Separate gates are sound; require complete timing/replay evidence. |
+| Q11 B0-B boundary | agree | Separate preregistration and approval remain mandatory. |
+| Q12 Disposition | conditional | NARROW to pre-result text repairs. |
+
+### Must-fix, ranked
+
+1. **Expand `L_FULL_SIGNAL` explicitly.** “Same for full” appears to import copy’s `≥.05` threshold, whereas the inherited full threshold is `>0`.
+2. **Correct fixtures 16–17.** They conflate L signal with M pass; fixture 17 requires an impossible derived control state.
+3. **Complete D1 workload accounting.** Bind timers to donor multiplicity, M scoring/variants, replay, retained telemetry and overhead.
+4. **Define missing/undefined statistics.** Fix common endpoint membership across arms/seeds and explicit handling of null tail summaries.
+
+**Recommendation:** Must-fix-only text repair before freeze, implementation or D0. D1, three-seed execution, Phase 6 and B0-B/B1/B2/Stage C remain unapproved.
+
+Only the designated report was written. No training, evaluation or tests ran; test 163 remained unopened, P1 and external APIs were unused, and T5Gemma2 remains closed under D-108 STOP.
