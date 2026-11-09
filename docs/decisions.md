@@ -197,6 +197,8 @@
 
 | D-147 | 2026-11-09 | **Phase 6 v1.0.8 3-AI same-thread review — 2 CONTINUE / 1 NARROW, no freeze**: GLM 5.3 Flash max = CONTINUE, Sol 6.1 medium = CONTINUE, DeepSeek 1017 high = NARROW. 새 스레드/아카이브 없이 기존 v1.0.7 스레드 3개에 `fup` delta 전송(캐시 보존). 7개 잔여 중 GLM/Sol은 전부 closed, DS는 (1) §10.2 `bootstrap_paired` vs §17.3 `bootstrap_paired_v2` 심볼 충돌, (2) `freeze_manifest_sha256` 미정의, (3) evaluate_arm timing을 지적. **v1.0.9/ERRATA text-only 후 동결 가능. 구현/D0/D1/3-seed/B0-B 금지.** | reports/C5_B0A_PM_PREREG_V1_0_8_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_b0a_pm_prereg_v1_0_8_2026-11-09/review_{GLM,DS1017,SOL}.md |
 
+| D-148 | 2026-11-09 | **Phase 6 v1.0.9 repair 생성 (text-only)**: v1.0.8 2 CONTINUE/1 NARROW의 DS 잔여를 폐쇄. (1) stats symbol을 `c5_pm_stats.bootstrap_paired_v2`로 단일화; (2) `freeze_manifest_sha256 = SHA256(committed _FREEZE.json bytes)` 정의, `freeze_manifest_commit.txt` 커밋·D0에 그 SHA 기록; (3) `evaluate_arm` bootstrap 교체가 freeze 전임을 명시. **문서 1,765줄, 미승인. same-thread 재검토 예정.** | docs/plan_c5_b0a_pm_prereg_v1_0_9.md; docs/plan_c5_b0a_pm_prereg_v1_0_9_FREEZE.template.json; docs/hoplite/c5_b0a_pm_prereg_v1_0_9_2026-11-09/golden_vectors.json |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
