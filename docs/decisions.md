@@ -231,6 +231,8 @@
 
 | D-164 | 2026-11-09 | **F0 v0.2 3-AI review — 3/3 NARROW**: Stage D selection bias/track STOP는 닫혔으나 **E01/E11 LoRA 초기화가 RNG order 때문에 동일하지 않음**, mechanics-pass 술어 미정의, primary decision이 paired CI가 아닌 per-cell significance, D1 E00 optimizer 불가(D1 총 3 updates, E00 0), primary signal source 미지정, STOP protocol-valid gate 없음, D1 25min은 4-way parallel 전제. **F0 미승인·미실행**; v0.3 수정 필요. | reports/C5_F0_V0_2_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_f0_v0_2_review_2026-11-09/review_{GLM,DS1017,SOL}.md |
 
+| D-165 | 2026-11-09 | **F0 v0.3 수정(3-AI 검토 전 보고)**: v0.2 must-fix 반영. F0 전용 `build_arm`에서 adapter 후 **LoRA seed 항상 재설정**(`0x5EED10A5`) + E01/E11 LoRA·E10/E11 adapter init hash assert; Phase 6 builder 불변. D1 = E10/E01/E11 각 1 update(총 3), E00 0-update. D0/D1 mechanics predicate 10/10. Primary = final-checkpoint donor-crop paired `E01−E11` CI lower>0; phase7 diagnostic. `PROTOCOL_VALID` 없으면 `NOT_EVALUABLE`; route STOP gate. D1 25min parallel/55min sequential, R 900 updates ≤120min. **DRAFT v0.3, 미승인·미실행·3-AI 미발송.** | docs/plan_c5_f0_v0_3_2026-11-09.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
