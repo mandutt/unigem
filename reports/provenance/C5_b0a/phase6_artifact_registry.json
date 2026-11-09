@@ -1,8 +1,8 @@
 {
-  "version": 8,
+  "version": 9,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "audit_chain_complete",
+  "status": "mf3_closed_f0_draft",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -248,7 +248,7 @@
     },
     "cause_report": {
       "path": "reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md",
-      "sha256": "77c79bdc99fba80ae8652b0b97b5ba2a7013591ee9b6f841eef1591e286de141",
+      "sha256": "ba5c349a0c328c1578dce32264f1c961678ffa7c3ac93a212fbd1c3a1f2b393f",
       "status": "present",
       "conclusion": "adapter bottleneck"
     },
@@ -268,6 +268,11 @@
       "status": "present",
       "code_commit": "543c2673d10d256919374ef6e6e795d9fe6995df",
       "event": "labels_computed_false_to_true"
+    },
+    "f0_prereg_draft": {
+      "path": "docs/plan_c5_f0_2026-11-09.md",
+      "sha256": "52944cdf32d6a995476417aee41c1b59259a8eb24c73fa87e70337a949a0a4cd",
+      "status": "draft_not_approved"
     }
   },
   "gates": {
@@ -280,11 +285,12 @@
     "stage_c": "not_approved",
     "labels": "complete",
     "cause_analysis": "complete",
-    "labels_audit": "complete"
+    "labels_audit": "complete",
+    "f0": "draft_not_approved"
   },
   "test_split_used": false,
   "p1_used": false,
   "labels_computed": true,
   "not_a_result": false,
-  "note": "Registered/label/replay/gate/aggregate drivers committed at 543c267; labels audit chain at 14067a9. B0-B candidate false remains not approved."
+  "note": "MF-3 narrowed; F0 draft added. B0-B candidate false unchanged; F0 not approved/executed."
 }
