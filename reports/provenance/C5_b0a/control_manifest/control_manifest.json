@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "experiment": "C5 Phase 6 P/M",
+  "seed": 20261111,
+  "status": "d1_built",
+  "arms": {
+    "F": {
+      "seed": 20261111,
+      "path": "reports/provenance/C5_b0a/control_manifest/F/20261111",
+      "M_POS_MEAN_shape": [
+        753,
+        512
+      ],
+      "M_NORM_count": 15,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "e801047df1a488cccc6eba2bde8de06e24188e9822ea403748f1d60fa5da28b9"
+    },
+    "L": {
+      "seed": 20261111,
+      "path": "reports/provenance/C5_b0a/control_manifest/L/20261111",
+      "M_POS_MEAN_shape": [
+        753,
+        512
+      ],
+      "M_NORM_count": 15,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "ed386cc9a3aea3678ec613b145ffacd8fdce5280dea119a351d2d1234bfdcf93"
+    },
+    "P": {
+      "seed": 20261111,
+      "path": "reports/provenance/C5_b0a/control_manifest/P/20261111",
+      "M_POS_MEAN_shape": [
+        512,
+        512
+      ],
+      "M_NORM_count": 20,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-05163-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-03508-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-03575-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01281-00002",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "75d0582b0552249ef429c8a24e2203b8f2a3ee32f3d3a40752dc411b0adf2ea3"
+    },
+    "PA": {
+      "seed": 20261111,
+      "path": "reports/provenance/C5_b0a/control_manifest/PA/20261111",
+      "M_POS_MEAN_shape": [
+        512,
+        512
+      ],
+      "M_NORM_count": 20,
+      "contributors": [
+        "REPORT-news_r-03837-00002",
+        "REPORT-news_r-00514-00001",
+        "REPORT-news_r-00563-00001",
+        "REPORT-news_r-01157-00003",
+        "REPORT-news_r-04550-00002",
+        "REPORT-news_r-01871-00001",
+        "REPORT-news_r-05163-00001",
+        "REPORT-news_r-02608-00001",
+        "REPORT-news_r-03508-00001",
+        "REPORT-news_r-02898-00001",
+        "REPORT-news_r-01018-00001",
+        "REPORT-news_r-03601-00001",
+        "REPORT-news_r-00944-00001",
+        "REPORT-news_r-02518-00001",
+        "REPORT-news_r-01598-00001",
+        "REPORT-news_r-04666-00001",
+        "REPORT-news_r-03575-00001",
+        "REPORT-news_r-05237-00001",
+        "REPORT-news_r-01281-00002",
+        "REPORT-news_r-01921-00001"
+      ],
+      "control_digest": "5ecfd9a6cc76d0ba4d46f08df7129e69102b80b32174a2865bb4f3c4afba27b9"
+    }
+  },
+  "test_split_used": false,
+  "p1_used": false,
+  "labels_computed": false,
+  "not_a_result": true
+}

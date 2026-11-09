@@ -213,6 +213,8 @@
 
 | D-155 | 2026-11-09 | **Phase 6 구현 + unit tests + D0 zero-update 완료**: `runner/c5_pm_stats.py`(`bootstrap_paired_v2`, tail, T_proj)와 `runner/c5_pm_phase6.py`(own D0 mechanics, D1/registered gate) 구현. `eval/tests/test_c5_pm_phase6.py` 13 tests, 전체 **67 tests OK**. D0 actual run: 4 configs(F/L/P/PA), seed 20261111, 0 updates, `labels_computed:false`, `not_a_result:true`, `test_split_used:false`, `p1_used:false`; F/L memory 753×512, P/PA 512×512; LoRA 0/64/64/64; adapter 0/526,336/0/526,336; native length 512, cache h_len 일치. D0 report sha `3db98f86…`. **D1/registered/B0-B/B1/B2/Stage C 미승인.** | runner/c5_pm_stats.py; runner/c5_pm_phase6.py; eval/tests/test_c5_pm_phase6.py; reports/provenance/C5_b0a/d0/d0_report.json; reports/provenance/C5_b0a/phase6_artifact_registry.json |
 
+| D-156 | 2026-11-09 | **Phase 6 D1 one-update debug 완료 (4 arms, debug seed 20261111)**: 4 arms 병렬(3 threads each), 1 update/arm, step0/final eval 20 docs×5 donors, M **560**(F/L 120, P/PA 160), phase7 **2,400**(600/arm), generation 80, checkpoints 4, control manifest 4. wall **1,180.6s / 1,200s cap** (`cap_ok:true`). 1차 P/PA inference-tensor 실패 후 `native_cache_for`를 `no_grad`로 수정, 2차 완료. `labels_computed:false`, `not_a_result:true`, test 163/P1 미사용. **registered 3-seed/B0-B/B1/B2/Stage C 미승인.** | reports/C5_B0A_PM_PHASE6_D1_2026-11-09.md; reports/provenance/C5_b0a/d1/d1_report.json; reports/provenance/C5_b0a/d1/m_records.json; reports/provenance/C5_b0a/phase7_records/{F,L,P,PA}/20261111.json; reports/provenance/C5_b0a/control_manifest/control_manifest.json |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
