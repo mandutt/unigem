@@ -1,0 +1,24 @@
+**Final verdict: NARROW.** The r3 repairs are substantial, but the contract is not ready to freeze or implement.
+
+Full report: [`review_TERRA.md`](docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_2026-11-09/review_TERRA.md)
+
+| Question | Verdict |
+|---|---|
+| Q1 — Total contract | Disagree |
+| Q2 — L preservation | Conditional |
+| Q3 — M cohort and endpoints | Conditional |
+| Q4 — Builder and replay | Conditional |
+| Q5 — PA control | Conditional |
+| Q6 — Caps and timing | Conditional |
+| Q7 — Statistics | Conditional |
+| Q8 — Remaining fixes | Disagree that all are closed |
+| Q9 — Freeze and implementation | Disagree |
+| Q10 — D1 and 3-seed gates | Conditional |
+| Q11 — B0-B boundary | Conditional |
+| Q12 — Final scope | Conditional; **NARROW** |
+
+**Must-fix:** reconcile NA truth-table assertions with precedence and define M-builder failure routing; make D1 timing cover the full registered workload; separate prelaunch debug replay evidence from post-run hashes; and specify endpoint, paired-cohort, and statistical-null handling.
+
+No freeze, implementation, D0, D1, or 3-seed run is recommended yet. Phase 6 and later stages remain unapproved. Test 163 remains sealed; T5Gemma2 remains closed under D-108 STOP.
+
+The workspace was synced to `fc0d9737e95e3b9952a0176da6e52fd4b40afa13`. Verification was static; no training, evaluation, or tests were run.

@@ -1,0 +1,33 @@
+Review complete. Sync succeeded (`git fetch origin` + `git pull --ff-only origin main`, already up to date), HEAD = `fc0d9737e95e3b9952a0176da6e52fd4b40afa13`, preflight hash `3ee3f1ca…` verified on both the worktree file and committed blob. The only repository write is the report; `git status` shows nothing else changed.
+
+**Report:** `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_2026-11-09/review_DS41.md` (359 lines) — I identify as the DeepSeek 4.1 Flash 1017 max reviewer, read all mandated artifacts plus the v0.2.1 errata/r1 for inherited definitions, ran no training/eval, opened no test-163 material, used no P1/external APIs, called no subagents. I independently recomputed K=753 (train 16 / val 15; K=754 → 14), the 54-test count (2+1+7+11+10+11+12), the P0 val median 2.9739 and top-3 share 0.4862, and walked the validity/control/signal dispatch cell-by-cell for totality and dead labels.
+
+## Q1–Q12 verdicts
+
+| Q | Verdict | Basis (short) |
+|---|---|---|
+| Q1 Total contract | **conditional** | Totality verified cell-wise (r2 fail-open closed: `test_split_used=NA`→NA, `pa_path=NA`→NA, assay-NA + P-path-false→`ASSAY_INVALID`; `M_NOT_EVALUABLE` control-only; `M_CONTROL_INVALID` reachable/reachable-covered). Residual: `n_signal` domain enumerated only `{NA,0,14,15,20}`; "endpoint valid" undefined |
+| Q2 L preservation | **agree** | No dead label; validity-invalid labels for L/COPY/FULL added; partial NA → `l_signal=NA`→NA with raw flags; `MEAN_CONTRAST_ONLY`/`NO_AFFIRMATIVE` gated to validity VALID; `L_SIGNAL_M_CONTROL_NOT_EVALUABLE` reachable |
+| Q3 M preflight/cohort | **agree** | K=753 recomputed as max-K rule; 15/20 exact; excluded 5 = five shortest; zero-margin endpoint fail-closed (never 14/15- pass); signal val20 vs M 15 separated; full-K 11/20 secondary. Note: P/PA 512 eligibility is trivial (all native truncated to 512) |
+| Q4 Builder/agg/replay | **conditional** | eval/no_grad, train-only, seed-average-before-bootstrap, false-dominant AND3, replay atol/rtol + state hash all sound; r3 drops errata §3.5 whole-Frobenius + §3.2.7 zero/non-finite guard from the top-precedence M section |
+| Q5 PA | **agree** | Acquisition-control naming, `PA_STEP100_NOT_VALID`, non-gating `PA_RETENTION`, P/PA separation all adequate; restore r2's "caveat를 artifact에 기록" clause dropped in r3 §7.2 |
+| Q6 Cap/D0/D1 | **conditional** | 12×100=1,200, T_proj=3·Σ_arm(…)≤96min arithmetic correct; D0 0-update/D1 4×1 boundaries and D1-only rule correct; clarify per-arm five-phase measurement in D1; reconcile errata "debug included" vs r3 "별도" |
+| Q7 Statistics | **conditional** | Constants executable; implementation must pass `bootstrap_seed=20261109` (runner default is 20261108) and compute `seeds_positive` from seed means (runner field actually counts documents) |
+| Q8 Remaining Must-fix | **r2: 0 unclosed; 6 residuals, none structural** | Ranked below; no r2-severity new problem created by r3 (§14's `m_valid==true` removal is redundant-safe) |
+| Q9 Freeze/implementation | **conditional yes** | All r2 holes closed; approve freeze + implementation + unit tests + D0 with the ranked items as pre-implementation tests/contract |
+| Q10 D1/3-seed | **conditional** | Separation adequate (D1 separate, seed 20261111, D1-only projection; loophole removed); add checklist items: bootstrap-seed pin, L-signal criteria reference, M_NORM guard, endpoint criterion, D1 per-arm phases |
+| Q11 B0-B | **agree** | No auto-approval; predicate restated for r3 labels (`VALID` + `M_CONTROL_PASS` + `EXPLORATORY_L_SIGNAL` + tail_driven + leakage/mode/metric + artifact + separate prereg); scope `M_CONTROL_PREFIX753_COHORT15`; full-K/P0/PA_RETENTION not evidence |
+| Q12 Final | **CONTINUE** | Scope below |
+
+## Must-fix (ranked, text/DoD only — no threshold/seed/donor/step/LR change)
+
+1. **Endpoint-valid criterion** (§4.1/§8.2): define copy endpoint = ≥5 copy tokens & finite CE (per `copy_ce`), full = finite CE; else missing → `m_evaluable=false`.
+2. **Statistics wiring**: `bootstrap_seed=20261109`; `seeds_positive = count(seed_mean>0)`; never reuse `bootstrap_paired.seeds_positive`.
+3. **D1 per-arm phases**: state each of the 4 runs times all five phases; define `t_M_build`/`t_replay` for arms without an M builder.
+4. **`n_signal` truth-table domain**: extend to `NA ∪ {0..20}` (or declare ℕ∪{NA}) for a truly exhaustive test.
+5. **M_NORM carry-over**: restate/cross-reference errata §3.5 (whole K×512 Frobenius; per-row secondary) and §3.2.7 (zero/non-finite → `M_NOT_EVALUABLE`).
+6. **Wording**: restore PA scale/geometry "record in artifact"; reconcile D0/D1 vs errata cap accounting.
+
+## Final verdict
+
+**CONTINUE.** Approve: r3 freeze (HEAD `fc0d973`, with items 1–6 attached as no-constant-change errata or implementation-review conditions), implementation + unit tests, and D0 mechanics debug (0 updates, ≤4 configs, ≤15 min, seed 20261111, `labels_computed:false`, `not_a_result:true`). **Not approved:** D1 (separate explicit approval; ≤20 min, 4×1 update), 3-seed, the registered Phase 6 run (12 units/1,200 updates/2 h), and B0-B/B1/B2/Stage C. test 163 remains sealed; P1 unused; T5Gemma2 remains D-108 STOP; no post-result threshold/seed/donor/step/LR proposals.

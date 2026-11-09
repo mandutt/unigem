@@ -1,0 +1,33 @@
+Full review complete. The report is at `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_2026-11-09/review_GLM.md` (26 KB, the only file written; left uncommitted). Workspace synced: `git fetch origin` + `git pull --ff-only origin main` → already up to date, HEAD **`fc0d9737`**; r3 text is identical to the request's cited basis `e779e93`.
+
+**Independent verifications:** recomputed preflight SHA256 = `3ee3f1ca…` (matches r3 item 6 and sidecar); recomputed K rule from the 40 embedded lengths (train≥753 = 16, val = 15, K=754 → 14, zero margin, excluded 5 match); confirmed both r2 fail-open cells (`test_split_used=NA`, `pa_step100_path_ok=NA` → VALID) exist in r2 §2.4 and are closed in r3 §3.3/§3.5; hand-walked all 17 signal labels for reachability (no dead labels); inspected the runner (no PM code yet — consistent with freeze-first; found live `bootstrap_paired` seed-20261108 default and `seeds_positive` mislabel of document counts). No training/eval run, test 163 untouched, P1 unused, no subagents.
+
+## Q1–Q12 verdicts
+
+| Q | Topic | Verdict | Key evidence |
+|---|---|---|---|
+| Q1 | Total factored contract | **agree** | §3.2 known-failure-first + §3.3 NA fail-closed; VALID unreachable from any NA; control fully dispatched; `M_NOT_EVALUABLE` control-only; `M_CONTROL_INVALID` reachable (§6.3) |
+| Q2 | L preservation / labels | **agree** | All labels reachable incl. `L_SIGNAL_M_CONTROL_NOT_EVALUABLE` (validity VALID + replay/cohort failure); WEAK/MEAN/NO_AFFIRMATIVE now behind validity-VALID guard. Residual: validity-NA → `*_VALIDITY_INVALID` mislabel |
+| Q3 | M preflight / cohort | **agree** | K=753 independently recomputed; 16/15/20, zero margin, K=754→14; endpoint 15/15 fail-closed; full-K 11/20 secondary only |
+| Q4 | Builder / aggregation / replay | **agree** | eval/no_grad, seed-average-before-bootstrap, false-dominant AND3, replay atol=1e-5/rtol=1e-4 matches runner convention; M_NORM scale is val-derived but non-leaking |
+| Q5 | PA | **agree** | Acquisition-control naming, `PA_STEP100_NOT_VALID`, `PA_RETENTION` non-gate, scale/geometry caveat, P0 256/512 quarantined (§12) |
+| Q6 | Cap / D0 / D1 | **conditional** | 12×100=1,200 and 96-min gate arithmetic correct; D1-only projection, no probe loophole. Gap: eval-phase doc counts unstated (D1 "one doc subset" vs registered cohort) → possible projection underestimate, capped by §10.5 abort |
+| Q7 | Statistics | **agree** | n_boot 1,000, seed 20261109, documents/seeds_positive separated, top-3 null guard. Debt: runner's bootstrap helper (seed 20261108, `seeds_positive` mislabel) must not be reused |
+| Q8 | Remaining Must-fix | see below | All six r2 MF items closed in text; 6 minor residuals, no structural hole |
+| Q9 | Freeze + implementation + D0 | **conditional yes** | Pre-code requirements: ANDn semantics test, per-axis exhaustive + named-cell fixtures (full Cartesian 3¹⁷-scale is unexecutable), fresh stats module |
+| Q10 | D1 / 3-seed boundary | **conditional** | Boundary adequate (D1 required for 3-seed, separate approvals); add checklist items for `labels_computed:false`, bootstrap-seed manifest, D1-vs-registered eval counts |
+| Q11 | B0-B boundary | **agree** | §14 maintained; dropping explicit `m_valid==true` is safe (M_CONTROL_PASS entails it); predicate restated in r3 labels in the report |
+| Q12 | Final verdict | **CONTINUE (conditional)** | See below |
+
+## Must-fix (ranked)
+
+1. **AND3 arity** — applied to 2/4/5 operands; define n-ary false-dominant AND + test (can silently truncate in code).
+2. **Validity-NA signal labels** — `NOT_ASSESSABLE` validity routes to `*_VALIDITY_INVALID`; split or relabel (fail-closed already, but overstates).
+3. **Projection eval scaling** — state registered eval doc counts or per-doc normalize T_proj.
+4. **`n_signal` fixture domain** — {NA,0,14,15,20} incomplete; 16–19 reachable; extend to 0–20.
+5. **Stats debt** — new module with seed 20261109 + `documents_positive`; ban reuse of P0 helper.
+6. **"Exhaustive truth table"** — needs a defined fixture strategy (per-axis exhaustive + named requirement cells).
+
+## Final verdict
+
+**CONTINUE (conditional).** Approve now: r3 freeze (after a small r3.1 errata folding items 1–4 — no threshold/seed/cohort change), implementation + unit tests (CPU-only, pure decision function + synthetic fixtures), and D0 (0 updates, ≤4 configs, ≤15 min, seed 20261111, `labels_computed:false`). Not approved this round: D1 (separate approval after D0 + green tests), 3-seed (separate gate, T_proj ≤96 min from D1), B0-B/B1/B2/Stage C (separate prereg). Forbidden: test 163 (sealed), P1, T5Gemma2 (D-108 STOP), post-result threshold/seed/donor/step/LR changes. Compute cap: CPU-only tests; D0 ≤15 min; D1 (if approved) ≤20 min; registered 3-seed (if approved) 1,200 updates ≤2 h, 6 threads, no GPU, no retry.
