@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "glm",
+    "model": "z-ai/glm-5.3-flash",
+    "reasoning": "max",
+    "id": "thr_c9fad4ff2f134aeea0396604f742d72a"
+  },
+  {
+    "tag": "sonnet",
+    "model": "claude-sonnet-5-5",
+    "reasoning": "high",
+    "id": "thr_7487605125cc42d4a9206795fb0fbf3d"
+  },
+  {
+    "tag": "sol",
+    "model": "gpt-6.1-sol",
+    "reasoning": "high",
+    "id": "thr_3c38c0fc27a64c7490fbbfb7ecf6110d"
+  }
+]
