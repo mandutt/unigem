@@ -1,0 +1,20 @@
+Continue the SAME consultation thread for the v1.0.9 final confirmation. Do not start a new thread. Do not re-review v1.0.8 closed items.
+
+Read:
+reports/EXTERNAL_REVIEW_C5_B0A_PM_PREREG_V1_0_9_2026-11-09.md
+docs/plan_c5_b0a_pm_prereg_v1_0_9.md
+docs/plan_c5_b0a_pm_prereg_v1_0_9_FREEZE.template.json
+docs/hoplite/c5_b0a_pm_prereg_v1_0_9_2026-11-09/golden_vectors.json
+reports/C5_B0A_PM_PREREG_V1_0_8_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+
+MANDATORY: report reviewed HEAD e680c8f and verbatim quote c5_pm_stats.bootstrap_paired_v2.
+
+Focus only on:
+1. bootstrap_paired_v2 symbol consistency
+2. freeze_manifest_sha256 definition and external txt custody
+3. evaluate_arm replacement before freeze
+
+Write your report to:
+docs/hoplite/c5_b0a_pm_prereg_v1_0_9_2026-11-09/review_DS1017.md
+
+Answer Q1-Q5 and the final STOP/NARROW/CONTINUE block. No training/evaluation, no test 163, no P1, no subagents, no other file modifications. Consultation only.
