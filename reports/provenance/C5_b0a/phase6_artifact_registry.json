@@ -1,8 +1,8 @@
 {
-  "version": 5,
+  "version": 6,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "registered_complete",
+  "status": "labels_complete",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -231,20 +231,35 @@
         "status": "present",
         "records": 600
       }
+    },
+    "labels": {
+      "path": "reports/provenance/C5_b0a/labels/labels.json",
+      "sha256": "46680566aec4e8b36c653636579048afb862879af0d12f97f38257fdc75bcd37",
+      "status": "present",
+      "signal_status": "MEAN_CONTRAST_ONLY",
+      "b0_b_candidate_gate": false
+    },
+    "replay_report": {
+      "path": "reports/provenance/C5_b0a/labels/replay_report.json",
+      "sha256": "692f7c82726af4f6db1ae9e2e8b6c4d0505fd6ccd4f03abb7eeea744b4a15f3b",
+      "status": "present",
+      "units": 12,
+      "all_ok": true
     }
   },
   "gates": {
     "d0": "complete",
     "d1": "complete",
     "registered": "complete",
-    "b0_b": "not_approved",
+    "b0_b": "not_approved_candidate_false",
     "b1": "not_approved",
     "b2": "not_approved",
-    "stage_c": "not_approved"
+    "stage_c": "not_approved",
+    "labels": "complete"
   },
   "test_split_used": false,
   "p1_used": false,
-  "labels_computed": false,
+  "labels_computed": true,
   "not_a_result": false,
-  "note": "D0, D1, and registered 3-seed complete. Registered labels_computed=false; B0-B/B1/B2/Stage C not approved."
+  "note": "D0, D1, registered 3-seed, labels/replay complete. B0-B candidate gate false (L signal false, tail true); B0-B not approved."
 }
