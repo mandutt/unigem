@@ -195,6 +195,8 @@
 
 | D-146 | 2026-11-09 | **Phase 6 v1.0.8 repair 생성 (text/schema only)**: v1.0.7 1 CONTINUE/2 NARROW의 잔여를 폐쇄. (1) `_FREEZE.json`의 `manifest_commit`을 `null`로 고정, 실제 SHA는 `freeze_manifest_commit.txt`+D0 report; (2) Phase 6 entrypoint `runner/c5_pm_phase6.py` call graph, legacy `bootstrap_paired` 금지; (3) paired `L>F` cohort/endpoint/seed 정의; (4) frozen schema `note` 허용; (5) registered 120 vs aggregate 155 label; (6) P0 tail provenance; (7) §4.6 `p_valid=NA` 표기. **문서 1,763줄, 미승인. 구현/D0/D1/3-seed/B0-B 금지.** **Hoplite 워크플로 전환: 새 스레드 생성 대신 기존 v1.0.7 GLM/DS/Sol 스레드를 `fup`으로 재사용(캐시 보존).** | docs/plan_c5_b0a_pm_prereg_v1_0_8.md; docs/plan_c5_b0a_pm_prereg_v1_0_8_FREEZE.template.json; docs/hoplite/c5_b0a_pm_prereg_v1_0_8_2026-11-09/golden_vectors.json |
 
+| D-147 | 2026-11-09 | **Phase 6 v1.0.8 3-AI same-thread review — 2 CONTINUE / 1 NARROW, no freeze**: GLM 5.3 Flash max = CONTINUE, Sol 6.1 medium = CONTINUE, DeepSeek 1017 high = NARROW. 새 스레드/아카이브 없이 기존 v1.0.7 스레드 3개에 `fup` delta 전송(캐시 보존). 7개 잔여 중 GLM/Sol은 전부 closed, DS는 (1) §10.2 `bootstrap_paired` vs §17.3 `bootstrap_paired_v2` 심볼 충돌, (2) `freeze_manifest_sha256` 미정의, (3) evaluate_arm timing을 지적. **v1.0.9/ERRATA text-only 후 동결 가능. 구현/D0/D1/3-seed/B0-B 금지.** | reports/C5_B0A_PM_PREREG_V1_0_8_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_b0a_pm_prereg_v1_0_8_2026-11-09/review_{GLM,DS1017,SOL}.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |

@@ -1,0 +1,40 @@
+v1.0.8 review complete. Workspace synced (`git pull --ff-only origin main` → HEAD `d4e9dfa`; reviewed basis `38a2a81`, with only request infra between them). Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_8_2026-11-09/review_GLM.md` (the only file written; it contains reviewed HEAD `38a2a81` and the verbatim quote "`manifest_commit` is always `null` inside `_FREEZE.json`; a file cannot contain the SHA of the commit that adds it." / plain phrase `manifest_commit is always null inside _FREEZE.json`). No re-review of v1.0.7-closed items; no training/eval; test 163 unopened; P1 unused; no subagents.
+
+## Independent verification (hash + arithmetic only)
+
+- v1.0.8 golden file is byte-identical to v1.0.7's except the `spec` string; all 4 digests (`43ecb58e…`, `c43ea35c…`, `8277a713…`, `6b50c226…`) and the preflight SHA `3ee3f1ca…` re-reproduce.
+- **P0 tail numbers genuinely re-derived from stored `per_doc` fields** (tie rule |δ| desc, doc_id asc): val20 signed **0.4862** ✓, val20 absolute **0.43355** ✓, 15-common **0.45478→.455** ✓ — the "derived, not stored" claim is not just stated, it's true.
+- Full 102-line diff v1.0.7→v1.0.8 reviewed: only the 7 closures + version/path/traceability wording; no scientific changes.
+
+## Q table
+
+| Q | Topic | Verdict |
+|---|---|---|
+| Q1 | 7 residual closures | agree — **7/7 closed** (legacy-bootstrap closed with a test-scope note) |
+| Q2 | Freeze chain | agree — 5-step chain (plan commit → `_FREEZE.json` with `manifest_commit:null` → manifest commit → external `freeze_manifest_commit.txt` → D0 records both) is self-reference-free; template matches |
+| Q3 | Legacy bootstrap blocking | agree (closed) — §17.3 entrypoint + `bootstrap_paired_v2` + mandatory `evaluate_arm` replacement + source/call-graph assertion; note: assertion should cover transitive import sources (see hardening) |
+| Q4 | Paired L>F | agree — 15 common, variant/endpoint/memory_kind/seed aligned, `delta_L−delta_F` per doc, seed-average before bootstrap, missing→NA; F/L share identical donor lists (same EG2 h_len), so pairing is real |
+| Q5 | Cap 120 vs 155 | agree — "registered run wall = 120 min (Phase 6 only)"; "155 min is the aggregate envelope D0 15 + D1 20 + registered 120; not a single-run cap" |
+| Q6 | P0 tail provenance | agree — marked derived-not-stored, descriptive-only; independently re-derived ✓ |
+| Q7 | §4.6 | agree — now `p_step NA + p_valid=NA`, matches F9/§4.5; no remaining unreachable wording |
+| Q8 | Self-containedness | agree — new §17.3 call graph completes the last undefined structure; `c5_pm_stats.py`/`c5_pm_phase6.py` correctly absent pre-freeze |
+| Q9 | Final | **CONTINUE** |
+
+## Must-fix (ranked)
+
+**None freeze-blocking.** Implementation-time recommendations: (1) scope §17.3's source assertion to import-reachable transitive sources, or add a runtime tripwire test (monkeypatch-as-test, not as compliance), (2) one line on when `freeze_manifest_commit.txt` is committed / registry inclusion, (3) add §17.3 assertion + paired-L>F missing-NA tests to §13 DoD.
+
+## Final
+
+```text
+최종 판정: CONTINUE
+v1.0.8 freeze: 승인 (차단 must-fix 없음)
+구현+unit tests: 승인 (§13 + §17.3 단언 + paired-L>F/NA 테스트; freeze 이후)
+D0: 승인 (0 update, ≤4 config, ≤15 min, seed 20261111, labels_computed:false)
+D1: 미승인 — 3-seed: 미승인 — B0-B/B1/B2/Stage C: 미승인
+금지: test 163 개봉, P1 사용, T5Gemma2(D-108 STOP), 결과 후 threshold/seed/donor/step/LR 변경, legacy bootstrap_paired 사용
+최대 compute: 구현+unit tests(CPU) + D0(≤15 min)만 지금 승인; 등록 Phase 6는 1,200 updates/120 min wall(155 min은 총 envelope), 별도 승인 필요
+test 163: sealed
+```
+
+No approval of Phase 6/B0-B execution is claimed; no post-result threshold changes proposed.

@@ -1,0 +1,32 @@
+## Final verdict: **CONTINUE**
+
+Completed the same-thread closure review and wrote only [v1.0.8 review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_8_2026-11-09/review_SOL.md).
+
+**Reviewed HEAD: `38a2a81`**
+
+> manifest_commit is always null inside _FREEZE.json.
+
+| Q | Verdict | Conclusion |
+|---|---|---|
+| Q1 | Agree | All seven residuals closed as protocol requirements. |
+| Q2 | Agree | Null inside the manifest plus external commit identity removes self-reference. |
+| Q3 | Conditional | Transitive legacy-bootstrap exclusion is specified; implementation tests must prove compliance. |
+| Q4 | Agree | Paired L>F now specifies cohort, matching axes/seeds, averaging, and missing→NA. |
+| Q5 | Agree | Registered 120-minute cap and aggregate 155-minute envelope are distinct. |
+| Q6 | Agree | P0 tails are explicitly derived, not stored, and descriptive only. |
+| Q7 | Agree | Corrected §4.6 agrees with F9 and assay-tier precedence. |
+| Q8 | Conditional | Sufficient consolidated authority with explicit frozen dependencies—not proof of implemented compliance. |
+| Q9 | Agree | Continue only through freeze, implementation/tests, and gated D0. |
+
+### Must-fix
+**None remaining before freeze within the seven scoped items.** Before D0, require implementation evidence for transitive bootstrap exclusion, pairing/missingness, cap separation, and the corrected F9 fixture.
+
+### Final scope
+- **Freeze:** recommend proceeding with the acyclic identity chain.
+- **Implementation/unit tests:** after valid freeze.
+- **D0:** after tests pass; ≤4 configs, zero updates, ≤15 minutes.
+- **D1 / three-seed / B0-B/B1/B2/Stage C:** **not approved**.
+- **T5Gemma2:** D-108 STOP maintained.
+- No training/evaluation, P1 use, test-163 access, or subagents occurred.
+
+Fetch succeeded, but pull was blocked by the existing untracked v1.0.7 report. I preserved it and reviewed `38a2a81` directly from Git objects; the requested sources are unchanged at fetched `origin/main`. Already-closed v1.0.7 items were not re-reviewed.

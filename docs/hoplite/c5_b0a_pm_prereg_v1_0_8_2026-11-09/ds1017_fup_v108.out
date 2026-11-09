@@ -1,0 +1,30 @@
+Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_8_2026-11-09/review_DS1017.md` — the only file changed.
+
+**Reviewed HEAD SHA:** `38a2a81`
+**Verbatim:** `manifest_commit is always null inside _FREEZE.json`
+
+**Sync note:** fetch succeeded; the first `pull --ff-only` aborted because upstream had committed my v1.0.7 `review_DS1017.md` at the same path as my untracked copy. I backed mine up to `/tmp`, removed the untracked file, and the pull completed to `d4e9dfa`. The committed copy matches mine byte-for-byte except a trailing newline. `git diff 38a2a81 d4e9dfa` adds only review-harness files, so artifact bytes are unchanged.
+
+## Q1–Q9
+
+| Q | Verdict | Core finding |
+|---|---|---|
+| Q1 | conditional | 6 of 7 closed. Legacy-bootstrap closure is **partial**: the symbol is named two different things. |
+| Q2 | agree (chain sound) | `manifest_commit:null` + external `freeze_manifest_commit.txt` + D0 removes self-reference. `freeze_manifest_sha256` is used but undefined. |
+| Q3 | conditional | Entrypoint, import ban, pre-freeze `evaluate_arm` replacement are right; §10.2 `bootstrap_paired` vs §17.3 `bootstrap_paired_v2` contradicts, and the mandated substring assertion would fail against §10.2 itself. |
+| Q4 | agree | Cohort 15, same variant/endpoint/memory/seed, per-doc `delta_L − delta_F`, seed-average, missing → NA. Only `variant=NA` wording is loose. |
+| Q5 | agree | 120 registered vs 155 aggregate envelope now explicit and arithmetically correct. |
+| Q6 | agree | `.4862/.43355/.455` marked derived-not-stored; I recomputed `.43355/.4862` (val20) and `.45478→.455` (common-15). Accurate. |
+| Q7 | agree | `p_step NA + p_valid=NA → NOT_ASSESSABLE` matches F9; no unreachable tier bullet remains. |
+| Q8 | conditional | Self-contained except MF-1 and MF-2; helpers remain externally bound by design. |
+| Q9 | **NARROW** | Freeze withheld until the symbol contradiction is fixed. |
+
+## Must-fix (ranked)
+
+1. **MF-1 (material):** §10.2 names the new function `bootstrap_paired(seed=20261109)`; §17.3 requires `c5_pm_stats.bootstrap_paired_v2`, and §17.3's own test ("`bootstrap_paired(` does not appear in the Phase 6 path") would fail against §10.2. Rename consistently; replace the literal-substring check with an import/attribute-access assertion plus a runtime detection test.
+2. **MF-2 (low):** `freeze_manifest_sha256` is used in §16.2 but never defined; also state whether `freeze_manifest_commit.txt` is committed and how D0 records its hash.
+3. **MF-3 (clarity):** state that the `evaluate_arm` bootstrap replacement lands before the freeze commit (so §17.1's frozen helper hash binds the fixed file), and that P0 is unaffected because P0 uses `p0_eval_split`, not `evaluate_arm`.
+
+## Final
+
+**NARROW.** v1.0.8 freeze: **no as-is; yes after MF-1 (and MF-2)** as text-only repairs plus re-hash and new freeze commit. Implementation + unit tests + D0: conditional after freeze. D1, 3-seed, B0-B, B1/B2, Stage C: **not approved**. No compute granted; prospective ceiling only ≤1,204 updates / 155 min, registered hard abort 120 min. Test 163 sealed, P1 unused, T5Gemma2 D-108 STOP, no post-result threshold/seed/donor/step/LR changes.
