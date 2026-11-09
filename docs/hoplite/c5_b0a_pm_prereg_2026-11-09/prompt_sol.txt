@@ -1,0 +1,55 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: the current origin/main HEAD. First sync/pull to that HEAD, then work read-only.
+
+This is a NEW, intentionally separate, independent review round using a DIFFERENT model (Sol 6.1, reasoning high). Do not treat it as a duplicate of the previous c5_b0a review. Do not reuse another model's answer; we are collecting independent opinions.
+
+You must read the full review request yourself:
+reports/EXTERNAL_REVIEW_C5_B0A_PM_PREREG_2026-11-09.md
+
+The file is about 400 lines. Read it in chunks if necessary. Then read the referenced preregistration and artifacts:
+docs/plan_c5_b0a_pm_prereg_v0_1.md
+reports/C5_B0A_P0_NATIVE_SANITY_2026-11-09.md
+reports/C5_B0A_REPAIR_2026-11-09.md
+runner/c5_mt5_lora_b0.py
+eval/tests/test_c5_b0_metric.py
+
+Scope and constraints:
+- Do not run training or evaluation.
+- Do not open test 163; it is sealed.
+- Do not use P1 data or external APIs.
+- Do not modify repository files. Your only permitted write is the single report file named below.
+- Do not call subagents or additional LLM models; complete the review yourself.
+- T5Gemma2 remains closed by D-108 STOP.
+- B0-B/B1/B2/Stage C are not approved by this round.
+
+Key facts already verified:
+- B0-A 3-AI review was NARROW 3/3.
+- B0-A primary copy metric had a confirmed one-position CE shift. Built-in loss 31.98719596862793 equals aligned same-position CE; the old shifted CE was 33.9515380859375.
+- Repair phases 1-4 are implemented: same-position CE, F/L base eval plus adapter/LoRA-only train, generation telemetry, mask audit. 54 tests pass.
+- P0 native sanity (native mT5 encoder + frozen decoder, no training, 20/20, 5 donors): train mean delta_copy +3.7617 with CI [1.8917, 5.6050]; val mean +5.2375 with CI [2.5013, 8.0753]; both SENSITIVE_POSITIVE.
+- Phase 6 prereg proposes F/L/P trained arms and an eval-only M mean-memory negative control, 20 train / 20 val, seeds 20261108/09/10, 100 updates, max 2 CPU-hours.
+- test 163 was not used.
+
+Core focus:
+1. Is P (native mT5 encoder + decoder LoRA, adapter bypass) a valid positive control?
+2. Is eval-only M a valid negative control, or must M be a separately trained arm?
+3. Is the mean-memory definition leakage-free and scientifically adequate?
+4. What Must-fix items block implementation and one-seed debug?
+5. Should Phase 6 be approved as NARROW, or stopped/continued?
+
+Answer every Q1-Q12 in section 5 of the review request. For each item provide:
+- verdict: agree / disagree / conditional / defer
+- evidence tied to this document or artifacts
+- one to three concrete next steps
+
+Deliverable:
+1. Write your full report to this repository-relative file (mandatory):
+   docs/hoplite/c5_b0a_pm_prereg_2026-11-09/review_SOL.md
+   Start the report by identifying yourself as the Sol 6.1 high reviewer.
+2. In your final message, include a compact Q1-Q12 table plus Must-fix and final STOP / NARROW / CONTINUE verdict.
+
+Do not claim that Phase 6 or B0-B is approved. Do not propose using P1 data or test 163. Do not reopen T5Gemma2 without a new decision record. Do not propose changing thresholds after seeing results; require a new preregistration.
+
+This is consultation only. Your only permitted write is the single report file named above.
