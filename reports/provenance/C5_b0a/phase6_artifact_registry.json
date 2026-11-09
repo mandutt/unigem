@@ -24,7 +24,7 @@
   "artifacts": {
     "d0_report": {
       "path": "reports/provenance/C5_b0a/d0/d0_report.json",
-      "sha256": "8243d380af9f1f11fc17dc700537d546ef1ec2efb82f07bbc7fccc6bfa973dfa",
+      "sha256": "3db98f86aef1e1de67c329950f25ba143737844e5878fd68982756bc9e4c662a",
       "status": "present",
       "updates": 0,
       "configs": 4
