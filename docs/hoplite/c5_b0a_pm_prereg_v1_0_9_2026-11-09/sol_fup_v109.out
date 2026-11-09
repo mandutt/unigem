@@ -1,0 +1,29 @@
+## Final verdict: **NARROW**
+
+Written: [v1.0.9 review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_9_2026-11-09/review_SOL.md)
+
+**Reviewed HEAD: `e680c8f`**  
+Mandatory quote: `c5_pm_stats.bootstrap_paired_v2`
+
+| Question | Verdict | Conclusion |
+|---|---|---|
+| Q1 — Symbol consistency | Agree | §§10.2/17.3 consistently name v2; §13.5 prohibits legacy. |
+| Q2 — Hash/custody | Agree | Manifest-byte hash, committed external text, and D0 custody fields are defined without self-reference. |
+| Q3 — evaluate_arm timing | Conditional | Explicit pre-freeze replacement conflicts with “No code before freeze.” |
+| Q4 — Residual problems | Agree | One narrow lifecycle Must-fix remains. |
+| Q5 — Final scope | Conditional | Correct the conflicting lifecycle before freeze and gated implementation/D0. |
+
+### Must-fix
+**Reconcile §16.1 and §17.3:**
+- §16.1: **“No code before freeze.”**
+- §17.3: reused `evaluate_arm` must be changed **before the freeze commit**.
+
+A minimal repair is an explicit, narrowly authorized pre-freeze helper-replacement exception, retaining the prohibition on experimental execution.
+
+### Final scope
+- **Freeze:** withhold as-is approval of the helper-reuse lifecycle.
+- **Implementation/tests and D0:** conditional on correction, valid freeze, and passing acceptance tests.
+- **D1 / three-seed / B0-B/B1/B2/Stage C:** not approved.
+- **T5Gemma2:** D-108 STOP maintained.
+
+Only the permitted report was written. No training/evaluation, test-163 access, P1 use, or subagents occurred. Closed v1.0.8 items were not re-reviewed.

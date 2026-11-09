@@ -1,0 +1,35 @@
+v1.0.9 final-confirmation review complete. Workspace synced (`git pull --ff-only origin main` → HEAD `b9fd854`; reviewed basis `e680c8f`, only request infra between them). Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_9_2026-11-09/review_GLM.md` — the only file changed — containing reviewed HEAD `e680c8f` and the verbatim quote `c5_pm_stats.bootstrap_paired_v2`. No re-review of v1.0.8-closed items (diff v1.0.8→v1.0.9 fully enumerated: 3 DS fixes + version wording only); no training/eval; test 163 unopened; P1 unused; no subagents. Independent checks: all 4 golden digests + preflight SHA re-reproduce (golden file identical to v1.0.8's except the `spec` string), plan is 1,765 lines as stated, helpers correctly absent at this HEAD.
+
+## Q table
+
+| Q | Topic | Verdict |
+|---|---|---|
+| Q1 | Symbol closure | agree — closed. §10.2 now defines `c5_pm_stats.bootstrap_paired_v2(seed=20261109)`, matching §17.3; §13.5's legacy reference is the ban, no longer colliding; assertion pattern `bootstrap_paired(` cannot false-match `bootstrap_paired_v2(`; Phase-6-path scoping correctly excludes helper's non-Phase-6 legacy uses (lines 220/653/384) |
+| Q2 | Freeze hash/custody | agree — closed. `freeze_manifest_sha256` = SHA256 of committed `_FREEZE.json` bytes (computed post-commit, stored only in D0 → no self-reference); txt committed and hashed; D0 records all three values; template consistent. Cosmetic: "its SHA256" antecedent should name the txt explicitly |
+| Q3 | evaluate_arm timing | conditional — requirement closed ("replaced by `c5_pm_stats.bootstrap_paired_v2` **before the freeze commit**", target call pinned at `c5_mt5_lora_b0.py:460`), but this now textually conflicts with §16.1 "No code before freeze" (the replacement requires editing the helper and the minimal `runner/c5_pm_stats.py` to exist pre-freeze) — needs a one-clause numbered ERRATA |
+| Q4 | New residuals | conditional — 0 scientific defects; 3 text items: §16.1↔§17.3 tension (medium), `its` antecedent (cosmetic), §13.5 v2-presence/scope hardening (optional) |
+| Q5 | Final | **CONTINUE (conditional)** |
+
+## Must-fix (ranked)
+
+1. **ERRATA-1 (fold into the final plan commit)** — reconcile §16.1 with §17.3, e.g.: "*No code before freeze* means no Phase 6 implementation beyond the §17.3 pre-freeze bootstrap replacement (`evaluate_arm` call → `c5_pm_stats.bootstrap_paired_v2` and the minimal `runner/c5_pm_stats.py` exporting it), which is part of freeze preparation."
+2. Cosmetic — §16.2: "D0 also records the SHA256 of `freeze_manifest_commit.txt`".
+3. Hardening — §13.5: assert `bootstrap_paired_v2` presence + scope the §17.3 assertion to import-reachable Phase-6 sources.
+
+No scientific must-fix; no threshold/seed/donor/step/LR proposals.
+
+## Final
+
+```text
+최종 판정: CONTINUE (조건부 — ERRATA-1이 final plan commit에 포함)
+v1.0.9 freeze: 승인 (DS 3개 잔여 모두 폐쇄; ERRATA-1 동반 시 자기참조·심볼·timing 완전 봉합)
+구현+unit tests: 승인 (freeze 이후; §13 + golden + T_proj 산술 + §17.3 단언 + paired-L>F/NA)
+D0: 승인 (0 update, ≤4 config, ≤15 min, seed 20261111, labels_computed:false; freeze_manifest_sha256 + manifest_commit + txt SHA256 기록)
+D1: 미승인 — 3-seed: 미승인 — B0-B/B1/B2/Stage C: 미승인
+금지: test 163 개봉, P1 사용, T5Gemma2(D-108 STOP), 결과 후 threshold/seed/donor/step/LR 변경, Phase 6 path legacy bootstrap_paired, freeze 이후 helper 재편집
+최대 compute: 구현+unit tests(CPU) + D0(≤15 min)만 지금 승인; 등록 Phase 6 = 1,200 updates/120 min wall(T_proj ≤96, hard abort), 별도 승인 필요; 155 min은 총 envelope
+test 163: sealed
+v1.0.9 self-contained: 예 / 잘못된 전제: 없음 (유보는 §16.1 문언 충돌 하나, ERRATA-1로 해소)
+```
+
+Consultation only — no Phase 6/B0-B approval claimed or implied.

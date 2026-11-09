@@ -1,0 +1,29 @@
+Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_9_2026-11-09/review_DS1017.md` — the only file changed.
+
+**Reviewed HEAD SHA:** `e680c8f`
+**Verbatim:** `c5_pm_stats.bootstrap_paired_v2`
+
+**Sync:** the first `pull --ff-only` aborted because upstream had committed my v1.0.8 report at the same path as my untracked copy. I backed mine up, removed the untracked file, and pulled to `b9fd854`. The committed copy matches mine except a trailing newline. `git diff e680c8f b9fd854` adds only review-harness files, and `git show e680c8f:...v1_0_9.md` equals the working copy — reviewed bytes are current.
+
+## Q1–Q5
+
+| Q | Verdict | Evidence |
+|---|---|---|
+| Q1 | agree | §10.2, §17.3, §17.3 call-graph all use `c5_pm_stats.bootstrap_paired_v2`; the three legacy mentions are all marked legacy. §17.3's literal `bootstrap_paired(` check no longer self-defeats, since `bootstrap_paired_v2(` does not contain that substring. |
+| Q2 | agree | `freeze_manifest_sha256 = SHA256(committed _FREEZE.json bytes)`; txt is committed; D0 records both hashes. Acyclic. |
+| Q3 | agree | §17.3 pins the `evaluate_arm` replacement "**before the freeze commit**", consistent with `freeze_commit` covering helper sources, so the bound `c5_mt5_lora_b0.py` hash includes the fix. |
+| Q4 | agree | v1.0.8→v1.0.9 diff is exactly the three fixes plus version strings; no stale `v1_0_6/7/8` paths; §0.4, §1.1, §9.6.1, §4.6, §10.4, §11.6 intact; 1,680/560/600/1,204/155 unchanged. |
+| Q5 | **CONTINUE** | All three must-fixes closed; no new blocker. |
+
+**Non-blocking follow-ups (not freeze blockers):** satisfy §17.3 with an import/call-graph assertion rather than raw text only; name `bootstrap_paired_v2` positively in §13.5; clarify that freeze-order step (4) also commits the txt; note P0 is unaffected because P0 uses `p0_eval_split`, not `evaluate_arm`.
+
+## Final
+
+**CONTINUE.**
+
+- **v1.0.9 freeze:** approved (protocol contract; `manifest_commit:null` + external committed txt).
+- **Implementation + unit tests:** approved (§13 suites; no training/eval/generation).
+- **D0:** approved (≤4 configs, 0 updates, ≤15 min, seed 20261111, `not_a_result:true`).
+- **D1 / 3-seed / B0-B / B1/B2 / Stage C:** not approved.
+- **Compute:** no grant beyond D0; prospective ceiling only ≤1,204 updates / 155 min, registered hard abort 120 min.
+- Test 163 sealed, P1 unused, T5Gemma2 D-108 STOP, no post-result threshold/seed/donor/step/LR changes.

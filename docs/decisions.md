@@ -199,6 +199,8 @@
 
 | D-148 | 2026-11-09 | **Phase 6 v1.0.9 repair 생성 (text-only)**: v1.0.8 2 CONTINUE/1 NARROW의 DS 잔여를 폐쇄. (1) stats symbol을 `c5_pm_stats.bootstrap_paired_v2`로 단일화; (2) `freeze_manifest_sha256 = SHA256(committed _FREEZE.json bytes)` 정의, `freeze_manifest_commit.txt` 커밋·D0에 그 SHA 기록; (3) `evaluate_arm` bootstrap 교체가 freeze 전임을 명시. **문서 1,765줄, 미승인. same-thread 재검토 예정.** | docs/plan_c5_b0a_pm_prereg_v1_0_9.md; docs/plan_c5_b0a_pm_prereg_v1_0_9_FREEZE.template.json; docs/hoplite/c5_b0a_pm_prereg_v1_0_9_2026-11-09/golden_vectors.json |
 
+| D-149 | 2026-11-09 | **Phase 6 v1.0.9 3-AI same-thread final review — 2 CONTINUE / 1 NARROW, no freeze**: GLM 5.3 Flash max = CONTINUE(조건부 ERRATA-1), DeepSeek 1017 high = CONTINUE, Sol 6.1 medium = NARROW. 새 스레드/아카이브 없음. `bootstrap_paired_v2`, `freeze_manifest_sha256`, external txt custody는 closed. 잔여: **`evaluate_arm` bootstrap 교체를 freeze 전에 하라는 §17.3과 no-code-before-freeze §16.1의 lifecycle 충돌**. **v1.0.10 text-only: Phase 6 own eval wrapper, evaluate_arm 미재사용.** | reports/C5_B0A_PM_PREREG_V1_0_9_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_b0a_pm_prereg_v1_0_9_2026-11-09/review_{GLM,DS1017,SOL}.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
