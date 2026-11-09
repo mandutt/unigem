@@ -1,0 +1,32 @@
+Saved the independent **Sol 6.1 high** review to [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v0_2_1_2026-11-09/review_SOL.md).
+
+Fetch and fast-forward pull succeeded. Reviewed HEAD: `075621596fbe4e169c02f0c4c75ad65b3d42853f`.
+
+## Final verdict: **NARROW — conditional**
+
+Do **not** freeze v0.2.1 as written. Recommend implementation and unit tests only after the remaining contracts are corrected and explicitly approved.
+
+| Question | Verdict | Main finding |
+|---|---|---|
+| Q1 Total decision | disagree | Boolean fallback mishandles missing/unassessable states; L preservation is improved. |
+| Q2 P/PA contract | conditional | Separate baselines are correct; finish scope, null handling and noncausal interpretation. |
+| Q3 P gate | agree | Still weak; appropriate only as a sensitivity screen. |
+| Q4 M contract | conditional | POS AND NORM is appropriate; cohort, numerical-failure and replay details remain. |
+| Q5 Statistics | conditional | Core mathematics is sound; complete-case and deterministic execution rules need tightening. |
+| Q6 Debug | conditional | Exposure controls improve; enforce isolation, bounds and artifact separation. |
+| Q7 Cap/artifacts | disagree | Debug plus the full run can total **16 units/1,220 updates**, exceeding **12/1,200**. |
+| Q8 Must-fix | agree | Five ranked operational contracts remain open. |
+| Q9 Implementation/tests | conditional | Corrected freeze and explicit authorization first. |
+| Q10 Mechanics debug | conditional | Only after tests, budget reconciliation and separate authorization. |
+| Q11 Three-seed/B0-B | agree | Separate approval gates must remain. |
+| Q12 Final disposition | conditional | **NARROW; no execution approval.** |
+
+### Must-fix, ranked
+
+1. **Decision/missingness:** explicit unavailable states, missing-seed handling, small-N checks and consistent path-failure precedence.
+2. **Budget:** reconcile debug-inclusive arithmetic and enforce shared time, unit, update and thread accounting.
+3. **Cohorts:** define intersections across required arms, seeds, endpoints and M variants; separate structural exclusions from integrity failures.
+4. **Execution semantics:** freeze matched P/PA step0 cropping, retention null guards, donor handling, bootstrap and heavy-tail definitions.
+5. **Artifacts/tests:** separate unit/debug/pooled outputs, persist replayable checkpoints, and keep pure contract tests outside model-dependent skips.
+
+Only the designated report was written; tracked files remain unchanged. No training, evaluation or tests were run. **Phase 6, B0-B/B1/B2/Stage C remain unapproved; test 163 stays sealed, P1 unused, and T5Gemma2 closed under D-108 STOP.**

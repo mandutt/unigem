@@ -1,0 +1,29 @@
+Review complete. The report is at `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_2026-11-09/review_GLM.md` (the only write made), written at HEAD `0756215` == origin/main after `git fetch` + `git pull --ff-only origin main` ("Already up to date").
+
+## Q1–Q12 verdicts (GLM 5.3 Flash max reviewer)
+
+| Q | Verdict | One-line summary |
+|---|---|---|
+| Q1 Total decision fn | **conditional** | Right design (19 flags, precedence, L_SIGNAL non-suppression §1.3, interaction table) but **not total as written**: 4 determinism gaps below |
+| Q2 P/PA contract | **conditional** | P/PA step0 (PA random-adapter run separately), movement/retention fields, descriptive `ADAPTER_REGIME_LOSS` close MF-2; seeding order (`torch.manual_seed` before LoRA init) is unimplemented in the runner |
+| Q3 P gate .05 | **conditional** | Still weak (~1% of P0 mean 5.2375) but honest relabel as "sensitivity screen" + movement fields is the correct treatment; post-hoc threshold change forbidden, new prereg if ever needed |
+| Q4 M contract | **agree** (impl-conditional) | AND-norm pass, explicit P∧PA quantifier, target cohort ≥15/20 split from contributor ≥10, checkpoint hash close MF-3; must pin per-target M_POS_MEAN rebuild |
+| Q5 Statistics | **conditional** | MF-4 closed (seed-averaged bootstrap, paired L>F, 2/3 seed-level, documents/seeds positive split, common subset); runner's `seeds_positive` misuse must not leak into new code |
+| Q6 Debug | **agree** | Unregistered seed 20261111, ≤5 updates, mechanics-only, no labels, commit freeze, in cap — closes MF-5; add seed-exclusion assert + MECHANICS_ONLY marker |
+| Q7 Cap/artifact | **conditional** | Cap/manifests/artifacts verifiable and realistic; generation + M replay cost not itemized — extrapolate from debug timing before 3-seed |
+| Q8 Must-fix | **conditional** | MF-2~6 closed; MF-1 partially closed; **1 new defect introduced** (rule-3 dual label) |
+| Q9 Implementation | **conditional** | Approve only after freeze; 7-part test DoD (truth-table sweep, L-flag persistence, seed repro, mode policy, M leakage/invariance, stats fields, schema) |
+| Q10 Mechanics debug | **conditional** | Approve after tests green; 5 required artifacts (manifest, NOT_A_RESULT marker, no-label assert, fixture/probe results, timing extrapolation) prevent 3-seed misreading |
+| Q11 3-seed / B0-B | **agree** | 3-seed = separate gate (freeze+tests+debug+explicit approval); B0-B stays v0.2 §12 necessary-only conditions — even EXPLORATORY_L_SIGNAL does not auto-approve |
+| Q12 Final | **NARROW** | See scope below |
+
+**Must-fix (ranked)** — all are contract text fixes, not threshold/seed/donor/step changes:
+1. **Rule-3 dual label** `P_STEP100_NOT_VALID / REGIME_SENSITIVITY_LOST` (errata L74) — ambiguous, `REGIME_SENSITIVITY_LOST` undefined anywhere; new defect introduced by v0.2.1
+2. **PA path-fail cell missing** — `p_valid ∧ ¬pa_step100_path_ok` falls through to M_CONTROL_NOT_VALID / INCONCLUSIVE_SMALL_N (rules 2/4 leave the hole)
+3. **NOT_ASSESSABLE has no headline rule** — §1.5 (L129–131) and §4.4 (L325) mandate it, but precedence never emits it
+4. **copy_only / full_only undefined** (L49–50) — rules 9/10 depend on their definitions
+5. Ban reuse of runner's `bootstrap_paired.seeds_positive` (document count) as documents_positive; separate fields + test
+6. State explicitly that M_POS_MEAN is rebuilt per target (contributor set depends on each target's K_real); per-target contributor IDs in artifacts
+7. Debug: mechanical assert seed ∉ {20261108/09/10}, MECHANICS_ONLY marker, no-label-field assert
+
+**Final verdict: NARROW.** Approval scope: v0.2.1 freeze **after** Must-fix 1–4 are committed; then implementation + unit tests (Q9 DoD); then unregistered-seed mechanics debug (Q10 artifacts). **Not approved:** 3-seed run (separate gate), B0-B/B1/B2/Stage C, test 163 (sealed), P1, T5Gemma2 (D-108 STOP), any threshold/seed/donor/step change, P0 as graded-content-use evidence. Compute cap unchanged: 12 trained units, ≤1,200 updates, ≤2h wall-clock incl. debug, 6 threads, no GPU, no auto-extension.

@@ -1,0 +1,48 @@
+I'm the Sonnet 5.5 high reviewer. The final verdict is **NARROW**. I synced to origin/main and pulled with `--ff-only`, which reported "Already up to date". HEAD is `075621596fbe4e169c02f0c4c75ad65b3d42853f`. The only change in the workspace is the report file.
+
+Report: `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_2026-11-09/review_SONNET.md`
+
+I ran no training, no evaluation and no unit tests. I did not open test 163 or use P1, and I made no threshold, seed, donor, step or LR proposals.
+
+## Q1–Q12
+
+| Q | Verdict | Key point |
+|---|---|---|
+| Q1 | conditional | The L flags are preserved independently of the headline, but the function is not total. `INCONCLUSIVE_SMALL_N` (#13) cannot be reached, `not_assessable` has no decision cell, and there is no cell for P valid with PA path-failed. |
+| Q2 | conditional | PA with a random adapter is a control for learning from native memory, not "retention". `PA_RETENTION` will likely be null, so `ADAPTER_REGIME_LOSS` is misnamed. P step0 should reproduce the P0 artifact within tolerance. |
+| Q3 | conditional | The `.05` floor is about 1% of the P0 mean (5.24 on val). I expect `P_VALID` to pass almost trivially, so it works only as a path/sensitivity sanity screen. |
+| Q4 | conditional | An eligible target needs `K_real` at or below roughly the 10th-longest of the 20 train lengths. That makes the common ≥15/20 cohort likely unreachable. This is data-only and can be checked before the freeze. |
+| Q5 | conditional | The CI level and method are not pinned, and the top-3 share formula is undefined. The runner drops copy-ineligible docs from the full-CE set too, so the copy/full "common subset" is vacuous. `bootstrap_paired` still mislabels the key `seeds_positive` (it counts documents). |
+| Q6 | conditional | The unregistered seed does not hide the registered val documents. The runner also prints the full payload. Debug should use other documents or sealed outcome fields. |
+| Q7 | disagree as written | 12 units × 100 updates already equals the 1,200 cap, and debug adds 20 updates plus 4 units. v0.2.1 also silently moves the cap from "2 CPU-hours" to 2h wall-clock. |
+| Q8 | — | Ranked list below. |
+| Q9 | conditional | Approve implementation and unit tests after the amendment. The report lists the required tests. |
+| Q10 | conditional | Approve after unit tests pass, on non-registered docs, mechanics-only, with a debug acceptance file. |
+| Q11 | conditional | Separating the 3-seed run from B0-B holds only if the B0-B boundary is restated over the new labels. v0.2 §12 still names the deleted `REGIME_ERASES_SELECTIVITY`. |
+| Q12 | **NARROW** | See scope below. |
+
+## Must-fix (ranked)
+
+1. **Decision function.**
+   - Make the flags tri-state and add a `NOT_ASSESSABLE` output.
+   - Give `INCONCLUSIVE_SMALL_N` a trigger and an n-min, or delete it.
+   - Add the PA path-fail cell and fold P path failure into `ASSAY_INVALID`.
+   - Define `MEAN_CONTRAST_ONLY`.
+   - State how an L M-pass with M_VALID false is handled.
+   - Emit a factored `(validity, signal)` pair so L is never hidden by the headline.
+2. **Cap.** Use two budgets and a cumulative ledger. Disclose the CPU-hour to wall-clock change, cost the generation step, and add a projection go/no-go before the 3-seed run.
+3. **M cohort.** Run a data-only preflight on lengths before the freeze. Define one common cohort for L/P/PA that includes copy/full eligibility, and say how seeds are aggregated for M.
+4. **PA.** Describe it as an acquisition control, rename the label, require P step0 to reproduce P0, and note the input scale mismatch against the EG2 cache.
+5. **Debug.** Use non-registered docs or sealed outcomes, add `--mechanics-only`, and treat seed 20261111 as burned.
+6. **Statistics.** Add the statistical constants, the top-3 share formula and the copy/full eligibility handling. On the P0 val data the top-3 share is .486 for copy and .509 for full, so the new `.50` cutoff sits between them.
+7. **B0-B boundary and document.** Restate the B0-B boundary over the new labels, and merge v0.2 and v0.2.1 into one frozen document.
+8. **P/PA fields.** Add descriptive per-seed deltas and a flag for real CE below ln|V|.
+
+## Scope of the NARROW verdict
+
+- **v0.2.1 freeze:** not yet. Freeze a text-only v0.2.1-r1 that closes Must-fix 1–7.
+- **Implementation and unit tests:** conditional on that freeze.
+- **Mechanics debug:** conditional on passing unit tests. Budget is ≤4 units, ≤20 updates and ≤30 minutes wall, kept separate from the registered cap.
+- **3-seed run:** not approved. It needs a separate gate.
+- **Compute:** the registered run stays at 12 units, ≤1,200 updates, ≤2h wall, 6 threads, no GPU.
+- **Forbidden:** B0-B, B1, B2, Stage C, test 163, P1, T5Gemma2, and any post-result change to thresholds, seeds, donors, steps or LR.
