@@ -223,6 +223,8 @@
 
 | D-160 | 2026-11-09 | **C5 Phase 6 results/cause 3-AI review — 3/3 NARROW**: 새 독립 스레드 GLM/DS1017/Sol. 3/3 B0-B candidate false 동의, Phase 6 negative 종료 동의. Must-fix: **registered/label/replay/gate 실행 code 미커밋(재생성 불가)**, labels/registry 상태 불일치, “adapter bottleneck” EG2 일반화 과대, F0 vs F가 adapter+LoRA 동시 차이(confound), M≠donor specificity, access/audit chain. F0/H3는 새 prereg + 별도 승인, 즉시 실행 금지. | reports/C5_PM_PHASE6_RESULTS_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_pm_results_review_2026-11-09/review_{GLM,DS1017,SOL}.md |
 
+| D-161 | 2026-11-09 | **Review MF-1/MF-2 보완 완료**: `runner/c5_pm_phase6.py`에 `run_registered_unit` + `--mode registered` 공개, `c5_pm_registered.py`/`c5_pm_replay.py`/`c5_pm_gate.py`/`c5_pm_aggregate.py` 커밋(543c267). `registered_report` labels_computed=true/decision_labels_computed=true + labels artifact/audit 경로, `labels_audit.json`(code commit/commands/input·output SHA) 커밋(14067a9), registry v8(35e3d43). 추가 학습/평가 없음. B0-B candidate false 불변; F0/H3 새 prereg 필요. | runner/c5_pm_registered.py; runner/c5_pm_replay.py; runner/c5_pm_gate.py; runner/c5_pm_aggregate.py; reports/provenance/C5_b0a/labels/labels_audit.json; reports/provenance/C5_b0a/phase6_artifact_registry.json |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
