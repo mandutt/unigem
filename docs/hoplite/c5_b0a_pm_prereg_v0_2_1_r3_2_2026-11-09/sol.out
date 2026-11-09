@@ -1,0 +1,35 @@
+Completed the independent review and wrote [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_2_2026-11-09/review_SOL.md).
+
+Synchronization succeeded. Reviewed HEAD: `6aac52f0c486f4137a47cf4e173be77e81975a80`, matching fetched `origin/main`.
+
+## Q1–Q12 summary
+
+| Question | Verdict | Finding |
+|---|---|---|
+| Q1 Total contract | disagree | Consensus and ANDn definitions can produce different signal labels. |
+| Q2 L predicates/fixtures | conditional | Numeric thresholds and fixtures 16–18 are repaired; contradictory §6.3 bullets remain. |
+| Q3 M preflight/cohort | agree | Hash, K=753, 16 contributors, and 15 eligible targets verified from the artifact. |
+| Q4 M builder/hash/replay | conditional | M_NORM is explicit; endpoint identity and canonical serialization remain underspecified. |
+| Q5 PA | agree | Acquisition naming and non-gating retention are appropriate; inherited caveats remain necessary. |
+| Q6 Compute/D0/D1 | conditional | Cap arithmetic is correct; initial M scoring and replay workload need explicit mapping. |
+| Q7 Statistics | conditional | Most rules are executable; signal semantics and the launch-tail input need authoritative definitions. |
+| Q8 Remaining Must-fix | agree | Four bounded contract repairs remain. |
+| Q9 Freeze/implementation | disagree | Do not freeze or approve implementation/D0 as-is. |
+| Q10 D1/three-seed separation | conditional | Approval separation is sound; evidence must reconcile endpoints, replay, and timing counts. |
+| Q11 B0-B boundary | agree | Hard `tail_driven=false` and separate approval close the prior bypass. |
+| Q12 Final disposition | conditional | **NARROW:** text-only repair before freeze or execution. |
+
+## Ranked Must-fix
+
+1. **Resolve L semantics:** §2.3 consensus conflicts with §9.2 false-dominant ANDn, including false+NA cases.
+2. **Remove stale fixtures:** §6.3 still contains impossible `m_pass_l=false` plus control-PASS premises.
+3. **Complete endpoint/hash contracts:** specify real/control identity, `id` versus `doc_id`, donor/aggregate granularity, exact byte framing, and the launch-tail input.
+4. **Reconcile D1 workload:** explicitly include initial fixed-prefix real/M CE scoring and explain donor multiplicity in replay.
+
+## Final verdict: **NARROW**
+
+The main repairs are real, but r3.2 is **not freeze-ready as written**. Recommend a Must-fix-only text revision, without changing thresholds, seeds, donors, steps, or learning rates.
+
+**No Phase 6, D0, D1, three-seed, or B0-B/B1/B2/Stage C approval.** Test 163 remains sealed; T5Gemma2 remains under D-108 STOP.
+
+Only the designated report was written. No training, evaluation, or tests were run; no subagents or additional models were called.

@@ -1,0 +1,35 @@
+Review complete. Report written to `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_2_2026-11-09/review_GLM.md` (251 lines, 12 Q sections) — the only file touched, left uncommitted per consultation-only scope.
+
+**Sync note:** `git fetch origin` + `git pull --ff-only origin main` → "Already up to date", HEAD = **`6aac52f`** ("docs: add C5 P/M v0.2.1-r3.2 review request"). The request named `44bbef6` as basis; `44bbef6` is its direct parent and `git diff --stat 44bbef6..HEAD` shows only review-orchestration files (+690 lines) — plan body identical, so the review basis is effectively unchanged. Independently verified: preflight content SHA-256 `3ee3f1ca…` matches (`sha256sum`), preflight IDs match `splits.json` (`train[:20]`/`val[5:25]`), K=753 arithmetic reproduced (16 contributors / 15 targets / K=754→14, zero margin), P0 val median 2.9739 and top-3 share .4862 recomputed from `p0_native_sanity.json`, cap arithmetic 1,204 updates / 155 min confirmed, D-108 STOP confirmed in `docs/decisions.md`, 54 static tests counted.
+
+## Q1–Q12 (GLM 5.3 Flash max)
+
+| Q | Topic | Verdict | Key evidence |
+|---|---|---|---|
+| Q1 | Total factored contract | **agree** | §2–§6 dispatch chains total & reachable; §5.5+F11 fixes small-N precedence; minor: add validity enum assertion |
+| Q2 | L predicates / fixtures 16–18 | **agree** | r3.2 §9.2 verbatim-matches v0.2 §6.2 + errata §4.3 (copy ≥.05, full >0); grep shows zero full-`.05` residue; F16–18 reachable from primitives |
+| Q3 | M preflight / cohort | **agree** | All numbers reproduced; zero-margin brittleness (doc at exactly 753) noted, fail-closed |
+| Q4 | M builder / M_NORM / endpoint / replay | **conditional** | Formula restored & consistent with errata §3.5; but r3's builder recipe ([:753] truncation), `delta_memfree` definition, replay variant set not restated |
+| Q5 | PA | **conditional** | Naming/labels kept, but r3.1's "scale/geometry caveat" line silently dropped from §7.2 |
+| Q6 | Cap / D0 / D1 | **agree** | 7-phase ledger complete incl. generation 20×256, M build 20+15×2, replay 15×5×2; 1,204/155 arithmetic exact; T_proj≤96=0.8×120 |
+| Q7 | Statistics | **agree** (1 condition) | New module seed 20261109 justified — P0 helper's `seed=20261108` + `seeds_positive` mislabel confirmed in code; missing-seed rule needs pinning |
+| Q8 | Remaining Must-fix / new problems | **conditional** | All 9 r3.1 blockers closed; r3.2 introduced 1 real regression + dropped restatements (see below) |
+| Q9 | Freeze + implementation + D0 | **conditional** | Freeze only after r3.3 micro-errata; then implementation+tests+D0 per §13 DoD + hardening |
+| Q10 | D1 / 3-seed boundary | **agree** | Separation maintained; checklist 20 items sound; +3 suggested items |
+| Q11 | B0-B boundary | **agree** | Hard gate: `tail_driven==false` only (NA/true block); predicate restated in r3.2 labels in report |
+| Q12 | Final | **CONTINUE (conditional)** | See below |
+
+## Must-fix (ranked, all text-only, no threshold changes)
+
+1. **MF-1** Restore r3.1 §7.2 "scale/geometry caveat" line dropped from r3.2 §7.2 (only real regression)
+2. **MF-2** Restate builder recipe incl. `M_POS_MEAN[j] = mean_i A(h_i)[:753][j]` truncation (r3:520-536) — load-bearing for §8.3's norms
+3. **MF-3** Restate `delta_memfree = mean_full_ce − real_full_ce` (r3:549)
+4. **MF-4** Restore `NOT3` definition (used at r3.2 §2.3, defined only in r3.1)
+5. **MF-5** Restore DoD items "truth-table per-axis + named cells" and "PA acquisition labels" (r3.1:706/708)
+6. **MF-6** Pin missing-seed rule: 2-of-3 *registered* seeds; missing seed → predicate NA, no 2-of-available substitution
+7. **MF-7** Pin replay record variant set / endpoint coverage (hash key space)
+8. **MF-8** Editorial/hardening: §15 "§1.4"→§1.1 dangling ref; commit golden-vector expected digests; validity enum assertion
+
+## Final verdict
+
+**CONTINUE (conditional)** — approve r3.2 freeze **only after** an r3.3 micro-errata reflecting MF-1–MF-8 (if frozen as-is, this degrades to NARROW). Then implementation + unit tests + D0 approved. **D1, 3-seed: separate approval (not granted here). B0-B/B1/B2/Stage C: not approved. test 163: sealed. P1: unused. T5Gemma2: D-108 STOP maintained.** Max compute: registered 12×100=1,200 updates / 2h wall, + D0 ≤15 min (0 updates) + D1 ≤20 min (4 updates); combined prospective 1,204 updates / 155 min is a ceiling, not a grant; T_proj ≤96 min launch screen.
