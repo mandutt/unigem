@@ -1,0 +1,40 @@
+**Sync:** `git fetch origin` OK; `git pull --ff-only origin main` → "Already up to date." HEAD = `82648462b087e013fc9d85568d16faefe993ef63` (`8264846`). The request cites `97e9d12`; current `origin/main` is the later review-request commit.
+
+**Report written:** `docs/hoplite/c5_b0a_pm_prereg_v1_0_3_2026-11-09/review_DS1017.md` (230 lines, only permitted write; `git status` shows no other changes).
+
+I independently recomputed all constants (no training/eval, no test 163, no P1): preflight `3ee3f1ca…`, state `43ecb58e…`, empty `e3b0c442…`, base `c43ea35c…`, supplemental `8277a713…`, control `6b50c226…` — **all match**. The control digest matches only under canonical-name sort (insertion order gives `531ba0ad…`), exactly as §12.1 requires.
+
+### Q1–Q13
+
+| Q | Topic | Verdict |
+|---|---|---|
+| Q1 | 10 blockers | **conditional** — 9 closed, 1 partial (#4 phase-7) |
+| Q2 | Self-containedness | **conditional** — measurement semantics strong; external module contracts not restated |
+| Q3 | Canonical key / golden | **agree** — all digests agree; null-vs-int total order undefined |
+| Q4 | Replay arithmetic | **agree** — 120/160, 360/480, 1,680, 560, 600 all correct; phase 7 excluded from `replay_ok` |
+| Q5 | Phase-7 measurement | **conditional** — 600 holds, but `K_d` can exceed `K_M=753` for F/L; `baseline_ce` not bound to `K_d` |
+| Q6 | P1 / allowlist | **agree** — fail-closed both flags; test 163 stays sealed; artifact-registry completeness undefined |
+| Q7 | `P_VALID` / `M_CONTROL_INVALID` | **agree** — tri-state, F9/F10 reachable, asymmetry documented |
+| Q8 | Control tensors | **agree** — schema/digest/footprint OK; fixture is `[1,1]`, not `[K_M,512]` |
+| Q9 | D0/D1/cap | **agree** — math consistent (155 = 15+20+120; 1,204 = 1,200+4); two label clarifications |
+| Q10 | Remaining Must-fix | **conditional** — 10 text/schema items, no new scientific choice |
+| Q11 | Freeze / implementation | **conditional** — freeze after ERRATA; then implementation+unit tests; then D0 |
+| Q12 | B0-B / D1 / 3-seed | **agree** — boundaries sufficient; B0-B predicate restated in v1.0.3 labels |
+| Q13 | Final verdict | **NARROW** |
+
+### Must-fix (ranked)
+
+1. **MF-1 (high)** Phase-7 `K_d`/control slicing: F/L `h_len` up to 830 > `K_M=753`, so `M_POS_MEAN[:K_d]` is out of range. Define `K_d = min(K_M, len(real), len(donor))` and truncate prefixes to `K_M`.
+2. **MF-2 (high)** Bind `baseline_ce` to the variant-selected control CE **at `K_d`**, not the phase-5 `K_M` baseline.
+3. **MF-3 (med-high)** Define total order for `donor_id` `null` vs `0..4` (base golden mixes them); or sort by internal `donor_sort`.
+4. **MF-4 (med)** Separate the 4-record supplemental golden from the real 600/arm-seed phase-7 digest (§11.4 step 5 conflates them).
+5. **MF-5 (med)** Specify the 12-key `final_checkpoint_hash` JSON shape and add `control_digest` to `control_manifest.json`.
+6. **MF-6 (med)** Define P1 `checked_artifacts` completeness; allow the manifest's `note` field.
+7. **MF-7 (low-med)** Control fixture uses `[1,1]`, not `[K_M,512]`; add realistic-shape fixture or declare real `control_digest` postrun-only.
+8. **MF-8 (low)** Enumerate external contracts (`Adapter`, `make_labels`, `load_layer_cache`, `LoRALinear`, `repeated_4gram_rate`).
+9. **MF-9 (low)** D0 `labels_computed` clarification and control-manifest build timing.
+10. **MF-10 (low)** Restate `F=360, L=360, P=480, PA=480, total 1,680`; label 155 min as the D0+D1+registered envelope.
+
+### Final
+
+**NARROW.** v1.0.3 genuinely closes the v1.0.2 blockers and all digests/counts verify, but phase-7 `K_d`/`baseline_ce`, null ordering, the 12-key map shape, and the supplemental/poston digest distinction must be fixed as numbered ERRATA before freeze. Then: freeze → implementation + unit tests → D0. D1, 3-seed, Phase 6 training, B0-B/B1/B2/Stage C, test 163, P1, and T5Gemma2 remain unapproved/sealed. No post-result threshold, seed, donor, step, or LR changes proposed.

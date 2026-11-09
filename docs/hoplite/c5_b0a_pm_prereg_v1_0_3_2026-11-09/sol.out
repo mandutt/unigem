@@ -1,0 +1,36 @@
+Report written: [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_3_2026-11-09/review_SOL.md), identifying the reviewer as **Sol 6.1 medium**.
+
+Sync succeeded. Reviewed HEAD: `82648462b087e013fc9d85568d16faefe993ef63`.
+
+**Confirmed:** all five golden digests reproduce; 1,680 / 560 / 600 and per-arm 360 / 480 arithmetic are correct.
+
+| Question | Verdict | Finding |
+|---|---|---|
+| Q1 | Conditional | 7 blockers closed, 3 partial |
+| Q2 | Conditional | Nearly self-contained; operational/schema gaps remain |
+| Q3 | Conditional | Goldens agree; exact wire projection and checkpoint manifest need binding |
+| Q4 | Agree | Counts and projection structure correct; runtime unverified |
+| Q5 | Conditional | CE/delta defined; crop geometry and baseline conditioning ambiguous |
+| Q6 | Conditional | Strict flags sound; frozen inventory lifecycle unresolved |
+| Q7 | Agree | Validity/calibration separation and F9/F10 are coherent |
+| Q8 | Agree | Control framing reproduces; 222 tensors, ~0.28 GB payload |
+| Q9 | Conditional | Caps correct; no D1 timing evidence |
+| Q10 | Disagree | Four pre-freeze Must-fixes remain |
+| Q11 | Conditional | Freeze first requires corrections; implementation/tests/D0 follow gates |
+| Q12 | Agree | Separate approvals and B0-B boundary preserved |
+| Q13 | Conditional | **NARROW** |
+
+### Must-fix before freeze
+
+1. **Phase-7 geometry and baseline:** explicitly bind full versus M-capped prefixes and donor/`K_d`-conditioned baseline CE. Under the full-memory interpretation, **64/75 F/L donor pairs exceed the controls’ 753 rows**.
+2. **Replay wire format:** explicitly require the flattened eight-field hash projection matching the goldens; distinguish it from literal nested `{key, ce}` serialization.
+3. **Twelve-checkpoint manifest:** define concrete serialized identities, checkpoint-file bindings and state-hash verification.
+4. **P1 manifest lifecycle:** resolve how complete postrun inventory remains compatible with a freeze-bound SHA. The current empty inventory cannot simply remain empty or be rewritten without consequences.
+
+## Final decision: **NARROW**
+
+Do **not freeze v1.0.3 as-is**. Support bounded text/schema corrections and targeted recheck, followed by recorded freeze before implementation/unit tests and gated D0.
+
+**No Phase 6 execution, D1, three-seed, B0-B/B1/B2/Stage C approval.** Test 163 remains sealed, P1 unused, and T5Gemma2 closed by D-108 STOP.
+
+No training, evaluation, model calls, or subagents were run. Only the requested report file was written.

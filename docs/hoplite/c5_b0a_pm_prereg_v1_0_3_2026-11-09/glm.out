@@ -1,0 +1,41 @@
+Review complete. Full report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_3_2026-11-09/review_GLM.md` (222 lines, uncommitted; the only write made, as instructed).
+
+**Sync:** `git pull --ff-only origin main` → "Already up to date", review HEAD **`8264846`**; plan/golden/preflight/P1 are byte-identical to basis `97e9d12`. Origin advanced to `c53ed76` mid-review (adds `threads.json` only — no impact on reviewed content).
+
+**Independent verification performed (hash/stats recomputation only — no training/eval, no test 163, no P1):** all five golden digests reproduce (`43ecb58e…`, `e3b0c442…`, `c43ea35c…`, `8277a713…`, `6b50c226…`), preflight content hash `3ee3f1ca…` matches file+sidecar, and P0 derived stats confirm (val median 2.9739, 18/20, top3 signed .4862 / abs .4335, common-15 .4548, ln|V| 12.43). Note: control `6b50c226…` reproduces **only** under the canonical-name-sorted rule, not the golden array's listing order (cosmetic note MF-F).
+
+### Q1–Q13 (GLM 5.3 Flash max)
+
+| Q | Topic | Verdict | Key evidence |
+|---|---|---|---|
+| Q1 | 10 blocker closure | **agree — 10/10 closed** | donor_id key + digests verified; 12-key map (§11.4/§12.1); 360/480 recomputed; phase-7 enum/CE bound; `8277a7…` reproduced; P1 both flags; P_VALID tri-state/F9 reachable; control schema verified; asymmetry documented; D0/0.3GB/native-512 defined |
+| Q2 | Self-containedness | **conditional** | implementable from v1.0.3 + data artifacts; 6 one-line clarifications remain (MF-A…F,H) |
+| Q3 | Canonical hash/golden | **agree** | all digests independently reproduced; sort_keys + record key-asc sufficient; null-sort rule needs 1 sentence |
+| Q4 | Replay arithmetic | **agree** | 120/160 arm-seed → 560 D1; 360/480 per arm → 2×(360+480)=1,680; 96/48 multiplicities; 600 phase-7; phase-7 excluded from `replay_ok` (§11.4 steps 6–7) |
+| Q5 | Phase-7 measurement | **conditional** | recipe executable, 600 holds, ce duplication by design & hash-safe; `baseline_ce` provenance needs 1-sentence fix |
+| Q6 | P1 / allowlist | **agree** | fail-closed (false>NA), both flags, allowlist membership — sealed split never opened; completeness arbiter needs naming |
+| Q7 | P_VALID / M_CONTROL_INVALID | **agree** | tri-state consistent; F9/F10 reachable; `M_CONTROL_INVALID` conditionally reachable (§5.4); asymmetry is pre-registered, not post-hoc |
+| Q8 | Control tensors | **agree** | schema complete; digest verified (name-asc); footprint ≈0.27GB ≈ 0.3GB claim; retention through B0-B |
+| Q9 | D0/D1/cap | **agree** | 4 configs / 4 units / 8 phases / 560+600 / T_proj ≤96 / 120 abort / 1,204·155 prospective-not-grant |
+| Q10 | Remaining must-fix | **conditional — 0 new blockers** | 7 ranked clarifications below; base digest survives donor_id switch (verified) |
+| Q11 | Freeze + impl + tests + D0 | **agree (conditional)** | freeze with MF-A/B as ERRATA; 15-test minimum set listed in report |
+| Q12 | B0-B / D1 / 3-seed boundary | **agree** | boundary sufficient; B0-B predicate restated in v1.0.3 labels (all-true, NA blocks, n_signal=15 exactly, tail_driven=false only) |
+| Q13 | Final | **CONTINUE** | see scope below |
+
+### Must-fix (ranked — none blockers, all text/schema, zero numeric changes)
+1. **MF-A** phase-7 `baseline_ce` = K_d-cropped control CE recomputed under phase-7 (not stored phase-5 CE)
+2. **MF-B** canonical record sort rule for mixed `donor_id` null/0..4 (e.g., donor_sort −1 as internal sort key)
+3. **MF-C** pin `final_checkpoint_hash` map serialization (12 keys `"{arm}/{seed}"`)
+4. **MF-D** pin checkpoint frame `dtype_str` format (`"<f4"`-style, matching golden)
+5. **MF-E** name the `checked_artifacts` completeness arbiter (freeze/postrun inventory)
+6. **MF-F** 1-line note: control golden listing order ≠ digest order (sorted rule is normative)
+7. **MF-G** tolerate/drop the extra `note` key in `p1_usage.json`
+
+### Final judgment: **CONTINUE**
+- **v1.0.3 freeze: approved** (MF-A/MF-B folded into freeze text or ERRATA-001/002; record content SHA-256 + `p1_manifest_sha256`)
+- **Implementation + unit tests: approved** (pure decision function, synthetic fixtures, CPU-only)
+- **D0: approved** (≤4 configs, 0 updates, ≤15 min, seed 20261111, `not_a_result`)
+- **D1 / 3-seed: not approved** (separate approvals); **B0-B/B1/B2/Stage C: not approved**
+- **Forbidden:** test 163 (sealed), P1 use, T5Gemma2 (D-108 STOP), post-result threshold changes, golden regeneration by implementation
+- **Compute cap granted by this round:** D0 only (≤4 configs, ≤15 min, 6 threads, CPU); registered 1,200 updates/120 min remains a protocol limit, not a grant
+- v1.0.3 is sufficient as the single implementation authority.
