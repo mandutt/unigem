@@ -1,0 +1,26 @@
+This is a NEW independent re-review thread for C5 F0 v0.2. It is not a follow-up to the v0.1 review thread and is not a duplicate consultation. Do not inherit v0.1 conclusions.
+
+Read:
+reports/EXTERNAL_REVIEW_C5_F0_V0_2_2026-11-09.md
+docs/plan_c5_f0_v0_2_2026-11-09.md
+docs/plan_c5_f0_2026-11-09.md
+reports/C5_F0_DRAFT_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md
+reports/C5_PM_PHASE6_RESULTS_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+docs/plan_c5_b0a_pm_prereg_v1_0_11.md
+runner/c5_pm_phase6.py
+
+MANDATORY: include reviewed HEAD and the verbatim phrase mechanics-only.
+
+Focus on Q1-Q6:
+1. Stage D/R selection bias removal
+2. E01 vs E11 2x2 validity
+3. route STOP vs track STOP interpretation
+4. M/signal and E00 baseline
+5. compute realism
+6. H3 separation
+
+Write your report ONLY to:
+docs/hoplite/c5_f0_v0_2_review_2026-11-09/review_SOL.md
+
+Do not modify other files. No training/evaluation, no test 163/P1, no subagents. Answer Q1-Q6 and final STOP/NARROW/CONTINUE block. Do not write a generic summary; cite the revised sections and exact numbers. Consultation only.
