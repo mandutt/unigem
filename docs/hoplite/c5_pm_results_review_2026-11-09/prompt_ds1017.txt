@@ -1,0 +1,31 @@
+This is a NEW independent review thread for C5 Phase 6 P/M results and cause analysis. It is not a follow-up to any earlier C5 prereg thread, and it is not a duplicate consultation. Do not inherit conclusions from prior threads.
+
+Read the review request:
+reports/EXTERNAL_REVIEW_C5_PM_PHASE6_RESULTS_2026-11-09.md
+
+Also read:
+docs/plan_c5_b0a_pm_prereg_v1_0_11.md
+docs/plan_c5_b0a_pm_prereg_v1_0_11_FREEZE.json
+reports/C5_B0A_PM_PHASE6_REGISTERED_2026-11-09.md
+reports/C5_B0A_PM_PHASE6_LABELS_2026-11-09.md
+reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md
+reports/provenance/C5_b0a/registered/registered_report.json
+reports/provenance/C5_b0a/labels/labels.json
+reports/provenance/C5_b0a/labels/cause_analysis.json
+runner/c5_pm_phase6.py
+runner/c5_pm_labels.py
+
+MANDATORY: include the reviewed HEAD SHA and the verbatim phrase adapter bottleneck in your report.
+
+Focus on Q1-Q6 in the request:
+1. label/gate correctness
+2. adapter-bottleneck validity and confounders
+3. F0 design (EG2 raw + decoder LoRA, no adapter)
+4. M endpoint interpretation
+5. Phase 6 termination vs new prereg
+6. artifact/provenance sufficiency
+
+Write your report ONLY to:
+docs/hoplite/c5_pm_results_review_2026-11-09/review_DS1017.md
+
+Do not modify any other file. Do not run training or evaluation. Do not open test 163 or P1. Do not use subagents or additional LLMs. Answer Q1-Q6 and the final STOP/NARROW/CONTINUE block. Consultation only.
