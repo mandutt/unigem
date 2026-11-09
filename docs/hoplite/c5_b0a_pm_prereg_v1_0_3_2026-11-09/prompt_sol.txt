@@ -1,0 +1,55 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: current origin/main HEAD. First sync/pull, then work read-only.
+
+This is a NEW, intentionally separate, independent review round using a DIFFERENT model (Sol 6.1, reasoning medium). It reviews v1.0.3. Do not treat it as a duplicate of v1.0.2. Do not reuse another model's answer.
+
+Read the full review request yourself:
+reports/EXTERNAL_REVIEW_C5_B0A_PM_PREREG_V1_0_3_2026-11-09.md
+
+Then read:
+docs/plan_c5_b0a_pm_prereg_v1_0_3.md
+docs/hoplite/c5_b0a_pm_prereg_v1_0_3_2026-11-09/golden_vectors.json
+reports/C5_B0A_PM_PREREG_V1_0_2_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/provenance/C5_b0a/m_cohort_preflight.json
+reports/provenance/C5_b0a/p0_native_sanity.json
+reports/provenance/C5_b0a/p1_usage.json
+runner/c5_mt5_lora_b0.py
+eval/tests/test_c5_b0_metric.py
+
+Scope and constraints:
+- Do not run training or evaluation.
+- Do not open test 163; it is sealed.
+- Do not use P1 data or external APIs.
+- Do not modify repository files. Your only permitted write is the report file named below.
+- Do not call subagents or additional LLM models.
+- T5Gemma2 remains closed by D-108 STOP.
+- Phase 6/B0-B/B1/B2/Stage C are not approved by this round.
+
+Key facts:
+- v1.0.2 was 3/3 NARROW with 10 blockers.
+- v1.0.3 closes them: donor_id canonical key, 12-checkpoint replay, 360/480, phase-7 enum/CE, supplemental golden 8277a7, P1 strict both flags, P_VALID tri-state, control tensor schema, P/PA asymmetry, D0 definition.
+- mixed 1,680, D1 phase 5 560, phase 7 600.
+- P0: train +3.7617 [1.8917,5.6050]; val +5.2375 [2.5013,8.0753].
+- No trained P/PA/M result has been seen.
+
+Core focus:
+1. Are all 10 blockers actually closed?
+2. Do canonical key and golden digests agree?
+3. Are 12-checkpoint replay and 360/480 arithmetic correct?
+4. Is phase-7 ce/baseline_ce/delta executable?
+5. What Must-fix remains before freeze/implementation?
+6. Should v1.0.3 be STOP/NARROW/CONTINUE?
+
+Answer every Q1-Q13 in section 4. For each: verdict, evidence, 1-3 next steps.
+
+Deliverable:
+1. Write your full report to:
+   docs/hoplite/c5_b0a_pm_prereg_v1_0_3_2026-11-09/review_SOL.md
+   Identify yourself as Sol 6.1 medium.
+2. Final message: compact Q1-Q13 table + Must-fix + STOP/NARROW/CONTINUE.
+
+Do not claim Phase 6/B0-B approval. Do not propose P1/test 163 use. Do not reopen T5Gemma2. Do not propose post-result threshold changes.
+
+This is consultation only. Your only permitted write is the report file named above.
