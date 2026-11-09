@@ -1,0 +1,29 @@
+## Final verdict: **CONTINUE**
+
+Written only: [v1.0.11 review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_11_2026-11-09/review_SOL.md)
+
+**Reviewed HEAD: `6fad89e`**
+
+```text
+-> own training loop
+```
+
+| Question | Verdict | Conclusion |
+|---|---|---|
+| Q1 — Lifecycle | Agree | Owning both loops removes the need for pre-freeze composite-helper edits. |
+| Q2 — Exclusions | Agree | Both `train_arm` and `evaluate_arm` are prohibited across the explicitly defined transitive path. |
+| Q3 — Training correctness | Conditional | §§2.5/2.7 provide an implementable contract; actual mode/RNG/gradient and measurement compliance still requires tests. |
+| Q4 — Residuals | Agree | No pre-freeze Must-fix remains within this round’s scope. |
+| Q5 — Final | Agree | Continue through valid freeze, implementation/tests, and gated D0 only. |
+
+### Must-fix
+**None within the scoped protocol confirmation.** Before D0, implementation must demonstrate transitive exclusions and arm-specific training correctness—not merely contain an own-loop diagram.
+
+### Final scope
+- **Freeze:** recommend proceeding.
+- **Implementation/unit tests:** after valid freeze.
+- **D0:** after acceptance tests pass; ≤4 configs, zero updates, ≤15 minutes.
+- **D1 / three-seed / B0-B/B1/B2/Stage C:** **not approved**.
+- **T5Gemma2:** D-108 STOP maintained.
+
+No training/evaluation, test-163 access, P1 use, or subagents occurred. Earlier reports were verified unchanged; closed v1.0.10 items were not re-reviewed.

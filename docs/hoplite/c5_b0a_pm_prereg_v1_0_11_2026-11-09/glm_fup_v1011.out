@@ -1,0 +1,34 @@
+v1.0.11 own-loop review complete. Synced to HEAD `9954c98` (review basis `6fad89e`, infra-only delta). Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_11_2026-11-09/review_GLM.md` — the only file written — containing reviewed HEAD `6fad89e` and the verbatim quote `-> own training loop` (exact line match at plan line 1756). v1.0.10-closed items not re-reviewed; no training/eval; test 163 unopened; P1 unused; no subagents. All 4 golden digests + preflight SHA reproduce; plan is 1,773 lines as stated; the 102→ diff v1.0.10→v1.0.11 was fully enumerated (text/wording only).
+
+## Q table
+
+| Q | Topic | Verdict |
+|---|---|---|
+| Q1 | Own-loop lifecycle vs no-code-before-freeze | agree — closed. The v1.0.10 blocker ("`train_arm` may be reused for training") is **deleted**; call graph is now `own training loop` / `own eval loop` / `c5_pm_stats.bootstrap_paired_v2`; "no pre-freeze helper edit is required" retained → §16.1 fully satisfied |
+| Q2 | train_arm/evaluate_arm exclusion + transitive path | agree — closed. Triple ban (lines 1761–1763), explicit definition "Phase 6 path = transitive call graph rooted at `runner/c5_pm_phase6.py`", test covering all three symbols; feasibility *demonstrated* by grepping the §17.1 pinned helpers (banned symbols absent from their bodies); `bootstrap_paired(` still cannot false-match `bootstrap_paired_v2(` |
+| Q3 | Training correctness under §2.7/§2.5 | agree — §2 untouched and fully specifies the own loop: §2.7 mode table + RNG order (seed → Adapter → LoRA, no reseed, P has no adapter), §2.5.1–2.5.6 measurement/init/mask/donors, §2.1/2.2/2.4/2.6 arms/hyperparams/paths; own-eval CE is normative in §2.5.2/§2.5.5 (no §17.1 gap) |
+| Q4 | New residuals | conditional — 0 scientific defects; 3 minor text notes (§13.5 "import" vs §17.3 transitive wording; `Adapter` exists in two modules — §17.1 path pin is unambiguous; P0 `p0_eval_split` legacy use correctly declared unaffected, fact verified) |
+| Q5 | Final | **CONTINUE** |
+
+All four v1.0.10 NARROW items (MF-1 composite `train_arm`, MF-2 path definition, MF-3 §17.1, MF-4 P0) are closed with line-level correspondence; my v1.0.10 ERRATA-A/B are implemented verbatim-equivalent.
+
+## Must-fix (ranked)
+
+**None freeze-blocking.** Implementation-time: (1) align §13.5 wording to §17.3's transitive definition, (2) one-line note on `Adapter` import path (c5_mt5_layer_probe.py, not c5_a2null_eval.py), (3) land §2.7 RNG/mode assertions + transitive 3-symbol absence test in the unit-test bundle.
+
+## Final
+
+```text
+최종 판정: CONTINUE
+v1.0.11 freeze: 승인 (v1.0.10 3/3 NARROW 잔여 전부 폐쇄; §17.3 자기일관; 배제 단언 충족 가능 실증)
+구현+unit tests: 승인 (freeze 이후; own train/eval loop per §2.1/2.2/2.4/2.5/2.6/2.7 + 단언 테스트)
+D0: 승인 (0 update, ≤4 config, ≤15 min, seed 20261111, labels_computed:false)
+D1: 미승인 — 3-seed: 미승인 — B0-B/B1/B2/Stage C: 미승인
+금지: test 163 개봉, P1, T5Gemma2(D-108 STOP), 결과 후 threshold/seed/donor/step/LR 변경,
+      Phase 6 path에서 train_arm·evaluate_arm·legacy bootstrap_paired 사용, pre-freeze helper 편집
+최대 compute: 구현/유닛테스트(CPU) + D0(≤15 min)만 지금 승인; 등록 Phase 6
+      (1,200 updates/120 min wall, T_proj ≤96, hard abort; 155 min = 총 envelope) 별도 승인
+test 163: sealed / v1.0.11 self-contained: 예 / 잘못된 전제: 없음
+```
+
+Consultation only — no Phase 6/B0-B approval claimed; no post-result threshold changes proposed.

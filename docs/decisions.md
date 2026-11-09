@@ -207,6 +207,8 @@
 
 | D-152 | 2026-11-09 | **Phase 6 v1.0.11 repair 생성 (text-only)**: v1.0.10 3/3 NARROW의 `train_arm` composite blocker를 폐쇄. Phase 6 entrypoint `runner/c5_pm_phase6.py`가 **own training loop + own eval loop**를 소유하고 `train_arm`/`evaluate_arm`/legacy `bootstrap_paired`를 import/call하지 않는다. “Phase 6 path” = transitive call graph rooted at entrypoint. `train_arm`은 `evaluate_arm`을 호출하는 composite이므로 재사용 금지. P0는 `p0_eval_split` 사용으로 무영향. **문서 1,773줄, 미승인. same-thread 최종 확인 예정.** | docs/plan_c5_b0a_pm_prereg_v1_0_11.md; docs/plan_c5_b0a_pm_prereg_v1_0_11_FREEZE.template.json; docs/hoplite/c5_b0a_pm_prereg_v1_0_11_2026-11-09/golden_vectors.json |
 
+| D-153 | 2026-11-09 | **Phase 6 v1.0.11 3-AI same-thread final review — 3/3 CONTINUE, no pre-freeze Must-fix**: GLM/DS/Sol 모두 CONTINUE. `train_arm`/`evaluate_arm`/legacy `bootstrap_paired` 배제, own training+eval loop, transitive path, §16.1/§17.3 정합 closed. 세 검토자 **freeze + 구현 + unit tests + D0 승인**, D1/3-seed/B0-B/B1/B2/Stage C 미승인. **사용자 동결 승인 대기.** | reports/C5_B0A_PM_PREREG_V1_0_11_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_b0a_pm_prereg_v1_0_11_2026-11-09/review_{GLM,DS1017,SOL}.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |

@@ -1,0 +1,29 @@
+Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_11_2026-11-09/review_DS1017.md` — the only file changed; `git diff` is empty, so no older report was modified.
+
+**Reviewed HEAD SHA:** `6fad89e`
+**Verbatim (from §17.3 line 1756, verified present in both plan and report):** `-> own training loop`
+
+**Sync:** the pull again aborted on my own untracked v1.0.10 report, which upstream had committed. I backed it up, removed the untracked copy, and pulled to `9954c98`; the committed copy matches mine except a trailing newline. `git diff 6fad89e 9954c98` adds only review-harness files.
+
+## Q1–Q5
+
+| Q | Verdict | Evidence |
+|---|---|---|
+| Q1 | agree | §16.1 "no code before freeze" + §17.3 "no pre-freeze helper edit required" are now consistent because Phase 6 owns both loops; the v1.0.10 clause that broke it is gone. |
+| Q2 | agree | §17.3 bans `train_arm`, `evaluate_arm`, and legacy `bootstrap_paired`; defines "Phase 6 path" as the transitive call graph rooted at `c5_pm_phase6.py`; duplicates it in §13.5; and states P0 is unaffected (`p0_eval_split`). |
+| Q3 | conditional | §2.2/§2.5/§2.7 fully specify the loop (AdamW/wd/lr split, 100 updates, `train20_ids[step%20]`, clip 1.0, built-in CE, per-arm memory, adapter/LoRA geometry, mode table, RNG order, trainable-set assert). Gaps: the inward-moved primitives (`copyable_mask`, `donors_for`, `native_source_ids`, `set_training_mode`) are absent from §17.1, and checkpoint production is unassigned. |
+| Q4 | agree | No new contradiction. Five low/cosmetic residuals; no previously closed clause regressed (symbols, freeze hash/custody, paired L>F, §4.6, P0 tail, 1,680/560/600/1,204/155 all verify). |
+| Q5 | **CONTINUE** | v1.0.10's blocker is genuinely closed; remaining items are completeness, not ambiguity. |
+
+**Non-blocking follow-ups:** add the four inward-moved primitives to §17.1; state that `c5_pm_phase6.py` writes `checkpoints/{arm}/{seed}.pt` and `final_checkpoint_hash.json`; assert reachability rather than literal substrings; name `bootstrap_paired_v2` positively in §13.5.
+
+## Final
+
+**CONTINUE.**
+
+- **v1.0.11 freeze:** approved (protocol contract; `manifest_commit:null` + external committed txt).
+- **Implementation + unit tests:** approved (§13 suites; no training/policy execution).
+- **D0:** approved (≤4 configs, 0 updates, ≤15 min, seed 20261111, `not_a_result:true`).
+- **D1 / 3-seed / B0-B / B1/B2 / Stage C:** not approved.
+- **Compute:** no grant beyond D0; prospective ceiling only ≤1,204 updates / 155 min, registered hard abort 120 min.
+- Test 163 sealed, P1 unused, T5Gemma2 D-108 STOP; no pre-freeze helper edits, no `train_arm`/`evaluate_arm` reuse, no post-result parameter changes.
