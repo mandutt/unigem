@@ -1,0 +1,37 @@
+## Review complete
+
+**Sync:** `git fetch origin` → `branch main -> FETCH_HEAD`; `git pull --ff-only origin main` → **Already up to date**. **HEAD `30b62191afe88d0a36389871e3a69fc524b4bbaa`** (`30b6219`). The request header cites `7ecf973`; the workspace is shallow, so I reviewed the artifacts as present at current `origin/main`.
+
+I independently reproduced the preflight hash, all three golden digests, and the 1,680 / 560 / 600 arithmetic. Full report: `docs/hoplite/c5_b0a_pm_prereg_v1_0_1_2026-11-09/review_DS1017.md` (the only file written).
+
+### Q1–Q13
+
+| Q | Verdict | Key evidence |
+|---|---|---|
+| Q1 Self-containedness | **conditional** | Measurement/donor/path/replay now present, but `h_len`, EG2 cache path/format, split schema, and `copyable_mask` source are not normative. |
+| Q2 Decision contract | **conditional** | Dispatch/F1–F10/fixtures 16–18 consistent; F11 expects an undefined label (`small-N + validity INVALID`). |
+| Q3 Mixed M domain | **agree** | 1,680 = (2·15+2·20)·24; ×96/×48; 560 D1; preflight 15 common / 20 native. |
+| Q4 M builder/M_NORM/endpoint/replay | **conditional** | Arithmetic correct, but donor basis contradicts itself and replay cannot reconstruct control tensors from a digest. |
+| Q5 F/L memory scope | **conditional** | K=753 M-only is clear; “all 20 train/val docs” still blurs train20 real forward vs val20 donor-crop, and training memory length is unstated. |
+| Q6 P/PA | **conditional** | P/PA-20, PA veto, retention non-gate, geometry caveat present; seed aggregation for `P_POS_PASS`/`PA_POS_PASS` is undefined. |
+| Q7 Statistics/tail | **agree** | Constants, 2/3-seed rule, absolute top3, tie rule, missing-seed NA executable; P0 values reproduced. |
+| Q8 D0/D1/cap | **conditional** | 1,200/1,204/155/96 and 560/600 correct; D1 “no labels” conflicts with CE, and `T_proj` omits primary replay cost. |
+| Q9 Hash/golden | **agree / conditional** | All three digests match; `control_digest` is hash-only and supplemental P/PA/M_NORM/donor vectors are absent. |
+| Q10 Remaining Must-fix | **disagree (NARROW)** | MF-1…MF-9 mostly closed in intent; six concrete binding defects remain (below). |
+| Q11 Freeze/implementation | **conditional (not as-is)** | `runner/c5_pm_stats.py` absent and 7 P0-era metric tests only; no code before freeze, and the spec still has blocking bindings. |
+| Q12 B0-B/D1/3-seed | **conditional** | Boundaries adequate; restated predicate adds `m_evaluable`, `endpoint_ok`, `replay_ok`, `control_digest_matches`, named path flags. |
+| Q13 Final | **NARROW** | Repairable text-only defects; not STOP, not ready for CONTINUE. |
+
+### Ranked Must-fix
+
+1. **MF-1017-1 (blocker)** — P0 artifact lacks `no_training`; §4.0 `p0_path_ok` requires it, so every run would be `ASSAY_INVALID`. Add the field or accept `mode=p0_sanity_no_training`.
+2. **MF-1017-2 (blocker)** — Donor contradiction: “same donor set for all arms” vs “lengths from the same cache as the real document” (native all 512; EG2 708–830).
+3. **MF-1017-3 (blocker)** — Replay: `control_digest` is a SHA-256, not the `M_POS_MEAN`/`M_NORM/t` tensors; store tensors or define deterministic rebuild. Also separate D1 560 from registered 1,680.
+4. **MF-1017-4 (high)** — `test_split_used` circularly requires checking for sealed test IDs; define a test-ID manifest/hash and a P1 attestation.
+5. **MF-1017-5 (high)** — Self-containedness: define `h_len`, EG2 cache path/format, split/JSONL schema, and copy-mask source.
+6. **MF-1017-6 (high)** — P/PA seed aggregation and bootstrap unit unspecified.
+7. **MF-1017-7…13 (medium/low)** — Endpoint vs `<5` copy exclusion; training/eval wording; D1 `not_a_result`; F11 label; `T_proj` phase-5 replay; L>F pairing; supplemental golden vectors.
+
+### Final verdict
+
+**NARROW.** v1.0.1 closes most v1.0 intent and is arithmetically/hash correct, but is **not yet a total implementation authority**. Do not freeze; issue a text-only v1.0.2/ERRATA for MF-1017-1…6 plus the P0 artifact field, re-freeze with a content hash, then approve **implementation + unit tests + D0 only**. D1, 3-seed, Phase 6, B0-B/B1/B2/Stage C remain unapproved; test 163 sealed; P1 unused; T5Gemma2 remains D-108 STOP.

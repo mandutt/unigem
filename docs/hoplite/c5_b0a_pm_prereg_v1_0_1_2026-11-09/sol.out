@@ -1,0 +1,37 @@
+Completed the independent **Sol 6.1 medium** review.
+
+- Sync succeeded; reviewed HEAD: `30b62191afe88d0a36389871e3a69fc524b4bbaa`.
+- Report: [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_1_2026-11-09/review_SOL.md)
+- Only the designated report was written. No training, evaluation, or test suite ran.
+
+### Q1–Q13 summary
+
+| Q | Topic | Verdict |
+|---|---|---|
+| Q1 | Self-containedness | disagree |
+| Q2 | Total decision contract | disagree |
+| Q3 | Mixed 1,680-record domain | agree |
+| Q4 | Builder / normalization / replay | conditional |
+| Q5 | Memory-length scope | agree |
+| Q6 | P/PA controls | conditional |
+| Q7 | Statistics / tail | conditional |
+| Q8 | D0/D1 / compute cap | conditional |
+| Q9 | Hashes / golden vectors | conditional |
+| Q10 | Closure of remaining Must-fix | conditional |
+| Q11 | Freeze and implementation now | disagree |
+| Q12 | Downstream approval boundaries | agree |
+| Q13 | Overall disposition | conditional — **NARROW** |
+
+**Confirmed:** the preflight hash, all three golden digests, mixed **1,680** keys, **96/48** multiplicities, and D1 phase-5 **560** count.
+
+### Ranked Must-fix
+
+1. **Unreachable control states:** the new P/PA aliases make `M_CONTROL_INVALID` unreachable with consistent inputs; reconcile reachability requirements and threshold scope.
+2. **Donor ambiguity:** shared donors across arms conflict with arm-local length maps.
+3. **Path compatibility:** existing P0 lacks required `no_training=true`; artifact inventory and missingness rules also need completion.
+4. **Replay/accounting:** explicitly cover primary replay recomputation in timing and finish debug/final diagnostic mechanics.
+5. **Training reproducibility:** specify arm-specific modes and RNG initialization order.
+
+## Final verdict: **NARROW**
+
+Recommend text-only repair and re-review **before freeze, implementation, or D0**. This review approves no Phase 6 execution, D1, three-seed run, or B0-B/B1/B2/Stage C. Test 163 remains sealed; P1 remains unused; T5Gemma2 remains under D-108 STOP.

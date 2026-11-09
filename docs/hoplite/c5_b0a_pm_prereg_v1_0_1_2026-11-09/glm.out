@@ -1,0 +1,31 @@
+Review complete. Workspace synced to origin/main HEAD `30b6219` (fetch + `pull --ff-only` → "Already up to date", clean tree). Full report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_1_2026-11-09/review_GLM.md` (only permitted write; nothing else touched). Independent verifications I ran myself: preflight SHA-256 matches §0.4; **all three golden digests reproduce exactly** from the spec (state `43ecb58e…`, empty `e3b0c442…`, replay `c43ea35c…`); every cited P0 statistic recomputed from `p0_native_sanity.json` and matched (train +3.7617 / 14·20, val +5.2375 / 18·20, median 2.9739, signed top3 .4862, absolute .43355); 1,680/560/600/1,204/155/96 arithmetic all check; cohort arithmetic matches the preflight (16 contributors, 15/20, K=754→14). P0 bootstrap CI endpoints were not independently recomputed (no numpy in the sandbox) — noted in the report.
+
+### Q1–Q13
+
+| Q | Topic | Verdict | Core evidence / gap |
+|---|---|---|---|
+| Q1 | Self-containedness | **conditional** | Normative sections chain-free (grep-verified); §2.5/§4.0/§11.4/§12 close MF-4/5/6/7. Non-total: phase-7 record content (R2), train-doc donor pool (R4), §2.5.5-vs-§9.5 tension (R1) |
+| Q2 | Decision contract | **agree** | §4.2–4.4 chain total; F1–F11 traced one-by-one; 9 L pairs + fixtures 16–18 derive correctly; small-N preserves triple |
+| Q3 | Mixed M domain | **agree** | 15×96 + 5×48 = 1,680 exact key set; 560 phase-5; m_valid=20 native vs m_pass_l=15 common consistent; preflight cross-checked |
+| Q4 | Builder/M_NORM/endpoint/replay | **conditional** | All definitions sufficient; only phase-7 donor-level control tensor is unstated (R2) — 600 count + golden record 3 force one reading, but it isn't written |
+| Q5 | F/L memory length scope | **agree** | K=753 M-only; training real-only, eval donor-crop min-K, generation 20×256; short docs handled structurally; zero-margin abort verified |
+| Q6 | P/PA | **conditional** | 20-native predicates + PA veto/PA_RETENTION non-gate clear; residual: copy-threshold asymmetry (m_valid ≥.05 vs m_pass_l >0) never declared intentional (R3; inherited from v1.0) |
+| Q7 | Statistics/tail | **agree** | New stats module justified — legacy helper really has seed 20261108 + mislabeled `seeds_positive` (runner L384–398); tie rule + missing-seed NA total |
+| Q8 | D0/D1/cap | **agree** | 560/600/1,204/155/96 all recomputed; D0/D1 boundaries and 8-phase D1 coherent |
+| Q9 | Hash/golden | **agree** | I reimplemented frame spec + canonical JSON — all 3 digests match; control_digest closes MF-7; tolerance vs exact-hash separated |
+| Q10 | Must-fix closure | **conditional** | MF-1…MF-9 all closed (mapped to sections); residual R1–R4 + R5 below; no structural/arithmetic contradiction remains |
+| Q11 | Freeze + implementation + D0 | **conditional** | Freeze after R1–R4 ERRATA; then implementation + unit tests + D0 approvable; mandatory pre-implementation test list given |
+| Q12 | B0-B/D1/3-seed boundaries | **agree** | All separate-approval, no auto-promotion; B0-B predicate restated on v1.0.1 labels (in report §Q12) |
+| Q13 | Final | **NARROW** | See below |
+
+### Must-fix (ranked, all text-only ERRATA)
+
+1. **R1 (high)** — reconcile §2.5.5 ("<5 copy tokens → excluded from copy endpoint") with §9.5 ("copy tokens ≥5, no missing key" in the exact 1,680 set): declare M-endpoint strict (→ `M_NOT_EVALUABLE`) and scope §2.5.5's exclusion to the signal path only.
+2. **R2 (high)** — define phase-7 donor-level record content: control = variant cropped to `K_d` (`M_POS_MEAN[:K_d]`/`M_NORM(t)[:K_d]`) vs real = `A(h_t)[:K_d]`; donor determines only the crop (the only reading consistent with 600/arm-seed and golden record 3).
+3. **R3 (medium)** — state the intent of the copy-threshold asymmetry (P/PA validity ≥.05 vs L calibration >0); no value changes, now or after results.
+4. **R4 (medium)** — state explicitly that train-doc eval-signal donors come from val20 (cross-split), and the per-arm donor length source (EG2 h_len vs native 512 with doc_id tie-break).
+5. **R5 (low)** — supplemental goldens (M_NORM/P·PA/donor tie-break), name the signal-eval delta artifact (§12.2 schema can't hold variant=NA), `cohort_ok` wording, "B0-A 재검증" label, native-vs-F/L `source_max_length` scope, pin float32/CPU dtype for the 1e-5 replay tolerance.
+
+### Final verdict
+
+**NARROW** — v1.0.1 genuinely closes the v1.0 Must-fix set and is freeze-capable after R1–R4 ERRATA. Approve after freeze: **implementation + unit tests + D0** (≤4 configs, ≤15 min, seed 20261111, `not_a_result`). **Not approved:** D1, 3-seed, B0-B/B1/B2/Stage C. **Forbidden:** test 163 (sealed), P1, T5Gemma2 (D-108 STOP), post-result threshold/seed/donor/step/LR changes. **Compute caps:** registered 12 units / 1,200 updates / ≤120 min wall / T_proj ≤96 min; prospective ceiling 1,204 updates / 155 min; no retry. Phase 6 remains unexecuted and unapproved by this round.
