@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "frozen",
+  "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
+  "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
+  "freeze_commit": "6fad89e59e4aa2222010f2360e5eb4c2572c4023",
+  "manifest_commit": null,
+  "p1_manifest_sha256": "69af129a4f58f7400189c361ba2447f12e17d35f012d7a36c26efdf485a3a2dc",
+  "golden_sha256": "30cbd1c1281235d0750c2bf9271b82cbe55eb64f099d8226216e14b2020ed3f6",
+  "preflight_sha256": "3ee3f1ca68a834e9bc2c63f6d92844ee37f2e23da1cdf640ace93c46769837af",
+  "helper_commits": {
+    "runner/c5_mt5_layer_probe.py": "949df7a521cd0e002a06ceec872bcafe1ea7eeb0",
+    "runner/c5_a1_lora.py": "3f9f69f1c0966212d986248253ccdfc38bf7ee6f",
+    "runner/c5_mt5_lora_b0.py": "d4a953874e1ac2d2a91a9f6d77ae71e521886635",
+    "runner/c5_a2null_eval.py": "93b056c8165334bd5710815e96596bd8c506d382"
+  },
+  "registered_seeds": [20261108, 20261109, 20261110],
+  "note": "plan/golden/p1 SHA-256 are over committed Git blob bytes (LF), not CRLF working-tree bytes. manifest_commit stays null; external freeze_manifest_commit.txt records the actual manifest commit."
+}
