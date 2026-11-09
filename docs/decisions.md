@@ -233,6 +233,8 @@
 
 | D-165 | 2026-11-09 | **F0 v0.3 수정(3-AI 검토 전 보고)**: v0.2 must-fix 반영. F0 전용 `build_arm`에서 adapter 후 **LoRA seed 항상 재설정**(`0x5EED10A5`) + E01/E11 LoRA·E10/E11 adapter init hash assert; Phase 6 builder 불변. D1 = E10/E01/E11 각 1 update(총 3), E00 0-update. D0/D1 mechanics predicate 10/10. Primary = final-checkpoint donor-crop paired `E01−E11` CI lower>0; phase7 diagnostic. `PROTOCOL_VALID` 없으면 `NOT_EVALUABLE`; route STOP gate. D1 25min parallel/55min sequential, R 900 updates ≤120min. **DRAFT v0.3, 미승인·미실행·3-AI 미발송.** | docs/plan_c5_f0_v0_3_2026-11-09.md |
 
+| D-166 | 2026-11-09 | **F0 v0.3 review — 1 CONTINUE / 2 NARROW**: GLM CONTINUE(definitional MF 6), DS NARROW, Luna NARROW. v0.4 반영: F0 병렬 오케스트레이터(3 threads/arm×4), D1 signal seal(`d1_sealed`+sha256, decision allowlist), 4-state STOP taxonomy, 15 common frozen binding, init hash/lora_names/RNG audit, H3 정의, D0 timing. **F0 미승인·미실행**; v0.4 재검토 진행. | reports/C5_F0_V0_3_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v0_4_2026-11-09.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
