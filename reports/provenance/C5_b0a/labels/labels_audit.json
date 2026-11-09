@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "phase": "C5 Phase 6 P/M",
+  "event": "labels_computed_false_to_true",
+  "computed_at": "2026-11-09T23:45:00+09:00",
+  "code_commit": "543c2673d10d256919374ef6e6e795d9fe6995df",
+  "metadata_commit": "cdab7a8",
+  "commands": [
+    "python -m runner.c5_pm_gate",
+    "python -m runner.c5_pm_registered --arm <arm> --seed <seed> --threads 2",
+    "python -m runner.c5_pm_replay --arm <arm> --seed <seed> --threads 2",
+    "python -m runner.c5_pm_aggregate"
+  ],
+  "input_sha256": {
+    "registered_report.json": "3e685d83e5986f86901fba110faa5435a5ee6d7c099530fb8b1109cba30d2ebc",
+    "registered_m_records.json": "82327a2a254832d25525ed190992c05732c8b5ecc2c9873ae0e7da0ec28f0486",
+    "registered_units_manifest": "c94256319b0fb7fba36913bcdc23ce117c1f5089ef4405eea93c4275f417508a",
+    "replay_report.json": "692f7c82726af4f6db1ae9e2e8b6c4d0505fd6ccd4f03abb7eeea744b4a15f3b",
+    "control_manifest_registered.json": "b9eaedb057b8d453028bfb2bc963545dcf64e9619e318f00c4a3f16114542ca9"
+  },
+  "output_sha256": {
+    "labels.json": "46680566aec4e8b36c653636579048afb862879af0d12f97f38257fdc75bcd37",
+    "replay_report.json": "692f7c82726af4f6db1ae9e2e8b6c4d0505fd6ccd4f03abb7eeea744b4a15f3b"
+  },
+  "status": {
+    "labels_computed": true,
+    "decision_labels_computed": true,
+    "b0_b_candidate_gate": false
+  },
+  "note": "Inputs/outputs are committed Git blob hashes. No training/eval was performed to compute labels; all inputs are the registered artifacts."
+}
