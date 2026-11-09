@@ -1,8 +1,8 @@
 {
-  "version": 9,
+  "version": 10,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "mf3_closed_f0_draft",
+  "status": "f0_draft_review_narrow",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -273,6 +273,28 @@
       "path": "docs/plan_c5_f0_2026-11-09.md",
       "sha256": "52944cdf32d6a995476417aee41c1b59259a8eb24c73fa87e70337a949a0a4cd",
       "status": "draft_not_approved"
+    },
+    "f0_review_synthesis": {
+      "path": "reports/C5_F0_DRAFT_3AI_REVIEW_SYNTHESIS_2026-11-09.md",
+      "sha256": "28e9b4fd333451d09e674e79693ce97b7f3b71b82bd598a392e95e33e4df0dd3",
+      "status": "3/3 NARROW"
+    },
+    "f0_reviews": {
+      "GLM": {
+        "path": "docs/hoplite/c5_f0_draft_review_2026-11-09/review_GLM.md",
+        "sha256": "160ff9218575291dcd2d52cdf5f3b7a8be0099d2a060d70a2d05855270dec90a",
+        "status": "present"
+      },
+      "DS1017": {
+        "path": "docs/hoplite/c5_f0_draft_review_2026-11-09/review_DS1017.md",
+        "sha256": "1b184c4b68b7ea59c52f1091a3f1dee413c2db36e6df36e50ebf0c68909d34d9",
+        "status": "present"
+      },
+      "SOL": {
+        "path": "docs/hoplite/c5_f0_draft_review_2026-11-09/review_SOL.md",
+        "sha256": "62a78d753692c680a8c4bdc95834fd3a99194568bde319717963b21283c43a16",
+        "status": "present"
+      }
     }
   },
   "gates": {
@@ -286,11 +308,11 @@
     "labels": "complete",
     "cause_analysis": "complete",
     "labels_audit": "complete",
-    "f0": "draft_not_approved"
+    "f0": "draft_revise_not_approved"
   },
   "test_split_used": false,
   "p1_used": false,
   "labels_computed": true,
   "not_a_result": false,
-  "note": "MF-3 narrowed; F0 draft added. B0-B candidate false unchanged; F0 not approved/executed."
+  "note": "F0 draft reviewed 3/3 NARROW; revise Stage D/STOP/selection before re-review. No execution. B0-B false unchanged."
 }
