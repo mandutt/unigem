@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "glm",
+    "model": "z-ai/glm-5.3-flash",
+    "reasoning": "max",
+    "id": "thr_7f91f649e2d448e0b7dfedc6641a10d5"
+  },
+  {
+    "tag": "ds1017",
+    "model": "deepseek-v4.1-flash-1017",
+    "reasoning": "high",
+    "id": "thr_34b3ef24bbb2407bb628ad30c9cf86b8"
+  },
+  {
+    "tag": "sol",
+    "model": "gpt-6.1-sol",
+    "reasoning": "medium",
+    "id": "thr_109ca0e0ff1e49c7aa2d29f784822485"
+  }
+]
