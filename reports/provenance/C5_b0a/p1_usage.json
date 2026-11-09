@@ -1,5 +1,7 @@
 {
+  "manifest_version": 1,
   "p1_used": false,
   "test_split_read": false,
-  "note": "C5 Phase 6 P/M only uses P0 train20/val20; test 163 remains sealed."
+  "checked_artifacts": [],
+  "note": "C5 Phase 6 P/M uses P0 train20/val20; test 163 remains sealed. This is an attestation, not proof of non-access."
 }
