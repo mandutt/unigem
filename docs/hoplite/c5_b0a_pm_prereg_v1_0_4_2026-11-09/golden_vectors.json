@@ -1,0 +1,150 @@
+{
+  "spec": "C5 Phase 6 P/M v1.0.4",
+  "created": "2026-11-09",
+  "note": "Independent expected digests for state and replay canonicalization. Do not regenerate from the implementation under test.",
+  "state": {
+    "frame_spec": "u32le name_len | name_utf8 | u8 dtype_len | dtype_str | u8 ndim | u32le shape[ndim] | u64le nbytes | little_endian_contiguous_bytes",
+    "tensors": [
+      {
+        "name": "a",
+        "dtype": "<f4",
+        "shape": [
+          2
+        ],
+        "values": [
+          1.0,
+          -2.0
+        ],
+        "payload_hex": "0000803f000000c0"
+      },
+      {
+        "name": "b",
+        "dtype": "<f4",
+        "shape": [
+          1,
+          1
+        ],
+        "values": [
+          0.5
+        ],
+        "payload_hex": "0000003f"
+      }
+    ],
+    "expected_sha256": "43ecb58e197d5789df0a9dbbc67beba11538b8063c3da8ac46f96e1e95d65712",
+    "empty_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "replay_base": {
+    "canonical_json": "sort_keys=true,separators=(',',':')",
+    "records": [
+      {
+        "arm": "L",
+        "ce": 1.0,
+        "doc_id": "doc_a",
+        "donor_id": null,
+        "endpoint": "copy",
+        "memory_kind": "control",
+        "seed": 20261108,
+        "variant": "M_POS_MEAN"
+      },
+      {
+        "arm": "L",
+        "ce": 2.0,
+        "doc_id": "doc_a",
+        "donor_id": null,
+        "endpoint": "copy",
+        "memory_kind": "real",
+        "seed": 20261108,
+        "variant": "M_POS_MEAN"
+      },
+      {
+        "arm": "L",
+        "ce": 3.5,
+        "doc_id": "doc_b",
+        "donor_id": 0,
+        "endpoint": "full",
+        "memory_kind": "real",
+        "seed": 20261108,
+        "variant": "M_POS_MEAN"
+      }
+    ],
+    "expected_sha256": "c43ea35c46c51a0e82cebe5764a989d1b67012b2690246a0f89a94dff7851667"
+  },
+  "replay_supplemental": {
+    "purpose": "P/PA native-20, M_NORM control, donor_id=4 key coverage",
+    "canonical_json": "sort_keys=true,separators=(',',':')",
+    "records": [
+      {
+        "arm": "P",
+        "ce": 12.0,
+        "doc_id": "val_native_01",
+        "donor_id": null,
+        "endpoint": "full",
+        "memory_kind": "control",
+        "seed": 20261108,
+        "variant": "M_NORM"
+      },
+      {
+        "arm": "P",
+        "ce": 11.0,
+        "doc_id": "val_native_01",
+        "donor_id": null,
+        "endpoint": "full",
+        "memory_kind": "real",
+        "seed": 20261108,
+        "variant": "M_NORM"
+      },
+      {
+        "arm": "PA",
+        "ce": 14.0,
+        "doc_id": "val_native_01",
+        "donor_id": 4,
+        "endpoint": "copy",
+        "memory_kind": "donor",
+        "seed": 20261108,
+        "variant": "M_POS_MEAN"
+      },
+      {
+        "arm": "PA",
+        "ce": 13.0,
+        "doc_id": "val_native_01",
+        "donor_id": 4,
+        "endpoint": "copy",
+        "memory_kind": "real",
+        "seed": 20261108,
+        "variant": "M_POS_MEAN"
+      }
+    ],
+    "expected_sha256": "8277a713fd52b2ba8c5c3c859c83fd78593aa5a381f8640448e2128a97af7a20",
+    "ordering": "records sorted ascending by canonical key (doc_id, arm, seed, variant, endpoint, memory_kind, donor_id)"
+  },
+  "control_manifest_golden": {
+    "note": "synthetic framing fixture; not a trained tensor",
+    "frame_spec": "u32le name_len | name_utf8 | u8 dtype_len | dtype_str | u8 ndim | u32le shape[ndim] | u64le nbytes | little_endian_contiguous_bytes",
+    "tensors": [
+      {
+        "name": "control/F/20261108/M_POS_MEAN",
+        "dtype": "<f4",
+        "shape": [
+          1,
+          1
+        ],
+        "values": [
+          1.0
+        ]
+      },
+      {
+        "name": "control/F/20261108/M_NORM/doc_a",
+        "dtype": "<f4",
+        "shape": [
+          1,
+          1
+        ],
+        "values": [
+          2.0
+        ]
+      }
+    ],
+    "expected_sha256": "6b50c226ecc402323787bd25b20e57fe57376caeb925c040b57985ccc0ec1938",
+    "scope": "synthetic [1,1] framing fixture only; real [K_M,512] control_digest is postrun-only"
+  }
+}

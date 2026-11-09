@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "phase": "C5 Phase 6 P/M",
+  "expected": [
+    "checkpoints/{arm}/{seed}.pt",
+    "final_checkpoint_hash.json",
+    "control_manifest/control_manifest.json",
+    "p1_usage.json",
+    "p1_usage.postrun.json"
+  ],
+  "note": "Base registry only; run artifacts are added under reports/provenance/C5_b0a/."
+}
