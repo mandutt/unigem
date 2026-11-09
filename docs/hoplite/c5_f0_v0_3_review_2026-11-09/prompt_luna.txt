@@ -1,0 +1,27 @@
+This is a NEW independent review thread for C5 F0 v0.3. It is not a follow-up to any earlier F0 thread; all previous F0 review threads were archived before this round. Do not inherit prior conclusions.
+
+Read:
+reports/EXTERNAL_REVIEW_C5_F0_V0_3_2026-11-09.md
+docs/plan_c5_f0_v0_3_2026-11-09.md
+docs/plan_c5_f0_v0_2_2026-11-09.md
+reports/C5_F0_DRAFT_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/C5_F0_V0_2_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md
+reports/C5_PM_PHASE6_RESULTS_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+docs/plan_c5_b0a_pm_prereg_v1_0_11.md
+runner/c5_pm_phase6.py
+
+MANDATORY: include reviewed HEAD and the verbatim phrase paired E01-E11.
+
+Focus on Q1-Q6:
+1. RNG / E01-E11 LoRA fixed
+2. D0/D1 mechanics and 3 updates
+3. primary paired CI and final-checkpoint source
+4. protocol-valid STOP
+5. compute parallel/sequential
+6. H3 separation
+
+Write your report ONLY to:
+docs/hoplite/c5_f0_v0_3_review_2026-11-09/review_LUNA.md
+
+Do not modify other files. No training/evaluation, no test 163/P1, no subagents. Answer Q1-Q6 and final STOP/NARROW/CONTINUE block. Do not write a generic summary; cite revised sections and exact numbers. Consultation only.
