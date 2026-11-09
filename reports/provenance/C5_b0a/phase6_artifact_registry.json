@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "d0_complete",
+  "status": "d1_complete",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -59,11 +59,84 @@
     "p1_usage_postrun": {
       "path": "reports/provenance/C5_b0a/p1_usage.postrun.json",
       "status": "pending_d1"
+    },
+    "d1_report": {
+      "path": "reports/provenance/C5_b0a/d1/d1_report.json",
+      "sha256": "bf309a3d34c09d8d4ea145d0122b969331917958803d2f17b574b1dd211ad4ad",
+      "status": "present",
+      "updates": 1,
+      "m_records": 560,
+      "phase7_records": 2400
+    },
+    "d1_m_records": {
+      "path": "reports/provenance/C5_b0a/d1/m_records.json",
+      "sha256": "16f1df7c26d9ea978acb5ff2a1ee7beb2625ce8fbce87c3511115f1d72f81f2b",
+      "status": "present",
+      "records": 560
+    },
+    "d1_phase7": {
+      "F": {
+        "path": "reports/provenance/C5_b0a/phase7_records/F/20261111.json",
+        "sha256": "694720ad717763138b2a45ec6d658ccb2bc84b3aa7c2990b8cdfa4453fbde5cb",
+        "status": "present",
+        "records": 600
+      },
+      "L": {
+        "path": "reports/provenance/C5_b0a/phase7_records/L/20261111.json",
+        "sha256": "04f961bdc132ab25ab332ab1a8c7c76fc9f1870cd6fe7c36f12dcace3ade2017",
+        "status": "present",
+        "records": 600
+      },
+      "P": {
+        "path": "reports/provenance/C5_b0a/phase7_records/P/20261111.json",
+        "sha256": "10d45b43233648d4f08918a76217cb75fca63324777c482b5440a4cc62b64820",
+        "status": "present",
+        "records": 600
+      },
+      "PA": {
+        "path": "reports/provenance/C5_b0a/phase7_records/PA/20261111.json",
+        "sha256": "af59be8266f032bd35dabea3523c1fb222322f39007f8126374ef739964d46cb",
+        "status": "present",
+        "records": 600
+      }
+    },
+    "d1_control_manifest": {
+      "path": "reports/provenance/C5_b0a/control_manifest/control_manifest.json",
+      "sha256": "f568d29659b3207efdd4e4983b36cb9e78521a57b926ecaddd1e6b4fb3964455",
+      "status": "present",
+      "arms": 4
+    },
+    "d1_checkpoints": {
+      "F": {
+        "path": "reports/provenance/C5_b0a/checkpoints/F/20261111.pt",
+        "sha256": "2b197005a61387a5ea04e3faa4b6d8f782781fffb0d9f6fa702682817d24a3d7",
+        "status": "present"
+      },
+      "L": {
+        "path": "reports/provenance/C5_b0a/checkpoints/L/20261111.pt",
+        "sha256": "6d385775d28d9ceb35303a17ba044cd44df1602e6ef8e35e11ebeb3640fd6983",
+        "status": "present"
+      },
+      "P": {
+        "path": "reports/provenance/C5_b0a/checkpoints/P/20261111.pt",
+        "sha256": "5ec40caadf03aece264be5fa353c6d7dd73fa30dda3fca488e273af53b5a3f23",
+        "status": "present"
+      },
+      "PA": {
+        "path": "reports/provenance/C5_b0a/checkpoints/PA/20261111.pt",
+        "sha256": "964d10144334629b87a7b579470c074d56e5763cb072c958c88f14a76df6a78e",
+        "status": "present"
+      }
+    },
+    "d1_checkpoint_hash": {
+      "path": "reports/provenance/C5_b0a/d1_checkpoint_hash.json",
+      "sha256": "233dc1dc77094e185bc0b371ef69ad54dbf0218181befc4a38978ba923ec6384",
+      "status": "present"
     }
   },
   "gates": {
     "d0": "complete",
-    "d1": "not_approved",
+    "d1": "complete",
     "registered": "not_approved",
     "b0_b": "not_approved",
     "b1": "not_approved",
@@ -74,5 +147,5 @@
   "p1_used": false,
   "labels_computed": false,
   "not_a_result": true,
-  "note": "All paths are under base; phase-7 records are diagnostic only. D0 is zero-update mechanics, not a result."
+  "note": "D0 and D1 complete. D1 is one-update debug, not a result. registered/B0-B/B1/B2/Stage C not approved."
 }
