@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "glm",
+    "model": "z-ai/glm-5.3-flash",
+    "reasoning": "max",
+    "id": "thr_a3c3c20b5d6349628ede02ba9aba34e6"
+  },
+  {
+    "tag": "ds1017",
+    "model": "deepseek-v4.1-flash-1017",
+    "reasoning": "high",
+    "id": "thr_14ffe4f8289948bd9ab7c968962b72d4"
+  },
+  {
+    "tag": "terra",
+    "model": "gpt-6.1-terra",
+    "reasoning": "high",
+    "id": "thr_4205e57c045941119bec147a506d7752"
+  }
+]
