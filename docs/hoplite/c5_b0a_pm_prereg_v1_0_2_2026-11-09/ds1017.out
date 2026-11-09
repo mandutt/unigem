@@ -1,0 +1,37 @@
+## Sync
+
+`git fetch origin` → ok; `git pull --ff-only origin main` → **Already up to date**. HEAD = **`445a9cc2b1ff758edd807da659a3e50c9c703d1d`**. (The request's cited `1f6b816` is not present as a local object in this depth-1 clone; basis used is current `origin/main` at `445a9cc`, which adds the review request and contains every listed artifact.) Consulted read-only; only the report file was written.
+
+**Report:** `docs/hoplite/c5_b0a_pm_prereg_v1_0_2_2026-11-09/review_DS1017.md` (515 lines, identifies me as DeepSeek V4.1 Flash 1017 high).
+
+## Q1–Q13
+
+| Q | Verdict | Core evidence |
+|---|---|---|
+| 1 Blockers | **conditional** 12 closed / 3 partial / 0 open | Closed: P0 mode-only (artifact has `mode=p0_sanity_no_training`, no `no_training`, result unchanged), donors, control tensors, allowlist/P1, `h_len`/paths, P/PA seeds, validity split, copy-token scope, F11, mode/RNG, D1. Partial: phase-7 enum (#9), T_proj counts (#13), golden field (#15). |
+| 2 Self-contained | **conditional** | Protocol fully specified; blocked only by MF-1/MF-4 forced choices; legacy runner explicitly non-authoritative (`set_training_mode` only "frozen"/"lora"; bootstrap seed 20261108; stale donor docstring). |
+| 3 Validity/calibration | **agree** (1 clarification) | `M_CONTROL_INVALID` reachable: needs `m_evaluable` + `p_valid`/`pa_valid` true + a calibration false — conditional, not unconditional. But `P_VALID` includes path validity, so F9's `p_step NA + p_valid false` premise is unreachable; missing-vs-nonfinite tri-state undefined. |
+| 4 Donor | **agree** | Arm-specific maps correct; preflight native lengths all 512 (20/20), so P/PA ties are doc_id-ascending; `donor_id 0..4`, no train pool, `shuffled`=wrong donor; `native_donors_for` matches tie rule. |
+| 5 Control/replay | **disagree as written** | `.npz`+SHA256 storage fixed, but (a) §12.2 key `donor_sort` ≠ golden `donor_id` — verified divergent hashes; (b) one checkpoint cannot replay 1,680 records. |
+| 6 Allowlist/P1 | **conditional** | No test scan; manifest present. But `assay_path_ok` ignores `test_split_read:false`, doesn't pin P1 hash, doesn't enumerate checked artifacts. |
+| 7 Data/`h_len` | **agree** | Paths and `h_len` pinned; raw-passage copy mask correct; all-512 confirmed by preflight `val_native_lengths`/`native_target_eligible_at_512=20` (plan should cite it). |
+| 8 M arithmetic | **agree** | 1,680 = 560×3; D1 560; phase7 600; 96/48; 15+5; K_M 753/512 — all recomputed correct. |
+| 9 D0/D1/cap | **disagree** | D0/D1 coherent, but registered per-arm replay “420/420” is wrong: F/L 360, P/PA 480; conflicts with the `3×Σ_arm` per-seed formula. |
+| 10 New Must-fix | **conditional** (ranked) | See below. `P_VALID` is not too weak; manifest ~0.3 GB acceptable; arm-specific donors help comparability. |
+| 11 Freeze/implement/D0 | **conditional** | Freeze after ERRATA 1–4; implement decision/stats/hash/donor/allowlist/manifest; D0 after ERRATA, 0 updates ≤15 min. |
+| 12 Boundaries/B0-B | **conditional** | D1/3-seed/B0-B separate and sufficient; restated B0-B with `n_signal == 15` and tail `NA` blocking. |
+| 13 Final | **NARROW** | Structural blockers closed; contract still self-contradictory at golden/replay + T_proj arithmetic. |
+
+## Must-fix (ranked)
+
+1. **Blocker** — replay key field `donor_sort` (§12.2) vs golden `donor_id`; hashes diverge (`32db40…`/`1ccdee…` vs frozen `c43ea…`/`38e5e2f…`).
+2. **Blocker** — §11.4 replay scope: one `final_checkpoint_hash` cannot reproduce 1,680 records; define per-checkpoint 120/160 + 12-unit aggregation.
+3. **High** — §11.5 registered per-arm replay 420/420 → **360/480**.
+4. **Medium** — phase-7 `memory_kind {real,donor}` contradicts `control_pos/norm` tensors and §12.2 `{control,real}`.
+5. **Medium** — `P_VALID` missing-vs-nonfinite tri-state; F9 premise unreachable.
+6. **Medium** — P1 manifest: require `test_split_read:false`, pin hash, enumerate checked artifacts.
+7. **Low** — document P/PA-vs-L aggregation asymmetry; **8.** cite native-length preflight + D0 512 assert; **9.** control_manifest path/footprint.
+
+## Verdict
+
+**NARROW** — v1.0.2 fixes 12/15 blockers outright, but cannot freeze as the single authority until the four replay/golden/arithmetic ERRATA land. `freeze: no (yes after ERRATA)`; `implementation/unit tests + D0: conditional yes after ERRATA`; `D1/3-seed/B0-B/B1/B2/Stage C: no`. Max compute this round: 0 updates, ≤4 D0 configs, ≤15 min, CPU only. Test 163 sealed, P1 unused, T5Gemma2 D-108 STOP; this is consultation only, not Phase 6 approval.

@@ -1,0 +1,38 @@
+Review complete. The full report is written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_2_2026-11-09/review_GLM.md` (325 lines, the only write performed). Workspace synced: `origin/main` = `445a9cc` at sync ("Already up to date"), fast-forwarded to `ee99fd0` mid-review (threads.json only — no reviewed artifact changed). All golden digests, the preflight hash, and the plan's arithmetic were independently recomputed.
+
+## Q1–Q13 verdicts (GLM 5.3 Flash, max)
+
+| Q | Topic | Verdict | Key evidence |
+|---|---|---|---|
+| Q1 | 15 blocker closure | **agree** — 13 closed, 2 closed-with-minor-residual (#9 phase-7, #13 T_proj), 0 open | Each blocker mapped to v1.0.2 §; P0 `mode` field, donor re-sort, npz manifest, allowlist, §2.6 paths, §4.5 split, §2.7 RNG, §11.3, golden v1.0.2 label all verified |
+| Q2 | Self-containedness | **conditional agree** | Spec inline-pins all semantics; helper modules (`Adapter`, `LoRALinear`, `make_labels`, `load_layer_cache`) match §2.5.4/§2.6 exactly; residual: module hashes unrecorded, D0 "≤4 configs" undefined |
+| Q3 | Validity/calibration | **agree** | v1.0.1 `P_VALID=ANDn(P_POS_PASS,P_NORM_PASS)` → v1.0.2 integrity (480 records/arm) + calibration in `m_valid`; `M_CONTROL_INVALID` reachable, gated by `m_evaluable` — not unconditional |
+| Q4 | Donor | **agree** | Recomputed: F/L donors for `04161-00002` = {04798,03991,05258,03271,01058} vs P/PA = {00020,00430,01058,01127,01331} — correct, deterministic, in-arm comparisons uncontaminated |
+| Q5 | Control tensors/replay | **conditional agree** | 222 npz + per-tensor SHA256 + `control_digest`; hash-only forbidden; atol/rtol adequate; debug/final separated; phase-7 domain needs NMF-2 |
+| Q6 | Allowlist/P1 | **agree** | 40-ID frozen allowlist; no test-163 scan; forged/missing → false/NA paths correct; `p1_usage.json` verified |
+| Q7 | Data paths/h_len | **agree** | §2.6 paths identical to runner constants; `copyable_mask`=raw passage; all-512 verified (40/40 in preflight) |
+| Q8 | M arithmetic | **agree, 1 exception** | 1,680=15×96+5×48 ✓, 560 ✓, 600 ✓, 96/48 ✓ — but §11.5 "per arm F/L 420, P/PA 420" is wrong (correct: **360/480**) |
+| Q9 | D0/D1/cap | **conditional** | 1,204 updates / 155 min / ≤96 min T_proj all correct; D0 config undefined; D1 20-min cap vs generation (80×256 greedy, CPU) is a recorded feasibility risk, no number change proposed |
+| Q10 | Remaining must-fix | **conditional** | `P_VALID` weakening does **not** make INVALID unconditional; manifest weight acceptable (keep tensors); arm-specific donors do not harm comparisons; 5 must-fix items below |
+| Q11 | Freeze/approval | **conditional yes** | Freeze after NMF-1/2 (+3–5); 10 required pre-implementation test groups specified (golden×4, F1–F11, fixtures 16–18, INVALID-reachability, M arithmetic, donor, allowlist, stats, hash, §13.5 prohibitions) |
+| Q12 | B0-B/D1/3-seed | **agree** | Predicate restated: `EXPLORATORY_L_SIGNAL` ∧ `VALID` ∧ `M_CONTROL_PASS` ∧ `m_valid=true` ∧ `m_evaluable=true` ∧ `n_signal==15` ∧ `tail_driven==false` (signal tail) ∧ leakage/mode pass ∧ artifacts ∧ separate prereg |
+| Q13 | Final | **NARROW** | See below |
+
+## Must-fix (ranked)
+
+1. **NMF-1** — §11.5 per-arm registered primary replay: "F/L 420, P/PA 420" → **F/L 360, P/PA 480** (total 1,680 unchanged; same error propagates into `t_primary_replay_arm` "registered 420"). Text-only arithmetic correction, not a threshold change.
+2. **NMF-2** — Phase-7 record domain inconsistency: §9.6.1 says `memory_kind ∈ {real,donor}`, §12.2 says `{control,real}`, and the golden supplemental (verified: `38e5e2fb…f6695`) actually contains a `donor` record. Canonical schema must admit `{control,real,donor}` with phase-5 (donor_sort=-1) vs phase-7 (donor_sort 0..4) domains and the degenerate variant axis stated.
+3. **NMF-3** — §13.4 omits the supplemental golden from hash/replay tests (one line).
+4. **NMF-4** — `p1_usage.json` malformed/missing-field handling (NA vs false) unstated (one line).
+5. **NMF-5** — D0 "≤4 configs" undefined (one line).
+
+## Final verdict: **NARROW**
+
+- **v1.0.2 freeze**: yes — after NMF-1/2 (required) + NMF-3/4/5 (recommended), text-only, then freeze hash + content SHA-256 per §16.2.
+- **Implementation + unit tests**: approved after freeze only ("no code before freeze" holds).
+- **D0**: approved after freeze — 0 updates, ≤15 min, seed 20261111, `not_a_result:true`.
+- **D1 / 3-seed / B0-B / B1 / B2 / Stage C**: **not approved by this round**; separate gates.
+- **Forbidden**: Phase 6 registered run, test 163 opening, P1 use, T5Gemma2 (D-108 STOP maintained), 15→14 or native→common substitution, any post-result threshold/seed/donor/step/LR change.
+- **Max compute**: nothing runs under this round except post-freeze D0 (≤15 min). Registered caps restated, not altered: 12 units / 1,200 updates / 120 min wall / 6 threads / CPU-only / no retry; T_proj ≤96 min gate; prospective max 1,204 updates / 155 min.
+- **test 163**: sealed, untouched; allowlist membership only.
+- **Self-contained authority**: yes, conditional on recording helper-module paths/commit hashes in the freeze manifest and closing NMF-2.
