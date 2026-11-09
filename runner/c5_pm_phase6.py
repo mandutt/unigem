@@ -883,9 +883,71 @@ def run_d1() -> dict[str, Any]:
     return out
 
 
+
+REGISTERED_SEEDS = (20261108, 20261109, 20261110)
+
+
+def run_registered_unit(arm: str, seed: int) -> dict[str, Any]:
+    """Run one registered unit and write the unit artifact set."""
+    if seed not in REGISTERED_SEEDS:
+        raise ValueError(f"unregistered seed: {seed}")
+    inputs = load_frozen_inputs()
+    preflight = inputs["preflight"]
+    rows = inputs["rows"]
+    train_ids = inputs["train_ids"]
+    val_ids = inputs["val_ids"]
+    cache = load_layer_cache("train", CACHE)
+    cache.update(load_layer_cache("val", CACHE))
+    assert_cache_lengths(cache, preflight)
+    built = build_arm(arm, seed)
+    native = native_cache_for(built["model"], built["tok"], rows, train_ids + val_ids)
+    labels, copies = labels_and_copy(built["tok"], rows, val_ids)
+    donors = donors_for(val_ids, cache) if arm in {"F", "L"} else donor_map(
+        {rid: int(native[rid].shape[0]) for rid in val_ids}, val_ids
+    )
+    step0 = eval_arm_d1(built, val_ids, cache, native, rows, labels, copies, donors)
+    train = train_registered(built, rows, cache, native, train_ids, 100)
+    final = eval_arm_d1(built, val_ids, cache, native, rows, labels, copies, donors)
+    targets = list(preflight["common_ids"]) if arm in {"F", "L"} else val_ids
+    controls = build_controls(built, train_ids, targets, cache, native)
+    control_entry = write_control_manifest(built, controls, seed)
+    m_records = m_records_for(built, targets, controls, labels, copies, seed)
+    mdir = ROOT / "reports/provenance/C5_b0a/registered"
+    mdir.mkdir(parents=True, exist_ok=True)
+    (mdir / f"m_records_{arm}_{seed}.json").write_text(
+        json.dumps(m_records, indent=2) + "\n", encoding="utf-8"
+    )
+    phase7 = phase7_records_for(
+        built, list(preflight["common_ids"]), controls, cache, native,
+        labels, copies, donors, seed,
+    )
+    p7dir = ROOT / "reports/provenance/C5_b0a/phase7_records" / arm
+    p7dir.mkdir(parents=True, exist_ok=True)
+    (p7dir / f"{seed}.json").write_text(
+        json.dumps(phase7, indent=2) + "\n", encoding="utf-8"
+    )
+    generation = generate_d1(built, val_ids, cache, native)
+    checkpoint = save_d1_checkpoint(built, seed)
+    out = {
+        "arm": arm, "seed": seed, "updates": 100,
+        "step0": step0, "train": train, "final": final,
+        "control": control_entry,
+        "m_records": len(m_records), "phase7_records": len(phase7),
+        "generation": generation, "checkpoint": checkpoint,
+    }
+    udir = mdir / "units"
+    udir.mkdir(parents=True, exist_ok=True)
+    (udir / f"{arm}_{seed}.json").write_text(
+        json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    return out
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=("d0", "d1", "registered"), default="d0")
+    ap.add_argument("--arm", choices=ARMS)
+    ap.add_argument("--seed", type=int)
     args = ap.parse_args()
     if args.mode == "d0":
         out = run_d0()
@@ -895,10 +957,13 @@ def main() -> int:
         out = run_d1()
         print(json.dumps({"mode": out["mode"], "configs": out["configs"], "m_records": out["m_records_total"]}, ensure_ascii=False))
         return 0
-    raise NotApprovedError(
-        f"{args.mode} is outside the current approval; D0 only. "
-        "D1 and registered execution require separate approval."
-    )
+    if args.mode == "registered":
+        if not args.arm or args.seed is None:
+            raise SystemExit("registered mode requires --arm and --seed")
+        out = run_registered_unit(args.arm, int(args.seed))
+        print(json.dumps({"mode": "registered", "arm": args.arm, "seed": args.seed, "m_records": out["m_records"], "phase7_records": out["phase7_records"]}))
+        return 0
+    raise NotApprovedError(f"unknown mode: {args.mode}")
 
 
 if __name__ == "__main__":
