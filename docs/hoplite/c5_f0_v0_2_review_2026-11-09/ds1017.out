@@ -1,0 +1,26 @@
+Consultation complete. The report is written; no other repository files were touched.
+
+**Sync:** `git fetch origin` then `git pull --ff-only origin main` → `Already up to date.` Reviewed HEAD is `185d2ff7b2c29aaa10093838335cb15901981657`, identical to `origin/main`. The verbatim phrase `mechanics-only` is included and anchored to §12 Q1 / §0 item 1 of the v0.2 plan.
+
+**Report:** `docs/hoplite/c5_f0_v0_2_review_2026-11-09/review_DS1017.md`
+
+**Verdicts (Q1–Q6):**
+
+| Q | Topic | Verdict |
+|---|---|---|
+| 1 | Stage D/R selection bias | conditional |
+| 2 | E01 vs E11 2×2 | conditional |
+| 3 | route STOP vs track STOP | conditional |
+| 4 | M/signal and E00 | conditional |
+| 5 | compute realism | conditional |
+| 6 | H3 separation | agree |
+
+**Final: NARROW.** The v0.2 direction is right — the 1-seed gate and track-level STOP are gone — but approval is blocked by five concrete issues:
+
+1. **“LoRA fixed” is false at initialization.** `build_arm` calls `torch.manual_seed(seed)` (line 147), constructs the adapter (line 150) before attaching LoRA (line 153). The adapter consumes RNG, so E01 and E11 receive different `lora_A` initializations. This is a new blocker found in the code, not inherited from v0.1.
+2. **“D0/D1 mechanics pass” is undefined**, with no firewalling of D1 signal telemetry and no ban on Stage R interim looks — a discretionary gate survives.
+3. **Primary decision uses per-cell significance** (“E01 positive AND E11 negative”) instead of the paired `E01−E11` CI; the `(-,+)` branch is missing and “≈” has no equivalence margin.
+4. **STOP is not gated on protocol validity** or M interpretability, so a broken run could be read as route STOP.
+5. **Compute assumes unstated parallelism:** Phase 6 D1 measured 19.68 min parallel but 51.94 min sequential against a 25 min cap; Stage R’s 120 min is plausible at ~75–82 min only with 4-unit waves. Replay and D1 retry are unaccounted.
+
+Key quantitative evidence cited: Phase 6 registered wall 4,939.884 s (82.33 min) for 1,200 updates; Phase 6 D1 1,180.577 s parallel with `attempt_1` failing at backward; L signal mean −0.1135, CI [−0.2341, −0.0012], 6/15, 0/3 seeds; P/PA contrast +3.065 (14/15; 3.076 vs 0.011); adapter capacity 526,336; and the 15-doc CI width 0.2329 implying ≈5.4× more documents would be needed to certify the frozen .05 threshold.

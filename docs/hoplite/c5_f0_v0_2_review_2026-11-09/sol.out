@@ -1,0 +1,7 @@
+Report written only to:
+
+`docs/hoplite/c5_f0_v0_2_review_2026-11-09/review_SOL.md`
+
+Synchronization succeeded. Reviewed HEAD: `185d2ff7b2c29aaa10093838335cb15901981657`.
+
+Includes Q1–Q6, **mechanics-only**, and final **NARROW** block. No other files changed; no training, evaluation, tests, or subagents run.

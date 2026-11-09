@@ -229,6 +229,8 @@
 
 | D-163 | 2026-11-09 | **F0 draft 3-AI review — 3/3 NARROW**: 새 독립 스레드 GLM/DS1017/Sol. F0 질문·E01 vs E11 골격은 적절하나 **Stage D 1-seed STOP 규칙이 §1 H2와 모순**되고 selection bias를 만든다. E00/E10은 clean causal control 아님, F0 arm code 미구현(`arm_spec` F/L/P/PA), H3는 별도. F0 **미승인·미실행**; Stage D mechanics-only, Stage R 3-seed 기본, track STOP 문구 삭제 후 재검토. | reports/C5_F0_DRAFT_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_f0_draft_review_2026-11-09/review_{GLM,DS1017,SOL}.md |
 
+| D-164 | 2026-11-09 | **F0 v0.2 3-AI review — 3/3 NARROW**: Stage D selection bias/track STOP는 닫혔으나 **E01/E11 LoRA 초기화가 RNG order 때문에 동일하지 않음**, mechanics-pass 술어 미정의, primary decision이 paired CI가 아닌 per-cell significance, D1 E00 optimizer 불가(D1 총 3 updates, E00 0), primary signal source 미지정, STOP protocol-valid gate 없음, D1 25min은 4-way parallel 전제. **F0 미승인·미실행**; v0.3 수정 필요. | reports/C5_F0_V0_2_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_f0_v0_2_review_2026-11-09/review_{GLM,DS1017,SOL}.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
