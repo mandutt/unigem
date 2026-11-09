@@ -81,8 +81,8 @@
   },
   "checkpoint_hash": "reports/provenance/C5_b0a/registered_checkpoint_hash.json",
   "control_manifest": "reports/provenance/C5_b0a/control_manifest/control_manifest_registered.json",
-  "labels_computed": false,
-  "decision_labels_computed": false,
+  "labels_computed": true,
+  "decision_labels_computed": true,
   "not_a_result": false,
   "registered_seed_used": true,
   "test_split_used": false,
@@ -70826,5 +70826,9 @@
   },
   "m_pass_l": true,
   "final_checkpoint_hash_path": "reports/provenance/C5_b0a/final_checkpoint_hash.json",
-  "p1_usage_postrun": "reports/provenance/C5_b0a/p1_usage.postrun.json"
+  "p1_usage_postrun": "reports/provenance/C5_b0a/p1_usage.postrun.json",
+  "labels_artifact": "reports/provenance/C5_b0a/labels/labels.json",
+  "labels_audit": "reports/provenance/C5_b0a/labels/labels_audit.json",
+  "labels_code_commit": "543c2673d10d256919374ef6e6e795d9fe6995df",
+  "labels_computed_at": "2026-11-09T23:45:00+09:00"
 }
