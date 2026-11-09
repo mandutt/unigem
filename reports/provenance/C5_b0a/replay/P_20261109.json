@@ -1,0 +1,14 @@
+{
+  "arm": "P",
+  "seed": 20261109,
+  "m_records": 160,
+  "phase7_records": 600,
+  "m_keys_ok": true,
+  "p7_keys_ok": true,
+  "m_numeric_ok": true,
+  "phase7_numeric_ok": true,
+  "replay_ok": true,
+  "atol": 1e-05,
+  "rtol": 0.0001,
+  "elapsed_s": 357.18645906448364
+}

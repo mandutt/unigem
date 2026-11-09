@@ -217,6 +217,8 @@
 
 | D-157 | 2026-11-09 | **Phase 6 registered 3-seed 완료 (12 units)**: seeds 20261108/09/10, 4 arms ×100 updates =1,200 updates. 3 wave(4 arms each, 2 threads) wall **4,939.9s / 7,200s (82.3/120 min)**, `cap_ok:true`. M **1,680**, phase7 **7,200**, generation 240, checkpoints 12. **M_PASS_POS/NORM all arms true, m_pass_l true**. F/L final donor-crop signal Δ는 0 근처. **decision/signal labels 미계산**, `labels_computed:false`. B0-B/B1/B2/Stage C 미승인. | reports/C5_B0A_PM_PHASE6_REGISTERED_2026-11-09.md; reports/provenance/C5_b0a/registered/registered_report.json; reports/provenance/C5_b0a/registered/registered_m_records.json; reports/provenance/C5_b0a/final_checkpoint_hash.json |
 
+| D-158 | 2026-11-09 | **Phase 6 label/replay 완료 — B0-B candidate gate false**: replay 12/12 `replay_ok` (M 1,680 + phase7 7,200, `atol=1e-5`/`rtol=1e-4`). `L_COPY_SIGNAL=false` (mean -0.1135, CI[-0.2341,-0.0012], paired -0.0026, 0/3 seeds), `L_FULL_SIGNAL=false` (-0.1085, CI[-0.2234,-0.0057], 0/3). `l_signal=false`, `copy_only/full_only=false`, `n_signal=15`, `tail_driven=true` (leave_top3_mean -0.0279). `m_evaluable=true`, `m_valid=true`, `validity_status=VALID`, `control_status=M_CONTROL_PASS`, `signal_status=MEAN_CONTRAST_ONLY`. **b0_b_candidate_gate=false**. B0-B 별도 prereg/승인 필요. | reports/C5_B0A_PM_PHASE6_LABELS_2026-11-09.md; reports/provenance/C5_b0a/labels/labels.json; reports/provenance/C5_b0a/labels/replay_report.json; runner/c5_pm_labels.py |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |

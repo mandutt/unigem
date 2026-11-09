@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "phase": "C5 Phase 6 P/M",
+  "seeds": [
+    20261108,
+    20261109,
+    20261110
+  ],
+  "cohort": {
+    "common_ids": [
+      "REPORT-news_r-00020-00001",
+      "REPORT-news_r-01058-00001",
+      "REPORT-news_r-01331-00001",
+      "REPORT-news_r-01518-00001",
+      "REPORT-news_r-01555-00001",
+      "REPORT-news_r-01951-00001",
+      "REPORT-news_r-02086-00001",
+      "REPORT-news_r-02861-00001",
+      "REPORT-news_r-03271-00001",
+      "REPORT-news_r-03503-00001",
+      "REPORT-news_r-03991-00001",
+      "REPORT-news_r-04161-00002",
+      "REPORT-news_r-04798-00001",
+      "REPORT-news_r-05220-00001",
+      "REPORT-news_r-05258-00002"
+    ],
+    "n_common": 15,
+    "n_signal_by_seed": {
+      "20261108": 15,
+      "20261109": 15,
+      "20261110": 15
+    },
+    "n_signal": 15
+  },
+  "L_COPY_SIGNAL": {
+    "value": false,
+    "delta": {
+      "mean": -0.11350624932183163,
+      "ci_lower": -0.23409022490183512,
+      "ci_upper": -0.00116671313179865,
+      "n": 15,
+      "n_boot": 1000,
+      "seed": 20261109,
+      "rng": "PCG64",
+      "ci_method": "linear"
+    },
+    "paired": {
+      "mean": -0.002639355129665797,
+      "ci_lower": -0.040844837294684515,
+      "ci_upper": 0.034302208052741166,
+      "n": 15,
+      "n_boot": 1000,
+      "seed": 20261109,
+      "rng": "PCG64",
+      "ci_method": "linear"
+    },
+    "threshold": 0.05,
+    "mean_ok": false,
+    "ci_ok": false,
+    "paired_ok": false,
+    "seeds_positive": 0,
+    "seed_means": [
+      -0.13308324178059897,
+      -0.10432575225830076,
+      -0.10310975392659505
+    ]
+  },
+  "L_FULL_SIGNAL": {
+    "value": false,
+    "delta": {
+      "mean": -0.10854988098144532,
+      "ci_lower": -0.22340645223193697,
+      "ci_upper": -0.005734331978691952,
+      "n": 15,
+      "n_boot": 1000,
+      "seed": 20261109,
+      "rng": "PCG64",
+      "ci_method": "linear"
+    },
+    "paired": {
+      "mean": -0.0008659807840983062,
+      "ci_lower": -0.03772736332151624,
+      "ci_upper": 0.03633707650502522,
+      "n": 15,
+      "n_boot": 1000,
+      "seed": 20261109,
+      "rng": "PCG64",
+      "ci_method": "linear"
+    },
+    "threshold": 0.0,
+    "mean_ok": false,
+    "ci_ok": false,
+    "paired_ok": false,
+    "seeds_positive": 0,
+    "seed_means": [
+      -0.1254772440592448,
+      -0.10356356938680016,
+      -0.09660882949829103
+    ]
+  },
+  "consensus": {
+    "l_signal": false,
+    "copy_only": false,
+    "full_only": false
+  },
+  "tail": {
+    "top3_abs_share": 0.4774638895733851,
+    "top3_signed_share": 0.8034952988638613,
+    "leave_top3_mean": -0.027880639500088174,
+    "top3_ids": [
+      "REPORT-news_r-01518-00001",
+      "REPORT-news_r-00020-00001",
+      "REPORT-news_r-01951-00001"
+    ],
+    "top3_abs_sum": 1.3680260658264158,
+    "abs_sum": 2.8651927312215166,
+    "top3_signed_sum": -1.3680260658264158,
+    "signed_sum": -1.7025937398274744,
+    "tail_driven": true
+  },
+  "m": {
+    "endpoint_ok": true,
+    "cohort_ok": true,
+    "seed_ok": true,
+    "replay_ok": true,
+    "builder_ok": true,
+    "m_evaluable": true,
+    "m_valid": true,
+    "m_pass_l": true
+  },
+  "p_valid": true,
+  "pa_valid": true,
+  "p_step100_path_ok": true,
+  "pa_step100_path_ok": true,
+  "p0_path_ok": true,
+  "assay_path_ok": true,
+  "test_split_used": false,
+  "validity_status": "VALID",
+  "control_status": "M_CONTROL_PASS",
+  "signal_status": "MEAN_CONTRAST_ONLY",
+  "b0_b_candidate_gate": false,
+  "labels_computed": true,
+  "note": "Pure label computation from registered artifacts; B0-B still requires separate prereg/approval."
+}
