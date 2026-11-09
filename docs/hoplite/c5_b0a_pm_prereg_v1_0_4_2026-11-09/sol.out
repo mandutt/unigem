@@ -1,0 +1,40 @@
+## Final verdict: **NARROW**
+
+Synchronization succeeded: `git fetch origin`, then `git pull --ff-only origin main`.
+
+Reviewed HEAD, matching `origin/main`:
+`0bfee85d20dd0017fe6f07f2e8939ff4c7ccf203`
+
+Full review: [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_4_2026-11-09/review_SOL.md). This is the only file written.
+
+### Q1–Q13
+
+| Q | Verdict | Evidence / next step |
+|---|---|---|
+| Q1 — Residual closure | Conditional | **8 closed, 2 partial:** phase-7 lengths and postrun audit coverage. Repair before freeze. |
+| Q2 — Self-containedness | Conditional | Consolidated semantics and helper references improved; two contract gaps prevent unambiguous implementation. |
+| Q3 — Phase-7 measurement | Disagree | **64/75 F/L donor pairs have `K_d > 753`**, exceeding stored control lengths. Explicitly define compatible prefixes and assert equal actual lengths. |
+| Q4 — Canonical hash | Agree | Flat projection, null ordering, and both replay golden digests reproduce. Test excluded diagnostic fields separately. |
+| Q5 — Checkpoints | Conditional | Twelve-key schema and 360/480/1,680 arithmetic are correct; the legacy two-arm runner does not implement them. |
+| Q6 — P1 handling | Conditional | Frozen/postrun separation is correct, but registry completeness and completed-audit semantics remain unspecified. |
+| Q7 — Controls | Agree | Synthetic/real distinction, tensor framing, names, and approximately 0.28 GB payload are consistent. |
+| Q8 — External modules | Conditional | All cited helpers exist; bind exact source identities at freeze and stop dependent execution when helpers are unavailable. |
+| Q9 — D0/D1/caps | Agree | Prospective limits are coherent; no timing evidence or execution readiness is established. |
+| Q10 — Remaining must-fixes | Disagree with “fully closed” | Two freeze blockers remain, ranked below. |
+| Q11 — Freeze/implementation/D0 | Conditional; withheld | Repair and re-review first. Required synthetic, decision, replay, audit, and boundary tests are listed in the report. |
+| Q12 — Downstream boundaries | Agree | B0-B requires the full §14 predicate and separate approval; no supplied evidence establishes passage. |
+| Q13 — Overall | Conditional → **NARROW** | Text/schema correction only; do not freeze or proceed into execution as-is. |
+
+### Must-fix, ranked
+
+1. **Phase-7 length compatibility.** A frozen example has target length **777**, donor length **771**, hence `K_d=771`, while controls have **753 rows**. Python slicing silently leaves controls shorter. Resolve the prefix construction prospectively—do not silently clamp, pad, or extend it.
+2. **Complete postrun audit contract.** Define the required artifact domain, inventory schema, and completion rules. The base registry and empty `not_run` placeholder cannot establish complete non-use auditing.
+
+### Scope and verification
+
+- Independently reproduced **all five golden digests** and the preflight content hash.
+- No training, evaluation, model forwards, or test suite execution.
+- **Freeze, implementation/unit-test execution, D0, D1, and three-seed execution remain withheld.**
+- Current authorized model compute: **zero updates / zero forwards**. The prospective **155-minute /1,204-update** envelope is not a grant.
+- **No Phase 6/B0-B/B1/B2/Stage C approval.**
+- **Test 163 remains sealed; P1 unused; T5Gemma2 D-108 STOP remains.**

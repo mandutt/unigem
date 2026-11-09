@@ -1,0 +1,43 @@
+Review complete and written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_4_2026-11-09/review_GLM.md` (the only file touched; `git status` confirms nothing else changed). Sync: `git fetch origin` OK, `git pull --ff-only origin main` → "Already up to date"; **review basis HEAD `0bfee85d20dd0017fe6f07f2e8939ff4c7ccf203`**.
+
+**Constraints honored:** no training/evaluation run, test 163 never opened, P1 data unused (manifests read only), no subagents/other LLMs, no threshold/seed/donor/step/LR proposals.
+
+**Independent verification (pure computation only):** all five golden digests recomputed and **MATCH** — state `43ecb58e…`, empty `e3b0c442…`, replay_base `c43ea35c…` (flat 8-field, null-first sort), supplemental `8277a713…`, control name-asc `6b50c226…`; listed-order control reproduces exactly `531ba0ad…`, confirming it as the documented insertion-order artifact. Preflight content hash = `3ee3f1ca…` matches §0.4. Arithmetic verified: 15×96+5×48=1,680; per-unit 120/160; F=360, L=360, P=480, PA=480; per-seed 560; phase-7 600/arm-seed; 1,204 updates/155 min. P0 artifact matches request §3 exactly (train 3.7617 [1.8917, 5.6050] 14/20; val 5.2375 [2.5013, 8.0753] 18/20; val median 2.9739, signed top3 .4862, absolute .43355). Helper contracts verified in code (Adapter, LoRALinear kaiming/zeros, make_labels, load_layer_cache, 64-module LoRA attach, native_memory, repeated_4gram_rate). Note: `data/` model/cache files are absent in this checkout, so model-dependent tests would skip here; nothing was executed.
+
+## Q1–Q13
+
+| Q | Topic | Verdict | Key evidence |
+|---|---|---|---|
+| Q1 | 10 residual closures | **agree** | 10/10 closed: §9.6.1 K_d/baseline_ce (recomputed, phase-5 reuse banned), §12.2 donor_sort=-1 null-first, flat 8-field hash (digest-verified), §12.1 12-key map, §1.5/§4.0 P1 frozen/postrun, synthetic `[1,1]` fixture + postrun-only real digest, §17.1 contracts (code-verified), §11.2/11.3 D0 labels/timing, F=360/L=360/P=480/PA=480, `<f4`/fixture-order/note |
+| Q2 | Self-containedness | **conditional** | Implementable from v1.0.4 + §17.1 frozen-by-citation helpers + §2.6 paths + preflight/golden; freeze manifest must record helper commit hashes; MF-2 dir ambiguity |
+| Q3 | Phase-7 measurement | **agree** | Recipe executable; K_d asserted (F/L donors <753 give K_d<753; P/PA always 512); baseline recomputed per record; 600 count verified; reuse risk removed; stays outside `replay_ok` |
+| Q4 | Canonical hash | **agree (verified)** | `c43ea…`/`8277a7…` reproduce only for flat projection → nested `{key,ce}` fail-closed; residual: no vector pins a null-vs-0 donor_sort tie (text authority only) |
+| Q5 | Checkpoint map | **agree** | 12 keys `arm/seed`, `checkpoints/{arm}/{seed}.pt`, no single checkpoint; 360/480/1,680 arithmetic confirmed |
+| Q6 | P1 | **agree** | Frozen file intact (empty inventory valid pre-run), postrun separate, registry present, allowlist-membership rule, malformed→NA / contradictory→false fail-closed |
+| Q7 | Control tensors | **agree (verified)** | `6b50…` = name-asc (recomputed); `531ba…` = listed-order artifact; NPZ key `tensor`; canonical names match; 0.28 GB ≈ "~0.3 GB" |
+| Q8 | External modules | **agree** | All 7 contracts present as cited; missing→NA safe; Adapter detail in §2.5.4 supplements the coarse table row |
+| Q9 | D0/D1/cap | **agree** | D0 ≤4 configs/≤15 min/no timing claim; D1 4×1×1, 8 phases, 560/600; T_proj ≤96, abort 120; 1,204/155 consistent |
+| Q10 | New must-fix | **conditional** | No new blocker; 5 low/cosmetic items below; `baseline_ce`/`delta` confirmed outside hash domain; runner has no checkpoint/M code yet (expected pre-freeze) |
+| Q11 | Freeze + impl + tests + D0 | **conditional-approve** | After MF-1..MF-5 text absorption; essential tests: 5 golden digests + permutation/duplicate/missing, F1–F11 + 9 L pairs + fixtures 16–18, 1,680 exact key set + zero-margin, stats (seed 20261109), 12-key map, P1 strict flags — then D0 |
+| Q12 | B0-B/D1/3-seed boundary | **agree** | §16.3 exclusions explicit; B0-B restated: VALID ∧ M_CONTROL_PASS ∧ EXPLORATORY_L_SIGNAL ∧ m_valid ∧ n_signal=15 ∧ tail_driven=false ∧ leakage/mode/metric ∧ artifacts ∧ separate prereg |
+| Q13 | Final verdict | **CONTINUE** | See below |
+
+## Must-fix (ranked; all text/test-level, none blocks freeze)
+
+1. **MF-1 (low-med):** supplemental (phase-7) replay digest population undefined — pooled 12×600=7,200 vs per arm-seed 12 digests; no artifact field name (contrast `final_replay_hash`/`control_digest`). One clarifying line needed.
+2. **MF-2 (low):** checkpoint base dir ambiguous — `checkpoints/{arm}/{seed}.pt` vs §17.2 "no artifact path outside `reports/provenance/C5_b0a/`"; state the base (recommend `reports/provenance/C5_b0a/checkpoints/…`).
+3. **MF-3 (low):** add half-line that `M_NORM(t)[:K_d]` truncates the §9.3 K_M-scaled vector (no re-normalization at K_d); only bites F/L donors with h_len<753.
+4. **MF-4 (low, test-side):** add a unit-test fixture pair where `donor_sort` (-1 vs 0) is the deciding sort field; keep golden vectors unchanged.
+5. **MF-5 (cosmetic):** golden supplemental `ordering` note says `donor_id`; normative field is internal `donor_sort` (§12.2) — harmonize wording.
+
+## Final verdict: **CONTINUE (conditional)**
+
+- **v1.0.4 freeze:** YES — after absorbing MF-1..MF-5 (text-only) into the freeze commit; post-freeze corrections only as numbered ERRATA.
+- **Implementation + unit tests:** approved (§13 matrix only; no training; helper-import discipline).
+- **D0:** approved — ≤4 configs, 0 updates, ≤15 min, seed 20261111, threads 6, no GPU, `not_a_result:true`.
+- **D1 / 3-seed:** NOT approved (separate approvals).
+- **Forbidden:** test 163 (sealed), P1 data, T5Gemma2 (D-108 STOP stands), B0-B/B1/B2/Stage C, post-result threshold/seed/donor/step/LR changes, registered Phase 6 run before D1 + separate approvals.
+- **Max compute (approved scope):** CPU-only implementation/unit tests (mT5-small loads, zero training steps) + D0 ≤4 configs ≤15 min.
+- **Single implementation authority:** yes — v1.0.4 + numbered ERRATA only.
+
+No Phase 6/B0-B approval is claimed or implied.

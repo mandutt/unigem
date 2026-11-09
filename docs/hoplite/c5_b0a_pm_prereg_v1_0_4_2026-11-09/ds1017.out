@@ -1,0 +1,38 @@
+Sync done and the review is written. **HEAD `0bfee85d20dd0017fe6f07f2e8939ff4c7ccf203`** (`git fetch` + `git pull --ff-only origin main` → "Already up to date"). The request cites `f82b47d`, which is the parent commit; `0bfee85` only adds the request doc, so all reviewed files are identical. Only permitted write performed: `docs/hoplite/c5_b0a_pm_prereg_v1_0_4_2026-11-09/review_DS1017.md` (374 lines, `git status` shows that file only).
+
+I recomputed everything myself (stdlib only) and found no shipped digest or count wrong — including one place where I initially suspected a defect and disproved it: **`6b50c226…` is the correct name-ascending control digest** (`M_NORM` before `M_POS_MEAN`); `531ba0ad…` is the listing-order artifact, i.e. the v1.0.3 synthesis' labels were reversed, not the golden.
+
+## Q1–Q13
+
+| Q | Verdict | Key evidence |
+|---|---|---|
+| Q1 10 residuals | agree (10/10 closed) | all text/schema asks present; 3 follow-on gaps (MF-1..3) |
+| Q2 self-contained | conditional | freeze manifest undefined → `assay_path_ok` unevaluable; hash container implied only |
+| Q3 phase-7 | agree | K_d slicing valid (F/L K_d≤753 incl. <753 donors; P/PA =512); phase-5 CE reuse explicitly barred; +MF-2 |
+| Q4 canonical hash | agree | `c43ea35c…` reproduced; nested `{key,ce}` → `33c945a2…` (matches D-137), so flat projection is material; +MF-7 |
+| Q5 checkpoint map | agree | 12 keys = 4 arms × 3 seeds; 120/160 → 360/480 → 1,680 = 15×96+5×48 |
+| Q6 P1 | conditional | frozen/postrun split sound (sha `69af129a…`); contradiction rule + postrun completeness undefined |
+| Q7 control tensors | agree | `[1,1]` synthetic declared, `[K_M,512]` postrun-only, NPZ `tensor`, digest name-asc, footprint ≈267 MiB ≈ 0.3 GB |
+| Q8 external modules | agree | all 7 symbols verified against source (64 LoRA modules, kaiming A/zero B, adapter arch) |
+| Q9 D0/D1/cap | agree | 4 configs/0 updates/≤15 min; 4 units/1 update/≤20 min; 560/600; T_proj ≤96; 120 abort; 1,204 updates |
+| Q10 must-fix | conditional | no scientific blocker; `baseline_ce` is hash-separated but unreplayed |
+| Q11 freeze+impl+D0 | conditional | after numbered ERRATA MF-1..3 (text/schema only); required test list in §13 |
+| Q12 B0-B/D1/3-seed | agree | predicate restated; D1 does not yield decision labels; debug≠final hash |
+| Q13 final | **NARROW** | no science change needed; 3 material gaps block D0 auditability |
+
+Also verified: preflight sha `3ee3f1ca…`; state/empty goldens; P0 reproduces exactly (train +3.7617 [1.8917, 5.6050], val +5.2375 [2.5013, 8.0753], 14/20 and 18/20, median 2.9739, top3 .4862/.43355, common-15 .45478, real CE 12.70/13.24 > ln|V| 12.4297); `train20==train[:20]`, `val20==val[5:25]`, no test ID in allowlist. Unit tests could **not** be executed — `data/models/mt5-small` and the caches are absent from this checkout (skipped by design); reviewed statically only.
+
+## Must-fix (ranked)
+
+1. **MF-1 (medium, blocks D0)** — freeze manifest is referenced (`p1_manifest_sha256`, freeze commit/content SHA, helper commit hashes) but has no path/schema; add it.
+2. **MF-2 (medium)** — phase-7 `baseline_ce`/`delta` are hash-excluded and never compared at replay; add numeric replay (`atol=1e-5, rtol=1e-4`).
+3. **MF-3 (medium-low)** — `seeds_positive` is required in §10.2/§13.3 and forbidden as "stale" in §13.5, and the P0 helper uses the same name for a doc count; rename.
+4. **MF-4 (low)** — "supplemental replay digest" conflates a 4-record key-coverage golden with the 600-record phase-7 domain.
+5. **MF-5 (low)** — stored phase-7 record keeps nested `key` (§9.6.1) while the hash record is flat; label the two schemas.
+6. **MF-6 (low)** — P1 contradiction undefined, postrun completeness unstated, registry omits per-unit artifacts.
+7. **MF-7 (low)** — golden `ordering` says `donor_id`; spec says `donor_sort`.
+8. **MF-8 (cosmetic)** — dead `MARGINAL_SIGNAL_COHORT`; 1,690 vs 1,691 lines; `control/` vs `control_manifest/` prefix.
+
+## Final
+
+**NARROW.** v1.0.4 freeze: after numbered ERRATA (MF-1..MF-3 mandatory, MF-4..MF-8 advisory, text/schema only) and a focused ERRATA review. Implementation + unit tests: after freeze, pure decision/hash/stats/M-builder contracts only. D0: after those tests pass — 4 configs, 0 updates, seed 20261111, ≤15 min. D1, 3-seed, B0-B, B1, B2, Stage C: **not approved**. Test 163 sealed, P1 unused, T5Gemma2 D-108 STOP, no post-result threshold/seed/donor/step/LR changes. Max compute this round: 0 updates, 0 GPU. This is a consultation, not an approval.
