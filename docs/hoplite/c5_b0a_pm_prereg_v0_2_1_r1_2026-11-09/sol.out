@@ -1,0 +1,33 @@
+Report written: [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r1_2026-11-09/review_SOL.md).
+
+Synchronization succeeded. Reviewed HEAD: `4920953bca28ab502372780e67e3f87f41082ec2`.
+
+## Final verdict: **NARROW**
+
+R1 makes genuine improvements, but needs a Must-fix-only contract repair before freeze.
+
+| Question | Verdict | Main finding |
+|---|---|---|
+| Q1 — Factored decision | disagree | PA-path handling conflicts; M_VALID-to-m_evaluable mapping is unspecified. |
+| Q2 — Signal labels | conditional | L+unknown-control and small-N invariants need reconciliation. |
+| Q3 — M preflight | conditional | 753-prefix control is meaningful, but cannot establish full-K validity. |
+| Q4 — Aggregation/replay | conditional | Require complete seed/cohort alignment and precise replay semantics. |
+| Q5 — PA semantics | agree | Acquisition naming and non-gating retention are appropriate. |
+| Q6 — Caps | conditional | Arithmetic works; two-hour feasibility remains unproved. |
+| Q7 — Statistics | conditional | Resolve tail-ratio edge cases and migrate legacy bootstrap defaults. |
+| Q8 — Must-fix closure | disagree | Several “closed” declarations remain premature. |
+| Q9 — Freeze/implementation/D0 | conditional | Repair and accept the contract first; not approved as written. |
+| Q10 — D1/three-seed gates | conditional | Separation is sound; timing and execution guards need tightening. |
+| Q11 — B0-B boundary | agree | Separate preregistration and approval remain mandatory. |
+| Q12 — Overall | conditional | **NARROW**, with execution gates remaining closed. |
+
+### Ranked Must-fix
+1. Define exact path handling and connect P/PA M validation to control evaluability.
+2. Reconcile signal preservation, unknown-control cases, and exhaustive small-N assertions.
+3. Specify statistical edge cases, endpoint-specific tail diagnostics, and complete-seed pooling.
+4. Consolidate effective M configuration, including native source length 512 and keyed replay tolerances.
+5. Require an all-in timing projection and enforce separate budgets; D0 alone cannot establish backward/optimizer runtime.
+
+The metadata-only check reproduced **16 contributors, 15 common targets, and 11 full-K targets**. No training, evaluation, model forwards, or tests were run. Only the designated report was written.
+
+**No Phase 6 or B0-B/B1/B2/Stage C approval.** Test 163 remains sealed, P1 unused, and T5Gemma2 closed under D-108 STOP.

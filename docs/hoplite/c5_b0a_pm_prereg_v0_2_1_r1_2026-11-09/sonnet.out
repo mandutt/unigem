@@ -1,0 +1,48 @@
+I'm the Sonnet 5.5 (medium) reviewer, and my verdict on r1 is **NARROW**. The full report is at `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r1_2026-11-09/review_SONNET.md`. I wrote it with the Write tool and did not re-read it or run `git status`, because a shell command was blocked. I did not run training or evaluation, open test 163, or use P1.
+
+`git pull --ff-only origin main` reported "Already up to date" at HEAD `4920953bca28ab502372780e67e3f87f41082ec2`. I recomputed the M preflight from `m_cohort_preflight.json`:
+- **Contributors and cohort:** 16 train contributors at K=753, and 15/20 val targets eligible.
+- **K=753 boundary:** 753 is the largest K that keeps 15/20 (K=754 gives 14), and one included doc has length exactly 753. The cohort has zero slack.
+- **Full-K secondary:** 11/20, with the same 9 excluded IDs as the JSON.
+- **Not re-derivable:** the "native 20/20 at 512" figure, because the JSON does not store native lengths.
+
+| Q | Verdict | Key point |
+|---|---|---|
+| 1 | conditional | Not yet total. `M_VALID` (P/PA M pass) is not an input to any status, so P/PA M failing plus L M passing gives `VALID/M_CONTROL_PASS/EXPLORATORY_L_SIGNAL`. Each axis is still a first-match chain, and signal depends on control. |
+| 2 | conditional | The "required signal flags" set is undefined. §2.8 ("L never lost") contradicts the n<15 rule. "No L signal + control not evaluable" gets `NOT_ASSESSABLE`. n=15 has zero slack. |
+| 3 | conditional agree | Prefix 753 is better than accepting `M_NOT_EVALUABLE`. But it is a control on the 15 longest-of-20 docs at a truncated length, and the signal uses full-K memory. It needs an explicit `M_CONTROL_PREFIX753_COHORT15` label and scope text. |
+| 4 | conditional | Seed pooling for P_VALID/PA_VALID is undefined. The replay tolerance (`atol` and `rtol`) is ambiguous. A replay failure should map to `ASSAY_INVALID`, and replay is not clearly inside the cap. |
+| 5 | agree | Acceptable, but add text that `PA_STEP100_NOT_VALID` is not evidence about L, because PA failure may be common. |
+| 6 | conditional | The arithmetic works. "D1 optional" conflicts with the ≤0.8×cap timing-projection gate, because D0 has zero updates and cannot time training. D1 has no named unregistered seed, and cap-abort behavior is unspecified. |
+| 7 | conditional | The runner uses bootstrap seed 20261108, not 20261109. `bootstrap_paired` still returns the stale `seeds_positive` key for a document count. `tail_driven` is not tied to any status. |
+| 8 | Must-fix | See the ranked list below. |
+| 9 | conditional | Do not freeze r1 as written. Write a short text-only r2, then freeze, then implement and run unit tests, then D0. |
+| 10 | conditional | The 3-seed checklist lacks a clean tree and doc-hash match, preflight and cohort hashes, seed exclusion checks, cap-abort and replay accounting, a schema validator, and handling of a missing seed. |
+| 11 | agree | The boundary holds. Restate the B0-B prerequisites as an explicit predicate over the three statuses plus `tail_driven`. |
+| 12 | NARROW | See below. |
+
+**Must-fix, ranked**
+1. Add a tri-state `m_valid` input and a control cell for "P/PA M failed". A name like `M_CONTROL_INVALID` avoids the deleted `M_CONTROL_NOT_VALID`.
+2. Define seed pooling for P_VALID, PA_VALID and M.
+3. Fix the §2.5/§2.8 gaps: define the required signal flags, correct the "L never lost" test claim, cover the l_signal=T + control `NOT_ASSESSABLE` cell, split the path flags, and add the `b0b_prerequisites_met` predicate.
+4. Resolve D1 optional versus the timing gate. Name the D1 seed, specify cap-abort behavior, and say whether eval, M and replay count toward 2h.
+5. Pin the replay rule to `np.allclose`, map replay failure to `ASSAY_INVALID`, and count replay in the cap.
+6. Label and disclose the M cohort (shortest 5 excluded, boundary doc at 753). Add native lengths to the preflight JSON.
+7. State that one missing doc flips the 15/20 cohort or n_min=15 outcome.
+8. Align runner constants: seed 20261109, the `seeds_positive` key, and a `pm-diagnostic` mode.
+
+**Final verdict: NARROW**
+- **r1 freeze:** not as written. Write a text-only r2 covering Must-fix items 1–6, then freeze by commit hash.
+- **Implementation and unit tests:** approvable after the r2 freeze, starting with the pure decision function.
+- **D0:** approvable after the tests are green. It is 0 updates, ≤4 configs and ≤15 minutes, with no labels.
+- **D1:** not approved. It needs separate approval and an unregistered seed, and is capped at 20 minutes.
+- **3-seed:** not approved. It needs the full checklist plus explicit approval.
+- **Forbidden:**
+  - B0-B, B1, B2, Stage C and Phase 6 auto-approval
+  - test 163 (sealed)
+  - P1
+  - reopening T5Gemma2 (D-108 STOP)
+  - threshold, seed, donor, step or LR changes after results
+- **Maximum compute:** the existing registered cap of 12 units, 1,200 updates, 2h, 6 threads, no GPU and no retry, plus the separate D0 and D1 budgets above.
+
+I did not propose any threshold changes, and I do not approve Phase 6 or B0-B.

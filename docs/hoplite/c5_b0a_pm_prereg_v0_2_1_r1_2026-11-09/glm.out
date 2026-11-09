@@ -1,0 +1,34 @@
+Review complete. The report is written to `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r1_2026-11-09/review_GLM.md` (203 lines, ~28 KB) — the only file added; no other repository files touched.
+
+**Reviewer: GLM 5.3 Flash (reasoning max), independent r1 round.**
+**Sync:** `git fetch origin` + `git pull --ff-only origin main` → "Already up to date"; HEAD = `4920953bca28ab502372780e67e3f87f41082ec2` ("docs: add C5 P/M v0.2.1-r1 review request"). Note: the request's stated basis `0fce2e2` is absent from this shallow clone (depth 1), so the review used the current origin/main HEAD tree.
+
+### Q1–Q12 verdicts
+
+| Q | Topic | Verdict | Core evidence |
+|---|---|---|---|
+| Q1 | Factored decision | **conditional** | Genuinely factored (3 co-reported statuses, L-flag non-suppression, headline demoted) — not a renamed precedence table. But 3 new defects: m_valid_p/pa slot loss (B-1), rule-1↔PA-path conflict (B-2), §2.8 invariant violated at (l_signal=T, m_pass_l=NA) (B-3) |
+| Q2 | Signal labels | **agree** | All 9 labels reachable; n_min=15; MEAN_CONTRAST_ONLY defined (§2.6); L flags always preserved (§2.7); only the control-NA cell leaks (B-3) |
+| Q3 | M preflight | **agree** | Recomputed: 753 = max K with (val eligible ≥15 ∧ contributors ≥10); 16 contributors, 15/20, full-K 11/20 = exact contributor-floor consequence (all 9 excluded match); val20==val[5:25]; data-only confirmed. Prefix weakens full-K estimand but stays internally paired; better than accepting M_NOT_EVALUABLE. Zero margin + unstated selection rule (B-4) |
+| Q4 | M aggregation/replay | **conditional** | Seed-builder→seed-mean→doc-bootstrap leakage-free; replay atol=1e-5 sound. Missing: builder eval-mode/dropout-off, M_VALID cohort (15 vs 20), per-variant aggregation, delta_memfree restatement |
+| Q5 | PA | **agree** | Acquisition redefinition + PA_STEP100_NOT_VALID + PA_RETENTION null non-gating + scale/geometry caveat all close MF-4; adapter structure matches code |
+| Q6 | Cap | **conditional** | Arithmetic correct (12×100=1,200; D0=0 upd; D1=4 upd separate). But 2h realism has **zero timing evidence** in any artifact, and D0 (forward-only) cannot produce the §6.5 projection — it de facto depends on D1; debug seed not restated |
+| Q7 | Statistics | **agree** | Constants fixed and executable; template exists (`bootstrap_paired`, runner:384-398). Code stores doc counts under stale key `seeds_positive` (runner:395) — exactly what the DoD test must catch |
+| Q8 | Remaining Must-fix | **conditional** | §10 closure table mostly accurate but self-assessed; 3 new defects introduced by the factored rewrite itself |
+| Q9 | Freeze/implementation | **conditional** | Freeze only after r2 fixes B-1~B-5; then implement + unit tests (DoD 14 items + 5 added) + D0 (0-update, ≤4 configs, ≤15 min) |
+| Q10 | D1/3-seed gates | **conditional** | Boundaries sound (D1 optional, labels_computed:false). Checklist needs +4: preflight hash, debug-seed≠registered assertion, post-freeze no-change diff check, timing-projection basis |
+| Q11 | B0-B boundary | **agree** | §9 keeps no-auto-approval; EXPLORATORY_L_SIGNAL explicitly not B0-B; prereqs restated in r1 labels |
+| Q12 | Final verdict | **NARROW** | See below |
+
+### Must-fix (ranked)
+
+1. **B-1 (new, top):** fold `m_valid_p`/`m_valid_pa` and the M_VALID premise (P_VALID∧PA_VALID) into `control_status` → M_NOT_EVALUABLE; add both to the truth-table grid (3⁹×4). Currently a computed P/PA control failure can still yield M_CONTROL_PASS.
+2. **B-2 (new):** enumerate the path/test flag vector; scope rule 1 (ASSAY_INVALID) to assay+P path; keep PA path fail → PA_STEP100_NOT_VALID with a one-line rationale; replace the collapsed `path` truth-table input.
+3. **B-3 (new):** (l_signal=T, control=NOT_ASSESSABLE) loses L in signal_status — add `L_SIGNAL_M_CONTROL_NOT_ASSESSABLE` or amend the §2.8 invariant.
+4. **B-4:** preregister the K_M_L=753 selection rule; pin the preflight artifact hash; forbid runtime recompute.
+5. **B-5:** fix M builder determinism (adapter eval mode), pin M_VALID cohort (common 15), state per-variant (POS/NORM) aggregation, restate delta_memfree (v0.2 L176-177).
+6. **B-6:** restate the D0/D1 debug seed (unregistered 20261111) in r1; enforce `documents_positive` naming in PM artifacts; mark v0.2 §12 as superseded.
+
+### Final verdict
+
+**NARROW.** r1 closes most of the v0.2.1 Must-fix set and the M preflight is genuinely data-only and independently verified — but the factored rewrite opened three new contract defects that must be fixed in a text-only r2 before freeze. Approved path after r2 freeze: implementation + unit tests + D0 (0 optimizer updates, ≤4 configs, ≤15 min, separate budget). **Not approved:** D1 (separate explicit approval; it is the only real basis for the timing projection), 3-seed (14-item checklist + timing ≤0.8×cap), B0-B/B1/B2/Stage C. **Constraints unchanged:** test 163 sealed, P1 unused, T5Gemma2 D-108 STOP, no post-result threshold/seed/donor/step/LR changes. Max compute this round: registered 12 units / 1,200 updates / ≤2h wall / 6 threads / no GPU / no retry; no training or evaluation was run and none is authorized by this review.
