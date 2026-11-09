@@ -1,0 +1,252 @@
+[
+  {
+    "experiment": "c5_b0_two_arm_runner",
+    "arm": "frozen",
+    "model": "data/models/mt5-small",
+    "cache": "data/wave2c/eg2_native_layer19/layer19",
+    "layer": 19,
+    "train_n": 2,
+    "val_n": 2,
+    "steps": 1,
+    "seed": 20261108,
+    "lora": {
+      "r": 8,
+      "alpha": 16,
+      "dropout": 0.05,
+      "modules": 0
+    },
+    "train_ce_first": 27.43998146057129,
+    "train_ce_last": 27.43998146057129,
+    "train_ce_last10_mean": 27.43998146057129,
+    "train_mode_policy": {
+      "base_decoder_training": false,
+      "adapter_training": true,
+      "lora_training": false,
+      "lora_dropout_training": false,
+      "lora_modules": 0,
+      "trainable_base_parameters": 0,
+      "trainable_adapter_parameters": 526336,
+      "trainable_lora_parameters": 0
+    },
+    "n_docs": 2,
+    "mean_delta_shuffled_copy": 0.05143880844116211,
+    "bootstrap_delta_shuffled_copy": {
+      "mean": 0.05143880844116211,
+      "ci_lower": -0.2969779968261719,
+      "ci_upper": 0.3998556137084961,
+      "seeds_positive": 1,
+      "n": 2,
+      "n_boot": 1000
+    },
+    "mean_delta_shuffled_full": 0.08899450302124023,
+    "mean_real_ce_copy": 15.977158069610596,
+    "mean_wrong_ce_copy": 16.028596878051758,
+    "mean_copy_coverage": 0.7842734164204035,
+    "median_copy_coverage": 0.7842734164204035,
+    "copy_guard_failed": false,
+    "per_doc": {
+      "REPORT-news_r-04161-00002": {
+        "n_donors": 1,
+        "real_ce_copy": 15.679482460021973,
+        "wrong_ce_copy": 16.07933807373047,
+        "delta_shuffled_copy": 0.3998556137084961,
+        "real_ce_full": 14.474928855895996,
+        "wrong_ce_full": 14.853730201721191,
+        "delta_shuffled_full": 0.3788013458251953,
+        "copy_tokens": 145,
+        "copy_coverage": 0.8011049723756906
+      },
+      "REPORT-news_r-00430-00001": {
+        "n_donors": 1,
+        "real_ce_copy": 16.27483367919922,
+        "wrong_ce_copy": 15.977855682373047,
+        "delta_shuffled_copy": -0.2969779968261719,
+        "real_ce_full": 14.414310455322266,
+        "wrong_ce_full": 14.21349811553955,
+        "delta_shuffled_full": -0.20081233978271484,
+        "copy_tokens": 165,
+        "copy_coverage": 0.7674418604651163
+      }
+    },
+    "generation": [
+      {
+        "text": "<extra_id_0>jamatjietjietjietjietjietjie",
+        "token_ids": [
+          0,
+          250099,
+          74497,
+          95105,
+          95105,
+          95105,
+          95105,
+          95105,
+          95105
+        ],
+        "gen_len": 9,
+        "eos": false,
+        "cap_hit": true,
+        "special_count": 2,
+        "surface_empty": false,
+        "rep4": 0.45945945945945943,
+        "decoding": {
+          "num_beams": 1,
+          "do_sample": false,
+          "max_new_tokens": 8
+        },
+        "id": "REPORT-news_r-04161-00002"
+      },
+      {
+        "text": "<extra_id_0>KÜtjieमस्मस्मस्मस्मस्",
+        "token_ids": [
+          0,
+          250099,
+          120980,
+          95105,
+          209428,
+          209428,
+          209428,
+          209428,
+          209428
+        ],
+        "gen_len": 9,
+        "eos": false,
+        "cap_hit": true,
+        "special_count": 2,
+        "surface_empty": false,
+        "rep4": 0.30000000000000004,
+        "decoding": {
+          "num_beams": 1,
+          "do_sample": false,
+          "max_new_tokens": 8
+        },
+        "id": "REPORT-news_r-00430-00001"
+      }
+    ],
+    "test_split_used": false
+  },
+  {
+    "experiment": "c5_b0_two_arm_runner",
+    "arm": "lora",
+    "model": "data/models/mt5-small",
+    "cache": "data/wave2c/eg2_native_layer19/layer19",
+    "layer": 19,
+    "train_n": 2,
+    "val_n": 2,
+    "steps": 1,
+    "seed": 20261108,
+    "lora": {
+      "r": 8,
+      "alpha": 16,
+      "dropout": 0.05,
+      "modules": 64
+    },
+    "train_ce_first": 27.43998146057129,
+    "train_ce_last": 27.43998146057129,
+    "train_ce_last10_mean": 27.43998146057129,
+    "train_mode_policy": {
+      "base_decoder_training": false,
+      "adapter_training": true,
+      "lora_training": true,
+      "lora_dropout_training": true,
+      "lora_modules": 64,
+      "trainable_base_parameters": 0,
+      "trainable_adapter_parameters": 526336,
+      "trainable_lora_parameters": 458752
+    },
+    "n_docs": 2,
+    "mean_delta_shuffled_copy": 0.05158853530883789,
+    "bootstrap_delta_shuffled_copy": {
+      "mean": 0.05158853530883789,
+      "ci_lower": -0.2962007522583008,
+      "ci_upper": 0.39937782287597656,
+      "seeds_positive": 1,
+      "n": 2,
+      "n_boot": 1000
+    },
+    "mean_delta_shuffled_full": 0.08901405334472656,
+    "mean_real_ce_copy": 15.97499942779541,
+    "mean_wrong_ce_copy": 16.026587963104248,
+    "mean_copy_coverage": 0.7842734164204035,
+    "median_copy_coverage": 0.7842734164204035,
+    "copy_guard_failed": false,
+    "per_doc": {
+      "REPORT-news_r-04161-00002": {
+        "n_donors": 1,
+        "real_ce_copy": 15.677759170532227,
+        "wrong_ce_copy": 16.077136993408203,
+        "delta_shuffled_copy": 0.39937782287597656,
+        "real_ce_full": 14.47320556640625,
+        "wrong_ce_full": 14.851649284362793,
+        "delta_shuffled_full": 0.37844371795654297,
+        "copy_tokens": 145,
+        "copy_coverage": 0.8011049723756906
+      },
+      "REPORT-news_r-00430-00001": {
+        "n_donors": 1,
+        "real_ce_copy": 16.272239685058594,
+        "wrong_ce_copy": 15.976038932800293,
+        "delta_shuffled_copy": -0.2962007522583008,
+        "real_ce_full": 14.412139892578125,
+        "wrong_ce_full": 14.211724281311035,
+        "delta_shuffled_full": -0.20041561126708984,
+        "copy_tokens": 165,
+        "copy_coverage": 0.7674418604651163
+      }
+    },
+    "generation": [
+      {
+        "text": "<extra_id_0>jamatjietjietjietjietjietjie",
+        "token_ids": [
+          0,
+          250099,
+          74497,
+          95105,
+          95105,
+          95105,
+          95105,
+          95105,
+          95105
+        ],
+        "gen_len": 9,
+        "eos": false,
+        "cap_hit": true,
+        "special_count": 2,
+        "surface_empty": false,
+        "rep4": 0.45945945945945943,
+        "decoding": {
+          "num_beams": 1,
+          "do_sample": false,
+          "max_new_tokens": 8
+        },
+        "id": "REPORT-news_r-04161-00002"
+      },
+      {
+        "text": "<extra_id_0>KÜtjieमस्मस्मस्मस्मस्",
+        "token_ids": [
+          0,
+          250099,
+          120980,
+          95105,
+          209428,
+          209428,
+          209428,
+          209428,
+          209428
+        ],
+        "gen_len": 9,
+        "eos": false,
+        "cap_hit": true,
+        "special_count": 2,
+        "surface_empty": false,
+        "rep4": 0.30000000000000004,
+        "decoding": {
+          "num_beams": 1,
+          "do_sample": false,
+          "max_new_tokens": 8
+        },
+        "id": "REPORT-news_r-00430-00001"
+      }
+    ],
+    "test_split_used": false
+  }
+]

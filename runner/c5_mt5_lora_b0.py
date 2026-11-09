@@ -32,6 +32,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from runner.c5_a1_lora import LoRALinear  # noqa: E402
+from runner.c5_a2null_eval import repeated_4gram_rate  # noqa: E402
 from runner.c5_mt5_layer_probe import Adapter, load_layer_cache, make_labels  # noqa: E402
 
 MODEL = ROOT / "data/models/mt5-small"
@@ -103,13 +104,18 @@ def forward_loss(model, memory: torch.Tensor, labels: torch.Tensor) -> tuple[flo
 
 
 def token_losses(model, memory: torch.Tensor, labels: torch.Tensor) -> tuple[float, torch.Tensor]:
-    """Return full mean CE and per-target-token CE (labels[:, 1:] aligned)."""
+    """Return full mean CE and per-target-token CE at the same positions.
+
+    mT5 is a seq2seq model: its decoder inputs are shifted internally, so
+    logits[t] already predicts labels[t]. Do not shift logits against
+    labels[:, 1:] here.
+    """
     model.eval()
     enc = BaseModelOutput(last_hidden_state=memory.unsqueeze(0))
     mask = torch.ones(1, memory.shape[0], dtype=torch.long)
     out = model(encoder_outputs=enc, attention_mask=mask, labels=labels)
-    logits = out.logits[:, :-1, :]
-    target = labels[:, 1:]
+    logits = out.logits
+    target = labels
     losses = F.cross_entropy(
         logits.reshape(-1, logits.shape[-1]),
         target.reshape(-1),
@@ -138,7 +144,12 @@ def copyable_mask(source: str, target_ids: list[int], tok, special_ids: set[int]
 
 
 def shifted_copy_mask(copy_mask: torch.Tensor, labels: torch.Tensor) -> torch.Tensor:
-    return copy_mask[:, 1:] & (labels[:, 1:] != -100)
+    """Select copyable labels at their original positions.
+
+    The function name is retained for compatibility, but mT5 logits are already
+    label-aligned; no additional shift is applied here.
+    """
+    return copy_mask & (labels != -100)
 
 
 def copy_ce(losses: torch.Tensor, labels: torch.Tensor, copy_mask: torch.Tensor) -> float | None:
@@ -159,7 +170,63 @@ def donors_for(ids: list[str], cache: dict[str, dict], count: int = 5) -> dict[s
     return out
 
 
+def set_training_mode(model, adapter, arm: str) -> dict[str, Any]:
+    """Set one explicit mode policy for both F and L.
+
+    The frozen base decoder stays in eval mode in both arms. Only the adapter
+    and the LoRA branch (A/B parameters plus its dropout) are in train mode.
+    """
+    if arm not in {"frozen", "lora"}:
+        raise ValueError(f"unknown arm: {arm}")
+
+    model.eval()
+    adapter.train()
+    lora_modules = [m for m in model.modules() if isinstance(m, LoRALinear)]
+
+    if arm == "frozen":
+        if lora_modules:
+            raise RuntimeError("frozen arm must not have attached LoRA modules")
+    else:
+        if len(lora_modules) != EXPECTED_LORA_MODULES:
+            raise RuntimeError(
+                f"lora arm has {len(lora_modules)} modules, expected {EXPECTED_LORA_MODULES}"
+            )
+        for module in lora_modules:
+            module.train()
+            # Keep the wrapped base Linear in eval; it has no stochastic op,
+            # but this makes the policy explicit and assertable.
+            module.base.eval()
+
+    trainable_base = [
+        name for name, p in model.named_parameters()
+        if p.requires_grad and ".lora_" not in name
+    ]
+    if trainable_base:
+        raise RuntimeError(f"non-LoRA base parameters trainable: {trainable_base[:3]}")
+    if model.training:
+        raise RuntimeError("base model is unexpectedly in train mode")
+    if not adapter.training:
+        raise RuntimeError("adapter is unexpectedly in eval mode")
+    if arm == "lora":
+        if not all(m.training and m.dropout.training for m in lora_modules):
+            raise RuntimeError("one or more LoRA branches are not in train mode")
+
+    return {
+        "base_decoder_training": bool(model.training),
+        "adapter_training": bool(adapter.training),
+        "lora_training": bool(lora_modules and all(m.training for m in lora_modules)),
+        "lora_dropout_training": bool(
+            lora_modules and all(m.dropout.training for m in lora_modules)
+        ),
+        "lora_modules": len(lora_modules),
+        "trainable_base_parameters": len(trainable_base),
+        "trainable_adapter_parameters": sum(p.numel() for p in adapter.parameters() if p.requires_grad),
+        "trainable_lora_parameters": sum(p.numel() for _, p in lora_parameters(model)),
+    }
+
+
 def bootstrap_paired(values: list[float], n_boot: int = 1000, seed: int = 20261108) -> dict[str, Any]:
+    """Paired document bootstrap; keeps the original behavior."""
     arr = np.asarray(values, dtype=np.float64)
     if arr.size == 0:
         return {"mean": None, "ci_lower": None, "ci_upper": None, "n": 0, "n_boot": n_boot}
@@ -245,6 +312,29 @@ def evaluate_arm(
     }
 
 
+def generation_record(gen_ids: torch.Tensor, tok, max_new_tokens: int) -> dict[str, Any]:
+    """Return complete, non-gating telemetry for one greedy generation."""
+    token_ids = gen_ids[0].tolist()
+    text = tok.decode(gen_ids[0], skip_special_tokens=True)
+    special_ids = {int(x) for x in tok.all_special_ids}
+    gen_len = int(gen_ids.shape[1])
+    return {
+        "text": text,
+        "token_ids": token_ids,
+        "gen_len": gen_len,
+        "eos": bool(gen_len > 0 and token_ids[-1] == int(tok.eos_token_id)),
+        "cap_hit": bool(gen_len > int(max_new_tokens)),
+        "special_count": sum(int(x) in special_ids for x in token_ids),
+        "surface_empty": not bool(text.strip()),
+        "rep4": float(repeated_4gram_rate(text)),
+        "decoding": {
+            "num_beams": 1,
+            "do_sample": False,
+            "max_new_tokens": int(max_new_tokens),
+        },
+    }
+
+
 def generate_arm(model, adapter, cache, ids, tok, args) -> list[dict[str, Any]]:
     """Greedy generation on every selected val document; sanity check only."""
     adapter.eval()
@@ -264,13 +354,9 @@ def generate_arm(model, adapter, cache, ids, tok, args) -> list[dict[str, Any]]:
                 eos_token_id=tok.eos_token_id,
                 pad_token_id=tok.pad_token_id,
             )
-            text = tok.decode(gen_ids[0], skip_special_tokens=True)
-            outputs.append({
-                "id": rid,
-                "text": text,
-                "gen_len": int(gen_ids.shape[1]),
-                "eos": bool(gen_ids.shape[1] > 0 and gen_ids[0, -1].item() == tok.eos_token_id),
-            })
+            record = generation_record(gen_ids, tok, args.max_new_tokens)
+            record["id"] = rid
+            outputs.append(record)
     return outputs
 
 
@@ -397,7 +483,8 @@ def metric_smoke(args) -> int:
         eos_token_id=tok.eos_token_id,
         pad_token_id=tok.pad_token_id,
     )
-    text = tok.decode(gen_ids[0], skip_special_tokens=True)
+    generation = generation_record(gen_ids, tok, args.smoke_new_tokens)
+    generation["doc_id"] = rid
     payload = {
         "experiment": "c5_b0_metric_smoke",
         "mode": "metric_smoke_no_training",
@@ -409,12 +496,7 @@ def metric_smoke(args) -> int:
         "lora": lora,
         "lora_minus_frozen_copy": bootstrap_paired(l_minus_f),
         "lora_modules": len(attached),
-        "generation": {
-            "doc_id": rid,
-            "text": text,
-            "token_ids": gen_ids[0].tolist(),
-            "eos": bool(gen_ids.shape[1] > 0 and gen_ids[0, -1].item() == tok.eos_token_id),
-        },
+        "generation": generation,
         "test_split_used": False,
     }
     args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -456,10 +538,7 @@ def train_arm(args, arm: str) -> dict[str, Any]:
         for rid in set(train_ids + val_ids)
     }
     opt = torch.optim.AdamW(groups, weight_decay=0.01)
-    adapter.train()
-    if arm == "lora":
-        model.train()
-        # Keep the base frozen; LoRALinear only exposes lora_A/lora_B.
+    mode_policy = set_training_mode(model, adapter, arm)
     losses: list[float] = []
     for step in range(args.steps):
         rid = train_ids[step % len(train_ids)]
@@ -507,6 +586,7 @@ def train_arm(args, arm: str) -> dict[str, Any]:
         "train_ce_first": losses[0],
         "train_ce_last": losses[-1],
         "train_ce_last10_mean": sum(losses[-10:]) / min(10, len(losses)),
+        "train_mode_policy": mode_policy,
         **evaluation,
         "generation": generation,
         "test_split_used": False,
