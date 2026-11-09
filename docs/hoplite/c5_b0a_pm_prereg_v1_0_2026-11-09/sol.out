@@ -1,0 +1,35 @@
+Report written: [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_2026-11-09/review_SOL.md).
+
+Sync succeeded. Reviewed HEAD: `78fa7b455c8963e246eb6a3d9206491843e5e3d1`.
+
+## Final verdict: **NARROW**
+
+v1.0 closes several r3.4 gaps, but is **not yet suitable for unconditional freeze, implementation, or D0 approval**.
+
+| Q | Verdict | Finding |
+|---|---|---|
+| Q1 | disagree | Not fully self-contained |
+| Q2 | conditional | Decision dispatch coherent; primitive inputs incomplete |
+| Q3 | conditional | Tensor grid sound; endpoint coverage contradictory |
+| Q4 | conditional | Builder improved; replay mechanics incomplete |
+| Q5 | conditional | M-only K clarified; training crop unresolved |
+| Q6 | conditional | P/PA policy sound; M coverage insufficient |
+| Q7 | conditional | Statistics/tail clearer; missingness needs closure |
+| Q8 | conditional | Caps add up; timing workload omits required coverage |
+| Q9 | conditional | All three golden hashes reproduced; schema/replay gaps remain |
+| Q10 | disagree | Not all Must-fix items are closed |
+| Q11 | disagree | Do not freeze or authorize implementation/D0 yet |
+| Q12 | conditional | Boundaries appropriate; explicit launch checklist needed |
+| Q13 | conditional | NARROW—repair contract before proceeding |
+
+### Must-fix, ranked
+
+1. **P/PA native-20 versus exact endpoint contradiction:** calibration requires 20 native documents, but the exact 1,440-record domain permits only 15 per arm. Complete mixed-cohort coverage requires **1,680 records**, or an explicitly validated 1,440-record common view plus 240 native calibration records. Propagate coverage into timing and replay.
+2. **Training versus evaluation crop:** v1.0 specifies donor-cropped training without a training-donor recipe; the existing training loop uses full real memory.
+3. **Operational completeness:** bind model/tokenizer, initialization, donor, metric, path-validity, and artifact acceptance rules.
+4. **Replay mechanics:** define diagnostic donor tensors and same-checkpoint reference-versus-reloaded comparisons—not just counts and hashes.
+5. **Statistics and launch gates:** complete estimands, missing-data rules, fixture defaults, and D1/three-seed prerequisites.
+
+Only the designated report was written. No training, evaluation, or tests were run. Golden hashes and preflight arithmetic were independently checked.
+
+**No Phase 6, D0, D1, three-seed, B0-B/B1/B2/Stage C approval is granted. Test 163 remains sealed; P1 was unused; T5Gemma2 remains D-108 STOP.**

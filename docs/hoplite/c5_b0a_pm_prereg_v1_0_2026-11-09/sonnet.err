@@ -1,0 +1,4 @@
+[hoplite] reasoning=medium (model=claude-sonnet-5-5)
+[hoplite] thread=thr_d7b4adb5b6744bfea9b85921e79a1d23 (new)
+HTTP 503 GET /api/threads/thr_d7b4adb5b6744bfea9b85921e79a1d23: {"ok":false,"error":"thread_access_unavailable"}
+[hoplite] thread_id=thr_d7b4adb5b6744bfea9b85921e79a1d23

@@ -1,0 +1,25 @@
+Review complete. Full report (30,199 chars) written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_2026-11-09/review_GLM.md` — the only file touched (verified via `git status`). No training/eval run, test 163 untouched, no P1/external APIs, no subagents.
+
+**Sync:** `git pull --ff-only origin main` → "Already up to date"; HEAD = **`78fa7b4`** ("docs: add C5 P/M v1.0 review request"). The request's pinned base `631e180` is its direct ancestor (only the request directory differs; plan + golden JSON byte-identical since `63876ce`).
+
+**Independent verifications this round:** preflight SHA-256 `3ee3f1ca…9837af` ✓ exact; **all three golden digests recomputed by two independent methods** (Python struct/json and raw-byte printf→sha256sum): `43ecb58e…` ✓, `e3b0c442…` ✓, `c43ea35c…` ✓; endpoint arithmetic 1,440 / 96-per-target / 120 / 600 ✓; caps 1,204 updates / 155 min / T_proj ≤96 ✓; P0 numbers and cohort boundaries ✓; stale-reference scan: no normative r3.x dependency.
+
+| Q | Verdict | One-line basis |
+|---|---|---|
+| Q1 self-contained | **conditional** | r3.x quarantined to traceability/prohibitions, but 4 path flags, donor rule, "shuffled donor", P/PA cohort remain unpinned |
+| Q2 decision contract | **agree** | ANDn/9-pair/F1–F11/fixtures 16–18/dispatch total and mutually consistent (re-checked) |
+| Q3 variant×memory_kind | **agree** | §9.4 grid closes MF-1; norm guards present; ratio retention noted |
+| Q4 builder/replay | **conditional** | Builders + phase 5/7 + debug/final separation close MF-4; donor rule and M-tensor hash binding missing |
+| Q5 K scope | **agree** | "753 M-only" rule handles exactly the 4 train + 5 val short docs; zero-margin + full_k_secondary demoted |
+| Q6 P/PA | **conditional** | PA_VALID/veto/retention closed; **cohort contradiction blocker** (below) |
+| Q7 statistics/tail | **agree** | Constants, documents_positive, missing-seed→NA, signal-tail variant=NA, absolute top3 gate all executable; legacy `bootstrap_paired` defect confirmed live in runner |
+| Q8 D0/D1/cap | **agree** | Arithmetic exact (1,440=12×120; 1,204; 155 min); boundaries respected |
+| Q9 hash/golden | **agree** | Frame spec total; all 3 digests reviewer-verified via 2 methods |
+| Q10 Must-fix | **conditional** | MF-1…10 closed; 1 new contradiction + 7 definitional items (ranked) |
+| Q11 freeze/impl | **conditional** | Freeze after MF-V1-1…4; then impl+tests+D0 with §13 matrix + digest gates |
+| Q12 boundaries | **agree** | B0-B predicate restated with v1.0 labels; n_signal ≥15 = exactly 15; no auto-advance |
+| Q13 final | **NARROW** | see below |
+
+**Must-fix (ranked):** ① **MF-V1-1 (blocker)** — P/PA M cohort dual-stated: 20 native (§4.5/§5.2/§8.3, per r3.4 MF-3) vs 15 common/1,440 (§9.1/§9.5/§11.3 phase 4–5); `m_valid` is a gate input with two contradictory stated cohorts and the 20-native records have no phase/count/replay home. ② donor selection rule (5, length-matched, exclude self, tie-break) not contract text. ③ "shuffled donor" control memory undefined. ④ four `*_path_ok` flags undefined (last chain-inherited definitions). ⑤ M tensors outside §12.1 hash domain/manifest. ⑥ training-forward / train-vs-val cohort wording. ⑦ explicit p_valid/pa_valid/m_pass_* bindings. ⑧ §7.1 axis bookkeeping + supplemental replay vector.
+
+**Final verdict: NARROW.** Freeze withheld until MF-V1-1…4 are folded in (v1.0 + ERRATA), then freeze (hash + SHA-256); after freeze: implementation + unit tests + D0 (≤15 min, 0 updates, seed 20261111) approvable. D1 / 3-seed / B0-B / B1/B2/Stage C remain separately approved-only; test 163 sealed; P1 unused; T5Gemma2 D-108 STOP. Compute cap: registered 12 units / 1,200 updates / 120-min hard abort / 6 threads / no GPU (prospective 1,204 / 155 min, "not grant"); T_proj ≤96 min. No threshold/seed/donor/step/LR changes proposed. Not STOP because the spec is structurally sound with verified golden constants; not CONTINUE because a gate-arithmetic contradiction cannot stand in a frozen implementation contract.

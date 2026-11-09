@@ -1,0 +1,34 @@
+I reviewed v1.0 and my verdict is **NARROW**. The report is in `docs/hoplite/c5_b0a_pm_prereg_v1_0_2026-11-09/review_SONNET.md`; it opens by identifying me as the Claude Sonnet 5.5 medium reviewer.
+
+- **Sync:** `git fetch` and `git pull --ff-only origin main` reported "Already up to date". The HEAD is `78fa7b4`. The request names `631e180` as its basis, but that commit isn't in this shallow checkout, so I couldn't diff against it.
+- **Checks:** I ran no training or evaluation. The preflight hash `3ee3f1ca…837af` matches §0.4. I recomputed both golden digests independently (state and replay), and they match. The preflight lengths agree with the spec: 15 val docs at h ≥ 753, doc `01331` at exactly 753, K=754 giving 14.
+
+| Q | Verdict | Key point |
+|---|---|---|
+| 1 Self-contained | conditional | Copy mask, donor rule, training loss, F/L adapter init and the path flags are defined only in the runner or older docs. |
+| 2 Decision contract | agree | I hand-checked all 9 L-table rows, the dispatch and fixtures 16–18. Small prose gaps remain. |
+| 3 Variant × memory_kind | agree | The control tensors differ, so `M_PASS_POS` and `M_PASS_NORM` are distinct tests. |
+| 4 Builder / replay | disagree | P/PA are 20 docs in §4.5, §5.2 and §8.3 but 15 in §9.1, §9.5 and §11.3. The replay algorithm is also undefined. |
+| 5 F/L K scope | agree | M-only 753 with donor-crop elsewhere handles the short docs. |
+| 6 P/PA | conditional | `P_VALID` and `PA_VALID` have no seed aggregation or missing-seed rule. |
+| 7 Stats / tail | conditional | `documents_positive` is unused by any gate, and the tail delta's seed handling is unstated. |
+| 8 D0 / D1 / cap | conditional | The arithmetic is fine, but serial vs parallel execution is unstated. The 20-doc P/PA reading would change phase 5. |
+| 9 Hash / golden | mostly agree | The replay golden has no mixed null and integer donors, and the real checkpoint dtype string isn't fixed. |
+| 10 Remaining | see list below | The r3.4 items are closed at the text level. |
+| 11 Freeze / implement | conditional | Fix Must-fix 1–5 first. The freeze record must be external, since a document can't contain its own hash. |
+| 12 B0-B / D1 / 3-seed | agree | I restated the B0-B predicate in v1.0 labels in the report. It only makes a separate prereg eligible. |
+| 13 Final | **NARROW** | Freeze after the edits, then implementation, unit tests and D0 only. |
+
+**Must-fix, ranked:**
+1. The P/PA M cohort contradiction: 20 native docs vs 15 common, which changes the 1,440 count, the 96 per target and phase 5. Pick one before freeze.
+2. The replay algorithm is undefined: what is replayed, the comparison rule, what "hash exact" covers, the `donor_id`→`donor_sort` mapping and the float serialization.
+3. The measurement semantics are not in the document: copy mask and `copy_ce`, donor selection and ordering, shuffled-CE averaging, training loss, F/L adapter init and decoding.
+4. The flags `assay_path_ok`, `p0_path_ok`, `p_step100_path_ok`, `pa_step100_path_ok` and `test_split_used` are used but never defined.
+5. Aggregation gaps: seed handling for `P_VALID`/`PA_VALID`, the cohort for `L_*_SIGNAL`, the tail delta, and the MF-5 n_signal prose vs the §6.3 dispatch.
+6. D1 and T_proj need a stated serial or parallel execution mode.
+7. The freeze needs an external record (commit hash plus plan SHA-256).
+8. Minor: mark `documents_positive` descriptive-only, fix the `seeds_positive` wording, fix the checkpoint dtype string, add one more replay golden vector, and state that an uninformative P/PA or M outcome is terminal.
+
+**Scope after the edits:** only freeze, implementation with unit tests, and D0 zero-update mechanics. D1 and the 3-seed run are not approved. Phase 6, B0-B, B1, B2 and Stage C are not approved. Test 163 stays sealed, P1 stays unused and T5Gemma2 stays closed. I propose no threshold, seed, donor, step or LR change.
+
+**Self-contained:** not yet. Items 1–4 above are why.
