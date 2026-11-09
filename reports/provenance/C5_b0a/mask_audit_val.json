@@ -1,0 +1,894 @@
+{
+  "experiment": "c5_b0_mask_audit",
+  "split": "val",
+  "n_docs": 20,
+  "n_target_tokens": 4093,
+  "as_run": {
+    "rule": "NFKC, remove spaces, any non-special piece with a letter/digit substring in source",
+    "coverage": {
+      "mean": 0.8246195051392068,
+      "median": 0.8307461873638344,
+      "p05": 0.7574468085106383,
+      "p95": 0.8721461187214612
+    },
+    "total_copy_tokens": 3376,
+    "adoption": "as-run; no rule change in runner"
+  },
+  "candidate_strict_piece_len_ge2": {
+    "rule": "same as as-run, but require normalized piece length >= 2",
+    "coverage": {
+      "mean": 0.242711667785677,
+      "median": 0.22816650080642392,
+      "p05": 0.16666666666666666,
+      "p95": 0.33649289099526064
+    },
+    "total_copy_tokens": 974,
+    "adoption": "candidate only; requires a new preregistration"
+  },
+  "sample": [
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 27639,
+      "piece": "추",
+      "source_found": true,
+      "source_context": "검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 4532,
+      "piece": "미",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 27383,
+      "piece": "법",
+      "source_found": true,
+      "source_context": "외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 4498,
+      "piece": "무",
+      "source_found": true,
+      "source_context": "하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 3814,
+      "piece": "부",
+      "source_found": true,
+      "source_context": "면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 90641,
+      "piece": "장관",
+      "source_found": true,
+      "source_context": "할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 747,
+      "piece": "이",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다."
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 42794,
+      "piece": "검",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 39049,
+      "piece": "찰",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 38700,
+      "piece": "총",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 145965,
+      "piece": "장과",
+      "source_found": true,
+      "source_context": "친문검사들이유탄을맞고있다.\n요직만골라다니는이성윤중앙지검장과김오수법무부차관,‘조국무혐의’를주장했던심재철대검반부패·강력부장등이후배검사들로부터“너도검사냐”는모욕을당했다."
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 649,
+      "piece": "의",
+      "source_found": true,
+      "source_context": "고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 13090,
+      "piece": "관",
+      "source_found": true,
+      "source_context": "정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 7089,
+      "piece": "행",
+      "source_found": true,
+      "source_context": "관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 611,
+      "piece": "을",
+      "source_found": true,
+      "source_context": "사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 56579,
+      "piece": "깨",
+      "source_found": true,
+      "source_context": "립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 1000,
+      "piece": "고",
+      "source_found": true,
+      "source_context": "이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다."
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 78637,
+      "piece": "윤",
+      "source_found": true,
+      "source_context": "일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기에윤총장이따르지않자“내가법을위반한게아니라검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 10231,
+      "piece": "석",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 42794,
+      "piece": "검",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 39049,
+      "piece": "찰",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 38700,
+      "piece": "총",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 44204,
+      "piece": "장을",
+      "source_found": true,
+      "source_context": "사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기에윤총장이따르지않자“내가법을위반한게아니라검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 27383,
+      "piece": "법",
+      "source_found": true,
+      "source_context": "외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 4498,
+      "piece": "무",
+      "source_found": true,
+      "source_context": "하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 3814,
+      "piece": "부",
+      "source_found": true,
+      "source_context": "면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 1235,
+      "piece": "로",
+      "source_found": true,
+      "source_context": "않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 6345,
+      "piece": "소",
+      "source_found": true,
+      "source_context": "도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기에윤총장이따르지않자“내가법을위반한게아니라검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 14897,
+      "piece": "환",
+      "source_found": true,
+      "source_context": "마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기에윤총장이따르지않자“내가법을위반한게아니라검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 1953,
+      "piece": "하는",
+      "source_found": true,
+      "source_context": "다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 4028,
+      "piece": "등",
+      "source_found": true,
+      "source_context": "무부차관,‘조국무혐의’를주장했던심재철대검반부패·강력부장등이후배검사들로부터“너도검사냐”는모욕을당했다."
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 119362,
+      "piece": "인사",
+      "source_found": true,
+      "source_context": "고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기에윤총장이따르지않자“내가법을위반한게아니라검찰총장이제명"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 17316,
+      "piece": "등",
+      "source_found": true,
+      "source_context": "무부차관,‘조국무혐의’를주장했던심재철대검반부패·강력부장등이후배검사들로부터“너도검사냐”는모욕을당했다."
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 611,
+      "piece": "을",
+      "source_found": true,
+      "source_context": "사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 16029,
+      "piece": "었다",
+      "source_found": true,
+      "source_context": "”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하라고하면검찰총장이따라야할일”이라"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 28220,
+      "piece": "문",
+      "source_found": true,
+      "source_context": "를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 4843,
+      "piece": "재",
+      "source_found": true,
+      "source_context": "위반한게아니라검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 1812,
+      "piece": "인",
+      "source_found": true,
+      "source_context": "관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 34270,
+      "piece": "대통령",
+      "source_found": true,
+      "source_context": "한게아니라검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 869,
+      "piece": "은",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 7870,
+      "piece": "신",
+      "source_found": true,
+      "source_context": "라검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하라고하면"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 2479,
+      "piece": "년",
+      "source_found": true,
+      "source_context": "검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하라고하면검"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 19097,
+      "piece": "기자",
+      "source_found": true,
+      "source_context": "찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하라고하면검찰"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 6788,
+      "piece": "회",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 17284,
+      "piece": "견",
+      "source_found": true,
+      "source_context": "이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하라고하면검찰총장이"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 1613,
+      "piece": "에서",
+      "source_found": true,
+      "source_context": "제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하라고하면검찰총장이따"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 119362,
+      "piece": "인사",
+      "source_found": true,
+      "source_context": "고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기에윤총장이따르지않자“내가법을위반한게아니라검찰총장이제명"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 7778,
+      "piece": "권",
+      "source_found": true,
+      "source_context": "통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 869,
+      "piece": "은",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 27383,
+      "piece": "법",
+      "source_found": true,
+      "source_context": "외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 4498,
+      "piece": "무",
+      "source_found": true,
+      "source_context": "하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 3814,
+      "piece": "부",
+      "source_found": true,
+      "source_context": "면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 90641,
+      "piece": "장관",
+      "source_found": true,
+      "source_context": "할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 17611,
+      "piece": "이나",
+      "source_found": true,
+      "source_context": "서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하라고하면검찰총장이따라야할일”이라고말했다.\n하지만검찰청법34조1항을개정해법무"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 34270,
+      "piece": "대통령",
+      "source_found": true,
+      "source_context": "한게아니라검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 12664,
+      "piece": "에게",
+      "source_found": true,
+      "source_context": "주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하라고하면검찰총장이따라야할일”이라고말했다.\n하지만검찰청법34조1항을개정해법무부장관이검"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 3632,
+      "piece": "있다",
+      "source_found": true,
+      "source_context": "과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 1000,
+      "piece": "고",
+      "source_found": true,
+      "source_context": "이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다."
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 11792,
+      "piece": "발",
+      "source_found": true,
+      "source_context": "우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기에윤총장이따르지않"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 1741,
+      "piece": "해",
+      "source_found": true,
+      "source_context": "록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 27639,
+      "piece": "추",
+      "source_found": true,
+      "source_context": "검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 4532,
+      "piece": "미",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 90641,
+      "piece": "장관",
+      "source_found": true,
+      "source_context": "할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 611,
+      "piece": "을",
+      "source_found": true,
+      "source_context": "사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 74348,
+      "piece": "지지",
+      "source_found": true,
+      "source_context": "알고있다.\n이때문에진보신문들조차“추장관이박상기전장관때까지지속해온인사관행을지키지않았다”고비판했다.\n“법무부가검찰인사초안을만들면장관이총장에게연락해‘제3의장소’에서만났다.\n제일큰이유는인"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 4117,
+      "piece": "했다",
+      "source_found": true,
+      "source_context": "찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기에윤총장이따르지않자“내가법을위반한게아니라검찰총장이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 42794,
+      "piece": "검",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 39049,
+      "piece": "찰",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 10461,
+      "piece": "청",
+      "source_found": true,
+      "source_context": "말하라고하면검찰총장이따라야할일”이라고말했다.\n하지만검찰청법34조1항을개정해법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 8280,
+      "piece": "법",
+      "source_found": true,
+      "source_context": "외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 3495,
+      "piece": "34",
+      "source_found": true,
+      "source_context": "라고하면검찰총장이따라야할일”이라고말했다.\n하지만검찰청법34조1항을개정해법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당시청"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 5268,
+      "piece": "조",
+      "source_found": true,
+      "source_context": "하면검찰총장이따라야할일”이라고말했다.\n하지만검찰청법34조1항을개정해법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당시청와대"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 353,
+      "piece": "1",
+      "source_found": true,
+      "source_context": "면검찰총장이따라야할일”이라고말했다.\n하지만검찰청법34조1항을개정해법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당시청와대민"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 32431,
+      "piece": "항",
+      "source_found": true,
+      "source_context": "검찰총장이따라야할일”이라고말했다.\n하지만검찰청법34조1항을개정해법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당시청와대민정"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 869,
+      "piece": "은",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 27383,
+      "piece": "법",
+      "source_found": true,
+      "source_context": "외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 4498,
+      "piece": "무",
+      "source_found": true,
+      "source_context": "하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 3814,
+      "piece": "부",
+      "source_found": true,
+      "source_context": "면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 90641,
+      "piece": "장관",
+      "source_found": true,
+      "source_context": "할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 747,
+      "piece": "이",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다."
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 42794,
+      "piece": "검",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 39049,
+      "piece": "찰",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 119362,
+      "piece": "인사",
+      "source_found": true,
+      "source_context": "고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도마찬가지다.\n추장관은법무부인사위원회직전윤총장을법무부로소환했다.\n여기에윤총장이따르지않자“내가법을위반한게아니라검찰총장이제명"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 873,
+      "piece": "에",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 18248,
+      "piece": "앞",
+      "source_found": true,
+      "source_context": "다.\n하지만검찰청법34조1항을개정해법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당시청와대민정수석이던문대통령은누구보다그배경"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 1947,
+      "piece": "서",
+      "source_found": true,
+      "source_context": "리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 22932,
+      "piece": "총",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 115347,
+      "piece": "장의",
+      "source_found": true,
+      "source_context": "하지만검찰청법34조1항을개정해법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당시청와대민정수석이던문대통령은누구보다그배경을잘알"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 649,
+      "piece": "의",
+      "source_found": true,
+      "source_context": "고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지난달9일검사장급인사때도"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 17284,
+      "piece": "견",
+      "source_found": true,
+      "source_context": "이제명을거역한것”이라고주장했다.\n문재인대통령도신년기자회견에서힘을실어주었다.\n“수사권은검찰에있지만인사권은법무부장관이나대통령에게있다”며“법무부장관이와서(인사)의견을말하라고하면검찰총장이"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 611,
+      "piece": "을",
+      "source_found": true,
+      "source_context": "사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 89786,
+      "piece": "듣",
+      "source_found": true,
+      "source_context": "청법34조1항을개정해법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당시청와대민정수석이던문대통령은누구보다그배경을잘알고있다.\n"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 24391,
+      "piece": "도록",
+      "source_found": true,
+      "source_context": "이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 2481,
+      "piece": "정",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 1741,
+      "piece": "해",
+      "source_found": true,
+      "source_context": "록같은공간에섞이거나사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 126654,
+      "piece": "수사",
+      "source_found": true,
+      "source_context": "해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있다.\n추장관의도발은실패하고역풍만낳아지"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 22069,
+      "piece": "외",
+      "source_found": true,
+      "source_context": "대검국정감사를제외하면검찰총장은국회에출석할일이없다.\n이런미묘한관계때문에법무부참모들과대검참모들은장관과총장이되도록같은공간에섞이거나사진이찍히지않도록"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 42074,
+      "piece": "압",
+      "source_found": true,
+      "source_context": "정해법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당시청와대민정수석이던문대통령은누구보다그배경을잘알고있다.\n이때문에진보신문들"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 611,
+      "piece": "을",
+      "source_found": true,
+      "source_context": "사진이찍히지않도록미리세심하게교통정리를해왔다.\n법무부장관을최고수장으로받들면서도살아있는권력까지수사하는준사법기관인검찰의정치적독립성과검찰총장에대한예우인것이다.\n이런관행을추장관이연거푸깨고있"
+    },
+    {
+      "doc_id": "REPORT-news_r-04161-00002",
+      "token_id": 64572,
+      "piece": "막",
+      "source_found": true,
+      "source_context": "법무부장관이검찰인사에앞서총장의의견을듣도록한것은수사외압을막고정치적중립성을보장하기위한목적이다.\n2004년1월당시청와대민정수석이던문대통령은누구보다그배경을잘알고있다.\n이때문에진보신문들조차"
+    }
+  ],
+  "sample_status": "manual/blind adjudication required; not counted as precision",
+  "test_split_used": false,
+  "records": [
+    {
+      "id": "REPORT-news_r-04161-00002",
+      "target_tokens": 181,
+      "as_run_copy_tokens": 145,
+      "as_run_coverage": 0.8011049723756906,
+      "strict_piece_len_ge2_copy_tokens": 41,
+      "strict_piece_len_ge2_coverage": 0.2265193370165746
+    },
+    {
+      "id": "REPORT-news_r-00430-00001",
+      "target_tokens": 215,
+      "as_run_copy_tokens": 165,
+      "as_run_coverage": 0.7674418604651163,
+      "strict_piece_len_ge2_copy_tokens": 46,
+      "strict_piece_len_ge2_coverage": 0.21395348837209302
+    },
+    {
+      "id": "REPORT-news_r-01555-00001",
+      "target_tokens": 234,
+      "as_run_copy_tokens": 197,
+      "as_run_coverage": 0.8418803418803419,
+      "strict_piece_len_ge2_copy_tokens": 39,
+      "strict_piece_len_ge2_coverage": 0.16666666666666666
+    },
+    {
+      "id": "REPORT-news_r-02180-00001",
+      "target_tokens": 189,
+      "as_run_copy_tokens": 159,
+      "as_run_coverage": 0.8412698412698413,
+      "strict_piece_len_ge2_copy_tokens": 63,
+      "strict_piece_len_ge2_coverage": 0.3333333333333333
+    },
+    {
+      "id": "REPORT-news_r-01331-00001",
+      "target_tokens": 256,
+      "as_run_copy_tokens": 224,
+      "as_run_coverage": 0.875,
+      "strict_piece_len_ge2_copy_tokens": 47,
+      "strict_piece_len_ge2_coverage": 0.18359375
+    },
+    {
+      "id": "REPORT-news_r-01058-00001",
+      "target_tokens": 158,
+      "as_run_copy_tokens": 128,
+      "as_run_coverage": 0.810126582278481,
+      "strict_piece_len_ge2_copy_tokens": 46,
+      "strict_piece_len_ge2_coverage": 0.2911392405063291
+    },
+    {
+      "id": "REPORT-news_r-03503-00001",
+      "target_tokens": 235,
+      "as_run_copy_tokens": 178,
+      "as_run_coverage": 0.7574468085106383,
+      "strict_piece_len_ge2_copy_tokens": 40,
+      "strict_piece_len_ge2_coverage": 0.1702127659574468
+    },
+    {
+      "id": "REPORT-news_r-03991-00001",
+      "target_tokens": 203,
+      "as_run_copy_tokens": 171,
+      "as_run_coverage": 0.8423645320197044,
+      "strict_piece_len_ge2_copy_tokens": 39,
+      "strict_piece_len_ge2_coverage": 0.1921182266009852
+    },
+    {
+      "id": "REPORT-news_r-05258-00002",
+      "target_tokens": 161,
+      "as_run_copy_tokens": 140,
+      "as_run_coverage": 0.8695652173913043,
+      "strict_piece_len_ge2_copy_tokens": 37,
+      "strict_piece_len_ge2_coverage": 0.22981366459627328
+    },
+    {
+      "id": "REPORT-news_r-02086-00001",
+      "target_tokens": 240,
+      "as_run_copy_tokens": 196,
+      "as_run_coverage": 0.8166666666666667,
+      "strict_piece_len_ge2_copy_tokens": 50,
+      "strict_piece_len_ge2_coverage": 0.20833333333333334
+    },
+    {
+      "id": "REPORT-news_r-03271-00001",
+      "target_tokens": 212,
+      "as_run_copy_tokens": 169,
+      "as_run_coverage": 0.7971698113207547,
+      "strict_piece_len_ge2_copy_tokens": 47,
+      "strict_piece_len_ge2_coverage": 0.22169811320754718
+    },
+    {
+      "id": "REPORT-news_r-01951-00001",
+      "target_tokens": 219,
+      "as_run_copy_tokens": 191,
+      "as_run_coverage": 0.8721461187214612,
+      "strict_piece_len_ge2_copy_tokens": 61,
+      "strict_piece_len_ge2_coverage": 0.2785388127853881
+    },
+    {
+      "id": "REPORT-news_r-02861-00001",
+      "target_tokens": 237,
+      "as_run_copy_tokens": 188,
+      "as_run_coverage": 0.7932489451476793,
+      "strict_piece_len_ge2_copy_tokens": 42,
+      "strict_piece_len_ge2_coverage": 0.17721518987341772
+    },
+    {
+      "id": "REPORT-news_r-00020-00001",
+      "target_tokens": 152,
+      "as_run_copy_tokens": 121,
+      "as_run_coverage": 0.7960526315789473,
+      "strict_piece_len_ge2_copy_tokens": 52,
+      "strict_piece_len_ge2_coverage": 0.34210526315789475
+    },
+    {
+      "id": "REPORT-news_r-02804-00001",
+      "target_tokens": 211,
+      "as_run_copy_tokens": 177,
+      "as_run_coverage": 0.8388625592417062,
+      "strict_piece_len_ge2_copy_tokens": 71,
+      "strict_piece_len_ge2_coverage": 0.33649289099526064
+    },
+    {
+      "id": "REPORT-news_r-01127-00001",
+      "target_tokens": 170,
+      "as_run_copy_tokens": 140,
+      "as_run_coverage": 0.8235294117647058,
+      "strict_piece_len_ge2_copy_tokens": 54,
+      "strict_piece_len_ge2_coverage": 0.3176470588235294
+    },
+    {
+      "id": "REPORT-news_r-04798-00001",
+      "target_tokens": 216,
+      "as_run_copy_tokens": 181,
+      "as_run_coverage": 0.8379629629629629,
+      "strict_piece_len_ge2_copy_tokens": 62,
+      "strict_piece_len_ge2_coverage": 0.28703703703703703
+    },
+    {
+      "id": "REPORT-news_r-05220-00001",
+      "target_tokens": 244,
+      "as_run_copy_tokens": 205,
+      "as_run_coverage": 0.8401639344262295,
+      "strict_piece_len_ge2_copy_tokens": 59,
+      "strict_piece_len_ge2_coverage": 0.24180327868852458
+    },
+    {
+      "id": "REPORT-news_r-01518-00001",
+      "target_tokens": 192,
+      "as_run_copy_tokens": 163,
+      "as_run_coverage": 0.8489583333333334,
+      "strict_piece_len_ge2_copy_tokens": 38,
+      "strict_piece_len_ge2_coverage": 0.19791666666666666
+    },
+    {
+      "id": "REPORT-news_r-03445-00001",
+      "target_tokens": 168,
+      "as_run_copy_tokens": 138,
+      "as_run_coverage": 0.8214285714285714,
+      "strict_piece_len_ge2_copy_tokens": 40,
+      "strict_piece_len_ge2_coverage": 0.23809523809523808
+    }
+  ]
+}

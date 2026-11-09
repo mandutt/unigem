@@ -1,0 +1,894 @@
+{
+  "experiment": "c5_b0_mask_audit",
+  "split": "train",
+  "n_docs": 20,
+  "n_target_tokens": 4312,
+  "as_run": {
+    "rule": "NFKC, remove spaces, any non-special piece with a letter/digit substring in source",
+    "coverage": {
+      "mean": 0.8351192840026513,
+      "median": 0.8321640316205534,
+      "p05": 0.78125,
+      "p95": 0.8765957446808511
+    },
+    "total_copy_tokens": 3606,
+    "adoption": "as-run; no rule change in runner"
+  },
+  "candidate_strict_piece_len_ge2": {
+    "rule": "same as as-run, but require normalized piece length >= 2",
+    "coverage": {
+      "mean": 0.2160535477399427,
+      "median": 0.1996281996281996,
+      "p05": 0.11328125,
+      "p95": 0.2890625
+    },
+    "total_copy_tokens": 927,
+    "adoption": "candidate only; requires a new preregistration"
+  },
+  "sample": [
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 18219,
+      "piece": "우",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요."
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 839,
+      "piece": "한",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 27512,
+      "piece": "교",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 11029,
+      "piece": "민",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 9517,
+      "piece": "700",
+      "source_found": true,
+      "source_context": "들이아산·진천에서개발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 4878,
+      "piece": "명",
+      "source_found": true,
+      "source_context": "주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다”고말했다.\n격리시설을나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 4516,
+      "piece": "중",
+      "source_found": true,
+      "source_context": "1명씩만앉게했다.\n각권역에도착한뒤에는기차·버스·전철등대중교통이나개별이동수단을타고귀가했다.\n정부는교민들이내리는권역별장소는공개하지않았다.\n지역주민을고려해교민들이아산·진천에서개발귀가하는"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 88601,
+      "piece": "366",
+      "source_found": true,
+      "source_context": "지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로판정됐다.\n정부합동지원단은퇴소직전보건교육을통해발열과기침,가래등의증상이있으면선별진료소방문등의"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 57627,
+      "piece": "명이",
+      "source_found": true,
+      "source_context": "지원단의관리·감독을받아왔다.\n이과정에서아산에수용중이던2명이신종코로나확진판정을받아국립중앙의료원으로이송되기도했다.\n애초정부가경찰인재개발원과국가공무원인재개발원을우한교민격리시설로결정하자주"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 670,
+      "piece": "15",
+      "source_found": true,
+      "source_context": "원을대상으로지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로판정됐다.\n정부합동지원단은퇴소직전보건교육을통해발열과기침,가래등의증상이있으면선별진"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 666,
+      "piece": "일",
+      "source_found": true,
+      "source_context": "발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 45034,
+      "piece": "아산",
+      "source_found": true,
+      "source_context": "내리는권역별장소는공개하지않았다.\n지역주민을고려해교민들이아산·진천에서개발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 72908,
+      "piece": "경찰",
+      "source_found": true,
+      "source_context": "확진판정을받아국립중앙의료원으로이송되기도했다.\n애초정부가경찰인재개발원과국가공무원인재개발원을우한교민격리시설로결정하자주민들은수용에반대하며플래카드를걸고정부·자치단체를상대로격렬하게항의했다."
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1812,
+      "piece": "인",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 4843,
+      "piece": "재",
+      "source_found": true,
+      "source_context": "\n아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 85418,
+      "piece": "개발",
+      "source_found": true,
+      "source_context": "아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3347,
+      "piece": "원",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1603,
+      "piece": "과",
+      "source_found": true,
+      "source_context": "수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙다는내용도있"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 19420,
+      "piece": "진",
+      "source_found": true,
+      "source_context": "민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙다는"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 15706,
+      "piece": "천",
+      "source_found": true,
+      "source_context": "이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙다는내"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 39366,
+      "piece": "국가",
+      "source_found": true,
+      "source_context": "다”고썼다.\n아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 7470,
+      "piece": "공",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 4498,
+      "piece": "무",
+      "source_found": true,
+      "source_context": "썼다.\n아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3347,
+      "piece": "원",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1812,
+      "piece": "인",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 4843,
+      "piece": "재",
+      "source_found": true,
+      "source_context": "\n아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 85418,
+      "piece": "개발",
+      "source_found": true,
+      "source_context": "아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 151727,
+      "piece": "원에서",
+      "source_found": true,
+      "source_context": "원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다”고말했다.\n격리시설을나온교민들은서울과경기,대구·"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 142700,
+      "piece": "퇴",
+      "source_found": true,
+      "source_context": "가품어주지않으면어떻게하겠냐”며수용을전격결정했다.\n정부는퇴소를앞둔우한교민700명전원을대상으로지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3439,
+      "piece": "소",
+      "source_found": true,
+      "source_context": "나개별이동수단을타고귀가했다.\n정부는교민들이내리는권역별장소는공개하지않았다.\n지역주민을고려해교민들이아산·진천에서개발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1741,
+      "piece": "해",
+      "source_found": true,
+      "source_context": "한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 79038,
+      "piece": "전국",
+      "source_found": true,
+      "source_context": "나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스에는2개좌석당1명씩만앉게했다.\n각권역에도착한뒤에는기차·버스·전철등대중교통이나개별이동수단을타고귀가했"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 430,
+      "piece": "5",
+      "source_found": true,
+      "source_context": "교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스에는2개좌석당1명씩만앉게했다.\n각권역에도착한뒤에는기차·버스·전철등대중교통이나개별이동수단을타고귀가했다."
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 6435,
+      "piece": "개",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 49921,
+      "piece": "권",
+      "source_found": true,
+      "source_context": "들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스에는2개좌석당1명씩만앉게했다.\n각권역에도착한뒤에는기차·버스·전철등대중교통이나개별이동수단을타고귀가했다.\n정"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 8234,
+      "piece": "역",
+      "source_found": true,
+      "source_context": "은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스에는2개좌석당1명씩만앉게했다.\n각권역에도착한뒤에는기차·버스·전철등대중교통이나개별이동수단을타고귀가했다.\n정부"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 2020,
+      "piece": "으로",
+      "source_found": true,
+      "source_context": "을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다”고말"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 49757,
+      "piece": "귀",
+      "source_found": true,
+      "source_context": "도착한뒤에는기차·버스·전철등대중교통이나개별이동수단을타고귀가했다.\n정부는교민들이내리는권역별장소는공개하지않았다.\n지역주민을고려해교민들이아산·진천에서개발귀가하는것도허가하지않았다.\n우한교"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 929,
+      "piece": "가",
+      "source_found": true,
+      "source_context": "”고썼다.\n아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 4117,
+      "piece": "했다",
+      "source_found": true,
+      "source_context": "9)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다”고말했다.\n격리시설을나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스에는2개좌석당1명씩만앉게했다"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1602,
+      "piece": "이",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 13052,
+      "piece": "들은",
+      "source_found": true,
+      "source_context": "민모두집으로돌아가게돼기쁘다”고말했다.\n격리시설을나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스에는2개좌석당1명씩만앉게했다.\n각권역에도착한뒤에는기"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 11610,
+      "piece": "지난",
+      "source_found": true,
+      "source_context": "진천에서개발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 12275,
+      "piece": "달",
+      "source_found": true,
+      "source_context": "에서개발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1606,
+      "piece": "31",
+      "source_found": true,
+      "source_context": "서개발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 666,
+      "piece": "일",
+      "source_found": true,
+      "source_context": "발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1603,
+      "piece": "과",
+      "source_found": true,
+      "source_context": "수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙다는내용도있"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 333,
+      "piece": "1",
+      "source_found": true,
+      "source_context": "웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다”고말했다.\n격리시설을나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 666,
+      "piece": "일",
+      "source_found": true,
+      "source_context": "발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3403,
+      "piece": "전",
+      "source_found": true,
+      "source_context": "고말했다.\n격리시설을나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스에는2개좌석당1명씩만앉게했다.\n각권역에도착한뒤에는기차·버스·전철등대중교통이나개"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3935,
+      "piece": "세",
+      "source_found": true,
+      "source_context": "않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각각1인1실에서지내며정"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1622,
+      "piece": "기",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 66194,
+      "piece": "대한",
+      "source_found": true,
+      "source_context": "지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 137421,
+      "piece": "항공",
+      "source_found": true,
+      "source_context": "우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각각1인1실에서지내며정부합동지원"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 8839,
+      "piece": "편",
+      "source_found": true,
+      "source_context": "민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각각1인1실에서지내며정부합동지원단의관"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 2020,
+      "piece": "으로",
+      "source_found": true,
+      "source_context": "을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다”고말"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 12609,
+      "piece": "입",
+      "source_found": true,
+      "source_context": "래카드를걸고정부·자치단체를상대로격렬하게항의했다.\n하지만입소직전인31일오전“다같은대한민국국민인데결국우리가품어주지않으면어떻게하겠냐”며수용을전격결정했다.\n정부는퇴소를앞둔우한교민700명전"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 8109,
+      "piece": "국",
+      "source_found": true,
+      "source_context": "다”고썼다.\n아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1741,
+      "piece": "해",
+      "source_found": true,
+      "source_context": "한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 11213,
+      "piece": "격",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1751,
+      "piece": "리",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1566,
+      "piece": "수",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3694,
+      "piece": "용",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 73925,
+      "piece": "됐",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 36037,
+      "piece": "정부",
+      "source_found": true,
+      "source_context": "기차·버스·전철등대중교통이나개별이동수단을타고귀가했다.\n정부는교민들이내리는권역별장소는공개하지않았다.\n지역주민을고려해교민들이아산·진천에서개발귀가하는것도허가하지않았다.\n우한교민700명은"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 988,
+      "piece": "는",
+      "source_found": true,
+      "source_context": "리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 142700,
+      "piece": "퇴",
+      "source_found": true,
+      "source_context": "가품어주지않으면어떻게하겠냐”며수용을전격결정했다.\n정부는퇴소를앞둔우한교민700명전원을대상으로지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3439,
+      "piece": "소",
+      "source_found": true,
+      "source_context": "나개별이동수단을타고귀가했다.\n정부는교민들이내리는권역별장소는공개하지않았다.\n지역주민을고려해교민들이아산·진천에서개발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3403,
+      "piece": "전",
+      "source_found": true,
+      "source_context": "고말했다.\n격리시설을나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스에는2개좌석당1명씩만앉게했다.\n각권역에도착한뒤에는기차·버스·전철등대중교통이나개"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 849,
+      "piece": "13",
+      "source_found": true,
+      "source_context": "정했다.\n정부는퇴소를앞둔우한교민700명전원을대상으로지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로판정됐다.\n정부합동지원단은퇴소직전보건교육"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 666,
+      "piece": "일",
+      "source_found": true,
+      "source_context": "발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1603,
+      "piece": "과",
+      "source_found": true,
+      "source_context": "수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙다는내용도있"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 818,
+      "piece": "14",
+      "source_found": true,
+      "source_context": "\n정부는퇴소를앞둔우한교민700명전원을대상으로지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로판정됐다.\n정부합동지원단은퇴소직전보건교육을통해발"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 666,
+      "piece": "일",
+      "source_found": true,
+      "source_context": "발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 15925,
+      "piece": "두",
+      "source_found": true,
+      "source_context": "에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다”고말했다.\n격리시설을나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 14436,
+      "piece": "차",
+      "source_found": true,
+      "source_context": "버스에는2개좌석당1명씩만앉게했다.\n각권역에도착한뒤에는기차·버스·전철등대중교통이나개별이동수단을타고귀가했다.\n정부는교민들이내리는권역별장소는공개하지않았다.\n지역주민을고려해교민들이아산·진"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 26995,
+      "piece": "례",
+      "source_found": true,
+      "source_context": "도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각각1인1실에"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 91050,
+      "piece": "검사",
+      "source_found": true,
+      "source_context": "우한교민700명전원을대상으로지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로판정됐다.\n정부합동지원단은퇴소직전보건교육을통해발열과기침,가래등의"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1023,
+      "piece": "를",
+      "source_found": true,
+      "source_context": "원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙다는내용도있었다.\n진천국가공무원인재개발원으로7살딸과함께배웅을나온한주민은“진천"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 27598,
+      "piece": "진행",
+      "source_found": true,
+      "source_context": "민700명전원을대상으로지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로판정됐다.\n정부합동지원단은퇴소직전보건교육을통해발열과기침,가래등의증상이"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1741,
+      "piece": "해",
+      "source_found": true,
+      "source_context": "한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니다”고썼다.\n아이들을잘보살펴줘고맙"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 670,
+      "piece": "15",
+      "source_found": true,
+      "source_context": "원을대상으로지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로판정됐다.\n정부합동지원단은퇴소직전보건교육을통해발열과기침,가래등의증상이있으면선별진"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 666,
+      "piece": "일",
+      "source_found": true,
+      "source_context": "발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한항공)편으로우한을출발,김포공항에도착한뒤각각아산과진천에격리수용됐다.\n어린이와장애인을둔가족을제외하고각"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 142700,
+      "piece": "퇴",
+      "source_found": true,
+      "source_context": "가품어주지않으면어떻게하겠냐”며수용을전격결정했다.\n정부는퇴소를앞둔우한교민700명전원을대상으로지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3439,
+      "piece": "소",
+      "source_found": true,
+      "source_context": "나개별이동수단을타고귀가했다.\n정부는교민들이내리는권역별장소는공개하지않았다.\n지역주민을고려해교민들이아산·진천에서개발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 839,
+      "piece": "한",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 88601,
+      "piece": "366",
+      "source_found": true,
+      "source_context": "지난13일과14일두차례에걸쳐검사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로판정됐다.\n정부합동지원단은퇴소직전보건교육을통해발열과기침,가래등의증상이있으면선별진료소방문등의"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 4878,
+      "piece": "명",
+      "source_found": true,
+      "source_context": "주민은“진천인재개발원에서신종코로나감염증(코로나19)이한명도발생하지않고교민모두집으로돌아가게돼기쁘다”고말했다.\n격리시설을나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 3403,
+      "piece": "전",
+      "source_found": true,
+      "source_context": "고말했다.\n격리시설을나온교민들은서울과경기,대구·영남,대전·충북·호남,충남등전국5개권역으로이동했다.\n버스에는2개좌석당1명씩만앉게했다.\n각권역에도착한뒤에는기차·버스·전철등대중교통이나개"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 101778,
+      "piece": "음성",
+      "source_found": true,
+      "source_context": "사를진행했다.\n15일퇴소한366명은마지막검체검사에서모두음성으로판정됐다.\n정부합동지원단은퇴소직전보건교육을통해발열과기침,가래등의증상이있으면선별진료소방문등의내용을전달했다.\n정부는퇴소한교"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 53356,
+      "piece": "판",
+      "source_found": true,
+      "source_context": "을받아왔다.\n이과정에서아산에수용중이던2명이신종코로나확진판정을받아국립중앙의료원으로이송되기도했다.\n애초정부가경찰인재개발원과국가공무원인재개발원을우한교민격리시설로결정하자주민들은수용에반대하"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 55793,
+      "piece": "정을",
+      "source_found": true,
+      "source_context": "받아왔다.\n이과정에서아산에수용중이던2명이신종코로나확진판정을받아국립중앙의료원으로이송되기도했다.\n애초정부가경찰인재개발원과국가공무원인재개발원을우한교민격리시설로결정하자주민들은수용에반대하며"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 15748,
+      "piece": "받",
+      "source_found": true,
+      "source_context": "을제외하고각각1인1실에서지내며정부합동지원단의관리·감독을받아왔다.\n이과정에서아산에수용중이던2명이신종코로나확진판정을받아국립중앙의료원으로이송되기도했다.\n애초정부가경찰인재개발원과국가공무원"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 22793,
+      "piece": "았다",
+      "source_found": true,
+      "source_context": "을타고귀가했다.\n정부는교민들이내리는권역별장소는공개하지않았다.\n지역주민을고려해교민들이아산·진천에서개발귀가하는것도허가하지않았다.\n우한교민700명은지난달31일과1일두차례에걸쳐전세기(대한"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 11213,
+      "piece": "격",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 1751,
+      "piece": "리",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 46902,
+      "piece": "기간",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 28220,
+      "piece": "문",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 18248,
+      "piece": "앞",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합"
+    },
+    {
+      "doc_id": "REPORT-news_r-03837-00002",
+      "token_id": 873,
+      "piece": "에",
+      "source_found": true,
+      "source_context": "우한교민이격리수용기간문앞에붙인메모지도공개됐다.\n건강을기원해준진천군민과지원팀,자원봉사자에대한감사글이다.\n한교민은“수고많으셨어요.\n우리를지켜주셔서감사합니"
+    }
+  ],
+  "sample_status": "manual/blind adjudication required; not counted as precision",
+  "test_split_used": false,
+  "records": [
+    {
+      "id": "REPORT-news_r-03837-00002",
+      "target_tokens": 171,
+      "as_run_copy_tokens": 145,
+      "as_run_coverage": 0.847953216374269,
+      "strict_piece_len_ge2_copy_tokens": 46,
+      "strict_piece_len_ge2_coverage": 0.26900584795321636
+    },
+    {
+      "id": "REPORT-news_r-00514-00001",
+      "target_tokens": 256,
+      "as_run_copy_tokens": 223,
+      "as_run_coverage": 0.87109375,
+      "strict_piece_len_ge2_copy_tokens": 29,
+      "strict_piece_len_ge2_coverage": 0.11328125
+    },
+    {
+      "id": "REPORT-news_r-00563-00001",
+      "target_tokens": 210,
+      "as_run_copy_tokens": 174,
+      "as_run_coverage": 0.8285714285714286,
+      "strict_piece_len_ge2_copy_tokens": 40,
+      "strict_piece_len_ge2_coverage": 0.19047619047619047
+    },
+    {
+      "id": "REPORT-news_r-01157-00003",
+      "target_tokens": 256,
+      "as_run_copy_tokens": 204,
+      "as_run_coverage": 0.796875,
+      "strict_piece_len_ge2_copy_tokens": 74,
+      "strict_piece_len_ge2_coverage": 0.2890625
+    },
+    {
+      "id": "REPORT-news_r-04550-00002",
+      "target_tokens": 189,
+      "as_run_copy_tokens": 161,
+      "as_run_coverage": 0.8518518518518519,
+      "strict_piece_len_ge2_copy_tokens": 38,
+      "strict_piece_len_ge2_coverage": 0.20105820105820105
+    },
+    {
+      "id": "REPORT-news_r-01871-00001",
+      "target_tokens": 256,
+      "as_run_copy_tokens": 224,
+      "as_run_coverage": 0.875,
+      "strict_piece_len_ge2_copy_tokens": 44,
+      "strict_piece_len_ge2_coverage": 0.171875
+    },
+    {
+      "id": "REPORT-news_r-05163-00001",
+      "target_tokens": 191,
+      "as_run_copy_tokens": 162,
+      "as_run_coverage": 0.8481675392670157,
+      "strict_piece_len_ge2_copy_tokens": 46,
+      "strict_piece_len_ge2_coverage": 0.24083769633507854
+    },
+    {
+      "id": "REPORT-news_r-02608-00001",
+      "target_tokens": 221,
+      "as_run_copy_tokens": 195,
+      "as_run_coverage": 0.8823529411764706,
+      "strict_piece_len_ge2_copy_tokens": 38,
+      "strict_piece_len_ge2_coverage": 0.17194570135746606
+    },
+    {
+      "id": "REPORT-news_r-03508-00001",
+      "target_tokens": 209,
+      "as_run_copy_tokens": 172,
+      "as_run_coverage": 0.8229665071770335,
+      "strict_piece_len_ge2_copy_tokens": 43,
+      "strict_piece_len_ge2_coverage": 0.20574162679425836
+    },
+    {
+      "id": "REPORT-news_r-02898-00001",
+      "target_tokens": 160,
+      "as_run_copy_tokens": 125,
+      "as_run_coverage": 0.78125,
+      "strict_piece_len_ge2_copy_tokens": 30,
+      "strict_piece_len_ge2_coverage": 0.1875
+    },
+    {
+      "id": "REPORT-news_r-01018-00001",
+      "target_tokens": 256,
+      "as_run_copy_tokens": 216,
+      "as_run_coverage": 0.84375,
+      "strict_piece_len_ge2_copy_tokens": 80,
+      "strict_piece_len_ge2_coverage": 0.3125
+    },
+    {
+      "id": "REPORT-news_r-03601-00001",
+      "target_tokens": 182,
+      "as_run_copy_tokens": 149,
+      "as_run_coverage": 0.8186813186813187,
+      "strict_piece_len_ge2_copy_tokens": 40,
+      "strict_piece_len_ge2_coverage": 0.21978021978021978
+    },
+    {
+      "id": "REPORT-news_r-00944-00001",
+      "target_tokens": 222,
+      "as_run_copy_tokens": 192,
+      "as_run_coverage": 0.8648648648648649,
+      "strict_piece_len_ge2_copy_tokens": 44,
+      "strict_piece_len_ge2_coverage": 0.1981981981981982
+    },
+    {
+      "id": "REPORT-news_r-02518-00001",
+      "target_tokens": 212,
+      "as_run_copy_tokens": 171,
+      "as_run_coverage": 0.8066037735849056,
+      "strict_piece_len_ge2_copy_tokens": 60,
+      "strict_piece_len_ge2_coverage": 0.2830188679245283
+    },
+    {
+      "id": "REPORT-news_r-01598-00001",
+      "target_tokens": 235,
+      "as_run_copy_tokens": 206,
+      "as_run_coverage": 0.8765957446808511,
+      "strict_piece_len_ge2_copy_tokens": 44,
+      "strict_piece_len_ge2_coverage": 0.18723404255319148
+    },
+    {
+      "id": "REPORT-news_r-04666-00001",
+      "target_tokens": 238,
+      "as_run_copy_tokens": 196,
+      "as_run_coverage": 0.8235294117647058,
+      "strict_piece_len_ge2_copy_tokens": 44,
+      "strict_piece_len_ge2_coverage": 0.18487394957983194
+    },
+    {
+      "id": "REPORT-news_r-03575-00001",
+      "target_tokens": 230,
+      "as_run_copy_tokens": 192,
+      "as_run_coverage": 0.8347826086956521,
+      "strict_piece_len_ge2_copy_tokens": 55,
+      "strict_piece_len_ge2_coverage": 0.2391304347826087
+    },
+    {
+      "id": "REPORT-news_r-05237-00001",
+      "target_tokens": 256,
+      "as_run_copy_tokens": 204,
+      "as_run_coverage": 0.796875,
+      "strict_piece_len_ge2_copy_tokens": 47,
+      "strict_piece_len_ge2_coverage": 0.18359375
+    },
+    {
+      "id": "REPORT-news_r-01281-00002",
+      "target_tokens": 186,
+      "as_run_copy_tokens": 149,
+      "as_run_coverage": 0.8010752688172043,
+      "strict_piece_len_ge2_copy_tokens": 36,
+      "strict_piece_len_ge2_coverage": 0.1935483870967742
+    },
+    {
+      "id": "REPORT-news_r-01921-00001",
+      "target_tokens": 176,
+      "as_run_copy_tokens": 146,
+      "as_run_coverage": 0.8295454545454546,
+      "strict_piece_len_ge2_copy_tokens": 49,
+      "strict_piece_len_ge2_coverage": 0.2784090909090909
+    }
+  ]
+}
