@@ -1,0 +1,27 @@
+Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_10_2026-11-09/review_DS1017.md` — the only file changed; older reports untouched.
+
+**Reviewed HEAD SHA:** `a88c714`
+**Verbatim (exact, 23 padding spaces, verified against the plan):** `own eval loop                       # no evaluate_arm`
+
+**Sync:** the pull again aborted on my own untracked v1.0.9 report, which upstream had committed. I backed it up, removed the untracked copy, and pulled to `206117b`; the committed copy matches mine except a trailing newline. `git diff a88c714 206117b` adds only review-harness files.
+
+## Q1–Q5
+
+| Q | Verdict | Evidence |
+|---|---|---|
+| Q1 | conditional | Option A's design is right and "no pre-freeze helper edit is required" genuinely resolves the §16.1↔§17.3 conflict. But "`train_arm` may be reused for training" breaks it: the frozen `train_arm` bundles evaluation, so making it training-only would itself be a pre-freeze helper edit. |
+| Q2 | conditional | Direct import/call of `evaluate_arm` is forbidden in §17.3 and §13.5, and "no monkeypatch-only workaround" is retained. But "Phase 6 path" is undefined, so a literal-source check is satisfiable while the call graph still reaches `evaluate_arm`. |
+| Q3 | **disagree** | `runner/c5_mt5_lora_b0.py:723` calls `evaluate_arm` and `:724` calls `generate_arm` unconditionally, merging `**evaluation` into the result; arms are only `frozen`/`lora` (P/PA would raise `ValueError`); and `train_arm` is absent from §17.1. Reuse defeats Option A and cannot train P/PA. |
+| Q4 | disagree (one material residual) | MF-1 `train_arm` reuse contradicts the exclusion; MF-2 undefined "Phase 6 path"; MF-3 unfrozen symbol; MF-4 P0-unaffected note. No regression in v1.0.9-closed items; golden digests, 1,680/560/600, and the template all still verify. |
+| Q5 | **NARROW** | §17.3 simultaneously forbids `evaluate_arm` and permits a helper that calls it — not a single unambiguous authority yet. |
+
+## Must-fix (ranked)
+
+1. **MF-1 (material):** drop the `train_arm` reuse clause; `c5_pm_phase6.py` owns the training loop too (frozen `train_arm` calls `evaluate_arm` at :723 and supports only F/L).
+2. **MF-2 (medium):** define "Phase 6 path" as the transitive call graph rooted at `runner/c5_pm_phase6.py`, and assert on attribute access, not literal text.
+3. **MF-3 (low):** add any reused training helper to §17.1, or reference no unfrozen helper.
+4. **MF-4 (low):** state P0 is unaffected because it uses `p0_eval_split`.
+
+## Final
+
+**NARROW.** v1.0.10 freeze: no as-is; yes after MF-1…MF-3 as text-only repairs, re-hash, and a new freeze commit. Implementation + unit tests + D0: conditional after freeze (D0 ≤4 configs, 0 updates, ≤15 min, seed 20261111). D1, 3-seed, B0-B, B1/B2, Stage C: not approved. No grant beyond D0; prospective ceiling only ≤1,204 updates / 155 min, registered hard abort 120 min. Test 163 sealed, P1 unused, T5Gemma2 D-108 STOP, no pre-freeze edits to `runner/c5_mt5_lora_b0.py`, no post-result parameter changes.

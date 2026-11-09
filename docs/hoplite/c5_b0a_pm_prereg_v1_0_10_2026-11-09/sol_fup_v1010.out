@@ -1,0 +1,32 @@
+## Final verdict: **NARROW**
+
+Written only: [v1.0.10 review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_10_2026-11-09/review_SOL.md)
+
+**Reviewed HEAD: `a88c714`**
+
+```text
+own eval loop                       # no evaluate_arm
+```
+
+| Question | Verdict | Conclusion |
+|---|---|---|
+| Q1 — Lifecycle | Conditional | The pre-freeze edit requirement is removed, but the advertised reuse path remains inconsistent. |
+| Q2 — evaluate_arm exclusion | Conditional | The transitive prohibition is adequate; checking direct imports alone is insufficient. |
+| Q3 — train_arm reuse | Disagree | The frozen `train_arm` calls `evaluate_arm`, which calls legacy bootstrap. |
+| Q4 — Residual | Agree | One training-only reuse-contract Must-fix remains. |
+| Q5 — Final | Conditional | Correct that path before freeze, implementation/tests, and gated D0. |
+
+### Must-fix
+The named `train_arm` is **not training-only**:
+- Runner line **723** calls `evaluate_arm`.
+- `evaluate_arm` line **460** calls legacy `bootstrap_paired`.
+
+A `# training only` comment and a separate evaluation loop do not prevent those calls. The smallest consistent correction is for Phase 6 to own **both training and evaluation loops**, reusing suitable frozen primitives rather than the composite legacy `train_arm`.
+
+### Final scope
+- **Freeze:** withhold as-is Option A approval pending this correction.
+- **Implementation/tests and D0:** conditional on correction, valid freeze, and passing checks.
+- **D1 / three-seed / B0-B/B1/B2/Stage C:** not approved.
+- **T5Gemma2:** D-108 STOP maintained.
+
+Closed v1.0.9 symbol/hash items were not re-reviewed. Older reports were verified unchanged. No training/evaluation, test-163 access, P1 use, or subagents occurred.

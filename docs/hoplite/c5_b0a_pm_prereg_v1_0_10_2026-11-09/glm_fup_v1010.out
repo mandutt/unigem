@@ -1,0 +1,34 @@
+v1.0.10 Option A review complete. Synced to HEAD `206117b` (review basis `a88c714`, infra-only delta). Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_10_2026-11-09/review_GLM.md` — the only file written, containing reviewed HEAD `a88c714` and the verbatim quote `own eval loop                       # no evaluate_arm` (exact whitespace machine-verified against plan line 1758). v1.0.9-closed symbol/hash items not re-reviewed; no training/eval; test 163 unopened; P1 unused; no subagents. Golden digests, preflight SHA, and the plan's 1,769-line count all re-verified.
+
+**Key new finding (Q3):** Option A genuinely resolves the v1.0.9 §16.1 lifecycle conflict (no pre-freeze helper edit required — that structure is now consistent), but its own call-graph instruction is not executable: the frozen helper's `train_arm` (line 665) **unconditionally calls `evaluate_arm` (line 723) → legacy `bootstrap_paired` (line 460)** and only accepts arms `{"frozen","lora"}` (line 690 — no P/PA). Reusing `train_arm` "for training only" as written re-opens the exact legacy-reachability Option A closes and fails the plan's own §13.5/§17.3 assertion under the (correct) transitive reading. Since `train_arm` was never in the §17.1 authoritative table and §2.2/§2.7 fully specify training, the fix is a one-clause ERRATA: own training loop in `c5_pm_phase6.py`.
+
+## Q table
+
+| Q | Topic | Verdict |
+|---|---|---|
+| Q1 | Option A lifecycle vs no-code-before-freeze | agree — §16.1 conflict from v1.0.9 is genuinely removed; helpers pinned at freeze, no pre-freeze edit needed |
+| Q2 | evaluate_arm exclusion | conditional — rule + test present, but "Phase 6 path" scope (entrypoint-source vs import-reachable transitive) is now material because the helper's own `train_arm` contains `evaluate_arm` |
+| Q3 | train_arm training-only reuse | **disagree** — impossible as written (internal eval → legacy bootstrap; frozen/lora arms only, no P/PA); must be replaced with own-training-loop wording |
+| Q4 | New residuals | conditional — 0 scientific defects; 3 text items (ERRATA-A medium/blocking, ERRATA-B scope, P/PA note) |
+| Q5 | Final | **NARROW (text-only)** |
+
+## Must-fix (ranked)
+
+1. **ERRATA-A (blocking, text):** §17.3 — delete/replace `-> c5_mt5_lora_b0.train_arm  # training only` and "`train_arm` may be reused for training"; state that `c5_pm_phase6.py` implements its own training loop per §2.2/§2.5.2/§2.7 using §17.1 pinned primitives, and that helper `train_arm`/`evaluate_arm` are not called by Phase 6.
+2. **ERRATA-B:** define "Phase 6 path" for the §13.5/§17.3 assertion as import-reachable transitive sources + call graph.
+3. Cosmetic: one line noting P/PA training is new implementation (helper `train_arm` cannot train P/PA).
+
+## Final
+
+```text
+최종 판정: NARROW (text-only — ERRATA-A/B를 final plan commit에 포함 후 동일 스레드 재확인)
+v1.0.10 freeze: 보류 (ERRATA 반영 시 승인 가능)
+구현+unit tests: 보류 (freeze 이후) — D0: 보류 — D1: 미승인 — 3-seed: 미승인
+금지: test 163 개봉, P1, T5Gemma2(D-108 STOP), 결과 후 threshold/seed/donor/step/LR 변경,
+      Phase 6 path에서 evaluate_arm·legacy bootstrap_paired 사용, pre-freeze helper 편집
+최대 compute: ERRATA 커밋 + 구현/유닛테스트(CPU) + D0(0 update, ≤15 min)만; 등록 Phase 6
+      (1,200 updates/120 min wall, T_proj ≤96, hard abort; 155 min은 총 envelope) 별도 승인
+test 163: sealed / 잘못된 전제: "train_arm training-only 재사용 가능" 1건 (교정 시 Option A 자기완결)
+```
+
+Consultation only — no Phase 6/B0-B approval claimed; no post-result threshold changes proposed.

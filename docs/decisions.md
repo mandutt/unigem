@@ -203,6 +203,8 @@
 
 | D-150 | 2026-11-09 | **Phase 6 v1.0.10 repair 생성 (text-only, Option A)**: v1.0.9 2 CONTINUE/1 NARROW의 lifecycle blocker를 폐쇄. Phase 6 entrypoint는 `runner/c5_pm_phase6.py`가 **own eval loop**를 사용하고 `evaluate_arm`을 import/call하지 않는다. `train_arm`은 training only로 재사용 가능. pre-freeze helper edit 없음. §13.5에 Phase 6 path `evaluate_arm` 미사용 단언 추가. **문서 1,769줄, 미승인. same-thread 최종 확인 예정.** | docs/plan_c5_b0a_pm_prereg_v1_0_10.md; docs/plan_c5_b0a_pm_prereg_v1_0_10_FREEZE.template.json; docs/hoplite/c5_b0a_pm_prereg_v1_0_10_2026-11-09/golden_vectors.json |
 
+| D-151 | 2026-11-09 | **Phase 6 v1.0.10 3-AI same-thread final review — 3/3 NARROW, no freeze**: GLM/DS/Sol 모두 NARROW. Option A의 pre-freeze helper edit 충돌은 닫혔으나, `train_arm`이 내부에서 무조건 `evaluate_arm`을 호출하고 `evaluate_arm`이 legacy `bootstrap_paired`를 호출하므로 “train_arm training-only 재사용”이 성립하지 않는다. **v1.0.11: Phase 6 owns training loop too; no train_arm/evaluate_arm; transitive Phase 6 path.** | reports/C5_B0A_PM_PREREG_V1_0_10_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_b0a_pm_prereg_v1_0_10_2026-11-09/review_{GLM,DS1017,SOL}.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
