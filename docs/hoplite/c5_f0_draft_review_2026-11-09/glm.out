@@ -1,0 +1,15 @@
+Review complete. The report is written and verified.
+
+**Sync:** `git fetch origin` + `git pull --ff-only origin main` → "Already up to date". **reviewed HEAD: `68957bdc711acb8462cb9959e2c85b5299e65fd8`** ("docs: add C5 F0 draft review request"); the draft itself was authored at `244b25c` per the request header.
+
+**Report:** `docs/hoplite/c5_f0_draft_review_2026-11-09/review_GLM.md` (126 lines) — the only file added; `git status` confirms nothing else touched. It includes the reviewed HEAD and the verbatim phrase **adapter-associated signal loss** (2×), answers Q1–Q6 in the required 판정/근거/다음 단계 format citing F0 plan sections and exact numbers, and ends with the full final block.
+
+**Verdicts (summary):**
+- **Q1 — conditional agree.** E01 vs E11 is a clean document-paired contrast (identical memory, LoRA, updates; step-0 LoRA output is 0 via `lora_B` zeros), but "2×2" overstates completeness: the (none, none) corner is structurally 0-update since adapter/LoRA are the only trainables, and the adapter factor still bundles +526,336 params, adapter_lr 10×, and output LayerNorm. Also flagged: E10≡F and E11≡L are config-identical to Phase 6 F/L but the plan never says so (6 of 12 Stage R units are replications).
+- **Q2 — conditional agree.** 1-seed screen using debug seed 20261111 avoids seed-shopping; but the rule has no magnitude floor (a +0.005 mean passes and can never meet the frozen ≥.05 Stage R predicate), and — the biggest gap — **Stage R readout predicates are undefined** (E01 predicate has 3 of 4 conjuncts; no E11 predicate, no contrast-CI rule, no outcome table).
+- **Q3 — conditional agree.** Separation from primary is right; E01-LN/E01-P are eval-only and cheap. But `E01-R: x + Adapter(x)` is **not identity-preserving at init** (final LayerNorm ⇒ O(1) perturbation) — needs `x + α·Adapter(x)` with α init 0, restoring cause §6's original form; LN causality is only partially isolated (no E11-side ablation).
+- **Q4 — agree.** 120/cell/seed arithmetic checks out (480 / 1,440 / 600-cell → 7,200); M_PASS correctly non-gating; E00 is the right 0-update usability probe and is deterministic across seeds.
+- **Q5 — conditional agree.** 9-trained-unit arithmetic is correct, but Stage D ≤45 min has essentially no headroom: Phase 6's blended 10 min/unit includes lighter 512-class P/PA units, while F0 is all 753-class (my interpolation: Stage D ≈ 42–50 min). Threads mismatch (plan "4–8" vs 6 everywhere else) and missing T_proj-equivalent/hard-abort.
+- **Q6 — conditional agree.** §1 H2's boundary is well stated, but §8's "stop EG2 resident track" **contradicts** H2's "F0 negative는 트랙 STOP의 충분조건이 아니다" — must be lowered to route-level; F0 positive extends the association across memory sources but does not confirm architectural causation.
+
+**Final: NARROW** — 2 blockers (Stage R readout rules; §8/H2 contradiction) plus 5 ranked doc-level must-fixes before freeze. No training/evaluation run, no test 163/P1 use, no subagents; the report is left uncommitted for maintainer handling.

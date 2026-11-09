@@ -1,0 +1,22 @@
+Review complete. Only the designated file was created; no other repository changes.
+
+**Sync**
+- `git fetch origin` → `main → FETCH_HEAD`
+- `git pull --ff-only origin main` → `Already up to date.`
+- **Reviewed HEAD: `68957bdc711acb8462cb9959e2c85b5299e65fd8`**
+- Note: the review request cites authoring HEAD `244b25c`, which is not reachable in this depth-1 checkout; findings are against the file content at `68957bd` (F0 plan blob `9a0ccf81…`). I recorded this discrepancy in the report.
+
+**Report:** `docs/hoplite/c5_f0_draft_review_2026-11-09/review_DS1017.md` (447 lines), including the verbatim phrase `adapter-associated signal loss` and the reviewed HEAD.
+
+**Verdict: NARROW**
+
+| Q | Verdict |
+|---|---|
+| Q1 2×2 | conditional — valid skeleton with one degenerate cell, but E01−E11 confounds adapter transformation with adapter *training* +526,336 params at 10× LR, the same bundle §0 rejects for P/PA; E01 has no alignment control |
+| Q2 Stage D | disagree — rule omits §1 H1's E11-loss clause, has no margin (+0.001 passes), ignores `leave_top3_mean` despite `top3_abs_share=0.4775`; seed-disjointness from Stage R is a real mitigation but documents are shared |
+| Q3 H3 | conditional — `E01-LN` normalizes raw input, not the adapter's trained terminal LayerNorm; `x+Adapter(x)` is not identity-preserving (non-zero init branch, LayerNorm, no α) |
+| Q4 M/signal | conditional — 120/cell and 300/900 updates correct, but §6's `1,680?` is wrong (1,440), and v1.0.11 §5.2/§5.4 cannot be reused without P/PA (would emit `M_NOT_EVALUABLE`) |
+| Q5 Compute | conditional — caps hold only under the unstated 4-units-per-wave schedule; measured 1,460–1,751 s/unit, 82.3 min for 12 units; serial would be ~93 min (Stage D) and ~279 min (Stage R) |
+| Q6 Boundaries | disagree — §8 "stop EG2 resident track" directly contradicts §1 H2 "F0 negative는 트랙 STOP의 충분조건이 아니다" |
+
+Nine ranked must-fixes are listed, led by the §8/§1 contradiction, the missing untrained-adapter null (E11-F), and the missing frozen alignment arm (E01-L) that alone makes a negative E01 interpretable — raw EG2 shows the *highest* between-doc variance in the cause report (4.883 vs 0.085/0.081 after the adapter), so feature absence is the less plausible reading.

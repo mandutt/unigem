@@ -227,6 +227,8 @@
 
 | D-162 | 2026-11-09 | **MF-3 문구 축소 + F0 prereg 초안 작성**: cause 결론을 “native 경로의 adapter-associated donor-specific signal loss”로 한정; EG2 전체 일반화·구조적 bottleneck·variance 인과 철회. F0 초안: adapter×LoRA 2×2(E00/E10/E01/E11), LoRA 고정 E01 vs E11 primary, Stage D 1-seed 300 updates ≤45min → Stage R 3-seed 900 updates ≤150min, H3 LN/projection/residual 분리. **미승인·미실행.** | reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md; docs/plan_c5_f0_2026-11-09.md |
 
+| D-163 | 2026-11-09 | **F0 draft 3-AI review — 3/3 NARROW**: 새 독립 스레드 GLM/DS1017/Sol. F0 질문·E01 vs E11 골격은 적절하나 **Stage D 1-seed STOP 규칙이 §1 H2와 모순**되고 selection bias를 만든다. E00/E10은 clean causal control 아님, F0 arm code 미구현(`arm_spec` F/L/P/PA), H3는 별도. F0 **미승인·미실행**; Stage D mechanics-only, Stage R 3-seed 기본, track STOP 문구 삭제 후 재검토. | reports/C5_F0_DRAFT_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_f0_draft_review_2026-11-09/review_{GLM,DS1017,SOL}.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
