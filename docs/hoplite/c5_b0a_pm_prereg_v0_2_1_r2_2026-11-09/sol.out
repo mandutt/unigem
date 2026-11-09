@@ -1,0 +1,31 @@
+## Final verdict: **NARROW**
+
+Synced successfully to `origin/main` at **`fc5680ef051bb6d00dbe74e7a0c08da193725b38`**.
+
+Full independent review written to:
+[review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r2_2026-11-09/review_SOL.md)
+
+| Question | Verdict | Conclusion |
+|---|---|---|
+| Q1 Total contract | disagree | Deterministic branches, but fail-open cells and inconsistent assertions remain. |
+| Q2 L preservation / small N | conditional | Raw flags improve preservation; precedence and cohort definitions need reconciliation. |
+| Q3 M preflight | agree | Verified K=753, 16 contributors, 15 targets, and committed hash. |
+| Q4 M construction / replay | conditional | Substantive improvement; pin missingness, table schema, and replay comparison scope. |
+| Q5 PA | agree | Acquisition naming, separate step0, and geometry caveats are adequate. |
+| Q6 Caps / D0 / D1 | conditional | Arithmetic is correct; specify complete timing/cap coverage. |
+| Q7 Statistics | conditional | Constants are executable; cohort alignment and undefined tail summaries need rules. |
+| Q8 Remaining Must-fix | disagree | The claim that all r1 issues are closed is premature. |
+| Q9 Freeze / implementation | disagree | Do not freeze or begin implementation+D0 as written. |
+| Q10 D1 / three-seed gates | conditional | Separation is sound, but prelaunch M_VALID is circular. |
+| Q11 B0-B boundary | agree | No automatic downstream approval; tail disclosure is not a robustness exclusion. |
+| Q12 Overall | conditional | **NARROW**, with targeted text-only r3 repair. |
+
+### Must-fix before freeze
+
+1. **Fail-closed validity:** unknown PA path or test-use provenance currently permits `VALID`; known P-path failure can be masked by another NA.
+2. **Consistent decision tests:** resolve the unreachable `L_SIGNAL_M_CONTROL_NOT_EVALUABLE` label, contradictory small-N assertions, and false/NA M aggregation prose.
+3. **Executable launch checklist:** remove the result-dependent prelaunch M_VALID requirement and replace its stale preflight hash.
+4. **Exact populations and missingness:** distinguish L/F signal and M cohorts; define undefined tail-summary behavior.
+5. **Complete timing accounting:** include required evaluation, replay, and artifact work within the registered cap.
+
+Only the designated report was written. **No training, evaluation, or tests ran.** Test 163 remains unopened, P1 unused, and T5Gemma2 closed under D-108 STOP. **This review approves neither Phase 6 execution nor B0-B/B1/B2/Stage C.**

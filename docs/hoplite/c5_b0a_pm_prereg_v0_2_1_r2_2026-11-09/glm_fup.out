@@ -1,0 +1,33 @@
+Review complete. Full report written to `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r2_2026-11-09/review_GLM.md` (253 lines; the only file touched — `git status` confirms). Sync: `git pull --ff-only origin main` = "Already up to date" at HEAD **`fc5680e`** (diff vs the request's authoring HEAD `308648e` is the review request itself plus orchestration files only). No training/eval run, test 163 untouched, P1 unused, no subagents.
+
+**Independent verifications I ran** (beyond reading): preflight SHA-256 recomputed = `3ee3f1ca…` matches sidecar, §1.4, and the git blob; max-K rule recomputed from the JSON (val ≥753 = 15, ≥754 = 14; train ≥753 = 16; medians 768.5/766.5; excluded-5 and common-15 IDs exact); full-K 11/20 reproduced via the v0.2.1 per-target `K_real` + ≥10-contributor rule; P0 numbers match provenance exactly (train +3.7617 [1.8917, 5.6050] 14/20; val +5.2375 [2.5013, 8.0753] 18/20); ln(250100)=12.4296; 54 tests = 2+1+7+11+10+11+12; zero Phase 6 decision-function code exists yet (grep: 0 hits).
+
+### Q1–Q12 verdict table
+
+| Q | Topic | Verdict | Core evidence |
+|---|---|---|---|
+| Q1 | Total factored contract | **conditional** | Factored + enumerated + tri-state is genuinely total over control/signal; **one hole: `test_split_used=NA` falls through to VALID** (§2.4 branch 2 omits it; §7.2 only tests `true`); minor: branch-2 NA masks a known p-path `false`; `pa_valid=true ⇒ pa_path_ok=true` constraint missing from §7.3 |
+| Q2 | L preservation / small N | **conditional** | Consensus semantics is sound and more conservative than r1's AND3 suggestion (a deliberate, unrecorded deviation); all `l_signal=true` cells L-qualified; residual: partial-NA (one side T, other NA) and `n_signal=NA` land in generic NOT_ASSESSABLE — flags-only preservation; zero-margin n=15 executable with pre-registered fallback |
+| Q3 | M preflight K=753 | **agree** | Rule is length-only, pre-result, hash-frozen; all numbers independently reproduced; prefix-753 keeps 98% of the real prefix and full-K 11/20 stays secondary with the "not full-real-K control" declaration |
+| Q4 | M builder/aggregation/replay | **agree** | eval/no_grad, common-15 same IDs, seed-average-before-bootstrap (45-unit trap blocked), `delta_memfree` defined, replay separate-process atol=1e-5/rtol=1e-4; note: per-doc (not aggregate) replay comparison |
+| Q5 | PA | **agree** | Acquisition-control naming, `PA_STEP100_NOT_VALID` for path+valid, `ADAPTER_REGIME_LOSS` banned, retention non-gate, geometry caveat; nit: PA_VALID threshold inherited, not restated |
+| Q6 | Cap / D0 / D1 | **conditional** | Arithmetic correct (12×100=1,200; 0.8×2h=96min); r1 timing-gate conflict resolved; ambiguity: "4 arm-seeds × 1 update, seed 20261111" (shared vs derived) and no projection formula stated |
+| Q7 | Statistics | **agree** | Constants fully fixed; `documents_positive`/`seeds_positive` split closes the stale naming — which is **live** in the current runner (`seeds_positive: 14` = doc count in P0 provenance); notes: bootstrap seed 20261109 coincides with registered seed #2 (different RNG domain), runner default 20261108 must not leak, 15-doc anti-conservative wording |
+| Q8 | Remaining Must-fix | **conditional** | r1 MF-1..6 substantively closed; r2 introduced/kept MF-1..3 below (ranked list in report) |
+| Q9 | Freeze/implementation | **conditional** | Not freezable as written (phantom hash + leakage hole); after a must-fix-only r3, freeze + implementation + unit tests + D0 are approvable; required pre-implementation tests enumerated (exhaustive truth table = 2,657,205 combos, feasible for a pure function) |
+| Q10 | D1 / 3-seed | **conditional** | Separate-gate boundary now coherent; checklist itself defective (items 6, 9); add replay-hash, projection-formula, D1 `labels_computed:false/not_a_result:true` items |
+| Q11 | B0-B boundary | **agree** | Predicate correctly restated in r2 labels (incl. `m_valid==true`), non-auto-approval maintained, full-K 11/20 excluded as B0-B evidence; no B0-B approval from this round |
+| Q12 | Final | **NARROW** | r2 closes r1's Must-fix in substance, but three text defects sit inside the freeze candidate |
+
+### Must-fix (ranked, all text-only; no threshold/seed/donor/step/LR changes proposed)
+
+1. **Phantom hash** — §12 checklist item 6 references `07c3fe4c…`, untraceable anywhere in the repo; must be `3ee3f1ca…` (the `308648e` pin commit missed the checklist).
+2. **`test_split_used=NA → VALID` hole** — add NA → NOT_ASSESSABLE to §2.4 + a §7.2 requirement so the exhaustive test covers it.
+3. **Checklist item 9 ordering** — "P/PA M_VALID true" as a launch precondition is post-run knowledge (M_VALID requires trained P/PA checkpoints); reclassify as a report gate.
+4. **D1 seed ambiguity** — shared vs derived "4 arm-seeds × 1 update, seed 20261111"; state the projection formula too.
+5. **Unrecorded P0 evidence gap** — P0 sensitivity was measured at `source_max_length=256` (provenance) while the registered P/PA M path uses prefix 512; record the caveat (no rerun proposed).
+6. Nits: variadic AND3 definition, full-K rule pointer in preflight, 15-doc anti-conservative wording, NA-masking documentation, bootstrap-seed coincidence note, record the MF-3 consensus deviation.
+
+### Final verdict
+
+**NARROW** — r2 is a genuine (not renamed) repair and substantially closes r1's 3-AI Must-fix, but the three defects above must be fixed in a must-fix-only **r3** before freeze. Recommended scope upon r3 freeze: implementation + unit tests (CPU-only, pure decision function first) + D0 (0 updates, ≤4 configs, ≤15 min, seed 20261111) — approvable. **D1, 3-seed, B0-B/B1/B2/Stage C: not approved by this round**; test 163 remains sealed; T5Gemma2 stays under D-108 STOP.
