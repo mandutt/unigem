@@ -189,6 +189,8 @@
 
 | D-143 | 2026-11-09 | **Phase 6 v1.0.6 3-AI review — 2/2 substantive NARROW, GLM invalid, no freeze**: DeepSeek 1017 high = NARROW, Sol 6.1 medium = NARROW, GLM 5.3 Flash max = process-level invalid (HEAD/verbatim quote 부재, content verdict 아님). 잔여: (1) §16.2 freeze schema `plan_path`/manifest path가 여전히 `v1_0_5`; (2) `T_proj`가 arm-seed 120/160과 360/480을 혼용해 triple-count 위험; (3) key-coverage golden wording; (4) `freeze_commit` vs `manifest_commit` 미정의; (5) legacy `bootstrap_paired` assert; (6) phase-7 `K_d`가 `K_M` bounded 아님. **v1.0.7/ERRATA text/schema only. 구현/D0/D1/3-seed/B0-B 금지.** | reports/C5_B0A_PM_PREREG_V1_0_6_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/hoplite/c5_b0a_pm_prereg_v1_0_6_2026-11-09/review_{GLM,DS1017,SOL}.md |
 
+| D-144 | 2026-11-09 | **Phase 6 v1.0.7 repair 생성 (text/schema only)**: v1.0.6 실질 2/2 NARROW의 잔여를 폐쇄. (1) §16.2 freeze `plan_path`/manifest path를 `v1_0_7`로 정정; (2) `t_primary_replay_arm`은 per-seed 120/160만, 360/480은 outer `3*` aggregate; (3) phase-7 `K_d = min(K_M,len(real),len(donor))` + `K_d<=K_M` assert; (4) `freeze_commit`=final plan commit, `manifest_commit` 분리; (5) key-coverage 4-record fixture + 600 numeric 분리; (6) legacy `bootstrap_paired` import 금지 test; (7) T_proj arithmetic test. **문서 1,736줄, 미승인. 구현/D0/D1/3-seed/B0-B 금지.** | docs/plan_c5_b0a_pm_prereg_v1_0_7.md; docs/plan_c5_b0a_pm_prereg_v1_0_7_FREEZE.template.json; docs/hoplite/c5_b0a_pm_prereg_v1_0_7_2026-11-09/golden_vectors.json |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |

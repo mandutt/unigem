@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "template",
+  "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_7.md",
+  "plan_sha256": null,
+  "freeze_commit": null,
+  "manifest_commit": null,
+  "p1_manifest_sha256": null,
+  "golden_sha256": null,
+  "preflight_sha256": "3ee3f1ca68a834e9bc2c63f6d92844ee37f2e23da1cdf640ace93c46769837af",
+  "helper_commits": {
+    "runner/c5_mt5_layer_probe.py": null,
+    "runner/c5_a1_lora.py": null,
+    "runner/c5_mt5_lora_b0.py": null,
+    "runner/c5_a2null_eval.py": null
+  },
+  "registered_seeds": [20261108, 20261109, 20261110],
+  "note": "Template only; copy to ..._FREEZE.json after the final plan commit."
+}
