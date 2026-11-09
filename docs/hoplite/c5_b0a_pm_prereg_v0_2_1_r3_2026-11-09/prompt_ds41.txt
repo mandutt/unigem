@@ -1,0 +1,56 @@
+You are an independent external reviewer for the unigem project.
+
+Repository: mandutt/unigem, branch main, Hoplite project proj_2e8de5ed594f47c7b851f1d7c5b52c61.
+Review basis: the current origin/main HEAD. First sync/pull to that HEAD, then work read-only.
+
+This is a NEW, intentionally separate, independent review round using a DIFFERENT model (DeepSeek 4.1 Flash 1017, reasoning max). It reviews v0.2.1-r3 after the r2 NARROW review. Do not treat it as a duplicate of the earlier r2 thread. Do not reuse another model's answer; we are collecting independent opinions.
+
+You must read the full review request yourself:
+reports/EXTERNAL_REVIEW_C5_B0A_PM_PREREG_V0_2_1_R3_2026-11-09.md
+
+Then read:
+docs/plan_c5_b0a_pm_prereg_v0_2_1_r3.md
+docs/plan_c5_b0a_pm_prereg_v0_2_1_r2.md
+reports/C5_B0A_PM_PREREG_V0_2_1_R2_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/provenance/C5_b0a/m_cohort_preflight.json
+reports/C5_B0A_P0_NATIVE_SANITY_2026-11-09.md
+runner/c5_mt5_lora_b0.py
+eval/tests/test_c5_b0_metric.py
+
+Scope and constraints:
+- Do not run training or evaluation.
+- Do not open test 163; it is sealed.
+- Do not use P1 data or external APIs.
+- Do not modify repository files. Your only permitted write is the report file named below.
+- Do not call subagents or additional LLM models; complete the review yourself.
+- T5Gemma2 remains closed by D-108 STOP.
+- Phase 6/B0-B/B1/B2/Stage C are not approved by this round.
+
+Key facts:
+- r2 was NARROW 3/3.
+- r3 adds fail-closed NA path handling, removes M_NOT_EVALUABLE from validity, adds M_CONTROL_INVALID, separates signal val20 from M cohort 15, adds endpoint 15/15, fixes checklist hash/circular M_VALID, and defines D1 timing.
+- P0: train mean delta_copy +3.7617, CI [1.8917, 5.6050]; val +5.2375, CI [2.5013, 8.0753]. Val median 2.9739, top-3 share .4862; untrained CE 12.7/13.2 > ln|V| 12.43.
+- No trained P/PA/M result has been seen.
+- Repair phases 1-4 and P0 are implemented; 54 tests pass historically.
+
+Core focus:
+1. Is r3 genuinely total and executable?
+2. Do NA fail-closed, M_CONTROL_INVALID, L-qualified labels, and signal/M cohort split close the r2 holes?
+3. Are K_M_L=753, endpoint 15/15, D0/D1 caps, and B0-B boundary adequate?
+4. What Must-fix remains before freeze and implementation?
+5. Should r3 be STOP/NARROW/CONTINUE?
+
+Answer every Q1-Q12 in section 5 of the review request. For each:
+- verdict: agree / disagree / conditional / defer
+- evidence tied to this document or artifacts
+- one to three next steps
+
+Deliverable:
+1. Write your full report to this repository-relative file (mandatory):
+   docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_2026-11-09/review_DS41.md
+   Start by identifying yourself as the DeepSeek 4.1 Flash 1017 max reviewer.
+2. In your final message, include a compact Q1-Q12 table plus Must-fix and final STOP / NARROW / CONTINUE verdict.
+
+Do not claim approval of Phase 6 or B0-B. Do not propose P1 or test 163 use. Do not reopen T5Gemma2. Do not propose threshold changes after results.
+
+This is consultation only. Your only permitted write is the single report file named above.
