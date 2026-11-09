@@ -1,0 +1,31 @@
+Wrote the full report to [review_SOL.md](docs/hoplite/c5_b0a_2026-11-09/review_SOL.md).
+
+Sync succeeded; HEAD matches `origin/main` at `1d0e756998e209faf35b0e46b962a195650b7d6f`.
+
+**Key finding:** The recorded arithmetic supports **INCONCLUSIVE**, but static inspection found an extra target shift in the copy-loss calculation. That compromises the primary metric’s intended meaning. Generation collapse is a separate observed failure whose cause remains unresolved.
+
+| Question | Verdict | Conclusion |
+|---|---|---|
+| Q1 Tokenizer | agree | Content-ID concern substantially resolved; retain native cache. |
+| Q2 Screening design | conditional | Acceptable exploratory scope, not complete matched-control evidence. |
+| Q3 INCONCLUSIVE | conditional | Arithmetic correct; primary-metric alignment defective. |
+| Q4 Collapse | conditional | Serious separate failure; not proof adaptation is impossible. |
+| Q5 Allowed conclusions | agree | No demonstrated improvement; no bridge-wide negative conclusion. |
+| Q6 Next experiment | conditional | Correctness-first B0-A repair with small P/M controls. |
+| Q7 B0-B | conditional | Potential later design; not ready for immediate execution. |
+| Q8 Must-fix | agree | Five blockers identified and ranked. |
+| Q9 Minimum sample/steps | disagree | No universal count establishes general LoRA ineffectiveness. |
+| Q10 Role probing | agree | Continue deferral. |
+| Q11 Metric audit | conditional | Retain corrected copy selectivity; audit preservation/entities separately. |
+| Q12 Final decision | conditional | **NARROW**, subject to a new decision and preregistration. |
+
+### Top Must-fix items
+1. Correct seq2seq CE alignment, copy masks, and coverage/count guards.
+2. Match base-decoder dropout modes across F/L.
+3. Preserve raw generation tokens and checkpoint provenance to diagnose degeneration.
+4. Define native-positive P and capacity-matched content-free M precisely.
+5. Preregister bounded execution and fail-closed aggregation.
+
+**Final verdict: NARROW.** Do not immediately scale to B0-B or stop the entire mT5 track. The report proposes a separately approved repair diagnostic capped at 1,200 optimizer updates and two CPU wall-hours—not authorization to run it.
+
+Only the report was added. No training/evaluation ran; test 163 remained sealed; P1 and external APIs were unused; the production verifier was unchanged; D-108 remains closed.

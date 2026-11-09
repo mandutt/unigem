@@ -1,0 +1,43 @@
+I'm the Sonnet 5.5 (high) reviewer. The full report is in `docs/hoplite/c5_b0a_2026-11-09/review_SONNET.md`, and it is the only file I wrote. The sync ran fine: `git fetch` and `git pull --ff-only` left the workspace at `1d0e756`. I ran no training or evaluation, did not touch test 163, and used no subagents. I recomputed statistics from the saved per-document JSONs. I took the E0 tokenizer numbers from the request and did not re-derive them.
+
+**Headline findings**
+- **INCONCLUSIVE is correct.** My recomputation reproduces the reported means and CIs. A documents × seeds bootstrap gives wider CIs with the same verdict. At n=20 the power was only about 50% for L and about 30% for L−F, even at the preregistered 0.05 effect.
+- **The generation collapse is not LoRA-specific.** All 120 generations hit the 257-token cap and none emitted EOS. F outputs `남 고고 …` or whitespace, and L outputs `고 고 …` or whitespace. "F 60/60 vs L 22/60 nonempty" comes from the `.strip()` check, not a real difference.
+- **Neither arm left the unigram regime.** Train CE ends at 6.3–7.4 after 100 batch-1 updates.
+- **A suspected off-by-one in the primary metric.** `token_losses` compares `logits[:, :-1]` with `labels[:, 1:]`, but HF T5 already shifts the labels. In 14 of 120 per-document rows the aligned full CE falls below coverage × copy-CE, which an aligned CE cannot do. I did not prove this, and it needs a forward-only unit test from the maintainers.
+- **F and L are not matched.** L calls `model.train()`, so T5's base dropout is active, while F trains in eval mode. At identical weights the step-0 CE is higher for L by 10.0, 10.5 and 12.1 nats across the three seeds.
+- **The "copyable" mask is nearly vacuous.** Coverage is 0.8246 because spaces are stripped and single syllables count. The guard only protects against low coverage.
+
+| Q | Verdict | Key evidence | Next step |
+|---|---|---|---|
+| Q1 E0 tokenizer | agree | Content IDs 400/400 identical; only the native EOS differs; about 2.4% of tokens below 0.95 cosine | Keep the native cache as provenance and record its hash |
+| Q2 B0-A design | conditional | OK as a cheap shakedown; no P control; train-mode mismatch; metric never validated | Do not treat B0-A as a matched B0 |
+| Q3 INCONCLUSIVE | agree (label) | Recomputed t-CIs and a two-way bootstrap give the same verdict; "positive seeds 2/3" is uninformative; NO_SIGNAL almost unreachable | CE-alignment test; report seed-level inference |
+| Q4 generation collapse | disagree with "LoRA collapse" framing | 120/120 degenerate and capped, 0 EOS in both arms; underfit plus dropout confound | Recompute generation stats offline; require EOS in the P validity gate |
+| Q5 what it permits | agree | Only "underpowered, instrument-unvalidated inconclusive" | Keep the "not established" list |
+| Q6 next experiment | conditional | Refined option D: P and M first, at about 300/95 and about 900 updates | Zero-training fixes, then prereg v0.2, then P/M |
+| Q7 B0-B design | conditional | 95 validation documents give a minimum detectable L−F of about 0.046 | Fix the P/M definitions, the shared train-mode, and the validity gate in prereg v0.2 |
+| Q8 Must-fix | agree | Ranked list below | Close all five before the next run |
+| Q9 100 steps / 20 documents | agree, forbid the extension | At least about 80 validation documents for 80% power; the step count is decided by the P-vs-M gate | Record the prohibition in the B0-A report |
+| Q10 role probing | agree (defer) | Needs a validated instrument first | Revisit after B0-B in a separate decision record |
+| Q11 metric audit | conditional | Mechanical audit (alignment test, mask audit) before B0-B; preservation and entity audit before Stage C/B2 | Keep `Δshuffled_copy` primary only after the fixes, with aligned `Δshuffled_full` reported alongside |
+| Q12 final | NARROW | See below | See below |
+
+**Must-fix, ranked**
+1. Verify and fix the per-token CE alignment with an `out.loss`-equality unit test.
+2. Match train-mode and dropout across all arms, and assert it.
+3. Add P (native mT5 encoder plus the same LoRA) and M_null (trained on donor-permuted memory), with a validity gate decided before F/L are read.
+4. Re-specify the copyable mask in a new preregistration, without using Δ outcomes.
+5. Complete the generation reporting (cap-hit, EOS rate, repetition, length), drop `nonempty`, and add seed-level inference.
+
+**Final verdict: NARROW**
+- **Allowed:** zero-training fixes and prereg v0.2. After approval, run P and M_null at about 300/95 and about 900 updates, with seed 20261108 first. F/L runs only after the validity gate passes and a separate decision is recorded.
+- **Forbidden:**
+  - Re-running B0-A at 20/20/100, or retuning it.
+  - B1, B2 and Stage C.
+  - Role probing.
+  - Comparisons with A1.
+  - Test 163, P1 data, and reopening T5Gemma2 without a new decision record.
+- **Compute:** CPU only, within the prereg's B0-B budget of 6–10 CPU-hours, with P and M taking about half.
+- **Stop condition:** if P is not valid under the corrected metric, stop the mT5 screening track as instrumented. That is not a bridge-wide STOP.
+- **Gates and status:** the next gate is a decision record after P/M. No gate change is approved, and test 163 stays sealed. Exploratory bridge results stay separate from the A1 native fallback.

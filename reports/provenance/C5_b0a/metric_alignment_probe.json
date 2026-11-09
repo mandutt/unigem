@@ -1,0 +1,18 @@
+{
+  "experiment": "c5_b0a_metric_alignment_probe",
+  "purpose": "Forward-only check of token_losses alignment against MT5ForConditionalGeneration built-in loss. No training, no test split, no model modification.",
+  "date": "2026-11-09",
+  "doc_id": "REPORT-news_r-04161-00002",
+  "split": "val",
+  "val_index": 5,
+  "label_len": 181,
+  "logits_len": 181,
+  "builtin_loss": 31.98719596862793,
+  "aligned_same_position_ce": 31.98719596862793,
+  "current_shifted_ce": 33.9515380859375,
+  "delta_current_minus_aligned": 1.9643421173095703,
+  "delta_builtin_minus_aligned": 0.0,
+  "conclusion": "The current token_losses logits[:, :-1] vs labels[:, 1:] is one position too far. The aligned same-position CE matches the model built-in loss exactly. B0-A primary delta_shuffled_copy is therefore not the preregistered copy-token CE.",
+  "historical_result_preserved": true,
+  "test_split_used": false
+}
