@@ -34,7 +34,7 @@ send_one() {
 
 send_one glm    "z-ai/glm-5.3-flash" max    "$OUTDIR/prompt_glm.txt"
 sleep 10
-send_one ds41   "rva/deepseek-ai/DeepSeek-V4.1-Flash-1017" max "$OUTDIR/prompt_ds41.txt"
+send_one ds41   "deepseek/deepseek-v4.1-flash" max "$OUTDIR/prompt_ds41.txt"
 sleep 10
 send_one terra  "gpt-6.1-terra"       medium "$OUTDIR/prompt_terra.txt"
 wait
