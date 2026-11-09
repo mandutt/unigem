@@ -1,8 +1,8 @@
 {
-  "version": 7,
+  "version": 8,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "cause_analysis_complete",
+  "status": "audit_chain_complete",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -138,7 +138,7 @@
     },
     "registered_report": {
       "path": "reports/provenance/C5_b0a/registered/registered_report.json",
-      "sha256": "6f58d04ef22e6e128e86c5e4e91804c2c36aa7ab4eeee888bc1ac62112c6e286",
+      "sha256": "3e685d83e5986f86901fba110faa5435a5ee6d7c099530fb8b1109cba30d2ebc",
       "status": "present",
       "units": 12,
       "m_records": 1680,
@@ -261,6 +261,13 @@
       "path": "reports/provenance/C5_b0a/labels/cause_centered.json",
       "sha256": "51fb03c3bac2cec37116491d497e819236b71b8f33a5c0bda123ad937e883829",
       "status": "present"
+    },
+    "labels_audit": {
+      "path": "reports/provenance/C5_b0a/labels/labels_audit.json",
+      "sha256": "7962172a77299c68e00cd663cc94cc559b49ae3831d61fa04736c281c7d3265c",
+      "status": "present",
+      "code_commit": "543c2673d10d256919374ef6e6e795d9fe6995df",
+      "event": "labels_computed_false_to_true"
     }
   },
   "gates": {
@@ -272,11 +279,12 @@
     "b2": "not_approved",
     "stage_c": "not_approved",
     "labels": "complete",
-    "cause_analysis": "complete"
+    "cause_analysis": "complete",
+    "labels_audit": "complete"
   },
   "test_split_used": false,
   "p1_used": false,
   "labels_computed": true,
   "not_a_result": false,
-  "note": "D0, D1, registered 3-seed, labels/replay, cause analysis complete. B0-B candidate false (adapter bottleneck); B0-B not approved."
+  "note": "Registered/label/replay/gate/aggregate drivers committed at 543c267; labels audit chain at 14067a9. B0-B candidate false remains not approved."
 }
