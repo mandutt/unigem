@@ -1,8 +1,8 @@
 {
-  "version": 10,
+  "version": 11,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "f0_draft_review_narrow",
+  "status": "f0_v0_2_review_narrow",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -295,6 +295,33 @@
         "sha256": "62a78d753692c680a8c4bdc95834fd3a99194568bde319717963b21283c43a16",
         "status": "present"
       }
+    },
+    "f0_v0_2_review_synthesis": {
+      "path": "reports/C5_F0_V0_2_3AI_REVIEW_SYNTHESIS_2026-11-09.md",
+      "sha256": "d2cd7efbc89d133ed3a27fe551de287f6f282fc67773a24b247238a23315bab2",
+      "status": "3/3 NARROW"
+    },
+    "f0_v0_2_reviews": {
+      "GLM": {
+        "path": "docs/hoplite/c5_f0_v0_2_review_2026-11-09/review_GLM.md",
+        "sha256": "ef85cc1e126f1e1797cb94960f5d8763d5adbf314ae1a4ddaa0417d0b0edaf15",
+        "status": "present"
+      },
+      "DS1017": {
+        "path": "docs/hoplite/c5_f0_v0_2_review_2026-11-09/review_DS1017.md",
+        "sha256": "69eb8538ef1e42b8caf469b459940e90188189990c46d98c4acdfd779fc3d242",
+        "status": "present"
+      },
+      "SOL": {
+        "path": "docs/hoplite/c5_f0_v0_2_review_2026-11-09/review_SOL.md",
+        "sha256": "a670e15efb0691ccdbbeb887539b111d1c33c37eb00718586fcb9057364556c7",
+        "status": "present"
+      }
+    },
+    "f0_v0_2_prereg": {
+      "path": "docs/plan_c5_f0_v0_2_2026-11-09.md",
+      "sha256": "b515be354c5c4e1e1f9964ea5e17da48872f425c3796fbace23cf0cded059453",
+      "status": "draft_revise"
     }
   },
   "gates": {
@@ -308,11 +335,11 @@
     "labels": "complete",
     "cause_analysis": "complete",
     "labels_audit": "complete",
-    "f0": "draft_revise_not_approved"
+    "f0": "v0_2_review_narrow_not_approved"
   },
   "test_split_used": false,
   "p1_used": false,
   "labels_computed": true,
   "not_a_result": false,
-  "note": "F0 draft reviewed 3/3 NARROW; revise Stage D/STOP/selection before re-review. No execution. B0-B false unchanged."
+  "note": "F0 v0.2 reviewed 3/3 NARROW; v0.3 required (LoRA RNG, mechanics predicate, paired CI, signal source). No execution."
 }
