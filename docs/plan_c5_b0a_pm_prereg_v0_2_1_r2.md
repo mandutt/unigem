@@ -81,7 +81,7 @@ M_CONTROL_PREFIX753_COHORT15
 ### 1.4 Hash
 
 - frozen preflight: `m_cohort_preflight.json`
-- SHA256: **`07c3fe4cc1f0cb7b3c8af89ef0eb2dc9448eb4ec9a09587dba323a800d44617e`**
+- SHA256: **`3ee3f1ca68a834e9bc2c63f6d92844ee37f2e23da1cdf640ace93c46769837af`**
 - hash file: `reports/provenance/C5_b0a/m_cohort_preflight.sha256`
 - freeze 후 K/cohort 재산출 금지.
 
