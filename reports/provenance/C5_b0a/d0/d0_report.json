@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "experiment": "C5 Phase 6 P/M",
+  "mode": "d0_zero_update",
+  "updates": 0,
+  "seed": 20261111,
+  "registered_seed_used": false,
+  "labels_computed": false,
+  "not_a_result": true,
+  "test_split_used": false,
+  "p1_used": false,
+  "configs": 4,
+  "arms": {
+    "F": {
+      "arm": "F",
+      "spec": {
+        "arm": "F",
+        "memory_source": "eg2_layer19",
+        "m_k": 753,
+        "adapter": true,
+        "lora": false,
+        "trainable": "adapter"
+      },
+      "updates": 0,
+      "adapter_present": true,
+      "lora_modules": 0,
+      "trainable_adapter_parameters": 526336,
+      "trainable_lora_parameters": 0,
+      "mode": {
+        "base_decoder": "eval",
+        "adapter": "eval",
+        "lora": "absent"
+      },
+      "memory_probe": {
+        "doc_id": "REPORT-news_r-03837-00002",
+        "shape": [
+          753,
+          512
+        ]
+      },
+      "cache_h_length_ok": true,
+      "native_length_ok": true
+    },
+    "L": {
+      "arm": "L",
+      "spec": {
+        "arm": "L",
+        "memory_source": "eg2_layer19",
+        "m_k": 753,
+        "adapter": true,
+        "lora": true,
+        "trainable": "adapter+lora"
+      },
+      "updates": 0,
+      "adapter_present": true,
+      "lora_modules": 64,
+      "trainable_adapter_parameters": 526336,
+      "trainable_lora_parameters": 458752,
+      "mode": {
+        "base_decoder": "eval",
+        "adapter": "eval",
+        "lora": "eval"
+      },
+      "memory_probe": {
+        "doc_id": "REPORT-news_r-03837-00002",
+        "shape": [
+          753,
+          512
+        ]
+      },
+      "cache_h_length_ok": true,
+      "native_length_ok": true
+    },
+    "P": {
+      "arm": "P",
+      "spec": {
+        "arm": "P",
+        "memory_source": "native_mt5",
+        "m_k": 512,
+        "adapter": false,
+        "lora": true,
+        "trainable": "lora"
+      },
+      "updates": 0,
+      "adapter_present": false,
+      "lora_modules": 64,
+      "trainable_adapter_parameters": 0,
+      "trainable_lora_parameters": 458752,
+      "mode": {
+        "base_decoder": "eval",
+        "adapter": "absent",
+        "lora": "eval"
+      },
+      "memory_probe": {
+        "doc_id": "REPORT-news_r-03837-00002",
+        "shape": [
+          512,
+          512
+        ]
+      },
+      "cache_h_length_ok": true,
+      "native_length_ok": true
+    },
+    "PA": {
+      "arm": "PA",
+      "spec": {
+        "arm": "PA",
+        "memory_source": "native_mt5",
+        "m_k": 512,
+        "adapter": true,
+        "lora": true,
+        "trainable": "adapter+lora"
+      },
+      "updates": 0,
+      "adapter_present": true,
+      "lora_modules": 64,
+      "trainable_adapter_parameters": 526336,
+      "trainable_lora_parameters": 458752,
+      "mode": {
+        "base_decoder": "eval",
+        "adapter": "eval",
+        "lora": "eval"
+      },
+      "memory_probe": {
+        "doc_id": "REPORT-news_r-03837-00002",
+        "shape": [
+          512,
+          512
+        ]
+      },
+      "cache_h_length_ok": true,
+      "native_length_ok": true
+    }
+  },
+  "freeze": {
+    "manifest_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11_FREEZE.json",
+    "freeze_commit": "6fad89e59e4aa2222010f2360e5eb4c2572c4023",
+    "manifest_commit": "05b7abe9a011ff1f7e0095dc7d2be37c61e0266e",
+    "freeze_manifest_sha256": "f5d9ac8a1ce8528991b7ae6f7f9eda8f3ef2b6d29df29d05489f2cbfa9f34764",
+    "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
+    "p1_manifest_sha256": "69af129a4f58f7400189c361ba2447f12e17d35f012d7a36c26efdf485a3a2dc",
+    "golden_sha256": "30cbd1c1281235d0750c2bf9271b82cbe55eb64f099d8226216e14b2020ed3f6",
+    "preflight_sha256": "3ee3f1ca68a834e9bc2c63f6d92844ee37f2e23da1cdf640ace93c46769837af"
+  }
+}

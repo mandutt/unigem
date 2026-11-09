@@ -1,7 +1,16 @@
 {
-  "version": 2,
+  "version": 3,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
+  "status": "d0_complete",
+  "freeze": {
+    "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
+    "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
+    "freeze_commit": "6fad89e59e4aa2222010f2360e5eb4c2572c4023",
+    "manifest_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11_FREEZE.json",
+    "manifest_commit": "05b7abe9a011ff1f7e0095dc7d2be37c61e0266e",
+    "freeze_manifest_sha256": "f5d9ac8a1ce8528991b7ae6f7f9eda8f3ef2b6d29df29d05489f2cbfa9f34764"
+  },
   "expected": [
     "checkpoints/{arm}/{seed}.pt",
     "final_checkpoint_hash.json",
@@ -12,5 +21,58 @@
     "p1_usage.json",
     "p1_usage.postrun.json"
   ],
-  "note": "All paths are under base; phase-7 records are diagnostic only."
+  "artifacts": {
+    "d0_report": {
+      "path": "reports/provenance/C5_b0a/d0/d0_report.json",
+      "sha256": "8243d380af9f1f11fc17dc700537d546ef1ec2efb82f07bbc7fccc6bfa973dfa",
+      "status": "present",
+      "updates": 0,
+      "configs": 4
+    },
+    "p1_usage": {
+      "path": "reports/provenance/C5_b0a/p1_usage.json",
+      "sha256": "69af129a4f58f7400189c361ba2447f12e17d35f012d7a36c26efdf485a3a2dc",
+      "status": "frozen"
+    },
+    "golden_vectors": {
+      "path": "docs/hoplite/c5_b0a_pm_prereg_v1_0_11_2026-11-09/golden_vectors.json",
+      "sha256": "30cbd1c1281235d0750c2bf9271b82cbe55eb64f099d8226216e14b2020ed3f6",
+      "status": "frozen"
+    },
+    "checkpoints": {
+      "path": "reports/provenance/C5_b0a/checkpoints/{arm}/{seed}.pt",
+      "status": "pending_d1"
+    },
+    "final_checkpoint_hash": {
+      "path": "reports/provenance/C5_b0a/final_checkpoint_hash.json",
+      "status": "pending_d1"
+    },
+    "control_manifest": {
+      "path": "reports/provenance/C5_b0a/control_manifest/",
+      "status": "pending_d1",
+      "note": "Built after D1 step0, before decision labels."
+    },
+    "phase7_records": {
+      "path": "reports/provenance/C5_b0a/phase7_records/{arm}/{seed}.json",
+      "status": "pending_d1"
+    },
+    "p1_usage_postrun": {
+      "path": "reports/provenance/C5_b0a/p1_usage.postrun.json",
+      "status": "pending_d1"
+    }
+  },
+  "gates": {
+    "d0": "complete",
+    "d1": "not_approved",
+    "registered": "not_approved",
+    "b0_b": "not_approved",
+    "b1": "not_approved",
+    "b2": "not_approved",
+    "stage_c": "not_approved"
+  },
+  "test_split_used": false,
+  "p1_used": false,
+  "labels_computed": false,
+  "not_a_result": true,
+  "note": "All paths are under base; phase-7 records are diagnostic only. D0 is zero-update mechanics, not a result."
 }
