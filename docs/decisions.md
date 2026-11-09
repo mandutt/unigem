@@ -235,6 +235,8 @@
 
 | D-166 | 2026-11-09 | **F0 v0.3 review — 1 CONTINUE / 2 NARROW**: GLM CONTINUE(definitional MF 6), DS NARROW, Luna NARROW. v0.4 반영: F0 병렬 오케스트레이터(3 threads/arm×4), D1 signal seal(`d1_sealed`+sha256, decision allowlist), 4-state STOP taxonomy, 15 common frozen binding, init hash/lora_names/RNG audit, H3 정의, D0 timing. **F0 미승인·미실행**; v0.4 재검토 진행. | reports/C5_F0_V0_3_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v0_4_2026-11-09.md |
 
+| D-167 | 2026-11-09 | **F0 v0.4 review — 1 CONTINUE / 2 NARROW**: GLM CONTINUE, DS/Luna NARROW. v0.5 반영: ROUTE_STOP 부호 수정(harm=`CI_D.lower>0`, benefit=`upper<0`), ALL_FAIL E01/E11×copy/full 열거, `EQUIVALENT=95% CI within ±.05`, PASS_POSITIVE 정합, D1 denylist/negative test, cohort 5 donors/donor set, post-step0 RNG assert, R cap 150min, H3 QR/identity/trigger. **F0 미승인·미실행**; v0.5 재검토 진행. | reports/C5_F0_V0_4_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v0_5_2026-11-09.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
