@@ -1,0 +1,20 @@
+Continue the SAME consultation thread for the v1.0.10 Option A final confirmation. Do not start a new thread. Do not re-review v1.0.9 closed symbol/hash items.
+
+Read:
+reports/EXTERNAL_REVIEW_C5_B0A_PM_PREREG_V1_0_10_2026-11-09.md
+docs/plan_c5_b0a_pm_prereg_v1_0_10.md
+docs/plan_c5_b0a_pm_prereg_v1_0_10_FREEZE.template.json
+docs/hoplite/c5_b0a_pm_prereg_v1_0_10_2026-11-09/golden_vectors.json
+reports/C5_B0A_PM_PREREG_V1_0_9_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+
+MANDATORY: report reviewed HEAD a88c714 and verbatim quote: own eval loop                       # no evaluate_arm
+
+Focus only on:
+1. Option A lifecycle consistency with no-code-before-freeze
+2. evaluate_arm exclusion
+3. train_arm training-only reuse
+
+Write ONLY:
+docs/hoplite/c5_b0a_pm_prereg_v1_0_10_2026-11-09/review_DS1017.md
+
+Do not modify older report files. Answer Q1-Q5 and final block. No training/evaluation, no test 163, no P1, no subagents.
