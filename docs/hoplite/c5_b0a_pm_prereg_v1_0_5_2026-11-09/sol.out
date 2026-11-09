@@ -1,0 +1,39 @@
+## Final verdict: **NARROW**
+
+Synchronization succeeded: `git fetch origin` and `git pull --ff-only origin main`. Both `HEAD` and `origin/main` are **`d38264fcb713bb43e718fb7b89a46ed2c403d6b6`**.
+
+Full review, including evidence and next steps for every question:
+[review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_v1_0_5_2026-11-09/review_SOL.md)
+
+### Q1–Q13
+
+| Question | Verdict | Finding |
+|---|---|---|
+| Q1 — Ten residuals | Conditional | Nine closed at contract level; phase-7 replay remains partial because prefix bounds are ambiguous. |
+| Q2 — Self-containedness | Conditional | Nearly consolidated; still source-bound to declared helpers and artifacts, with one unresolved prefix definition. |
+| Q3 — Freeze manifest | Conditional | Schema is usable and non-self-referential; actual freeze manifest is absent. |
+| Q4 — Diagnostic replay | Conditional | Three-field numeric replay and status isolation are explicit; tensor-length semantics need clarification. |
+| Q5 — Seeds/statistics | Agree | Registered seed positives are distinguished from P0 document positives. |
+| Q6 — Golden domains | Agree | Domains are clearly separated; all five golden digests independently reproduced. |
+| Q7 — P1/registry | Conditional | Fail-closed contract is improved; `not_run` postrun placeholder proves no completed coverage. |
+| Q8 — Checkpoints/counts | Agree | Paths, 12-key map, 120/160 per unit, and 360/360/480/480 totals are correct. |
+| Q9 — D0/D1/caps | Agree | Limits and workload arithmetic are coherent; timing feasibility remains unmeasured. |
+| Q10 — Remaining Must-fix | Agree | One normative clarification plus the actual freeze handoff remain. |
+| Q11 — Freeze/implementation/D0 | Conditional | Hold as-is; resolve the clarification and complete freeze first. |
+| Q12 — Downstream boundaries | Agree | Separate approvals remain mandatory; the B0-B predicate is restated in the report. |
+| Q13 — Final scope | Conditional | **NARROW:** documentation clarification and freeze preparation only. |
+
+### Must-fix
+
+1. **Define the phase-7 prefix bound.**  
+   §9.6.1 does not explicitly identify `real_prefix` as the capped `real_prefix_t` or bound `K_d` by `K_M`. Under the literal full-memory interpretation, **64 of 75 F/L target–donor pairs** have `K_d > 753`, while controls remain 753 rows. Numeric replay alone cannot distinguish this interpretation from a capped implementation.
+
+2. **Complete the actual freeze handoff before implementation/D0.**  
+   The template is not a freeze. After the clarification is accepted, populate and verify the real manifest against the final plan, helpers, P1 attestation, golden vectors, preflight, and seeds.
+
+### Scope and verification
+
+- **No implementation, D0, D1, registered Phase 6 run, or B0-B/B1/B2/Stage C approval.**
+- Current experimental compute authorization: **zero runs**. Prospective limits remain D0 15 minutes, D1 20 minutes, registered 120 minutes—**not granted**.
+- No training/evaluation or tests were executed. Test 163 stayed sealed; P1 data was unused; T5Gemma2 **D-108 STOP** remains unchanged.
+- Only the permitted report was written; tracked files are unchanged.

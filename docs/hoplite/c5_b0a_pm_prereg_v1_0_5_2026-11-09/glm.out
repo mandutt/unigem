@@ -1,0 +1,30 @@
+Review complete. **Sync:** `git fetch origin` + `git pull --ff-only origin main` → "Already up to date"; **HEAD = `d38264fcb713bb43e718fb7b89a46ed2c403d6b6`** (matches origin/main). Report written to `docs/hoplite/c5_b0a_pm_prereg_v1_0_5_2026-11-09/review_GLM.md` (162 lines; the only permitted write — `git status` confirms nothing else touched). I independently reproduced all five golden digests, the preflight hash (`3ee3f1ca…` ✓), and the P0 numbers (train +3.7617 [1.8917, 5.6050] 14/20; val +5.2375 [2.5013, 8.0753] 18/20 ✓). No training/eval, no test 163, no P1, no subagents.
+
+## Q1–Q13
+
+| Q | Topic | Verdict | Key evidence |
+|---|---|---|---|
+| Q1 | 10 residual closure | **conditional** | 9 closed; #3 partial — §13.5:1570 "no stale `registered_seeds_positive`" forbids the *new* field (token error, MF-A); C5_STATUS line count unverifiable in this round's file set |
+| Q2 | Self-containedness | **conditional agree** | Single-authority structure holds; 3 implicit items: replay-digest byte rule (MF-B), freeze_commit convention (MF-D), registry pattern expansion |
+| Q3 | Freeze manifest | **conditional agree** | Schema/path make D0 `assay_path_ok` evaluable; `plan_sha256` computable without self-reference (§16.2:1666); bindings sufficient; manifest's own integrity chain open |
+| Q4 | Phase-7 numeric replay | **conditional agree** | `baseline_ce` recompute + atol/rtol + `diagnostic_replay_ok` separation verified; hash-excluded fields auditable (re-derivable); §11.4:1313 wording conflates fixture check with 600-record replay (MF-C) |
+| Q5 | Seeds/stats | **conditional agree** | §10.2:1177-78 collision removed, P0 doc-count distinction confirmed in runner; §13.3:1537 vs §13.5:1570 conflict remains |
+| Q6 | Golden domains | **agree*** | 4 domains distinct with scope notes; all digests reproduced — *digest matches **only** as SHA-256 over the canonical JSON **array** of sorted records; per-record concat gives `d5afe0bc…`/`43c8c635…` ≠ golden (byte rule unstated → MF-B) |
+| Q7 | P1 | **agree** | Fail-closed contradiction rule, frozen/postrun split, registry v2 covers checkpoints/control/phase7; pattern expansion implicit (minor) |
+| Q8 | Checkpoint/naming | **agree** | 12-key map, base path; counts verified: 96/48 → 15×96+5×48=1,680; per-unit 120/160; 360/360/480/480 |
+| Q9 | D0/D1/cap | **agree** | D0 ≤4 configs/≤15 min/seed 20261111; D1 4×1×1, 8 phases, 560/600; T_proj ≤96, 120 abort, cap 1,204 updates/155 min (not granted) |
+| Q10 | Remaining must-fix | **conditional** | Ranked MF-A…D below; no new scientific issues; all text/schema only |
+| Q11 | Freeze + impl/tests/D0 | **conditional agree** | Approve after MF-A/B (required) + C/D (recommended); required pre-implementation test list written into report |
+| Q12 | B0-B/D1/3-seed boundary | **agree** | §14 predicate restated in v1.0.5 labels (VALID ∧ M_CONTROL_PASS ∧ EXPLORATORY_L_SIGNAL ∧ m_valid ∧ n_signal=15 ∧ tail_driven=false ∧ …); all downstream stages separate approvals |
+| Q13 | Final verdict | **CONTINUE (conditional)** | Scope below |
+
+## Must-fix (ranked)
+
+1. **MF-A** (1 token): §13.5:1570 → "no stale **`seeds_positive`**" (current wording self-contradicts §13.3:1537).
+2. **MF-B** (1 line): §12.2:1445 — state that the multi-record replay digest is SHA-256 over the canonical JSON **array** of sorted records (verified empirically; without it a literal implementation fails §13.4 golden tests).
+3. **MF-C** (1 line): §11.4:1313 — split "key-coverage golden fixture check" from "600-record numeric `ce`/`baseline_ce`/`delta` replay".
+4. **MF-D** (1–2 lines): freeze_commit ordering convention + record `freeze_manifest_sha256` in the D0 report to close the manifest integrity chain.
+
+## Final verdict
+
+**CONTINUE (conditional)** — v1.0.5 freeze: approved after MF-A/B (+C/D recommended), text-only, scope documented in the report; **implementation + unit tests: approved** (post-freeze, per the required-test list); **D0 zero-update mechanics debug: approved** (seed 20261111, ≤4 configs, ≤15 min, `not_a_result:true`). **D1 / 3-seed: not approved** (separate approvals). Forbidden: test 163 (sealed), P1, T5Gemma2 (**D-108 STOP maintained**), B0-B/B1/B2/Stage C auto-progression, post-result threshold/seed/donor/step/LR changes. Compute: implementation/tests CPU-only; registered run not granted (T_proj ≤96 min / 120-min abort apply only upon separate approval).

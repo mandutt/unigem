@@ -1,0 +1,35 @@
+## Review complete — workspace synced, report written
+
+**Sync:** `git fetch origin` → `git pull --ff-only origin main` → **Already up to date**. Reviewed HEAD = `d38264f` (`docs: add C5 P/M v1.0.5 review request`). The request's basis `50653b5` is not present in this depth-1 clone; `d38264f` is the visible origin/main and the artifacts reviewed are those at that head. Tree was clean; the only change is `docs/hoplite/c5_b0a_pm_prereg_v1_0_5_2026-11-09/review_DS1017.md`.
+
+**Independent checks (recomputed, not trusted):** preflight hash `3ee3f1…` ✓; state `43ecb5…`, empty `e3b0c4…`, `replay_base c43ea3…`, `key_coverage 8277a7…`, `control 6b50c2…` all reproduce; `val_h_lengths ≥753 = 15` (753 in, 754→14); P0 train `+3.7617 [1.8917,5.6050]`, val `+5.2375 [2.5013,8.0753]`; 1,680/560/600 and F=360/L=360/P=480/PA=480 consistent.
+
+Two nuances matter: `c43ea…`/`8277a7…` reproduce **only** over the canonical-JSON *array*; `6b50c2…` reproduces **only** with canonical-name sort (`M_NORM` before `M_POS_MEAN`), while the fixture lists `M_POS_MEAN` first.
+
+### Q1–Q13 verdict table
+
+| Q | Topic | Verdict |
+|---|---|---|
+| Q1 | 10 residual closure | conditional — 8 closed, #3 partial, #10 closed (cosmetic) |
+| Q2 | Self-containedness | conditional |
+| Q3 | Freeze manifest | agree (clarify `freeze_commit` vs manifest commit) |
+| Q4 | Phase-7 numeric replay | agree |
+| Q5 | Seeds/stats naming | conditional (§13.5 still contradicts §10.2) |
+| Q6 | Golden domains | conditional (control order + replay container) |
+| Q7 | P1 | agree (glob-coverage clarification) |
+| Q8 | Checkpoint/naming/counts | agree |
+| Q9 | D0/D1/cap | agree |
+| Q10 | New Must-fix | agree — 4 must + 3 should/low |
+| Q11 | Freeze + impl + tests + D0 | conditional |
+| Q12 | B0-B/D1/3-seed boundary | agree |
+| Q13 | Final | **NARROW** |
+
+### Must-fix (ranked)
+1. **MF-1** §13.5 “no stale `registered_seeds_positive`” forbids the field §10.2/§13.3 require — change to legacy `seeds_positive`.
+2. **MF-2** Define replay hash as SHA256 over the canonical-JSON **array** of sorted records (only form reproducing `c43ea…`/`8277a7…`).
+3. **MF-3** `control_manifest_golden` order conflicts with `6b50c2…`; reorder or add `ordering: sorted by canonical name`.
+4. **MF-4** Specify bootstrap RNG (`default_rng(20261109)`) and percentile interpolation (`linear`).
+5. MF-5 freeze/manifest commit semantics; MF-6 postrun coverage over glob registry; MF-7 P0-256 limitation line, `schema_version`, unused `MARGINAL_SIGNAL_COHORT`, §13.4 wording.
+
+### Final
+**NARROW.** No trained P/PA/M result exists; P0 is descriptive (and was run at `source_max_length=256` vs Phase 6 512). v1.0.5 is close to a single implementation authority, but MF-1–MF-4 must be applied as text/schema/fixture ERRATA before freeze/implementation/D0. D1, 3-seed, B0-B/B1/B2/Stage C remain **not approved**; test 163 sealed; P1 unused; T5Gemma2 **D-108 STOP**. No post-result threshold/seed/donor/step/LR changes proposed.
