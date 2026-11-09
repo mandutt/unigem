@@ -1,0 +1,36 @@
+Written: [review_SOL.md](docs/hoplite/c5_b0a_pm_prereg_2026-11-09/review_SOL.md)
+
+Synchronization succeeded. Reviewed HEAD: `26e334a79148e8be73e3378b6c82846891f1e180`, matching `origin/main`. Only the requested report was added.
+
+## Q1–Q12 summary
+
+| Q | Verdict | Conclusion |
+|---|---|---|
+| Q1 | agree | P’s adapter bypass is valid for native-path assay validation, not capacity matching. |
+| Q2 | agree | Eval-only M is appropriate for a same-checkpoint ablation; trained M is not mandatory. |
+| Q3 | conditional | Mean construction can avoid leakage, but length conditioning, eligibility, and missingness need frozen definitions. |
+| Q4 | conditional | Interpret paired L-minus-F selectivity; P is not a directly comparable bridge-performance arm. |
+| Q5 | conditional | Suitable for exploratory screening, not confirmation or generalization claims. |
+| Q6 | agree | Retain L’s `.05`; P/M’s zero-boundary criteria address different questions. |
+| Q7 | disagree | M passing alone does not establish semantic content use. |
+| Q8 | conditional | P failure blocks progression but does not establish metric invalidity or bridge-wide failure. |
+| Q9 | conditional | M failure means evidence was not established—not that content use is absent. |
+| Q10 | conditional | Five blocking contracts require resolution before implementation/debug. |
+| Q11 | agree | Favorable Phase 6 results cannot automatically authorize B0-B. |
+| Q12 | conditional | **NARROW**, subject to explicit design, correctness, and authorization gates. |
+
+## Ranked Must-fix
+
+1. **Mean construction and leakage:** resolve position-wise versus repeated/cropped definitions; freeze train-only provenance, eligibility, and non-evaluable handling.
+2. **CE and mode invariants:** preserve same-position alignment; implement explicit P freezing/seeding; prevent evaluation helpers from silently disabling training-time LoRA dropout.
+3. **Donor/K alignment:** M’s full-length mean must be compared with real memory at that **same length**. Existing donor-averaged real CE uses varying cropped lengths and cannot be reused unchanged.
+4. **Decision semantics:** freeze seed/document pooling, `L > F`, two-of-three seed meaning, paired bootstrap, and incomplete-data handling.
+5. **Artifacts and budget:** bind M to the exact checkpoint, record complete provenance, count debug within the nine-unit envelope, and resolve CPU-hours versus wall-hours.
+
+## Final verdict: **NARROW — conditional**
+
+This consultation **does not approve Phase 6 execution**. Implementation and one-seed debug require the frozen fixes and explicit authorization; three-seed execution remains behind a separate gate.
+
+If subsequently authorized, retain the nine-unit/900-update ceiling, eval-only L-M, no GPU, and six-thread maximum. The report recommends resolving the ambiguous cap conservatively as both ≤2 aggregate CPU-hours and ≤2 elapsed hours, including debug and evaluation.
+
+No training, evaluation, or tests were run. Test 163 remains sealed; P1 was unused; T5Gemma2 remains under D-108 STOP. B0-B/B1/B2/Stage C remain unapproved.

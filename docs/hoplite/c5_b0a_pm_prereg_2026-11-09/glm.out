@@ -1,0 +1,45 @@
+Review complete. The full report is written to `docs/hoplite/c5_b0a_pm_prereg_2026-11-09/review_GLM.md` (21.8 KB, the only write — git status shows exactly that one untracked file). Sync result: `git fetch origin` + `git pull --ff-only origin main` → "Already up to date", review HEAD **`26e334a`** (`docs: add C5 P/M prereg external review request`).
+
+## Independent review — GLM 5.3 Flash (reasoning max)
+
+I read the full review request, the preregistration, all referenced reports, the runner (all 802 lines), and the test file, and re-parsed the P0 and metric-alignment provenance JSONs myself (numbers match the reports exactly). Environment limitation stated honestly: `torch` is not installed in this sandbox, so I could not re-run the 54 tests; the claim is adopted from documents and flagged for re-verification at implementation time.
+
+### Q1–Q12 verdict table
+
+| Q | 항목 | 판정 |
+|---|---|---|
+| Q1 | P (native mT5 + decoder LoRA, adapter bypass) as positive control | **agree** — adapter inclusion would confound it with the bridge; capacity is handled by L−F |
+| Q2 | M as eval-only (not a trained arm) | **agree** — same-checkpoint memory swap is the direct paired test; trained M answers a different question |
+| Q3 | Mean-memory definition (train-only, target-K, `len≥K`, <10 exclusion) | **conditional** — leakage-free by construction; needs code asserts, provenance, off-manifold caveat; F/P M-probe status inconsistency (plan §3 vs DoD D4) to resolve |
+| Q4 | F/L/P comparison interpretation | **agree** — only within-arm paired contrasts + L−F; P is pass/fail validity, never a comparison point |
+| Q5 | 20/20/100/3 seeds sufficiency | **agree** — adequate for screening; MDE ≈0.068–0.098 vs .05 threshold acknowledged underpowered; bridge/quality/content-existence claims forbidden |
+| Q6 | Keeping `.05` for L, none for P/M | **agree** — no retroactive threshold change; controls have no minimal-effect-of-interest; no post-hoc "weak signal" label |
+| Q7 | M_CONTROL_PASS as content-use evidence | **conditional** — necessary, not sufficient; report Δmemfree jointly with Δshuffled; norm/position/frequency shortcuts as exploratory |
+| Q8 | P fail → ASSAY_INVALID, no bridge generalization | **agree** — correct scoping; minimal no-training diagnostics listed |
+| Q9 | M fail → NO_CONTENT_USE_EVIDENCE | **conditional** — valid if glossed as "no evidence *for* content use at this scale", not proof of absence |
+| Q10 | Must-fix | **MF-1 → MF-5** (below) |
+| Q11 | B0-B boundary | **agree** — no auto-approval; minimum to proceed: EXPLORATORY_L_SIGNAL + new prereg with power analysis |
+| Q12 | Final verdict | **NARROW** |
+
+### Must-fix (ranked, block implementation + 1-seed debug until MF-1~MF-3 are in code+tests)
+
+1. **MF-1** P-arm training path + `set_training_mode("p")` asserts (no adapter, 64 LoRA modules, base eval, 512d native memory, identical train/eval preprocessing) — current runner only supports {frozen, lora}.
+2. **MF-2** M leakage asserts + provenance (mean ⊆ train20, val/target/donor exclusion raises, per-doc mean-source ids/K/m_eligible, duplicate-passage exclusion, F/P M-probe status).
+3. **MF-3** Hard `metric_alignment` assert (same-position CE == built-in loss, atol 1e-5) in every arm/seed artifact, wired to the §10 stop condition.
+4. **MF-4** Donor/K rule consistency and per-doc provenance (Δshuffled k=min vs M target-K crop; F/L vs P donor length definitions).
+5. **MF-5** Seed-pooled statistics implementation, bootstrap-seed recording, median-coverage>.90 exploratory flag, and clarifying the "≤2 CPU-hours / 6 threads" cap wording in a prereg v0.2 **before** G0.
+
+### Final verdict
+
+```text
+최종 판정: NARROW
+Phase 6 구현·1-seed debug: conditional approval — after MF-1~MF-3 implemented and passing (MF-4~MF-5 concurrently)
+3-seed run: separate gate — after 1-seed debug artifact review
+금지 범위: B0-B/B1/B2/Stage C execution, test 163, P1, T5Gemma2 (D-108 STOP), post-hoc
+  threshold/seed/donor/step changes, cross-arm absolute CE comparisons, label generalization
+최대 compute: prereg §8 as-is — 9 trained units × 100 updates + M eval-only, ≤2 CPU-hours, 6 threads, no GPU, no auto-retry
+다음 decision gate: 1-seed debug artifacts → 3-seed gate → new decision record for B0-B
+test 163: sealed (untouched)
+```
+
+**Phase 6 is not approved by this report** — it conditionally authorizes implementation + 1-seed debug only once the Must-fix items are in place; B0-B/B1/B2/Stage C remain unapproved, and every Phase 6 label is non-gating for them.

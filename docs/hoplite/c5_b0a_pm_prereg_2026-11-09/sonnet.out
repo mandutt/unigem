@@ -1,0 +1,33 @@
+I'm the Sonnet 5.5 (high) reviewer, and my verdict is **NARROW**. The workspace synced to origin/main HEAD `26e334a79148e8be73e3378b6c82846891f1e180` (`git fetch` and `git pull --ff-only` were already up to date). I ran no training or evaluation, did not open test 163, and used no P1 data, APIs or subagents. The only write is the report, `docs/hoplite/c5_b0a_pm_prereg_2026-11-09/review_SONNET.md`, and `git status` shows nothing else changed.
+
+I did not re-run the 54 tests. I could not measure per-unit training time, because the P0 artifacts log no timing. My claim that T5 cross-attention has no position bias comes from architecture knowledge, not a test run.
+
+Phase 6 and B0-B are not approved by this review.
+
+| Q | Verdict | Core reason |
+|---|---|---|
+| Q1 P validity | conditional | P is valid as a metric/LoRA pipeline check, but P0 already gives +3.76 train and +5.24 val, so `Δ>0` can barely fail. Untrained CE (12.7 / 13.2) is above uniform (`ln 250112` = 12.43). About 49% of the val mean comes from 3 of 20 docs. P also sits in a different regime from F/L, which reach CE ≈ 7 through the adapter. |
+| Q2 eval-only M | conditional | The swap test is the right tool and trained M is not needed in Phase 6. M must be validated on P/PA, where content use is known. |
+| Q3 mean definition | conditional | I found no leakage. The "real" reference is undefined, the mean's norm shrinks (out of distribution), and the `len≥K`/eligibility rule introduces survivorship bias. "Position-wise" is probably meaningless because T5 cross-attention is set-invariant. |
+| Q4 F/L/P | conditional | Use only within-arm Δ with a step-0 reference, plus paired L−F and PA−L. P passing does not imply L can pass. `L>F` is currently undefined. |
+| Q5 20/20/100/3 | conditional | Enough for screening only. Forbid null, generalisation, copy-specific and absolute-CE claims. Seeds vary init only, because data order is fixed. |
+| Q6 `.05` | conditional | Keep `.05` for L. Giving P a lower bar (`Δ>0`) than L is inverted, so amend P/PA to `≥.05` before any run. |
+| Q7 M sufficiency | disagree | M is necessary but not sufficient, since topical and frequency priors survive it. The copy mask covers 82–84% of tokens, so Δcopy ≈ Δfull. Add strict-mask and non-copy Δ. |
+| Q8 P fails | conditional | Right not to generalise to a bridge STOP. P0 already passed, so "ASSAY_INVALID" is the wrong name for a post-training failure. Diagnose with step-0 vs step-100 Δ and the CE trajectory. |
+| Q9 M fails | conditional | The logic holds, but `NO_CONTENT_USE_EVIDENCE` over-claims at n=20. Rename it. The "L_SIGNAL true + M fail" cell has no rule. Add `M_UNVALIDATED`. |
+| Q10 Must-fix | agree | Five blockers, listed below. |
+| Q11 B0-B boundary | agree | No auto-approval. The report lists seven necessary conditions, none sufficient. |
+| Q12 final | NARROW | See below. |
+
+**Must-fix (ranked)**
+1. **Arm interface and parity (MF1).** P and PA arms are needed. `set_training_mode` and `train_arm` currently reject them. P needs explicit LoRA seeding, since it has no adapter call. All arms should share one eval path, with one pinned native crop convention and a runtime CE-alignment assert.
+2. **M definition and leakage tests (MF2).** Pin M's real reference as full-length memory in the same eval pass. Report norms and eligible counts, and add norm-matched and global-mean descriptive variants. Add no-val-access, perturbation-invariance and row-permutation tests. Make the M probe on P/PA mandatory, gating M on L.
+3. **Positive control (MF3).** Require P/PA `Δ≥.05 ∧ CI_lo>0` as a pre-run amendment. Evaluate every arm at step 0. Add a PA arm (native memory + adapter + LoRA) and a CE trajectory.
+4. **Statistics and labels as tested code (MF4).** Define `L>F` as a paired per-document CI. Compute per-seed means, and fix `seeds_positive`, which counts documents, not seeds. Cover the full label table with unit tests, including the missing cell.
+5. **Artifacts and provenance (MF5).** Record commit and prereg hashes, per-document fields and timing, and check the 12-unit artifact set before labelling. Run the 1-seed debug on a non-gating seed, not 20261108/09/10.
+
+**Scope of approval**
+- **Implementation and 1-seed debug:** conditionally approvable, after a v0.2 prereg amendment is committed with MF1–MF3 and the label and threshold edits. The debug is mechanics-only and non-gating.
+- **3-seed run:** not approved. It needs a separate gate after the debug report, with a timing projection inside the cap.
+- **Forbidden:** test 163, P1 data, T5Gemma2 (D-108 STOP stays), B0-B/B1/B2/Stage C, any post-result change to thresholds, seeds, donors, steps or documents, and any auto-retry.
+- **Compute cap:** ≤ 2 CPU-hours for all of Phase 6 including the debug (6 threads, no GPU). With PA there are 12 trained units.
