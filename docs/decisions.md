@@ -219,6 +219,8 @@
 
 | D-158 | 2026-11-09 | **Phase 6 label/replay 완료 — B0-B candidate gate false**: replay 12/12 `replay_ok` (M 1,680 + phase7 7,200, `atol=1e-5`/`rtol=1e-4`). `L_COPY_SIGNAL=false` (mean -0.1135, CI[-0.2341,-0.0012], paired -0.0026, 0/3 seeds), `L_FULL_SIGNAL=false` (-0.1085, CI[-0.2234,-0.0057], 0/3). `l_signal=false`, `copy_only/full_only=false`, `n_signal=15`, `tail_driven=true` (leave_top3_mean -0.0279). `m_evaluable=true`, `m_valid=true`, `validity_status=VALID`, `control_status=M_CONTROL_PASS`, `signal_status=MEAN_CONTRAST_ONLY`. **b0_b_candidate_gate=false**. B0-B 별도 prereg/승인 필요. | reports/C5_B0A_PM_PHASE6_LABELS_2026-11-09.md; reports/provenance/C5_b0a/labels/labels.json; reports/provenance/C5_b0a/labels/replay_report.json; runner/c5_pm_labels.py |
 
+| D-159 | 2026-11-09 | **Phase 6 signal collapse 원인 분석 완료 — adapter bottleneck**: LoRA 효과 기각(F vs L paired -0.0026, 8/15), adapter 효과 결정적(P no-adapter 3.076 vs PA adapter 0.011, paired +3.065, 14/15). F/L adapter가 EG2 between-doc variance를 4.883→0.085로 98%+ 압축. M은 control-real 0.365~6.118로 통과하지만 wrong-real은 F/L/PA ~0; **M_PASS ≠ donor specificity**. tail top3 제거 후에도 L mean -0.0279로 broad negative. **다음은 새 prereg의 F0(EG2 raw + decoder LoRA, no adapter) 필요.** | reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md; reports/provenance/C5_b0a/labels/cause_analysis.json; reports/provenance/C5_b0a/labels/cause_centered.json |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
