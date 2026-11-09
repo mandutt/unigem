@@ -41,6 +41,7 @@ SPLITS = ROOT / "reports/provenance/C5_clean/splits.json"
 CACHE = ROOT / "data/wave2c/eg2_native_layer19/layer19"
 OUT = ROOT / "reports/provenance/C5_b0/mt5_lora_smoke.json"
 METRIC_OUT = ROOT / "reports/provenance/C5_b0/metric_smoke.json"
+P0_OUT = ROOT / "reports/provenance/C5_b0a/p0_native_sanity.json"
 EXPECTED_LORA_MODULES = 64
 
 
@@ -123,6 +124,161 @@ def token_losses(model, memory: torch.Tensor, labels: torch.Tensor) -> tuple[flo
         ignore_index=-100,
     ).view_as(target)
     return float(out.loss.detach()), losses.detach()
+
+
+def native_source_ids(tok, passage: str, max_length: int) -> list[int]:
+    """Tokenize the native mT5 source with the same task prefix."""
+    text = "summarize: " + str(passage)
+    return tok(text, add_special_tokens=True, truncation=True, max_length=max_length)["input_ids"]
+
+
+def native_memory(model, token_ids: list[int]) -> torch.Tensor:
+    """Encode source token IDs through the native mT5 encoder only."""
+    input_ids = torch.tensor([token_ids], dtype=torch.long)
+    attention_mask = torch.ones_like(input_ids)
+    with torch.no_grad():
+        out = model.encoder(input_ids=input_ids, attention_mask=attention_mask)
+    return out.last_hidden_state[0].detach()
+
+
+def native_donors_for(ids: list[str], lengths: dict[str, int], count: int = 5) -> dict[str, list[str]]:
+    """Deterministic length-nearest donor assignment for native source tokens."""
+    out: dict[str, list[str]] = {}
+    for rid in ids:
+        candidates = [x for x in ids if x != rid]
+        candidates.sort(key=lambda x: (abs(lengths[x] - lengths[rid]), x))
+        out[rid] = candidates[:count]
+    return out
+
+
+def p0_eval_split(
+    rows: dict[str, dict],
+    ids: list[str],
+    tok,
+    model,
+    donor_count: int,
+    source_max_length: int,
+) -> dict[str, Any]:
+    """Evaluate native source memory against length-matched shuffled sources."""
+    labels_by_id = {
+        rid: make_labels(tok, str(rows[rid]["summary"]), 256) for rid in ids
+    }
+    special = {int(x) for x in tok.all_special_ids}
+    copy_by_id = {
+        rid: copyable_mask(str(rows[rid]["passage"]), labels_by_id[rid][0].tolist(), tok, special)[0]
+        for rid in ids
+    }
+    source_ids = {
+        rid: native_source_ids(tok, str(rows[rid]["passage"]), source_max_length)
+        for rid in ids
+    }
+    lengths = {rid: len(source_ids[rid]) for rid in ids}
+    donors = native_donors_for(ids, lengths, donor_count)
+    per_doc: dict[str, dict[str, float]] = {}
+    for rid in ids:
+        real_ids = source_ids[rid]
+        labels = labels_by_id[rid]
+        copies = copy_by_id[rid]
+        real_copy: list[float] = []
+        wrong_copy: list[float] = []
+        real_full: list[float] = []
+        wrong_full: list[float] = []
+        for donor in donors[rid]:
+            k = min(len(real_ids), len(source_ids[donor]))
+            if k < 2:
+                continue
+            mem_real = native_memory(model, real_ids[:k])
+            mem_wrong = native_memory(model, source_ids[donor][:k])
+            full_real, tok_real = token_losses(model, mem_real, labels)
+            full_wrong, tok_wrong = token_losses(model, mem_wrong, labels)
+            rc = copy_ce(tok_real, labels, copies)
+            wc = copy_ce(tok_wrong, labels, copies)
+            if rc is not None and wc is not None:
+                real_copy.append(rc)
+                wrong_copy.append(wc)
+            real_full.append(full_real)
+            wrong_full.append(full_wrong)
+        if not real_copy:
+            continue
+        per_doc[rid] = {
+            "n_donors": len(real_copy),
+            "real_ce_copy": float(np.mean(real_copy)),
+            "wrong_ce_copy": float(np.mean(wrong_copy)),
+            "delta_shuffled_copy": float(np.mean(np.asarray(wrong_copy) - np.asarray(real_copy))),
+            "real_ce_full": float(np.mean(real_full)),
+            "wrong_ce_full": float(np.mean(wrong_full)),
+            "delta_shuffled_full": float(np.mean(np.asarray(wrong_full) - np.asarray(real_full))),
+            "copy_coverage": float(copies.sum()) / max(1, int(copies.numel())),
+        }
+    values = list(per_doc.values())
+    if not values:
+        return {"n_docs": 0, "error": "no copyable target token document"}
+    deltas = [x["delta_shuffled_copy"] for x in values]
+    return {
+        "n_docs": len(values),
+        "mean_delta_shuffled_copy": float(np.mean(deltas)),
+        "bootstrap_delta_shuffled_copy": bootstrap_paired(deltas),
+        "mean_delta_shuffled_full": float(np.mean([x["delta_shuffled_full"] for x in values])),
+        "mean_real_ce_copy": float(np.mean([x["real_ce_copy"] for x in values])),
+        "mean_wrong_ce_copy": float(np.mean([x["wrong_ce_copy"] for x in values])),
+        "mean_copy_coverage": float(np.mean([x["copy_coverage"] for x in values])),
+        "copy_guard_failed": bool(np.median([x["copy_coverage"] for x in values]) < 0.10),
+        "per_doc": per_doc,
+    }
+
+
+def p0_sanity_decision(split_result: dict[str, Any]) -> str:
+    """Descriptive sanity verdict; not a B0-B gate or threshold change."""
+    if not split_result.get("n_docs"):
+        return "NO_DATA"
+    boot = split_result["bootstrap_delta_shuffled_copy"]
+    mean = split_result["mean_delta_shuffled_copy"]
+    lo = boot.get("ci_lower")
+    hi = boot.get("ci_upper")
+    if lo is not None and mean > 0 and lo > 0:
+        return "SENSITIVE_POSITIVE"
+    if hi is not None and mean <= 0 and hi < 0:
+        return "INSENSITIVE_NEGATIVE"
+    return "INCONCLUSIVE"
+
+
+def p0_sanity(args) -> int:
+    """No-training native mT5 encoder sanity check; no B0-B execution."""
+    rows = {str(r["id"]): r for r in read_jsonl(args.data)}
+    split = json.loads(args.splits.read_text(encoding="utf-8"))
+    selections = {
+        "train": [str(x) for x in split["train"][: args.train_limit]],
+        "val": [str(x) for x in split["val"][args.val_start : args.val_start + args.val_limit]],
+    }
+    tok, model = load_base()
+    model.eval()
+    results: dict[str, Any] = {}
+    for name, ids in selections.items():
+        results[name] = p0_eval_split(
+            rows, ids, tok, model, args.donor_count, args.target_max_length
+        )
+        results[name]["decision"] = p0_sanity_decision(results[name])
+    payload = {
+        "experiment": "c5_b0_p0_native_sanity",
+        "mode": "p0_sanity_no_training",
+        "model": str(MODEL.relative_to(ROOT).as_posix()),
+        "source_prefix": "summarize: ",
+        "source_max_length": args.target_max_length,
+        "donor_count": args.donor_count,
+        "splits": results,
+        "interpretation": {
+            "decision": "descriptive only; not a threshold change or B0-B approval",
+            "SENSITIVE_POSITIVE": "mean aligned delta > 0 and bootstrap CI lower > 0",
+            "INSENSITIVE_NEGATIVE": "mean aligned delta <= 0 and bootstrap CI upper < 0",
+            "INCONCLUSIVE": "neither condition",
+        },
+        "test_split_used": False,
+    }
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    print(f"wrote {args.out}")
+    return 0
 
 
 def copyable_mask(source: str, target_ids: list[int], tok, special_ids: set[int]) -> tuple[torch.Tensor, int]:
@@ -596,7 +752,7 @@ def train_arm(args, arm: str) -> dict[str, Any]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["smoke", "metric-smoke", "train"], default="smoke")
+    ap.add_argument("--mode", choices=["smoke", "metric-smoke", "train", "p0-sanity"], default="smoke")
     ap.add_argument("--arm", choices=["frozen", "lora", "both"], default="both")
     ap.add_argument("--model-dir", type=Path, default=MODEL)
     ap.add_argument("--data", type=Path, default=DATA)
@@ -620,6 +776,8 @@ def main() -> int:
     args = ap.parse_args()
     if args.mode == "metric-smoke" and args.out == OUT:
         args.out = METRIC_OUT
+    if args.mode == "p0-sanity" and args.out == OUT:
+        args.out = P0_OUT
     args.cache_dir = args.cache_dir if args.cache_dir.is_absolute() else ROOT / args.cache_dir
     args.out = args.out if args.out.is_absolute() else ROOT / args.out
     torch.set_num_threads(6)
@@ -627,6 +785,8 @@ def main() -> int:
         return smoke(args)
     if args.mode == "metric-smoke":
         return metric_smoke(args)
+    if args.mode == "p0-sanity":
+        return p0_sanity(args)
     if args.steps < 1:
         raise ValueError("--steps must be >= 1 for train mode")
 

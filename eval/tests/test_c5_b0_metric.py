@@ -83,6 +83,46 @@ class B0MetricAlignmentTests(unittest.TestCase):
         self.assertEqual(lora_policy["lora_modules"], EXPECTED_LORA_MODULES)
         self.assertEqual(lora_policy["trainable_base_parameters"], 0)
 
+    def test_native_donors_are_length_matched_and_exclude_self(self) -> None:
+        from runner.c5_mt5_lora_b0 import native_donors_for
+
+        ids = ["a", "b", "c"]
+        donors = native_donors_for(ids, {"a": 10, "b": 12, "c": 30}, count=1)
+        self.assertEqual(donors["a"], ["b"])
+        self.assertEqual(donors["b"], ["a"])
+        self.assertEqual(donors["c"], ["b"])
+        for rid in ids:
+            self.assertNotIn(rid, donors[rid])
+
+    def test_p0_decision_is_descriptive(self) -> None:
+        from runner.c5_mt5_lora_b0 import p0_sanity_decision
+
+        self.assertEqual(p0_sanity_decision({"n_docs": 0}), "NO_DATA")
+        self.assertEqual(
+            p0_sanity_decision({
+                "n_docs": 20,
+                "mean_delta_shuffled_copy": 0.1,
+                "bootstrap_delta_shuffled_copy": {"ci_lower": 0.01, "ci_upper": 0.2},
+            }),
+            "SENSITIVE_POSITIVE",
+        )
+        self.assertEqual(
+            p0_sanity_decision({
+                "n_docs": 20,
+                "mean_delta_shuffled_copy": -0.1,
+                "bootstrap_delta_shuffled_copy": {"ci_lower": -0.2, "ci_upper": -0.01},
+            }),
+            "INSENSITIVE_NEGATIVE",
+        )
+        self.assertEqual(
+            p0_sanity_decision({
+                "n_docs": 20,
+                "mean_delta_shuffled_copy": 0.01,
+                "bootstrap_delta_shuffled_copy": {"ci_lower": -0.1, "ci_upper": 0.12},
+            }),
+            "INCONCLUSIVE",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -139,6 +139,8 @@
 
 | D-118 | 2026-11-09 | **C5 B0-A repair phases 1~4 implemented**: CE same-position alignment (`logits` vs `labels`), no shifted copy mask, F/L base decoder eval + adapter/LoRA-only train, generation telemetry, mask audit. Alignment probe: built-in 31.98719596862793 == aligned 31.98719596862793; old shifted 33.9515380859375. 1-step debug: F/L first CE both 27.43998146057129; 64 LoRA modules; 5 focused tests and 52 total tests OK. B0-A historical results unchanged and still primary-metric-compromised. Mask as-run coverage val .8246 / train .8351; candidate piece_len>=2 val .2427 / train .2161 (report only, no rule change). **No B0-A rerun, no B0-B/B1/B2/Stage C; Phase 5 P0 and Phase 6 P/M remain separately gated.** test 163 sealed. | reports/C5_B0A_REPAIR_2026-11-09.md; reports/C5_B0A_MASK_AUDIT_2026-11-09.md; runner/c5_mt5_lora_b0.py; eval/tests/test_c5_b0_metric.py; runner/c5_b0_mask_audit.py |
 
+| D-119 | 2026-11-09 | **C5 B0-A Phase 5 P0 native sanity — SENSITIVE_POSITIVE**: native mT5 encoder + frozen decoder, no training, train 20/val 20 (`val[5:25]`), 5 length-matched donors. train mean Δcopy **+3.7617** CI [1.8917,5.6050], Δfull +3.5027, positive docs 14/20; val mean Δcopy **+5.2375** CI [2.5013,8.0753], Δfull +5.2936, positive docs 18/20; coverage .8351/.8246, guard false. Metric/path sensitivity confirmed. **P0 is not evidence for EG2/decoder adaptation; B0-B/B1/B2/Stage C remain unapproved. Phase 6 P/M requires a new preregistration and separate approval.** test 163 sealed. | reports/C5_B0A_P0_NATIVE_SANITY_2026-11-09.md; reports/provenance/C5_b0a/p0_native_sanity.json; runner/c5_mt5_lora_b0.py |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
