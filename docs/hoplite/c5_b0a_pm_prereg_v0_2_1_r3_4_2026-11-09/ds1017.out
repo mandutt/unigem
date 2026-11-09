@@ -1,0 +1,25 @@
+Review written to `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_4_2026-11-09/review_DS1017.md` (the only file added; worktree otherwise clean).
+
+**Sync:** `git fetch origin` + `git pull --ff-only origin main` → already up to date, HEAD `05de3ae1b0a4b3bc3df5170efdfe037b45038b9b`. Reviewer: DeepSeek V4.1 Flash 1017 (`deepseek-v4.1-flash-1017`, high). No training/eval run, test 163 untouched, no subagents, no other model's answer used.
+
+Independently re-verified: preflight SHA-256 = `3ee3f1ca…` (matches), K=753 maximality and 16/15/20/11 counts, all cap and endpoint arithmetic (1,200 / 1,204 / 155 / 120 / 600 / 1,440), and every P0 headline number from `p0_native_sanity.json` (means, CIs, 14/20 and 18/20, median 2.9739).
+
+| Q | Verdict | Key evidence |
+|---|---|---|
+| Q1 | agree | §5.3 total with final `else`; all §5.2 labels reachable; F1–F11 consistent with §3.2–3.4; two wording gaps (control_status) |
+| Q2 | agree | all 9 §2.4 cells reproduce from `ANDn`/`NOT3`; mixed → NA with copy_only/full_only true; fixtures 16–18 consistent |
+| Q3 | conditional | K=753 provably maximal; but the 15-doc cohort is length-selected (5 shortest excluded), zero-margin, and "full-K 11/20" has no K |
+| Q4 | conditional | builder, P identity, `real_prefix_t`, 1,440 arithmetic all executable — but the variant×memory_kind tensors are undefined and the replay set domain is 600 vs 720/arm-seed |
+| Q5 | conditional | PA rationale, `PA_RETENTION` non-gate, geometry caveat present; P/PA validity cohort unpinned; P-pass/PA-fail branch unstated |
+| Q6 | agree | 12×100=1,200; D1 4×1; 1,204; 155 min; phase 5 120, phase 7 600; T_proj ≤96 min |
+| Q7 | conditional | constants/seed/percentile/2-of-3/tri-state executable; `documents_positive` and `l_copy_signal`↔`L_COPY_SIGNAL` binding missing |
+| Q8 | disagree (closure) | 15/18 r3.3 blockers closed; MF-1…MF-4 remain, three of them newly exposed by r3.4's own enumeration |
+| Q9 | conditional | cannot freeze as-is; r3.5 (text-only) closes MF-1…MF-5, then implementation + unit tests + D0 |
+| Q10 | conditional | D0/D1/3-seed boundaries adequate; checklist lacks items 28–33 and a machine check for "no parameter diff" |
+| Q11 | agree | §14 guards intact; predicate restated in r3.4 labels |
+| Q12 | **NARROW** | four definition-level holes in the primary scoring path |
+| Q13 | agree | v1.0 needed but cheap: r3.4 is already self-contained (no definition defers to r3.3), so v1.0 = fixed r3.5 + traceability appendix, one review round |
+
+**Must-fix (ranked).** MF-1 (blocker) no tensor definition for the `variant × memory_kind` 4-cell grid — §8.3 fixes real memory to `real_prefix_t` regardless of variant, yet §8.4/§8.5 demand both variants pass, so the grid may be degenerate and `M_PASS_POS`/`M_PASS_NORM` may be the same test twice. MF-2 (blocker) `tail_driven` input omits `variant` although it is a hard B0-B gate. MF-3 (blocker) `P_VALID`/`PA_VALID` cohort unpinned (15 `common_ids` vs 20 native) while it drives `control_status`. MF-4 (blocker) replay hash domain/count ambiguous (600 vs 720 per arm-seed) and the "prelaunch debug vs postrun final" comparison mixes a D1 seed-20261111 hash with the registered run. MF-5 (high) bind `l_copy_signal`/`l_full_signal`. MF-6 (medium) define "full-K" (preflight's excluded set is the nine *longest* val docs, not a `h_len ≥ K` set). MF-7…MF-13 low: control_status wording, availability-NA collapse, `documents_positive`, §12 tail caveat (P0's `.4862` is the *signed* share; the gate's absolute share is `.4335`, ≈`.455` on the 15), fixture defaults, D1 wording, golden digests.
+
+**Verdict: NARROW.** r3.4 freeze: no — text-only r3.5 (=v1.0) closing MF-1…MF-5 first. Implementation + unit tests + D0: conditional after that freeze. D1, 3-seed: not approved. Max compute now: 0; afterwards exactly §10.5 (1,200 updates/120 min registered + D0 0/≤15 min + D1 4/≤20 min = 1,204/155 min, not a grant). test 163 sealed, P1 unused, T5Gemma2 D-108 STOP, Phase 6/B0-B/B1/B2/Stage C not approved.

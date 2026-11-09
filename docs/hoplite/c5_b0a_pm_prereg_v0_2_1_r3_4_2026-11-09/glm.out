@@ -1,0 +1,30 @@
+Review complete. The full report is at `docs/hoplite/c5_b0a_pm_prereg_v0_2_1_r3_4_2026-11-09/review_GLM.md` (454 lines, the only write made).
+
+**Sync record:** `git fetch origin` + `git pull --ff-only origin main` → HEAD **`05de3ae1`** ("docs: add C5 P/M v0.2.1-r3.4 review request"). Lineage verified: `30b966d` (pinned r3.4 basis) → `05de3ae1` touches only review-request files; the r3.4 plan is byte-identical to its pinned basis. (origin/main moved to `c158c7f`, threads.json only, mid-review — noted, not merged.) I read the full primary text this round (r3.4 all §0–§17, r3.3, synthesis, preflight, P0, runner, tests) and re-verified independently: preflight SHA-256 matches `3ee3f1ca…` exactly; the §2.4 9-pair table re-derives cleanly from §2.2/§2.3 (no contradiction); 1,440/120/600/1,204/155-min arithmetic all check; P0 means/CIs/median reproduce from the artifact.
+
+**Q1–Q13 verdicts (GLM 5.3 Flash max, independent round):**
+
+| Q | Topic | Verdict | Key evidence |
+|---|---|---|---|
+| Q1 | Total factored contract | **conditional** | §2–§6 machinery total & self-consistent (9-pair table hand-re-derived); but `pa_valid` numeric form only via chain (errata §2.4), tail variant unpinned, donor-level records undefined in §8 |
+| Q2 | L consensus / fixtures | **agree** | §2.3 ≡ §2.4 (all 9 rows verified); mixed→NA only; fixtures 16–18 now use n_signal=15, primitive-derived |
+| Q3 | M preflight / cohort | **agree** | Hash match; 16 contributors ≥10; 15/20 common; 5 excluded all <753; full-K 11/20 secondary; zero-margin handled by §8.7 abort |
+| Q4 | Builder / M_NORM / endpoint / replay | **conditional** | F/P identity/real_prefix_t/1,440/golden vector closed (frame bytes verified); **phase 7 donor-level replay semantics undefined** (§8 vs §10.6 key) |
+| Q5 | PA | **agree** | Naming, non-gate PA_RETENTION, geometry caveat, §4.2 veto rationale all stated; restate PA_VALID in §7.2 |
+| Q6 | Cap / D0 / D1 | **agree** | 1,200/1,204/155 min verified; phase 5 = 120 = 1,440/12 exactly; D0/D1 boundaries intact |
+| Q7 | Statistics | **conditional** | Constants/predicates executable; legacy seed-20261108/`seeds_positive` defect confirmed in runner; §9.2 "shuffled-minus-real" vs §8.5 `delta_memfree` naming conflict |
+| Q8 | Remaining Must-fix | **conditional** | 5 ranked items below; r3.4 created no new contradictions |
+| Q9 | Freeze + implementation | **conditional** | Freezable after MF-A…MF-D text closure; PM unit suite is new work (54 historical tests are B0-era) |
+| Q10 | D1 / 3-seed boundary | **agree** | Gates properly separated; checklist item 24 omits L; add 3 tests post-fix |
+| Q11 | B0-B boundary | **agree** | No auto-approval; predicate restated in r3.4 labels (`n_signal==15`, `tail_driven==false` binding); not approved this round |
+| Q12 | Final verdict | **NARROW** | See below |
+| Q13 | v1.0 consolidation | **agree (needed)** | 9-document chain; residual findings are inheritance-drift symptoms; v1.0 sole authority + 1 review round |
+
+**Must-fix (ranked, all text-only — no threshold/seed/donor/step/LR changes):**
+1. **Pin `tail_driven`'s control variant** (§9.4) — MF-5 itself required `variant = M_POS_MEAN`; r3.4 dropped it. B0-B gate input not yet total.
+2. **Define donor-level record semantics** — phases 2/3/7 (600/arm-seed replay) and §10.6's `donor_id ∈ {0..4}` key presuppose donor-level records that §8 never defines (pool, construction, `variant` meaning, `final_replay_hash` coverage); or descope phase 7 to 120/arm-seed and re-derive T_proj.
+3. **Disambiguate the two delta families in §9** (`delta_shuffled_*` signal axis vs `delta_memfree_*` control axis); fix stale §9.2 wording.
+4. **Restate chain-inherited definitions** (PA_VALID, M_GLOBAL, path flags, step fields, n_signal per-doc 12-record criterion) — or close via v1.0.
+5. Cosmetic: checklist item 24 add L; §8.3 "one global" → per-seed; pin real-tensor `dtype_str`; phase 5 "initial" wording; the request's own P0 caveat mislabels val top-3 share (.4862 is the **signed** share; the r3.4 gate-form **absolute** share is **.4335**, recomputed from `p0_native_sanity.json` — descriptive only, no gate impact).
+
+**Final verdict: NARROW** — r3.4 closes 17/18 r3.3 blockers in primary text and creates no new contradictions, but is not yet freezable. After MF-A…MF-D close (r3.5 or v1.0 §): freeze + implementation + unit tests + **D0** (0 updates, ≤4 configs, ≤15 min, seed 20261111) approved. **D1, 3-seed, B0-B/B1/B2/Stage C: not approved.** Forbidden: registered Phase 6 execution, test 163 (sealed), P1, T5Gemma2 (D-108 STOP), post-result threshold/seed/donor/step/LR edits. Max compute: CPU unit tests + D0 only; the 1,200 registered updates remain ungranted. A v1.0 consolidated self-contained spec with a traceability appendix, reviewed once in a separate round, should be the sole implementation authority before code is written.

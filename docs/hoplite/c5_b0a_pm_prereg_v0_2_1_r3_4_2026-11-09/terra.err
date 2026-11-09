@@ -1,0 +1,4 @@
+[hoplite] reasoning=high (model=gpt-6.1-terra)
+[hoplite] thread=thr_316fd77820c84ecea56759cecfdb59c1 (new)
+HTTP 404 GET /api/threads/thr_316fd77820c84ecea56759cecfdb59c1: {"ok":false,"error":"thread_not_found"}
+TIMEOUT: no completion within 570s
