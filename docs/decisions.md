@@ -245,6 +245,8 @@
 
 | D-171 | 2026-11-09 | **F0 v0.7 review — 3/3 NARROW**: GLM/DS/Luna. v0.8 반영: D1 signal/per_doc/phase7/final 미생성(mechanics only, `d1_report` 금지), H3 F0에서 완전 제거, T_proj_R 공식/캡 D1 25·R 120, reason enum 통일, MDE≈.166 명시, donor all-cell. **F0 미승인·미실행**; v0.8 재검토 진행. | reports/C5_F0_V0_7_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v0_8_2026-11-09.md |
 
+| D-172 | 2026-11-09 | **F0 v0.8 review — 3/3 NARROW**: GLM/DS/Luna. v0.9 반영: 150/120 cap 불일치 통일(120), EQUIVALENT 문장 모순 제거, MDE 50% .166/80% .216, D1 exact schema/path, H3 out-of-scope 유지. **F0 미승인·미실행**; v0.9 재검토 진행. | reports/C5_F0_V0_8_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v0_9_2026-11-09.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
