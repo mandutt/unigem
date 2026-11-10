@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "experiment": "C5 F0.4 fresh-seed directional E11-E01 confirmation",
+  "status": "owner_approved",
+  "plan_path": "docs\\plan_c5_f0_4_confirm_v0_1_2026-11-10.md",
+  "plan_sha256": "3d1b226ebb49151ad15b9a10712a6b57d79362a5e6c22db710dbcbb87c6531f7",
+  "code_commit": "282bf69",
+  "approved_by": "owner",
+  "approved_at": "2026-11-10",
+  "cells": [
+    "E01",
+    "E11"
+  ],
+  "seeds": [
+    20261112,
+    20261113,
+    20261114
+  ],
+  "updates": 400,
+  "lora_lr": 0.0003,
+  "adapter_lr": 0.001,
+  "fit_ratio_gate": 0.35,
+  "cap_seconds": 3600,
+  "primary": "E11_copy - E01_copy",
+  "scope": [
+    "fresh seeds",
+    "directional benefit",
+    "no M/phase7/generation"
+  ]
+}
