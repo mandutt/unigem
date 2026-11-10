@@ -149,3 +149,17 @@ This is **directional evidence**, not a PASS.
 - F0.3: `reports/C5_F0_3_RESULT_2026-11-10.md`
 - provenance: `reports/provenance/C5_f0*/`
 - commits: `75fe476`, `0617adb`, `03afe9f`, `e0e5652`, `c749eee`
+
+# Addendum — F0.4 (2026-11-10)
+
+F0.4 fresh-seed directional confirmation was completed after this synthesis.
+
+- fresh seeds: 20261112/13/14
+- fit gate: **6/6 pass**
+- status: **NO_BENEFIT**
+- E11 copy: **+0.0766**, CI **[-0.0027, +0.1633]**, 3/3 seeds positive but CI includes 0 → signal **false**
+- E01 copy: −0.0150, non-signal
+- `E11 − E01` copy: **+0.09166**, CI **[-0.01668, +0.21448]**, 3/3 seed D_s > 0
+- `benefit_positive`: **false**; `equivalent`: false
+
+Interpretation: direction remains positive (E11 > E01) but **F0.2's E11 signal/directional benefit was not confirmed** under fresh seeds. This is not proof of no effect; it is a failure to confirm under the current 15-doc/low-power cohort. F0 line should be closed as **directional but unconfirmed**. F0.2/F0.3 labels remain unchanged.
