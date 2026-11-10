@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "experiment": "C5 F0.3 E00/E10 reference decomposition",
+  "status": "owner_approved",
+  "plan_path": "docs\\plan_c5_f0_3_reference_v0_1_2026-11-10.md",
+  "plan_sha256": "27c85fbc41c21e4527d18f1fdf9a6054f9580752ff1c5bcb22fbedbff2d95a94",
+  "code_commit": "0e4db32",
+  "approved_by": "owner",
+  "approved_at": "2026-11-10",
+  "cells": [
+    "E00",
+    "E10"
+  ],
+  "seeds": [
+    20261108,
+    20261109,
+    20261110
+  ],
+  "updates": {
+    "E00": 0,
+    "E10": 400
+  },
+  "adapter_lr": 0.001,
+  "fit_ratio_gate": 0.35,
+  "cap_seconds": 3600,
+  "scope": [
+    "E00/E10 only",
+    "E11 external reference",
+    "descriptive only",
+    "no M/phase7/generation"
+  ]
+}
