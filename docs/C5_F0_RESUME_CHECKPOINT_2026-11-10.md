@@ -94,3 +94,14 @@ sha256sum docs/plan_c5_f0_CONSOLIDATED_v1_0_2026-11-10.md docs/plan_c5_f0_v1_13_
 - E01/E11 copy coverage equal (0.8267), so not a mask issue
 - E10 full descriptive signal only
 - next: F0.1 optimization diagnostic (new prereg) or F5 track; H3/B0-B not opened
+
+## Update — F0.1a Stage A
+
+- result: `E01_UNDERFIT_RESCUED_400_RANGE`
+- C1 (100/1e-4): fit_ratio ~0.735, 0/3 pass
+- C2 (400/1e-4): fit_ratio ~0.381, 0/3 pass
+- C4 (400/3e-4): fit_ratio ~0.252, **3/3 pass**
+- 9/9 units, wall 2177.4s/2700s
+- F0.1a is fit-only; no signal evaluation
+- Stage B (1000 updates) not needed
+- next: F0.2 signal re-test (matched E01/E11 optimization) only with new prereg/approval
