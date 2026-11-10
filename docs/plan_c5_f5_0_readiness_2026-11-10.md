@@ -189,11 +189,12 @@ F0 adapter/LoRA와 EG2 bridge는 **이 단계에 넣지 않는다.**
 F5.1은 confirmatory가 아니라 **pilot**이므로 다음은 제품 gate가 아니다.
 
 ```text
-reproduction:
-  |char_F1 - 0.6576| <= 0.01
-  grounded >= 0.99
-  EOS >= 0.95
-  repeated4 <= 0.06
+artifact consistency (재생성 없음):
+  existing pilot300 val161 metrics:
+    char_F1 == 0.6575798
+    grounded >= 0.99
+    EOS >= 0.95
+    repeated4 <= 0.06
 
 human:
   mean rubric >= 2.5 / 3
@@ -201,6 +202,7 @@ human:
 ```
 
 - gate를 통과해도 **제품 승격 아님**.
+- val161을 다시 생성하지 않는다. 기존 `pilot300_val161/predictions.jsonl`과 `metrics.json`을 사용한다.
 - gate 실패 시 bridge로 가지 않고, 원인을 native data/decoding/target 품질로 분리한다.
 - gate 값은 F5.1 freeze 전에 사용자 승인을 받는다.
 
@@ -228,18 +230,21 @@ F5.0 완료 조건:
 - [x] val5 smoke 재현
 - [x] F5.1 pilot design
 - [x] multilingual gap 명시
-- [ ] F5.1 val161 실행 (별도 승인)
+- [ ] F5.1 existing pilot300 val161 predictions analysis (재생성 없음)
 - [ ] F5-ML data audit (별도 작업)
 
 ## 7. 권고
 
-**F5.1a: A1 pilot300 val161 generation-only 재현**을 먼저 한다.
+**F5.1a: existing pilot300 val161 predictions analysis**를 먼저 한다.
 
-- 학습 없음
+- **재생성 없음**: `reports/provenance/C5_a1/pilot300_val161/predictions.jsonl` 161건 사용
+- **재학습 없음**
 - test 163 미사용
-- F5-native baseline의 실제 분포 확인
+- 기존 예측에서 abstractness/copy/novel 4-gram/slot preservation 오류 유형 분석
 - 이후 사람 40~50건 rubric
 - 그 다음에만 **F5-ML**과 **bridge incremental** 검토
+
+재실행이 필요한 경우는 code/adapter/split이 바뀌어 provenance가 달라졌을 때뿐이다. 현재는 해당 없음.
 
 F0 adapter/LoRA는 F5.1에 넣지 않는다. F5-native가 먼저다.
 
