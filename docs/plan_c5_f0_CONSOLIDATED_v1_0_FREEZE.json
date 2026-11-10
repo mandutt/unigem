@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "experiment": "C5 F0 adapter x LoRA",
+  "status": "owner_approved_unreviewed",
+  "plan_path": "docs/plan_c5_f0_CONSOLIDATED_v1_0_2026-11-10.md",
+  "plan_sha256": "9815274561e421e2a07554ba704056f41317b3f761e81a983743cf44af97d8be",
+  "annex_path": "docs/plan_c5_f0_v1_13_2026-11-09.md",
+  "annex_sha256": "0b7080e65729fe01aba94a65d4e2a5fa3f5227cfa6ec44ff220035554321e0dd",
+  "approved_by": "owner",
+  "approved_at": "2026-11-10",
+  "review_status": "3AI_not_run_owner_accepts_risk",
+  "scope": [
+    "F0 implementation skeleton and unit tests",
+    "D0 zero-update mechanics only"
+  ],
+  "prohibited_before_separate_approval": [
+    "D1 updates",
+    "P/Q/R runs",
+    "test 163",
+    "P1"
+  ],
+  "notes": "Freeze is an owner-approved unreviewed baseline. Any later change requires an ERRATA entry and a new freeze hash."
+}
