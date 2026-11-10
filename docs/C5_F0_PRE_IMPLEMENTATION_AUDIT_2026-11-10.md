@@ -65,3 +65,23 @@
 2. Implement `eval_mechanics_only`; never reuse `eval_arm_d1`.
 3. Add D1 custody tests (success/crash/forced-kill, logs/temp, checkpoint absent).
 4. Commit code and request **explicit D1 stage approval**.
+
+## 6. D1 result (2026-11-10)
+
+- command: `.venv/Scripts/python.exe runner/c5_pm_f0.py --mode d1`
+- output: `reports/provenance/C5_f0/d1/f0_d1_mechanics.json`
+- SHA256: `74c39317afa26ea4705dd303a9341d9961cd0d399e4584cb375314d91b90b377`
+- code commit: `0c3c747`
+- `mechanics_pass:true`, `partial:false`, `error:null`
+- 4 cells, 3 trained updates total, E00 0
+- M records 480 (120/cell), generation 80 (20/cell), phase7 0
+- real memory CE calls 160/160; all CE finite
+- checkpoint digests recorded, no checkpoint file (`checkpoint_absent:true`)
+- wrong-donor CE calls 0; donor-map loads 0
+- D1 signal/CE values not read, `labels_computed:false`, `not_a_result:true`
+- all 20 assertions true
+- parallel wall: 357.53s / cap 1,500s; 2 threads/arm, 12 nproc
+- exact D1 schema keys validated: no extra top-level/cell/timings/provenance/parallel keys
+- D1 did not write per-doc, delta, signal, phase7, or final objects
+
+D1 mechanics is **PASS**. This is not a performance or signal result. D1 signal/CE values remain sealed and must not drive Stage R or STOP.

@@ -63,3 +63,12 @@ sha256sum docs/plan_c5_f0_CONSOLIDATED_v1_0_2026-11-10.md docs/plan_c5_f0_v1_13_
 - D0 audit: `docs/C5_F0_PRE_IMPLEMENTATION_AUDIT_2026-11-10.md`
 - Current gate: **D1 blocked** pending CE operation table, mechanics evaluator, custody tests, explicit D1 approval
 - D1/R/Q execution: none
+
+## Update — D1 executed
+
+- D1 code commit: `0c3c747`
+- D1 output: `reports/provenance/C5_f0/d1/f0_d1_mechanics.json`
+- D1 SHA256: `74c39317afa26ea4705dd303a9341d9961cd0d399e4584cb375314d91b90b377`
+- D1 result: `mechanics_pass:true`, `partial:false`, 4 cells, updates_total 3, M 480, generation 80, phase7 0, real CE 160/160, checkpoint absent
+- D1 wall: 357.53s / 1,500s cap
+- Next gate: P/Q init audits and R preconditions; **R not approved**

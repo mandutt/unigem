@@ -1,0 +1,118 @@
+{
+  "schema_version": "1",
+  "cells": {
+    "E00": {
+      "updates": 0,
+      "lora_params": 0,
+      "adapter_params": 0,
+      "n_docs_step0": 20,
+      "n_docs_final": 20,
+      "m_records": 120,
+      "generation_records": 20,
+      "ce_finite": true
+    },
+    "E10": {
+      "updates": 1,
+      "lora_params": 0,
+      "adapter_params": 526336,
+      "n_docs_step0": 20,
+      "n_docs_final": 20,
+      "m_records": 120,
+      "generation_records": 20,
+      "ce_finite": true
+    },
+    "E01": {
+      "updates": 1,
+      "lora_params": 458752,
+      "adapter_params": 0,
+      "n_docs_step0": 20,
+      "n_docs_final": 20,
+      "m_records": 120,
+      "generation_records": 20,
+      "ce_finite": true
+    },
+    "E11": {
+      "updates": 1,
+      "lora_params": 458752,
+      "adapter_params": 526336,
+      "n_docs_step0": 20,
+      "n_docs_final": 20,
+      "m_records": 120,
+      "generation_records": 20,
+      "ce_finite": true
+    }
+  },
+  "assertions": {
+    "lora_names_equal": true,
+    "lora_ab_hash_equal": true,
+    "adapter_hash_equal": true,
+    "post_init_rng_equal": true,
+    "post_step0_rng_equal": true,
+    "lora_b_zero": true,
+    "cell_param_presence_ok": true,
+    "base_cache_labels_equal": true,
+    "post_step0_weight_change_ok": true,
+    "phase6_io_zero": true,
+    "step0_docs_ok": true,
+    "final_docs_ok": true,
+    "m_count_ok": true,
+    "generation_count_ok": true,
+    "ce_finite_ok": true,
+    "real_memory_ce_calls_ok": true,
+    "provenance_ok": true,
+    "cells_ok": true,
+    "updates_total_ok": true,
+    "e00_steps_zero": true
+  },
+  "updates_total": 3,
+  "timings": {
+    "setup_s": 8.455987691879272,
+    "step0_s": 119.33754897117615,
+    "step100_s": 0.0,
+    "m_build_s": 0.0,
+    "m_ce_s": 0.0,
+    "generation_s": 839.4182035923004,
+    "total_s": 357.531626701355
+  },
+  "provenance": {
+    "code_commit": "0c3c747d38a7412816c0f1bcc30c308d8630a066",
+    "command": "python runner/c5_pm_f0.py --mode d1",
+    "input_sha256": "400844e1e867e3f1fd705f43e204af755f8703f3744fa3757fdb329a79ca9cc3",
+    "clean_tree": true
+  },
+  "parallel": {
+    "nproc": 12,
+    "threads_per_arm": 2,
+    "parallel_wall_s": 357.531626701355,
+    "contention_ratio": 0.33637437613229165,
+    "cpu_affinity": "not_restricted",
+    "cgroup_cpu_quota": "not_applicable",
+    "torch_threads": 2,
+    "thread_pool_counts": {
+      "interop": 1
+    }
+  },
+  "labels_computed": false,
+  "not_a_result": true,
+  "test_split_used": false,
+  "p1_used": false,
+  "d1_signal_read": false,
+  "m_records": 480,
+  "phase7_records": 0,
+  "generation_records": 80,
+  "real_memory_ce_calls": 160,
+  "expected_real_memory_ce_calls": 160,
+  "real_memory_ce_calls_ok": true,
+  "wrong_donor_ce_calls": 0,
+  "donor_map_loads": 0,
+  "checkpoint_digests": {
+    "E00": null,
+    "E10": "7fc7979601b7dfcc526f675137660a6604730a3d21ecb1ada6db5607163903a4",
+    "E01": "56f3c18591c4f44ad343fbbd50455671a35277957bbc258a05fdea257e4759be",
+    "E11": "2da993a0ae56531f8e0c1ebb5cb580d53ec75c35f176bb0afe8841dd02a8b96b"
+  },
+  "checkpoint_absent": true,
+  "mechanics_pass": true,
+  "partial": false,
+  "error": null
+}
