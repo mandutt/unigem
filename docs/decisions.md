@@ -251,7 +251,7 @@
 
 | D-174 | 2026-11-09 | **F0 v1.0 Round 10 최종 — 1 CONTINUE / 2 NARROW**: GLM CONTINUE(구현 commit+D0 gate), DS/Luna NARROW. 10/10 라운드 완료, 3/3 CONTINUE 미달. DS blocker: D1 seal 모순, 15-doc length-selected cohort, MDE paired-SE 산술, F0 driver provenance. **F0 v1.0 미승인·미실행**; 추가 라운드 없음. | reports/C5_F0_V1_0_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v1_0_2026-11-09.md |
 
-| D-175 | 2026-11-10 | **F0 second 10-round block (v1.1~v1.10) — 3/3 CONTINUE 미달**: 10라운드 완료. 판정: v1.1 C/N/N, v1.2 C/N/N, v1.3 N/N/N, v1.4 C/N/N, v1.5 C/N/N, v1.6 C/N/N, v1.7 N/N/N, v1.8 N/N/N, v1.9 N/N/N, v1.10 **GLM CONTINUE / Luna NARROW / DS NOT_EVALUABLE**(두 차례 stop→fup 후 `runActiveDurationMs:0` 정지). **F0 미승인·미실행**, D0/D1/P/Q/R 없음. | reports/C5_F0_BLOCK2_3AI_REVIEW_SYNTHESIS_2026-11-10.md; docs/plan_c5_f0_v1_10_2026-11-09.md |
+| D-175 | 2026-11-10 | **F0 second 10-round block (v1.1~v1.10) — 3/3 CONTINUE 미달**: 10라운드 완료. 판정: v1.1 C/N/N, v1.2 C/N/N, v1.3 N/N/N, v1.4 C/N/N, v1.5 C/N/N, v1.6 C/N/N, v1.7 N/N/N, v1.8 N/N/N, v1.9 N/N/N, v1.10 **GLM CONTINUE / DS NARROW / Luna NARROW**. **F0 미승인·미실행**, D0/D1/P/Q/R 없음. | reports/C5_F0_BLOCK2_3AI_REVIEW_SYNTHESIS_2026-11-10.md; docs/plan_c5_f0_v1_10_2026-11-09.md |
 
 ## 미결 안건 (사용자 승인 필요)
 

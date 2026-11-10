@@ -21,13 +21,13 @@
 | 17 | v1.7 | NARROW | NARROW | NARROW |
 | 18 | v1.8 | NARROW | NARROW | NARROW |
 | 19 | v1.9 | NARROW | NARROW | NARROW |
-| 20 | v1.10 | **CONTINUE** | **NOT_EVALUABLE** (stalled) | **NARROW** |
+| 20 | v1.10 | **CONTINUE** | **NARROW** | **NARROW** |
 
 - **3/3 CONTINUE: 0회**
 - **2 CONTINUE: 0회**
-- **1 CONTINUE: 4회** (v1.1, v1.2, v1.4, v1.5, v1.6, v1.10 중 GLM 6회)
+- **1 CONTINUE / 2 NARROW: 6회** (v1.1, v1.2, v1.4, v1.5, v1.6, v1.10)
 - **3/3 NARROW: 4회** (v1.3, v1.7, v1.8, v1.9)
-- DeepSeek: 9/9 완료 라운드 전부 NARROW, v1.10 미완
+- DeepSeek: 10/10 전부 NARROW
 - Luna: 10/10 전부 NARROW
 
 ## 2. v1.10 최종 draft
@@ -68,17 +68,16 @@ Must-fix:
 5. near-threshold named boundaries.
 6. F0 implementation committed and reviewed before stage approval.
 
-### DeepSeek — NOT_EVALUABLE
+### DeepSeek — NARROW
 
-- v1.10 thread `thr_0bea249f9378417d90ca7c1e0881d3dd`가 두 차례 stop→fup 재개 후에도 `runActiveDurationMs:0`으로 정지.
-- 최종 보고서 미생성.
-- v1.8 DS는 stop→fup으로 복구 성공(3/3 NARROW), v1.9 DS는 정상 완료(NARROW).
-- v1.10 DS 판정은 **없음**으로 기록하며, GLM/Luna 판정으로 대체하지 않는다.
+- v1.10 thread `thr_0bea249f9378417d90ca7c1e0881d3dd`는 stop→fup 재개 후 보고서를 생성했다.
+- 판정: **NARROW**. D1 frozen table의 donor_count와 `donor_map_loads:0`/`wrong_donor_ce_calls:0` 모순, overrun 3중 정의, CPU affinity/quota 미반영, 4,939.884s measured/not-measured 모순.
+- v1.8 DS도 stop→fup으로 복구 성공(3/3 NARROW), v1.9 DS는 정상 완료(NARROW).
 
 ## 4. 결론
 
 - 새 10라운드 블록에서도 **F0는 승인되지 않았다**.
-- GLM은 v1.10을 조건부 CONTINUE로 보았으나, Luna는 NARROW이며 DS는 미완이다.
+- GLM은 v1.10을 조건부 CONTINUE로 보았으나, DS와 Luna는 NARROW다.
 - 따라서 **3/3 CONTINUE 조건 미충족**, **F0 미승인·미실행**.
 - 다음 단계는 v1.11이 아니라 **별도 결정**이다:
   1. GLM must-fix 4건 + Luna must-fix를 반영한 v1.11을 만들고 새 블록을 열 것인가.
@@ -89,7 +88,7 @@ Must-fix:
 ## 5. 원문 경로
 
 - `docs/hoplite/c5_f0_v1_{1..10}_review_2026-11-09/review_GLM.md`
-- `docs/hoplite/c5_f0_v1_{1..10}_review_2026-11-09/review_DS1017.md` (v1.10 없음)
+- `docs/hoplite/c5_f0_v1_{1..10}_review_2026-11-09/review_DS1017.md`
 - `docs/hoplite/c5_f0_v1_{1..10}_review_2026-11-09/review_LUNA.md`
 - `docs/hoplite/c5_f0_v1_{1..10}_review_2026-11-09/threads.json`
 
