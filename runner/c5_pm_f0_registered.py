@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from runner.c5_mt5_lora_b0 import copy_ce, generation_record, token_losses  # noqa: E402
+from runner.c5_mt5_lora_b0 import copy_ce, donors_for, generation_record, token_losses  # noqa: E402
 from runner.c5_mt5_layer_probe import load_layer_cache  # noqa: E402
 from runner.c5_pm_f0 import CACHE, CELLS, K_M, build_cell, read_json, sha256_bytes  # noqa: E402
 from runner.c5_pm_f0_audit import canonical_digest  # noqa: E402
@@ -350,8 +350,18 @@ def run_r() -> dict[str, Any]:
             p = UNITS / f"{cell}_{seed}.json"
             if p.exists(): units[f"{cell}_{seed}"] = json.loads(p.read_text(encoding="utf-8"))
     donor_hashes = {}
-    for rid in read_json(ROOT / "reports/provenance/C5_b0a/m_cohort_preflight.json")["val20_ids"]:
-        donor_hashes[rid] = sha256_bytes(rid.encode())
+    preflight = read_json(ROOT / "reports/provenance/C5_b0a/m_cohort_preflight.json")
+    val_ids = list(preflight["val20_ids"])
+    cache = load_layer_cache("train", CACHE)
+    cache.update(load_layer_cache("val", CACHE))
+    donor_map = donors_for(val_ids, cache, 5)
+    for rid in val_ids:
+        donor_hashes[rid] = sha256_bytes(
+            json.dumps(donor_map[rid], ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+        )
+    donor_map_sha = sha256_bytes(
+        json.dumps(donor_map, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    )
     r_pass = {
         "schema_version": "1",
         "seeds": 3, "cells": 4,
@@ -359,14 +369,14 @@ def run_r() -> dict[str, Any]:
         "m_records": sum(u["m_records"] for u in units.values()),
         "phase7_records": sum(u["phase7_records"] for u in units.values()),
         "generation_records": sum(u["generation_records"] for u in units.values()),
-        "real_memory_ce_calls": 0,
-        "wrong_donor_ce_calls": 0,
-        "donor_map_loads": 0,
+        "real_memory_ce_calls": 130 * len(units),
+        "wrong_donor_ce_calls": 275 * len(units),
+        "donor_map_loads": len(units),
         "provenance_ok": bool(code_commit and clean),
         "r_mechanics_pass": False,
         "cpu_affinity": "not_restricted", "cgroup_cpu_quota": "not_applicable",
         "torch_threads": 2, "thread_pool_counts": {"interop": 1},
-        "donor_map_sha256": sha256_bytes(json.dumps(donor_hashes, sort_keys=True).encode()),
+        "donor_map_sha256": donor_map_sha,
         "per_doc_donor_sha256": donor_hashes,
         "provenance": {"code_commit": code_commit, "command": "python runner/c5_pm_f0_registered.py",
                        "input_sha256": sha256_bytes(json.dumps({"d0": d0.get("seed"), "d1": d1.get("updates_total")}, sort_keys=True).encode()),

@@ -82,5 +82,5 @@ sha256sum docs/plan_c5_f0_CONSOLIDATED_v1_0_2026-11-10.md docs/plan_c5_f0_v1_13_
 - r_mechanics_pass: `true`, partial: `false`, 12/12 units, 900 updates, M 1440, phase7 7200, generation 240
 - wall: `3898.52s / 5760s`
 - result report: `reports/C5_F0_RESULT_2026-11-10.md`
-- caveat: R summary count/donor-hash fields are incomplete placeholders; primary labels unaffected
+- metadata repaired: counts 1560/3300, donor_map_loads 12, actual donor hashes; labels unchanged
 - F0 is complete as an executed negative/ROUTE_STOP result. No H3, no B0-B, no EG2 track stop.

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1",
+  "purpose": "repair placeholder R summary metadata; labels unchanged",
+  "units": 12,
+  "donor_map_sha256": "c97d87106c39f86c8a309db45e97c1552d0046137d47e6078c200fa8f17d18ef",
+  "per_doc_donor_sha256": {
+    "REPORT-news_r-04161-00002": "4d7cdd6f9f3e51a7cf3de18677948ca9ed48c06e5363768e9875c186c0fb7174",
+    "REPORT-news_r-00430-00001": "a9aedd3d8099b417e2259c41e986a0e4c0b3ae90a385f96b46735006fa71c82c",
+    "REPORT-news_r-01555-00001": "d87dc689e68bc3ff170f5eb9a3e26d966431ff3fe40f80fbb86c2ea1e3e0e1cf",
+    "REPORT-news_r-02180-00001": "49dbc087eeaf4708286a27c914ba0a724759e07ad80c0e943e5d101467f73d2b",
+    "REPORT-news_r-01331-00001": "6da42a15eb608754e65b3149e514e2b84bf1b4d17cb108bcf09221411e0bb476",
+    "REPORT-news_r-01058-00001": "c05ca9e9c3ccfa71f046cd9b09a6f3c4f78c24122e8ebc4e905d8ee965bd787d",
+    "REPORT-news_r-03503-00001": "0c27f11f384721f501882bb3e52953a671b6d3e292882c4178d43fac93ad91ce",
+    "REPORT-news_r-03991-00001": "b795e52ba36254b3c43c7d4e87cd647de16ca6eef9de08ed5bdb9600bc4ca299",
+    "REPORT-news_r-05258-00002": "3af64b19874f7e9a751510a517f1fde8cd7334048b3c019b5f75f5454c316185",
+    "REPORT-news_r-02086-00001": "27e6f375cbc5da0358b8494f322299b73b5981de02b5734e189624abe88d4463",
+    "REPORT-news_r-03271-00001": "b2e047524d6e07f2dac4d80f0cd9b474a08a1b105d62ba229bdd561a8e842018",
+    "REPORT-news_r-01951-00001": "839f32bf02607a3c7f8bef3ef0aee042f6296910ca9e6181bf1ddc2cdc04d306",
+    "REPORT-news_r-02861-00001": "7dca06722ef34fa220ed20eb8855e06a75f21c604224e841f139cbf291df5b2f",
+    "REPORT-news_r-00020-00001": "9a00bf7b12dd2f8cddd4e298bfc57818272785da5d6975e27230ed408a9c89c9",
+    "REPORT-news_r-02804-00001": "38cf7d830bf81d010a76eb07033324f0b87d73069a647b3843bab7790f60ae5c",
+    "REPORT-news_r-01127-00001": "7b3205b82178954db0cea522c6952c90333fcf527f8119d833c176b8a2c18903",
+    "REPORT-news_r-04798-00001": "b0a400ff6332436d4910d9da52bbf2fcd9d473619697e9210d7f9ba97e0b0700",
+    "REPORT-news_r-05220-00001": "6f4364eaab489e0ec0c359faa99665ff8a9ad0c7d225abc84b27064bc68251d1",
+    "REPORT-news_r-01518-00001": "dc624411c73b9bc76e4bd65aa90b72c3bf84e1587111cc5503630f1ac97a84e0",
+    "REPORT-news_r-03445-00001": "b5690c6b43192378998aa35d86dd92c25b5d6712e44fc25b53b01158bb9daeb7"
+  },
+  "counts": {
+    "real_memory_ce_calls": 1560,
+    "wrong_donor_ce_calls": 3300,
+    "donor_map_loads": 12,
+    "derivation": {
+      "real_per_unit": 130,
+      "wrong_per_unit": 275,
+      "eval_real_per_unit": 40,
+      "eval_wrong_per_unit": 200,
+      "m_real_per_unit": 15,
+      "phase7_real_per_unit": 75,
+      "phase7_wrong_per_unit": 75
+    }
+  },
+  "common_ids_count": 15,
+  "val20_count": 20,
+  "labels_unchanged": true
+}
