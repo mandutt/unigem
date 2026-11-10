@@ -247,6 +247,8 @@
 
 | D-172 | 2026-11-09 | **F0 v0.8 review — 3/3 NARROW**: GLM/DS/Luna. v0.9 반영: 150/120 cap 불일치 통일(120), EQUIVALENT 문장 모순 제거, MDE 50% .166/80% .216, D1 exact schema/path, H3 out-of-scope 유지. **F0 미승인·미실행**; v0.9 재검토 진행. | reports/C5_F0_V0_8_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v0_9_2026-11-09.md |
 
+| D-173 | 2026-11-09 | **F0 v0.9 review — 3/3 NARROW**: GLM/DS/Luna. v1.0 반영: Single-Contrast title, T_proj Phase6 §11.5 전체 항 + R 96min, D1 checkpoint digest-only/load 금지, n_boot 10000 explicit override, hash/step_seed/donor/MDE, association-only/lost controls. **F0 미승인·미실행**; v1.0 = 10번째 최종 라운드. | reports/C5_F0_V0_9_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v1_0_2026-11-09.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
