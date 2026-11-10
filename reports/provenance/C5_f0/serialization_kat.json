@@ -1,0 +1,32 @@
+{
+  "grammar": "name_len:u32le|name|dtype_len:u8|dtype|ndim:u8|shape:u32le[ndim]|nbytes:u64le|le_bytes|0x00",
+  "tensors": {
+    "a": {
+      "dtype": "float32",
+      "shape": [
+        2
+      ],
+      "values": [
+        1.0,
+        -2.5
+      ]
+    },
+    "b": {
+      "dtype": "int64",
+      "shape": [
+        1
+      ],
+      "values": [
+        7
+      ]
+    },
+    "c": {
+      "dtype": "float32",
+      "shape": [],
+      "values": [
+        3.25
+      ]
+    }
+  },
+  "expected_sha256": "07690b797e35f758c10742735ef073c32b4823ceb5eff5c3d84ebf84a20a2037"
+}

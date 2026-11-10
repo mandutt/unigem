@@ -1,0 +1,34 @@
+{
+  "seed": 20261109,
+  "units": 4,
+  "trained_updates": 3,
+  "e00_updates": 0,
+  "cells": {
+    "E00": {
+      "post_step0_rng_sha256": "d2e48bce6d7bb5a4a61178ecce2d7a68b8118eb0472e28adafb93ff6159e22c9",
+      "group_change_ok": true,
+      "wrong_donor_finite": true,
+      "shape_ok": true
+    },
+    "E10": {
+      "post_step0_rng_sha256": "ebaad2004bd8b8086f6d4fdfaa99f321b8b4001c39d8f809afe477bba0e8cb4d",
+      "group_change_ok": true,
+      "wrong_donor_finite": true,
+      "shape_ok": true
+    },
+    "E01": {
+      "post_step0_rng_sha256": "8c5d93239a4c74e3f692d8507fb908fb6ff55a663700bd6697fe830a8f4f905d",
+      "group_change_ok": true,
+      "wrong_donor_finite": true,
+      "shape_ok": true
+    },
+    "E11": {
+      "post_step0_rng_sha256": "8c5d93239a4c74e3f692d8507fb908fb6ff55a663700bd6697fe830a8f4f905d",
+      "group_change_ok": true,
+      "wrong_donor_finite": true,
+      "shape_ok": true
+    }
+  },
+  "wrong_donor_ce_calls": 800,
+  "pre_r_seed_audit_pass": true
+}

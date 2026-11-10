@@ -119,8 +119,10 @@ def checkpoint_digest(built: dict[str, Any]) -> str | None:
 
 
 def one_update(built: dict[str, Any], rid: str, cache: dict[str, dict],
-               labels: dict[str, torch.Tensor]) -> dict[str, Any]:
+               labels: dict[str, torch.Tensor], seed: int | None = None) -> dict[str, Any]:
     before = trainable_hash(built)
+    if seed is not None:
+        torch.manual_seed((int(seed) ^ ((0x9E3779B9 * 1) & 0xFFFFFFFF)) & 0xFFFFFFFF)
     set_arm_training(built, True)
     opt = optimizer_for(built)
     opt.zero_grad(set_to_none=True)
