@@ -253,6 +253,8 @@
 
 | D-175 | 2026-11-10 | **F0 second 10-round block (v1.1~v1.10) — 3/3 CONTINUE 미달**: 10라운드 완료. 판정: v1.1 C/N/N, v1.2 C/N/N, v1.3 N/N/N, v1.4 C/N/N, v1.5 C/N/N, v1.6 C/N/N, v1.7 N/N/N, v1.8 N/N/N, v1.9 N/N/N, v1.10 **GLM CONTINUE / DS NARROW / Luna NARROW**. **F0 미승인·미실행**, D0/D1/P/Q/R 없음. | reports/C5_F0_BLOCK2_3AI_REVIEW_SYNTHESIS_2026-11-10.md; docs/plan_c5_f0_v1_10_2026-11-09.md |
 
+| D-176 | 2026-11-10 | **F0 실행·재검증 종결**: F0 R은 계약상 `ROUTE_STOP`(mean_D −0.02196, CI [−0.37411,+0.33494], 0/3)였으나 post-mortem에서 E01 underfit 확인(final loss ~19.7 vs E11 ~6.2–7.3; ratio .736 vs .236). F0.1a에서 E01이 400 updates/LoRA 3e-4로 3/3 fit(.252). F0.2 matched: E11 copy +0.1152 CI [0.0598,0.1718] 3/3, E01 non-signal, label `INDETERMINATE`. F0.3: E10 adapter-only copy +0.1382 CI [0.0716,0.2084] 3/3; E11−E10 −0.0230 CI [−0.0839,0.0309]. F0.4 fresh seeds: E11−E01 +0.09166 CI [−0.01668,0.21448], 3/3 direction positive but `NO_BENEFIT`; E11 signal false. **F0 line = CLOSED_DIRECTIONAL_UNCONFIRMED**; F0/F0.2/F0.3/F0.4 label 보존, H3/B0-B 미개방, evidence pack `reports/C5_F0_REUSE_PACK_2026-11-10.md`. | reports/C5_F0_SYNTHESIS_2026-11-10.md; reports/C5_F0_REUSE_PACK_2026-11-10.md; reports/C5_F0_4_RESULT_2026-11-10.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |
