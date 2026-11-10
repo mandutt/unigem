@@ -220,7 +220,8 @@ def run() -> dict[str, Any]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", action="store_true")
-    if not ap.run:
+    args = ap.parse_args()
+    if not args.run:
         raise SystemExit("pass --run to execute")
     out = run()
     print(json.dumps({"status": out["status"], "n_units": out["n_units"],
