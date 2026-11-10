@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "experiment": "C5 F0.2 matched-optimization signal re-test",
+  "status": "owner_approved",
+  "plan_path": "docs\\plan_c5_f0_2_signal_v0_1_2026-11-10.md",
+  "plan_sha256": "d0e2d62ad26ea11b24a8b30fa703f26f927f69af59b1def4d39d08f87a54e9c6",
+  "code_commit": "00232f9",
+  "approved_by": "owner",
+  "approved_at": "2026-11-10",
+  "cells": [
+    "E01",
+    "E11"
+  ],
+  "seeds": [
+    20261108,
+    20261109,
+    20261110
+  ],
+  "updates": 400,
+  "lora_lr": 0.0003,
+  "adapter_lr": 0.001,
+  "fit_ratio_gate": 0.35,
+  "cap_seconds": 3600,
+  "scope": [
+    "E01/E11 only",
+    "fit gate before signal",
+    "no M/phase7/generation"
+  ]
+}
