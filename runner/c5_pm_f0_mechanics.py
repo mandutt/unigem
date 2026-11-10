@@ -408,7 +408,6 @@ def run_d1() -> dict[str, Any]:
             "m_ce_s": 0.0,
             "generation_s": float(sum(results[c]["timings"]["generation_s"] for c in results)),
             "total_s": float(total_s),
-            "parallel_wall_s": float(wall),
         },
         "provenance": {
             "code_commit": code_commit,
