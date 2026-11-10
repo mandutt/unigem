@@ -1,8 +1,8 @@
 {
-  "version": 13,
+  "version": 14,
   "phase": "C5 Phase 6 P/M",
   "base": "reports/provenance/C5_b0a/",
-  "status": "f0_v0_6_review_blocked_invalid_api_key",
+  "status": "f0_v1_0_round10_final_narrow",
   "freeze": {
     "plan_path": "docs/plan_c5_b0a_pm_prereg_v1_0_11.md",
     "plan_sha256": "327a3e34f5bb2721b8b2400718dfd7bc56a0946641d1e83e2c8b454bf656d007",
@@ -337,6 +337,25 @@
       "status": "blocked",
       "reason": "hoplite invalid_api_key",
       "reports": 0
+    },
+    "f0_v1_0_synthesis": {
+      "path": "reports/C5_F0_V1_0_3AI_REVIEW_SYNTHESIS_2026-11-09.md",
+      "sha256": "4e7386121290bd83723fa4175e5e3e3be609c170ae38d00737f08d334ccd5e69",
+      "status": "1 CONTINUE / 2 NARROW"
+    },
+    "f0_v1_0_reviews": {
+      "GLM": {
+        "path": "docs/hoplite/c5_f0_v1_0_review_2026-11-09/review_GLM.md",
+        "sha256": "b2e1bcb5cec592fb3ba7792dc63e2bb2d0deb2596c26fbea6dd71b0c903f7209"
+      },
+      "DS1017": {
+        "path": "docs/hoplite/c5_f0_v1_0_review_2026-11-09/review_DS1017.md",
+        "sha256": "b0926c4100b91a3342c8d8bfdf51bc61bbdadcde6b9456b46dc99ddce5be879d"
+      },
+      "LUNA": {
+        "path": "docs/hoplite/c5_f0_v1_0_review_2026-11-09/review_LUNA.md",
+        "sha256": "b89df1fb17eb3d1dafd0ddeaaf0328870fc8e5c114c13e38cc24261e2e3779c6"
+      }
     }
   },
   "gates": {
@@ -350,11 +369,11 @@
     "labels": "complete",
     "cause_analysis": "complete",
     "labels_audit": "complete",
-    "f0": "v0_6_draft_review_blocked"
+    "f0": "round10_final_1_continue_2_narrow"
   },
   "test_split_used": false,
   "p1_used": false,
   "labels_computed": true,
   "not_a_result": false,
-  "note": "F0 v0.6 draft created; final round blocked by Hoplite invalid_api_key. No approval/execution. B0-B false unchanged."
+  "note": "F0 v1.0 round 10 final: 1 CONTINUE / 2 NARROW; no further rounds; not approved/executed. B0-B false unchanged."
 }
