@@ -84,3 +84,13 @@ sha256sum docs/plan_c5_f0_CONSOLIDATED_v1_0_2026-11-10.md docs/plan_c5_f0_v1_13_
 - result report: `reports/C5_F0_RESULT_2026-11-10.md`
 - metadata repaired: counts 1560/3300, donor_map_loads 12, actual donor hashes; labels unchanged
 - F0 is complete as an executed negative/ROUTE_STOP result. No H3, no B0-B, no EG2 track stop.
+
+## Update — post-mortem
+
+- post-mortem: `reports/C5_F0_POSTMORTEM_2026-11-10.md`
+- artifact: `reports/provenance/C5_f0/postmortem.json`
+- finding: E01 underfit (final loss ~19.7 vs E10/E11 ~6.2–7.3; loss reduction 0.736 vs 0.236)
+- interpretation: contract label ROUTE_STOP is unchanged, but scientific status = `INCONCLUSIVE_UNDERFIT`, not "adapter no effect"
+- E01/E11 copy coverage equal (0.8267), so not a mask issue
+- E10 full descriptive signal only
+- next: F0.1 optimization diagnostic (new prereg) or F5 track; H3/B0-B not opened
