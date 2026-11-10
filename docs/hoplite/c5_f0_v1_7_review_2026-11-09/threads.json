@@ -1,0 +1,5 @@
+[
+  {"tag":"glm","model":"z-ai/glm-5.3-flash","reasoning":"high","id":"thr_e2dcb51f8aa148bb8d968a86deeeb978"},
+  {"tag":"ds1017","model":"deepseek-v4.1-flash-1017","reasoning":"high","id":"thr_cf23796a1c9a4fc28cfcd55505a5d0f7"},
+  {"tag":"luna","model":"gpt-6-luna","reasoning":"xhigh","id":"thr_4057170885fa4698b983123ec679fe35"}
+]
