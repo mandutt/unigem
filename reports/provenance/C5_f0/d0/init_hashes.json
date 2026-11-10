@@ -1,0 +1,26 @@
+{
+  "E00": {
+    "rng_after_init": "61601d64c0989f11fc3072107773165eb2069413b66493d14712d1f47e74a1a0",
+    "adapter_sha256": null,
+    "lora_sha256": null,
+    "lora_modules": 0
+  },
+  "E10": {
+    "rng_after_init": "6938af49000b19b8dfbde8ab3a2688f9733bbc830bae5339331429b83756c47c",
+    "adapter_sha256": "e6484a35f0b2e9a0ba4f3bc848d2e371399210be567cb0f766e8a32555648fa8",
+    "lora_sha256": null,
+    "lora_modules": 0
+  },
+  "E01": {
+    "rng_after_init": "a8c85188ddff8e5210ceac6fc195892909b48bb4a1b5e01b113ffa8316116d21",
+    "adapter_sha256": null,
+    "lora_sha256": "51472a979d0ef26c31dac7918d2c00ad64179d64827c5e1237c22d620164e7c8",
+    "lora_modules": 64
+  },
+  "E11": {
+    "rng_after_init": "a8c85188ddff8e5210ceac6fc195892909b48bb4a1b5e01b113ffa8316116d21",
+    "adapter_sha256": "e6484a35f0b2e9a0ba4f3bc848d2e371399210be567cb0f766e8a32555648fa8",
+    "lora_sha256": "51472a979d0ef26c31dac7918d2c00ad64179d64827c5e1237c22d620164e7c8",
+    "lora_modules": 64
+  }
+}

@@ -52,3 +52,14 @@ cd /c/code/unigem
 git status --short
 sha256sum docs/plan_c5_f0_CONSOLIDATED_v1_0_2026-11-10.md docs/plan_c5_f0_v1_13_2026-11-09.md
 ```
+
+## Update — D0 executed
+
+- Freeze: `docs/plan_c5_f0_CONSOLIDATED_v1_0_FREEZE.json` (`owner_approved_unreviewed`)
+- Code commit: `fd167a0` (runner/c5_pm_f0.py + tests)
+- D0 output: `reports/provenance/C5_f0/d0/f0_d0.json`
+- D0 SHA256: `75847a1d687773b50b7faf2f5d781aca118b4704509283c032ba3c2f6d418602`
+- D0 result: 4 cells, 0 updates, E01/E11 LoRA sha equal, E10/E11 adapter sha equal, memory `(753,512)` finite
+- D0 audit: `docs/C5_F0_PRE_IMPLEMENTATION_AUDIT_2026-11-10.md`
+- Current gate: **D1 blocked** pending CE operation table, mechanics evaluator, custody tests, explicit D1 approval
+- D1/R/Q execution: none
