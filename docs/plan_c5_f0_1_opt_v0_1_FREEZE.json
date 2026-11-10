@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "experiment": "C5 F0.1 E01 optimization diagnostic",
+  "status": "owner_approved",
+  "plan_path": "docs\\plan_c5_f0_1_opt_v0_1_2026-11-10.md",
+  "plan_sha256": "711be27a37fba1030d756cf261040e0c64c813d04b0c8fa1cf53ea990345dc3d",
+  "code_commit": "0b7e9c8",
+  "approved_by": "owner",
+  "approved_at": "2026-11-10",
+  "conditions": [
+    [
+      "C1",
+      100,
+      "1e-4"
+    ],
+    [
+      "C2",
+      400,
+      "1e-4"
+    ],
+    [
+      "C3",
+      1000,
+      "1e-4"
+    ],
+    [
+      "C4",
+      400,
+      "3e-4"
+    ],
+    [
+      "C5",
+      1000,
+      "3e-4"
+    ]
+  ],
+  "seeds": [
+    20261108,
+    20261109,
+    20261110
+  ],
+  "fit_ratio_gate": 0.35,
+  "cap_seconds": 3600,
+  "scope": [
+    "E01 only",
+    "training loss only",
+    "no signal/generation/M/phase7"
+  ]
+}
