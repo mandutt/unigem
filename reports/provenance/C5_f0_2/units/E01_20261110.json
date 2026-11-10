@@ -1,0 +1,238 @@
+{
+  "cell": "E01",
+  "seed": 20261110,
+  "updates": 400,
+  "lora_lr": 0.0003,
+  "adapter_lr": null,
+  "loss_first": 26.837711334228516,
+  "loss_last": 6.852972030639648,
+  "fit_ratio": 0.25534860053060654,
+  "fit_pass": true,
+  "weight_change_ok": true,
+  "final": {
+    "n_docs": 20,
+    "per_doc": {
+      "REPORT-news_r-04161-00002": {
+        "n_donors": 5,
+        "real_ce_copy": 7.45667028427124,
+        "wrong_ce_copy": 7.191214656829834,
+        "delta_shuffled_copy": -0.26545562744140627,
+        "real_ce_full": 7.007079601287842,
+        "wrong_ce_full": 6.942584037780762,
+        "delta_shuffled_full": -0.06449556350708008,
+        "copy_tokens": 145,
+        "copy_coverage": 0.8011049723756906
+      },
+      "REPORT-news_r-00430-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.688600158691406,
+        "wrong_ce_copy": 7.594137668609619,
+        "delta_shuffled_copy": -0.09446249008178711,
+        "real_ce_full": 7.016813182830811,
+        "wrong_ce_full": 7.062556552886963,
+        "delta_shuffled_full": 0.045743370056152345,
+        "copy_tokens": 165,
+        "copy_coverage": 0.7674418604651163
+      },
+      "REPORT-news_r-01555-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.254695892333984,
+        "wrong_ce_copy": 7.183018398284912,
+        "delta_shuffled_copy": -0.07167749404907227,
+        "real_ce_full": 7.186136245727539,
+        "wrong_ce_full": 7.092151641845703,
+        "delta_shuffled_full": -0.09398460388183594,
+        "copy_tokens": 197,
+        "copy_coverage": 0.8418803418803419
+      },
+      "REPORT-news_r-02180-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.409423446655273,
+        "wrong_ce_copy": 7.466839408874511,
+        "delta_shuffled_copy": 0.05741596221923828,
+        "real_ce_full": 7.014720058441162,
+        "wrong_ce_full": 7.0908102035522464,
+        "delta_shuffled_full": 0.07609014511108399,
+        "copy_tokens": 159,
+        "copy_coverage": 0.8412698412698413
+      },
+      "REPORT-news_r-01331-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.255704498291015,
+        "wrong_ce_copy": 7.305123043060303,
+        "delta_shuffled_copy": 0.04941854476928711,
+        "real_ce_full": 7.0444334030151365,
+        "wrong_ce_full": 6.984062957763672,
+        "delta_shuffled_full": -0.060370445251464844,
+        "copy_tokens": 224,
+        "copy_coverage": 0.875
+      },
+      "REPORT-news_r-01058-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.510959053039551,
+        "wrong_ce_copy": 7.6959404945373535,
+        "delta_shuffled_copy": 0.18498144149780274,
+        "real_ce_full": 7.185303020477295,
+        "wrong_ce_full": 7.287838268280029,
+        "delta_shuffled_full": 0.10253524780273438,
+        "copy_tokens": 128,
+        "copy_coverage": 0.810126582278481
+      },
+      "REPORT-news_r-03503-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.758389949798584,
+        "wrong_ce_copy": 7.726760959625244,
+        "delta_shuffled_copy": -0.031628990173339845,
+        "real_ce_full": 7.557165622711182,
+        "wrong_ce_full": 7.491815185546875,
+        "delta_shuffled_full": -0.06535043716430664,
+        "copy_tokens": 178,
+        "copy_coverage": 0.7574468085106383
+      },
+      "REPORT-news_r-03991-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.299529075622559,
+        "wrong_ce_copy": 7.297280406951904,
+        "delta_shuffled_copy": -0.002248668670654297,
+        "real_ce_full": 7.053299427032471,
+        "wrong_ce_full": 7.034719371795655,
+        "delta_shuffled_full": -0.018580055236816405,
+        "copy_tokens": 171,
+        "copy_coverage": 0.8423645320197044
+      },
+      "REPORT-news_r-05258-00002": {
+        "n_donors": 5,
+        "real_ce_copy": 7.406295299530029,
+        "wrong_ce_copy": 7.398497009277344,
+        "delta_shuffled_copy": -0.007798290252685547,
+        "real_ce_full": 7.076071262359619,
+        "wrong_ce_full": 7.171742248535156,
+        "delta_shuffled_full": 0.09567098617553711,
+        "copy_tokens": 140,
+        "copy_coverage": 0.8695652173913043
+      },
+      "REPORT-news_r-02086-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.241131782531738,
+        "wrong_ce_copy": 7.2295082092285154,
+        "delta_shuffled_copy": -0.011623573303222657,
+        "real_ce_full": 6.786238193511963,
+        "wrong_ce_full": 6.947336196899414,
+        "delta_shuffled_full": 0.16109800338745117,
+        "copy_tokens": 196,
+        "copy_coverage": 0.8166666666666667
+      },
+      "REPORT-news_r-03271-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.358646297454834,
+        "wrong_ce_copy": 7.393033695220947,
+        "delta_shuffled_copy": 0.034387397766113284,
+        "real_ce_full": 7.125113105773925,
+        "wrong_ce_full": 7.071476745605469,
+        "delta_shuffled_full": -0.053636360168457034,
+        "copy_tokens": 169,
+        "copy_coverage": 0.7971698113207547
+      },
+      "REPORT-news_r-01951-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.552773952484131,
+        "wrong_ce_copy": 7.5877584457397464,
+        "delta_shuffled_copy": 0.034984493255615236,
+        "real_ce_full": 7.242537975311279,
+        "wrong_ce_full": 7.337791633605957,
+        "delta_shuffled_full": 0.09525365829467773,
+        "copy_tokens": 191,
+        "copy_coverage": 0.8721461187214612
+      },
+      "REPORT-news_r-02861-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.433144569396973,
+        "wrong_ce_copy": 7.469783115386963,
+        "delta_shuffled_copy": 0.03663854598999024,
+        "real_ce_full": 7.2263007164001465,
+        "wrong_ce_full": 7.236820697784424,
+        "delta_shuffled_full": 0.010519981384277344,
+        "copy_tokens": 188,
+        "copy_coverage": 0.7932489451476793
+      },
+      "REPORT-news_r-00020-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.975833892822266,
+        "wrong_ce_copy": 8.001419639587402,
+        "delta_shuffled_copy": 0.025585746765136717,
+        "real_ce_full": 7.7639546394348145,
+        "wrong_ce_full": 7.608057022094727,
+        "delta_shuffled_full": -0.1558976173400879,
+        "copy_tokens": 121,
+        "copy_coverage": 0.7960526315789473
+      },
+      "REPORT-news_r-02804-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.195716857910156,
+        "wrong_ce_copy": 7.341301441192627,
+        "delta_shuffled_copy": 0.1455845832824707,
+        "real_ce_full": 6.85457706451416,
+        "wrong_ce_full": 6.9948772430419925,
+        "delta_shuffled_full": 0.14030017852783203,
+        "copy_tokens": 177,
+        "copy_coverage": 0.8388625592417062
+      },
+      "REPORT-news_r-01127-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.728376865386963,
+        "wrong_ce_copy": 7.6326478004455565,
+        "delta_shuffled_copy": -0.09572906494140625,
+        "real_ce_full": 7.317110061645508,
+        "wrong_ce_full": 7.272295379638672,
+        "delta_shuffled_full": -0.044814682006835936,
+        "copy_tokens": 140,
+        "copy_coverage": 0.8235294117647058
+      },
+      "REPORT-news_r-04798-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.597126007080078,
+        "wrong_ce_copy": 7.6939794540405275,
+        "delta_shuffled_copy": 0.09685344696044922,
+        "real_ce_full": 7.402897357940674,
+        "wrong_ce_full": 7.383027267456055,
+        "delta_shuffled_full": -0.01987009048461914,
+        "copy_tokens": 181,
+        "copy_coverage": 0.8379629629629629
+      },
+      "REPORT-news_r-05220-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.914376258850098,
+        "wrong_ce_copy": 7.885938739776611,
+        "delta_shuffled_copy": -0.02843751907348633,
+        "real_ce_full": 7.633986473083496,
+        "wrong_ce_full": 7.562309074401855,
+        "delta_shuffled_full": -0.07167739868164062,
+        "copy_tokens": 205,
+        "copy_coverage": 0.8401639344262295
+      },
+      "REPORT-news_r-01518-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.439038276672363,
+        "wrong_ce_copy": 7.393104934692383,
+        "delta_shuffled_copy": -0.04593334197998047,
+        "real_ce_full": 7.283853054046631,
+        "wrong_ce_full": 7.2262955665588375,
+        "delta_shuffled_full": -0.05755748748779297,
+        "copy_tokens": 163,
+        "copy_coverage": 0.8489583333333334
+      },
+      "REPORT-news_r-03445-00001": {
+        "n_donors": 5,
+        "real_ce_copy": 7.392307949066162,
+        "wrong_ce_copy": 7.43487548828125,
+        "delta_shuffled_copy": 0.04256753921508789,
+        "real_ce_full": 7.276341342926026,
+        "wrong_ce_full": 7.262436866760254,
+        "delta_shuffled_full": -0.013904476165771484,
+        "copy_tokens": 138,
+        "copy_coverage": 0.8214285714285714
+      }
+    }
+  },
+  "elapsed_s": 1221.5733199119568
+}

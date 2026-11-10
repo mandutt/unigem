@@ -105,3 +105,14 @@ sha256sum docs/plan_c5_f0_CONSOLIDATED_v1_0_2026-11-10.md docs/plan_c5_f0_v1_13_
 - F0.1a is fit-only; no signal evaluation
 - Stage B (1000 updates) not needed
 - next: F0.2 signal re-test (matched E01/E11 optimization) only with new prereg/approval
+
+## Update — F0.2 signal re-test
+
+- result: **INDETERMINATE** (fit gate 6/6)
+- E11 copy signal: mean +0.1152, CI [0.0598, 0.1718], 3/3 seeds positive
+- E01 copy: -0.0146, no signal
+- D = E01-E11: -0.1298, CI [-0.2186, -0.0572], benefit direction true
+- E11 full also signal: +0.0893, CI [0.0425, 0.1374]
+- wall 2091.3s / 3600s; no M/phase7/generation
+- report: `reports/C5_F0_2_RESULT_2026-11-10.md`
+- next: decide whether to test E10/E00 reference or stop; H3/B0-B not automatic
