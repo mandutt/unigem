@@ -246,7 +246,7 @@ def run_d0() -> dict[str, Any]:
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=("d0",), required=True)
+    ap.add_argument("--mode", choices=("d0", "d1"), required=True)
     args = ap.parse_args()
     if args.mode == "d0":
         out = run_d0()
@@ -254,6 +254,18 @@ def main() -> int:
             "mode": out["mode"],
             "cells": sorted(out["cells"]),
             "output": str(OUT.relative_to(ROOT)),
+        }, ensure_ascii=False))
+        return 0
+    if args.mode == "d1":
+        from runner.c5_pm_f0_mechanics import run_d1
+        out = run_d1()
+        print(json.dumps({
+            "mode": "d1_one_update",
+            "updates_total": out["updates_total"],
+            "m_records": out["m_records"],
+            "generation_records": out["generation_records"],
+            "mechanics_pass": out["mechanics_pass"],
+            "partial": out["partial"],
         }, ensure_ascii=False))
         return 0
     raise NotApprovedError(f"mode not implemented: {args.mode}")

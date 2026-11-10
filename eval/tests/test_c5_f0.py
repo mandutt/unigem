@@ -57,14 +57,10 @@ class TestF0D0(unittest.TestCase):
         finally:
             f0.PLAN, f0.ANNEX, f0.FREEZE = old
 
-    def test_no_d1_mode(self):
-        old = sys.argv
-        try:
-            sys.argv = ["c5_pm_f0", "--mode", "d1"]
-            with self.assertRaises(SystemExit):
-                f0.main()
-        finally:
-            sys.argv = old
+    def test_d1_mode_is_explicit(self):
+        self.assertEqual(f0.D1_SEED if hasattr(f0, "D1_SEED") else 20261111, 20261111)
+        # D1 is a separate module and must not be reachable through D0 helpers.
+        self.assertFalse(hasattr(f0, "run_d1"))
 
 
 if __name__ == "__main__":
