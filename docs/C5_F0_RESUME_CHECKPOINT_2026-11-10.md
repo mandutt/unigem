@@ -116,3 +116,12 @@ sha256sum docs/plan_c5_f0_CONSOLIDATED_v1_0_2026-11-10.md docs/plan_c5_f0_v1_13_
 - wall 2091.3s / 3600s; no M/phase7/generation
 - report: `reports/C5_F0_2_RESULT_2026-11-10.md`
 - next: decide whether to test E10/E00 reference or stop; H3/B0-B not automatic
+
+## Update — F0.3 reference decomposition
+
+- status: REFERENCE_DECOMPOSITION
+- E10 adapter-only copy: +0.1382 CI [0.0716,0.2084], 3/3 signal; full +0.1163 CI [0.0626,0.1752]
+- E00 copy 0.113 wide; E10-E00 CI includes 0
+- E11-E10 copy -0.0230 CI [-0.0839,0.0309]; no clear LoRA increment
+- wall 1515.2s/3600s; 6/6 units; fit 3/3
+- report reports/C5_F0_3_RESULT_2026-11-10.md
