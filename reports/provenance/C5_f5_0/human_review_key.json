@@ -1,0 +1,190 @@
+{
+  "seed": 20261110,
+  "systems": [
+    "pilot300",
+    "full_1940",
+    "full_2586"
+  ],
+  "items": [
+    {
+      "doc_key": "D01",
+      "id": "REPORT-news_r-01127-00001",
+      "mapping": {
+        "C": "pilot300",
+        "A": "full_1940",
+        "B": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D02",
+      "id": "REPORT-news_r-00005-00001",
+      "mapping": {
+        "A": "pilot300",
+        "B": "full_1940",
+        "C": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D03",
+      "id": "REPORT-news_r-04803-00001",
+      "mapping": {
+        "A": "pilot300",
+        "B": "full_1940",
+        "C": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D04",
+      "id": "REPORT-news_r-05102-00001",
+      "mapping": {
+        "C": "pilot300",
+        "A": "full_1940",
+        "B": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D05",
+      "id": "REPORT-news_r-05488-00001",
+      "mapping": {
+        "A": "pilot300",
+        "B": "full_1940",
+        "C": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D06",
+      "id": "REPORT-news_r-00114-00001",
+      "mapping": {
+        "C": "pilot300",
+        "B": "full_1940",
+        "A": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D07",
+      "id": "REPORT-news_r-00138-00003",
+      "mapping": {
+        "A": "pilot300",
+        "B": "full_1940",
+        "C": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D08",
+      "id": "REPORT-news_r-00159-00002",
+      "mapping": {
+        "B": "pilot300",
+        "A": "full_1940",
+        "C": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D09",
+      "id": "REPORT-news_r-00450-00001",
+      "mapping": {
+        "A": "pilot300",
+        "C": "full_1940",
+        "B": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D10",
+      "id": "REPORT-news_r-00020-00001",
+      "mapping": {
+        "A": "pilot300",
+        "B": "full_1940",
+        "C": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D11",
+      "id": "REPORT-news_r-04161-00002",
+      "mapping": {
+        "B": "pilot300",
+        "A": "full_1940",
+        "C": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D12",
+      "id": "REPORT-news_r-00649-00001",
+      "mapping": {
+        "C": "pilot300",
+        "B": "full_1940",
+        "A": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D13",
+      "id": "REPORT-news_r-03001-00001",
+      "mapping": {
+        "B": "pilot300",
+        "A": "full_1940",
+        "C": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D14",
+      "id": "REPORT-news_r-00426-00001",
+      "mapping": {
+        "B": "pilot300",
+        "C": "full_1940",
+        "A": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D15",
+      "id": "REPORT-news_r-01343-00002",
+      "mapping": {
+        "C": "pilot300",
+        "B": "full_1940",
+        "A": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D16",
+      "id": "REPORT-news_r-03893-00001",
+      "mapping": {
+        "B": "pilot300",
+        "A": "full_1940",
+        "C": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D17",
+      "id": "REPORT-news_r-00467-00002",
+      "mapping": {
+        "C": "pilot300",
+        "B": "full_1940",
+        "A": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D18",
+      "id": "REPORT-news_r-03188-00002",
+      "mapping": {
+        "C": "pilot300",
+        "A": "full_1940",
+        "B": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D19",
+      "id": "REPORT-news_r-03266-00001",
+      "mapping": {
+        "B": "pilot300",
+        "C": "full_1940",
+        "A": "full_2586"
+      }
+    },
+    {
+      "doc_key": "D20",
+      "id": "REPORT-news_r-00706-00001",
+      "mapping": {
+        "A": "pilot300",
+        "B": "full_1940",
+        "C": "full_2586"
+      }
+    }
+  ]
+}

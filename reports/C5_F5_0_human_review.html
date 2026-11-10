@@ -1,0 +1,2645 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C5 F5.0 Human Review</title>
+<style>
+  :root { --fg:#111; --muted:#555; --line:#ccc; --bg:#fff; --soft:#f5f5f5; --accent:#1e5aa8; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:24px 32px 80px; background:var(--bg); color:var(--fg);
+          font:15px/1.6 system-ui, -apple-system, "Segoe UI", "Malgun Gothic", sans-serif; }
+  h1 { font-size:24px; margin:0 0 8px; }
+  h2 { font-size:19px; margin:0 0 12px; border-bottom:1px solid var(--line); padding-bottom:8px; }
+  h3 { font-size:15px; margin:0 0 8px; color:var(--accent); }
+  .top { max-width:1100px; margin:0 auto 24px; }
+  .hint { font-size:12px; color:var(--muted); font-weight:400; }
+  .doc { max-width:1100px; margin:0 auto 28px; padding:18px; border:1px solid var(--line); border-radius:8px; }
+  .source { white-space:pre-wrap; background:var(--soft); padding:12px; border-radius:6px; font-size:13px; max-height:260px; overflow:auto; }
+  .summaries { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; margin-top:14px; }
+  .summary { border:1px solid var(--line); border-radius:6px; padding:12px; }
+  .pred { white-space:pre-wrap; min-height:140px; max-height:260px; overflow:auto; font-size:13px; background:#fafafa; padding:8px; border-radius:4px; }
+  .rating-grid { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  fieldset { border:1px solid var(--line); border-radius:4px; padding:4px 8px; margin:0; }
+  legend { font-size:12px; color:var(--muted); padding:0 4px; }
+  fieldset label { margin-right:8px; font-size:13px; }
+  .flags { margin-top:8px; font-size:12px; }
+  .flags label { margin-right:10px; }
+  textarea { width:100%; margin-top:8px; font:13px/1.4 inherit; }
+  .bar { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.96); border-bottom:1px solid var(--line);
+          padding:10px 0; margin:0 0 18px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .bar input[type=text] { padding:6px 8px; border:1px solid var(--line); border-radius:4px; width:160px; }
+  button { padding:7px 12px; border:1px solid var(--accent); background:var(--accent); color:#fff;
+            border-radius:4px; cursor:pointer; font:14px inherit; }
+  button.secondary { background:#fff; color:var(--accent); }
+  #progress { font-weight:600; }
+  .warn { color:#8a3b00; font-size:13px; }
+  @media (max-width:900px) { .summaries { grid-template-columns:1fr; } body { padding:16px; } }
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>C5 F5.0 — Human Review</h1>
+  <p>20개 문서 × 3개 요약 = <b>60개</b>를 평가합니다. 각 문서의 A/B/C는 <b>무작위</b>이며 시스템 이름은 숨겨져 있습니다.
+  target summary는 표시하지 않습니다. 원문만 기준으로 평가하세요.</p>
+  <p class="warn">이 파일은 P0 공개 뉴스만 포함합니다. test 163은 포함하지 않습니다.</p>
+  <details>
+    <summary><b>평가 기준 보기</b></summary>
+    <p><b>Overall</b>: 3=추상 요약으로 사용 가능, 2=부분 사용 가능, 1=사용 어려움.</p>
+    <p><b>Abstractness</b>: 3=원문을 재구성한 추상 요약, 2=추출/추상 혼합, 1=거의 그대로 복사.</p>
+    <p><b>Factual preservation</b>: 3=핵심 사실 정확, 2=일부 누락/약화, 1=핵심 누락/왜곡/무근거.</p>
+    <p><b>Flags</b>: copy heavy / key omission / unsupported fact / repetition.</p>
+  </details>
+</div>
+<div class="bar">
+  <label>Rater <input id="rater" type="text" value="mandu"></label>
+  <span id="progress">0 / 60 rated</span>
+  <button onclick="saveNow()">저장</button>
+  <button class="secondary" onclick="exportJSON()">JSON 내보내기</button>
+  <button class="secondary" onclick="resetAll()">초기화</button>
+  <span id="status" class="hint"></span>
+</div>
+
+            <article class="doc" id="D01">
+              <h2>D01 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">250명 모집에 1만 1100명 지원.
+  44 대 1.
+  아파트 청약이나 아이돌 오디션 경쟁률이 아니다.
+  과학기술정보통신부와 서울시가 운영하는 비학위교육기관 &#x27;이노베이션 아카데미&#x27;가 지원자를 모집 중인 소프트웨어(SW) 개발자 양성 프로그램 &#x27;42 서울&#x27; 얘기다.
+      한 기수당 250명 내외를 뽑는 &#x27;42 서울&#x27;에 합격하기 위해서는 2단계 테스트를 통과해야 한다.
+  1차는 온라인으로 보는 테스트고, 2차는 1차 통과자를 대상으로 하는 &#x27;집중교육과정(라피신)&#x27;이다.
+   1차 온라인 테스트 도전 누구나 지원 가능하다는데? 도전이다.
+  문과 출신인 기자는 지난 12일 &#x27;42 서울&#x27;의 온라인 테스트를 직접 치러봤다.
+  테스트 응시 기회는 등록 계정별로 단 한 번만 주어진다.
+  과연 이번 생에 개발자로 전직할 수 있을까.
+  &#x27;42 서울&#x27; 홈페이지에서 기본정보를 입력하고, 교육 목적의 개인정보 수집에 동의하면 온라인 테스트가 시작된다.
+  테스트는 두 가지 게임으로 구성되어 있다.
+  이번에도 기회는 게임별로 단 한 번만 있으며, 중간에 멈출 수 없다.
+  각종 인터넷 커뮤니티에 게시된 &#x27;온라인 테스트 후기&#x27;를 보면 &quot;2시간 동안 움직일 수 없으니 화장실을 미리 다녀오라&quot;, &quot;문제를 풀다보면 당이 떨어지니 초콜렛이나 간식거리를 준비하라&quot;등 응시자들의 깨알 팁이 있었다.
+    첫번째 &#x27;게임1&#x27;은 단순하다.
+  &#x27;기억력 테스트&#x27;와 유사했다.
+  4분간 색깔이 들어온 사각형의 순서를 기억해서 차례로 클릭하면 된다.
+  4개(2X2)의 상자로 시작되어 점차 상자블록이 늘어나고 색깔이 들어 오는 횟수도 늘어난다.
+  10단계에서는 25개 상자(5X5)가 등장해 4개의 순서를 기억하면 된다.
+  7개의 순서를 기억해야 하는 13단계까지는 몇 번 틀려가며 통과했지만 14단계에서 막혔다.
+  25개 상자 중 색깔이 들어오는 상자 8개의 순서를 기억해야 하는 과제였다.
+   논리력 테스트 1단계에서 24분 소요다음, &#x27;게임2&#x27;는 &#x27;논리력 테스트&#x27;였다.
+  게임 소요시간은 2시간이다.
+  만만히 볼 게 아니다.
+  &#x27;규칙&#x27;을 파악하는 것이 관건이다.
+  게임이 시작돼도 아무 설명이 없다.
+  응시자가 하나씩 조작해 보며 규칙을 익혀야 한다.
+  기본적으로는 &#x27;비행기&#x27;를 움직여 &#x27;별&#x27;을 모두 없애는 것이 게임의 목표다.
+  시험문제는 랜덤으로 출제되기에 특정한 답을 외우는 건 의미가 없다.
+   처음에는 화살표와, 빨강, 초록, 파랑 색깔 상자의 의미도 알 수 없었다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D01" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">과학기술정보통신부와 서울시가 운영하는 비학위교육기관 &#x27;이노베이션 아카데미&#x27;가 지원자를 모집하는 소프트웨어(SW) 개발자 양성 프로그램 &#x27;42 서울&#x27;에 대한 온라인 테스트를 직접 치러봤다. 온라인 테스트는 등록 계정별로 단 한 번만 주어진다. 첫 게임은 &#x27;기억력 테스트&#x27;와 유사했고, 10단계에서 25개 상자(5X5)가 등장해 4개의 순서를 기억하면 13단계까지 통과했지만 14단계에서 막혔다. 게임 2는 논리력 테스트였다. 응시자는 규칙을 익혀야 하며, 처음에는 화살표와, 빨강, 초록, 파랑 색깔 상자의 의미도 알 수 없었다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D01_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D01_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D01_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D01_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D01_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D01_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D01_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D01_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D01_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D01_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D01_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D01_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D01_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D01_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D01" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">과학기술정보통신부와 서울시가 운영하는 비학위교육기관 &#x27;이노베이션 아카데미&#x27;가 지원자를 모집 중인 소프트웨어(SW) 개발자 양성 프로그램 &#x27;42 서울&#x27;에 합격하기 위해서는 2단계 테스트를 통과해야 한다. 한 기수당 250명 내외를 뽑는 &#x27;42 서울&#x27;에 합격하기 위해서는 1차는 온라인으로 보는 테스트고 2차는 1차 통과자를 대상으로 하는 &#x27;집중교육과정(라피신)&#x27;이다. 문과 출신인 기자는 지난 12일 &#x27;42 서울&#x27;의 온라인 테스트를 직접 치러봤다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D01_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D01_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D01_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D01_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D01_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D01_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D01_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D01_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D01_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D01_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D01_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D01_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D01_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D01_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D01" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">과학기술정보통신부와 서울시가 운영하는 비학위교육기관 &#x27;이노베이션 아카데미&#x27;가 지원자를 모집 중인 소프트웨어(SW) 개발자 양성 프로그램 &#x27;42 서울&#x27;에 합격하기 위해서는 2단계 테스트를 통과해야 한다. 한 기수당 250명 내외를 뽑는 &#x27;42 서울&#x27;에 합격하기 위해서는 1차는 온라인으로 보는 테스트고, 2차는 1차 통과자를 대상으로 하는 &#x27;집중교육과정(라피신)&#x27;이다. 1차 온라인 테스트 도전 누구나 지원 가능하다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D01_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D01_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D01_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D01_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D01_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D01_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D01_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D01_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D01_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D01_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D01_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D01_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D01_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D01_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D02">
+              <h2>D02 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">시진핑 방한과 새해 한·중관계 전망지난달 23일 베이징에서 열린 한·중 정상회담을 계기로 내년 봄 시진핑(習近平) 중국 국가주석의 방한이 가시화되고 있다.
+  “시진핑 주석의 내년 상반기 방한은 확정적”이라고 청와대 관계자는 전했다.
+  6년 만에 이뤄지게 될 시 주석의 방한은 고고도미사일방어체제(THAAD·사드) 배치로 촉발된 한한령(限韓令)에 공식적으로 마침표를 찍고 한·중관계를 복원하는 계기가 될 수 있을까.
+  1992년 수교 이후 지난 27년간의 한·중관계를 되돌아보고 2020년 새해를 전망해 본다.
+       한·중 수교 이후 지금까지의 한·중관계는 경제적 협력 관계를 중심으로 발전해 왔다.
+  사드로 인해 한·중관계에 금이 가기 전까지 경제영역에서의 양자 협력은 순조로웠다.
+  이로 인해 양자 간 충돌적 요소에 대한 적극적 관리가 충분하지 않았던 것도 사실이다.
+  경험적으로 볼 때 한·중관계의 4대 충돌 요소는 ▶북핵 문제 ▶한미동맹 ▶한·중 비대칭관계 ▶반중·혐한 감정이다.
+  북핵 문제를 어떻게 접근하느냐를 두고서는 한·중간 조율이 잘된 적도 있었지만 이견을 보인 적도 많았다.
+  중국은 한미동맹에 대해 끊임없이 문제를 제기했다.
+  특히 한미동맹이 북한만을 상대하는 것이 아니라  미국이 ‘중국의 부상’을 억제하는 전략의 일부분인지가 논쟁의 대상이었다.
+  중국은 한국 정부가 바뀔 때마다 끊임없이 ‘확인’ 작업을 했다.
+   비대칭: 누가 누구를 더 필요로 하나 비대칭 관계와 반중·혐한 정서는 가끔씩 언론의 주목을 받기는 했지만 속으로 곪은 상처처럼 그 심각성에 대한 인식은 충분하지 못했다.
+  한·중관계가 평등하기보다는 중국 쪽으로 ‘운동장이 기울어진’ 비대칭관계로 서서히 바뀐 것은 격세지감을 느낄 정도로 중국의 위상이 높아짐에 따른 양자관계 변화가 저변에 깔려있다.
+  1992년 수교 당시 비슷했던 양국 경제규모는 2018년 중국이 한국의 8배가 될 정도로 격차가 벌어졌다.
+  한국이 중국을 필요로 하는 정도와 중국이 한국을 필요로 하는 정도 사이에 차이가 더 커진 원인이다.
+  한국 대통령 특사에 대한 중국 지도자의 하대 논란이 반복되는 것도 이와 무관치 않다.
+  바로잡지 않으면 ‘뉴노멀(New Normal)’로 굳어진다.
+  더불어 한미동맹 문제 등 근래 한국과 주요 우방과의 관계 악화, 그리고 세계무대에서 한국의 경제 지위 하강은 중국이 생각하는 한국의 몸값을 더욱 낮게 보이게 할 수 있다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D02" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">내년 봄 시진핑(習近平) 중국 국가주석의 방한이 가시화되고 있다. 시진핑 주석의 내년 상반기 방한은 고고도미사일방어체제(THAAD·사드) 배치로 촉발된 한한령(限韓令)에 공식적으로 마침표를 찍고 한·중관계를 복원하는 계기가 될 수 있을까. 1992년 수교 이후 지금까지의 한·중관계는 경제적 협력 관계를 중심으로 발전해 왔다. 경험적으로 볼 때 한·중관계의 4대 충돌 요소는 ▶북핵 문제 ▶한미동맹 ▶한·중 비대칭관계 ▶반중·혐한 감정이다. 1992년 수교 당시 비슷했던 양국 경제규모는 2018년 중국이 한국의 8배가 될 정도로 격차가 벌어졌다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D02_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D02_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D02_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D02_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D02_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D02_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D02_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D02_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D02_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D02_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D02_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D02_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D02_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D02_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D02" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">지난달 23일 베이징에서 열린 한·중 정상회담을 계기로 내년 봄 시진핑 중국 국가주석의 방한이 가시화되고 있다. 청와대 관계자는 시 주석의 방한이 한한령에 공식적으로 마침표를 찍고 한·중관계를 복원하는 계기가 될 수 있다고 말했다. 1992년 수교 이후 한·중관계는 경제적 협력 관계 중심으로 발전해 왔으며, 한·중관계의 4대 충돌 요소는 북핵 문제, 한미동맹, 한·중 비대칭관계, 반중·혐한 감정이다. 2020년 새해는 한·중관계의 격세지감을 느끼게 될 전망이다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D02_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D02_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D02_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D02_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D02_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D02_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D02_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D02_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D02_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D02_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D02_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D02_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D02_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D02_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D02" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">지난달 23일 베이징 한·중 정상회담을 계기로 시진핑 중국 국가주석의 방한이 가시화되고 있다. 청와대 관계자는 시진핑 주석의 내년 상반기 방한은 확정적이라고 전했으며, 6년 만에 이뤄질 수 있을 시 주석의 방한은 고고도미사일방어체제(THAAD·사드) 배치로 촉발된 한한령에 공식적으로 마침표를 찍고 한·중관계를 복원하는 계기가 될 수 있을까. 1992년 수교 당시 비슷했던 양국 경제규모는 2018년 중국이 한국의 8배가 될 정도로 격차가 벌어졌다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D02_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D02_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D02_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D02_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D02_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D02_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D02_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D02_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D02_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D02_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D02_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D02_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D02_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D02_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D03">
+              <h2>D03 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">부산지역 10번째 신종 코로나바이러스 감염증(코로나19) 확진자가 광주·전남지역을 찾아 시내버스를 타고 이동한 사실이 확인됐다.
+  광주지역 신종 코로나 확진자도 광주시 역학조사에서 시내버스를 하루 더 이용한 동선도 드러났다.
+  부산 10번째 확진자 광주 송정역-나주혁신도시 왕복 광주시는 24일 브리핑을 열고 &quot;지난 18일 부산 10번째 확진자 A씨(46)가 광주 송정역에서 나주 혁신도시까지 시내버스를 이용해 왕복 이동했다&quot;고 밝혔다.
+  A씨는 지난 16일 온천교회에서 부산지역 첫 번째 확진자와 접촉한 뒤 양성 판정을 받아 현재 부산의료원에서 격리 치료 중이다.
+  A씨는 SRT를 이용해 18일 오전 11시 10분 광주 송정역에 도착했고 낮 12시 36분 &#x27;좌석02&#x27; 버스를 탑승했다.
+  A씨는 같은 날 낮 12시 58분쯤 나주 혁신도시 호수공원역에서 내렸다.
+  A씨는 오후 1시쯤 나주혁신도시의 한 식당을 찾아 약 20분간 점심을 먹었다.
+  이후 업무차 한국인터넷진흥원을 방문한 뒤 약 1시간 30분 동안 머물렀다.
+  A씨는 광주에서 나주혁신도시로 왔을 때와 똑같은 &#x27;좌석02&#x27; 버스를 오후 3시 29분쯤 탑승했고 오후 3시 46분쯤 광주 송정역에서 내렸다.
+  A씨는 오후 4시 30분에 출발하는 SRT에 탑승해 부산에 돌아간 것으로 전해졌다.
+  광주 확진자 시내버스 추가 이용 동선도 확인 광주시는 489번째 확진자 B씨(32)의 시내버스 이용 동선도 추가 발표했다.
+  B씨는 지난 19일 오후 10시 23분 CBS방송국에서 &#x27;순환01&#x27; 버스에 탑승해 무등시장 입구에서 내렸다.
+  이 확진자는 지난 20일에도 시내버스 4대를 이용한 사실이 확인됐다.
+  B씨는 지난 20일 낮 12시 53분쯤 광주 남구 백운광장에서 &#x27;진월07&#x27; 버스를 타고 오후 1시쯤 충장치안센터에서 하차했다.
+  오후 1시 25분쯤 같은 정류장에서 &#x27;금남55&#x27; 버스로 환승해 1시 50분쯤 신안사거리에서 내렸다.
+  이어 오후 2시 1분쯤 전남대사거리 정류장에서 &#x27;문흥18&#x27; 버스를 타고 오후 2시 10분쯤 문화중학교 앞에서 내렸다.
+  E씨는 지인 집에 들렀다가 오후 9시 48분쯤 운암3단지에서 &#x27;수완12&#x27; 버스를 탔고 오후 10시 5분쯤 주월 주택단지에서 내렸다.
+  광주시는 확진자들이 이용한 버스를 운행정지 시키고 버스 기사들을 격리 조치한 뒤 임시차량으로 대체했다.
+  광주시 &quot;신천지 신자 중 접촉자 적극 확보&quot; 광주시는 164번째 확진자가 머물렀던 광주 남구 월산동 소재 신천지 성경 공부방 CCTV 확보에 경찰 인력을 투입했다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D03" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">부산지역 10번째 신종 코로나바이러스 확진자가 광주·전남지역을 찾아 시내버스를 이용해 이동한 사실이 확인됐다. 광주시는 24일 브리핑을 통해 지난 18일 부산 10번째 확진자 A씨(46)가 광주 송정역에서 나주 혁신도시까지 시내버스를 이용해 왕복 이동했다고 밝혔다. A씨는 지난 16일 온천교회에서 부산지역 첫 번째 확진자와 접촉한 뒤 양성 판정을 받아 현재 부산의료원에서 격리 치료 중이다. A씨는 18일 오전 11시 10분 광주 송정역에 도착했고 낮 12시 36분 &#x27;좌석02&#x27; 버스를 탑승했다. A씨는 같은 날 낮 12시 58분쯤 나주 혁신도시 호수공원역에서 내렸다. A씨는 오후 1시쯤 나주혁신도시의 한 식당을 찾아 약 20분간 점심을 먹었다. 광주시는 489번째 확진자 B씨(32)의 시내버스 이용 동선도 추가 발표했다. B씨는 지난 19일 오후 10시 23분 CBS방송국에서 &#x27;순환01&#x27; 버스에 탑승해 무등시장 입구에서 내렸다. E씨는 지인 집에 들렀다가 오후 9시 48분쯤 운암3단지에서 &#x27;수완12&#x27; 버스를 탔고 오후 10시 5분쯤 주월 주택단지에서 내렸다. 광주시는 확진자들이 이용한 버스를 운행정지 시키고 버스 기사들을 격리 조치한 뒤 임시차량으로 대체했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D03_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D03_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D03_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D03_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D03_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D03_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D03_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D03_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D03_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D03_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D03_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D03_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D03_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D03_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D03" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">부산지역 10번째 코로나19 확진자가 광주·전남지역을 찾아 시내버스를 타고 이동한 사실이 확인됐다. 광주시는 24일 브리핑을 열고 지난 18일 부산 10번째 확진자 A씨(46)가 광주 송정역에서 나주 혁신도시까지 시내버스를 이용해 왕복 이동했다고 밝혔다. A씨는 지난 16일 온천교회에서 부산지역 첫 확진자와 접촉한 뒤 양성 판정을 받아 부산의료원에서 격리 치료 중이며, 18일 오전 11시 10분 광주 송정역에서 나주 혁신도시까지 시내버스를 이용해 489번째 확진자 B씨(32)의 시내버스 이용 동선도 추가 확인됐다. 광주시는 164번째 확진자가 머물던 신천지 성경 공부방 CCTV 확보에 경찰 인력을 투입했고, 19일 오후 10시 23분 CBS방송국에서 무등시장 입구에서 내린 B씨는 지난 20일에도 시내버스 4대를 이용한 사실이 확인됐다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D03_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D03_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D03_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D03_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D03_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D03_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D03_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D03_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D03_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D03_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D03_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D03_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D03_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D03_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D03" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">부산지역 10번째 코로나19 확진자 A씨(46)가 광주 송정역에서 나주 혁신도시까지 시내버스를 이용해 왕복 이동한 사실이 확인됐다. A씨는 지난 16일 온천교회에서 부산지역 첫 확진자와 접촉한 뒤 양성 판정을 받아 부산의료원에서 격리 치료 중이며, 18일 오전 11시 10분 광주 송정역에 도착했고 낮 12시 36분 &#x27;좌석02&#x27; 버스를 탑승해 나주 혁신도시 호수공원역에서 내렸다. A씨는 오후 3시 29분쯤 광주 송정역에서 내렸고, 오후 3시 46분쯤 광주 송정역에서 부산에 돌아갔다. 광주시는 489번째 확진자 B씨(32)의 시내버스 이용 동선도 추가 발표했고, 광주 남구 월산동 소재 신천지 성경 공부방 CCTV 확보에 경찰 인력을 투입했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D03_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D03_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D03_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D03_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D03_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D03_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D03_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D03_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D03_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D03_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D03_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D03_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D03_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D03_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D04">
+              <h2>D04 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">대전에서 신종 코로나바이러스 감염증(코로나19) 확진자 3명이 추가됐다.
+  전날 3명이 발생한 데 이어 하루 만에 4명이 추가되면서 대전지역 확진자는 모두 10명으로 늘었다.
+  지난 22일 첫 확진자가 나온 지 6일 만에 두 자릿수 환자를 기록했다.
+   27일 대전시에 따르면 이날 확진자 4명 중 2명은 전날 확진 판정을 받은 산림기술연구원에 근무한 연구원 동료 2명이다.
+  이 가운데 1명은 대전시 서구 월평동에 사는 30대 남성이다.
+  이 연구원은 지난 25일 둔산동 대형마트와 주유소·시장 등을 찾았다.
+  26일 출근해 발열 등 증세가 있자 서구 보건소에 가서 진단을 받았다.
+  이어 이날 오후 8시 확진 판정을 받고 격리됐다.
+  이 연구원은 지난 20일 연구원장과 함께 경북 성주군으로 산림조사를 다녀왔다.
+  이 연구원은 성주에서 확진자와 접촉한 사람과 식사를 한 것으로 알려졌다.
+   또 따른 연구원 추가 확진자는 서구 복수동에 거주하는 30대 남성이다.
+  이 연구원은 20일 오후 6쯤 증세가 시작되자 23일까지 집에 머물렀다.
+  이어 24일 시내버스를 타고 둔산동 소재 병원서 진료를 받고 약국에서 약을 받았고 집으로 갔다.
+  이어 25일 오전 10시 건양대병원에서 검체 채취 등 진료를 받고 약국·대형마트 등을 다녔다.
+   앞서 지난 26일 산림기술연구원 33세 연구원이 확진 판정을 받았다.
+  이 연구원도 경북 성주로 산림조사를 다녀온 뒤 지난 20일부터 몸이 좋지 않았던 것으로 알려졌다.
+  이 연구원이 사는 곳은 유성구 봉명동이다.
+    이 연구원은 지난 24일 오전까지 연구원에서 근무한 뒤 25일 발열 증세 등으로 선별진료소를 찾아 검사를 받았다.
+  산림기술연구원은 서구 둔산동 정부대전청사 인근에 있으며, 직원은 7명이다.
+  산림청은 산림기술연구원 직원의 정부대전청사 출입을 금지하고, 모두 자가격리하도록 했다.
+ 전날 확진된 대전도시철도 월평역 직원의 동료도 양성 판정을 받았다.
+  이 직원은 27일 오전 발열증상이 나서 충남대 병원에 입원해 진단을 받았다.
+   나머지 1명은 충남 공주에서 대전 대학병원으로 이송된 78세 A씨다.
+  A씨는 폐렴 증상으로 을지대병원에서 치료받던 중 확진 판정을 받았다.
+  A씨는 지난 20일부터 기침·가래 등 증상을 보여 공주의료원에 입원해 있다가 25일 을지대병원으로 왔다.
+  이 환자는 이날 진료가 한 달 전쯤 예약돼 있었다고 한다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D04" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">대전에서 신종 코로나바이러스 감염증(코로나19) 확진자 3명이 추가돼 대전지역 확진자는 10명으로 늘었다. 27일 대전시에 따르면 이날 확진자 4명 중 2명은 전날 확진 판정을 받은 산림기술연구원에 근무한 연구원 동료 2명이다. 1명은 대전시 서구 월평동에 사는 30대 남성이며, 20일 경북 성주군 산림조사를 다녀온 뒤 20일부터 몸이 좋지 않았던 것으로 알려졌다. 33세 연구원은 경북 성주로 산림조사를 다녀온 뒤 20일부터 몸이 좋지 않았던 것으로 알려졌다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D04_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D04_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D04_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D04_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D04_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D04_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D04_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D04_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D04_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D04_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D04_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D04_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D04_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D04_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D04" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">대전에서 신종 코로나바이러스 감염증(코로나19) 확진자 3명이 추가되면서 대전지역 확진자는 모두 10명으로 늘었다. 27일 대전시에 따르면 이날 확진자 4명 중 2명은 전날 확진 판정을 받은 산림기술연구원에 근무한 연구원 동료 2명으로, 1명은 대전시 서구 월평동에 사는 30대 남성이며, 26일 출근해 발열 등 증세가 있자 서구 보건소에 가서 진단을 받았다. 또 따른 연구원 추가 확진자는 서구 복수동에 거주하는 30대 남성으로, 20일 오후 6쯤 증세가 시작되자 23일까지 집에 머물렀다. 앞서 지난 26일 산림기술연구원 33세 연구원이 확진 판정을 받았고, 나머지 1명은 충남 공주에서 대전 대학병원으로 이송된 78세 A씨다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D04_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D04_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D04_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D04_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D04_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D04_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D04_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D04_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D04_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D04_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D04_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D04_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D04_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D04_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D04" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">대전에서 신종 코로나바이러스 확진자 3명이 추가되면서 대전지역 확진자는 모두 10명으로 늘었다. 27일 대전시에 따르면 이날 확진자 4명 중 2명은 전날 확진 판정을 받은 산림기술연구원에 근무한 연구원 동료 2명이다. 이 가운데 1명은 대전시 서구 월평동에 사는 30대 남성이다. 또 따른 연구원 추가 확진자는 서구 복수동에 거주하는 30대 남성이다. 앞서 지난 26일 산림기술연구원 33세 연구원이 확진 판정을 받았다. 나머지 1명은 충남 공주에서 대전 대학병원으로 이송된 78세 A씨다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D04_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D04_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D04_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D04_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D04_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D04_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D04_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D04_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D04_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D04_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D04_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D04_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D04_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D04_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D05">
+              <h2>D05 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">&#x27;마포 5인 회동&#x27;이 알려진 뒤 더불어민주당 외곽에서 민주당 비례정당을 표방하는 이들의 움직임이 빨라지고 있다.
+   &#x27;비례 연합정당&#x27;을 표방하고 나선 &#x27;정치개혁연합&#x27;은 3일 중앙선거관리위원회에 창당준비위원회 결성을 신고할 예정이다.
+  정치개혁연합에는 주권자전국회의 등 친여 성향의 시민단체가 참여하고 있다.
+  이들은 민주당, 정의당, 녹색당 등 진보 세력이 힘을 합쳐 비례용 연합 정당을 창당하고, 각 당에서 비례대표 후보를 파견 받아 총선을 치른 뒤 당선자들이 원래 소속 정당으로 돌아가자고 제안하고 있다.
+  발기인에는 영화배우 문성근씨, 함세웅 신부, 한완상 전 교육부장관, 맛칼럼니스트 황교익씨 등 200여명이 이름을 올렸다.
+  이들은 오는 10일까지 창당을 마무리한다는 계획이다.
+   앞서 지난달 28일 정봉주 전 의원은 비례정당 &#x27;열린민주당&#x27;을 창당했다.
+  또 우희종 서울대 교수와 최배근 건국대 교수 등은 2일 국회에서 비례연합정당인 &#x27;시민을 위하여&#x27; 창당 기자회견을 열었다.
+  &quot;비례공관위 해체해야&quot; 당내에선 비례 의석을 포기하자는 주장이 나왔다.
+  외부에 만들어지는 비례정당에 힘을 실어주자는 취지다.
+  친문 핵심인 최재성 의원은 이날 기자회견을 열고 “국민의 뜻 앞에 작은 것은 비우는 결단을 내려야 한다”며 “의석 몇 자리에 연연해 민주주의가 파괴되는 걸 방기해선 안 된다”고 말했다.
+  그러면서 “(민주당은) 단 한 명의 비례 후보도 내지 않을 테니 국민께 기형적이고 민심을 왜곡하는 미래한국당을 찍지 말아달라고 호소하자”고 했다.
+    최 의원은 기자회견이 끝난 직후 기자들과 만나 “미래통합당이 대통령 탄핵을 기정사실화 하고 총선의 발판으로 삼겠다는 주장이 공공연하게 제기되는 상황에서 이를 극복하기 위한 방안을 제시한 것”이라며 “(민주당) 비례공천관리위원회 자체를 해체해야 한다”고 말했다.
+  정작 당 지도부는 침묵을 이어가고 있다.
+  비례정당을 둘러싼 당의 공식 입장과 노선에 대해 아무런 발표가 없었다.
+  오히려 이해찬 대표는 지난 1일 비공개 최고위원회의에서 “비례정당 관련한 일체의 논의를 하지 말라”고 강조했다.
+   야당은 연일 이해찬 대표의 공식 입장을 촉구하고 있다.
+  민생당은 지난달 28일 논평을 통해 “앞에서는 정치 개혁을 이야기하고 뒷구멍으로는 꼼수 궁리라니 이게 집권 여당이 할 일인가.
+  민주당 지도부는 비례위성정당에 대한 분명한 입장을 밝힐 것을 촉구한다”고 했다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D05" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">더불어민주당 외곽에서 민주당 비례정당을 표방하는 이들의 움직임이 빨라지고 있다. &#x27;정치개혁연합&#x27;은 3일 중앙선거관리위원회에 창당준비위원회 결성을 신고할 예정이다. 이들은 민주당, 정의당, 녹색당 등 진보 세력이 힘을 합쳐 비례용 연합 정당을 창당하고 각 당에서 비례대표 후보를 파견 받아 총선을 치른 뒤 당선자들이 원래 소속 정당으로 돌아가자고 제안하고 있다. 발기인에는 문성근씨, 함세웅 신부, 한완상 전 교육부장관, 맛칼럼니스트 황교익씨 등 200여명이 이름을 올렸다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D05_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D05_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D05_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D05_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D05_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D05_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D05_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D05_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D05_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D05_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D05_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D05_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D05_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D05_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D05" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">더불어민주당 외곽에서 민주당 비례정당을 표방하는 이들이 3일 중앙선거관리위원회에 창당준비위원회 결성을 신고할 예정이다. &#x27;비례 연합정당&#x27;을 표방하는 &#x27;정치개혁연합&#x27;은 3일 중앙선거관리위원회에 창당준비위원회 결성을 신고하고, 주권자전국회의 등 친여 성향의 시민단체가 참여하고 있다. 지난달 28일 정봉주 전 의원은 비례정당 &#x27;열린민주당&#x27;을 창당했고, 우희종 서울대 교수와 최배근 건국대 교수 등은 2일 국회에서 &#x27;시민을 위하여&#x27; 창당 기자회견을 열었다. 당 지도부는 비례정당 관련한 공식 입장과 노선에 대해 아무런 발표가 없었고, 야당은 연일 이해찬 대표의 공식 입장을 촉구하고 있다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D05_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D05_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D05_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D05_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D05_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D05_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D05_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D05_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D05_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D05_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D05_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D05_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D05_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D05_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D05" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">더불어민주당 외곽에서 민주당 비례정당을 표방하는 이들이 움직임이 빨라지고 있다. &#x27;비례 연합정당&#x27;을 표방하고 나선 &#x27;정치개혁연합&#x27;은 3일 중앙선거관리위원회에 창당준비위원회 결성을 신고할 예정이다. 앞서 지난달 28일 정봉주 전 의원은 비례정당 &#x27;열린민주당&#x27;을 창당했고, 우희종 서울대 교수와 최배근 건국대 교수 등은 2일 국회에서 &#x27;시민을 위하여&#x27; 창당 기자회견을 열었다. 당 지도부는 비례정당을 공식 입장을 발표하지 않고 노선에 대해 아무런 발표가 없었고, 야당은 연일 이해찬 대표의 공식 입장을 촉구하고 있다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D05_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D05_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D05_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D05_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D05_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D05_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D05_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D05_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D05_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D05_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D05_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D05_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D05_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D05_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D06">
+              <h2>D06 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">이라크 주재 미국 대사관을 습격한 시위대가 철수했음에도 미국이 강경한 태도로 일관하고 있다.
+  그 배경에는 미국의 ‘트라우마’가 된 2가지 사건이 있다는 얘기가 나온다.
+   이라크 내 친(親)이란 시위대가 바그다드 주재 미국 대사관을 습격한 것은 지난달 31일(현지시간).
+  이들이 대사관에 진입해 불을 지르고 반미 구호를 외치자, 미국 정부는 병력 750여명 파병을 결정하고 공수부대 투입 대기령을 내리는 등 초강경 대응에 나섰다.
+  결국 시위대는 이틀 만에 물러났다.
+  그러나 미국과 이란의 갈등은 더욱 커질 것으로 전망된다.
+  도널드 트럼프 미국 대통령은 “이란은 큰 대가를 치르게 될 것”이라며 경고하고 나섰고, 마이크 폼페이오 미 국무장관은 중동의 지도자들과 통화하며 이란을 압박하고 있다.
+   인명 피해가 없었음에도 미국이 ‘공수부대 투입’을 거론하며 강경하게 대응한 데는 ‘1979년 이란 주재 미국 대사관 습격’과 ‘2012년 리비아 주재 영사관 테러’가 큰 영향을 끼쳤으리란 게 미 언론의 평가다.
+ 미국과 이란은 20세기 중반 서로 ‘혈맹’이라 칭할 정도로 가까운 사이였다.
+  미국 정부는 소련 세력이 남하하는 것을 막고 석유를 확보하기 위해 이란 정부와 밀접한 관계를 맺었고, 무함마드 레자 팔라비 국왕의 독재에 눈을 감았다.
+   독재정권에 비밀경찰까지 지원할 정도로 돈독했던 미국과 이란의 관계가 깨진 것은 1979년.
+  아야톨라 루홀라 호메이니가 이끈 이슬람 혁명이 성공하면서였다.
+  독재에 신음하던 시민들의 분노는 국왕의 망명을 받아준 미국으로 향했고, 11월 4일 마침내 미국 대사관을 공격하기에 이르렀다.
+  시위대는 외교관과 직원 등 70여 명을 인질로 붙잡았고 분위기는 험악해졌다.
+ 협상이 계속 결렬되자 분노한 미 정부는 1980년 4월 이란과 단교했다.
+  특수부대를 투입해 인질 구출 작전을 벌였지만 실패, 부대원 8명이 목숨을 잃는 일도 발생했다.
+  세계 최강대국이라 자부하던 미국인들이 받은 충격은 어마어마했다.
+  1년여를 끌던 인질 사건은 1981년 1월 20일, 인질 전원이 석방되며 종지부를 찍었다.
+  대사관 공격 444일 만이었다.
+  그러나 미국과 이란의 사이는 돌이킬 수 없을 지경에 이르렀다.
+  수십 년이 지난 2015년, 오바마 전 대통령이 핵 합의를 끌어내며 잠시 화해 무드가 조성됐지만 트럼프가 취임하며 원점으로 돌아갔다.
+   이란 주재 미국 대사관 습격 사건은 2012년 할리우드 톱스타 벤 애플렉이 연출하고 직접 주연을 맡은 영화 ‘아르고’에서 다뤄져 다시 한번 주목받기도 했다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D06" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">이라크 내 친(親)이란 시위대가 바그다드 주재 미국 대사관을 습격한 것은 지난달 31일(현지시간)이었지만 미국 정부는 병력 750여명 파병을 결정하고 공수부대 투입 대기령을 내리는 등 초강경 대응에 나섰고, 결국 시위대는 이틀 만에 물러났다. 그러나 미국과 이란의 갈등은 더욱 커질 것으로 전망된다. 도널드 트럼프 미국 대통령은 &quot;이란은 큰 대가를 치르게 될 것&quot;이라며 경고하고 마이크 폼페이오 미 국무장관은 중동 지도자들과 통화하며 이란을 압박하고 있다. 인명 피해가 없었음에도 미국이 공수부대 투입을 거론하며 강경하게 대응한 데는 1979년 이란 주재 미국 대사관 습격과 2012년 리비아 주재 영사관 테러가 큰 영향을 끼쳤으리란 게 미 언론의 평가다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D06_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D06_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D06_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D06_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D06_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D06_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D06_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D06_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D06_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D06_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D06_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D06_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D06_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D06_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D06" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">미국은 이라크 주재 미국 대사관을 습격한 시위대가 철수했음에도 강경한 태도로 일관하고 있다. 도널드 트럼프 미국 대통령은 이란을 경고하고 마이크 폼페이오 미 국무장관은 중동 지도자들과 통화하며 이란을 압박하고 있다. 1979년 이란 주재 미국 대사관 습격과 2012년 리비아 주재 영사관 테러가 큰 영향을 끼쳤다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D06_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D06_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D06_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D06_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D06_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D06_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D06_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D06_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D06_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D06_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D06_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D06_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D06_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D06_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D06" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">이라크 주재 미국 대사관을 습격한 시위대가 철수했음에도 미국이 강경한 태도로 일관하고 있다. 도널드 트럼프 미국 대통령은 이란을 큰 대가를 치르게 될 것이라며 경고하고 나섰고, 마이크 폼페이오 미 국무장관은 이란을 압박하고 있다. 미국과 이란의 갈등은 더욱 커질 것으로 전망된다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D06_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D06_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D06_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D06_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D06_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D06_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D06_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D06_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D06_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D06_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D06_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D06_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D06_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D06_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D07">
+              <h2>D07 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">그는 우선 풀어야 할 문제로 “경제사업체계와 질서를 합리적으로 정돈”하고, “오늘에 와서까지 지난 시기의 과도적이며 임시적인 사업방식을 답습할 필요는 없다”고 했다.
+  경제사령부로서의 ‘내각책임제‧중심제’ 강화로 내각의 통일적 지휘 보장, 현실적 요구에 맞게 계획사업 개선해 인민경제계획 신뢰도 제고, 전반적인 경제 기구체계 정비.
+  경제관리개선 사업 강화 및 불필요한 규제 및 비효율 요소들 개선, 국가 상업체계‧사회주의상업 복원, 전문건설역량 확대 및 건설장비 현대화, 현실성 있게 사회주의 기업책임 관리제 실시 등을 해결방도를 제시했다.
+  이 밖에도 공업 및 농업부문 과업도 구체적으로 제시했다.
+    ‘정면돌파 전’(2) : 전략무기 개발 지속으로 정치외교 및 군사적 돌파북한은 ‘무적의 군사력’을 보유하고 계속 강화해 나가는 것을 그들의 국방건설 목표로 설정했다.
+  전략무기개발 사업을 더욱 활발히 추진해 새로운 전략무기를 선보일 것을 천명했다.
+  미국이 적대시 정책을 계속할 경우 ’조선반도의 비핵화‘는 없을 것이며, 항구적이며 공고한 평화체제가 구축될 때까지 전략무기 개발을 계속 진행해 나가겠다는 입장을 밝혔다.
+  그들은 상시로 핵 억제력의 동원태세를 유지할 것이며, 그 폭과 심도는 미국의 태도 변화에 달렸다는 유보적 주장을 펼친 것으로 보아 미국과의 대화 여지도 남겨놓고 있기는 하다.
+  하지만 미국이 자발적으로 그들이 바라는 근본적인 태도 변화를 지켜보기보다는 핵·미사일과 같은 전략무기 개발과 시험을 지속함으로써 압박을 통한 인위적 변화를 미국으로부터 끌어내겠다는 의지를 내비쳤다.
+     지난해 4월 전원회의 이후 북한은 각종 단거리 미사일과 초대형 방사포 시험발사로 미국을 압박했으나, 도널드 트럼프 미국 대통령의 무시로 인해 무위로 끝났다.
+  이제 북한은 미국이 무시할 수 없는 더 강한 대응을 준비할 명분을 찾고자 한다.
+   김정은 위원장은 북한의 “핵시험과 대륙간탄도로케트 시험발사 중지, 핵시험장 폐기 등의 선제적인 중대조치”에도 불구하고 미국은 “합동군사연습, 첨단전쟁장비 반입, 십여 차례 단독 제제조치로 압살하려는 야망에 변함이 없음을 보였다”면서 “이러한 조건에서 대방도 없는 공약에 일방적으로 매여 있을 근거가 없어졌다”며 핵‧미사일 모라토리엄 철회로 새로운 도전을 시사했다.
+  이렇게 볼 때 북한이 그들의 기술개발이 허락하는 대로 대륙간탄도미사일(ICBM) 시험발사, 새로운 유형의 핵실험 준비에 박차를 가하게 될 것으로 판단한다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D07" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">북한은 전략무기 개발을 지속해 나가겠다는 입장을 밝히며, 미국이 적대시 정책을 계속할 경우 조선반도의 비핵화는 없을 것이라고 주장했다. 김정은 위원장은 북한의 핵시험과 대륙간탄도로케트 시험발사 중지, 핵시험장 폐기 등의 선제적인 중대조치에도 불구하고 미국은 합동군사연습, 첨단전쟁장비 반입, 십여 차례 단독 제제조치로 압살하려는 야망에 변함이 없음을 보였다며 핵‧미사일 모라토리엄 철회로 새로운 도전을 시사했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D07_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D07_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D07_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D07_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D07_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D07_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D07_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D07_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D07_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D07_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D07_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D07_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D07_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D07_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D07" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">북한은 &#x27;무적의 군사력&#x27;을 보유하고 계속 강화해 나가는 것을 국방건설 목표로 설정했다. 북한은 전원회의 이후 핵·미사일과 같은 전략무기 개발과 시험을 지속해 나가겠다는 입장을 밝혔고, 김정은 위원장은 핵·미사일 모라토리엄 철회로 새로운 도전을 시사했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D07_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D07_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D07_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D07_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D07_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D07_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D07_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D07_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D07_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D07_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D07_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D07_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D07_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D07_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D07" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">북한은 경제사업체계와 질서를 합리적으로 정돈하고 과도적 임시사업방식을 답습할 필요가 없다고 밝혔으며, 경제사령부로서의 내각책임제·중심제 강화로 계획사업 개선을, 경제관리개선 사업 강화 및 불필요 규제 및 비효율 요소 개선, 국가 상업체계·사회주의상업 복원, 전문건설역량 확대 및 건설장비 현대화, 사회주의 기업책임 관리제 실시 등을 해결방도를 제시했다. 김정은 위원장은 북한의 핵시험과 대륙간탄도로케트 시험발사 중지, 핵시험장 폐기 등의 선제적인 중대조치에도 불구하고 미국은 합동군사연습, 첨단전쟁장비 반입, 십여 차례 단독 제제조치로 압살하려는 야망에 변함이 없음을 보였다며 핵·미사일 모라토리엄 철회로 새로운 도전을 시사했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D07_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D07_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D07_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D07_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D07_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D07_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D07_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D07_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D07_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D07_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D07_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D07_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D07_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D07_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D08">
+              <h2>D08 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">미시적으로는 부동산 정책이 완전히 실패해 주거비가 올라가고 가처분 소득은 줄어드는 상황이 됐다.
+   “스마트 농기업 등 미래산업·지식인 키워야”  미래로 가려면 어디에 집중해야 하나.
+ 낙후된 산업인 농·수·축산업 전환에 돈을 써야 한다.
+  동남아 고급 소비층이 빠르게 성장하고 있어 스마트 농·수·축산업에 기회가 있다.
+  둘째 기존 산업의 디지털화를 빠르게 진행해야 한다.
+  강점(수월성)이 있는 곳에 투자해야 한다.
+  셋째는 미래산업을 육성할 문화 예술 지식인을 키워야 한다.
+  돈이 많이 들지도 않는 일이다.
+  1만 명에 1억 원씩 줘도 1조원이다.
+  넷째 신도시 지을 생각하지 말고, 사회공동체 개념을 집어넣어 도심을 개발해야 한다.
+  중국, 일본 등 대외 여건이 어렵다.
+ (중국과 일본의 경제 보복은) 역설적으로 다행스러운 일이다.
+  너무 늦지 않게 온 축복이다.
+  어느 한 국가에 (수출의) 20% 이상을 의존한다면 그것이 중국이 아니라 다른 나라여도 문제다.
+  일본이 으레 필요한 부품을 계속 대줄 것으로 생각했던 것이 착각이라는 점도 이번에 알게 됐다.
+  긍정적으로 볼 필요가 있다.
+  더 늦었다면 손쓸 수 없었을지 모른다.
+  조용히 준비해나가면 된다.
+  현 정부 출범 때 가졌던 국민의 희망이 많이 희석된 듯하다.
+  총선 결과가 어떻게 나오든 미래에 대한 지도층의 성찰이 필요하다.
+  진영 싸움은 이제 더는 안된다.
+  국민은 문재인 정부가 어느 방향으로 가려 하는지 헷갈려 한다.
+  야당도 반대만 할 게 아니라 대안을 제시해야 한다.
+  여든 야든 국민이 무엇을 두려워하고 무엇을 열망하는가에 맞춰 대안 제시의 길로 가야 한다.
+  미래가 과거와 대립해서는 안 된다.
+    여야가 어떻게 해야 하나.
+   혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 한다.
+  현 정부 주도 세력에도 기득권이 많다.
+  민주노총이나 참여연대도 현 정부가 가진 기득권이다.
+  정부가 혁신을 하려면 가장 먼저 살펴야 할 것이 내부의 자기 기득권이다.
+  야당은 무엇이 보수의 가치인지, 무엇을 하겠다는 것인지 알 수 없다.
+  권력과 기득권에 기생해 온 과거를 넘어서려는 자세와 각오를 구체적으로 보여줘야 한다.
+     그래도 희망은 있을까.
+   연암이 쓰고 다산이 좋아했던 말이 있다.
+  인순고식(因循姑息) 구차미봉(苟且彌縫)이다.
+  &#x27;세상이 바뀌었는데 생각은 바뀌지 않는 것(인순고식), 문제가 생기면 정면돌파할 생각은 하지 않고 얼버무려 넘어가려는 것(구차미봉)&#x27;이라는 뜻이다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D08" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">미시적으로 부동산 정책이 완전히 실패해 주거비가 올라가고 가처분 소득이 줄어드는 상황이 됐으며, 스마트 농·수·축산업 전환, 디지털화, 문화 예술 지식인 육성, 신도시 지지, 대외 여건이 어렵다는 점을 이번에 알게 됐다. 여야는 혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 하며, 현 정부 주도 세력에도 기득권이 많고 민주노총이나 참여연대도 현 정부가 가진 기득권이다. 연암이 쓰고 다산이 좋아했던 인순고식 구차미봉은 &#x27;세상이 바뀌었는데 생각은 바뀌지 않는 것&#x27;과 &#x27;정면돌파할 생각은 하지 않고 얼버무려 넘어가려는 것&#x27;이라는 뜻이다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D08_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D08_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D08_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D08_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D08_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D08_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D08_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D08_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D08_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D08_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D08_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D08_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D08_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D08_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D08" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">미시적으로 부동산 정책이 실패해 주거비가 올라가고 가처분 소득이 줄어드는 상황이 됐다. 스마트 농기업 등 미래산업·지식인 키워야 한다. 중국과 일본의 경제 보복은 축복이지만, 더 늦었다면 손쓸 수 없었을지 모른다. 혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 한다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D08_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D08_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D08_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D08_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D08_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D08_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D08_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D08_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D08_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D08_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D08_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D08_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D08_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D08_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D08" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">미시적으로 부동산 정책이 완전히 실패해 주거비가 올라가고 가처분 소득이 줄어드는 상황이 됐으며, 현대 정부 출범 때 가졌던 국민의 희망이 많이 희석된 듯하다. 문재인 정부는 총선 결과가 어떻게 나오든 미래에 대한 지도층의 성찰이 필요하다. 야당도 반대만 할 게 아니라 대안을 제시해야 한다. 혁신이나 적폐 청산은 현실 부정, 자기 부정에서 시작해야 한다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D08_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D08_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D08_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D08_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D08_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D08_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D08_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D08_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D08_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D08_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D08_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D08_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D08_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D08_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D09">
+              <h2>D09 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">미국우선주의를 앞세운 트럼프주의(Trumpism·트럼피즘)의 ‘악몽’이 거셈 솔레이마니 이란 혁명수비대 쿠드스군 사령관 제거를 통해 중동 지역에서 현실이 되고 있다.
+  이라크 의회가 5일(현지시간) 미군 철수를 의결한 뒤에도 트럼프 대통령이 돈 타령을 한 게 대표적이다.
+  그는 “이라크에는 엄청나게 비싼, 수십억 달러가 들어간 공군기지가 있다.
+  이라크가 여기 들어간 돈을 내지 않는 이상 떠나지 않는다”고 했다.
+  이라크가 미군을 추방할 경우 강력한 제재를 가하겠다면서다.
+  이란과 국경을 맞대고 있는 이라크가 미국의 대이란 정책에서 핵심적 전략 요충지라는 점은 간과한 발언이었다.
+  솔레이마니 제거로 혹 떼려다 혹 붙인 격이라는 지적도 트럼프 대통령의 이런 중동 정세에 대한 판단력 부족에서 비롯된다.
+  뉴욕타임스(NYT)의 외교·안보 전문 칼럼니스트 토머스 프리드먼은 솔레이마니를 “이란에서 가장 멍청한 자”로 칭하며 공격적 무력 사용으로 이란에 유리한 핵 합의를 미국이 깰 명분을 줬고, 이라크 정치에 지나치게 개입해 오히려 반이란 감정을 부추겼다고 지적했다.
+  그는 “이란에 제대로 된 의회가 있었다면 그는 진작 해임됐을 것”이라며 “하지만 이제 이란에서는 순교자를 추앙하며 성조기를 불태울 것”이라고 했다.
+  이와 관련, 인남식 국립외교원 교수는 “솔레이마니는 정치적 존재감은 높지만 사실 역량으로만 보면 그를 대체할 인물은 이란에 여럿 있다.
+  하지만 미국이 제거함으로써 그는 순교자이자 영웅이 됐고, 미국은 이란을 봉쇄하기 위해 굉장히 중요한 이라크를 잃어버릴 수도 있게 됐다”고 분석했다.
+  또 “흡사 이라크전의 데자뷔인데, 지금은 미 행정부 내에 그때 같은 네오콘 전략가들도 없어 보인다는 게 문제”라고 지적했다.
+  실제 트럼프 대통령이 솔레이마니 제거를 결정한 데는 진언을 할 수 있는 참모 그룹이 없는 점이 주요하게 작용했다는 지적이 나온다.
+  제임스 매티스 전 국방장관, 렉스 틸러슨 전 국무장관, 허버트 맥마스터 전 국가안보보좌관 등 이른바 ‘어른의 축’에 속하는 참모들의 퇴진으로 안전핀이 뽑혔다는 우려가 현실이 된 셈이다.
+  이들은 트럼프 대통령이 경솔한 결정을 하지 않도록 만류하는 역할을 해 외교가에선 ‘저항의 연대’로도 불렸다.
+  2018년 초 트럼프 대통령이 주한미군 가족 소개령을 내리려 할 때 “대북 공격의 신호로 간주될 수 있다”며 적극 반대해 없던 일로 만든 사람이 매티스 전 장관이었다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D09" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">트럼프주의(Trumpism·트럼피즘)의 악몽이 거스르 솔레이마니 이란 혁명수비대 쿠드스군 사령관 제거를 통해 중동 지역에서 현실이 되고 있다. 뉴욕타임스(NYT)의 외교·안보 전문 칼럼니스트 토머스 프리드먼은 솔레이마니를 &quot;이란에서 가장 멍청한 자&quot;로 칭하며 이란에 유리한 핵 합의를 미국이 깰 명분을 줬고, 이라크 정치에 지나치게 개입해 반이란 감정을 부추겼다고 지적했다. 인남식 국립외교원 교수는 솔레이마니는 정치적 존재감은 높지만 사실 역량으로만 대체할 인물은 이란에 여럿 있다고 분석했다. 제임스 매티스 전 국방장관, 렉스 틸러슨 전 국무장관, 허버트 맥마스터 전 국가안보보좌관 등 이른바 &#x27;어른의 축&#x27;에 속하는 참모들의 퇴진으로 안전핀이 뽑혔다는 우려가 현실이 된 셈이다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D09_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D09_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D09_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D09_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D09_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D09_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D09_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D09_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D09_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D09_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D09_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D09_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D09_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D09_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D09" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">트럼프 대통령이 거셈 솔레이마니 이란 혁명수비대 쿠드스군 사령관 제거를 통해 중동 지역에서 현실이 되고 있다. 뉴욕타임스 칼럼니스트 토머스 프리드먼은 솔레이마니를 &quot;이란에서 가장 멍청한 자&quot;로 칭하며 공격적 무력 사용으로 이란에 유리한 핵 합의를 미국이 깰 명분을 줬다고 지적했고, 인남식 국립외교원 교수는 &quot;솔레이마니는 정치적 존재감은 높지만 사실 역량으로만 보면 그를 대체할 인물은 이란에 여럿 있다&quot;고 분석했다. 실제로 트럼프 대통령이 솔레이마니 제거를 결정한 데는 진언을 할 수 있는 참모 그룹이 없는 점이 주요하게 작용했다는 지적이 나온다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D09_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D09_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D09_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D09_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D09_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D09_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D09_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D09_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D09_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D09_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D09_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D09_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D09_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D09_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D09" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">트럼프주의의 &#x27;악몽&#x27;이 거스름 솔레이마니 이란 혁명수비대 쿠드스군 사령관 제거를 통해 중동 지역에서 현실이 되고 있다. 뉴욕타임스는 솔레이마니를 &#x27;이란에서 가장 멍청한 자&#x27;로 칭하며 공격적 무력 사용으로 핵 합의를 미국이 깰 명분을 줬고 이라크 정치에 지나치게 개입해 반이란 감정을 부추겼다고 지적했다. 인남식 국립외교원 교수는 솔레이마니를 &#x27;이란에서 순교자&#x27;로 칭하며 미국이 제거함으로써 이라크를 잃어버릴 수도 있다고 분석했다. 제임스 매티스 전 국방장관, 렉스 틸러슨 전 국무장관, 허버트 맥마스터 전 국가안보보좌관 등 &#x27;어른의 축&#x27;에 속하는 참모들의 퇴진으로 안전핀이 뽑혔다는 우려가 현실이 된 셈이다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D09_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D09_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D09_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D09_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D09_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D09_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D09_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D09_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D09_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D09_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D09_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D09_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D09_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D09_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D10">
+              <h2>D10 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">국내 이동통신 3사(KT·SK텔레콤·LG유플러스)는 산토끼(신규 고객)를 잡느라 집토끼(장기 가입자)를 위한 서비스에 인색하다는 지적을 받아왔다.
+  장기 가입자는 호갱(호구+고객의 줄임말)’이라는 말이 나돌 정도다.
+  하지만 이동통신사들은 “회사 차원에서 장기 가입자는 VIP이며, 이들을 위한 혜택을 점차 늘리고 있다”고 반박한다.
+  장기 가입자를 위한 이통 3사의 서비스를 비교해봤다.
+  무료 데이터 쿠폰, LG유플러스〉SK텔레콤〉KT통신업계에 따르면 이통사의 장기가입자로 분류되는 기준은 &#x27;가입 기간 2년 이상&#x27;이다.
+  이통사는 이때부터 장기 가입자용 서비스를 제공한다.
+  가장 일반적인 서비스는 무료 데이터 쿠폰’이다.
+  소비자가 가입한 요금제에서 기본으로 받는 데이터 용량만큼 더 쓸 수 있도록 쿠폰을 추가로 발급해준다.
+  이통 3사 가운데 무료 데이터 쿠폰을 가장 많이 주는 곳은 LG유플러스다.
+  2년 이상 가입자에게 데이터 쿠폰 5장을 준다.
+  이 경우 소비자는 자신의 요금제에 포함된 데이터를 다 쓴 뒤, 쿠폰으로 5배까지 더 쓸 수 있다.
+  3년 가입자 6장, 4년 이상일 때는 7장을 지급한다.
+   SK텔레콤은 2년 이상 가입자에게 데이터 쿠폰 4장, 3년 이상이면 5장, 4년이 넘으면 6장을 준다.
+  KT는 2년 이상 가입자에게 데이터 쿠폰 4장, 4년 이상이면 6장 제공한다.
+  KT 관계자는 &quot;타사는 소비자가 가입한 요금제에 맞춰 데이터를 제공하는 반면, KT는 요금제 관계없이 쿠폰 한 장당 2GB씩 제공한다&quot;면서 &quot;쿠폰 수는 적지만 저가 요금제 쓰는 소비자에게는 오히려 더 많은 데이터를 제공한 것&quot;이라고 설명했다.
+  가족결합할인, LG유플러스의 할인 폭 가장 커 ‘가족결합 할인 제도’도 장기 가입자를 위한 대표적 서비스다.
+  가족 간 이동전화 가입 기간을 합산해 요금을 할인해주는 제도다.
+  LG유플러스의 &#x27;U+가족무한사랑&#x27; 요금제를 사용하면 가족 구성원 2~4명이 한꺼번에 요금 할인을 받을 수 있다.
+  같은 명의로 휴대전화 번호가 2개 개설돼 있어도 가족결합으로 할인받을 수 있고, 일시 정지 중인 번호도 결합할 수 있다.
+  번호를 결합한 가족 구성원끼리 LG유플러스를 사용한 기간을 합산해 15년이 넘으면 가구당 1만1000원, 30년 이상이면 2만2000원을 할인해준다.
+  이에 더해 구성원별로 최대 5500원씩 요금할인을 추가로 받을 수 있다.
+  가족 4명이 합산한 가입 기간이 30년이 넘는 경우, 매월 4만4000원의 통신비를 줄일 수 있는 셈이다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D10" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">KT·SK텔레콤·LG유플러스가 장기 가입자를 위한 서비스를 비교해봤다. LG유플러스는 2년 이상 가입자에게 데이터 쿠폰 5장을 제공하며, SK텔레콤은 2년 이상 가입자에게 데이터 쿠폰 4장, 3년 이상이면 5장, 4년 이상이면 6장을 제공한다. 가족결합 할인 제도도 LG유플러스의 할인 폭 가장 커다. KT는 2년 이상 가입자에게 데이터 쿠폰 4장, 4년 이상이면 6장 제공하며, 가족결합 할인 제도도 LG유플러스의 할인 폭 가장 커다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D10_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D10_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D10_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D10_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D10_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D10_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D10_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D10_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D10_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D10_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D10_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D10_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D10_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D10_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D10" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">국내 이동통신 3사(KT·SK텔레콤·LG유플러스)가 산토끼를 잡느라 집토끼를 위한 서비스에 인색하다는 지적을 받아왔다. 장기 가입자는 호갱이라는 말이 나돌 정도다. 이동통신사들은 회사 차원에서 장기 가입자는 VIP이며, 이들을 위한 혜택을 점차 늘리고 있다고 반박한다. LG유플러스는 2년 이상 가입자에게 데이터 쿠폰 5장을 주는 등 장기 가입자용 서비스를 제공하며, SK텔레콤은 2년 이상 가입자에게 데이터 쿠폰 4장을, 3년 이상이면 5장을, 4년 이상이면 6장을 준다. 가족결합 할인도 장기 가입자를 위한 대표적 서비스로, LG유플러스의 &#x27;U+가족무한사랑&#x27; 요금제를 사용하면 가족 구성원 2~4명이 한꺼번에 요금 할인을 받을 수 있다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D10_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D10_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D10_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D10_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D10_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D10_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D10_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D10_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D10_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D10_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D10_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D10_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D10_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D10_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D10" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">KT·SK텔레콤·LG유플러스는 장기 가입자를 위한 서비스에 산토끼를 잡느라 집토끼를 위한 서비스에 인색하다는 지적을 받아왔다. 장기 가입자는 호갱이라는 말이 나돌 정도다. 이동통신사들은 회사 차원에서 장기 가입자는 VIP이며 이들을 위한 혜택을 점차 늘리고 있다고 반박한다. LG유플러스는 2년 이상 가입자에게 데이터 쿠폰 5장을 주는 등 무료 데이터 쿠폰을 가장 많이 주는 곳으로, SK텔레콤은 2년 이상 가입자에게 데이터 쿠폰 4장, 3년 이상이면 5장, 4년 이상일 때는 6장을 준다. 가족결합 할인도 장기 가입자를 위한 대표적 서비스로, LG유플러스의 &#x27;U+가족무한사랑&#x27; 요금제를 사용하면 가족 구성원 2~4명이 한꺼번에 요금 할인을 받을 수 있다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D10_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D10_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D10_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D10_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D10_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D10_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D10_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D10_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D10_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D10_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D10_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D10_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D10_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D10_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D11">
+              <h2>D11 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">대검 국정감사를 제외하면 검찰총장은 국회에 출석할 일이 없다.
+  이런 미묘한 관계 때문에 법무부 참모들과 대검 참모들은 장관과 총장이 되도록 같은 공간에 섞이거나 사진이 찍히지 않도록 미리 세심하게 교통정리를 해 왔다.
+  법무부 장관을 최고 수장으로 받들면서도 살아있는 권력까지 수사하는 준사법기관인 검찰의 정치적 독립성과 검찰총장에 대한 예우인 것이다.
+  이런 관행을 추 장관이 연거푸 깨고 있다.
+  추 장관의 도발은 실패하고 역풍만 낳아 지난달 9일 검사장급 인사 때도 마찬가지다.
+  추 장관은 법무부 인사위원회 직전 윤 총장을 법무부로 소환했다.
+  여기에 윤 총장이 따르지 않자 “내가 법을 위반한 게 아니라 검찰총장이 제 명을 거역한 것”이라고 주장했다.
+  문재인 대통령도 신년 기자회견에서 힘을 실어주었다.
+  “수사권은 검찰에 있지만 인사권은 법무부 장관이나 대통령에게 있다”며 “법무부 장관이 와서 (인사) 의견을 말하라고 하면 검찰총장이 따라야 할 일”이라고 말했다.
+  하지만 검찰청법 34조1항을 개정해 법무부 장관이 검찰 인사에 앞서 총장의 의견을 듣도록 한 것은 수사 외압을 막고 정치적 중립성을 보장하기 위한 목적이다.
+  2004년 1월 당시 청와대 민정수석이던 문 대통령은 누구보다 그 배경을 잘 알고 있다.
+  이 때문에 진보신문들조차 “추 장관이 박상기 전 장관 때까지 지속해온 인사 관행을 지키지 않았다”고 비판했다.
+  “법무부가 검찰 인사 초안을 만들면 장관이 총장에게 연락해 ‘제3의 장소’에서 만났다.
+  제일 큰 이유는 인사 보안 때문이다.
+  현 정부 초기에도 박상기 장관과 문무일 총장이 제3의 장소에서 만났고, 여기에 조국 민정수석까지 대부분 참석했다”고 보도했다.
+  검찰 인사의 파행은 역풍을 불렀다.
+  원래 대검 참모 인사는 검찰총장의 의견을 100% 반영해 주는 것이 원칙이었다.
+  총장을 보좌해 효율적으로 일하기 위해서다.
+  하지만 이번에는 윤 총장의 수족을 완전히 잘랐다.
+  윤 총장을 고립시켜 현 집권 세력을 향한 수사를 차단하는 목적 외에 다른 이유는 찾기 어렵다.
+  그러나 좌천된 검사들은 “마음이 편하다”며 담담히 유배를 받아들이고 있다.
+  오히려 영광의 상처로 여기며 버티는 분위기다.
+  거꾸로 친문 검사들이 유탄을 맞고 있다.
+  요직만 골라 다니는 이성윤 중앙지검장과 김오수 법무부 차관, ‘조국 무혐의’를 주장했던 심재철 대검 반부패·강력부장 등이 후배 검사들로부터 “너도 검사냐”는 모욕을 당했다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D11" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">대검 국정감사를 제외하면 검찰총장은 국회에 출석할 일이 없다. 법무부 장관과 대검 참모들은 장관과 총장이 되도록 같은 공간에 섞이거나 사진이 찍히지 않도록 미리 세심하게 교통정리를 해왔다. 추 장관은 법무부 인사위원회 직전 윤 총장을 법무부로 소환했고, 검찰청법 34조1항을 개정해 법무부 장관이 검찰 인사에 앞서 총장의 의견을 듣도록 한 것은 수사 외압을 막고 정치적 중립성을 보장하기 위한 것이다. 검찰 인사는 윤 총장의 수족을 완전히 잘랐고, 좌천된 검사들은 영광의 상처로 여기며 버티는 분위기다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D11_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D11_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D11_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D11_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D11_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D11_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D11_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D11_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D11_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D11_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D11_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D11_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D11_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D11_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D11" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">추 장관이 법무부 인사위원회 직전 윤 총장을 법무부로 소환한 뒤 검찰총장이 제 명을 거역한 것과 관련해 검찰청법 34조1항을 개정해 법무부 장관이 검찰 인사에 앞서 총장의 의견을 듣도록 한 것은 수사 외압을 막고 정치적 중립성을 보장하기 위한 목적이다. 검찰청법 34조1항을 개정해 법무부 장관이 검찰 인사에 앞서 총장의 의견을 듣도록 한 것은 수사 외압을 막고 정치적 중립성을 보장하기 위한 목적이다. 그러나 추 장관은 윤 총장이 따르지 않자 &quot;내가 법을 위반한 게 아니라 검찰총장이 제 명을 거역한 것&quot;이라고 주장했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D11_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D11_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D11_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D11_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D11_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D11_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D11_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D11_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D11_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D11_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D11_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D11_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D11_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D11_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D11" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">대검 국정감사를 제외하면 검찰총장은 국회에 출석할 일이 없다. 추 장관은 법무부 인사위원회 직전 윤 총장을 법무부로 소환했고, 윤 총장이 따르지 않자 &quot;내가 법을 위반한 게 아니라 검찰총장이 제 명을 거역한 것&quot;이라고 주장했다. 검찰청법 34조1항을 개정해 법무부 장관이 검찰 인사에 앞서 총장의 의견을 듣도록 한 것은 수사 외압을 막고 정치적 중립성을 보장하기 위한 목적이다. 좌천된 검사들은 &quot;마음이 편하다&quot;며 담담히 유배를 받아들이고 있다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D11_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D11_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D11_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D11_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D11_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D11_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D11_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D11_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D11_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D11_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D11_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D11_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D11_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D11_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D12">
+              <h2>D12 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">“검찰은 사람을 죽이지 않아도 살인자로 만들 수 있겠구나, 그런 마음을 갖게 됐습니다”  이명박(79) 전 대통령이 8일 오후 열린 항소심 결심 공판에서 결백을 주장했다.
+  오히려 검찰 수사 과정이 부당하다고 언급하며 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다.
+  이 전 대통령은 피고인석에 선 상태로 약 30분가량 미리 준비해온 최후 진술을 읽으며 때로는 재판부에 호소했고, 때로는 검찰을 바라보며 목소리를 높였다.
+  &quot;&#x27;내 것 아니다&#x27; 주장에 검찰 개입, 전례 없어&quot;이 전 대통령은 수사와 재판 내내 키워드가 됐던 &quot;다스(DASㆍ자동차부품회사)가 누구 것이냐&quot;에 대한 답으로 변론을 시작했다.
+  이 전 대통령은 &quot;이미 검찰 수사와 특검까지 거쳐 결론이 난 사안을 검찰이 다시 들고나와 정반대의 결과를 만들어 냈다&quot;고 말했다.
+  다스 소유권 문제를 말하면서 한 손을 크게 흔드는 제스쳐를 취하기도 했다.
+  그는 &quot;대한민국 건국 이래 소유를 주장해 문제가 되는 것은 봤지만 ‘내 것이 아니다’ 하는 사건에 검찰이 개입하는 것은 상상할 수 없다&quot;며 재판부에 강하게 호소했다.
+   이어 &quot;검찰은 잘 알지도 못하는 사람들을 불러 목적에 짜 맞춘 진술을 끌어냈다&quot;며 검찰을 강도 높게 비판했다.
+  그러면서 &quot;이 재판이 제 개인을 넘어 이 나라의 법치와 민주주의에 미칠지 모르는 악영향이 우려된다&quot;고도 했다.
+  검찰의 구속과 기소가 자신의 대통령 당선 및 통치행위에 대한 정치적 정당성을 부정하려 한다는 주장이다.
+  뇌물 관련 모든 혐의 부인이 전 대통령은 삼성으로부터 뇌물을 받았다는 혐의와 이팔성 전 우리금융 회장으로부터 뇌물을 받았다는 혐의 등도 모두 부인했다.
+  이건희 삼성 회장 사면이 삼성으로부터 뇌물을 받은 대가라는 의심에 대해서는 &quot;삼성 회장을 사면한 것이 아니라 IOC 위원 이건희를 사면한 것&quot;이라고 주장했다.
+   이팔성 전 회장이 이 전 대통령과 단독 면담해 청탁했다는 주장에 대해서는 &quot;다 거짓 진술&quot;이라며 &quot;나는 진실을 이야기하고 있다&quot;고 말했다.
+  국정원으로부터 뇌물을 받았다는 의혹에 대해서도 &quot;공상 같은 일을 이야기한 것&quot;이라고 일축했다.
+  이 전 대통령은 &quot;저 자신의 억울한 옥살이는 참을 수 있지만, 저의 삶과 이명박 정부에 대한 억울한 모독은 참을 수 없다&quot;며 &quot;명백한 정치적 의도에 의한 기소&quot;라고 변론을 마쳤다.
+    검찰 구형은 이 전 대통령의 최후진술에 앞서 검찰은 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D12" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">이명박 전 대통령이 8일 오후 열린 항소심 결심 공판에서 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다. 이 전 대통령은 검찰 수사와 재판 내내 키워드가 됐던 다스(DAS)에 대한 답으로 변론을 시작했고, 다스 소유권 문제를 말하면서 한 손을 크게 흔드는 제스쳐를 취하기도 했다. 전 대통령은 삼성으로부터 뇌물을 받았다는 혐의와 이팔성 전 우리금융 회장으로부터 뇌물을 받았다는 혐의 등도 모두 부인했다. 검찰 구형은 이 전 대통령의 최후진술에 앞서 검찰은 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D12_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D12_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D12_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D12_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D12_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D12_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D12_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D12_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D12_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D12_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D12_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D12_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D12_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D12_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D12" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">이명박(79) 전 대통령이 8일 오후 열린 항소심 결심 공판에서 결백을 주장하며 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다. 이 전 대통령은 수사와 재판 내내 키워드가 됐던 다스 소유권 문제에 대해 검찰이 개입하는 것은 상상할 수 없다며 재판부에 호소했고, 검찰은 잘 알지도 못하는 사람들을 불러 목적에 맞춘 진술을 끌어냈다며 강도 높게 비판했다. 검찰 구형은 이 전 대통령의 최후진술에 앞서 검찰이 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D12_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D12_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D12_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D12_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D12_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D12_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D12_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D12_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D12_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D12_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D12_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D12_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D12_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D12_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D12" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">이명박(79) 전 대통령이 8일 오후 열린 항소심 결심 공판에서 검찰 수사 과정이 부당하다고 언급하며 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다. 이 전 대통령은 검찰 수사 과정이 부당하다고 언급하며 검찰 수사가 자신 개인에 대한 심판이 아닌 이명박 정부 전체의 정당성을 향한 공격이라고 주장했다. 검찰은 이 전 대통령에게 총 징역 23년과 벌금 320억원, 추징금 163억여원을 구형했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D12_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D12_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D12_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D12_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D12_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D12_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D12_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D12_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D12_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D12_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D12_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D12_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D12_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D12_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D13">
+              <h2>D13 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">남성에서 여성으로 성전환한 트랜스젠더 20대가 숙명여대에 합격한 소식이 알려진 뒤 관련 논쟁이 학교 외부로 번지고 있다.
+  4일 서울권 여대 페미니즘 21개 단체는 &quot;여성의 권리를 위협하는 성별 변경에 반대한다&quot;는 제목의 성명을 내고 트랜스젠더 A씨(22)의 숙명여대 입학을 반대한다는 입장을 밝혔다.
+   &quot;남성이 여성 공간에 침입한 것&quot;덕성·동덕·서울·성신·숙명·이화 등 6개 대학 소속 단체와 여대연합 래디컬 페미니즘 동아리는 A씨의 숙명여대 입학은 &#x27;남성이 여성의 공간을 침범한 것&#x27;이라고 규정했다.
+  이들은 &quot;여대는 남성중심 사회에서 차별받고 기회를 박탈당하는 여성을 위해 존재하는 곳&quot;이라며 &quot;본인을 여자라고 생각하는 남자들은 여성혐오 사회에서의 여자의 공간과 기회를 빼앗으려는 시도를 하고 있다&quot;고 주장했다.
+ 또 &quot;한국에서의 성별 변경은 판사의 자의적 판단으로 이뤄지고 있다&quot;면서 &quot;&#x27;느낌&#x27;을 이유로 여성의 삶을 살 수 있다면 이는 여성의 권리와 안전을 위협하는 요인이 될 것&quot;이라고 지적했다.
+  이 단체는 이날 오후 온라인을 통해 A씨의 입학을 반대하는 여대생 연서명을 받았다.
+  단체 대표는 중앙일보에 &quot;오후 6시 현재 연서명에 참여한 여대생이 1만명 가량 모였다&quot;며 &quot;숙명여대생은 1000명 정도&quot;라고 밝혔다.
+  성명서를 작성한 관계자는 &quot;서울권 여대 단체들이 함께 목소리를 내게 된 것은 이번 사건이 숙명여대에 국한된 문제가 아니라고 느꼈기 때문&quot;이라며 &quot;우리들 중 누구도 자신을 &#x27;여자&#x27;라고 느끼는 사람이 없다.
+  스스로 여성성을 느낀다는 이유로 여자가 될 수 있다면 여성의 정의부터 다시 내려야 할 것&quot;이라고 말했다.
+  &quot;성소수자, 사회 구성원으로 맞이해야&quot; 국내 성소수자 인권단체도 이날 오후 성명을 냈다.
+  &#x27;행동하는성소수자인권연대&#x27;는 39개 단체로 이뤄진 성소수자차별반대 무지개행동과 131개 단체로 이뤄진 차별금지법제정반대 공동 명의로 &quot;트랜스젠더 여성의 숙명여대 입학을 환영한다&quot;는 제목의 성명을 냈다.
+   이들은 &quot;그녀는 자신의 구체적인 삶을 드러내는 부단한 시도들은 사회의 변화를 요구할 뿐 아니라 차별과 배제에 도전하는 자신의 용기가 타인의 삶에도 연결돼 있음을 알리고 있다&quot;며 &quot;이는 트랜스젠더를 비롯한 성소수자를 사회 구성원으로 맞이해야 할 때가 되었음을 알리는 전면적인 신호탄&quot;이라고 주장했다.
+  숙명여대 내부도 여전히 혼란스럽다.
+  숙명여대 졸업생 등 100여명은 &quot;A씨의 입학을 환영한다&quot;는 입장을 발표했고 재학생들은 여전히 학교 측에 항의 전화를 하고 있다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D13" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">4일 서울권 여대 페미니즘 21개 단체는 &quot;여성의 권리를 위협하는 성별 변경에 반대한다&quot;는 제목의 성명을 내고 트랜스젠더 A씨(22)의 숙명여대 입학을 반대한다는 입장을 밝혔다. 덕성·동덕·서울·성신·숙명·이화 등 6개 대학 소속 단체와 여대연합 래디컬 페미니즘 동아리는 A씨의 숙명여대 입학은 남성이 여성의 공간을 침범한 것이라고 규정했다. 4일 오후 온라인을 통해 A씨의 입학을 반대하는 여대생 연서명을 받았다. &#x27;행동하는성소수자인권연대&#x27;는 39개 단체로 이뤄진 성소수자차별반대 무지개행동과 131개 단체로 이뤄진 차별금지법제정반대 공동 명의로 트랜스젠더 여성의 숙명여대 입학을 환영한다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D13_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D13_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D13_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D13_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D13_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D13_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D13_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D13_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D13_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D13_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D13_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D13_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D13_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D13_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D13" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">4일 서울권 여대 페미니즘 21개 단체는 트랜스젠더 A씨(22)의 숙명여대 입학을 반대한다는 제목의 성명을 내고 A씨의 숙명여대 입학을 반대한다는 입장을 밝혔다. 덕성·동덕·서울·성신·숙명·이화 등 6개 대학 소속 단체와 여대연합 래디컬 페미니즘 동아리는 A씨의 숙명여대 입학은 남성이 여성의 공간을 침범한 것이라고 규정했다. &#x27;행동하는성소수자인권연대&#x27;는 39개 단체로 이뤄진 성소수자차별반대 무지개행동과 131개 단체로 이뤄진 차별금지법제정반대 공동 명의로 트랜스젠더 여성의 숙명여대 입학을 환영한다는 제목의 성명을 내고 트랜스젠더 A씨의 숙명여대 입학을 반대한다는 입장을 밝혔다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D13_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D13_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D13_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D13_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D13_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D13_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D13_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D13_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D13_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D13_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D13_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D13_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D13_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D13_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D13" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">남성에서 여성으로 성전환한 트랜스젠더 20대가 숙명여대에 합격한 소식이 알려진 뒤 관련 논쟁이 학교 외부로 번지고 있다. 서울권 여대 페미니즘 21개 단체는 &quot;여성의 권리를 위협하는 성별 변경에 반대한다&quot;는 제목의 성명을 내고 트랜스젠더 A씨(22)의 숙명여대 입학을 반대한다는 입장을 밝혔다. 덕성·동덕·서울·성신·숙명·이화 등 6개 대학 소속 단체와 여대연합 래디컬 페미니즘 동아리는 A씨의 숙명여대 입학은 &#x27;남성이 여성의 공간을 침범한 것&#x27;이라고 규정했다. &#x27;행동하는성소수자인권연대&#x27;는 39개 단체로 이뤄진 성소수자차별반대 무지개행동과 131개 단체로 이뤄진 차별금지법제정반대 공동 명의로 트랜스젠더 여성의 숙명여대 입학을 환영한다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D13_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D13_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D13_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D13_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D13_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D13_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D13_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D13_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D13_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D13_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D13_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D13_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D13_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D13_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D14">
+              <h2>D14 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">6일(현지시간) 이란 수도 테헤란에서 국장(國葬)으로 치러진 거셈 솔레이마니의 장례식.
+  수십만 명의 인파가 지켜보는 가운데 검정색 차도르를 입은 한 젊은 여성이 침통한 표정으로 연단에 올랐다.
+  마이크 앞에 선 이 여성은 격앙된 목소리로 미리 준비해 온 연설문을 읽어내려 갔다.
+   그는 “중동 내 미국 군인의 가족들은 자녀들의 죽음을 기다리며 남은 날들을 보내게 될 것”이라고 말했다.
+  중동에 주둔한 미군에 대한 보복을 경고한 것이다.
+   저주에 가까운 이런 독설을 퍼부은 이는 이란 군부 실세 솔레이마니의 딸 제납 솔레이마니다.
+  미국의 공습으로 거셈 솔레이마니가 폭살(爆殺) 당한 후 그의 딸 제납이 반미(反美) 보복의 상징처럼 떠오르고 있다.
+  이란 정부와 국민들을 향해 연일 아버지의 “복수”를 호소해서다.
+  이란 언론은 제납의 이런 모습을 부각시키고 있다.
+  제납의 연설을 포함한 장례식은 이란 언론에 생중계됐다.
+   보수적인 이슬람 사회에서 여성이 공개 행사의 연사로 나서는 것은 드문 일이다.
+    제납이 아버지의 사망 이후 언론에 처음 등장한 건 하산 로하니 이란 대통령이 솔레이마니의 유족을 찾아 조문했을 때다.
+  로하니 대통령은 솔레이마니가 폭살당한 이튿날인 4일 유가족을 찾아갔다.
+  이때 제납은 로하니 대통령에게 “누가 우리 아버지의 복수를 하느냐”고 당차게 물어 강렬한 인상을 남겼다.
+  이에 로하니 대통령은 “우리 모두”라고 약속했다.
+     6일 영국 더 선에 따르면 제납의 올해 나이는 28세다.
+  솔레이마니는 슬하에 3남2녀를 뒀다.
+  제납이 몇 번째 자녀인지, 어떤 일을 하는지 등 자세한 정보는 알려지지 않았다.
+    제납의 연설은 도널드 트럼프 미 대통령을 향한 분노를 쏟아내며 절정에 달했다.
+  그는 트럼프를 향해 “미친 트럼프”라고 일갈했다.
+  그러면서 “당신은 국제 시온주의자들(이스라엘을 지칭)의 손에 쥐어진 우둔함의 상징이자 장난감”이라고 말했다.
+  그의 한 마디 한 마디에 수십 만 군중은 환호성을 지르며 호응했다.
+  제납은 연설 중간 중간 검지 손가락을 치켜 세우며 힘주어 말하기도 했다.
+   제납은 자신의 아버지를 폭살한 트럼프의 판단을 깎아내리기도 했다.
+  “아버지와 아부 마흐디(카다이브 헤즈볼라 지도자)를 암살한 사악한 계획은 실패했다”면서 “이라크와 이란을 분리하려는 의도였으나 오히려 미국에 대한 영원한 증오만 키웠다”고 주장했다.
+  이어 미국과 미국의 동맹국 이스라엘을 향해서 “아버지의 죽음이 더 어두운 날들을 가져올 것”이라고 경고했다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D14" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">거셈 솔레이마니의 딸 제납 솔레이마니가 미국 공습으로 폭살당한 후 이란 언론은 아버지의 복수를 호소하며 연일 아버지의 복수를 호소하고 있다. 제납은 도널드 트럼프 미 대통령을 향해 &quot;미친 트럼프&quot;라고 일갈하며 &quot;당신은 국제 시온주의자들(이스라엘을 지칭)의 손에 쥐어진 우둔함의 상징이자 장난감&quot;이라고 말했다. 제납은 아버지와 아부 마흐디(카다이브 헤즈볼라 지도자)를 암살한 계획을 실패했다며 &quot;이라크와 이란을 분리하려는 의도였으나 오히려 미국에 대한 영원한 증오만 키웠다&quot;고 주장했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D14_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D14_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D14_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D14_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D14_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D14_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D14_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D14_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D14_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D14_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D14_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D14_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D14_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D14_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D14" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">6일(현지시간) 이란 수도 테헤란에서 국장으로 치러진 거셈 솔레이마니의 장례식에서 검정색 차도르를 입은 한 젊은 여성이 연단에 올랐다. 이 여성은 연설문을 읽어내려 갔다. 이란 언론은 제납의 연설을 포함한 장례식은 생중계됐다. 제납의 올해 나이는 28세다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D14_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D14_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D14_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D14_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D14_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D14_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D14_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D14_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D14_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D14_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D14_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D14_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D14_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D14_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D14" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">6일(현지시간) 이란 수도 테헤란에서 거셈 솔레이마니의 장례식에 참석한 한 여성은 격앙된 목소리로 연설문을 읽어내려 갔다. 이란 군부 실세 솔레이마니의 딸 제납 솔레이마니는 이란 언론에 연일 아버지의 복수를 호소하며 장례식에 생중계됐다. 제납의 연설은 도널드 트럼프 미 대통령을 향해 분노를 쏟아내며 절정에 달했고, 제납은 트럼프의 판단을 깎아내리기도 했다. 제납은 트럼프를 향해 &quot;미친 트럼프&quot;라고 일갈하며 &quot;당신은 국제 시온주의자들(이스라엘을 지칭)의 손에 쥐어진 우둔함의 상징이자 장난감&quot;이라고 말했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D14_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D14_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D14_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D14_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D14_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D14_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D14_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D14_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D14_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D14_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D14_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D14_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D14_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D14_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D15">
+              <h2>D15 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">이곳에는 현재 내년 준공 목표로 232가구가 입주하는 행복주택 건설 사업도 진행되고 있다.
+  안산시는 제조혁신창업타운에 중소기업 생산품 판매장, 연구소, 비즈니스센터, 근린생활시설과 근로자 교육시설 등 기업지원시설을 집적화해 기업지원 거점 공간을 조성할 방침이다.
+  안산시는 스마트 선도 산업단지 선정에 따라 환경개선펀드사업 공모로 우선 확보한 180억 원을 투입하며, 이후 약 1000억원 규모의 민간투자방식으로 사업을 추진할 방침이다.
+  민간사업자는 올 1분기 안에 선정해 협약을 체결할 예정이다.
+  시는 이르면 오는 2023년까지 제조혁신창업타운 조성을 마무리 할 계획이다.
+   스마트 팩토리 공공임대단지 조성사통팔달의 교통망을 갖추고 있다는 것도 광명시흥테크노밸리의 강점으로 꼽힌다.
+  광명시흥테크노밸리가 들어서는 광명·시흥은 수도권 서남부 교통의 요충지로 꼽히는 곳이다.
+  남북 방향으로 서해안고속도로(광명역IC)와 수원문산고속도로(남광명IC)가, 동서 방향으는 제2경인고속도로(광명IC)와 강남순환고속도로(소하IC)가 지나기 때문이다.
+  앞으로 도로교통은 한층 더 개선될 예정이다.
+  우선 서울광명고속도로의 일부구간인 서부간선도로 지하화가 계획돼 있다.
+  이를 통해 광명시에는 추가로 가학IC가 신설될 예정이다.
+  여기에다 인근 과림~금이로는 기존 2차선에서 4차선(대로3류, 폭 25~30m)으로 확장 중이다.
+  업계에서는 판교테크노밸리가 단지를 관통하는 23번 도로를 중심으로 개발이 급속도로 이루어진 것처럼 광명시흥테크노밸리도 광명시에서 시흥시 장현·목감지구를 관통하는 과림~금이로를 중심으로 주변 개발이 이뤄질 것으로 전망하고 있다.
+  철도 교통도 편리하다.
+  우선 광명시흥테크노밸리가 들어서는 광명시는 지하철 1·7호선, KTX(광명역)이 있어 광역적 접근성이 좋다.
+  여기에 인근 서해선 시흥시청역은 향후 신안산선, 월곶판교선이 연결되면서 트리플 역세권을 형성하게 된다.
+  경기도의 적극적인 지원도 광명시흥테크노밸리의 투자 전망을 밝게 하는 요인 중 하나다.
+  경기도는 광명시흥테크노밸리에 공공임대단지를 조성해 저렴한 임대료로 창업을 유도하고 광명·시흥지역 영세 중소기업이 스마트 공장으로 변모할 수 있도록 지원할 예정이다.
+  주변 자연환경도 쾌적하다.
+  우선 물왕저수지가 가깝다.
+  물왕저수지는 시흥시 물왕동과 산현동에 걸쳐 형성돼 있는 총 면적 58만㎡의 저수지다.
+  여기에다 관무산(일명 성인봉)·마하산·운흥산이 주변을 둘러싸고 있다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D15" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">안산시는 제조혁신창업타운에 중소기업 생산품 판매장·연구소·비즈니스센터·근린생활시설·근로자 교육시설 등 기업지원시설을 집적화해 기업지원 거점 공간을 조성할 방침이다. 안산시는 스마트 선도 산업단지 선정에 따라 환경개선펀드사업 공모로 우선 확보한 180억 원을 투입하며 약 1000억원 규모의 민간투자 방식으로 사업을 추진할 방침이다. 광명시흥테크노밸리도 광명시에서 시흥시 장현·목감지구를 관통하는 과림~금이로를 중심으로 주변 개발이 이뤄질 것으로 전망하고 있다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D15_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D15_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D15_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D15_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D15_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D15_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D15_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D15_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D15_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D15_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D15_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D15_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D15_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D15_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D15" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">안산시는 제조혁신창업타운에 중소기업 생산품 판매장·연구소·비즈니스센터·근린생활시설·근로자 교육시설 등 기업지원시설을 집적화해 기업지원 거점 공간을 조성할 방침이다. 스마트 선도 산업단지 선정에 따라 환경개선펀드사업 공모로 우선 확보한 180억 원을 투입하며 약 1000억원 규모의 민간투자 사업을 추진할 방침이다. 광명시흥테크노밸리는 광명·시흥을 수도권 서남부 교통의 요충지로 꼽으며, 광명시는 지하철 1·7호선, KTX 광명역, 서해선 시흥시청역, 신안산선, 월곶판교선이 연결되면서 트리플 역세권이 형성된다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D15_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D15_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D15_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D15_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D15_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D15_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D15_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D15_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D15_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D15_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D15_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D15_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D15_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D15_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D15" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">안산시는 제조혁신창업타운 조성 사업을 스마트 선도 산업단지 선정에 따라 우선 확보한 180억 원을 투입하고 약 1000억원 규모 민간투자 방식으로 추진할 방침이다. 광명시흥테크노밸리도 서부간선도로 지하화와 과림~금이로 확장 등 교통망 개선이 기대된다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D15_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D15_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D15_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D15_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D15_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D15_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D15_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D15_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D15_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D15_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D15_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D15_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D15_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D15_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D16">
+              <h2>D16 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">“사이토카인 폭풍(cytokine storm)은 전 세계적으로 5000만명 이상의 사망자를 낸 1918년 ‘스페인 독감’과 최근의 ‘신종플루’(H1N1), ‘조류인플루엔자’(H5N1)의 주요 사망 원인으로 간주된다.
+  계절성 독감이 어린이와 노인에 불균형적으로 영향을 미치는 것과 달리, 이런 전염병에서 사망할 가능성이 가장 높은 환자들은 면역반응이 뚜렷이 강한 젊은 성인이다.
+ ” 2014년 2월 미국 과학전문지 사이언스 데일리가 스크립스 연구소(TSRI) 연구팀의 말을 인용해 보도한 내용이다.
+  스페인 독감·중증급성호흡기증후군(사스)·중동호흡기증후군(메르스)·에볼라 등 치사율 높은 전염병이 돌 때마다 대규모 사망의 원인을 설명하는 병리기전으로 언급됐던 ‘사이토카인 폭풍’이 최근 다시 주목받고 있다.
+  신종코로나감염증(코로나19) 때문이다.
+   “젊고 건강하면 자연 치유”…‘사이토카인 폭풍’ 안심 못 해영국 파이낸셜타임스(FT)의 클리브 쿡슨 사이언스 에디터는 지난 8일 “신종 코로나의 초기 증상으로는 발열과 기침 등이 있다.
+  폐에 염증이 생기면 폐렴으로 이어진다”며 “가장 심한 경우 과면역반응이 나타나면서 다른 장기를 파괴하는 사이토카인 폭풍이 일어날 수도 있다”고 썼다.
+   신종 코로나 환자 3명을 격리 치료한 경기 명지병원의 이왕준 이사장도 사태 초기 혹시나 있을지 모르는 “사이토카인 폭풍이 가장 우려스러운 점”이라고 말한 바 있다.
+   중국 의료진은 지난달 말 신종 코로나 초기 확진 환자 41명을 조사한 논문에서 일부 중환자에서 감염병 진행 속도가 빠르고 항바이러스제 등 치료가 효과를 보지 못한 것이 &#x27;사이토카인 폭풍&#x27; 때문이라고 분석했다.
+   사이토카인은 병원균 등 외부 침입자가 체내로 들어왔을 때 신호전달에 관여하는 단백질 분자다.
+  염증반응을 유도하기도 하고 억제하기도 한다.
+   그런데 사이토카인이 과도하게 분비되면 많은 염증이 생겨 폐를 망가뜨리고 신장 등 다른 장기에도 손상을 주는 현상이 발생할 수 있다.
+  이를 사이토카인 폭풍이라 부른다.
+  심할 경우 쇼크가 오기도 한다.
+  강한 면역체계 때문에 사망하는 아이러니한 상황이 발생할 수 있는 것이다.
+  역대 감염병 대유행 때 관찰…젊은 층 사망 높인 것으로 추정  면역 부작용 현상은 신종 전염병에서 종종 관찰된다.
+  스페인 독감으로 사망한 5000만명 가운데 70% 이상은 25~35세의 건장한 젊은이였다.
+   미국 미시간대 암센터가 1993년 스페인 독감 당시 젊은 층의 사망이 다른 대유행 감염병보다 20배 이상 높았던 이유를 연구한 결과, 사이토카인 폭풍을 그 원인으로 꼽았다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D16" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">사이토카인 폭풍은 1918년 &#x27;스페인 독감&#x27;과 최근 &#x27;신종플루&#x27;·&#x27;조류인플루&#x27;·&#x27;H5N1&#x27;의 주요 사망 원인으로 간주되며, 2014년 2월 사이언스 데일리가 스크립스 연구소(TSRI) 연구팀의 말을 인용해 보도됐다. 영국 파이낸셜타임스는 지난 8일 클리브 쿡슨 사이언스 에디터가 신종 코로나 초기 증상으로 발열과 기침 등을 보고 과면역반응이 나타나 다른 장기를 파괴하는 사이토카인 폭풍이 일어날 수 있다고 분석했다. 미국 미시간대 암센터가 1993년 스페인 독감 당시 젊은 층 사망이 다른 대유행 감염병보다 20배 이상 높았던 이유를 연구한 결과 사이토카인 폭풍을 그 원인으로 꼽았다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D16_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D16_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D16_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D16_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D16_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D16_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D16_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D16_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D16_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D16_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D16_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D16_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D16_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D16_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D16" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">사이토카인 폭풍(cytokine storm)은 전 세계적으로 5000만명 이상의 사망자를 낸 1918년 스페인 독감과 최근의 신종플루(H1N1), 조류인플루엔자(H5N1)의 주요 사망 원인으로 간주된다. 이 전염병에서 사망할 가능성이 가장 높은 환자들은 면역반응이 뚜렷이 강한 젊은 성인이다. 미국 미시간대 암센터가 1993년 스페인 독감 당시 젊은 층 사망이 다른 대유행 감염병보다 20배 이상 높았던 이유를 연구한 결과 사이토카인 폭풍을 그 원인으로 꼽았다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D16_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D16_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D16_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D16_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D16_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D16_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D16_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D16_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D16_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D16_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D16_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D16_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D16_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D16_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D16" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">사이토카인 폭풍은 1918년 스페인 독감과 최근 신종플루(H1N1), 조류인플루엔자(H5N1)의 주요 사망 원인으로 간주되며, 5000만명 이상 사망자를 낸 1918년 스페인 독감과 최근 신종플루(H1N1), 조류인플루엔자(H5N1)의 사망률이 20배 이상 높았던 이유를 연구한 결과 사이토카인 폭풍을 원인으로 꼽았다. 미국 미시간대 암센터가 1993년 스페인 독감 당시 젊은 층 사망이 다른 대유행 감염병보다 20배 이상 높았던 이유를 연구한 결과 사이토카인 폭풍을 원인으로 꼽았다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D16_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D16_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D16_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D16_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D16_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D16_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D16_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D16_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D16_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D16_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D16_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D16_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D16_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D16_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D17">
+              <h2>D17 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">문 특보는 문재인 정부가 겪고 있는 어려움도 토로했다.
+  대북 제재로 인해 평화 경제를 통한 평화 구축이라는 문 대통령 구상이 벽에 부딪혔다는 것이다.
+  문 대통령이 남북 철도연결과 개성공단 및 금강산 관광 재개를 원했으나 국제적으로 부과 중인 대북제재 때문에 아무것도 할 수 없었다면서 &quot;한국 보수층의 비판과 달리 우리는 남북 경협과 관련해 미국과 100% 조율하고 100% 투명하게 운영하고 있다&quot;고 강조했다.
+  그러다 보니 북한은 한국이 아무것도 해 주는 게 없다는 불만을 쏟아내고 남북관계는 완전히 얼어붙었다고 전했다.
+  그는 &quot;한국은 이제 미국이 북한과의 대화에 돌파구를 만들지 못하면 무엇을 해야 하는지 딜레마에 빠졌다&quot;고 말했다.
+  이어 &quot;문 대통령 지지자들 사이에서는 미국이 북한과의 협상을 재개하지 못하면 한국이 독자적으로 행동해야 한다는 목소리가 커지고 있다&quot;고 전했다.
+    그는 &quot;한국은 민주주의 국가이고 대통령은 지지자들의 지지를 계속 필요로한다&quot;면서 &quot;지지자를 만족시키지 못하면 문 대통령은 정치적 딜레마에 빠지게 되고, 지금 완전히 샌드위치 신세가 됐다&quot;라고 말했다.
+  한국이 미국과 중국, 미국과 북한 사이에 낀 샌드위치 신세라는 표현도 썼다.
+  그러면서 문 대통령이 오늘 발표할 신년사에서 북핵 문제 해결에 있어 미국과 계속 협력하겠다는 방침을 밝힐 것이라면서도 &quot;하지만 대통령이 얼마나 그렇게 할 수 있을지 잘 모르겠다&quot;고 말했다.
+  문 특보는 &quot;너무 엄격하지 말자, 유연해지자, 창의적인 아이디어를 생각하자, 타성이 주도하게 하지 말자&quot;면서 연설을 마무리했다.
+   이후 특파원 간담회에서 문 특보는 &quot;북한이 다음 달 태양절 즘에 만약 대륙간탄도미사일(ICBM)이나 위성 발사 같은 도발을 하면 트럼프 행정부가 상당히 강력한 응징적 조치를 할 것으로 생각한다&quot;고 말했다.
+  트럼프 대통령이 미온적으로 대응하면 민주당이나 국내 정치적으로 비판을 받기 때문에 이란 사태까지 더해 &quot;두 개의 전쟁&quot;에서 군사 행동을 불사할 수 있다면서 &quot;북한도 조심히 생각할 필요가 있다&quot;고 했다.
+  지난 연말 북한이 &#x27;크리스마스 선물&#x27; 도발을 하지 않은 이유는 중·러 제재 완화 결의안 영향이었을 것으로 관측했다.
+  문 특보는 &quot;최선희 북한 외무성 제1부상이 11월 하순 모스크바에 다녀왔고, 중국은 &#x27;우리가 노력할 테니 상황을 악화시키지 말라&#x27;는 메시지를 분명히 보냈을 것&quot;으로 예상했다.
+  북미 간 접촉 재개 가능성에 대해서는 &quot;가능성이 아니라 당위성 문제&quot;라면서도 &quot;현실적으로 어려운 건 사실&quot;이라고 했다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D17" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">문 대통령은 대북 제재로 평화 구축을 위한 남북 철도연결과 개성공단 및 금강산 관광 재개를 원했지만 국제적으로 부과 중인 대북제재 때문에 아무것도 할 수 없었다고 전했다. 그는 한국 보수층의 비판과 달리 남북 경협과 관련해 미국과 100% 조율하고 100% 투명하게 운영하고 있다고 강조했다. 문 대통령은 오늘 발표할 신년사에서 북핵 문제 해결에 있어 미국과 계속 협력하겠다는 방침을 밝힐 것이라면서도 대통령이 얼마나 그렇게 할 수 있을지 잘 모르겠다며 엄격하지 말자, 유연해지자, 창의적인 아이디어를 생각하자, 타성이 주도하게 하지 말자, 타성이 주도하게 하지 말자 등의 말로 연설을 마무리했다. 문 특보는 북한이 다음 달 태양절 즘에 대륙간탄도미사일(ICBM)이나 위성 발사 같은 도발을 하면 트럼프 행정부가 상당히 강력한 응징적 조치를 할 것으로 생각한다고 말했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D17_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D17_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D17_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D17_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D17_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D17_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D17_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D17_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D17_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D17_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D17_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D17_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D17_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D17_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D17" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">문 특보는 대북 제재로 평화 경제를 통한 평화 구축이라는 구상이 벽에 부딪혔다. 문 대통령이 남북 철도연결과 개성공단 및 금강산 관광 재개를 원했으나 국제적으로 부과 중인 대북제재 때문에 아무것도 할 수 없었다고 전했다. 그는 한국이 미국이 북한과의 대화에 돌파구를 만들지 못하면 북한이 독자적으로 행동해야 한다는 목소리가 커지고 있다고 말했다. 문 특보는 북한이 다음 달 태양절 즘에 대륙간탄도미사일(ICBM)이나 위성 발사 같은 도발을 하면 트럼프 행정부가 상당히 강력한 응징적 조치를 할 것으로 생각한다고 말했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D17_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D17_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D17_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D17_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D17_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D17_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D17_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D17_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D17_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D17_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D17_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D17_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D17_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D17_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D17" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">문재인 대통령이 남북 철도연결과 개성공단 및 금강산 관광 재개를 원했지만 국제적으로 부과 중인 대북제재 때문에 아무것도 할 수 없다고 강조했다. 문 대통령은 남북 경협과 관련해 미국과 100% 조율하고 100% 투명하게 운영하고 있다고 전했다. 문 대통령이 발표할 신년사에서 북핵 문제 해결에 있어 미국과 계속 협력하겠다는 방침을 밝힐 것이라면서도 대통령이 얼마나 할 수 있을지 잘 모르겠다고 말했다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D17_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D17_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D17_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D17_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D17_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D17_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D17_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D17_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D17_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D17_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D17_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D17_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D17_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D17_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D18">
+              <h2>D18 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">간판은 매장의 상징이며 이름표다.
+  간판은 매장을 고객에게 알리는 상징물로서 중요한 의미를 갖는다.
+  최근 개성이 중시되면서 간판도 무한 변신하고 있다.
+  최근 간판들은 정형적인 직사각형을 벗어나서 재미와 흥미를 끄는 등 개성을 중시하기도 한다.
+  예전 간판은 단순히 매장의 이름표에 불과했다면, 최근에는 이름표를 넘어서 명함의 역할을 하고 있다고 평가된다.
+  간판은 소재와 부착하는 위치에 따라서 여러 가지 종류로 나뉜다.
+  먼저 부착하는 곳에 따라 전면간판, 돌출간판, 입간판, 지주간판 등이 있다.
+  전면간판은 건물 전면에 부착하는 간판으로 약 4m 크기가 가장 일반적인 크기로 간판을 붙이는 곳은 간판 부착부의 80%가 허용된다.
+  건물 모서리 부분에 부착하는 세로형 양면 간판은 돌출간판이다.
+  건물 입구에 세워진 양면 세로형 간판은 지주간판이다.
+  대형 건물인 경우 단독 지주간판을 부착하기도 하고, 여러 매장을 알리기 위한 합동지주 간판도 있다.
+   소재에 따라 구분하기도 한다.
+  1970년대에는 아크릴 간판이 등장해 발전했다.
+  아크릴은 가벼우면서 가공하기 쉬워서 거의 모든 간판의 소재가 되기도 했다.
+  1980년대 접어들면서 파나플렉스를 이용한 플렉스 간판이 등장했다.
+  아크릴이나 금속제 간판보다 다양한 색상 표현이 가능해 주목받았다.
+  최근에는 LED, 레이저 등을 이용한 간판부터 나무, 돌, 금속 등 전통적인 소재도 사용되고 있다.
+  최근 음식점들은 간판에 다양한 문구를 넣어 예쁘게 꾸미고 있는데, 고객에게 매장을 알리려는 목적이 가장 크다.
+  좋은 간판이란 소비자에게 매장에 대한 정확한 정보를 제공해 방문을 유도하는 것이다.
+  특히 간판 속에 사업 내용과 컨셉을 담아서 애매한 것을 싫어하는 고객의 마음을 사로잡는 것이 중요하다.
+  2008년부터는 간판에 관한 법률이 새로 규정되어 설치 시 참고해야 한다.
+  하나의 예로 서울 각 구마다도 간판 설치 규정이 다르기 때문에, 각 해당 관청에 문의한 후 제작해야 한다.
+  최근의 간판의 문제는 너무 개성만을 중시한 나머지 매장이 입점한 건물이나 주변 환경과의 조화를 전혀 고려하지 않는 점이다.
+  그래서 정부와 각 지자체에서는 간판 규제에 나서고 있고, 아름다운 거리 만들기 등의 캠페인을 펼치고 있다.
+  예를 들어 붉은색과 검은색이 간판의 50% 이상을 사용하지 못하게 하거나, 건물과 조화를 이루지 못하는 대형 간판 등은 규제 대상이다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D18" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">간판은 매장의 상징이며 이름표로, 최근 개성이 중시되면서 정형적인 직사각형을 벗어나 개성을 중시하는 등 변신하고 있다. 부착 위치에 따라 전면간판, 돌출간판, 입간판, 지주간판 등이 있으며, 건물 전면 간판은 약 4m 크기로 간판 부착부의 80%가 허용된다. 1970년대에는 아크릴 간판이 등장해 발전했고, 1980년대에는 파나플렉스를 이용한 플렉스 간판이 등장했다. 2008년부터는 간판에 관한 법률이 새로 규정되어 설치 시 참고해야 하며, 서울 각 구마다 설치 규정이 다르기 때문에 각 해당 관청에 문의 후 제작해야 한다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D18_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D18_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D18_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D18_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D18_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D18_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D18_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D18_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D18_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D18_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D18_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D18_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D18_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D18_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D18" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">간판은 매장의 상징이며 이름표로, 최근 개성이 중시되면서 이름표를 넘어서 명함의 역할을 하고 있다. 부착하는 곳에 따라 전면간판, 돌출간판, 입간판, 지주간판 등이 있으며, 1970년대에는 아크릴 간판이 등장해 발전했고 1980년대 접어들면서 파나플렉스를 이용한 플렉스 간판이 등장했다. 2008년부터는 간판에 관한 법률이 새로 규정되어 설치 시 참고해야 한다. 정부와 각 지자체에서는 간판 규제에 나서고 있으며, 붉은색과 검은색이 간판의 50% 이상을 사용하지 못하게 하거나 건물과 조화를 이루지 못하는 대형 간판 등은 규제 대상이다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D18_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D18_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D18_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D18_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D18_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D18_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D18_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D18_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D18_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D18_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D18_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D18_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D18_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D18_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D18" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">간판은 매장의 상징이며 이름표다. 최근 개성이 중시되면서 간판도 무한 변신하고 있다. 전면간판은 건물 전면에 부착하는 간판으로 약 4m 크기가 가장 일반적인 크기로 간판 부착부의 80%가 허용된다. 돌출간판은 건물 모서리 부분에 부착하는 세로형 양면 간판으로 지주간판이다. 건물 입구에 세워진 양면 세로형 간판은 합동지주 간판도 있다. 2008년부터는 간판에 관한 법률이 새로 규정되어 설치 시 참고해야 한다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D18_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D18_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D18_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D18_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D18_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D18_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D18_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D18_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D18_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D18_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D18_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D18_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D18_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D18_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D19">
+              <h2>D19 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">신종 코로나바이러스 감염증에 의한 중국 대륙의 사망자가 636명으로 뛰었다.
+  중국 국가위생건강위원회는 7일 오전 발표에서 6일 하루 전날과 같은 73명이 숨졌다고 밝혔다.
+  이제까지 확진 환자는 6일 자정 처음으로 3만 명을 돌파해 3만 1161명을 기록했다.
+ 중증 환자도 6일 하루 1일 최다인 962명이 발생해 모두 4821명이 됐다.
+  중증 환자가 하루 1000명 가까이 발생하기는 이번이 처음이다.
+  사망자가 앞으로도 한동안 계속 나올 전망인 것이다.
+  우한(武漢)을 봉쇄한 지 보름이 지났지만, 신종 코로나 기세는 좀처럼 꺾일 기미가 보이지 않는다.
+ 과연 신종 코로나 확산 추세는 언제 감소세로 돌아설 수 있나.
+  안타깝게도 전환점을 예측할 수 없다는 전문가 답변이 나왔다.
+  아직도 격리되지 않은 많은 환자가 거리를 배회하고 있기 때문이라는 이유에서다.
+   중국은 이번 신종 코로나와의 싸움을 전쟁에 비유한다.
+  환구시보(環球時報)는 ‘인민전쟁(人民戰爭)’으로 표현했다.
+  전투는 중국 전역에서 벌어지고 있다.
+  이 중에서 싸움의 주요 전장은 후베이(湖北)성이고 최대 격전지는 신종 코로나가 처음 발생한 우한이다.
+ 6일 오후 3시 현재 중국 전역의 사망자가 564명이다.
+  이 중 97% 이상인 549명이 후베이성에서 나왔다.
+  또 후베이성 사망자의 75% 이상인 414명이 우한에서 발생했다.
+  중국이 전쟁에서 이기려면 후베이성, 특히 우한에서 승리를 거둬야 한다.
+ 문제는 우한 전투 상황이 아직 고전을 면치 못하고 있다는 점이다.
+  6일 환구시보에 따르면 중국의학과학원 원장 왕천(王辰)은 “우한 상황이 심각하다”고 말했다.
+  “많은 환자가 제때 병원에 입원해 치료를 받지 못하고 있기 때문”이라는 이유에서다.
+ 왕 원장은 “병원에서 제대로 치료를 받지 못하고 있는 환자들이 사회적으로 이동하고 있으며 또는 집에 거주하고 있는 데 이런 상황이 가정과 지역 사회를 감염시킬 우려가 크다”며 “이게 전염병 상황을 악화시키는 가장 중요한 요인이 될 것”이라고 말했다.
+ 우한의 확진 환자는 6일 현재 1만 명이 넘는다.
+  우한시 당 부서기 후리산(胡立山)은 5일 밤 열린 기자회견에서 우한은 현재 28개의 지정 병원에 모두 8254개의 병상을 갖추고 있으며 8182명이 입원해 치료를 받고 있다고 밝혔다.
+ 신종 코로나 환자를 수용하기 위한 훠선산(火神山) 병원이 지난 3일 개원했고 레이선산(雷神山) 병원이 곧 문을 열며 또 1만 개 병상 확보를 목표로 하는 여러 팡창(方艙) 병원도 속속 지어지고 있다고 말했다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D19" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">중국 대륙의 신종 코로나바이러스 감염증 사망자가 636명으로 늘었고, 확진 환자는 3만 명을 돌파해 3만 1161명으로, 중증 환자는 962명으로 하루 1일 최다인 4821명으로 늘었다. 우한의 확진 환자는 6일 현재 1만 명 넘는다. 중국은 전쟁에 비유하며 후베이성, 우한에서 승리를 거둬야 한다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D19_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D19_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D19_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D19_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D19_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D19_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D19_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D19_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D19_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D19_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D19_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D19_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D19_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D19_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D19" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">중국 대륙의 사망자가 636명으로 신종 코로나바이러스 감염증에 의한 중국 대륙의 73명이 숨졌으며, 확진 환자는 3만 1161명으로 3만 1161명을 기록했다. 우한의 확진 환자는 6일 현재 1만 명으로 8182명이 입원해 치료를 받고 있으며, 6일 현재 1만 명으로 8254개의 병상을 갖추고 있다. 중국은 전쟁에 비유하며 후베이성, 우한에서 승리를 거둬야 한다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D19_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D19_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D19_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D19_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D19_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D19_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D19_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D19_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D19_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D19_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D19_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D19_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D19_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D19_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D19" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">중국 국가위생건강위원회는 7일 오전 발표에서 6일 하루 전날과 같은 73명이 숨졌다고 밝혔다. 신종 코로나바이러스 감염증에 의한 중국 대륙의 사망자는 6일 자정 처음으로 3만 명을 돌파해 3만 1161명을 기록했으며, 중증 환자도 6일 하루 1일 최다인 962명이 발생해 모두 4821명이 됐다. 중국의학과학원 원장 왕천은 우한 상황이 심각하다고 말했다. 우한은 5일 기자회견에서 28개의 지정 병원에 모두 8254개의 병상을 갖추고 8182명이 입원해 치료를 받고 있다고 밝혔다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D19_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D19_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D19_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D19_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D19_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D19_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D19_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D19_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D19_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D19_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D19_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D19_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D19_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D19_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+            <article class="doc" id="D20">
+              <h2>D20 <span class="hint">문서 내 A/B/C 순서는 무작위</span></h2>
+              <details>
+                <summary>원문 보기</summary>
+                <div class="source">도널드 트럼프 미국 행정부가 이란과 확전을 피한 이유를 두고 여러 해석이 나오고 있다.
+  무엇보다 이란이 공격 직후 “전쟁을 원하진 않는다”는 메시지를 내놓은 것이 미국 수뇌부의 결정에 큰 영향을 미쳤을 것이란 분석이 설득력을 얻고 있다.
+  이란 측 주장과는 달리 이번 공격으로 사상자가 발생하지 않은 것도 변수였다.
+  기지 두 곳 모두 이라크군과 함께 쓰는 이라크 관할지란 점에서 군사시설 훼손만으로는 응징 명분도 약했다.
+       그런데 일각에선 미국이 가장 싫어하는 장기 게릴라전 상황을 우려했을 가능성도 지적된다.
+  이른바 ‘중동판 베트남전’ 시나리오다.
+  이와 관련, 니혼게이자이(닛케이) 신문은 9일 “미군이 적대국 본토를 공격하는 동안 상대가 게릴라전을 펼쳐 전쟁이 장기화되면서 미국에 큰 ‘시간 비용’으로 작용, 결국 정권이 흔들리는 베트남전의 재림”이라고 짚었다.
+  이란 최고지도자인 아야톨라 알리 하메네이의 외교 고문인 알리 악바르 벨라야티는 “(전쟁이 나면 미국은) 베트남 이상으로 수렁에 빠질 것”이라고 경고했다.
+    군사력 자체만 놓고 보면 이란은 미국의 적수가 되지 못한다.
+  그러나 이란은 이번 탄도미사일 공격처럼 실질적인 피해와 심리적인 충격을 동시에 주기 위한 비대칭 무기를 사용할 수 있다.
+  이란은 1000여기의 각종 미사일을 보유하고 있다.
+  또 12만이 넘는 이란 혁명수비대가 이라크•시리아 내 친이란 무장조직과 결탁해 게릴라전이나 파괴공작(사보타주)을 일으키는 상황도 떠올릴 수 있다.
+  미군이 베트남에서 10년간 전쟁 수렁에서 헤어나지 못했던 상황과 판박이처럼 돌아갈 수 있다는 것이다.
+  미군의 전쟁 목표 설정도 관건이었다고 닛케이는 전했다.
+  ① 이란 정부나 군사시설을 미사일이나 드론으로 제한 타격, ② 해외에서 활동 중인 혁명수비대 소탕, ③ 이란 레짐 체인지 등의 시나리오 가운데 미국이 ①을 선택하면 이란이 반격해 결국 미국이 ②의 상황에 말려들고, 전쟁이 장기화되면서 어느새 ③으로 목표가 옮아가는 악순환이 전개될 가능성이 높다는 것이다.
+  결국 이런 미군 수뇌부의 판단을 배경으로 트럼프 대통령이 결단을 내린 것으로 보인다는 해석이다.
+  트럼프의 당면 최대 목표가 올해 11월 대선에서의 승리인 만큼 악수는 피했다는 것이다.
+    미국과 이란 간 긴장이 고조된 흐름을 놓고도 확전이 어려웠을 것이란 분석도 나온다.
+  ‘눈에는 눈’이란 중동 지역의 오랜 ‘보복 관례’에 따라 양국이 서로 주고받을 건 다 주고받았다는 것이다.</div>
+              </details>
+              <div class="summaries">
+                <section class="summary" data-doc="D20" data-code="A">
+                  <h3>요약 A</h3>
+                  <div class="pred">도널드 트럼프 미국 행정부가 이란과 확전을 피한 이유를 두고 여러 해석이 나오고 있다. 이란이 공격 직후 전쟁을 원하진 않는다라는 메시지를 내놓은 것이 미국 수뇌부의 결정에 큰 영향을 미쳤을 것이란 분석이 설득력을 얻고 있다. 일각에선 미국이 가장 싫어하는 장기 게릴라전 상황을 우려했을 가능성도 지적된다. 트럼프의 당면 최대 목표가 올해 11월 대선에서의 승리인 만큼 악수는 피했다는 해석이다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D20_A" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D20_A" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D20_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D20_A" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D20_A" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D20_A" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D20_A" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D20_A" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D20_A" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D20_A" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D20_A" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D20_A" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D20_A" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D20_A" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D20" data-code="B">
+                  <h3>요약 B</h3>
+                  <div class="pred">도널드 트럼프 미국 행정부가 이란과 확전을 피한 이유로 이란이 공격 직후 전쟁을 원하진 않는다라는 메시지를 내놓은 분석이 설득력을 얻고 있다. 니혼게이자이(닛케이) 신문은 9일 미군이 적대국 본토를 공격하는 동안 상대가 게릴라전을 펼쳐 전쟁이 장기화되면서 미국에 큰 &#x27;시간 비용&#x27;으로 작용, 결국 베트남전의 재림이라고 짚었다. 이란은 탄도미사일 공격처럼 실질적인 피해와 심리적인 충격을 주기 위한 비대칭 무기를 사용할 수 있으며, 1000여기의 각종 미사일을 보유하고 있다. 미군 수뇌부의 판단을 배경으로 트럼프 대통령이 결단을 내린 것으로 보인다는 해석도 나온다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D20_B" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D20_B" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D20_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D20_B" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D20_B" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D20_B" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D20_B" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D20_B" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D20_B" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D20_B" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D20_B" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D20_B" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D20_B" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D20_B" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                
+                <section class="summary" data-doc="D20" data-code="C">
+                  <h3>요약 C</h3>
+                  <div class="pred">도널드 트럼프 미국 행정부가 이란과 확전을 피한 이유를 두고 여러 해석이 나오고 있다. 이란이 공격 직후 전쟁을 원하진 않는다(전쟁을 원하진 않는다)는 메시지를 내놓은 것이 미국 수뇌부의 결정에 큰 영향을 미쳤을 것이란 분석이 설득력을 얻고 있다. 일각에선 미국이 가장 싫어하는 장기 게릴라전 상황을 우려했을 가능성도 지적된다.</div>
+                  <div class="rating-grid">
+                    <fieldset>
+                      <legend>Overall</legend>
+                      <label><input type="radio" name="overall_D20_C" value="1"> 1</label>
+                      <label><input type="radio" name="overall_D20_C" value="2"> 2</label>
+                      <label><input type="radio" name="overall_D20_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Abstractness</legend>
+                      <label><input type="radio" name="abstract_D20_C" value="1"> 1</label>
+                      <label><input type="radio" name="abstract_D20_C" value="2"> 2</label>
+                      <label><input type="radio" name="abstract_D20_C" value="3"> 3</label>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Factual preservation</legend>
+                      <label><input type="radio" name="factual_D20_C" value="1"> 1</label>
+                      <label><input type="radio" name="factual_D20_C" value="2"> 2</label>
+                      <label><input type="radio" name="factual_D20_C" value="3"> 3</label>
+                    </fieldset>
+                  </div>
+                  <div class="flags">
+                    <label><input type="checkbox" name="flag_D20_C" value="copy_heavy"> copy heavy</label>
+                    <label><input type="checkbox" name="flag_D20_C" value="key_omission"> key omission</label>
+                    <label><input type="checkbox" name="flag_D20_C" value="unsupported_fact"> unsupported fact</label>
+                    <label><input type="checkbox" name="flag_D20_C" value="repetition"> repetition</label>
+                  </div>
+                  <textarea name="note_D20_C" rows="2" placeholder="선택 메모"></textarea>
+                </section>
+                </div>
+            </article>
+            
+<script>
+const STORAGE_KEY = 'c5_f5_0_human_ratings_v1';
+const TOTAL = 60;
+function summaryNodes() { return Array.from(document.querySelectorAll('.summary')); }
+function collect() {
+  const ratings = summaryNodes().map(el => {
+    const doc = el.dataset.doc, code = el.dataset.code;
+    const val = (prefix) => {
+      const x = document.querySelector(`input[name="${prefix}_${doc}_${code}"]:checked`);
+      return x ? Number(x.value) : null;
+    };
+    const flags = Array.from(document.querySelectorAll(`input[name="flag_${doc}_${code}"]:checked`)).map(x => x.value);
+    const note = document.querySelector(`textarea[name="note_${doc}_${code}"]`);
+    return { doc_key: doc, system_code: code, overall: val('overall'), abstractness: val('abstract'), factual: val('factual'),
+             flags: flags, note: note ? note.value : '' };
+  });
+  return { rater: document.getElementById('rater').value, completed: ratings.filter(r => r.overall !== null).length,
+           total: TOTAL, ratings: ratings };
+}
+function updateProgress() {
+  const c = collect();
+  document.getElementById('progress').textContent = `${c.completed} / ${TOTAL} rated`;
+}
+function saveNow() {
+  const data = collect();
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); document.getElementById('status').textContent = '저장됨'; }
+  catch (e) { document.getElementById('status').textContent = 'localStorage 저장 불가 — JSON으로 내보내세요'; }
+  updateProgress();
+}
+function restore() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (data.rater) document.getElementById('rater').value = data.rater;
+    for (const r of data.ratings || []) {
+      const setRadio = (prefix, value) => {
+        if (value === null) return;
+        const x = document.querySelector(`input[name="${prefix}_${r.doc_key}_${r.system_code}"][value="${value}"]`);
+        if (x) x.checked = true;
+      };
+      setRadio('overall', r.overall); setRadio('abstract', r.abstractness); setRadio('factual', r.factual);
+      for (const f of r.flags || []) {
+        const x = document.querySelector(`input[name="flag_${r.doc_key}_${r.system_code}"][value="${f}"]`);
+        if (x) x.checked = true;
+      }
+      const n = document.querySelector(`textarea[name="note_${r.doc_key}_${r.system_code}"]`);
+      if (n && r.note) n.value = r.note;
+    }
+    updateProgress();
+  } catch (e) {}
+}
+function exportJSON() {
+  const data = collect();
+  if (data.completed < TOTAL) {
+    if (!confirm(`아직 ${data.completed} / ${TOTAL}개만 평가했습니다. 그래도 내보낼까요?`)) return;
+  }
+  data.exported_at = new Date().toISOString();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'f5_human_ratings.json';
+  document.body.appendChild(a); a.click(); a.remove();
+  URL.revokeObjectURL(a.href);
+}
+function resetAll() {
+  if (!confirm('모든 평가를 지울까요?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+}
+document.addEventListener('change', saveNow);
+document.addEventListener('input', () => { if (event.target.tagName === 'TEXTAREA') saveNow(); });
+restore();
+updateProgress();
+</script>
+</body>
+</html>
