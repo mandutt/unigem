@@ -82,6 +82,7 @@
 - all 20 assertions true
 - parallel wall: 357.53s / cap 1,500s; 2 threads/arm, 12 nproc
 - exact D1 schema keys validated: no extra top-level/cell/timings/provenance/parallel keys
+- M record count is the frozen operation-table count (15 common × 2 variants × 2 memory kinds × 2 endpoints); D1 does not materialize M CE records
 - D1 did not write per-doc, delta, signal, phase7, or final objects
 
 D1 mechanics is **PASS**. This is not a performance or signal result. D1 signal/CE values remain sealed and must not drive Stage R or STOP.
