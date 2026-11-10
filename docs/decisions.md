@@ -249,6 +249,8 @@
 
 | D-173 | 2026-11-09 | **F0 v0.9 review — 3/3 NARROW**: GLM/DS/Luna. v1.0 반영: Single-Contrast title, T_proj Phase6 §11.5 전체 항 + R 96min, D1 checkpoint digest-only/load 금지, n_boot 10000 explicit override, hash/step_seed/donor/MDE, association-only/lost controls. **F0 미승인·미실행**; v1.0 = 10번째 최종 라운드. | reports/C5_F0_V0_9_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v1_0_2026-11-09.md |
 
+| D-174 | 2026-11-09 | **F0 v1.0 Round 10 최종 — 1 CONTINUE / 2 NARROW**: GLM CONTINUE(구현 commit+D0 gate), DS/Luna NARROW. 10/10 라운드 완료, 3/3 CONTINUE 미달. DS blocker: D1 seal 모순, 15-doc length-selected cohort, MDE paired-SE 산술, F0 driver provenance. **F0 v1.0 미승인·미실행**; 추가 라운드 없음. | reports/C5_F0_V1_0_3AI_REVIEW_SYNTHESIS_2026-11-09.md; docs/plan_c5_f0_v1_0_2026-11-09.md |
+
 ## 미결 안건 (사용자 승인 필요)
 
 | ID | 안건 | 선택지 | 필요 시점 |

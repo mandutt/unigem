@@ -1,0 +1,3 @@
+[hoplite] reasoning=high (model=deepseek-v4.1-flash-1017)
+[hoplite] thread=thr_575589eb68fe4dc2a3f424f65c583ef5 (new)
+TIMEOUT: no completion within 570s

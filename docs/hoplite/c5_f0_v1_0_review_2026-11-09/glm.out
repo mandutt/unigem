@@ -1,0 +1,16 @@
+Round-10 review complete. Only the designated file was written; no code, data, or training artifacts touched.
+
+**Workspace sync:** `git fetch origin` + `git pull --ff-only origin main` → "Already up to date". **Reviewed HEAD: `80a723f83b2e559ebc1f64bc7bff12d7ed582d48`** ("docs: add C5 F0 v1.0 final review request").
+
+**Written:** `docs/hoplite/c5_f0_v1_0_review_2026-11-09/review_GLM.md` (158 lines) — includes the reviewed HEAD, verbatim paired E01−E11 (cell rows + §6.3 contrast block quoted in full), Q1–Q6 verdicts with exact section/line citations, final verdict, ranked must-fix, and wrong premises. Compliance: no training/eval, no test163/P1, no subagents, single-file write only.
+
+**Verdict: CONTINUE** — no design blockers remain; proceed to F0 implementation commit + D0 stage approval, conditional on text-level fixes verified at that gate (no new review round needed). All frozen thresholds/seeds/donors/steps/LR are untouched by the must-fixes.
+
+Key findings driving the conditions:
+
+1. **D1 internal contradiction (blocker-class, must-fix #1):** §5 D1 assertion 9 says "3 trained checkpoints exist; E00 checkpoint optional" while the v1.0 seal rule (same section) says D1 checkpoints are digest-only and "checkpoint file discarded". Literal compliance with one violates the other; §13's `checkpoints/` path must also be scoped to Stage R.
+2. **Promised-but-absent spec items:** §0 change item 5 promises a "step_seed golden table" and "post-step0 weight non-equality", but §4's assertion list (1–8) contains neither — and the step_seed formula as written is operator-precedence-ambiguous.
+3. **Filename mismatch:** `f0_r_labels.json` (§5, Stage R driver) vs `f0_labels.json` (§13 artifacts).
+4. **Minor:** `nproc<12` hard abort is stated for R only though D1 also needs 12 logical threads; reseed scope ("before each forward") unpinned; T_proj_R re-aggregation (slowest-arm × 3 waves, not Phase 6's all-arm sum) should be labeled as an adaptation.
+
+Verified clean: PASS/EQUIVALENT disjointness, exhaustive 4-state taxonomy with a reachable default reason, donor-set equality structurally guaranteed (all cells use EG2 h_len donors), `NOT_EVALUABLE` blocking `eval_arm_d1`'s silent doc drop, `n_boot=10000` implementable via the committed `bootstrap_paired_v2` signature, and the 96-min R cap correctly sourced from prereg §11.5.
