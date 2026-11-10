@@ -41,13 +41,18 @@ CONDITIONS = (
     {"id": "C4", "updates": 400, "lr": 3e-4},
     {"id": "C5", "updates": 1000, "lr": 3e-4},
 )
+STAGE_CONDITIONS = {
+    "a": ("C1", "C2", "C4"),
+    "b": ("C3", "C5"),
+}
+STAGE_CAP = {"a": 45 * 60, "b": 60 * 60}
 SEEDS = (20261108, 20261109, 20261110)
 FIT_RATIO = 0.35
-CAP_SECONDS = 60 * 60
+CAP_SECONDS = 45 * 60
 OUT = ROOT / "reports/provenance/C5_f0_1"
 UNITS = OUT / "units"
-PLAN = ROOT / "docs/plan_c5_f0_1_opt_v0_1_2026-11-10.md"
-FREEZE = ROOT / "docs/plan_c5_f0_1_opt_v0_1_FREEZE.json"
+PLAN = ROOT / "docs/plan_c5_f0_1a_opt_v0_2_2026-11-10.md"
+FREEZE = ROOT / "docs/plan_c5_f0_1a_opt_v0_2_FREEZE.json"
 
 
 def step_seed(seed: int, step: int) -> int:
@@ -130,7 +135,9 @@ def _worker(condition: dict[str, Any], seed: int, q: Any) -> None:
                 "error": type(exc).__name__, "message": str(exc)[:400]}))
 
 
-def run() -> dict[str, Any]:
+def run(stage: str = "a") -> dict[str, Any]:
+    if stage not in STAGE_CONDITIONS:
+        raise ValueError(f"unknown F0.1 stage: {stage}")
     FREEZE.parent.mkdir(parents=True, exist_ok=True)
     plan_hash = sha256_bytes(PLAN.read_bytes())
     if not FREEZE.exists():
@@ -140,13 +147,18 @@ def run() -> dict[str, Any]:
         raise RuntimeError("F0.1 plan hash mismatch")
     if freeze.get("status") != "owner_approved":
         raise RuntimeError("F0.1 is not owner-approved")
+    if freeze.get("stage") != stage:
+        raise RuntimeError(f"F0.1 freeze stage mismatch: {freeze.get('stage')} != {stage}")
+    conds = [c for c in CONDITIONS if c["id"] in STAGE_CONDITIONS[stage]]
+    cap = STAGE_CAP[stage]
     started = time.time()
+    UNITS.mkdir(parents=True, exist_ok=True)
     ctx = mp.get_context("spawn")
     results = {}
     errors = []
-    tasks = [(c, s) for c in CONDITIONS for s in SEEDS]
+    tasks = [(c, s) for c in conds for s in SEEDS]
     for offset in range(0, len(tasks), 4):
-        if time.time() - started >= CAP_SECONDS:
+        if time.time() - started >= cap:
             break
         batch = tasks[offset:offset + 4]
         q = ctx.Queue()
@@ -154,7 +166,7 @@ def run() -> dict[str, Any]:
         for p in procs:
             p.start()
         got = 0
-        while got < len(batch) and time.time() - started < CAP_SECONDS:
+        while got < len(batch) and time.time() - started < cap:
             try:
                 kind, cid, seed, payload = q.get(timeout=10)
             except Exception:
@@ -164,16 +176,23 @@ def run() -> dict[str, Any]:
             got += 1
             if kind == "ok":
                 results[(cid, seed)] = payload
+                # Flush immediately so a later timeout cannot erase completed units.
+                (UNITS / f"{cid}_{seed}.json").write_text(
+                    json.dumps(payload, indent=2) + "\n", encoding="utf-8")
             else:
                 errors.append(payload)
         for p in procs:
             p.join(timeout=5)
             if p.is_alive():
                 p.terminate()
+        for c, s in batch:
+            if (c["id"], s) not in results and not any(
+                    e.get("condition") == c["id"] and e.get("seed") == s for e in errors):
+                errors.append({"condition": c["id"], "seed": s,
+                               "error": "MISSING_RESULT", "message": "worker exited without result"})
     wall = time.time() - started
-    UNITS.mkdir(parents=True, exist_ok=True)
     summaries = {}
-    for c in CONDITIONS:
+    for c in conds:
         vals = [results.get((c["id"], s)) for s in SEEDS]
         present = [v for v in vals if v]
         ratios = [float(v["fit_ratio"]) for v in present]
@@ -190,19 +209,25 @@ def run() -> dict[str, Any]:
         (UNITS / f"{cid}_{s}.json").write_text(
             json.dumps(results[(cid, s)], indent=2) + "\n", encoding="utf-8")
     any_fit = any(v["condition_fit"] for v in summaries.values())
-    diagnosis = ("E01_UNDERFIT_RESCUED" if any_fit
-                 else "E01_UNDERFIT_NOT_RESCUED_IN_TESTED_RANGE")
+    if stage == "a":
+        diagnosis = ("E01_UNDERFIT_RESCUED_400_RANGE" if any_fit
+                     else "E01_UNDERFIT_NOT_RESCUED_400_RANGE")
+    else:
+        diagnosis = ("E01_UNDERFIT_RESCUED_1000_RANGE" if any_fit
+                     else "E01_UNDERFIT_NOT_RESCUED_IN_TESTED_RANGE")
+    expected = len(conds) * len(SEEDS)
     out = {
         "schema_version": "1",
-        "experiment": "C5 F0.1 E01 optimization diagnostic",
+        "experiment": f"C5 F0.1{stage} E01 optimization diagnostic",
+        "stage": stage,
         "status": diagnosis,
         "fit_ratio_gate": FIT_RATIO,
         "conditions": summaries,
         "n_units": len(results),
         "n_errors": len(errors),
         "wall_s": wall,
-        "cap_s": CAP_SECONDS,
-        "partial": bool(errors) or len(results) != 15,
+        "cap_s": cap,
+        "partial": bool(errors) or len(results) != expected,
         "error": "OTHER_REDACTED" if errors else None,
         "freeze": {"status": freeze["status"], "plan_sha256": plan_hash,
                    "code_commit": freeze.get("code_commit")},
@@ -213,18 +238,19 @@ def run() -> dict[str, Any]:
         "p1_used": False,
     }
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "summary.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
+    (OUT / f"summary_{stage}.json").write_text(json.dumps(out, indent=2) + "\n", encoding="utf-8")
     return out
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--run", action="store_true")
+    ap.add_argument("--stage", choices=("a", "b"), default="a")
     args = ap.parse_args()
     if not args.run:
         raise SystemExit("pass --run to execute")
-    out = run()
-    print(json.dumps({"status": out["status"], "n_units": out["n_units"],
+    out = run(args.stage)
+    print(json.dumps({"stage": args.stage, "status": out["status"], "n_units": out["n_units"],
                       "n_errors": out["n_errors"], "wall_s": out["wall_s"]}, ensure_ascii=False))
     return 0 if not out["partial"] else 1
 
