@@ -72,3 +72,15 @@ sha256sum docs/plan_c5_f0_CONSOLIDATED_v1_0_2026-11-10.md docs/plan_c5_f0_v1_13_
 - D1 result: `mechanics_pass:true`, `partial:false`, 4 cells, updates_total 3, M 480, generation 80, phase7 0, real CE 160/160, checkpoint absent
 - D1 wall: 357.53s / 1,500s cap
 - Next gate: P/Q init audits and R preconditions; **R not approved**
+
+## Update — R executed
+
+- R code commit: `3184325`
+- R result: **ROUTE_STOP**, reason `no_signal_uncertain`
+- primary mean_D `-0.0219615`, CI `[-0.374112, +0.334945]`, 0/3 positive seeds
+- E01/E11 copy/full all non-signal; E10 full is descriptive signal only
+- r_mechanics_pass: `true`, partial: `false`, 12/12 units, 900 updates, M 1440, phase7 7200, generation 240
+- wall: `3898.52s / 5760s`
+- result report: `reports/C5_F0_RESULT_2026-11-10.md`
+- caveat: R summary count/donor-hash fields are incomplete placeholders; primary labels unaffected
+- F0 is complete as an executed negative/ROUTE_STOP result. No H3, no B0-B, no EG2 track stop.
