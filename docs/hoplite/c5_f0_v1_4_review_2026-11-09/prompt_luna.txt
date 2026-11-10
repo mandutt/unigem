@@ -1,0 +1,21 @@
+This is a NEW independent review for C5 F0 v1.4 (new 10-round block, round 4). Prior v1.3 threads were archived. Do not inherit prior conclusions.
+
+Read:
+reports/EXTERNAL_REVIEW_C5_F0_V1_4_2026-11-09.md
+docs/plan_c5_f0_v1_4_2026-11-09.md
+docs/plan_c5_f0_v1_3_2026-11-09.md
+reports/C5_F0_V1_0_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/C5_F0_V0_9_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+reports/C5_B0A_PM_PHASE6_CAUSE_2026-11-09.md
+reports/C5_PM_PHASE6_RESULTS_3AI_REVIEW_SYNTHESIS_2026-11-09.md
+docs/plan_c5_b0a_pm_prereg_v1_0_11.md
+runner/c5_pm_phase6.py
+
+MANDATORY: include reviewed HEAD and verbatim paired E01-E11.
+
+Focus Q1-Q6: init/stage P/non-reuse, D1 schema/stage scope/seal, STOP/MDE/reference dispersion, cohort/donor CI, compute 9-term, scope.
+
+Write ONLY:
+docs/hoplite/c5_f0_v1_4_review_2026-11-09/review_LUNA.md
+
+Be decisive about approval blockers. No other file changes. No training/eval, no test163/P1, no subagents. Cite exact sections/numbers; no generic summary. Return a verdict even if minor issues remain. Final STOP/NARROW/CONTINUE + ranked must-fix.
